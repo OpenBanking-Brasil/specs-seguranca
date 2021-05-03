@@ -1,12 +1,12 @@
 %%%
 
     #
-    # Open Banking Brasil Financial-grade API Security Profile 1.0 Implementors Draft 1
+    # Open Banking Brasil Financial-grade API Security Profile 1.0 Implementers Draft 1
     # (open-banking-brasil-financial-api-1_ID1)
     #
     #
 
-    title = "Open Banking Brasil Financial-grade API Security Profile 1.0 Implementors Draft 1"
+    title = "Open Banking Brasil Financial-grade API Security Profile 1.0 Implementers Draft 1"
     abbrev = "OBB-FAPI-1-ID1"
     ipr = "none"
     workgroup = "Open Banking Brasil GT Security"
