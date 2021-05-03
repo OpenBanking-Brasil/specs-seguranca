@@ -297,9 +297,51 @@ For JWE, both clients and Authorization Servers
 
 1. shall use RSA-OAEP with A256GCM
 
+# Privacy Considerations
+## Authorisation Mechanism
+
+### Introduction
+
+Existing mechanisms for appropriately managing access to resources defined in [RFC6749] are insufficient to meet the requirements for a modern data sharing ecosystem. Leveraging static scope strings does not provide consumers with sufficient granularity of data to share with third parties. Open Banking Brasil have elected to implement a [Consent API](https://openbanking-brasil.github.io/areadesenvolvedor/swagger/swagger_consents_apis.yaml) as a OAuth 2.0 protected resource that can be used to manage fine grain access to resources. The reference to the Consent Resource will be conveyed as part of an OAuth 2.0 dynamic resource scope. 
+
+### Dynamic Consent Scope Definition
+
+This profile defines OAuth 2.0 dynamic scope "consent" as follows:
+
+* string 'consent'; and
+* delimiter of a colon ":"; and
+* Consent API REST Resource Id as returned by a successful creation of [Open Banking Consent Resource](https://openbanking-brasil.github.io/areadesenvolvedor/#fase-2-apis-do-open-banking-brasil-api-consentimento);
+
+In addition:
+
+* the Consent Resource Id must include  url safe characters only;
+* the Consent Resource Id must be namespaced;
+* the Consent Resource Id must have the uniqeness properties of a nonce;
+
+### Dynamic Consent Scope Example
+
+consent:urn:bancoex:C1DD33123
+
+## Authorisation Life Cycle
+### Introduction
+
+The Consent Resource has a life cycle that is managed seperately and distinctly from the OAuth 2.0 Authorisation Framework. The state transitions and expected behaviours and error conditions expected of REST Resouces protected with this profile are defined in the functional API specifications published by Open Banking Brasil.
+
+### Authorization server
+
+In addition to the requirements outlined in Open Banking Brasil security provisions the Authorization Server
+
+1. shall revoke access and refresh tokens when a consent resource is deleted;
+
+### Confidential Client
+
+In addition to the requirements outlined in Open Banking Brasil security provisions the Confidential Client 
+
+1. shall discard and cease usage of refresh and access tokens that are bound to a Consent Resource that has been deleted;
+
+
 # Regulatory Considerations
 ## Requirement on Client to present cpf claim to AS {#Reg}
-
 
 [Joint Resolution No 1, Art. 2, paragraph II](https://www.in.gov.br/en/web/dou/-/resolucao-conjunta-n-1-de-4-de-maio-de-2020-255165055) 
 The interpretation of the GT Compliance requires the TPPs to have an 'existing' relationship with the customer before requesting access to resources from a bank.
