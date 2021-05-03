@@ -4,13 +4,13 @@
 
 <front>
 <title abbrev="OBB-FAPI-1-ID1">Open Banking Brasil Financial-grade API Security Profile 1.0 Implementers Draft 1</title><seriesInfo value="open-banking-brasil-financial-api-1_ID1" status="standard" name="Internet-Draft"></seriesInfo>
-<author initials="GT." surname="Security" fullname="GT Security"><organization abbrev="OBBIS">Open Banking Brasil Initial Structure</organization><address><postal><street></street>
-</postal><email>gt-securganca@openbankingbr.org</email>
-<uri>https://openbankingbrasil.org.br/</uri>
-</address></author>
 <author initials="R." surname="Bragg" fullname="Ralph Bragg"><organization abbrev="Raidiam">Raidiam</organization><address><postal><street></street>
 </postal><email>ralph.bragg@raidiam.com</email>
 <uri>https://www.raidiam.com/</uri>
+</address></author>
+<author initials="OBB" surname="GT Security" fullname="OBB GT Security"><organization abbrev="OBBIS">Open Banking Brasil Initial Structure</organization><address><postal><street></street>
+</postal><email>gt-seguranca@openbankingbr.org</email>
+<uri>https://openbankingbrasil.org.br/</uri>
 </address></author>
 <date/>
 <area>Internet</area>
@@ -142,6 +142,8 @@ In addition this profile describes the specific scope, acr and client management
 <ol>
 <li><t>shall support a JWE signed and encrypted JWT request object passed by value;</t>
 </li>
+<li><t>shall distribute discovery metadata (such as the authorization endpoint) via the metadata document as specified in <eref target="https://openid.net/specs/openid-connect-discovery-1_0.html&gt;">OIDD</eref> and [RFC8414]</t>
+</li>
 <li><t>shall support the claims parameter as defined in clause 5.5 <eref target="https://openid.net/specs/openid-connect-core-1_0.html&gt;">OpenID Connect Core</eref></t>
 </li>
 <li><t>shall support the oidc standard claim &quot;cpf&quot; as defined in clause 5.2.2.2 of this document</t>
@@ -237,7 +239,7 @@ Claim Value that contains a <strong>set</strong> of CNPJs one of which must matc
 <section anchor="security-considerations"><name>Security considerations</name>
 <t>Participants shall support all security considerations specified in clause 8
  <eref target="https://openid.net/specs/openid-financial-api-part-2-1_0.html&gt;">Financial-grade API Security Profile 1.0 - Part 1: Advanced</eref>.
- Brazilian ICP issues RSA x509 certificates only this section removes for simplicity support for EC algorithms
+ The Brazilian ICP issues RSA x509 certificates only therefor section removes for simplicity support for EC algorithms
  and requires that only IANA recommended encryption algorithms be used.</t>
 
 <section anchor="algorithm-considerations"><name>Algorithm considerations</name>
