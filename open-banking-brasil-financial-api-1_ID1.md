@@ -18,16 +18,6 @@
     value = "open-banking-brasil-financial-api-1_ID1"
 
     [[author]]
-    initials = "GT."
-    surname = "Security"
-    fullname = "GT Security"
-    organization = "Open Banking Brasil Initial Structure"
-    abbrev = "OBBIS"
-      [author.address]
-      email = "gt-securganca@openbankingbr.org"
-      uri = "https://openbankingbrasil.org.br/"
-
-    [[author]]
     initials = "R."
     surname = "Bragg"
     fullname = "Ralph Bragg"
@@ -36,6 +26,16 @@
       [author.address]
       email = "ralph.bragg@raidiam.com"
       uri = "https://www.raidiam.com/"
+
+    [[author]]
+    initials = "OBB"
+    surname = "GT Security"
+    fullname = "OBB GT Security"
+    organization = "Open Banking Brasil Initial Structure"
+    abbrev = "OBBIS"
+      [author.address]
+      email = "gt-securganca@openbankingbr.org"
+      uri = "https://openbankingbrasil.org.br/"
 %%%
 
 .# Foreword
@@ -205,17 +205,18 @@ The Authorization Server shall support the provisions specified in clause 5.2.2 
 In addition, the Authorization Server
 
 1. shall support a JWE signed and encrypted JWT request object passed by value;
-1. shall support the claims parameter as defined in clause 5.5 [OpenID Connect Core][OIDC]
-1. shall support the oidc standard claim "cpf" as defined in clause 5.2.2.2 of this document
-1. shall support the oidc standard claim "cnpj" as defined in clause 5.2.2.3 of this document
-1. shall support the acr "urn:brasil:openbanking:loa2" as defined in clause 5.2.2.4 of this document
-1. should support the acr "urn:brasil:openbanking:loa3" as defined in clause 5.2.2.4 of this document
-1. shall implement the user info endpoint as defined in clause 5.3 [OpenID Connect Core][OIDC]
-1. shall support parameterized OAuth 2.0 resource scope _consent_ as defined in clause 6.3.1 [OIDF FAPI WG Lodging Intent Pattern][LIWP]
-1. may support [Financial-grade API: Client Initiated Backchannel Authentication Profile][FAPI-CIBA]
-1. shall support [Financial-grade API: Client Initiated Backchannel Authentication Profile][FAPI-CIBA] if scope includes _payments_
-1. may require the presence of a populated cpf value claim if scope includes dynamic resource scope _consent_
-1. shall support refresh tokens
+1. shall distribute discovery metadata (such as the authorization endpoint) via the metadata document as specified in [OIDD] and [RFC8414]
+3. shall support the claims parameter as defined in clause 5.5 [OpenID Connect Core][OIDC]
+4. shall support the oidc standard claim "cpf" as defined in clause 5.2.2.2 of this document
+5. shall support the oidc standard claim "cnpj" as defined in clause 5.2.2.3 of this document
+6. shall support the acr "urn:brasil:openbanking:loa2" as defined in clause 5.2.2.4 of this document
+7. should support the acr "urn:brasil:openbanking:loa3" as defined in clause 5.2.2.4 of this document
+8. shall implement the user info endpoint as defined in clause 5.3 [OpenID Connect Core][OIDC]
+9. shall support parameterized OAuth 2.0 resource scope _consent_ as defined in clause 6.3.1 [OIDF FAPI WG Lodging Intent Pattern][LIWP]
+10. may support [Financial-grade API: Client Initiated Backchannel Authentication Profile][FAPI-CIBA]
+11. shall support [Financial-grade API: Client Initiated Backchannel Authentication Profile][FAPI-CIBA] if scope includes _payments_
+12. may require the presence of a populated cpf value claim if scope includes dynamic resource scope _consent_
+13. shall support refresh tokens
 
 #### ID Token as detached signature
 
@@ -285,7 +286,7 @@ In addition, the confidential client
 
 Participants shall support all security considerations specified in clause 8
  [Financial-grade API Security Profile 1.0 - Part 1: Advanced][FAPI-1-Advanced].
- Brazilian ICP issues RSA x509 certificates only this section removes for simplicity support for EC algorithms
+ The Brazilian ICP issues RSA x509 certificates only therefor section removes for simplicity support for EC algorithms
  and requires that only IANA recommended encryption algorithms be used.
 
 ## Algorithm considerations
