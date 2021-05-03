@@ -24,7 +24,7 @@
     organization = "Open Banking Brasil Initial Structure"
     abbrev = "OBBIS"
       [author.address]
-      email = "gt-securganca@openbankingbr.org"
+      email = "gt-seguranca@openbankingbr.org"
       uri = "https://openbankingbrasil.org.br/"
 
     [[author]]
