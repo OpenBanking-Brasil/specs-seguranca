@@ -2,6 +2,17 @@
 
 ## 1.0 Registering an Application
 
+At a high level the following major steps are required in order to onboard a new application into the Open Banking Brasil ecosystem.
+
+1. Register your organisation on the directory of participants (User Interface)
+2. Register your application on the directory of participants (User Interface)
+3. Obtain credentials for your application from the Brasil ICP (Out of scope of this document)
+4. Register your credentials for your application on the directory of participants (User Interface)
+5. Identify providers of Account information or Payment Services of interest to customers of your application by searching the directory of participants (API)
+6. Register your application with each provider (API)
+
+### 1.1 Sequence Diagram
+
 ![enter image description here](https://www.websequencediagrams.com/files/render?link=XqaI0EvQK7BEN8bkFdykE7gq0frHqu744LprGQVxytViXWvVvCjey3siD0lbnTuZ)
 
 ### 1.1 Directory Overview
@@ -49,10 +60,7 @@ They can be added and revoked. This means that software added to the directory c
  to have 0 or more regulatory roles. A administrator can assign to a given software any and all
   permissions that the organisation that owns the software can have.
 
-> Should an organisation lose a regulatory role then all software
-
-with that regulatory role will be revoked from the ecosystem so it is very important that an application
- is only given the roles that it actually needs in order to function.
+> Should an organisation lose a regulatory role then all software with that regulatory role will be revoked from the ecosystem so it is very important that an application is only given the roles that it actually needs in order to function.
 
 A real world example of this could be 'Amazon', Amazon has two applications, 'Amazon Accounting' and
  'Amazon Prime'. Amazon as an organisation is an authorized DADOS and PISP, and is allowed to 
@@ -74,15 +82,11 @@ file is made available as an example. Once you have created the necessary Certif
  (CSR) for both a "Transport" and "Signing" certificate you can submit them to the directory to be
   validated and minted into certificates.
 
-[Link to Securities Open SSL for ICP]
-
-> Please remember to follow your organisations key management practices for certificate generation. 
-These credentials and keys need to be handled carefully. A significant key compromise event could 
-lead to customer data being compromised.
+> Please remember to follow your organisations key management practices for certificate generation. These credentials and keys need to be handled carefully. A significant key compromise event could lead to customer data being compromised.
 
 #### 1.4.2 Production
 
-TODO
+Certificates must be provided by the Brasil ICP. The steps to follow are included in the [Open Banking Brasil Certificate Guide](https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil-ICP-certificate-guide.pdf)
 
 #### 1.4.3 What is a JWT, JWE, JWS and JWK.
 
@@ -108,7 +112,7 @@ keys that should be used to validate a JSON Web Signature (JWS) or the key that 
  usually published as a JSON Web Key in a JSON Web Key Set with the reference to the key being carried in
   the 'kid' (Key ID) header field.
 
-**As a worked example: This is a JWT Request Object**
+**As a worked example: An example JWT Request Object**
 
 ```
 eyJhbGciOiJQUzI1NiIsInR5cCI6Im9hdXRoLWF1dGh6LXJlcStqd3QiLCJraWQiOiJQV0FpNXJ1UWNIZnpQenEySkZkcFk3bkFVaDZMelRUUXREQlVwT00zN0pRIn0.
