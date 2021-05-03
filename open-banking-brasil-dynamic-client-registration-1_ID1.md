@@ -189,9 +189,9 @@ In addition, the Authorization Server
 1. shall advertise all Open Banking Brasil REST API resources protected by the OpenID Provider on the Directory of Participants;
 1. shall advertise support for all signing, encryption, authentication mechanisms and standards required to support [Open Banking Brasil Financial API][OBB-FAPI];
 1. shall advertise support for [OpenID Dynamic Client Registration][OIDR];
-1. shall advertise `mtls_endpoint_aliases` as per clause 3.4 [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens][RF8705] for the token_endpoint, registration_endpoint and userinfo_endpoint;
-1. if supporting [OAuth 2.0 Pushed Authorisation Requests][PAR] shall advertise through [OIDD] `mtls_endpoint_aliases` for the pushed_authorization_request_endpoint;
-1. if supporting [Financial API - Client Initiated Back Channel Authentication][FAPI-CIBA] shall advertise through [OIDD] `mtls_endpoint_aliases` for the backchannel_authentication_endpoint;
+1. shall advertise `mtls_endpoint_aliases` as per clause 3.4 [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens][RF8705] for the `token_endpoint`, `registration_endpoint` and `userinfo_endpoint`;
+1. if supporting [OAuth 2.0 Pushed Authorisation Requests][PAR] shall advertise through [OIDD] `mtls_endpoint_aliases` for the `pushed_authorization_request_endpoint`;
+1. if supporting [Financial API - Client Initiated Back Channel Authentication][FAPI-CIBA] shall advertise through [OIDD] `mtls_endpoint_aliases` for the `backchannel_authentication_endpoint`;
 
 ## Client
 
@@ -214,9 +214,9 @@ In addition, the Authorization Server
 1. shall reject dynamic client registration requests not performed over a connection secured with mutual tls using certificates issued by Brazil ICP (production) or the Directory of Participants (sandbox);
 1. shall validate that the request contains software_statement jwt signed using using the PS256 alg issued by the open banking brasil directory of participants;
 1. shall validate that the software_statement was issued (iat) not more than 5 minutes prior to the request being received;
-1. shall validate that a jwks (key set by value) was **not** included;
-1. shall require and validate that the jwks_uri matches the software_jwks_endpoint provided in the software statement;
-1. shall require and validate that redirect_uris match software_redirect_uris provided in the software statement;
+1. shall validate that a `jwks` (key set by value) was **not** included;
+1. shall require and validate that the `jwks_uri` matches the `software_jwks_endpoint` provided in the software statement;
+1. shall require and validate that `redirect_uris` match software_redirect_uris provided in the software statement;
 1. shall require and validate that all client authentication mechanism adhere to the requirements defined in [Financial-grade API Security Profile 1.0 - Part 1: Advanced](https://openid.net/specs/openid-financial-api-part-2-1_0.html);
 1. shall require encrypted request objects as required by the Brasil Open Banking Security Profile;
 1. shall validate that requested scopes are appropriate for the softwares authorized regulatory roles;

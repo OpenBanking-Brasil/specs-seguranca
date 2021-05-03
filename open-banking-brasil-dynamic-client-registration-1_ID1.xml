@@ -122,9 +122,9 @@ and are not to be interpreted with their natural language meanings.</t>
 <li>shall advertise all Open Banking Brasil REST API resources protected by the OpenID Provider on the Directory of Participants;</li>
 <li>shall advertise support for all signing, encryption, authentication mechanisms and standards required to support <eref target="https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil-financial-api-1_ID1.md&gt;">Open Banking Brasil Financial API</eref>;</li>
 <li>shall advertise support for <eref target="https://openid.net/specs/openid-connect-registration-1_0.html&gt;">OpenID Dynamic Client Registration</eref>;</li>
-<li>shall advertise <tt>mtls_endpoint_aliases</tt> as per clause 3.4 [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens][RF8705] for the token<em>endpoint, registration</em>endpoint and userinfo_endpoint;</li>
-<li>if supporting <eref target="https://tools.ietf.org/html/draft-ietf-oauth-par&gt;">OAuth 2.0 Pushed Authorisation Requests</eref> shall advertise through <eref target="https://openid.net/specs/openid-connect-discovery-1_0.html&gt;">OIDD</eref> <tt>mtls_endpoint_aliases</tt> for the pushed<em>authorization</em>request_endpoint;</li>
-<li>if supporting <eref target="https://bitbucket.org/openid/fapi/src/master/Financial_API_WD_CIBA.md&gt;">Financial API - Client Initiated Back Channel Authentication</eref> shall advertise through <eref target="https://openid.net/specs/openid-connect-discovery-1_0.html&gt;">OIDD</eref> <tt>mtls_endpoint_aliases</tt> for the backchannel<em>authentication</em>endpoint;</li>
+<li>shall advertise <tt>mtls_endpoint_aliases</tt> as per clause 3.4 [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens][RF8705] for the <tt>token_endpoint</tt>, <tt>registration_endpoint</tt> and <tt>userinfo_endpoint</tt>;</li>
+<li>if supporting <eref target="https://tools.ietf.org/html/draft-ietf-oauth-par&gt;">OAuth 2.0 Pushed Authorisation Requests</eref> shall advertise through <eref target="https://openid.net/specs/openid-connect-discovery-1_0.html&gt;">OIDD</eref> <tt>mtls_endpoint_aliases</tt> for the <tt>pushed_authorization_request_endpoint</tt>;</li>
+<li>if supporting <eref target="https://bitbucket.org/openid/fapi/src/master/Financial_API_WD_CIBA.md&gt;">Financial API - Client Initiated Back Channel Authentication</eref> shall advertise through <eref target="https://openid.net/specs/openid-connect-discovery-1_0.html&gt;">OIDD</eref> <tt>mtls_endpoint_aliases</tt> for the <tt>backchannel_authentication_endpoint</tt>;</li>
 </ol>
 </section>
 
@@ -150,9 +150,9 @@ and are not to be interpreted with their natural language meanings.</t>
 <li>shall reject dynamic client registration requests not performed over a connection secured with mutual tls using certificates issued by Brazil ICP (production) or the Directory of Participants (sandbox);</li>
 <li>shall validate that the request contains software_statement jwt signed using using the PS256 alg issued by the open banking brasil directory of participants;</li>
 <li>shall validate that the software_statement was issued (iat) not more than 5 minutes prior to the request being received;</li>
-<li>shall validate that a jwks (key set by value) was <strong>not</strong> included;</li>
-<li>shall require and validate that the jwks<em>uri matches the software</em>jwks_endpoint provided in the software statement;</li>
-<li>shall require and validate that redirect<em>uris match software</em>redirect_uris provided in the software statement;</li>
+<li>shall validate that a <tt>jwks</tt> (key set by value) was <strong>not</strong> included;</li>
+<li>shall require and validate that the <tt>jwks_uri</tt> matches the <tt>software_jwks_endpoint</tt> provided in the software statement;</li>
+<li>shall require and validate that <tt>redirect_uris</tt> match software<em>redirect</em>uris provided in the software statement;</li>
 <li>shall require and validate that all client authentication mechanism adhere to the requirements defined in <eref target="https://openid.net/specs/openid-financial-api-part-2-1_0.html">Financial-grade API Security Profile 1.0 - Part 1: Advanced</eref>;</li>
 <li>shall require encrypted request objects as required by the Brasil Open Banking Security Profile;</li>
 <li>shall validate that requested scopes are appropriate for the softwares authorized regulatory roles;</li>
