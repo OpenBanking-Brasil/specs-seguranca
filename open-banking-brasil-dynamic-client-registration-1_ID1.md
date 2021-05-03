@@ -20,17 +20,7 @@
     private = "Draft"
     tocdepth = "5"
     iprnotified = "no"
-
-    [[author]]
-    initials = "GT."
-    surname = "Security"
-    fullname = "GT Security"
-    organization = "Open Banking Brasil Initial Structure"
-    abbrev = "OBBIS"
-      [author.address]
-      email = "gt-seguranca@openbankingbr.org"
-      uri = "https://openbankingbrasil.org.br/"
-
+ 
     [[author]]
     initials = "R."
     surname = "Bragg"
@@ -40,6 +30,17 @@
       [author.address]
       email = "ralph.bragg@raidiam.com"
       uri = "https://www.raidiam.com/"
+
+    [[author]]
+    initials = "OBB"
+    surname = "GT Security"
+    fullname = "OBB GT Security"
+    organization = "Open Banking Brasil Initial Structure"
+    abbrev = "OBBIS"
+      [author.address]
+      email = "gt-seguranca@openbankingbr.org"
+      uri = "https://openbankingbrasil.org.br/"
+
 %%%
 
 .# Foreword
