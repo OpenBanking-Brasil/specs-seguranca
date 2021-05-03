@@ -32,9 +32,9 @@
       uri = "https://www.raidiam.com/"
 
     [[author]]
-    initials = "OBB"
-    surname = "GT Security"
-    fullname = "OBB GT Security"
+    initials = "GT"
+    surname = "Security"
+    fullname = "OBBIS GT Security"
     organization = "Open Banking Brasil Initial Structure"
     abbrev = "OBBIS"
       [author.address]
