@@ -236,13 +236,14 @@ The **CPF** number (Cadastro de Pessoas Físicas, [sepeˈɛfi]; Portuguese for "
  is the **Brazilian** individual taxpayer registry identification. This number is attributed by
  the **Brazilian** Federal Revenue to Brazilians and resident aliens who, directly or indirectly,
   pay taxes in **Brazil**.
-
+In the Brasil Open Banking identity model, the cpf is a string consisting of numbers that is 11
+characters long and may start with a 0.
 If the cpf Claim is requested as an Essential Claim for the ID Token or UserInfo response with a
 values parameter requesting a specific cpf value, the Authorization Server MUST return an cpf Claim Value
 that matches the requested value. If this is an Essential Claim and the requirement cannot be met,
  then the Authorization Server MUST treat that outcome as a failed authentication attempt.
 
-Name: cpf, Type: number, Regex: '^\d{11}$'
+Name: cpf, Type: String, Regex: '^\d{11}$'
 
 #### Requesting the "cnpj" Claim
 
@@ -251,8 +252,8 @@ This profile defines "cnpj" as a new standard claim as per
 
 **CNPJ**, short for Cadastro Nacional de Pessoas Jurídicas, is an identification number
  of **Brazilian** companies issued by the **Brazilian** Ministry of Revenue, **in**
- Portuguese "Secretaria da Receita Federal" or "Ministério da Fazenda". In the Brasil open banking identity model,
- individuals can associated with 0 or more CNPJs. A CNPJ is an number that is either 8 or 14 digits long,
+ Portuguese "Secretaria da Receita Federal" or "Ministério da Fazenda". In the Brasil Open Banking identity model,
+ individuals can associated with 0 or more CNPJs. A CNPJ is a string consisting of numbers that is 14 digits long and may start with a 0,
  the first eight digits identify the company, the four digits after the slash identify the branch or
   subsidiary ("0001" defaults to the headquarters), and the last two are checksum digits.
    For this profile, the cnpj claim must be requested and supplied as the 14 digit number.
@@ -263,7 +264,7 @@ Claim Value that contains a **set** of CNPJs one of which must match the request
  is an Essential Claim and the requirement cannot be met, then the Authorization Server MUST treat
  that outcome as a failed authentication attempt.
 
-Name: cnpj, Type: number, Regex: '^\d{14}$'
+Name: cnpj, Type: Array of Strings, Array Element Regex: '^\d{14}$'
 
 #### Requesting the "urn:brasil:openbanking:loa2" or "urn:brasil:openbanking:loa3" Authentication Context Request
 
