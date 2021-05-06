@@ -253,7 +253,7 @@ This profile defines "cnpj" as a new standard claim as per
 **CNPJ**, short for Cadastro Nacional de Pessoas Jurídicas, is an identification number
  of **Brazilian** companies issued by the **Brazilian** Ministry of Revenue, **in**
  Portuguese "Secretaria da Receita Federal" or "Ministério da Fazenda". In the Brasil Open Banking identity model,
- individuals can associated with 0 or more CNPJs. A CNPJ is a string consisting of numbers that is either 8 or 14 digits long and may start with a 0,
+ individuals can associated with 0 or more CNPJs. A CNPJ is a string consisting of numbers that is 14 digits long and may start with a 0,
  the first eight digits identify the company, the four digits after the slash identify the branch or
   subsidiary ("0001" defaults to the headquarters), and the last two are checksum digits.
    For this profile, the cnpj claim must be requested and supplied as the 14 digit number.
