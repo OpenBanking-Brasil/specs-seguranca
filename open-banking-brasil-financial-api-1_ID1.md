@@ -369,6 +369,7 @@ The following people contributed to this document:
 
 * Ralph Bragg (Raidiam)
 * Joseph Heenan (Authlete)
+* Alexandre Siqueira (Mercado Pago)
 
 {backmatter}
 
