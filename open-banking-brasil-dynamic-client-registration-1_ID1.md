@@ -52,7 +52,7 @@ These parts are intended to be used with [RFC6749], [RFC6750], [RFC7636], [OIDC]
 
 .# Introduction
 
-The Open Banking Brasil Financial-grade API Dynamic Client Registration Profile is a profile of [RFC751], [RFC752] and [OIDR] that aims to provide specific implementation guidelines for security and interoperability which can be applied to the identification, registration and management of OAuth Clients operating in the Brasil Open Banking ecosystem.
+The Open Banking Brasil Financial-grade API Dynamic Client Registration Profile is a profile of [RFC7591], [RFC7592] and [OIDR] that aims to provide specific implementation guidelines for security and interoperability which can be applied to the identification, registration and management of OAuth Clients operating in the Brasil Open Banking ecosystem.
 Although it is possible to code an OpenID Provider and Relying Party from first principles using this specification, the main audience for this specification is parties who already have a certified implementation of [OpenID Connect][OIDC] and want to achieve certification for the Brasil Open Banking programme.
 
 .# Notational Conventions
@@ -394,6 +394,7 @@ With thanks to all who have set the foundations for secure and safe data sharing
 The following people contributed to this document:
 
 * Ralph Bragg (Raidiam)
+* Alexandre Siqueira (Mercado Pago)
 
 {backmatter}
 
