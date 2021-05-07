@@ -350,10 +350,8 @@ In addition to the requirements outlined in Open Banking Brasil security provisi
 
 ## Requirement on Client to present cpf claim to AS {#Reg}
 
-[Joint Resolution No 1, Art. 2, paragraph II](https://www.in.gov.br/en/web/dou/-/resolucao-conjunta-n-1-de-4-de-maio-de-2020-255165055)
-The interpretation of the GT Compliance requires the TPPs to have an 'existing' relationship with the customer before requesting access to resources from a bank.
- This 'confirmation of an existing relationship' also needs to be attested to a Bank before requesting access to a customers resources under the Open Banking legislation.
- The mechanism adopted is to require the TPP to include a populated customer cpf claim as part of a request object when the request to the bank includes a request for access to a account or payment resources which is
+[Joint Resolution No 1, Art. 10, paragraph VI](https://www.in.gov.br/en/web/dou/-/resolucao-conjunta-n-1-de-4-de-maio-de-2020-255165055)
+The interpretation of the Compliance team requires the TPPs to identify the customer before requesting access to resources from a bank. The mechanism adopted is to require the TPP to include a populated customer cpf claim as part of a request object when the request to the bank includes a request for access to a account or payment resources which is
  conveyed by a dynamic scope of 'consent:{consentId}'.
 
 This assertion is considered to be sufficient to meet the requirements of the legislation but does result in the requirement for customers to provide to third parties this information ahead of requesting an open banking flow.
@@ -371,6 +369,7 @@ The following people contributed to this document:
 
 * Ralph Bragg (Raidiam)
 * Joseph Heenan (Authlete)
+* Alexandre Siqueira (Mercado Pago)
 
 {backmatter}
 
