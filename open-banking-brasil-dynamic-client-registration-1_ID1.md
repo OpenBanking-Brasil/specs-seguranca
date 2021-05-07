@@ -177,6 +177,8 @@ The services by the Directory include
 
 Participants within the ecosystem must leverage these services to facilitate API driven OAuth client registration using the process outlined in clause 3.1.1 of [RFC7591] with additional metadata necessary to support OpenID Connect defined in [OpenID Connect Registration][OIDR].
 
+Where possible, authorisation servers should compare client metadata asserted by a client made as part of registration or management request against metadata claims contained within a software statement. Not all metadata that a client wishes to provide may be contained in a software statement, e.g alternative [Metadata Langauges and Script values](https://openid.net/specs/openid-connect-registration-1_0.html#LanguagesAndScripts).
+
 # Open Banking Brasil OpenID Connect Discovery provisions
 
 ## Authorization server
@@ -220,6 +222,9 @@ In addition, the Authorization Server
 1. shall require and validate that all client authentication mechanism adhere to the requirements defined in [Financial-grade API Security Profile 1.0 - Part 1: Advanced](https://openid.net/specs/openid-financial-api-part-2-1_0.html);
 1. shall require encrypted request objects as required by the Brasil Open Banking Security Profile;
 1. shall validate that requested scopes are appropriate for the softwares authorized regulatory roles;
+2. should where possble validate client asserted metadata against metadata provided in the software_statement
+
+These provisions apply equally to the processing of [RFC7591], [RFC7592] and [OpenID Registration][OIDR] requests
 
 ### Applying Server Defaults
 
