@@ -1085,7 +1085,7 @@ tr:nth-child(2n+1) > td {
 <dd class="internet-draft">open-banking-brasil-financial-api-1_ID1</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2021-05-06" class="published">6 May 2021</time>
+<time datetime="2021-05-07" class="published">7 May 2021</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
@@ -1658,10 +1658,8 @@ Claim Value that contains a <strong>set</strong> of CNPJs one of which must matc
         <h3 id="name-requirement-on-client-to-pr">
 <a href="#section-8.1" class="section-number selfRef">8.1. </a><a href="#name-requirement-on-client-to-pr" class="section-name selfRef">Requirement on Client to present cpf claim to AS</a>
         </h3>
-<p id="section-8.1-1"><a href="https://www.in.gov.br/en/web/dou/-/resolucao-conjunta-n-1-de-4-de-maio-de-2020-255165055">Joint Resolution No 1, Art. 2, paragraph II</a>
-The interpretation of the GT Compliance requires the TPPs to have an 'existing' relationship with the customer before requesting access to resources from a bank.
- This 'confirmation of an existing relationship' also needs to be attested to a Bank before requesting access to a customers resources under the Open Banking legislation.
- The mechanism adopted is to require the TPP to include a populated customer cpf claim as part of a request object when the request to the bank includes a request for access to a account or payment resources which is
+<p id="section-8.1-1"><a href="https://www.in.gov.br/en/web/dou/-/resolucao-conjunta-n-1-de-4-de-maio-de-2020-255165055">Joint Resolution No 1, Art. 10, paragraph VI</a>
+The interpretation of the Compliance team requires the TPPs to identify the customer before requesting access to resources from a bank. The mechanism adopted is to require the TPP to include a populated customer cpf claim as part of a request object when the request to the bank includes a request for access to a account or payment resources which is
  conveyed by a dynamic scope of 'consent:{consentId}'.<a href="#section-8.1-1" class="pilcrow">¶</a></p>
 <p id="section-8.1-2">This assertion is considered to be sufficient to meet the requirements of the legislation but does result in the requirement for customers to provide to third parties this information ahead of requesting an open banking flow.
  Banks that wish to prevent poor customer experiences or help mitigate the need for customers to key in sensitive details into third party UIs can provide the cpf and other attributes as part of a consent journey
@@ -1685,6 +1683,9 @@ The security profile has been specifically drafted to enable and encourage banks
 </li>
 <li id="section-9-3.2">
           <p id="section-9-3.2.1">Joseph Heenan (Authlete)<a href="#section-9-3.2.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-9-3.3">
+          <p id="section-9-3.3.1">Alexandre Siqueira (Mercado Pago)<a href="#section-9-3.3.1" class="pilcrow">¶</a></p>
 </li>
 </ul>
 </section>

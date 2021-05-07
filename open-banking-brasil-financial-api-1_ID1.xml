@@ -328,10 +328,8 @@ Claim Value that contains a <strong>set</strong> of CNPJs one of which must matc
 <section anchor="regulatory-considerations"><name>Regulatory Considerations</name>
 
 <section anchor="Reg"><name>Requirement on Client to present cpf claim to AS</name>
-<t><eref target="https://www.in.gov.br/en/web/dou/-/resolucao-conjunta-n-1-de-4-de-maio-de-2020-255165055">Joint Resolution No 1, Art. 2, paragraph II</eref>
-The interpretation of the GT Compliance requires the TPPs to have an 'existing' relationship with the customer before requesting access to resources from a bank.
- This 'confirmation of an existing relationship' also needs to be attested to a Bank before requesting access to a customers resources under the Open Banking legislation.
- The mechanism adopted is to require the TPP to include a populated customer cpf claim as part of a request object when the request to the bank includes a request for access to a account or payment resources which is
+<t><eref target="https://www.in.gov.br/en/web/dou/-/resolucao-conjunta-n-1-de-4-de-maio-de-2020-255165055">Joint Resolution No 1, Art. 10, paragraph VI</eref>
+The interpretation of the Compliance team requires the TPPs to identify the customer before requesting access to resources from a bank. The mechanism adopted is to require the TPP to include a populated customer cpf claim as part of a request object when the request to the bank includes a request for access to a account or payment resources which is
  conveyed by a dynamic scope of 'consent:{consentId}'.</t>
 <t>This assertion is considered to be sufficient to meet the requirements of the legislation but does result in the requirement for customers to provide to third parties this information ahead of requesting an open banking flow.
  Banks that wish to prevent poor customer experiences or help mitigate the need for customers to key in sensitive details into third party UIs can provide the cpf and other attributes as part of a consent journey
@@ -349,6 +347,8 @@ The security profile has been specifically drafted to enable and encourage banks
 <li><t>Ralph Bragg (Raidiam)</t>
 </li>
 <li><t>Joseph Heenan (Authlete)</t>
+</li>
+<li><t>Alexandre Siqueira (Mercado Pago)</t>
 </li>
 </ul>
 </section>
