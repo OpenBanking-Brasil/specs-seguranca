@@ -23,7 +23,7 @@
 <t>Open Banking Brasil Financial-grade API Security Profile 1.0 consists of the following parts:</t>
 
 <ul>
-<li><t><eref target="https://htmlpreview.github.io/?https://htmlpreview.github.io/?https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil-financial-api-1_ID1.html">Open Banking Brasil Financial-grade API Security Profile 1.0</eref></t>
+<li><t><eref target="https://htmlpreview.github.io/?https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil-financial-api-1_ID1.html">Open Banking Brasil Financial-grade API Security Profile 1.0</eref></t>
 </li>
 <li><t>Open Banking Brasil Dynamic Client Registration Profile 1.0</t>
 </li>
@@ -86,7 +86,7 @@ and are not to be interpreted with their natural language meanings.</t>
 <t><eref target="https://tools.ietf.org/html/draft-ietf-oauth-jwsreq">JAR</eref> - OAuth 2.0 JWT Secured Authorization Request</t>
 <t><eref target="https://openid.net/specs/openid-financial-api-part-1-1_0.html">FAPI-1-Baseline</eref> - Financial-grade API Security Profile 1.0 - Part 1: Baseline</t>
 <t><eref target="https://openid.net/specs/openid-financial-api-part-2-1_0.html">FAPI-1-Advanced</eref> - Financial-grade API Security Profile 1.0 - Part 2: Advanced</t>
-<t><eref target="https://htmlpreview.github.io/?https://htmlpreview.github.io/?https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil-financial-api-1_ID1.html">OBB-FAPI</eref> - Open Banking Brasil Financial-grade API Security Profile 1.0</t>
+<t><eref target="https://htmlpreview.github.io/?https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil-financial-api-1_ID1.html">OBB-FAPI</eref> - Open Banking Brasil Financial-grade API Security Profile 1.0</t>
 <t><eref target="https://htmlpreview.github.io?https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil-certificate-standards-1_ID1.html">OBB-Cert-Standards</eref> - Open Banking Brasil x.509 Certificate Standards</t>
 </section>
 
@@ -133,7 +133,7 @@ and are not to be interpreted with their natural language meanings.</t>
 </li>
 <li><t>shall advertise all Open Banking Brasil REST API resources protected by the OpenID Provider on the Directory of Participants;</t>
 </li>
-<li><t>shall advertise support for all signing, encryption, authentication mechanisms and standards required to support <eref target="https://htmlpreview.github.io/?https://htmlpreview.github.io/?https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil-financial-api-1_ID1.html">Open Banking Brasil Financial API</eref>;</t>
+<li><t>shall advertise support for all signing, encryption, authentication mechanisms and standards required to support <eref target="https://htmlpreview.github.io/?https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil-financial-api-1_ID1.html">Open Banking Brasil Financial API</eref>;</t>
 </li>
 <li><t>shall advertise support for <eref target="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Dynamic Client Registration</eref>;</t>
 </li>
