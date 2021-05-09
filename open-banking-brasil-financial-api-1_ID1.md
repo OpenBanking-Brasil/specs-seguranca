@@ -120,8 +120,8 @@ The following referenced documents are indispensable for the application of this
 [OIDR] -  OpenID Connect Registration 1.0 incorporating errata set 1
 [OIDR]: <https://openid.net/specs/openid-connect-registration-1_0.html>
 
-[MTLS] - OAuth 2.0 Mutual TLS Client Authentication and Certificate Bound Access Tokens
-[MTLS]: <https://tools.ietf.org/html/rfc8705>
+[RFC8705] - OAuth 2.0 Mutual TLS Client Authentication and Certificate Bound Access Tokens
+[RFC8705]: <https://tools.ietf.org/html/rfc8705>
 
 [JARM] - Financial-grade API: JWT Secured Authorization Response Mode for OAuth 2.0 (JARM)
 [JARM]: <https://bitbucket.org/openid/fapi/src/master/Financial_API_JWT_Secured_Authorization_Response_Mode.md>
@@ -138,17 +138,17 @@ The following referenced documents are indispensable for the application of this
 [FAPI-1-Advanced] - Financial-grade API Security Profile 1.0 - Part 2: Advanced
 [FAPI-1-Advanced]: <https://openid.net/specs/openid-financial-api-part-2-1_0.html>
 
-[FAPI 2 Baseline] - Financial-grade API Security Profile 2.0 - Part 1: Baseline
-[FAPI 2 Baseline]: <https://bitbucket.org/openid/fapi/src/master/FAPI_2_0_Baseline_Profile.md>
+[FAPI-2-Baseline] - Financial-grade API Security Profile 2.0 - Part 1: Baseline
+[FAPI-2-Baseline]: <https://bitbucket.org/openid/fapi/src/master/FAPI_2_0_Baseline_Profile.md>
 
-[FAPI 2 Advanced] - Financial-grade API Security Profile 2.0 - Part 2: Advanced
-[FAPI 2 Advanced]: <https://bitbucket.org/openid/fapi/src/master/FAPI_2_0_Advanced_Profile.md>
+[FAPI-2-Advanced] - Financial-grade API Security Profile 2.0 - Part 2: Advanced
+[FAPI-2-Advanced]: <https://bitbucket.org/openid/fapi/src/master/FAPI_2_0_Advanced_Profile.md>
 
 [LIWP] - OIDF FAPI WG Lodging Intent Working Paper
 [LIWP]: <https://bitbucket.org/openid/fapi/src/master/Financial_API_Lodging_Intent.md>
 
 [OBB-FAPI-DCR] - Open Banking Brasil Financial-grade API Dynamic Client Registration Profile 1.0
-[OBB-FAPI-DCR]: <https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil-dynamic-client-registration-1_ID1.md>
+[OBB-FAPI-DCR]: <https://github.com/OpenBanking-Brasil/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID1.html>
 
 # Terms and definitions
 
@@ -191,7 +191,7 @@ This profile describes security and features provisions for a server and client 
 
 ### Introduction
 
-Open Banking Brasil has a requirement to address privacy considerations that were identified but not addressed in the [FAPI-1-Advanced] final specification without imposing additional requirements on Authorisation Servers being proposed in [FAPI 2 Baseline].
+Open Banking Brasil has a requirement to address privacy considerations that were identified but not addressed in the [FAPI-1-Advanced] final specification without imposing additional requirements on Authorisation Servers being proposed in [FAPI-2-Baseline].
 Participants in this ecosystem have a need for clients to request an openid provider to confirm values of identity claims as part of an authorization request using the mechanism defined in clause 5.5.1 of [OIDC].
 The use of the claims parameter to request explicit claims values requires clients to ensure that they encrypt the request object to avoid information leakage. This risk is identified in clause 7.4.1 of [FAPI-1-Advanced].
 In addition this profile describes the specific scope, acr and client management requirements necessary to support the wider Open Banking Brasil ecosystem.
@@ -286,7 +286,7 @@ In addition, the confidential client
 # Security considerations
 
 Participants shall support all security considerations specified in clause 8
- [Financial-grade API Security Profile 1.0 - Part 1: Advanced][FAPI-1-Advanced].
+ [Financial-grade API Security Profile 1.0 - Part 1: Advanced][FAPI-1-Advanced] and the [Brazilian Central Bank Open Banking Security Manual](https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Instru%C3%A7%C3%A3o%20Normativa%20BCB&numero=99).
  The Brazilian ICP issues RSA x509 certificates only therefor section removes for simplicity support for EC algorithms
  and requires that only IANA recommended encryption algorithms be used.
 
@@ -301,6 +301,13 @@ For JWS, both clients and Authorization Servers
 For JWE, both clients and Authorization Servers
 
 1. shall use RSA-OAEP with A256GCM
+
+### Secure Use of Transport Layer Security considerations
+
+For TLS, Authorization Server endpoints and Resource Server endpoints used directly by the Client
+
+1. shall support `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`
+2. shall support `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
 
 # Data Sharing Considerations
 

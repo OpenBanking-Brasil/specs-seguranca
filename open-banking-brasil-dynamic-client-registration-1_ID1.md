@@ -114,14 +114,17 @@ The following referenced documents are indispensable for the application of this
 [FAPI-CIBA] - Financial-grade API: Client Initiated Backchannel Authentication Profile
 [FAPI-CIBA]: <https://bitbucket.org/openid/fapi/src/master/Financial_API_WD_CIBA.md>
 
+[RFC4514] - Lightweight Directory Access Protocol (LDAP): String Representation of Distinguished Names
+[RFC4514]: <https://www.rfc-editor.org/rfc/rfc4514>
+
 [OIDD] -  OpenID Connect Discovery 1.0 incorporating errata set 1
 [OIDD]: <https://openid.net/specs/openid-connect-discovery-1_0.html>
 
 [OIDR] -  OpenID Connect Registration 1.0 incorporating errata set 1
 [OIDR]: <https://openid.net/specs/openid-connect-registration-1_0.html>
 
-[MTLS] - OAuth 2.0 Mutual TLS Client Authentication and Certificate Bound Access Tokens
-[MTLS]: <https://tools.ietf.org/html/rfc8705>
+[RFC8705] - OAuth 2.0 Mutual TLS Client Authentication and Certificate Bound Access Tokens
+[RFC8705]: <https://tools.ietf.org/html/rfc8705>
 
 [JARM] - Financial-grade API: JWT Secured Authorization Response Mode for OAuth 2.0 (JARM)
 [JARM]: <https://bitbucket.org/openid/fapi/src/master/Financial_API_JWT_Secured_Authorization_Response_Mode.md>
@@ -139,7 +142,10 @@ The following referenced documents are indispensable for the application of this
 [FAPI-1-Advanced]: <https://openid.net/specs/openid-financial-api-part-2-1_0.html>
 
 [OBB-FAPI] - Open Banking Brasil Financial-grade API Security Profile 1.0
-[OBB-FAPI]: <https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil-financial-api-1_ID1.md>
+[OBB-FAPI]: <https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil-financial-api-1_ID1.html>
+
+[OBB-Cert-Standards] - Open Banking Brasil x.509 Certificate Standards
+[OBB-Cert-Standards]: <https://github.com/OpenBanking-Brasil/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html>
 
 # Terms and definitions
 
@@ -222,7 +228,9 @@ In addition, the Authorization Server
 1. shall require and validate that all client authentication mechanism adhere to the requirements defined in [Financial-grade API Security Profile 1.0 - Part 1: Advanced](https://openid.net/specs/openid-financial-api-part-2-1_0.html);
 1. shall require encrypted request objects as required by the Brasil Open Banking Security Profile;
 1. shall validate that requested scopes are appropriate for the softwares authorized regulatory roles;
-2. should where possble validate client asserted metadata against metadata provided in the software_statement
+1. should where possble validate client asserted metadata against metadata provided in the software_statement;
+1. shall accept all x.500 AttributeType name strings defined in the Distinguished Name of the x.509 Certificate Profiles defined in [Open Banking Brasil x.509 Certificate Standards][OBB-Cert-Standards];
+1. if supporting `tls_client_auth` client authenication mechanism as defined in [RFC8705] shall only accept `tls_client_auth_subject_dn`  as an indication of the certificate subject value as defined in clause 2.1.2 [RFC8705];
 
 These provisions apply equally to the processing of [RFC7591], [RFC7592] and [OpenID Registration][OIDR] requests
 
@@ -233,6 +241,12 @@ Where properties of a DCR request are not included and are not mandatory in the 
 1. shall select and apply the encryption algorithm and cipher choice from the most recommended of the IANA cipher suites that is supported by the Authorisation Server;
 1. shall populate defaults from values within the software statement assertion where possible;
 1. shall grant the client permission to the complete set of potential scopes based on the softwares regulatory permissions included in the software_statement;
+
+### Certificate Distinguished Name Parsing
+
+Clause 3 of [Lightweight Directory Access Protocol (LDAP): String Representation of Distinguished Names][RFC4514] defines the mandatory OIDs whose AttributeType strings (descriptors) must be recognized by implementers. This mandatory list does not include several of the OIDs defined in [Open Banking Brasil x.509 Certificate Standards][OBB-Cert-Standards] nor is there a defined mechanism for Authorisation Servers to publish  information regarding the format that they would expect a Dynamic Client Registration request that includes a `tls_client_auth_subject_dn` to be presented in.
+
+To address this ambiguity, the Authorization Server must accept all AttributeType name strings (descripters) defined in the last paragraph of clause 3 [RFC4515] in addition to all of the AttributeTypes defined in the Distinguished Name of the [Open Banking Brasil x.509 Certificate Standards][OBB-Cert-Standards].
 
 ## Regulatory Roles to OpenID and OAuth 2.0 Mappings
 

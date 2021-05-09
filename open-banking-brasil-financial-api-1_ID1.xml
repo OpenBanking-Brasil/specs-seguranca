@@ -25,7 +25,7 @@
 <ul>
 <li><t>Open Banking Brasil Financial-grade API Security Profile 1.0</t>
 </li>
-<li><t><eref target="https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil-dynamic-client-registration-1_ID1.md&gt;">Open Banking Brasil Dynamic Client Registration Profile 1.0</eref></t>
+<li><t><eref target="https://github.com/OpenBanking-Brasil/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID1.html&gt;">Open Banking Brasil Dynamic Client Registration Profile 1.0</eref></t>
 </li>
 </ul>
 <t>These parts are intended to be used with <eref target="https://tools.ietf.org/html/rfc6749&gt;">RFC6749</eref>, <eref target="https://tools.ietf.org/html/rfc6750&gt;">RFC6750</eref>, <eref target="https://tools.ietf.org/html/rfc7636&gt;">RFC7636</eref>, <eref target="https://openid.net/specs/openid-connect-core-1_0.html&gt;">OIDC</eref>, <eref target="https://openid.net/specs/openid-financial-api-part-1-1_0.html&gt;">FAPI-1-Baseline</eref> and <eref target="https://openid.net/specs/openid-financial-api-part-2-1_0.html&gt;">FAPI-1-Advanced</eref></t>
@@ -79,16 +79,16 @@ and are not to be interpreted with their natural language meanings.</t>
 <t><eref target="https://bitbucket.org/openid/fapi/src/master/Financial_API_WD_CIBA.md&gt;">FAPI-CIBA</eref> - Financial-grade API: Client Initiated Backchannel Authentication Profile</t>
 <t><eref target="https://openid.net/specs/openid-connect-discovery-1_0.html&gt;">OIDD</eref> -  OpenID Connect Discovery 1.0 incorporating errata set 1</t>
 <t><eref target="https://openid.net/specs/openid-connect-registration-1_0.html&gt;">OIDR</eref> -  OpenID Connect Registration 1.0 incorporating errata set 1</t>
-<t><eref target="https://tools.ietf.org/html/rfc8705&gt;">MTLS</eref> - OAuth 2.0 Mutual TLS Client Authentication and Certificate Bound Access Tokens</t>
+<t><eref target="https://tools.ietf.org/html/rfc8705&gt;">RFC8705</eref> - OAuth 2.0 Mutual TLS Client Authentication and Certificate Bound Access Tokens</t>
 <t><eref target="https://bitbucket.org/openid/fapi/src/master/Financial_API_JWT_Secured_Authorization_Response_Mode.md&gt;">JARM</eref> - Financial-grade API: JWT Secured Authorization Response Mode for OAuth 2.0 (JARM)</t>
 <t><eref target="https://tools.ietf.org/html/draft-ietf-oauth-par&gt;">PAR</eref> - OAuth 2.0 Pushed Authorization Requests</t>
 <t><eref target="https://tools.ietf.org/html/draft-ietf-oauth-jwsreq&gt;">JAR</eref> - OAuth 2.0 JWT Secured Authorization Request</t>
 <t><eref target="https://openid.net/specs/openid-financial-api-part-1-1_0.html&gt;">FAPI-1-Baseline</eref> - Financial-grade API Security Profile 1.0 - Part 1: Baseline</t>
 <t><eref target="https://openid.net/specs/openid-financial-api-part-2-1_0.html&gt;">FAPI-1-Advanced</eref> - Financial-grade API Security Profile 1.0 - Part 2: Advanced</t>
-<t><eref target="https://bitbucket.org/openid/fapi/src/master/FAPI_2_0_Baseline_Profile.md&gt;">FAPI 2 Baseline</eref> - Financial-grade API Security Profile 2.0 - Part 1: Baseline</t>
-<t><eref target="https://bitbucket.org/openid/fapi/src/master/FAPI_2_0_Advanced_Profile.md&gt;">FAPI 2 Advanced</eref> - Financial-grade API Security Profile 2.0 - Part 2: Advanced</t>
+<t><eref target="https://bitbucket.org/openid/fapi/src/master/FAPI_2_0_Baseline_Profile.md&gt;">FAPI-2-Baseline</eref> - Financial-grade API Security Profile 2.0 - Part 1: Baseline</t>
+<t><eref target="https://bitbucket.org/openid/fapi/src/master/FAPI_2_0_Advanced_Profile.md&gt;">FAPI-2-Advanced</eref> - Financial-grade API Security Profile 2.0 - Part 2: Advanced</t>
 <t><eref target="https://bitbucket.org/openid/fapi/src/master/Financial_API_Lodging_Intent.md&gt;">LIWP</eref> - OIDF FAPI WG Lodging Intent Working Paper</t>
-<t><eref target="https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil-dynamic-client-registration-1_ID1.md&gt;">OBB-FAPI-DCR</eref> - Open Banking Brasil Financial-grade API Dynamic Client Registration Profile 1.0</t>
+<t><eref target="https://github.com/OpenBanking-Brasil/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID1.html&gt;">OBB-FAPI-DCR</eref> - Open Banking Brasil Financial-grade API Dynamic Client Registration Profile 1.0</t>
 </section>
 
 <section anchor="terms-and-definitions"><name>Terms and definitions</name>
@@ -128,7 +128,7 @@ and are not to be interpreted with their natural language meanings.</t>
 <section anchor="open-banking-brasil-security-provisions"><name>Open Banking Brasil security provisions</name>
 
 <section anchor="introduction-1"><name>Introduction</name>
-<t>Open Banking Brasil has a requirement to address privacy considerations that were identified but not addressed in the <eref target="https://openid.net/specs/openid-financial-api-part-2-1_0.html&gt;">FAPI-1-Advanced</eref> final specification without imposing additional requirements on Authorisation Servers being proposed in <eref target="https://bitbucket.org/openid/fapi/src/master/FAPI_2_0_Baseline_Profile.md&gt;">FAPI 2 Baseline</eref>.
+<t>Open Banking Brasil has a requirement to address privacy considerations that were identified but not addressed in the <eref target="https://openid.net/specs/openid-financial-api-part-2-1_0.html&gt;">FAPI-1-Advanced</eref> final specification without imposing additional requirements on Authorisation Servers being proposed in <eref target="https://bitbucket.org/openid/fapi/src/master/FAPI_2_0_Baseline_Profile.md&gt;">FAPI-2-Baseline</eref>.
 Participants in this ecosystem have a need for clients to request an openid provider to confirm values of identity claims as part of an authorization request using the mechanism defined in clause 5.5.1 of <eref target="https://openid.net/specs/openid-connect-core-1_0.html&gt;">OIDC</eref>.
 The use of the claims parameter to request explicit claims values requires clients to ensure that they encrypt the request object to avoid information leakage. This risk is identified in clause 7.4.1 of <eref target="https://openid.net/specs/openid-financial-api-part-2-1_0.html&gt;">FAPI-1-Advanced</eref>.
 In addition this profile describes the specific scope, acr and client management requirements necessary to support the wider Open Banking Brasil ecosystem.</t>
@@ -240,7 +240,7 @@ Claim Value that contains a <strong>set</strong> of CNPJs one of which must matc
 
 <section anchor="security-considerations"><name>Security considerations</name>
 <t>Participants shall support all security considerations specified in clause 8
- <eref target="https://openid.net/specs/openid-financial-api-part-2-1_0.html&gt;">Financial-grade API Security Profile 1.0 - Part 1: Advanced</eref>.
+ <eref target="https://openid.net/specs/openid-financial-api-part-2-1_0.html&gt;">Financial-grade API Security Profile 1.0 - Part 1: Advanced</eref> and the <eref target="https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Instru%C3%A7%C3%A3o%20Normativa%20BCB&amp;numero=99">Brazilian Central Bank Open Banking Security Manual</eref>.
  The Brazilian ICP issues RSA x509 certificates only therefor section removes for simplicity support for EC algorithms
  and requires that only IANA recommended encryption algorithms be used.</t>
 
@@ -257,6 +257,17 @@ Claim Value that contains a <strong>set</strong> of CNPJs one of which must matc
 
 <ol>
 <li><t>shall use RSA-OAEP with A256GCM</t>
+</li>
+</ol>
+</section>
+
+<section anchor="secure-use-of-transport-layer-security-considerations"><name>Secure Use of Transport Layer Security considerations</name>
+<t>For TLS, Authorization Server endpoints and Resource Server endpoints used directly by the Client</t>
+
+<ol>
+<li><t>shall support <tt>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256</tt></t>
+</li>
+<li><t>shall support <tt>TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384</tt></t>
 </li>
 </ol>
 </section>
