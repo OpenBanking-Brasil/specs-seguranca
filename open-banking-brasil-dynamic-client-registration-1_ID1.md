@@ -294,7 +294,7 @@ The following example contains all of the claims currently included in a softwar
   "iss": "Open Banking Open Banking Brasil prod SSA issuer",
   "software_tos_uri": "https://www.raidiam.com/accounting/tos.html",
   "software_client_description": "Raidiam Accounting leverage cutting edge open banking access to bring you real time up to date views of your finances",
-  "software_jwks_uri": "https://keystore.directory.openbankingbrasil.org.br/b961c4eb-509d-4edf-afeb-35642b38185d/25556d5a-b9dd-4e27-aa1a-cce732fe74de/application.jwks",
+  "software_jwks_endpoint": "https://keystore.directory.openbankingbrasil.org.br/b961c4eb-509d-4edf-afeb-35642b38185d/25556d5a-b9dd-4e27-aa1a-cce732fe74de/application.jwks",
   "software_policy_uri": "https://www.raidiam.com/accounting/policy.html",
   "software_id": "25556d5a-b9dd-4e27-aa1a-cce732fe74de",
   "software_client_uri": "https://www.raidiam.com/accounting.html",
