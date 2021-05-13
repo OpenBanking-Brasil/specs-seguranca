@@ -228,7 +228,7 @@ In addition, the Authorization Server
 1. shall require and validate that all client authentication mechanism adhere to the requirements defined in [Financial-grade API Security Profile 1.0 - Part 1: Advanced](https://openid.net/specs/openid-financial-api-part-2-1_0.html);
 1. shall require encrypted request objects as required by the Brasil Open Banking Security Profile;
 1. shall validate that requested scopes are appropriate for the softwares authorized regulatory roles;
-1. should where possble validate client asserted metadata against metadata provided in the software_statement;
+1. should where possible validate client asserted metadata against metadata provided in the software_statement;
 1. shall accept all x.500 AttributeType name strings defined in the Distinguished Name of the x.509 Certificate Profiles defined in [Open Banking Brasil x.509 Certificate Standards][OBB-Cert-Standards];
 1. if supporting `tls_client_auth` client authenication mechanism as defined in [RFC8705] shall only accept `tls_client_auth_subject_dn`  as an indication of the certificate subject value as defined in clause 2.1.2 [RFC8705];
 
