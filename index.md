@@ -21,7 +21,7 @@ As especificações deste repositório ainda estão em versão *draft*. A princ�
 ## O que eu vou encontrar nesse repositório?
 
 Esse repositório inclui o detalhamento técnico necessário para o entendimento sobre o funcionamento das principais etapas para:
- - [Registro e Cadastramento Dinâmico do Cliente de APIs](https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil-dynamic-client-registration-1_ID1.md)
- - [Perfil de Segurança do Open Banking Brasil, que inclui requisitos para o Authorization Server, para o registro da intenção de consentimento, autenticação do usuário e efetivação do consentimento e emissão do `access_token`](https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil-financial-api-1_ID1.md)
- - [Guia do usuário - ponto de vista da instituição transmissora (ASPSP)](https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/aspsp-user-guide.md)
- - [Guia do usuário - ponto de vista da instituição receptora de dados ou iniciadora de pagamentos (TTP)](https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/aspsp-user-guide.md)
+ - [Registro e Cadastramento Dinâmico do Cliente de APIs](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID1.md)
+ - [Perfil de Segurança do Open Banking Brasil, que inclui requisitos para o Authorization Server, para o registro da intenção de consentimento, autenticação do usuário e efetivação do consentimento e emissão do `access_token`](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID1.md)
+ - [Guia do usuário - ponto de vista da instituição transmissora (ASPSP)](https://openbanking-brasil.github.io/specs-seguranca/aspsp-user-guide.md)
+ - [Guia do usuário - ponto de vista da instituição receptora de dados ou iniciadora de pagamentos (TTP)](https://openbanking-brasil.github.io/specs-seguranca/aspsp-user-guide.md)
