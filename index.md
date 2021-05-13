@@ -8,7 +8,7 @@ As especificações deste repositório ainda estão em versão draft e não deve
 
 O OpenBanking, ou sistema financeiro aberto, é a possibilidade de clientes de produtos e serviços financeiros permitirem o compartilhamento de suas informações entre diferentes instituições autorizadas pelo Banco Central e a movimentação de suas contas bancárias a partir de diferentes plataformas e não apenas pelo aplicativo ou site do banco, de forma segura, ágil e conveniente.
 
-Mais informações em: [](https://www.bcb.gov.br/estabilidadefinanceira/openbanking)
+Mais informações em: (https://www.bcb.gov.br/estabilidadefinanceira/openbanking)
 
 ## Introdução
 
