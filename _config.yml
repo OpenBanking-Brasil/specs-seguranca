@@ -1,0 +1,12 @@
+plugins:
+  - jekyll-relative-links
+relative_links:
+  enabled: true
+  collections: true
+include:
+  - README.md
+  - index.md
+  - open-banking-brasil-dynamic-client-registration-1_ID1.md
+  - open-banking-brasil-financial-api-1_ID1.md
+  - aspsp-user-guide.md
+  - open-banking-brasil-ICP-certificate-guide.pdf
