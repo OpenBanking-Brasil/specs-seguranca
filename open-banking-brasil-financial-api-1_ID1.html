@@ -1228,21 +1228,13 @@ and are not to be interpreted with their natural language meanings.<a href="#sec
 </ul>
 </li>
 <li class="toc ulEmpty" id="section-toc.1-1.8">
-            <p id="section-toc.1-1.8.1"><a href="#section-8" class="xref">8</a>.  <a href="#name-regulatory-considerations" class="xref">Regulatory Considerations</a><a href="#section-toc.1-1.8.1" class="pilcrow">¶</a></p>
-<ul class="toc ulEmpty">
-<li class="toc ulEmpty" id="section-toc.1-1.8.2.1">
-                <p id="section-toc.1-1.8.2.1.1"><a href="#section-8.1" class="xref">8.1</a>.  <a href="#name-requirement-on-client-to-pr" class="xref">Requirement on Client to present cpf claim to AS</a><a href="#section-toc.1-1.8.2.1.1" class="pilcrow">¶</a></p>
-</li>
-</ul>
+            <p id="section-toc.1-1.8.1"><a href="#section-8" class="xref">8</a>.  <a href="#name-acknowledgements" class="xref">Acknowledgements</a><a href="#section-toc.1-1.8.1" class="pilcrow">¶</a></p>
 </li>
 <li class="toc ulEmpty" id="section-toc.1-1.9">
-            <p id="section-toc.1-1.9.1"><a href="#section-9" class="xref">9</a>.  <a href="#name-acknowledgements" class="xref">Acknowledgements</a><a href="#section-toc.1-1.9.1" class="pilcrow">¶</a></p>
+            <p id="section-toc.1-1.9.1"><a href="#section-appendix.a" class="xref">Appendix A</a>.  <a href="#name-notices" class="xref">Notices</a><a href="#section-toc.1-1.9.1" class="pilcrow">¶</a></p>
 </li>
 <li class="toc ulEmpty" id="section-toc.1-1.10">
-            <p id="section-toc.1-1.10.1"><a href="#section-appendix.a" class="xref">Appendix A</a>.  <a href="#name-notices" class="xref">Notices</a><a href="#section-toc.1-1.10.1" class="pilcrow">¶</a></p>
-</li>
-<li class="toc ulEmpty" id="section-toc.1-1.11">
-            <p id="section-toc.1-1.11.1"><a href="#section-appendix.b" class="xref"></a><a href="#name-authors-addresses" class="xref">Authors' Addresses</a><a href="#section-toc.1-1.11.1" class="pilcrow">¶</a></p>
+            <p id="section-toc.1-1.10.1"><a href="#section-appendix.b" class="xref"></a><a href="#name-authors-addresses" class="xref">Authors' Addresses</a><a href="#section-toc.1-1.10.1" class="pilcrow">¶</a></p>
 </li>
 </ul>
 </nav>
@@ -1346,7 +1338,7 @@ and are not to be interpreted with their natural language meanings.<a href="#sec
             <p id="section-5.1-3.3.1">the requirement to convey the Authentication Context Request that was performed by an OpenID Provider to a Client to enable a appropriate client management of customer conduct risk.<a href="#section-5.1-3.3.1" class="pilcrow">¶</a></p>
 </li>
 <li id="section-5.1-3.4">
-            <p id="section-5.1-3.4.1">the requirement for clients to assert a pre-existing customer relationship by asserting a customer identity claim as part of the authorization flow.<a href="#section-5.1-3.4.1" class="pilcrow">¶</a></p>
+            <p id="section-5.1-3.4.1">the requirement for clients to optionally assert a pre-existing customer relationship by asserting a customer identity claim as part of the authorization flow.<a href="#section-5.1-3.4.1" class="pilcrow">¶</a></p>
 </li>
 </ul>
 </section>
@@ -1410,10 +1402,7 @@ In addition this profile describes the specific scope, acr and client management
               <p id="section-5.2.2-3.11.1">shall support <a href="https://bitbucket.org/openid/fapi/src/master/Financial_API_WD_CIBA.md">Financial-grade API: Client Initiated Backchannel Authentication Profile</a> if scope includes <em>payments</em><a href="#section-5.2.2-3.11.1" class="pilcrow">¶</a></p>
 </li>
 <li id="section-5.2.2-3.12">
-              <p id="section-5.2.2-3.12.1">may require the presence of a populated cpf value claim if scope includes dynamic resource scope <em>consent</em><a href="#section-5.2.2-3.12.1" class="pilcrow">¶</a></p>
-</li>
-<li id="section-5.2.2-3.13">
-              <p id="section-5.2.2-3.13.1">shall support refresh tokens<a href="#section-5.2.2-3.13.1" class="pilcrow">¶</a></p>
+              <p id="section-5.2.2-3.12.1">shall support refresh tokens<a href="#section-5.2.2-3.12.1" class="pilcrow">¶</a></p>
 </li>
 </ol>
 <div id="id-token-as-detached-signature">
@@ -1500,10 +1489,7 @@ Claim Value that contains a <strong>set</strong> of CNPJs one of which must matc
               <p id="section-5.2.3-3.2.1">shall support parameterized OAuth 2.0 resource scope <em>consent</em> as defined in clause 6.3.1 <a href="https://bitbucket.org/openid/fapi/src/master/Financial_API_Lodging_Intent.md">OIDF FAPI WG Lodging Intent Pattern</a><a href="#section-5.2.3-3.2.1" class="pilcrow">¶</a></p>
 </li>
 <li id="section-5.2.3-3.3">
-              <p id="section-5.2.3-3.3.1">shall include a populated cpf value claim if scope includes dynamic resource scope <em>consent</em><a href="#section-5.2.3-3.3.1" class="pilcrow">¶</a></p>
-</li>
-<li id="section-5.2.3-3.4">
-              <p id="section-5.2.3-3.4.1">shall support refresh tokens<a href="#section-5.2.3-3.4.1" class="pilcrow">¶</a></p>
+              <p id="section-5.2.3-3.3.1">shall support refresh tokens<a href="#section-5.2.3-3.3.1" class="pilcrow">¶</a></p>
 </li>
 </ol>
 </section>
@@ -1609,7 +1595,7 @@ Claim Value that contains a <strong>set</strong> of CNPJs one of which must matc
               <p id="section-7.1.2-4.2.1">the Consent Resource Id must be namespaced;<a href="#section-7.1.2-4.2.1" class="pilcrow">¶</a></p>
 </li>
 <li id="section-7.1.2-4.3">
-              <p id="section-7.1.2-4.3.1">the Consent Resource Id must have the uniqeness properties of a nonce;<a href="#section-7.1.2-4.3.1" class="pilcrow">¶</a></p>
+              <p id="section-7.1.2-4.3.1">the Consent Resource Id must have the properties of a nonce;<a href="#section-7.1.2-4.3.1" class="pilcrow">¶</a></p>
 </li>
 </ul>
 </section>
@@ -1645,7 +1631,7 @@ Claim Value that contains a <strong>set</strong> of CNPJs one of which must matc
 <p id="section-7.2.2-1">In addition to the requirements outlined in Open Banking Brasil security provisions the Authorization Server<a href="#section-7.2.2-1" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="normal type-1" id="section-7.2.2-2">
             <li id="section-7.2.2-2.1">
-              <p id="section-7.2.2-2.1.1">shall revoke access and refresh tokens when a consent resource is deleted;<a href="#section-7.2.2-2.1.1" class="pilcrow">¶</a></p>
+              <p id="section-7.2.2-2.1.1">shall revoke refresh tokens and where practicable access tokens when a consent resource is deleted;<a href="#section-7.2.2-2.1.1" class="pilcrow">¶</a></p>
 </li>
 </ol>
 </section>
@@ -1667,44 +1653,22 @@ Claim Value that contains a <strong>set</strong> of CNPJs one of which must matc
 </div>
 </section>
 </div>
-<div id="regulatory-considerations">
-<section id="section-8">
-      <h2 id="name-regulatory-considerations">
-<a href="#section-8" class="section-number selfRef">8. </a><a href="#name-regulatory-considerations" class="section-name selfRef">Regulatory Considerations</a>
-      </h2>
-<div id="Reg">
-<section id="section-8.1">
-        <h3 id="name-requirement-on-client-to-pr">
-<a href="#section-8.1" class="section-number selfRef">8.1. </a><a href="#name-requirement-on-client-to-pr" class="section-name selfRef">Requirement on Client to present cpf claim to AS</a>
-        </h3>
-<p id="section-8.1-1"><a href="https://www.in.gov.br/en/web/dou/-/resolucao-conjunta-n-1-de-4-de-maio-de-2020-255165055">Joint Resolution No 1, Art. 10, paragraph VI</a>
-The interpretation of the Compliance team requires the TPPs to identify the customer before requesting access to resources from a bank. The mechanism adopted is to require the TPP to include a populated customer cpf claim as part of a request object when the request to the bank includes a request for access to a account or payment resources which is
- conveyed by a dynamic scope of 'consent:{consentId}'.<a href="#section-8.1-1" class="pilcrow">¶</a></p>
-<p id="section-8.1-2">This assertion is considered to be sufficient to meet the requirements of the legislation but does result in the requirement for customers to provide to third parties this information ahead of requesting an open banking flow.
- Banks that wish to prevent poor customer experiences or help mitigate the need for customers to key in sensitive details into third party UIs can provide the cpf and other attributes as part of a consent journey
- provided that they do so without also accepting a request for data sharing at the same time.<a href="#section-8.1-2" class="pilcrow">¶</a></p>
-<p id="section-8.1-3">The sharing of customer atttributes without a corresponding open banking resource sharing request is out of scope of the regulation which means that banks are not obliged to offer this service but there is no technical barrier with them doing.
-The security profile has been specifically drafted to enable and encourage banks to facilitate this two step process which significantly improves the new customer experience for tpps and prevents the bad practice of encouraging consumers to manually share sentitive personal information into websites. Removing the need for this activity is one of the primary security goals of Open Banking and the OpenID Foundation Financial Grade Working Group on whose standards this profile is based.<a href="#section-8.1-3" class="pilcrow">¶</a></p>
-</section>
-</div>
-</section>
-</div>
 <div id="acknowledgements">
-<section id="section-9">
+<section id="section-8">
       <h2 id="name-acknowledgements">
-<a href="#section-9" class="section-number selfRef">9. </a><a href="#name-acknowledgements" class="section-name selfRef">Acknowledgements</a>
+<a href="#section-8" class="section-number selfRef">8. </a><a href="#name-acknowledgements" class="section-name selfRef">Acknowledgements</a>
       </h2>
-<p id="section-9-1">With thanks to all who have set the foundations for secure and safe data sharing through the formation of the OpenID Foundation FAPI Working Group, the Open Banking Brasil GT Security and to the pioneers who will stand on their shoulders.<a href="#section-9-1" class="pilcrow">¶</a></p>
-<p id="section-9-2">The following people contributed to this document:<a href="#section-9-2" class="pilcrow">¶</a></p>
+<p id="section-8-1">With thanks to all who have set the foundations for secure and safe data sharing through the formation of the OpenID Foundation FAPI Working Group, the Open Banking Brasil GT Security and to the pioneers who will stand on their shoulders.<a href="#section-8-1" class="pilcrow">¶</a></p>
+<p id="section-8-2">The following people contributed to this document:<a href="#section-8-2" class="pilcrow">¶</a></p>
 <ul>
-<li id="section-9-3.1">
-          <p id="section-9-3.1.1">Ralph Bragg (Raidiam)<a href="#section-9-3.1.1" class="pilcrow">¶</a></p>
+<li id="section-8-3.1">
+          <p id="section-8-3.1.1">Ralph Bragg (Raidiam)<a href="#section-8-3.1.1" class="pilcrow">¶</a></p>
 </li>
-<li id="section-9-3.2">
-          <p id="section-9-3.2.1">Joseph Heenan (Authlete)<a href="#section-9-3.2.1" class="pilcrow">¶</a></p>
+<li id="section-8-3.2">
+          <p id="section-8-3.2.1">Joseph Heenan (Authlete)<a href="#section-8-3.2.1" class="pilcrow">¶</a></p>
 </li>
-<li id="section-9-3.3">
-          <p id="section-9-3.3.1">Alexandre Siqueira (Mercado Pago)<a href="#section-9-3.3.1" class="pilcrow">¶</a></p>
+<li id="section-8-3.3">
+          <p id="section-8-3.3.1">Alexandre Siqueira (Mercado Pago)<a href="#section-8-3.3.1" class="pilcrow">¶</a></p>
 </li>
 </ul>
 </section>
