@@ -148,7 +148,7 @@ The following referenced documents are indispensable for the application of this
 [LIWP]: <https://bitbucket.org/openid/fapi/src/master/Financial_API_Lodging_Intent.md
 
 [OBB-FAPI-DCR] - Open Banking Brasil Financial-grade API Dynamic Client Registration Profile 1.0
-[OBB-FAPI-DCR]: <https://htmlpreview.github.io/?https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil-dynamic-client-registration-1_ID1.html
+[OBB-FAPI-DCR]: <https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID1.html
 
 # Terms and definitions
 
@@ -204,8 +204,8 @@ The Authorization Server shall support the provisions specified in clause 5.2.2 
 
 In addition, the Authorization Server
 
-1. shall support a JWE signed and encrypted JWT request object passed by value;
-1. shall distribute discovery metadata (such as the authorization endpoint) via the metadata document as specified in [OIDD] and [RFC8414]
+1. shall support a signed and encrypted JWE request object passed by value;
+2. shall distribute discovery metadata (such as the authorization endpoint) via the metadata document as specified in [OIDD] and [RFC8414]
 3. shall support the claims parameter as defined in clause 5.5 [OpenID Connect Core][OIDC]
 4. shall support the oidc standard claim "cpf" as defined in clause 5.2.2.2 of this document
 5. shall support the oidc standard claim "cnpj" as defined in clause 5.2.2.3 of this document

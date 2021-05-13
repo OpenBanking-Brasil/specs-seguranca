@@ -23,7 +23,7 @@
 <t>Open Banking Brasil Financial-grade API Security Profile 1.0 consists of the following parts:</t>
 
 <ul>
-<li><t><eref target="https://htmlpreview.github.io/?https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil-financial-api-1_ID1.html">Open Banking Brasil Financial-grade API Security Profile 1.0</eref></t>
+<li><t><eref target="hhttps://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID1.html">Open Banking Brasil Financial-grade API Security Profile 1.0</eref></t>
 </li>
 <li><t>Open Banking Brasil Dynamic Client Registration Profile 1.0</t>
 </li>
@@ -86,8 +86,8 @@ and are not to be interpreted with their natural language meanings.</t>
 <t><eref target="https://tools.ietf.org/html/draft-ietf-oauth-jwsreq">JAR</eref> - OAuth 2.0 JWT Secured Authorization Request</t>
 <t><eref target="https://openid.net/specs/openid-financial-api-part-1-1_0.html">FAPI-1-Baseline</eref> - Financial-grade API Security Profile 1.0 - Part 1: Baseline</t>
 <t><eref target="https://openid.net/specs/openid-financial-api-part-2-1_0.html">FAPI-1-Advanced</eref> - Financial-grade API Security Profile 1.0 - Part 2: Advanced</t>
-<t><eref target="https://htmlpreview.github.io/?https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil-financial-api-1_ID1.html">OBB-FAPI</eref> - Open Banking Brasil Financial-grade API Security Profile 1.0</t>
-<t><eref target="https://htmlpreview.github.io?https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil-certificate-standards-1_ID1.html">OBB-Cert-Standards</eref> - Open Banking Brasil x.509 Certificate Standards</t>
+<t><eref target="hhttps://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID1.html">OBB-FAPI</eref> - Open Banking Brasil Financial-grade API Security Profile 1.0</t>
+<t><eref target="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html">OBB-Cert-Standards</eref> - Open Banking Brasil x.509 Certificate Standards</t>
 </section>
 
 <section anchor="terms-and-definitions"><name>Terms and definitions</name>
@@ -133,7 +133,7 @@ and are not to be interpreted with their natural language meanings.</t>
 </li>
 <li><t>shall advertise all Open Banking Brasil REST API resources protected by the OpenID Provider on the Directory of Participants;</t>
 </li>
-<li><t>shall advertise support for all signing, encryption, authentication mechanisms and standards required to support <eref target="https://htmlpreview.github.io/?https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil-financial-api-1_ID1.html">Open Banking Brasil Financial API</eref>;</t>
+<li><t>shall advertise support for all signing, encryption, authentication mechanisms and standards required to support <eref target="hhttps://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID1.html">Open Banking Brasil Financial API</eref>;</t>
 </li>
 <li><t>shall advertise support for <eref target="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Dynamic Client Registration</eref>;</t>
 </li>
@@ -186,9 +186,9 @@ and are not to be interpreted with their natural language meanings.</t>
 </li>
 <li><t>shall validate that requested scopes are appropriate for the softwares authorized regulatory roles;</t>
 </li>
-<li><t>should where possble validate client asserted metadata against metadata provided in the software_statement;</t>
+<li><t>should where possible validate client asserted metadata against metadata provided in the software_statement;</t>
 </li>
-<li><t>shall accept all x.500 AttributeType name strings defined in the Distinguished Name of the x.509 Certificate Profiles defined in <eref target="https://htmlpreview.github.io?https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil-certificate-standards-1_ID1.html">Open Banking Brasil x.509 Certificate Standards</eref>;</t>
+<li><t>shall accept all x.500 AttributeType name strings defined in the Distinguished Name of the x.509 Certificate Profiles defined in <eref target="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html">Open Banking Brasil x.509 Certificate Standards</eref>;</t>
 </li>
 <li><t>if supporting <tt>tls_client_auth</tt> client authenication mechanism as defined in <eref target="https://tools.ietf.org/html/rfc8705">RFC8705</eref> shall only accept <tt>tls_client_auth_subject_dn</tt>  as an indication of the certificate subject value as defined in clause 2.1.2 <eref target="https://tools.ietf.org/html/rfc8705">RFC8705</eref>;</t>
 </li>
@@ -209,8 +209,8 @@ and are not to be interpreted with their natural language meanings.</t>
 </section>
 
 <section anchor="certificate-distinguished-name-parsing"><name>Certificate Distinguished Name Parsing</name>
-<t>Clause 3 of <eref target="https://www.rfc-editor.org/rfc/rfc4514">Lightweight Directory Access Protocol (LDAP): String Representation of Distinguished Names</eref> defines the mandatory OIDs whose AttributeType strings (descriptors) must be recognized by implementers. This mandatory list does not include several of the OIDs defined in <eref target="https://htmlpreview.github.io?https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil-certificate-standards-1_ID1.html">Open Banking Brasil x.509 Certificate Standards</eref> nor is there a defined mechanism for Authorisation Servers to publish  information regarding the format that they would expect a Dynamic Client Registration request that includes a <tt>tls_client_auth_subject_dn</tt> to be presented in.</t>
-<t>To address this ambiguity, the Authorization Server must accept all AttributeType name strings (descripters) defined in the last paragraph of clause 3 [RFC4515] in addition to all of the AttributeTypes defined in the Distinguished Name of the <eref target="https://htmlpreview.github.io?https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil-certificate-standards-1_ID1.html">Open Banking Brasil x.509 Certificate Standards</eref>.</t>
+<t>Clause 3 of <eref target="https://www.rfc-editor.org/rfc/rfc4514">Lightweight Directory Access Protocol (LDAP): String Representation of Distinguished Names</eref> defines the mandatory OIDs whose AttributeType strings (descriptors) must be recognized by implementers. This mandatory list does not include several of the OIDs defined in <eref target="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html">Open Banking Brasil x.509 Certificate Standards</eref> nor is there a defined mechanism for Authorisation Servers to publish  information regarding the format that they would expect a Dynamic Client Registration request that includes a <tt>tls_client_auth_subject_dn</tt> to be presented in.</t>
+<t>To address this ambiguity, the Authorization Server must accept all AttributeType name strings (descripters) defined in the last paragraph of clause 3 [RFC4515] in addition to all of the AttributeTypes defined in the Distinguished Name of the <eref target="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html">Open Banking Brasil x.509 Certificate Standards</eref>.</t>
 </section>
 </section>
 
