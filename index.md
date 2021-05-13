@@ -25,7 +25,3 @@ Esse repositório inclui o detalhamento técnico necessário para o entendimento
  - [Perfil de Segurança do Open Banking Brasil, que inclui requisitos para o Authorization Server, para o registro da intenção de consentimento, autenticação do usuário e efetivação do consentimento e emissão do `access_token`](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID1.md)
  - [Guia do usuário - ponto de vista da instituição transmissora (ASPSP)](https://openbanking-brasil.github.io/specs-seguranca/aspsp-user-guide.md)
  - [Guia do usuário - ponto de vista da instituição receptora de dados ou iniciadora de pagamentos (TTP)](https://openbanking-brasil.github.io/specs-seguranca/aspsp-user-guide.md)
-
-<figure class="video_container">
-<iframe src="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID1.md"></iframe>
-</figure>
