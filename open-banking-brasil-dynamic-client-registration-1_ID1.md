@@ -142,10 +142,10 @@ The following referenced documents are indispensable for the application of this
 [FAPI-1-Advanced]: <https://openid.net/specs/openid-financial-api-part-2-1_0.html
 
 [OBB-FAPI] - Open Banking Brasil Financial-grade API Security Profile 1.0
-[OBB-FAPI]: <https://htmlpreview.github.io/?https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil-financial-api-1_ID1.html
+[OBB-FAPI]: <hhttps://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID1.html
 
 [OBB-Cert-Standards] - Open Banking Brasil x.509 Certificate Standards
-[OBB-Cert-Standards]: <https://htmlpreview.github.io?https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil-certificate-standards-1_ID1.html
+[OBB-Cert-Standards]: <https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html
 
 # Terms and definitions
 
