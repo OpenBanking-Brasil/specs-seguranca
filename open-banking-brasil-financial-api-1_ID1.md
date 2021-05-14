@@ -204,7 +204,7 @@ The Authorization Server shall support the provisions specified in clause 5.2.2 
 
 In addition, the Authorization Server
 
-1. shall support a signed and encrypted JWE request object passed by value;
+1. shall support a signed and encrypted JWE request object passed by value or shall require pushed authorization requests;
 2. shall distribute discovery metadata (such as the authorization endpoint) via the metadata document as specified in [OIDD] and [RFC8414]
 3. shall support the claims parameter as defined in clause 5.5 [OpenID Connect Core][OIDC]
 4. shall support the oidc standard claim "cpf" as defined in clause 5.2.2.2 of this document
@@ -277,9 +277,11 @@ A confidential client shall support the provisions specified in clause 5.2.3 of
 
 In addition, the confidential client
 
-1. shall use _encrypted_ request objects if the request includes personal data
-1. shall support parameterized OAuth 2.0 resource scope _consent_ as defined in clause 6.3.1 [OIDF FAPI WG Lodging Intent Pattern][LIWP]
-2. shall support refresh tokens
+1. shall support _encrypted_ request objects
+2. shall support pushed authorisation requests [PAR]
+3. shall use _encrypted_ request objects if not using [PAR]
+4. shall support parameterized OAuth 2.0 resource scope _consent_ as defined in clause 6.3.1 [OIDF FAPI WG Lodging Intent Pattern][LIWP]
+5. shall support refresh tokens
 
 # Security considerations
 

@@ -176,9 +176,9 @@ and are not to be interpreted with their natural language meanings.</t>
 </li>
 <li><t>shall validate that a <tt>jwks</tt> (key set by value) was <strong>not</strong> included;</t>
 </li>
-<li><t>shall require and validate that the <tt>jwks_uri</tt> matches the <tt>software_jwks_endpoint</tt> provided in the software statement;</t>
+<li><t>shall require and validate that the <tt>jwks_uri</tt> matches the <tt>software_jwks_uri</tt> provided in the software statement;</t>
 </li>
-<li><t>shall require and validate that <tt>redirect_uris</tt> match software<em>redirect</em>uris provided in the software statement;</t>
+<li><t>shall require and validate that <tt>redirect_uris</tt> match or contain a sub set of software<em>redirect</em>uris provided in the software statement;</t>
 </li>
 <li><t>shall require and validate that all client authentication mechanism adhere to the requirements defined in <eref target="https://openid.net/specs/openid-financial-api-part-2-1_0.html">Financial-grade API Security Profile 1.0 - Part 1: Advanced</eref>;</t>
 </li>

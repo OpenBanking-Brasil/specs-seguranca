@@ -223,8 +223,8 @@ In addition, the Authorization Server
 1. shall validate that the request contains software_statement jwt signed using using the PS256 alg issued by the open banking brasil directory of participants;
 1. shall validate that the software_statement was issued (iat) not more than 5 minutes prior to the request being received;
 1. shall validate that a `jwks` (key set by value) was **not** included;
-1. shall require and validate that the `jwks_uri` matches the `software_jwks_endpoint` provided in the software statement;
-1. shall require and validate that `redirect_uris` match software_redirect_uris provided in the software statement;
+1. shall require and validate that the `jwks_uri` matches the `software_jwks_uri` provided in the software statement;
+1. shall require and validate that `redirect_uris` match or contain a sub set of software_redirect_uris provided in the software statement;
 1. shall require and validate that all client authentication mechanism adhere to the requirements defined in [Financial-grade API Security Profile 1.0 - Part 1: Advanced](https://openid.net/specs/openid-financial-api-part-2-1_0.html);
 1. shall require encrypted request objects as required by the Brasil Open Banking Security Profile;
 1. shall validate that requested scopes are appropriate for the softwares authorized regulatory roles;
