@@ -137,11 +137,11 @@ and are not to be interpreted with their natural language meanings.</t>
 </li>
 <li><t>shall advertise support for <eref target="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Dynamic Client Registration</eref>;</t>
 </li>
-<li><t>shall advertise <tt>mtls_endpoint_aliases</tt> as per clause 3.4 [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens][RF8705] for the <tt>token_endpoint</tt>, <tt>registration_endpoint</tt> and <tt>userinfo_endpoint</tt>;</t>
+<li><t>shall advertise <tt>mtls_endpoint_aliases</tt> as per clause 3.4 [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens][RF8705] the <tt>token_endpoint</tt>, <tt>registration_endpoint</tt> and <tt>userinfo_endpoint</tt>;</t>
 </li>
-<li><t>if supporting <eref target="https://tools.ietf.org/html/draft-ietf-oauth-par">OAuth 2.0 Pushed Authorisation Requests</eref> shall advertise through <eref target="https://openid.net/specs/openid-connect-discovery-1_0.html">OIDD</eref> <tt>mtls_endpoint_aliases</tt> for the <tt>pushed_authorization_request_endpoint</tt>;</t>
+<li><t>if supporting <eref target="https://tools.ietf.org/html/draft-ietf-oauth-par">OAuth 2.0 Pushed Authorisation Requests</eref> shall advertise through <eref target="https://openid.net/specs/openid-connect-discovery-1_0.html">OIDD</eref> <tt>mtls_endpoint_aliases</tt> the <tt>pushed_authorization_request_endpoint</tt>;</t>
 </li>
-<li><t>if supporting <eref target="https://bitbucket.org/openid/fapi/src/master/Financial_API_WD_CIBA.md">Financial API - Client Initiated Back Channel Authentication</eref> shall advertise through <eref target="https://openid.net/specs/openid-connect-discovery-1_0.html">OIDD</eref> <tt>mtls_endpoint_aliases</tt> for the <tt>backchannel_authentication_endpoint</tt>;</t>
+<li><t>if supporting <eref target="https://bitbucket.org/openid/fapi/src/master/Financial_API_WD_CIBA.md">Financial API - Client Initiated Back Channel Authentication</eref> shall advertise through <eref target="https://openid.net/specs/openid-connect-discovery-1_0.html">OIDD</eref> <tt>mtls_endpoint_aliases</tt> the <tt>backchannel_authentication_endpoint</tt>;</t>
 </li>
 </ol>
 </section>
@@ -226,7 +226,7 @@ and are not to be interpreted with their natural language meanings.</t>
 <tbody>
 <tr>
 <td>DADOS</td>
-<td>openid accounts consents</td>
+<td>openid accounts credit-cards-accounts consents customers invoice-financings financings loans unarragned-accounts-overdraft consents</td>
 </tr>
 
 <tr>
@@ -234,7 +234,12 @@ and are not to be interpreted with their natural language meanings.</t>
 <td>openid payments consents</td>
 </tr>
 </tbody>
-</table></section>
+</table>
+<section anchor="implementers-note"><name>Implementers Note</name>
+<t>In line with guidance from the IETF and the direction of travel for fine grained consent management. The obligation falls to the Authorisation Server to ensure that there is sufficient
+ scope conveyed in an access token necessary to fulfill the Permissions conveyed in the Consent Request. This principle and requirement is reflected in the forthcoming Grant Management API.</t>
+</section>
+</section>
 
 <section anchor="regulatory-roles-to-dynamic-oauth-2-0-scope-mappings"><name>Regulatory Roles to dynamic OAuth 2.0 scope Mappings</name>
 <table>

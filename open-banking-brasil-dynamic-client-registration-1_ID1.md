@@ -197,9 +197,9 @@ In addition, the Authorization Server
 1. shall advertise all Open Banking Brasil REST API resources protected by the OpenID Provider on the Directory of Participants;
 1. shall advertise support for all signing, encryption, authentication mechanisms and standards required to support [Open Banking Brasil Financial API][OBB-FAPI];
 1. shall advertise support for [OpenID Dynamic Client Registration][OIDR];
-1. shall advertise `mtls_endpoint_aliases` as per clause 3.4 [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens][RF8705] for the `token_endpoint`, `registration_endpoint` and `userinfo_endpoint`;
-1. if supporting [OAuth 2.0 Pushed Authorisation Requests][PAR] shall advertise through [OIDD] `mtls_endpoint_aliases` for the `pushed_authorization_request_endpoint`;
-1. if supporting [Financial API - Client Initiated Back Channel Authentication][FAPI-CIBA] shall advertise through [OIDD] `mtls_endpoint_aliases` for the `backchannel_authentication_endpoint`;
+2. shall advertise `mtls_endpoint_aliases` as per clause 3.4 [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens][RF8705] the `token_endpoint`, `registration_endpoint` and `userinfo_endpoint`;
+3. if supporting [OAuth 2.0 Pushed Authorisation Requests][PAR] shall advertise through [OIDD] `mtls_endpoint_aliases` the `pushed_authorization_request_endpoint`;
+4. if supporting [Financial API - Client Initiated Back Channel Authentication][FAPI-CIBA] shall advertise through [OIDD] `mtls_endpoint_aliases` the `backchannel_authentication_endpoint`;
 
 ## Client
 
@@ -252,8 +252,13 @@ To address this ambiguity, the Authorization Server must accept all AttributeTyp
 
 | Regulatory Role | Allowed Scopes |
 | --- | --- |
-| DADOS | openid accounts consents |
+| DADOS | openid accounts credit-cards-accounts consents customers invoice-financings financings loans unarragned-accounts-overdraft consents|
 | PAGTO | openid payments consents |
+
+### Implementers Note
+
+In line with guidance from the IETF and the direction of travel for fine grained consent management. The obligation falls to the Authorisation Server to ensure that there is sufficient
+ scope conveyed in an access token necessary to fulfill the Permissions conveyed in the Consent Request. This principle and requirement is reflected in the forthcoming Grant Management API.
 
 ## Regulatory Roles to dynamic OAuth 2.0 scope Mappings
 
