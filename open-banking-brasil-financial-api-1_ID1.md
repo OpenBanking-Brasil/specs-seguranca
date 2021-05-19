@@ -285,7 +285,7 @@ The following rules are applicable:
 The authentication methods are:
 
 * Something you know, such as password or phrase
-* Algo que você tem; como um token ou um smartcard;
+* Something you have, such as token or smartcard;
 * Something you are, such as biometric validation.
 
 To performe a MFA authentication is necessary the end user to present at least two different methods as listed above. A unique method used more than once is not accepted as MFA.
