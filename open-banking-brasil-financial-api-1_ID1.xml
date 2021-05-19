@@ -120,7 +120,7 @@ and are not to be interpreted with their natural language meanings.</t>
 </li>
 <li><t>the requirement to convey the Authentication Context Request that was performed by an OpenID Provider to a Client to enable a appropriate client management of customer conduct risk.</t>
 </li>
-<li><t>the requirement for clients to optionally assert a pre-existing customer relationship by asserting a customer identity claim as part of the authorization flow.</t>
+<li><t>the requirement for clients to assert a pre-existing customer relationship by asserting a customer identity claim as part of the authorization flow.</t>
 </li>
 </ul>
 </section>
@@ -140,7 +140,7 @@ In addition this profile describes the specific scope, acr and client management
 <t>In addition, the Authorization Server</t>
 
 <ol>
-<li><t>shall support a signed and encrypted JWE request object passed by value or shall require pushed authorization requests;</t>
+<li><t>shall support a signed and encrypted JWE request object passed by value or shall require pushed authorization requests <eref target="https://tools.ietf.org/html/draft-ietf-oauth-par">PAR</eref>;</t>
 </li>
 <li><t>shall distribute discovery metadata (such as the authorization endpoint) via the metadata document as specified in <eref target="https://openid.net/specs/openid-connect-discovery-1_0.html">OIDD</eref> and [RFC8414]</t>
 </li>
@@ -161,6 +161,8 @@ In addition this profile describes the specific scope, acr and client management
 <li><t>may support <eref target="https://bitbucket.org/openid/fapi/src/master/Financial_API_WD_CIBA.md">Financial-grade API: Client Initiated Backchannel Authentication Profile</eref></t>
 </li>
 <li><t>shall support <eref target="https://bitbucket.org/openid/fapi/src/master/Financial_API_WD_CIBA.md">Financial-grade API: Client Initiated Backchannel Authentication Profile</eref> if scope includes <em>payments</em></t>
+</li>
+<li><t>may require the presence of a populated cpf value claim if scope includes dynamic resource scope <em>consent</em></t>
 </li>
 <li><t>shall support refresh tokens</t>
 </li>
@@ -232,6 +234,8 @@ Claim Value that contains a <strong>set</strong> of CNPJs one of which must matc
 <li><t>shall support parameterized OAuth 2.0 resource scope <em>consent</em> as defined in clause 6.3.1 <eref target="https://bitbucket.org/openid/fapi/src/master/Financial_API_Lodging_Intent.md">OIDF FAPI WG Lodging Intent Pattern</eref></t>
 </li>
 <li><t>shall support refresh tokens</t>
+</li>
+<li><t>shall include a populated cpf value claim if scope includes dynamic resource scope <em>consent</em></t>
 </li>
 </ol>
 </section>
@@ -320,7 +324,13 @@ Claim Value that contains a <strong>set</strong> of CNPJs one of which must matc
 <t>In addition to the requirements outlined in Open Banking Brasil security provisions the Authorization Server</t>
 
 <ol>
-<li><t>shall revoke refresh tokens and where practicable access tokens when a consent resource is deleted;</t>
+<li><t>shall revoke refresh tokens and where practicable access tokens when the linked Consent Resource is deleted;</t>
+</li>
+<li><t>shall ensure Access Tokens are issued with sufficient scope necessary for access to data specified in the Permissions element of a linked Consent Resource object;</t>
+</li>
+<li><t>shall not reject an authorisation request requesting more scope than is necessary to access data specified in the Permissions element of a linked Consent Resource object;</t>
+</li>
+<li><t>may reduce requested scope to a level sufficient to enable access to data resources specified in the Permissions element of a linked Consent Resource object;</t>
 </li>
 </ol>
 </section>
@@ -329,10 +339,26 @@ Claim Value that contains a <strong>set</strong> of CNPJs one of which must matc
 <t>In addition to the requirements outlined in Open Banking Brasil security provisions the Confidential Client</t>
 
 <ol>
-<li><t>shall discard and cease usage of refresh and access tokens that are bound to a Consent Resource that has been deleted;</t>
+<li><t>shall revoke where possible and cease usage of refresh and access tokens that are bound to a Consent Resource that has been deleted;</t>
+</li>
+<li><t>shall delete Consent Resource that are expired;</t>
 </li>
 </ol>
 </section>
+</section>
+</section>
+
+<section anchor="regulatory-considerations"><name>Regulatory Considerations</name>
+
+<section anchor="Reg"><name>Requirement on Client to present cpf claim to AS</name>
+<t><eref target="https://www.in.gov.br/en/web/dou/-/resolucao-conjunta-n-1-de-4-de-maio-de-2020-255165055">Joint Resolution No 1, Art. 10, paragraph VI</eref>
+The interpretation of the Compliance team requires the TPPs to identify the customer before requesting access to resources from a bank. The mechanism adopted is to require the TPP to include a populated customer cpf claim as part of a request object when the request to the bank includes a request for access to a account or payment resources which is
+ conveyed by a dynamic scope of 'consent:{consentId}'.</t>
+<t>This assertion is considered to be sufficient to meet the requirements of the legislation but does result in the requirement for customers to provide to third parties this information ahead of requesting an open banking flow.
+ Banks that wish to prevent poor customer experiences or help mitigate the need for customers to key in sensitive details into third party UIs can provide the cpf and other attributes as part of a consent journey
+ provided that they do so without also accepting a request for data sharing at the same time.</t>
+<t>The sharing of customer atttributes without a corresponding open banking resource sharing request is out of scope of the regulation which means that banks are not obliged to offer this service but there is no technical barrier with them doing.
+The security profile has been specifically drafted to enable and encourage banks to facilitate this two step process which significantly improves the new customer experience for tpps and prevents the bad practice of encouraging consumers to manually share sentitive personal information into websites. Removing the need for this activity is one of the primary security goals of Open Banking and the OpenID Foundation Financial Grade Working Group on whose standards this profile is based.</t>
 </section>
 </section>
 
@@ -346,6 +372,8 @@ Claim Value that contains a <strong>set</strong> of CNPJs one of which must matc
 <li><t>Joseph Heenan (Authlete)</t>
 </li>
 <li><t>Alexandre Siqueira (Mercado Pago)</t>
+</li>
+<li><t>Marcos Rodrigues (Itaú)</t>
 </li>
 </ul>
 </section>
