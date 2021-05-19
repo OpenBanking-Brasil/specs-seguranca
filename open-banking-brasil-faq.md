@@ -1,43 +1,3 @@
-%%%
-
-    #
-    # Open Banking Brasil Certificate Standards 1.0 Implementers Draft 1
-    # (open-banking-brasil-certificate-standards-1_ID1)
-    #
-    #
-
-    title = "Open Banking Brasil FAQ 1.0 Implementers Draft 1"
-    abbrev = "OBB-FAQ-1-ID1"
-    ipr = "none"
-    workgroup = "Open Banking Brasil GT Security"
-    keyword = ["FAPI", "CERT", "Open Banking Brasil GT Security"]
-
-    [seriesInfo]
-    name = "Internet-Draft"
-    status = "standard"
-    value = "open-banking-brasil-FAQ-1_ID1"
-
-    [[author]]
-    initials = "M."
-    surname = "Rodrigues"
-    fullname = "Marcos Rodrigues"
-    organization = "Itau"
-    abbrev = "Itau"
-      [author.address]
-      email = "marcos.aurelio-rodrigues@itau-unibanco.com.br"
-      uri = "https://www.itau.com.br/"
-
-    [[author]]
-    initials = "GT"
-    surname = "Security"
-    fullname = "OBBIS GT Security"
-    organization = "Open Banking Brasil Initial Structure"
-    abbrev = "OBBIS"
-      [author.address]
-      email = "gt-seguranca@openbankingbr.org"
-      uri = "https://openbankingbrasil.org.br/"
-%%%
-
 .# Prefácio
 
 A Estrutura Inicial do Open Banking Brasil é responsável por criar padrões e especificações necessárias para garantir que os requisitos e obrigações da Regulações do Open Banking Brasil como originalmente publicadas pelo Banco Central do Brasil. É possível que parte dos elementos deste documento estejam sujeitos a direitos autorais.  A Estrutura Inicial do Open Banking Brasil não deve ser responsável por identificar nenhuma parte ou totalidade destes direitos autorais.
@@ -149,25 +109,6 @@ Para o propósito deste documento os termos definidos na [RFC5280, [BCP195], [RF
 * **PKI** - Public Key Infrastructure
 
 # Pergunta Frequentes
-
-## Quais os níveis de autenticação (LoA - Level of Assurance) exigido pelo Open Banking Brasil?
-O ACR (Authentication Context Class Reference) é um parâmetro opcional que é utilizado para enviar informações adicionais sobre o nível de autenticação exigida para o usuário final, sendo especificado através do LoA (Level of Assurance)
-
-Para o Open Banking Brasil são definidos:
-* **LoA2:** Autenticação realizada através de fator único
-* **LoA3:** Autenticação realizada através de múltiplo fatores (MFA)
-
-Sendo necessário:
-* **APIs de Consulta:** Deve ser solicitado ao menos LoA2, podendo a instituição transmissora realizar a critério (de acordo com resoluçõa vigente) executar autenticação usando LoA3.
-* **APIs de Escrita (Transacional):** Deve ser solicitado ao menos LoA3.
-
-## Quais os critérios de Múltiplos Fatores de Autenticação?
-Considerando que os fatores de autenticação são compostos por métodos:
-* Algo que você sabe; como uma senha ou uma frase;
-* Algo que você tem; como um token ou um smartcard;
-* Algo que você é; como uma validação biométrica.
-
-Para realizar uma autenticação MFA é necessário que o usuário final apresente ao menos dois métodos distintos de autenticação conforme listado acima. Um mesmo método utilizado duas vezes não é aceito como autenticação de múltiplo fator.
 
 ## O Open Banking Brasil utiliza JAR/JARM?
 
