@@ -185,7 +185,7 @@ This profile describes security and features provisions for a server and client 
 * attacks that address privacy considerations identified in clause 9.1 of [FAPI1 Advanced]
 * the requirement to support fine grained access to resources for data minimisation purposes
 * the requirement to convey the Authentication Context Request that was performed by an OpenID Provider to a Client to enable a appropriate client management of customer conduct risk.
-* the requirement for clients to optionally assert a pre-existing customer relationship by asserting a customer identity claim as part of the authorization flow.
+* the requirement for clients to assert a pre-existing customer relationship by asserting a customer identity claim as part of the authorization flow.
 
 ## Open Banking Brasil security provisions
 
@@ -204,7 +204,7 @@ The Authorization Server shall support the provisions specified in clause 5.2.2 
 
 In addition, the Authorization Server
 
-1. shall support a signed and encrypted JWE request object passed by value or shall require pushed authorization requests;
+1. shall support a signed and encrypted JWE request object passed by value or shall require pushed authorization requests [PAR];
 2. shall distribute discovery metadata (such as the authorization endpoint) via the metadata document as specified in [OIDD] and [RFC8414]
 3. shall support the claims parameter as defined in clause 5.5 [OpenID Connect Core][OIDC]
 4. shall support the oidc standard claim "cpf" as defined in clause 5.2.2.2 of this document
@@ -215,7 +215,8 @@ In addition, the Authorization Server
 9. shall support parameterized OAuth 2.0 resource scope _consent_ as defined in clause 6.3.1 [OIDF FAPI WG Lodging Intent Pattern][LIWP]
 10. may support [Financial-grade API: Client Initiated Backchannel Authentication Profile][FAPI-CIBA]
 11. shall support [Financial-grade API: Client Initiated Backchannel Authentication Profile][FAPI-CIBA] if scope includes _payments_
-12. shall support refresh tokens
+12. may require the presence of a populated cpf value claim if scope includes dynamic resource scope _consent_
+13. shall support refresh tokens
 
 #### ID Token as detached signature
 
@@ -282,6 +283,7 @@ In addition, the confidential client
 3. shall use _encrypted_ request objects if not using [PAR]
 4. shall support parameterized OAuth 2.0 resource scope _consent_ as defined in clause 6.3.1 [OIDF FAPI WG Lodging Intent Pattern][LIWP]
 5. shall support refresh tokens
+6. shall include a populated cpf value claim if scope includes dynamic resource scope _consent_
 
 # Security considerations
 
@@ -345,13 +347,32 @@ The Consent Resource has a life cycle that is managed seperately and distinctly 
 
 In addition to the requirements outlined in Open Banking Brasil security provisions the Authorization Server
 
-1. shall revoke refresh tokens and where practicable access tokens when a consent resource is deleted;
+1. shall revoke refresh tokens and where practicable access tokens when the linked Consent Resource is deleted;
+2. shall ensure Access Tokens are issued with sufficient scope necessary for access to data specified in the Permissions element of a linked Consent Resource object;
+3. shall not reject an authorisation request requesting more scope than is necessary to access data specified in the Permissions element of a linked Consent Resource object;
+4. may reduce requested scope to a level sufficient to enable access to data resources specified in the Permissions element of a linked Consent Resource object;
 
 ### Confidential Client
 
 In addition to the requirements outlined in Open Banking Brasil security provisions the Confidential Client
 
-1. shall discard and cease usage of refresh and access tokens that are bound to a Consent Resource that has been deleted;
+1. shall revoke where possible and cease usage of refresh and access tokens that are bound to a Consent Resource that has been deleted;
+1. shall delete Consent Resource that are expired;
+
+# Regulatory Considerations
+
+## Requirement on Client to present cpf claim to AS {#Reg}
+
+[Joint Resolution No 1, Art. 10, paragraph VI](https://www.in.gov.br/en/web/dou/-/resolucao-conjunta-n-1-de-4-de-maio-de-2020-255165055)
+The interpretation of the Compliance team requires the TPPs to identify the customer before requesting access to resources from a bank. The mechanism adopted is to require the TPP to include a populated customer cpf claim as part of a request object when the request to the bank includes a request for access to a account or payment resources which is
+ conveyed by a dynamic scope of 'consent:{consentId}'.
+
+This assertion is considered to be sufficient to meet the requirements of the legislation but does result in the requirement for customers to provide to third parties this information ahead of requesting an open banking flow.
+ Banks that wish to prevent poor customer experiences or help mitigate the need for customers to key in sensitive details into third party UIs can provide the cpf and other attributes as part of a consent journey
+ provided that they do so without also accepting a request for data sharing at the same time.
+
+The sharing of customer atttributes without a corresponding open banking resource sharing request is out of scope of the regulation which means that banks are not obliged to offer this service but there is no technical barrier with them doing.
+The security profile has been specifically drafted to enable and encourage banks to facilitate this two step process which significantly improves the new customer experience for tpps and prevents the bad practice of encouraging consumers to manually share sentitive personal information into websites. Removing the need for this activity is one of the primary security goals of Open Banking and the OpenID Foundation Financial Grade Working Group on whose standards this profile is based.
 
 # Acknowledgements
 
@@ -362,6 +383,7 @@ The following people contributed to this document:
 * Ralph Bragg (Raidiam)
 * Joseph Heenan (Authlete)
 * Alexandre Siqueira (Mercado Pago)
+* Marcos Rodrigues (Itaú)
 
 {backmatter}
 
