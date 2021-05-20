@@ -105,6 +105,7 @@ and are not to be interpreted with their natural language meanings.</t>
 <t><strong>OIDF</strong> - OpenID Foundation</t>
 <t><strong>REST</strong> – Representational State Transfer</t>
 <t><strong>TLS</strong> – Transport Layer Security</t>
+<t><strong>MFA</strong> - Multi-Factor Authentication</t>
 </section>
 
 <section anchor="brasil-open-banking-security-profile"><name>Brasil Open Banking Security Profile</name>
@@ -160,7 +161,7 @@ In addition this profile describes the specific scope, acr and client management
 </li>
 <li><t>may support <eref target="https://bitbucket.org/openid/fapi/src/master/Financial_API_WD_CIBA.md">Financial-grade API: Client Initiated Backchannel Authentication Profile</eref></t>
 </li>
-<li><t>shall support <eref target="https://bitbucket.org/openid/fapi/src/master/Financial_API_WD_CIBA.md">Financial-grade API: Client Initiated Backchannel Authentication Profile</eref> if scope includes <em>payments</em></t>
+<li><t>shall support <eref target="https://bitbucket.org/openid/fapi/src/master/Financial_API_WD_CIBA.md">Financial-grade API: Client Initiated Backchannel Authentication Profile</eref> if supporting scope <em>payments</em></t>
 </li>
 <li><t>may require the presence of a populated cpf value claim if scope includes dynamic resource scope <em>consent</em></t>
 </li>
@@ -216,6 +217,33 @@ Claim Value that contains a <strong>set</strong> of CNPJs one of which must matc
 <section anchor="requesting-the-urn-brasil-openbanking-loa2-or-urn-brasil-openbanking-loa3-authentication-context-request"><name>Requesting the &quot;urn:brasil:openbanking:loa2&quot; or &quot;urn:brasil:openbanking:loa3&quot; Authentication Context Request</name>
 <t>This profile defines &quot;urn:brasil:openbanking:loa2&quot; and &quot;urn:brasil:openbanking:loa3&quot; as
  new Authentication Context Request classes.</t>
+
+<ul>
+<li><t><strong>LoA2:</strong> Authentication performed using single factor;</t>
+</li>
+<li><t><strong>LoA3:</strong> Authentication performed using multi factor (MFA)</t>
+</li>
+</ul>
+<t>The following rules are applicable:</t>
+
+<ul>
+<li><t><strong>Read-only APIs :</strong> shall require resource owner authentication to at least LoA2, elevating the requirement to authenticate resource owners to LoA3 is at the discretion of the Authorization Server;</t>
+</li>
+<li><t><strong>Read-and-Write APIs (Transactional):</strong> shall require resource owner authentication to at least LoA3.</t>
+</li>
+</ul>
+<t><strong>Authentication factors clarification</strong></t>
+<t>The authentication methods are:</t>
+
+<ul>
+<li><t>Something you know, such as password or phrase</t>
+</li>
+<li><t>Something you have, such as token or smartcard;</t>
+</li>
+<li><t>Something you are, such as biometric validation.</t>
+</li>
+</ul>
+<t>To performe a MFA authentication is necessary the end user to present at least two different methods as listed above. A unique method used more than once is not accepted as MFA.</t>
 </section>
 </section>
 
@@ -300,7 +328,7 @@ Claim Value that contains a <strong>set</strong> of CNPJs one of which must matc
 <t>In addition:</t>
 
 <ul>
-<li><t>the Consent Resource Id must include  url safe characters only;</t>
+<li><t>the Consent Resource Id must include url safe characters only;</t>
 </li>
 <li><t>the Consent Resource Id must be namespaced;</t>
 </li>
@@ -310,7 +338,7 @@ Claim Value that contains a <strong>set</strong> of CNPJs one of which must matc
 </section>
 
 <section anchor="dynamic-consent-scope-example"><name>Dynamic Consent Scope Example</name>
-<t>consent:urn:bancoex:C1DD33123</t>
+<t>consent:urn-bancoex-C1DD33123</t>
 </section>
 </section>
 

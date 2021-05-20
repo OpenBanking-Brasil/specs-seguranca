@@ -216,7 +216,7 @@ In addition, the Authorization Server
 8. shall implement the user info endpoint as defined in clause 5.3 [OpenID Connect Core][OIDC]
 9. shall support parameterized OAuth 2.0 resource scope _consent_ as defined in clause 6.3.1 [OIDF FAPI WG Lodging Intent Pattern][LIWP]
 10. may support [Financial-grade API: Client Initiated Backchannel Authentication Profile][FAPI-CIBA]
-11. shall support [Financial-grade API: Client Initiated Backchannel Authentication Profile][FAPI-CIBA] if scope includes _payments_
+11. shall support [Financial-grade API: Client Initiated Backchannel Authentication Profile][FAPI-CIBA] if supporting scope _payments_
 12. may require the presence of a populated cpf value claim if scope includes dynamic resource scope _consent_
 13. shall support refresh tokens
 
@@ -277,8 +277,9 @@ This profile defines "urn:brasil:openbanking:loa2" and "urn:brasil:openbanking:l
 * **LoA3:** Authentication performed using multi factor (MFA)
 
 The following rules are applicable:
-* **Read-only APIs :** Shall request at least LoA2, and be raised to LoA3 based on the entity performing the end user authentication (in accordance with current resolution);
-* **Read-and-Write APIs (Transactional):** Shall request at least LoA3.
+
+* **Read-only APIs :** shall require resource owner authentication to at least LoA2, elevating the requirement to authenticate resource owners to LoA3 is at the discretion of the Authorization Server;
+* **Read-and-Write APIs (Transactional):** shall require resource owner authentication to at least LoA3.
 
 **Authentication factors clarification**
 
@@ -348,13 +349,13 @@ This profile defines OAuth 2.0 dynamic scope "consent" as follows:
 
 In addition:
 
-* the Consent Resource Id must include  url safe characters only;
+* the Consent Resource Id must include url safe characters only;
 * the Consent Resource Id must be namespaced;
 * the Consent Resource Id must have the properties of a nonce;
 
 ### Dynamic Consent Scope Example
 
-consent:urn:bancoex:C1DD33123
+consent:urn-bancoex-C1DD33123
 
 ## Authorisation Life Cycle
 
