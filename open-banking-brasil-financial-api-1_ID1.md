@@ -174,6 +174,8 @@ For the purpose of this document, the terms defined in [RFC6749], [RFC6750], [RF
 
 **TLS** – Transport Layer Security
 
+**MFA** - Multi-Factor Authentication
+
 # Brasil Open Banking Security Profile
 
 ## Introduction
@@ -270,6 +272,23 @@ Name: cnpj, Type: Array of Strings, Array Element Regex: '^\d{14}$'
 
 This profile defines "urn:brasil:openbanking:loa2" and "urn:brasil:openbanking:loa3" as
  new Authentication Context Request classes.
+
+* **LoA2:** Authentication performed using single factor;
+* **LoA3:** Authentication performed using multi factor (MFA)
+
+The following rules are applicable:
+* **Read-only APIs :** Shall request at least LoA2, and be raised to LoA3 based on the entity performing the end user authentication (in accordance with current resolution);
+* **Read-and-Write APIs (Transactional):** Shall request at least LoA3.
+
+**Authentication factors clarification**
+
+The authentication methods are:
+
+* Something you know, such as password or phrase
+* Something you have, such as token or smartcard;
+* Something you are, such as biometric validation.
+
+To performe a MFA authentication is necessary the end user to present at least two different methods as listed above. A unique method used more than once is not accepted as MFA.
 
 ### Confidential client
 
