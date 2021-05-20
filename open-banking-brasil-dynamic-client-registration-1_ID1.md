@@ -197,7 +197,7 @@ In addition, the Authorization Server
 1. shall advertise all Open Banking Brasil REST API resources protected by the OpenID Provider on the Directory of Participants;
 1. shall advertise support for all signing, encryption, authentication mechanisms and standards required to support [Open Banking Brasil Financial API][OBB-FAPI];
 1. shall advertise support for [OpenID Dynamic Client Registration][OIDR];
-2. shall advertise `mtls_endpoint_aliases` as per clause 3.4 [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens][RF8705] the `token_endpoint`, `registration_endpoint` and `userinfo_endpoint`;
+2. shall advertise `mtls_endpoint_aliases` as per clause 5 [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens][RF8705] the `token_endpoint`, `registration_endpoint` and `userinfo_endpoint`;
 3. if supporting [OAuth 2.0 Pushed Authorisation Requests][PAR] shall advertise through [OIDD] `mtls_endpoint_aliases` the `pushed_authorization_request_endpoint`;
 4. if supporting [Financial API - Client Initiated Back Channel Authentication][FAPI-CIBA] shall advertise through [OIDD] `mtls_endpoint_aliases` the `backchannel_authentication_endpoint`;
 
@@ -209,7 +209,7 @@ In addition, the Authorization Server
 
 1. shall rely on ecosystem discovery services provided by Directory of Participants only;
 1. shall derive necessary Authorisation Server metadata by relying on an Authorization Servers OpenID Connect Discovery services only;
-1. where present, shall use endpoints advertised in `mtls_endpoint_aliases` as per clause 3.4 [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens][RF8705];
+1. where present, shall use endpoints advertised in `mtls_endpoint_aliases` as per clause 5 [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens][RF8705];
 
 # Open Banking Brasil OpenID Connect Registration Provisions
 
@@ -419,6 +419,7 @@ The following people contributed to this document:
 
 * Ralph Bragg (Raidiam)
 * Alexandre Siqueira (Mercado Pago)
+* Bernardo Vale (Banco Inter)
 
 {backmatter}
 
