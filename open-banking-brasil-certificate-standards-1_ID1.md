@@ -71,7 +71,7 @@ Este documento especifica os tipos de certificados necessários para:
 * Apresentar um canal seguro e confiável para clientes do Open Banking Brasil;
 * Autenticar participantes junto do Diretório de participantes do Open Banking Brasil.
 
-# Referências Normativas
+# Referências Normativas  {#References}
 
 Os seguintes documentos referenciados são indispensáveis para a aplicação deste documento. Para referências datadas, apenas a edição citada se aplica. Para referências não datadas, a última edição do documento referenciado (incluindo quaisquer emendas) se aplica.
 
@@ -159,7 +159,7 @@ O Certificado Cliente deve ser emitido através de cadeia V10, e deve obrigatori
 * **localityName (OID 2.5.4.7):** Cidade do endereço físico do titular
 * **organizationalUnitName (OID 2.5.4.11):** Código de Participante associado ao CNPJ listado no Serviço de Diretório do OpenBanking Brasil
 * **UID (OID 0.9.2342.19200300.100.1.1):** Software Statement ID gerado pelo Diretório do Open Banking Brasil
-* **commonName (OID 2.5.4.3):** FQDN ou Wildcard 
+* **commonName (OID 2.5.4.3):** FQDN ou Wildcard
 
 **Certificate Extensions**
 
