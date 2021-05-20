@@ -419,6 +419,7 @@ The following people contributed to this document:
 
 * Ralph Bragg (Raidiam)
 * Alexandre Siqueira (Mercado Pago)
+* Bernardo Vale (Banco Inter)
 
 {backmatter}
 
