@@ -38,7 +38,7 @@
       uri = "https://openbankingbrasil.org.br/"
 %%%
 
-.# Prefácio
+# Prefácio
 
 A Estrutura Inicial do Open Banking Brasil (EIOBB) é responsável por criar padrões e especificações necessárias para atender aos requisitos e obrigações da Legislação do Open Banking do Brasil, conforme originalmente delineado pelo [Banco Central do Brasil] (https://www.bcb.gov.br/content /config/Documents/BCB_Open_Banking_Communique-April-2019.pdf). É possível que alguns dos elementos deste documento estejam sujeitos a direitos autorais ou patenteados. O EIOBB não se responsabiliza pela identificação de qualquer ou todos esses direitos.
 
@@ -49,13 +49,13 @@ O Financial-grade API 1.0 do Open Banking Brasil consiste nas seguintes partes:
 
 Estas partes são destinados a serem usados com [RFC6749], [RFC6750], [RFC7636], [OIDC], [FAPI-1-Baseline] e [FAPI-1-Advanced]
 
-.# Introdução
+# Introdução
 
 A Financial-grade API do Open Banking Brasil é um perfil OAuth altamente seguro que visa fornecer diretrizes de implementação específicas para segurança e interoperabilidade que podem ser aplicadas a APIs na área de Open Banking do Brasil que requerem um nível de privacidade superior ao fornecido pelo padrão [Financial-grade API Security Profile 1.0 - Part 2: Advanced][FAPI-1-Advanced]. Entre outras melhorias, esta especificação aborda considerações de privacidade identificadas em [FAPI-1-Advanced] que são relevantes nas especificações do Open Banking Brasil, mas não foram, até agora, exigidas por outras jurisdições.
 
 Embora seja possível codificar um provedor de OpenID e parte de confiança a partir dos primeiros princípios usando esta especificação, o público principal para esta especificação são as partes que já possuem uma implementação certificada do [Financial-grade API Security Profile 1.0 - Part 2: Advanced][FAPI-1-Advanced] e deseja obter a certificação para o programa Brasil Open Banking.
 
-.# Convenções Notacionais
+# Convenções Notacionais
 
 As palavras-chave "deve", "não deve",
 "deveria", "não deveria", "pode" e
@@ -199,52 +199,54 @@ Além disso, este perfil descreve o escopo específico, requisitos de gerenciame
 
 Como um perfil do OAuth 2.0 Authorization Framework, este documento exige o seguinte para o perfil de segurança do Open Banking Brasil.
 
-### Authorization server
+### Servidor de Autorização
 
-The Authorization Server shall support the provisions specified in clause 5.2.2 of [Financial-grade API Security Profile 1.0 - Part 2: Advanced][FAPI-1-Advanced]
+O Servidor de Autorização deve suportar as disposições especificadas na cláusula 5.2.2 de [Financial-grade API Security Profile 1.0 - Parte 2: Advanced] [FAPI-1-Advanced]. Além disso, ele deve:
 
-In addition, the Authorization Server
+1. deve suportar um objeto de solicitação JWE assinado e criptografado passado por valor ou deve exigir solicitações de autorização por push (pushed authorization requests) [PAR];
+2. deve distribuir metadados de descoberta (como o endpoint de autorização) por meio do documento de metadados, conforme especificado em [OIDD] e [RFC8414]
+3. deve suportar o parâmetro de reivindicações conforme definido na cláusula 5.5 [OpenID Connect Core] [OIDC]
+4. deve apoiar a reivindicação padrão da OIDC "cpf", conforme definido na cláusula 5.2.2.2 deste documento
+5. deve apoiar a reivindicação padrão da OIDC "cnpj", conforme definido na cláusula 5.2.2.3 deste documento
+7. deve suportar o acr "urn: brasil: openbanking: loa2" conforme definido na cláusula 5.2.2.4 deste documento
+8. deve suportar o acr "urn: brasil: openbanking: loa3" conforme definido na cláusula 5.2.2.4 deste documento
+8. deve implementar o endpoint de informações do usuário (user info) conforme definido na cláusula 5.3 [OpenID Connect Core] [OIDC]
+9. deve suportar o escopo do recurso OAuth 2.0 parametrizado _consentimento_, conforme definido na cláusula 6.3.1 [OIDF FAPI WG Lodging Intent Pattern][LIWP]
+10. deve suportar [Financial-grade API: Client Initiated Backchannel Authentication Profile][FAPI-CIBA]
+11. deve suportar [Financial-grade API: Client Initiated Backchannel Authentication Profile][FAPI-CIBA] se o escopo incluir _pagamentos_
+12. pode exigir a presença de uma declaração de valor cpf preenchida se o escopo incluir escopo de recurso dinâmico _consentimento_
+13. deve suportar tokens de atualização
 
-1. shall support a signed and encrypted JWE request object passed by value or shall require pushed authorization requests [PAR];
-2. shall distribute discovery metadata (such as the authorization endpoint) via the metadata document as specified in [OIDD] and [RFC8414]
-3. shall support the claims parameter as defined in clause 5.5 [OpenID Connect Core][OIDC]
-4. shall support the oidc standard claim "cpf" as defined in clause 5.2.2.2 of this document
-5. shall support the oidc standard claim "cnpj" as defined in clause 5.2.2.3 of this document
-6. shall support the acr "urn:brasil:openbanking:loa2" as defined in clause 5.2.2.4 of this document
-7. should support the acr "urn:brasil:openbanking:loa3" as defined in clause 5.2.2.4 of this document
-8. shall implement the user info endpoint as defined in clause 5.3 [OpenID Connect Core][OIDC]
-9. shall support parameterized OAuth 2.0 resource scope _consent_ as defined in clause 6.3.1 [OIDF FAPI WG Lodging Intent Pattern][LIWP]
-10. may support [Financial-grade API: Client Initiated Backchannel Authentication Profile][FAPI-CIBA]
-11. shall support [Financial-grade API: Client Initiated Backchannel Authentication Profile][FAPI-CIBA] if scope includes _payments_
-12. may require the presence of a populated cpf value claim if scope includes dynamic resource scope _consent_
-13. shall support refresh tokens
+#### Token de ID como assinatura separada
 
-#### ID Token as detached signature
+O Servidor de Autorização deve suportar as disposições especificadas na cláusula 5.2.2.1 de [Financial-grade API Security Profile 1.0 - Parte 2: Advanced] [FAPI-1-Advanced]
 
-The Authorization Server shall support the provisions specified in clause 5.2.2.1 of [Financial-grade API Security Profile 1.0 - Part 2: Advanced][FAPI-1-Advanced]
+Além disso, se o valor `response_type`` code id_token` for usado, o servidor de autorização:
 
-In addition, if the `response_type` value `code id_token` is used, the Authorization Server
+1. não deve retornar Informação de Identificação Pessoal (PII) confidenciais no token de ID na resposta de autorização, mas se for necessário,
+então ele deve criptografar o token de ID.
 
-1. should not return sensitive PII in the ID Token in the authorization response, but if it needs to,
-then it shall encrypt the ID Token.
+#### Solicitando a reivindicação "cpf"
 
-#### Requesting the "cpf" Claim
-
-This profile defines "cpf" as a new standard claim as per
- clause 5.1 [OIDC]
-
+Este perfil define "cpf" como uma nova reivindicação padrão de acordo com cláusula 5.1 [OIDC]
+  
 The **CPF** number (Cadastro de Pessoas Físicas, [sepeˈɛfi]; Portuguese for "Natural Persons Register")
  is the **Brazilian** individual taxpayer registry identification. This number is attributed by
  the **Brazilian** Federal Revenue to Brazilians and resident aliens who, directly or indirectly,
   pay taxes in **Brazil**.
-In the Brasil Open Banking identity model, the cpf is a string consisting of numbers that is 11
-characters long and may start with a 0.
+
+O número do ** CPF ** (Cadastro de Pessoas Físicas, [sepeˈɛfi]; português para "Registro de Pessoas Físicas") é o cadastro de pessoa física ** brasileiro **. Este número é atribuído pela Receita Federal ** Brasileira ** para brasileiros e estrangeiros residentes que, direta ou indiretamente, pagar impostos no ** Brasil **.
+
 If the cpf Claim is requested as an Essential Claim for the ID Token or UserInfo response with a
 values parameter requesting a specific cpf value, the Authorization Server MUST return an cpf Claim Value
 that matches the requested value. If this is an Essential Claim and the requirement cannot be met,
  then the Authorization Server MUST treat that outcome as a failed authentication attempt.
 
-Name: cpf, Type: String, Regex: '^\d{11}$'
+No modelo de identidade do Brasil Open Banking, o cpf é uma string composta por números 11 caracteres de comprimento e podem começar com 0.
+Se a reivindicação cpf for solicitada como uma reivindicação essencial para o token de ID ou resposta UserInfo com um parâmetros de valores solicitando um valor cpf específico, o Servidor de Autorização DEVE retornar um valor de reivindicação cpf que corresponde ao valor solicitado. Se esta for uma reivindicação essencial e o requisito não puder ser atendido,
+  então, o Authorization Server DEVE tratar esse resultado como uma tentativa de autenticação falhada.
+
+Nome: cpf, Tipo: String, Regex: '^\d{11}$'
 
 #### Requesting the "cnpj" Claim
 
