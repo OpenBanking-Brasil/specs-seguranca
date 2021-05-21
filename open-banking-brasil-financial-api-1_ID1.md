@@ -38,48 +38,48 @@
       uri = "https://openbankingbrasil.org.br/"
 %%%
 
-.# Foreword
+.# Prefácio
 
-The Open Banking Brasil Initial Structure is responsible for creating standards and specifications necessary to meet the requirements and obligations of the Brasil Open Banking Legislation as originally outlined by the [Brasil Central Bank](https://www.bcb.gov.br/content/config/Documents/BCB_Open_Banking_Communique-April-2019.pdf). There is a possibility that some of the elements of this document may be the subject to patent rights. OBBIS shall not be held responsible for identifying any or all such patent rights.
+A Estrutura Inicial do Open Banking Brasil (EIOBB) é responsável por criar padrões e especificações necessárias para atender aos requisitos e obrigações da Legislação do Open Banking do Brasil, conforme originalmente delineado pelo [Banco Central do Brasil] (https://www.bcb.gov.br/content /config/Documents/BCB_Open_Banking_Communique-April-2019.pdf). É possível que alguns dos elementos deste documento estejam sujeitos a direitos autorais ou patenteados. O EIOBB não se responsabiliza pela identificação de qualquer ou todos esses direitos.
 
-Open Banking Brasil Financial-grade API Security Profile 1.0 consists of the following parts:
+O Financial-grade API 1.0 do Open Banking Brasil consiste nas seguintes partes:
 
 * Open Banking Brasil Financial-grade API Security Profile 1.0
 * [Open Banking Brasil Dynamic Client Registration Profile 1.0][OBB-FAPI-DCR]
 
-These parts are intended to be used with [RFC6749], [RFC6750], [RFC7636], [OIDC], [FAPI-1-Baseline] and [FAPI-1-Advanced]
+Estas partes são destinados a serem usados com [RFC6749], [RFC6750], [RFC7636], [OIDC], [FAPI-1-Baseline] e [FAPI-1-Advanced]
 
-.# Introduction
+.# Introdução
 
-The Open Banking Brasil Financial-grade API is a highly secured OAuth profile that aims to provide specific implementation guidelines for security and interoperability which can be applied to APIs in the Brasil Open Banking Area area that require a higher level of privacy than provided by standard [Financial-grade API Security Profile 1.0 - Part 2: Advanced][FAPI-1-Advanced]. Among other enhancements, this specification addresses privacy considerations identified in [FAPI-1-Advanced] that are relevent in the Open Banking Brasil specifications but have not, so far, been required by other jurisdictions.
+A Financial-grade API do Open Banking Brasil é um perfil OAuth altamente seguro que visa fornecer diretrizes de implementação específicas para segurança e interoperabilidade que podem ser aplicadas a APIs na área de Open Banking do Brasil que requerem um nível de privacidade superior ao fornecido pelo padrão [Financial-grade API Security Profile 1.0 - Part 2: Advanced][FAPI-1-Advanced]. Entre outras melhorias, esta especificação aborda considerações de privacidade identificadas em [FAPI-1-Advanced] que são relevantes nas especificações do Open Banking Brasil, mas não foram, até agora, exigidas por outras jurisdições.
 
-Although it is possible to code an OpenID Provider and Relying Party from first principles using this specification, the main audience for this specification is parties who already have a certified implementation of [Financial-grade API Security Profile 1.0 - Part 2: Advanced][FAPI-1-Advanced] and want to achieve certification for the Brasil Open Banking programme.
+Embora seja possível codificar um provedor de OpenID e parte de confiança a partir dos primeiros princípios usando esta especificação, o público principal para esta especificação são as partes que já possuem uma implementação certificada do [Financial-grade API Security Profile 1.0 - Part 2: Advanced][FAPI-1-Advanced] e deseja obter a certificação para o programa Brasil Open Banking.
 
-.# Notational Conventions
+.# Convenções Notacionais
 
-The key words "shall", "shall not",
-"should", "should not", "may", and
-"can" in this document are to be interpreted as described in
+As palavras-chave "deve", "não deve",
+"deveria", "não deveria", "pode" e
+"pode" neste documento deve ser interpretado conforme descrito em
 [ISO Directive Part 2][ISODIR2].
-These key words are not used as dictionary terms such that
-any occurrence of them shall be interpreted as key words
-and are not to be interpreted with their natural language meanings.
+Estas palavras-chave não são usadas como termos de dicionário, de modo que
+qualquer ocorrência deles deve ser interpretada como palavras-chave
+e não devem ser interpretados com seus significados de linguagem natural.
 
 {mainmatter}
 
-# Scope
+# Escopo
 
-This document specifies the method of
+Este documento especifica o método de
 
-* applications to obtain the OAuth tokens in an appropriately secure manner for higher risk access to data in a manner that meets the requirements of [Open Banking Brasil](https://www.in.gov.br/en/web/dou/-/resolucao-conjunta-n-1-de-4-de-maio-de-2020-255165055);
-* applications to use OpenID Connect to identify the customer; and
-* applications to use OpenID Connect to assert identity of the customer;
+* aplicativos para obter os tokens OAuth de maneira adequadamente segura para acesso de maior risco aos dados de uma maneira que atenda aos requisitos do [Open Banking Brasil] (https://www.in.gov.br/en/web/dou/-/resolucao-conjunta-n-1-de-4-de-maio-de-2020-255165055);
+* aplicativos para usar o OpenID Connect para identificar o cliente; e
+* aplicativos para usar o OpenID Connect para afirmar a identidade do cliente;
 
-This document is applicable to all participants engaging in Open Banking in Brasil.
+Este documento é aplicável a todos os participantes do Open Banking no Brasil.
 
-# Normative references
+# Referências normativas
 
-The following referenced documents are indispensable for the application of this document. For dated references, only the edition cited applied. For undated references, the latest edition of the referenced document (including any amendments) applies.
+Os seguintes documentos referenciados são indispensáveis para a aplicação deste documento. Para referências datadas, apenas a edição citada se aplica. Para referências não datadas, a última edição do documento referenciado (incluindo quaisquer emendas) se aplica.
 
 [ISODIR2] - ISO/IEC Directives Part 2
 [ISODIR2]: <https://www.iso.org/sites/directives/current/part2/index.xhtml
@@ -150,53 +150,54 @@ The following referenced documents are indispensable for the application of this
 [OBB-FAPI-DCR] - Open Banking Brasil Financial-grade API Dynamic Client Registration Profile 1.0
 [OBB-FAPI-DCR]: <https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID1.html
 
-# Terms and definitions
+# Termos e definições
 
-For the purpose of this document, the terms defined in [RFC6749], [RFC6750], [RFC7636], [OpenID Connect Core][OIDC] and ISO29100 apply.
+Para efeitos deste documento, os termos definidos em [RFC6749], [RFC6750], [RFC7636], [OpenID Connect Core][OIDC] e ISO29100 se aplicam.
 
-# Symbols and Abbreviated terms
+# Símbolos e termos abreviados
 
-**API** – Application Programming Interface
+** API ** - Application Programming Interface (Interface de programação de aplicativo)
 
-**OBBIS** – Open Banking Brasil Initial Structure
+** EIOBB ** - Estrutura Inicial do Open Banking Brasil
 
-**CSRF** - Cross Site Request Forgery
+** CSRF ** - Cross Site Request Forgery
 
-**DCR** – Dynamic Client Registration
+** DCR ** - Registro de cliente dinâmico
 
-**FAPI** - Financial-grade API
+** FAPI ** - Financial-grade API
 
-**HTTP** – Hyper Text Transfer Protocol
+** HTTP ** - Protocolo de transferência de hipertexto
 
-**OIDF** - OpenID Foundation
+** OIDF ** - OpenID Foundation
 
-**REST** – Representational State Transfer
+** REST ** - Representational State Transfer (Transferência de Estado Representacional)
 
-**TLS** – Transport Layer Security
+** TLS ** - Transport Layer Security (Segurança da Camada de Transporte)
 
-# Brasil Open Banking Security Profile
+# Perfil de Segurança do Open Banking Brasil
 
-## Introduction
+## Introdução
 
-The Brasil Open Banking Security profile specifies additional security and identity requirements for high risk API resources protected by the OAuth 2.0 Authorization Framework that consists of [RFC6749], [RFC6750], [RFC7636], [FAPI-1-Baseline], [FAPI-1-Advanced] and other specifications.
+O perfil de segurança do Open Banking Brasil especifica requisitos adicionais de segurança e identidade para recursos API de alto risco protegidos pelo OAuth 2.0 Authorization Framework que consiste em [RFC6749], [RFC6750], [RFC7636], [FAPI-1-Baseline], [FAPI- 1-Advanced] e outras especificações.
 
-This profile describes security and features provisions for a server and client that are necessary for the Brasil Open Banking Programme by defining the measures to mitigate or address:
+Este perfil descreve as provisões de segurança e recursos para um servidor e cliente que são necessárias para o Programa do Open Banking Brasil, definindo as medidas para mitigar ou resolver:
 
-* attacks that address privacy considerations identified in clause 9.1 of [FAPI1 Advanced]
-* the requirement to support fine grained access to resources for data minimisation purposes
-* the requirement to convey the Authentication Context Request that was performed by an OpenID Provider to a Client to enable a appropriate client management of customer conduct risk.
-* the requirement for clients to assert a pre-existing customer relationship by asserting a customer identity claim as part of the authorization flow.
+* ataques que abordam considerações de privacidade identificadas na cláusula 9.1 de [FAPI1 Avançado]
+* o requisito de apoiar o acesso refinado a recursos para fins de minimização de dados
+* o requisito de transmitir a Solicitação de Contexto de Autenticação que foi realizada por um Provedor OpenID a um Cliente para permitir um gerenciamento apropriado do cliente do risco de conduta do cliente.
+* o requisito para os clientes afirmarem um relacionamento com o cliente pré-existente, afirmando uma reivindicação de identidade do cliente como parte do fluxo de autorização.
 
-## Open Banking Brasil security provisions
+## Disposições de segurança do Open Banking Brasil
 
-### Introduction
+### Introdução
 
-Open Banking Brasil has a requirement to address privacy considerations that were identified but not addressed in the [FAPI-1-Advanced] final specification without imposing additional requirements on Authorisation Servers being proposed in [FAPI-2-Baseline].
-Participants in this ecosystem have a need for clients to request an openid provider to confirm values of identity claims as part of an authorization request using the mechanism defined in clause 5.5.1 of [OIDC].
-The use of the claims parameter to request explicit claims values requires clients to ensure that they encrypt the request object to avoid information leakage. This risk is identified in clause 7.4.1 of [FAPI-1-Advanced].
-In addition this profile describes the specific scope, acr and client management requirements necessary to support the wider Open Banking Brasil ecosystem.
+O Open Banking Brasil tem um requisito para endereçar considerações de privacidade que foram identificadas, mas não abordadas na especificação final [FAPI-1-Advanced], sem impor requisitos adicionais aos Servidores de Autorização que estão sendo propostos em [FAPI-2-Baseline].
+Os participantes desse ecossistema precisam que os clientes solicitem a um provedor openid para confirmar os valores das declarações de identidade como parte de uma solicitação de autorização usando o mecanismo definido na cláusula 5.5.1 de [OIDC].
+O uso do parâmetro de declarações para solicitar valores de declarações explícitos requer que os clientes garantam que criptografam o objeto de solicitação para evitar vazamento de informações. Este risco é identificado na cláusula 7.4.1 do [FAPI-1-Advanced].
 
-As a profile of the OAuth 2.0 Authorization Framework, this document mandates the following for the Brasil Open Banking Security profile.
+Além disso, este perfil descreve o escopo específico, requisitos de gerenciamento de ações e clientes necessários para dar suporte ao ecossistema Open Banking Brasil mais amplo.
+
+Como um perfil do OAuth 2.0 Authorization Framework, este documento exige o seguinte para o perfil de segurança do Open Banking Brasil.
 
 ### Authorization server
 
