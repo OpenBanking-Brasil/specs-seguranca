@@ -221,7 +221,7 @@ O Servidor de Autorização deve suportar as disposições especificadas na clá
 
 O Servidor de Autorização deve suportar as disposições especificadas na cláusula 5.2.2.1 de [Financial-grade API Security Profile 1.0 - Parte 2: Advanced] [FAPI-1-Advanced]
 
-Além disso, se o valor `response_type`` code id_token` for usado, o servidor de autorização:
+Além disso, se o valor `response_type` `code id_token` for usado, o servidor de autorização:
 
 1. não deve retornar Informação de Identificação Pessoal (PII) confidenciais no token de ID na resposta de autorização, mas se for necessário,
 então ele deve criptografar o token de ID.
@@ -229,37 +229,21 @@ então ele deve criptografar o token de ID.
 #### Solicitando a reivindicação "cpf"
 
 Este perfil define "cpf" como uma nova reivindicação padrão de acordo com cláusula 5.1 [OIDC]
-  
-The **CPF** number (Cadastro de Pessoas Físicas, [sepeˈɛfi]; Portuguese for "Natural Persons Register")
- is the **Brazilian** individual taxpayer registry identification. This number is attributed by
- the **Brazilian** Federal Revenue to Brazilians and resident aliens who, directly or indirectly,
-  pay taxes in **Brazil**.
 
-O número do ** CPF ** (Cadastro de Pessoas Físicas, [sepeˈɛfi]; português para "Registro de Pessoas Físicas") é o cadastro de pessoa física ** brasileiro **. Este número é atribuído pela Receita Federal ** Brasileira ** para brasileiros e estrangeiros residentes que, direta ou indiretamente, pagar impostos no ** Brasil **.
+O número do **CPF** (Cadastro de Pessoas Físicas, [sepeˈɛfi]; português para "Registro de Pessoas Físicas") é o cadastro de pessoa física **brasileira**. Este número é atribuído pela Receita Federal **Brasileira** para brasileiros e estrangeiros residentes que, direta ou indiretamente, pagar impostos no **Brasil**.
 
-If the cpf Claim is requested as an Essential Claim for the ID Token or UserInfo response with a
-values parameter requesting a specific cpf value, the Authorization Server MUST return an cpf Claim Value
-that matches the requested value. If this is an Essential Claim and the requirement cannot be met,
- then the Authorization Server MUST treat that outcome as a failed authentication attempt.
-
-No modelo de identidade do Brasil Open Banking, o cpf é uma string composta por números 11 caracteres de comprimento e podem começar com 0.
+No modelo de identidade do Open Banking Brasil, o cpf é uma string composta por números 11 caracteres de comprimento e podem começar com 0.
 Se a reivindicação cpf for solicitada como uma reivindicação essencial para o token de ID ou resposta UserInfo com um parâmetros de valores solicitando um valor cpf específico, o Servidor de Autorização DEVE retornar um valor de reivindicação cpf que corresponde ao valor solicitado. Se esta for uma reivindicação essencial e o requisito não puder ser atendido,
   então, o Authorization Server DEVE tratar esse resultado como uma tentativa de autenticação falhada.
 
 Nome: cpf, Tipo: String, Regex: '^\d{11}$'
 
-#### Requesting the "cnpj" Claim
+#### Solicitando a reivindicação "cnpj"
 
-This profile defines "cnpj" as a new standard claim as per
- clause 5.1[OIDC]
-
-**CNPJ**, short for Cadastro Nacional de Pessoas Jurídicas, is an identification number
- of **Brazilian** companies issued by the **Brazilian** Ministry of Revenue, **in**
- Portuguese "Secretaria da Receita Federal" or "Ministério da Fazenda". In the Brasil Open Banking identity model,
- individuals can associated with 0 or more CNPJs. A CNPJ is a string consisting of numbers that is 14 digits long and may start with a 0,
- the first eight digits identify the company, the four digits after the slash identify the branch or
-  subsidiary ("0001" defaults to the headquarters), and the last two are checksum digits.
-   For this profile, the cnpj claim must be requested and supplied as the 14 digit number.
+Este perfil define "cnpj" como uma nova reivindicação padrão de acordo com cláusula 5.1 [OIDC]
+  
+**CNPJ**, abreviação de Cadastro Nacional de Pessoas Jurídicas, é um número de identificação de empresas **brasileiras** emitidas pelo Ministério da Fazenda **brasileira**, **na**
+  "Secretaria da Receita Federal" ou "Ministério da Fazenda" do Brasil. No modelo de identidade do Open Banking Brasil, pessoas físicas podem se associar a 0 ou mais CNPJs. Um CNPJ é uma string que consiste em números de 14 dígitos e pode começar com 0, os primeiros oito dígitos identificam a empresa, os quatro dígitos após a barra identificam a filial ou subsidiária ("0001" padrão para a sede), e os dois últimos são dígitos de soma de verificação. Para este perfil, o pedido de cnpj deve ser solicitado e fornecido como o número de 14 dígitos.
 
 If the cnpj Claim is requested as an Essential Claim for the ID Token or UserInfo response with a
 values parameter requesting a specific cnpj value, the Authorization Server MUST return an cnpj
@@ -267,121 +251,120 @@ Claim Value that contains a **set** of CNPJs one of which must match the request
  is an Essential Claim and the requirement cannot be met, then the Authorization Server MUST treat
  that outcome as a failed authentication attempt.
 
-Name: cnpj, Type: Array of Strings, Array Element Regex: '^\d{14}$'
+Se a reivindicação cnpj for solicitada como uma reivindicação essencial para o token de ID ou resposta UserInfo com um parâmetros de valores solicitando um valor cnpj específico, o Servidor de Autorização DEVE retornar um cnpj Claim Value que contém um **conjunto** de CNPJs, um dos quais deve corresponder ao valor solicitado. Se este é uma Reivindicação Essencial e o requisito não pode ser atendido, então o Servidor de Autorização DEVE tratar esse resultado como uma tentativa de autenticação falhada.
 
-#### Requesting the "urn:brasil:openbanking:loa2" or "urn:brasil:openbanking:loa3" Authentication Context Request
+Nome: cnpj, Tipo: Array of Strings, Array Element Regex: '^\d{14}$'
 
-This profile defines "urn:brasil:openbanking:loa2" and "urn:brasil:openbanking:loa3" as
- new Authentication Context Request classes.
+#### Solicitando o "urn: brasil: openbanking: loa2" ou "urn: brasil: openbanking: loa3" Solicitação de contexto de autenticação
 
-### Confidential client
+Este perfil define "urn: brasil: openbanking: loa2" e "urn: brasil: openbanking: loa3" como novas classes de solicitação de contexto de autenticação.
 
-A confidential client shall support the provisions specified in clause 5.2.3 of
+### Cliente confidencial 
+
+Um cliente confidencial deve apoiar as disposições especificadas na cláusula 5.2.3 de
 [Financial-grade API Security Profile 1.0 - Part 1: Advanced][FAPI-1-Advanced],
 
-In addition, the confidential client
+Além disso, o cliente confidencial
 
-1. shall support _encrypted_ request objects
-2. shall support pushed authorisation requests [PAR]
-3. shall use _encrypted_ request objects if not using [PAR]
-4. shall support parameterized OAuth 2.0 resource scope _consent_ as defined in clause 6.3.1 [OIDF FAPI WG Lodging Intent Pattern][LIWP]
-5. shall support refresh tokens
-6. shall include a populated cpf value claim if scope includes dynamic resource scope _consent_
+1. deve suportar objetos de solicitação _encrypted_
+2. deve suportar solicitações de autorização push (pushed authorization requests) [PAR]
+3. deve usar objetos de solicitação _encrypted_ se não usar [PAR]
+4. deve suportar o escopo de recurso OAuth 2.0 parametrizado _consentimento_ conforme definido na cláusula 6.3.1 [OIDF FAPI WG Lodging Intent Pattern][LIWP]
+5. deve suportar tokens de atualização
+6. deve incluir uma declaração de valor de cpf preenchida se o escopo incluir escopo de recurso dinâmico _consentimento_
 
-# Security considerations
+# Considerações de segurança
 
-Participants shall support all security considerations specified in clause 8
- [Financial-grade API Security Profile 1.0 - Part 1: Advanced][FAPI-1-Advanced] and the [Brazilian Central Bank Open Banking Security Manual](https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Instru%C3%A7%C3%A3o%20Normativa%20BCB&numero=99).
- The Brazilian ICP issues RSA x509 certificates only therefor section removes for simplicity support for EC algorithms
- and requires that only IANA recommended encryption algorithms be used.
+Os participantes devem apoiar todas as considerações de segurança especificadas na cláusula 8 [Financial-grade API Security Profile 1.0 - Parte 1: Advanced] [FAPI-1-Advanced] e o [Manual de Segurança de Banco Central do Brasil] (https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Instru%C3%A7%C3%A3o%20Normativa%20BCB&numero=99). O ICP brasileiro emite certificados RSA x509 somente, portanto, para simplificar, a seção remove o suporte para algoritmos EC e exige que apenas algoritmos de criptografia recomendados pela IANA sejam usados.
+  
+## Considerações de algoritmo
 
-## Algorithm considerations
+Para JWS, clientes e servidores de autorização
 
-For JWS, both clients and Authorization Servers
+1. devem usar o algoritmo PS256;
 
-1. shall use PS256 algorithm;
+### Considerações de algoritmo de criptografia
 
-### Encryption algorithm considerations
+Para JWE, clientes e servidores de autorização
 
-For JWE, both clients and Authorization Servers
+1. devem usar RSA-OAEP com A256GCM
 
-1. shall use RSA-OAEP with A256GCM
+### Considerações sobre o uso seguro do Transport Layer Security
 
-### Secure Use of Transport Layer Security considerations
+Para TLS, endpoints do Servidor de Autenticação e endpoints do Servidor de Recursos usados diretamente pelo cliente:
 
-For TLS, Authorization Server endpoints and Resource Server endpoints used directly by the Client
+1. devem suportar `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`
+2. devem suportar `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
 
-1. shall support `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`
-2. shall support `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
+# Considerações sobre compartilhamento de dados
 
-# Data Sharing Considerations
+## Mecanismo de Autorização
 
-## Authorisation Mechanism
+### Introdução
 
-### Introduction
+Os mecanismos existentes para gerenciar adequadamente o acesso aos recursos definidos em [RFC6749] são insuficientes para atender aos requisitos de um ecossistema de compartilhamento de dados moderno. Aproveitar strings de escopo estático não fornece aos consumidores controle de granularidade suficiente para compartilhar com terceiros. O Open Banking Brasil optou por implementar uma [API de consentimento] (https://openbanking-brasil.github.io/areadesenvolvedor/swagger/swagger_consents_apis.yaml) como um recurso protegido OAuth 2.0 que pode ser usado para gerenciar o acesso granular aos recursos. A referência ao recurso de consentimento será transmitida como parte de um escopo de recurso dinâmico OAuth 2.0.
 
-Existing mechanisms for appropriately managing access to resources defined in [RFC6749] are insufficient to meet the requirements for a modern data sharing ecosystem. Leveraging static scope strings does not provide consumers control of sufficient granularity to share with third parties. Open Banking Brasil have elected to implement a [Consent API](https://openbanking-brasil.github.io/areadesenvolvedor/swagger/swagger_consents_apis.yaml) as a OAuth 2.0 protected resource that can be used to manage fine grain access to resources. The reference to the Consent Resource will be conveyed as part of an OAuth 2.0 dynamic resource scope.
+### Definição de Escopo de Consentimento Dinâmico
 
-### Dynamic Consent Scope Definition
+Este perfil define o escopo dinâmico do OAuth 2.0 "consentimento" da seguinte maneira:
 
-This profile defines OAuth 2.0 dynamic scope "consent" as follows:
+* string 'consentimento'; e
+* delimitador de dois pontos ":"; e
+* Consent API REST Resource Id retornado por uma criação bem-sucedida de [Open Banking Consent Resource](https://openbanking-brasil.github.io/areadesenvolvedor/#fase-2-apis-do-open-banking-brasil-api-consentimento);
 
-* string 'consent'; and
-* delimiter of a colon ":"; and
-* Consent API REST Resource Id as returned by a successful creation of [Open Banking Consent Resource](https://openbanking-brasil.github.io/areadesenvolvedor/#fase-2-apis-do-open-banking-brasil-api-consentimento);
+Adicionalmente:
 
-In addition:
-
-* the Consent Resource Id must include  url safe characters only;
-* the Consent Resource Id must be namespaced;
-* the Consent Resource Id must have the properties of a nonce;
+* the Consent Resource Id deve incluir caracteres seguros para url;
+* the Consent Resource Id deve ter namespace;
+* the Consent Resource Id deve ter propriedades de um nonce [Nonce](https://pt.wikipedia.org/wiki/Nonce);
 
 ### Dynamic Consent Scope Example
 
 consent:urn:bancoex:C1DD33123
 
-## Authorisation Life Cycle
+### Exemplo de escopo de consentimento dinâmico
 
-### Introduction
+consent:urn:bancoex:C1DD33123
 
-The Consent Resource has a life cycle that is managed seperately and distinctly from the OAuth 2.0 Authorisation Framework. The state transitions and expected behaviours and error conditions expected of REST Resouces protected with this profile are defined in the functional API specifications published by Open Banking Brasil.
+## Ciclo de vida da autorização
 
-### Authorization server
+### Introdução
 
-In addition to the requirements outlined in Open Banking Brasil security provisions the Authorization Server
+O recurso de consentimento tem um ciclo de vida gerenciado separada e distintamente da estrutura de autorização OAuth 2.0. As transições de estado e comportamentos esperados e condições de erro esperados dos Recursos REST protegidos com este perfil são definidos nas especificações funcionais da API publicadas pelo Open Banking Brasil.
 
-1. shall revoke refresh tokens and where practicable access tokens when the linked Consent Resource is deleted;
-2. shall ensure Access Tokens are issued with sufficient scope necessary for access to data specified in the Permissions element of a linked Consent Resource object;
-3. shall not reject an authorisation request requesting more scope than is necessary to access data specified in the Permissions element of a linked Consent Resource object;
-4. may reduce requested scope to a level sufficient to enable access to data resources specified in the Permissions element of a linked Consent Resource object;
+### Servidor de autorização
 
-### Confidential Client
+Além dos requisitos descritos nas disposições de segurança do Open Banking Brasil, o Servidor de Autorização
 
-In addition to the requirements outlined in Open Banking Brasil security provisions the Confidential Client
+1. deve revogar tokens de atualização e, quando possível, tokens de acesso quando o recurso de consentimento vinculado for excluído;
+2. deve garantir que os tokens de acesso sejam emitidos com o escopo necessário para o acesso aos dados especificados no elemento Permissões de um objeto de recurso de consentimento vinculado;
+3. não deve rejeitar uma solicitação de autorização solicitando mais escopo do que o necessário para acessar os dados especificados no elemento Permissões de um objeto de recurso de consentimento vinculado;
+4. pode reduzir o escopo solicitado a um nível suficiente para permitir o acesso aos recursos de dados especificados no elemento Permissões de um objeto de recurso de consentimento vinculado;
 
-1. shall revoke where possible and cease usage of refresh and access tokens that are bound to a Consent Resource that has been deleted;
-1. shall delete Consent Resource that are expired;
+### Cliente confidencial
 
-# Regulatory Considerations
+Além dos requisitos descritos nas disposições de segurança do Open Banking Brasil, o Cliente Confidencial
 
-## Requirement on Client to present cpf claim to AS {#Reg}
+1. deve revogar sempre que possível e cessar o uso de tokens de atualização e acesso vinculados a um recurso de consentimento que foi excluído;
+2. deve excluir Recursos de consentimento que estão expirados;
 
-[Joint Resolution No 1, Art. 10, paragraph VI](https://www.in.gov.br/en/web/dou/-/resolucao-conjunta-n-1-de-4-de-maio-de-2020-255165055)
-The interpretation of the Compliance team requires the TPPs to identify the customer before requesting access to resources from a bank. The mechanism adopted is to require the TPP to include a populated customer cpf claim as part of a request object when the request to the bank includes a request for access to a account or payment resources which is
- conveyed by a dynamic scope of 'consent:{consentId}'.
+# Considerações regulatórias
 
-This assertion is considered to be sufficient to meet the requirements of the legislation but does result in the requirement for customers to provide to third parties this information ahead of requesting an open banking flow.
- Banks that wish to prevent poor customer experiences or help mitigate the need for customers to key in sensitive details into third party UIs can provide the cpf and other attributes as part of a consent journey
- provided that they do so without also accepting a request for data sharing at the same time.
+## Requisito do cliente para apresentar reivindicação cpf para AS {#Reg}
 
-The sharing of customer atttributes without a corresponding open banking resource sharing request is out of scope of the regulation which means that banks are not obliged to offer this service but there is no technical barrier with them doing.
-The security profile has been specifically drafted to enable and encourage banks to facilitate this two step process which significantly improves the new customer experience for tpps and prevents the bad practice of encouraging consumers to manually share sentitive personal information into websites. Removing the need for this activity is one of the primary security goals of Open Banking and the OpenID Foundation Financial Grade Working Group on whose standards this profile is based.
+[Resolução Conjunta nº 1, art. 10, parágrafo VI](https://www.in.gov.br/en/web/dou/-/resolucao-conjunta-n-1-de-4-de-maio-de-2020-255165055)
+A interpretação da equipe de Conformidade exige que os TPPs (Third-party Providers ou Provedores terceiros) identifiquem o cliente antes de solicitar acesso a recursos de um banco. O mecanismo adotado é exigir que o TPP inclua um pedido de cpf de cliente preenchido como parte de um objeto de pedido quando o pedido ao banco inclui um pedido de acesso a uma conta ou recursos de pagamento que é transmitido por um escopo dinâmico de 'consent: {consentId}'.
 
-# Acknowledgements
+Essa afirmação é considerada suficiente para atender aos requisitos da legislação, mas resulta na exigência de que os clientes forneçam a terceiros essas informações antes de solicitarem um fluxo bancário aberto. Os bancos que desejam evitar experiências ruins do cliente ou ajudar a mitigar a necessidade de os clientes digitarem detalhes confidenciais em ambientes ou interfaces de terceiros podem fornecer o cpf e outros atributos como parte de uma jornada de consentimento desde que o façam sem aceitar também um pedido de partilha de dados ao mesmo tempo.
 
-With thanks to all who have set the foundations for secure and safe data sharing through the formation of the OpenID Foundation FAPI Working Group, the Open Banking Brasil GT Security and to the pioneers who will stand on their shoulders.
+A partilha de atributos do cliente sem um correspondente pedido de partilha de recursos bancários abertos está fora do âmbito do regulamento, o que significa que os bancos não são obrigados a oferecer este serviço, mas não existe qualquer barreira técnica para o fazerem. O perfil de segurança foi elaborado especificamente para permitir e encorajar os bancos a facilitar este processo de duas etapas que melhora significativamente a nova experiência do cliente para TPPs e evita a má prática de encorajar os consumidores a compartilhar manualmente informações pessoais sensíveis em sites. Eliminar a necessidade dessa atividade é um dos principais objetivos de segurança do Open Banking e do OpenID Foundation Financial Grade Working Group em cujos padrões este perfil se baseia.
 
-The following people contributed to this document:
+
+# Reconhecimentos
+
+Agradecemos a todos que estabeleceram as bases para o compartilhamento seguro e seguro de dados por meio da formação do Grupo de Trabalho FAPI da OpenID Foundation, o GT de Segurança do Open Banking Brasil e aos pioneiros que ficarão em seus ombros.
+
+As seguintes pessoas contribuíram para este documento:
 
 * Ralph Bragg (Raidiam)
 * Joseph Heenan (Authlete)
@@ -390,10 +373,10 @@ The following people contributed to this document:
 
 {backmatter}
 
-# Notices
+# Avisos
 
-Copyright (c) 2021 Open Banking Brasil Initial Structure.
+Copyright (c) 2021 Estrutura Inicial do Open Banking Brasil
 
-The Open Banking Brasil Initial Structure (OBBIS) grants to any Contributor, developer, implementer, or other interested party a non-exclusive, royalty-free, worldwide copyright license to reproduce, prepare derivative works from, distribute, perform and display, this Implementers Draft or Final Specification solely for the purposes of (i) developing specifications, and (ii) implementing Implementers Drafts and Final Specifications based on such documents, provided that attribution be made to the OBBIS as the source of the material, but that such attribution does not indicate an endorsement by the OBBIS.
+A Estrutura Inicial do Open Banking Brasil (EIOBB) concede a qualquer Colaborador, desenvolvedor, implementador ou outra parte interessada uma licença de direitos autorais mundial não exclusiva, livre de royalties para reproduzir, preparar trabalhos derivados, distribuir, executar e exibir, estes Implementadores Rascunho ou Especificação Final exclusivamente para fins de (i) desenvolver especificações e (ii) implementar Rascunhos de Implementadores e Especificações Finais com base em tais documentos, desde que a atribuição seja feita ao EIOBB como a fonte do material, mas que tal atribuição o faça não indica endosso do EIOBB.
 
-The technology described in this specification was made available from contributions from various sources, including members of the OpenID Foundation, the Open Banking Brasil GT Security Working Group and others. Although the Open Banking Brasil Initial Structure has taken steps to help ensure that the technology is available for distribution, it takes no position regarding the validity or scope of any intellectual property or other rights that might be claimed to pertain to the implementation or use of the technology described in this specification or the extent to which any license under such rights might or might not be available; neither does it represent that it has made any independent effort to identify any such rights. The Open Banking Brasil Initial Structure and the contributors to this specification make no (and hereby expressly disclaim any) warranties (express, implied, or otherwise), including implied warranties of merchantability, non-infringement, fitness for a particular purpose, or title, related to this specification, and the entire risk as to implementing this specification is assumed by the implementer. The Open Banking Brasil Intellectual Property Rights policy requires contributors to offer a patent promise not to assert certain patent claims against other contributors and against implementers. The Open Banking Brasil Initial Structure invites any interested party to bring to its attention any copyrights, patents, patent applications, or other proprietary rights that may cover technology that may be required to practice this specification.
+A tecnologia descrita nesta especificação foi disponibilizada a partir de contribuições de várias fontes, incluindo membros da OpenID Foundation, do Grupo de Trabalho de Segurança do Open Banking Brasil e outros. Embora a Estrutura Inicial do Open Banking Brasil tenha tomado medidas para ajudar a garantir que a tecnologia esteja disponível para distribuição, ela não toma posição quanto à validade ou escopo de qualquer propriedade intelectual ou outros direitos que possam ser reivindicados como pertencentes à implementação ou uso do tecnologia descrita nesta especificação ou até que ponto qualquer licença sob tais direitos pode ou não estar disponível; nem representa que fez qualquer esforço independente para identificar tais direitos. A Estrutura Inicial do Open Banking Brasil e os contribuidores desta especificação não oferecem (e por meio deste expressamente se isentam de quaisquer) garantias (expressas, implícitas ou de outra forma), incluindo garantias implícitas de comercialização, não violação, adequação a uma finalidade específica ou título, relacionados a esta especificação, e todo o risco quanto à implementação desta especificação é assumido pelo implementador. A política de Direitos de Propriedade Intelectual do Open Banking Brasil exige que os contribuidores ofereçam uma promessa de patente de não fazer valer certas reivindicações de patentes contra outros contribuidores e implementadores. A Estrutura Inicial do Open Banking Brasil convida qualquer parte interessada a trazer à sua atenção quaisquer direitos autorais, patentes, pedidos de patentes ou outros direitos de propriedade que possam abranger a tecnologia que possa ser necessária para praticar esta especificação.
