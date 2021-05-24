@@ -120,6 +120,12 @@ De acordo com a MEDIDA PROVISÓRIA No 2.200-2, DE 24 DE AGOSTO DE 2001 (http://w
 
 Para o Open Banking Brasil, a utilização de PKI Privada para emissão de certificados de autenticação (cliente) e assinatura é permitido apenas quando provisionado pela entidade atuando como transmissora de dados, e quando a entidade receptora de dados não participa do Ecossistema do Open Banking Brasil de maneira a não possuir cadastro no Serviço de Diretório do Open Banking Brasil e o **certificado deve possuir as mesmas características de chaves criptográficas e atributos conforme especificado pelo Open Banking Brasil.**
 
+## É possível utilizar outros certificados que já estão em uso pela instituiçào e foram emitidos por Autoridade Certificadora autorizada pelo ICP-Brasil (Ex. e-CNPJ, SPB)?
+
+Não. Os certificados do Open Banking Brasil para Autenticação Cliente (Transporte) e Assinatura possuem atributos X509 especificos que identificam o registro de aplicação e participante com valores obtidos durante os registro de entidade e aplicação junto ao Serviço de Diretório. Com isso outros certificado como e-CPNJ e SPB não possuem tais atributos e não podem ser utilizados para autenticação e assinatura de mensagens entre os participantes do Open Banking Brasil. 
+
+Obs. Os certificados utilizados para o lado servidor (TLS Server) não possuem atributos de Open Banking Brasil e podem ser obtidos junto a autoridades certificadoras autorizadas pelo ICP-Brasil.
+
 # Reconhecimento
 
 Agradecemos a todos que estabeleceram as bases para o compartilhamento seguro e seguro de dados por meio da formação do Grupo de Trabalho FAPI da OpenID Foundation, o GT-Segurança do Open Banking Brasil e aos pioneiros que ficarão em seus ombros.
