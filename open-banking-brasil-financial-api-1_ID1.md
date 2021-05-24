@@ -313,9 +313,10 @@ Participants shall support all security considerations specified in clause 8
 
 ## Algorithm considerations
 
-For JWS, both clients and Authorization Servers
+For JWS, clients, Resource Server endpoints and Authorization Servers
 
 1. shall use PS256 algorithm;
+2. shall use [RFC7515] specification as the method for message signature;
 
 ### Encryption algorithm considerations
 
