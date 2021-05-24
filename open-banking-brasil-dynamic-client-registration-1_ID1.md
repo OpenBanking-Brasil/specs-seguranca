@@ -250,15 +250,21 @@ To address this ambiguity, the Authorization Server must accept all AttributeTyp
 
 ## Regulatory Roles to OpenID and OAuth 2.0 Mappings
 
-| Regulatory Role | Allowed Scopes |
-| --- | --- |
-| DADOS | openid accounts credit-cards-accounts consents customers invoice-financings financings loans unarragned-accounts-overdraft consents|
-| PAGTO | openid payments consents |
+To participate in the Open Banking ecosystem, accredited institutions must register themselves in the directory of participants according to their regulatory roles. Those roles reflect the institutions' authorization from the Central Bank and, consequently, the APIs they are allowed to use.
+
+The following table describes the regulatory roles for Open Banking and the related OAuth 2.0 scopes mapping. If the scopes are omitted during the DCR process, the authorization server shall grant the complete set of potential scopes based on the registering bank's regulatory roles, as described in the Server Defaults section.
+
+| Regulatory Role | Description | Allowed Scopes | Target Phase|
+| --- | --- | --- | --- |
+| DADOS | Instituição transmissora / receptora de dados (AISP) | openid accounts credit-cards-accounts consents customers invoice-financings financings loans unarragned-accounts-overdraft consents | Phase 2 |
+| PAGTO | Instituição prestadora de serviço de iniciação de pagamentos (PISP) | openid payments consents | Phase 3 |
+| CONTA | Instituição detentora de conta (ASPSP) | openid | Phase 3 |
+| CCORR | Correspondente de crédito | openid | Phase 3* |
+
 
 ### Implementers Note
 
-In line with guidance from the IETF and the direction of travel for fine grained consent management. The obligation falls to the Authorisation Server to ensure that there is sufficient
- scope conveyed in an access token necessary to fulfill the Permissions conveyed in the Consent Request. This principle and requirement is reflected in the forthcoming Grant Management API.
+In line with guidance from the IETF and the direction of travel for fine grained consent management. The obligation falls to the Authorisation Server to ensure that there is sufficient scope conveyed in an access token necessary to fulfill the Permissions conveyed in the Consent Request. This principle and requirement is reflected in the forthcoming Grant Management API.
 
 ## Regulatory Roles to dynamic OAuth 2.0 scope Mappings
 
