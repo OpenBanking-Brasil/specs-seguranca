@@ -39,47 +39,43 @@
 
 %%%
 
-.# Foreword
+# Prefácio
 
-The Open Banking Brasil Initial Structure is responsible for creating standards and specifications necessary to meet the requirements and obligations of the Brasil Open Banking Legislation as originally outlined by the [Brasil Central Bank](https://www.bcb.gov.br/content/config/Documents/BCB_Open_Banking_Communique-April-2019.pdf). There is a possibility that some of the elements of this document may be the subject to patent rights. OBBIS shall not be held responsible for identifying any or all such patent rights.
+A Estrutura Inicial do Open Banking Brasil é responsável por criar os padrões e especificações necessários para atender aos requisitos e obrigações da Legislação do Open Banking do Brasil, conforme originalmente delineado pelo [Banco Central do Brasil](https://www.bcb.gov.br/content/config/Documents/BCB_Open_Banking_Communique-April-2019.pdf). É possível que alguns dos elementos deste documento estejam sujeitos a direitos de patente. O EIOBB não se responsabiliza pela identificação de qualquer ou todos os direitos de patente.
 
-Open Banking Brasil Financial-grade API Security Profile 1.0 consists of the following parts:
+O Perfil de Segurança 1.0 da API de nível financeiro do Open Banking Brasil consiste nas seguintes partes:
 
 * [Open Banking Brasil Financial-grade API Security Profile 1.0][OBB-FAPI]
 * Open Banking Brasil Dynamic Client Registration Profile 1.0
 
-These parts are intended to be used with [RFC6749], [RFC6750], [RFC7636], [OIDC], [OIDR], [RFC7591], [RFC7592], [FAPI-1-Baseline] and [FAPI-1-Advanced]
+Essas partes devem ser usadas com [RFC6749], [RFC6750], [RFC7636], [OIDC], [OIDR], [RFC7591], [RFC7592], [FAPI-1-Baseline] e [FAPI-1-Advanced]
 
-.# Introduction
+# Introdução
 
-The Open Banking Brasil Financial-grade API Dynamic Client Registration Profile is a profile of [RFC7591], [RFC7592] and [OIDR] that aims to provide specific implementation guidelines for security and interoperability which can be applied to the identification, registration and management of OAuth Clients operating in the Brasil Open Banking ecosystem.
-Although it is possible to code an OpenID Provider and Relying Party from first principles using this specification, the main audience for this specification is parties who already have a certified implementation of [OpenID Connect][OIDC] and want to achieve certification for the Brasil Open Banking programme.
+O Perfil de Registro de Cliente Dinâmico de Financal-grade API (FAPI) do Open Banking Brasil é um perfil de [RFC7591], [RFC7592] e [OIDR] que visa fornecer diretrizes de implementação específicas para segurança e interoperabilidade que podem ser aplicadas à identificação, registro e gerenciamento de Clientes OAuth operando no ecossistema Brasil Open Banking.
 
-.# Notational Conventions
+Embora seja possível codificar um provedor e parte de confiança OpenID desde os primeiros princípios usando esta especificação, o principal público para esta especificação são as partes que já possuem uma implementação certificada do [OpenID Connect] [OIDC] e desejam obter a certificação para o Brasil Open Programa bancário.
 
-The key words "shall", "shall not",
-"should", "should not", "may", and
-"can" in this document are to be interpreted as described in
-[ISO Directive Part 2][ISODIR2].
-These key words are not used as dictionary terms such that
-any occurrence of them shall be interpreted as key words
-and are not to be interpreted with their natural language meanings.
+# Convenções Notacionais
+
+As palavras-chave "deve", "não deve", "deveria", "não deveria", "pode" e "pode" neste documento deve ser interpretado conforme descrito em [Diretiva ISO Parte 2] [ISODIR2].
+Estas palavras-chave não são usadas como termos de dicionário, de modo que qualquer ocorrência deles deve ser interpretada como palavras-chave e não devem ser interpretados com seus significados naturais de linguagem.
 
 {mainmatter}
 
-# Scope
+# Escopo
 
-This document specifies the method of
+Este documento especifica o método de
 
-* applications registered in the [Open Banking Directory of Participants](https://web.directory.openbankingbrasil.org.br) to discover OpenID Providers offering services in the Open Banking Brasil ecosystem;
-* applications to use [OpenID Connect Registration][OIDR] to onboard their applications with Bank OpenID Providers; and
-* applications to use [OAuth 2.0 Dynamic Client Registration Management Protocol][RFC7592] to manage their applications with OpenID Providers;
+* aplicativos cadastrados no [Open Banking Directory of Participants](https://web.directory.openbankingbrasil.org.br) para descobrir OpenID Providers que oferecem serviços no ecossistema Open Banking Brasil;
+* aplicativos para usar o [OpenID Connect Registration][OIDR] para integrar seus aplicativos com Bank OpenID Providers; e
+* aplicativos para usar [OAuth 2.0 Dynamic Client Registration Management Protocol][RFC7592] para gerenciar seus aplicativos com Provedores OpenID;
 
-This document is applicable to all participants engaging in Open Banking in Brasil.
+Este documento é aplicável a todos os participantes do Open Banking no Brasil.
 
-# Normative references
+# Referências normativas
 
-The following referenced documents are indispensable for the application of this document. For dated references, only the edition cited applied. For undated references, the latest edition of the referenced document (including any amendments) applies.
+Os seguintes documentos referenciados são indispensáveis para a aplicação deste documento. Para referências datadas, apenas a edição citada se aplica. Para referências não datadas, a última edição do documento referenciado (incluindo quaisquer emendas) se aplica.
 
 [ISODIR2] - ISO/IEC Directives Part 2
 [ISODIR2]: <https://www.iso.org/sites/directives/current/part2/index.xhtml
@@ -147,19 +143,19 @@ The following referenced documents are indispensable for the application of this
 [OBB-Cert-Standards] - Open Banking Brasil x.509 Certificate Standards
 [OBB-Cert-Standards]: <https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html
 
-# Terms and definitions
+# Termos e definições
 
-For the purpose of this document, the terms defined in [RFC6749], [RFC6750], [RFC7636], [OpenID Connect Core][OIDC] and ISO29100 apply.
+Para efeitos deste documento, aplicam-se os termos definidos em [RFC6749], [RFC6750], [RFC7636], [OpenID Connect Core][OIDC] e ISO29100.
 
-# Symbols and Abbreviated terms
+# Símbolos e Termos abreviados
 
-**SSA** – Software Statement Assertion
+**SSA** – Software Statement Assertion (Afirmação de Declaração de Software)
 
-**SS** – Software Statement
+**SS** – Software Statement (Declaração de Software)
 
-**DCR** – Dynamic Client Registration
+**DCR** – Dynamic Client Registration (Registro de Cliente Dinâmico)
 
-**API** – Application Programming Interface
+**API** – Application Programming Interface (Interface de Programação da Aplicação)
 
 **FAPI** - Financial-grade API
 
@@ -171,41 +167,45 @@ For the purpose of this document, the terms defined in [RFC6749], [RFC6750], [RF
 
 **TLS** – Transport Layer Security
 
-# Introduction
+# Introdução
 
-Brasil Open Bankings ecosystem leverages a federation trust provider or _directory of participants_ as the golden source of information on accredited participants and software that are authorized to partake in the Open Banking Brasil ecosystem.
+O ecossistema Open Banking Brasil faz proveito de um provedor de confiança da federação ou _diretório de participantes_ como a fonte mais valiosa de informações sobre participantes credenciados e softwares que estão autorizados a participar do ecossistema Open Banking Brasil.
 
-The services by the Directory include
+Os serviços do Diretório incluem
 
-* Software registration and management.
-* Software credential registration and management using ICP Certificates.
-* Software Statement Assertion (SSA) generation
+* Registro e gerenciamento de software.
+* Registro e gerenciamento de credenciais de software usando certificados ICP.
+* Geração de Afirmações de Declaração de Software (SSA)
 
-Participants within the ecosystem must leverage these services to facilitate API driven OAuth client registration using the process outlined in clause 3.1.1 of [RFC7591] with additional metadata necessary to support OpenID Connect defined in [OpenID Connect Registration][OIDR].
+Os participantes do ecossistema devem aproveitar esses serviços para facilitar o registro do cliente OAuth orientado por API usando o processo descrito na cláusula 3.1.1 do [RFC7591] com metadados adicionais necessários para oferecer suporte ao OpenID Connect definido em [OpenID Connect Registration][OIDR].
 
-Where possible, authorisation servers should compare client metadata asserted by a client made as part of registration or management request against metadata claims contained within a software statement. Not all metadata that a client wishes to provide may be contained in a software statement, e.g alternative [Metadata Langauges and Script values](https://openid.net/specs/openid-connect-registration-1_0.html#LanguagesAndScripts).
+Sempre que possível, os servidores de autorização devem comparar os metadados do cliente declarados por um cliente feito como parte do registro ou solicitação de gerenciamento com as declarações de metadados contidas em uma declaração de software. Nem todos os metadados que um cliente deseja fornecer podem estar contidos em uma declaração de software, por exemplo, alternativa [Metadata Langauges and Script values](https://openid.net/specs/openid-connect-registration-1_0.html#LanguagesAndScripts).
 
-# Open Banking Brasil OpenID Connect Discovery provisions
+# Provisionamentos do OpenID Connect Discovery do Open Banking Brasil 
 
-## Authorization server
+## Servidor de Autorização
 
-The Authorization Server shall support [OpenID Connect Discovery][OIDD] as required by [Financial-grade API Security Profile 1.0 - Part 1: Baseline][FAPI-1-Baseline]
+O servidor de autorização deve suportar [OpenID Connect Discovery][OIDD] conforme exigido pelo [Financial-grade API Security Profile 1.0 - Part 1: Baseline][FAPI-1-Baseline].
 
 In addition, the Authorization Server
 
-1. shall advertise its presence in the Open Banking Brasil ecosystem by being listed on the Directory of Participants;
-1. shall advertise all Open Banking Brasil REST API resources protected by the OpenID Provider on the Directory of Participants;
-1. shall advertise support for all signing, encryption, authentication mechanisms and standards required to support [Open Banking Brasil Financial API][OBB-FAPI];
-1. shall advertise support for [OpenID Dynamic Client Registration][OIDR];
-2. shall advertise `mtls_endpoint_aliases` as per clause 3.4 [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens][RF8705] the `token_endpoint`, `registration_endpoint` and `userinfo_endpoint`;
-3. if supporting [OAuth 2.0 Pushed Authorisation Requests][PAR] shall advertise through [OIDD] `mtls_endpoint_aliases` the `pushed_authorization_request_endpoint`;
-4. if supporting [Financial API - Client Initiated Back Channel Authentication][FAPI-CIBA] shall advertise through [OIDD] `mtls_endpoint_aliases` the `backchannel_authentication_endpoint`;
+1. deverá anunciar sua presença no ecossistema Open Banking Brasil, sendo listada no Diretório de Participantes;
+2. divulgará todos os recursos da API REST do Open Banking Brasil protegidos pelo OpenID Provider no Diretório de Participantes;
+5. deve anunciar suporte para todos os mecanismos de assinatura, criptografia, autenticação e padrões necessários para suportar [Open Banking Brasil Financial API][OBB-FAPI];
+6. deve anunciar suporte para [OpenID Dynamic Client Registration] [OIDR];
+7. deve anunciar `mtls_endpoint_aliases` de acordo com a cláusula 3.4 [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication e Certificate-Bound Access Tokens][RF8705] o `token_endpoint`, `registration_endpoint` e` userinfo_endpoint`;
+8. se for compatível com [OAuth 2.0 Pushed Authorisation Requests][PAR] deve anunciar por meio de [OIDD] `mtls_endpoint_aliases` o` push_authorization_request_endpoint`;
+14. se for compatível com [Financial API - Client Initiated Back Channel Authentication][FAPI-CIBA] deve anunciar através de [OIDD] `mtls_endpoint_aliases` o` backchannel_authentication_endpoint`;
 
-## Client
+## Cliente
 
 The Client shall support [OpenID Connect Discovery][OIDD] as required by [Financial-grade API Security Profile 1.0 - Part 1: Baseline][FAPI-1-Baseline]
 
 In addition, the Authorization Server
+
+O cliente deve suportar [OpenID Connect Discovery] [OIDD] conforme exigido pelo [Financial-grade API Security Profile 1.0 - Part 1: Baseline][FAPI-1-Baseline].
+
+Além disso, o servidor de autorização
 
 1. shall rely on ecosystem discovery services provided by Directory of Participants only;
 1. shall derive necessary Authorisation Server metadata by relying on an Authorization Servers OpenID Connect Discovery services only;
