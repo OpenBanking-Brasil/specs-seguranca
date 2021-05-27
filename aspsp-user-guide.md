@@ -77,15 +77,7 @@ All participants must be assured that all actors within the ecosystem are handli
 
 The data sharing ecosystem defined by Brazil consists of many different standards all of which revolve around concepts, roles and obligations that were technically defined in the [OAuth 2.0 Authorization Framework.](https://tools.ietf.org/html/rfc6749)
 
-> The OAuth 2.0 authorization framework enables a third-party
-
-application to obtain limited access to an HTTP service, either on
-
-behalf of a resource owner by orchestrating an approval interaction
-
-between the resource owner and the HTTP service, or by allowing the
-
-third-party application to obtain access on its own behalf.
+> The OAuth 2.0 authorization framework enables a third-party application to obtain limited access to an HTTP service, either on behalf of a resource owner by orchestrating an approval interaction between the resource owner and the HTTP service, or by allowing the third-party application to obtain access on its own behalf.
 
 The base OAuth 2.0. specification does not provide by itself enough information in order to meet all of the needs defined by the Open Banking Basil trust framework. Most notably it is missing a way to convey Customer Identity information in a standardized format from a Provider to a Client and the authentication mechanisms that were defined in the original specification are not secure enough to meet the requirements of a highly regulated industry.
 

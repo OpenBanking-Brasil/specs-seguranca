@@ -6,8 +6,8 @@ At a high level the following major steps are required in order to onboard a new
 
 1. Register your organisation on the directory of participants (User Interface)
 2. Register your application on the directory of participants (User Interface)
-3. Obtain credentials for your application from the Brasil ICP (Out of scope of this document)
-4. Register your credentials for your application on the directory of participants (User Interface)
+3. Obtain certificates (used as credentials) for your application from the Brasil ICP (Out of scope of this document)
+4. Register your certificate for your application on the directory of participants (User Interface)
 5. Identify providers of Account information or Payment Services of interest to customers of your application by searching the directory of participants (API)
 6. Register your application with each provider (API)
 

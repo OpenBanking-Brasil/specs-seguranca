@@ -206,19 +206,16 @@ The Authorization Server shall support the provisions specified in clause 5.2.2 
 
 In addition, the Authorization Server
 
-1. shall support a signed and encrypted JWE request object passed by value or shall require pushed authorization requests [PAR];
+1. shall support a signed or encrypted request object passed by value or shall require pushed authorization requests [PAR];
 2. shall distribute discovery metadata (such as the authorization endpoint) via the metadata document as specified in [OIDD] and [RFC8414]
 3. shall support the claims parameter as defined in clause 5.5 [OpenID Connect Core][OIDC]
-4. shall support the oidc standard claim "cpf" as defined in clause 5.2.2.2 of this document
-5. shall support the oidc standard claim "cnpj" as defined in clause 5.2.2.3 of this document
-6. shall support the acr "urn:brasil:openbanking:loa2" as defined in clause 5.2.2.4 of this document
-7. should support the acr "urn:brasil:openbanking:loa3" as defined in clause 5.2.2.4 of this document
-8. shall implement the user info endpoint as defined in clause 5.3 [OpenID Connect Core][OIDC]
-9. shall support parameterized OAuth 2.0 resource scope _consent_ as defined in clause 6.3.1 [OIDF FAPI WG Lodging Intent Pattern][LIWP]
-10. may support [Financial-grade API: Client Initiated Backchannel Authentication Profile][FAPI-CIBA]
-11. shall support [Financial-grade API: Client Initiated Backchannel Authentication Profile][FAPI-CIBA] if scope includes _payments_
-12. may require the presence of a populated cpf value claim if scope includes dynamic resource scope _consent_
-13. shall support refresh tokens
+4. shall support the acr "urn:brasil:openbanking:loa2" as defined in clause 5.2.2.4 of this document
+5. should support the acr "urn:brasil:openbanking:loa3" as defined in clause 5.2.2.4 of this document
+6. shall implement the user info endpoint as defined in clause 5.3 [OpenID Connect Core][OIDC]
+7. shall support parameterized OAuth 2.0 resource scope _consent_ as defined in clause 6.3.1 [OIDF FAPI WG Lodging Intent Pattern][LIWP]
+8. may support [Financial-grade API: Client Initiated Backchannel Authentication Profile][FAPI-CIBA]
+9. shall support [Financial-grade API: Client Initiated Backchannel Authentication Profile][FAPI-CIBA] if scope includes _payments_
+10. shall support refresh tokens
 
 #### ID Token as detached signature
 
@@ -228,45 +225,6 @@ In addition, if the `response_type` value `code id_token` is used, the Authoriza
 
 1. should not return sensitive PII in the ID Token in the authorization response, but if it needs to,
 then it shall encrypt the ID Token.
-
-#### Requesting the "cpf" Claim
-
-This profile defines "cpf" as a new standard claim as per
- clause 5.1 [OIDC]
-
-The **CPF** number (Cadastro de Pessoas Físicas, [sepeˈɛfi]; Portuguese for "Natural Persons Register")
- is the **Brazilian** individual taxpayer registry identification. This number is attributed by
- the **Brazilian** Federal Revenue to Brazilians and resident aliens who, directly or indirectly,
-  pay taxes in **Brazil**.
-In the Brasil Open Banking identity model, the cpf is a string consisting of numbers that is 11
-characters long and may start with a 0.
-If the cpf Claim is requested as an Essential Claim for the ID Token or UserInfo response with a
-values parameter requesting a specific cpf value, the Authorization Server MUST return an cpf Claim Value
-that matches the requested value. If this is an Essential Claim and the requirement cannot be met,
- then the Authorization Server MUST treat that outcome as a failed authentication attempt.
-
-Name: cpf, Type: String, Regex: '^\d{11}$'
-
-#### Requesting the "cnpj" Claim
-
-This profile defines "cnpj" as a new standard claim as per
- clause 5.1[OIDC]
-
-**CNPJ**, short for Cadastro Nacional de Pessoas Jurídicas, is an identification number
- of **Brazilian** companies issued by the **Brazilian** Ministry of Revenue, **in**
- Portuguese "Secretaria da Receita Federal" or "Ministério da Fazenda". In the Brasil Open Banking identity model,
- individuals can associated with 0 or more CNPJs. A CNPJ is a string consisting of numbers that is 14 digits long and may start with a 0,
- the first eight digits identify the company, the four digits after the slash identify the branch or
-  subsidiary ("0001" defaults to the headquarters), and the last two are checksum digits.
-   For this profile, the cnpj claim must be requested and supplied as the 14 digit number.
-
-If the cnpj Claim is requested as an Essential Claim for the ID Token or UserInfo response with a
-values parameter requesting a specific cnpj value, the Authorization Server MUST return an cnpj
-Claim Value that contains a **set** of CNPJs one of which must match the requested value. If this
- is an Essential Claim and the requirement cannot be met, then the Authorization Server MUST treat
- that outcome as a failed authentication attempt.
-
-Name: cnpj, Type: Array of Strings, Array Element Regex: '^\d{14}$'
 
 #### Requesting the "urn:brasil:openbanking:loa2" or "urn:brasil:openbanking:loa3" Authentication Context Request
 
@@ -302,7 +260,6 @@ In addition, the confidential client
 3. shall use _encrypted_ request objects if not using [PAR]
 4. shall support parameterized OAuth 2.0 resource scope _consent_ as defined in clause 6.3.1 [OIDF FAPI WG Lodging Intent Pattern][LIWP]
 5. shall support refresh tokens
-6. shall include a populated cpf value claim if scope includes dynamic resource scope _consent_
 
 # Security considerations
 
@@ -367,32 +324,27 @@ The Consent Resource has a life cycle that is managed seperately and distinctly 
 
 In addition to the requirements outlined in Open Banking Brasil security provisions the Authorization Server
 
-1. shall revoke refresh tokens and where practicable access tokens when the linked Consent Resource is deleted;
+1. shall revoke refresh tokens and where practicable access tokens when the linked Consent Resource is revoked;
 2. shall ensure Access Tokens are issued with sufficient scope necessary for access to data specified in the Permissions element of a linked Consent Resource object;
 3. shall not reject an authorisation request requesting more scope than is necessary to access data specified in the Permissions element of a linked Consent Resource object;
 4. may reduce requested scope to a level sufficient to enable access to data resources specified in the Permissions element of a linked Consent Resource object;
+5. shall reject an authorisation request linked to a Consent Resource with lifetime greater than 60 minutes.
 
 ### Confidential Client
 
 In addition to the requirements outlined in Open Banking Brasil security provisions the Confidential Client
 
-1. shall revoke where possible and cease usage of refresh and access tokens that are bound to a Consent Resource that has been deleted;
-1. shall delete Consent Resource that are expired;
+1. shall revoke where possible and cease usage of refresh and access tokens that are bound to a Consent Resource that has been revoked;
+2. shall revoke Consent Resource that are expired;
 
-# Regulatory Considerations
+# Considerations
 
-## Requirement on Client to present cpf claim to AS {#Reg}
+## Consent Resource Records
+1. All Consent Resource after been revoked must be retained as a record in acoordance with current Central Bank brazilian regulation.
 
-[Joint Resolution No 1, Art. 10, paragraph VI](https://www.in.gov.br/en/web/dou/-/resolucao-conjunta-n-1-de-4-de-maio-de-2020-255165055)
-The interpretation of the Compliance team requires the TPPs to identify the customer before requesting access to resources from a bank. The mechanism adopted is to require the TPP to include a populated customer cpf claim as part of a request object when the request to the bank includes a request for access to a account or payment resources which is
- conveyed by a dynamic scope of 'consent:{consentId}'.
-
-This assertion is considered to be sufficient to meet the requirements of the legislation but does result in the requirement for customers to provide to third parties this information ahead of requesting an open banking flow.
- Banks that wish to prevent poor customer experiences or help mitigate the need for customers to key in sensitive details into third party UIs can provide the cpf and other attributes as part of a consent journey
- provided that they do so without also accepting a request for data sharing at the same time.
-
-The sharing of customer atttributes without a corresponding open banking resource sharing request is out of scope of the regulation which means that banks are not obliged to offer this service but there is no technical barrier with them doing.
-The security profile has been specifically drafted to enable and encourage banks to facilitate this two step process which significantly improves the new customer experience for tpps and prevents the bad practice of encouraging consumers to manually share sentitive personal information into websites. Removing the need for this activity is one of the primary security goals of Open Banking and the OpenID Foundation Financial Grade Working Group on whose standards this profile is based.
+## Refresh and Access Token Lifetimes
+1. The refresh token shall have the same lifetime as the Consent associated to it;
+2. The access token shall not have lifetime greater than 15 minutes.
 
 # Acknowledgements
 
