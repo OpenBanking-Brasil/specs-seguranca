@@ -353,7 +353,7 @@ In addition:
 
 ### Dynamic Consent Scope Example
 
-consent:urn-bancoex-C1DD33123
+consent:urn:bancoex:C1DD33123
 
 ## Authorisation Life Cycle
 
