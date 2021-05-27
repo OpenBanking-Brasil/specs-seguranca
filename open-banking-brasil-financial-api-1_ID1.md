@@ -218,6 +218,7 @@ In addition, the Authorization Server
 10. may support [Financial-grade API: Client Initiated Backchannel Authentication Profile][FAPI-CIBA]
 11. shall support [Financial-grade API: Client Initiated Backchannel Authentication Profile][FAPI-CIBA] if supporting scope _payments_
 12. shall support refresh tokens
+13. shall issue access tokens with an expiry no greater than 900 seconds and no less than 300 seconds
 
 #### ID Token as detached signature
 

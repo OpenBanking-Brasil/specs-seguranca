@@ -165,6 +165,8 @@ In addition this profile describes the specific scope, acr and client management
 </li>
 <li><t>shall support refresh tokens</t>
 </li>
+<li><t>shall issue access tokens with an expiry no greater than 900 seconds and no less than 300 seconds</t>
+</li>
 </ol>
 
 <section anchor="id-token-as-detached-signature"><name>ID Token as detached signature</name>
@@ -334,7 +336,7 @@ Claim Value that contains a <strong>set</strong> of CNPJs one of which must matc
 </section>
 
 <section anchor="dynamic-consent-scope-example"><name>Dynamic Consent Scope Example</name>
-<t>consent:urn-bancoex-C1DD33123</t>
+<t>consent:urn:bancoex:C1DD33123</t>
 </section>
 </section>
 
