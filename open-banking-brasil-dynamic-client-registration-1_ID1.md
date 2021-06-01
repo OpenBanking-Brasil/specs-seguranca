@@ -138,7 +138,7 @@ Os seguintes documentos referenciados são indispensáveis para a aplicação de
 [FAPI-1-Advanced]: <https://openid.net/specs/openid-financial-api-part-2-1_0.html
 
 [OBB-FAPI] - Open Banking Brasil Financial-grade API Security Profile 1.0
-[OBB-FAPI]: <hhttps://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID1.html
+[OBB-FAPI]: <https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID1.html
 
 [OBB-Cert-Standards] - Open Banking Brasil x.509 Certificate Standards
 [OBB-Cert-Standards]: <https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html
@@ -189,13 +189,13 @@ O servidor de autorização deve suportar [OpenID Connect Discovery][OIDD] confo
 
 In addition, the Authorization Server
 
-1. deverá anunciar sua presença no ecossistema Open Banking Brasil, sendo listada no Diretório de Participantes;
-2. divulgará todos os recursos da API REST do Open Banking Brasil protegidos pelo OpenID Provider no Diretório de Participantes;
-5. deve anunciar suporte para todos os mecanismos de assinatura, criptografia, autenticação e padrões necessários para suportar [Open Banking Brasil Financial API][OBB-FAPI];
-6. deve anunciar suporte para [OpenID Dynamic Client Registration] [OIDR];
-7. deve anunciar `mtls_endpoint_aliases` de acordo com a cláusula 3.4 [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication e Certificate-Bound Access Tokens][RF8705] o `token_endpoint`, `registration_endpoint` e` userinfo_endpoint`;
-8. se for compatível com [OAuth 2.0 Pushed Authorisation Requests][PAR] deve anunciar por meio de [OIDD] `mtls_endpoint_aliases` o` push_authorization_request_endpoint`;
-14. se for compatível com [Financial API - Client Initiated Back Channel Authentication][FAPI-CIBA] deve anunciar através de [OIDD] `mtls_endpoint_aliases` o` backchannel_authentication_endpoint`;
+1. shall advertise its presence in the Open Banking Brasil ecosystem by being listed on the Directory of Participants;
+1. shall advertise all Open Banking Brasil REST API resources protected by the OpenID Provider on the Directory of Participants;
+1. shall advertise support for all signing, encryption, authentication mechanisms and standards required to support [Open Banking Brasil Financial API][OBB-FAPI];
+1. shall advertise support for [OpenID Dynamic Client Registration][OIDR];
+2. shall advertise `mtls_endpoint_aliases` as per clause 5 [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens][RF8705] the `token_endpoint`, `registration_endpoint` and `userinfo_endpoint`;
+3. if supporting [OAuth 2.0 Pushed Authorisation Requests][PAR] shall advertise through [OIDD] `mtls_endpoint_aliases` the `pushed_authorization_request_endpoint`;
+4. if supporting [Financial API - Client Initiated Back Channel Authentication][FAPI-CIBA] shall advertise through [OIDD] `mtls_endpoint_aliases` the `backchannel_authentication_endpoint`;
 
 ## Cliente
 
@@ -209,7 +209,7 @@ Além disso, o servidor de autorização
 
 1. shall rely on ecosystem discovery services provided by Directory of Participants only;
 1. shall derive necessary Authorisation Server metadata by relying on an Authorization Servers OpenID Connect Discovery services only;
-1. where present, shall use endpoints advertised in `mtls_endpoint_aliases` as per clause 3.4 [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens][RF8705];
+1. where present, shall use endpoints advertised in `mtls_endpoint_aliases` as per clause 5 [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens][RF8705];
 
 # Open Banking Brasil OpenID Connect Registration Provisions
 
@@ -250,15 +250,21 @@ To address this ambiguity, the Authorization Server must accept all AttributeTyp
 
 ## Regulatory Roles to OpenID and OAuth 2.0 Mappings
 
-| Regulatory Role | Allowed Scopes |
-| --- | --- |
-| DADOS | openid accounts credit-cards-accounts consents customers invoice-financings financings loans unarragned-accounts-overdraft consents|
-| PAGTO | openid payments consents |
+To participate in the Open Banking ecosystem, accredited institutions must register themselves in the directory of participants according to their regulatory roles. Those roles reflect the institutions' authorization from the Central Bank and, consequently, the APIs they are allowed to use.
+
+The following table describes the regulatory roles for Open Banking and the related OAuth 2.0 scopes mapping. If the scopes are omitted during the DCR process, the authorization server shall grant the complete set of potential scopes based on the registering bank's regulatory roles, as described in the Server Defaults section.
+
+| Regulatory Role | Description | Allowed Scopes | Target Phase|
+| --- | --- | --- | --- |
+| DADOS | Instituição transmissora / receptora de dados (AISP) | openid accounts credit-cards-accounts consents customers invoice-financings financings loans unarragned-accounts-overdraft consents | Phase 2 |
+| PAGTO | Instituição prestadora de serviço de iniciação de pagamentos (PISP) | openid payments consents | Phase 3 |
+| CONTA | Instituição detentora de conta (ASPSP) | openid | Phase 3 |
+| CCORR | Correspondente de crédito | openid | Phase 3* |
+
 
 ### Implementers Note
 
-In line with guidance from the IETF and the direction of travel for fine grained consent management. The obligation falls to the Authorisation Server to ensure that there is sufficient
- scope conveyed in an access token necessary to fulfill the Permissions conveyed in the Consent Request. This principle and requirement is reflected in the forthcoming Grant Management API.
+In line with guidance from the IETF and the direction of travel for fine grained consent management. The obligation falls to the Authorisation Server to ensure that there is sufficient scope conveyed in an access token necessary to fulfill the Permissions conveyed in the Consent Request. This principle and requirement is reflected in the forthcoming Grant Management API.
 
 ## Regulatory Roles to dynamic OAuth 2.0 scope Mappings
 
@@ -419,6 +425,7 @@ The following people contributed to this document:
 
 * Ralph Bragg (Raidiam)
 * Alexandre Siqueira (Mercado Pago)
+* Bernardo Vale (Banco Inter)
 
 {backmatter}
 

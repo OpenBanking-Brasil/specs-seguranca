@@ -174,7 +174,9 @@ Para efeitos deste documento, os termos definidos em [RFC6749], [RFC6750], [RFC7
 
 ** TLS ** - Transport Layer Security (Segurança da Camada de Transporte)
 
-# Perfil de Segurança do Open Banking Brasil
+**MFA** - Multi-Factor Authentication
+
+# Brasil Open Banking Security Profile
 
 ## Introdução
 
@@ -203,19 +205,19 @@ Como um perfil do OAuth 2.0 Authorization Framework, este documento exige o segu
 
 O Servidor de Autorização deve suportar as disposições especificadas na cláusula 5.2.2 de [Financial-grade API Security Profile 1.0 - Parte 2: Advanced] [FAPI-1-Advanced]. Além disso, ele deve:
 
-1. deve suportar um objeto de solicitação JWE assinado e criptografado passado por valor ou deve exigir solicitações de autorização por push (pushed authorization requests) [PAR];
-2. deve distribuir metadados de descoberta (como o endpoint de autorização) por meio do documento de metadados, conforme especificado em [OIDD] e [RFC8414]
-3. deve suportar o parâmetro de reivindicações conforme definido na cláusula 5.5 [OpenID Connect Core] [OIDC]
-4. deve apoiar a reivindicação padrão da OIDC "cpf", conforme definido na cláusula 5.2.2.2 deste documento
-5. deve apoiar a reivindicação padrão da OIDC "cnpj", conforme definido na cláusula 5.2.2.3 deste documento
-7. deve suportar o acr "urn: brasil: openbanking: loa2" conforme definido na cláusula 5.2.2.4 deste documento
-8. deve suportar o acr "urn: brasil: openbanking: loa3" conforme definido na cláusula 5.2.2.4 deste documento
-8. deve implementar o endpoint de informações do usuário (user info) conforme definido na cláusula 5.3 [OpenID Connect Core] [OIDC]
-9. deve suportar o escopo do recurso OAuth 2.0 parametrizado _consentimento_, conforme definido na cláusula 6.3.1 [OIDF FAPI WG Lodging Intent Pattern][LIWP]
-10. deve suportar [Financial-grade API: Client Initiated Backchannel Authentication Profile][FAPI-CIBA]
-11. deve suportar [Financial-grade API: Client Initiated Backchannel Authentication Profile][FAPI-CIBA] se o escopo incluir _pagamentos_
-12. pode exigir a presença de uma declaração de valor cpf preenchida se o escopo incluir escopo de recurso dinâmico _consentimento_
-13. deve suportar tokens de atualização
+1. shall support a signed and encrypted JWE request object passed by value or shall require pushed authorization requests [PAR];
+2. shall distribute discovery metadata (such as the authorization endpoint) via the metadata document as specified in [OIDD] and [RFC8414]
+3. shall support the claims parameter as defined in clause 5.5 [OpenID Connect Core][OIDC]
+4. shall support the oidc standard claim "cpf" as defined in clause 5.2.2.2 of this document
+5. shall support the oidc standard claim "cnpj" as defined in clause 5.2.2.3 of this document
+6. shall support the acr "urn:brasil:openbanking:loa2" as defined in clause 5.2.2.4 of this document
+7. should support the acr "urn:brasil:openbanking:loa3" as defined in clause 5.2.2.4 of this document
+8. shall implement the user info endpoint as defined in clause 5.3 [OpenID Connect Core][OIDC]
+9. shall support parameterized OAuth 2.0 resource scope _consent_ as defined in clause 6.3.1 [OIDF FAPI WG Lodging Intent Pattern][LIWP]
+10. may support [Financial-grade API: Client Initiated Backchannel Authentication Profile][FAPI-CIBA]
+11. shall support [Financial-grade API: Client Initiated Backchannel Authentication Profile][FAPI-CIBA] if supporting scope _payments_
+12. shall support refresh tokens
+13. shall issue access tokens with an expiry no greater than 900 seconds and no less than 300 seconds
 
 #### Token de ID como assinatura separada
 
@@ -257,7 +259,23 @@ Nome: cnpj, Tipo: Array of Strings, Array Element Regex: '^\d{14}$'
 
 #### Solicitando o "urn: brasil: openbanking: loa2" ou "urn: brasil: openbanking: loa3" Solicitação de contexto de autenticação
 
-Este perfil define "urn: brasil: openbanking: loa2" e "urn: brasil: openbanking: loa3" como novas classes de solicitação de contexto de autenticação.
+* **LoA2:** Authentication performed using single factor;
+* **LoA3:** Authentication performed using multi factor (MFA)
+
+The following rules are applicable:
+
+* **Read-only APIs :** shall require resource owner authentication to at least LoA2, elevating the requirement to authenticate resource owners to LoA3 is at the discretion of the Authorization Server;
+* **Read-and-Write APIs (Transactional):** shall require resource owner authentication to at least LoA3.
+
+**Authentication factors clarification**
+
+The authentication methods are:
+
+* Something you know, such as password or phrase
+* Something you have, such as token or smartcard;
+* Something you are, such as biometric validation.
+
+To performe a MFA authentication is necessary the end user to present at least two different methods as listed above. A unique method used more than once is not accepted as MFA.
 
 ### Cliente confidencial 
 
@@ -271,7 +289,6 @@ Além disso, o cliente confidencial
 3. deve usar objetos de solicitação _encrypted_ se não usar [PAR]
 4. deve suportar o escopo de recurso OAuth 2.0 parametrizado _consentimento_ conforme definido na cláusula 6.3.1 [OIDF FAPI WG Lodging Intent Pattern][LIWP]
 5. deve suportar tokens de atualização
-6. deve incluir uma declaração de valor de cpf preenchida se o escopo incluir escopo de recurso dinâmico _consentimento_
 
 # Considerações de segurança
 
@@ -314,9 +331,9 @@ Este perfil define o escopo dinâmico do OAuth 2.0 "consentimento" da seguinte m
 
 Adicionalmente:
 
-* the Consent Resource Id deve incluir caracteres seguros para url;
-* the Consent Resource Id deve ter namespace;
-* the Consent Resource Id deve ter propriedades de um nonce [Nonce](https://pt.wikipedia.org/wiki/Nonce);
+* Consent Resource Id deve incluir caracteres seguros para url;
+* Consent Resource Id deve ter namespace;
+* Consent Resource Id deve ter propriedades de um nonce [Nonce](https://pt.wikipedia.org/wiki/Nonce);
 
 ### Dynamic Consent Scope Example
 
@@ -336,10 +353,12 @@ O recurso de consentimento tem um ciclo de vida gerenciado separada e distintame
 
 Além dos requisitos descritos nas disposições de segurança do Open Banking Brasil, o Servidor de Autorização
 
-1. deve revogar tokens de atualização e, quando possível, tokens de acesso quando o recurso de consentimento vinculado for excluído;
-2. deve garantir que os tokens de acesso sejam emitidos com o escopo necessário para o acesso aos dados especificados no elemento Permissões de um objeto de recurso de consentimento vinculado;
-3. não deve rejeitar uma solicitação de autorização solicitando mais escopo do que o necessário para acessar os dados especificados no elemento Permissões de um objeto de recurso de consentimento vinculado;
-4. pode reduzir o escopo solicitado a um nível suficiente para permitir o acesso aos recursos de dados especificados no elemento Permissões de um objeto de recurso de consentimento vinculado;
+1. shall issue refresh tokens with validity equal to the *expirationDateTime* defined on the linked Consent Resource;
+2. shall revoke refresh tokens and where practicable access tokens when the linked Consent Resource is deleted;
+3. shall ensure Access Tokens are issued with sufficient scope necessary for access to data specified in the Permissions element of a linked Consent Resource object;
+4. shall not reject an authorisation request requesting more scope than is necessary to access data specified in the Permissions element of a linked Consent Resource object;
+5. may reduce requested scope to a level sufficient to enable access to data resources specified in the Permissions element of a linked Consent Resource object;
+6. shall retain a complete audit history of the consent resource in acoordance with current Central Bank brazilian regulation;
 
 ### Cliente confidencial
 
@@ -347,18 +366,6 @@ Além dos requisitos descritos nas disposições de segurança do Open Banking B
 
 1. deve revogar sempre que possível e cessar o uso de tokens de atualização e acesso vinculados a um recurso de consentimento que foi excluído;
 2. deve excluir Recursos de consentimento que estão expirados;
-
-# Considerações regulatórias
-
-## Requisito do cliente para apresentar reivindicação cpf para AS {#Reg}
-
-[Resolução Conjunta nº 1, art. 10, parágrafo VI](https://www.in.gov.br/en/web/dou/-/resolucao-conjunta-n-1-de-4-de-maio-de-2020-255165055)
-A interpretação da equipe de Conformidade exige que os TPPs (Third-party Providers ou Provedores terceiros) identifiquem o cliente antes de solicitar acesso a recursos de um banco. O mecanismo adotado é exigir que o TPP inclua um pedido de cpf de cliente preenchido como parte de um objeto de pedido quando o pedido ao banco inclui um pedido de acesso a uma conta ou recursos de pagamento que é transmitido por um escopo dinâmico de 'consent: {consentId}'.
-
-Essa afirmação é considerada suficiente para atender aos requisitos da legislação, mas resulta na exigência de que os clientes forneçam a terceiros essas informações antes de solicitarem um fluxo bancário aberto. Os bancos que desejam evitar experiências ruins do cliente ou ajudar a mitigar a necessidade de os clientes digitarem detalhes confidenciais em ambientes ou interfaces de terceiros podem fornecer o cpf e outros atributos como parte de uma jornada de consentimento desde que o façam sem aceitar também um pedido de partilha de dados ao mesmo tempo.
-
-A partilha de atributos do cliente sem um correspondente pedido de partilha de recursos bancários abertos está fora do âmbito do regulamento, o que significa que os bancos não são obrigados a oferecer este serviço, mas não existe qualquer barreira técnica para o fazerem. O perfil de segurança foi elaborado especificamente para permitir e encorajar os bancos a facilitar este processo de duas etapas que melhora significativamente a nova experiência do cliente para TPPs e evita a má prática de encorajar os consumidores a compartilhar manualmente informações pessoais sensíveis em sites. Eliminar a necessidade dessa atividade é um dos principais objetivos de segurança do Open Banking e do OpenID Foundation Financial Grade Working Group em cujos padrões este perfil se baseia.
-
 
 # Reconhecimentos
 

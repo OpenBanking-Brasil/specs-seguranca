@@ -105,6 +105,7 @@ and are not to be interpreted with their natural language meanings.</t>
 <t><strong>OIDF</strong> - OpenID Foundation</t>
 <t><strong>REST</strong> – Representational State Transfer</t>
 <t><strong>TLS</strong> – Transport Layer Security</t>
+<t><strong>MFA</strong> - Multi-Factor Authentication</t>
 </section>
 
 <section anchor="brasil-open-banking-security-profile"><name>Brasil Open Banking Security Profile</name>
@@ -160,11 +161,11 @@ In addition this profile describes the specific scope, acr and client management
 </li>
 <li><t>may support <eref target="https://bitbucket.org/openid/fapi/src/master/Financial_API_WD_CIBA.md">Financial-grade API: Client Initiated Backchannel Authentication Profile</eref></t>
 </li>
-<li><t>shall support <eref target="https://bitbucket.org/openid/fapi/src/master/Financial_API_WD_CIBA.md">Financial-grade API: Client Initiated Backchannel Authentication Profile</eref> if scope includes <em>payments</em></t>
-</li>
-<li><t>may require the presence of a populated cpf value claim if scope includes dynamic resource scope <em>consent</em></t>
+<li><t>shall support <eref target="https://bitbucket.org/openid/fapi/src/master/Financial_API_WD_CIBA.md">Financial-grade API: Client Initiated Backchannel Authentication Profile</eref> if supporting scope <em>payments</em></t>
 </li>
 <li><t>shall support refresh tokens</t>
+</li>
+<li><t>shall issue access tokens with an expiry no greater than 900 seconds and no less than 300 seconds</t>
 </li>
 </ol>
 
@@ -216,6 +217,33 @@ Claim Value that contains a <strong>set</strong> of CNPJs one of which must matc
 <section anchor="requesting-the-urn-brasil-openbanking-loa2-or-urn-brasil-openbanking-loa3-authentication-context-request"><name>Requesting the &quot;urn:brasil:openbanking:loa2&quot; or &quot;urn:brasil:openbanking:loa3&quot; Authentication Context Request</name>
 <t>This profile defines &quot;urn:brasil:openbanking:loa2&quot; and &quot;urn:brasil:openbanking:loa3&quot; as
  new Authentication Context Request classes.</t>
+
+<ul>
+<li><t><strong>LoA2:</strong> Authentication performed using single factor;</t>
+</li>
+<li><t><strong>LoA3:</strong> Authentication performed using multi factor (MFA)</t>
+</li>
+</ul>
+<t>The following rules are applicable:</t>
+
+<ul>
+<li><t><strong>Read-only APIs :</strong> shall require resource owner authentication to at least LoA2, elevating the requirement to authenticate resource owners to LoA3 is at the discretion of the Authorization Server;</t>
+</li>
+<li><t><strong>Read-and-Write APIs (Transactional):</strong> shall require resource owner authentication to at least LoA3.</t>
+</li>
+</ul>
+<t><strong>Authentication factors clarification</strong></t>
+<t>The authentication methods are:</t>
+
+<ul>
+<li><t>Something you know, such as password or phrase</t>
+</li>
+<li><t>Something you have, such as token or smartcard;</t>
+</li>
+<li><t>Something you are, such as biometric validation.</t>
+</li>
+</ul>
+<t>To performe a MFA authentication is necessary the end user to present at least two different methods as listed above. A unique method used more than once is not accepted as MFA.</t>
 </section>
 </section>
 
@@ -234,8 +262,6 @@ Claim Value that contains a <strong>set</strong> of CNPJs one of which must matc
 <li><t>shall support parameterized OAuth 2.0 resource scope <em>consent</em> as defined in clause 6.3.1 <eref target="https://bitbucket.org/openid/fapi/src/master/Financial_API_Lodging_Intent.md">OIDF FAPI WG Lodging Intent Pattern</eref></t>
 </li>
 <li><t>shall support refresh tokens</t>
-</li>
-<li><t>shall include a populated cpf value claim if scope includes dynamic resource scope <em>consent</em></t>
 </li>
 </ol>
 </section>
@@ -300,7 +326,7 @@ Claim Value that contains a <strong>set</strong> of CNPJs one of which must matc
 <t>In addition:</t>
 
 <ul>
-<li><t>the Consent Resource Id must include  url safe characters only;</t>
+<li><t>the Consent Resource Id must include url safe characters only;</t>
 </li>
 <li><t>the Consent Resource Id must be namespaced;</t>
 </li>
@@ -324,6 +350,8 @@ Claim Value that contains a <strong>set</strong> of CNPJs one of which must matc
 <t>In addition to the requirements outlined in Open Banking Brasil security provisions the Authorization Server</t>
 
 <ol>
+<li><t>shall issue refresh tokens with validity equal to the <em>expirationDateTime</em> defined on the linked Consent Resource;</t>
+</li>
 <li><t>shall revoke refresh tokens and where practicable access tokens when the linked Consent Resource is deleted;</t>
 </li>
 <li><t>shall ensure Access Tokens are issued with sufficient scope necessary for access to data specified in the Permissions element of a linked Consent Resource object;</t>
@@ -331,6 +359,8 @@ Claim Value that contains a <strong>set</strong> of CNPJs one of which must matc
 <li><t>shall not reject an authorisation request requesting more scope than is necessary to access data specified in the Permissions element of a linked Consent Resource object;</t>
 </li>
 <li><t>may reduce requested scope to a level sufficient to enable access to data resources specified in the Permissions element of a linked Consent Resource object;</t>
+</li>
+<li><t>shall retain a complete audit history of the consent resource in acoordance with current Central Bank brazilian regulation;</t>
 </li>
 </ol>
 </section>
@@ -345,20 +375,6 @@ Claim Value that contains a <strong>set</strong> of CNPJs one of which must matc
 </li>
 </ol>
 </section>
-</section>
-</section>
-
-<section anchor="regulatory-considerations"><name>Regulatory Considerations</name>
-
-<section anchor="Reg"><name>Requirement on Client to present cpf claim to AS</name>
-<t><eref target="https://www.in.gov.br/en/web/dou/-/resolucao-conjunta-n-1-de-4-de-maio-de-2020-255165055">Joint Resolution No 1, Art. 10, paragraph VI</eref>
-The interpretation of the Compliance team requires the TPPs to identify the customer before requesting access to resources from a bank. The mechanism adopted is to require the TPP to include a populated customer cpf claim as part of a request object when the request to the bank includes a request for access to a account or payment resources which is
- conveyed by a dynamic scope of 'consent:{consentId}'.</t>
-<t>This assertion is considered to be sufficient to meet the requirements of the legislation but does result in the requirement for customers to provide to third parties this information ahead of requesting an open banking flow.
- Banks that wish to prevent poor customer experiences or help mitigate the need for customers to key in sensitive details into third party UIs can provide the cpf and other attributes as part of a consent journey
- provided that they do so without also accepting a request for data sharing at the same time.</t>
-<t>The sharing of customer atttributes without a corresponding open banking resource sharing request is out of scope of the regulation which means that banks are not obliged to offer this service but there is no technical barrier with them doing.
-The security profile has been specifically drafted to enable and encourage banks to facilitate this two step process which significantly improves the new customer experience for tpps and prevents the bad practice of encouraging consumers to manually share sentitive personal information into websites. Removing the need for this activity is one of the primary security goals of Open Banking and the OpenID Foundation Financial Grade Working Group on whose standards this profile is based.</t>
 </section>
 </section>
 
