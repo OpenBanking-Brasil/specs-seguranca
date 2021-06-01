@@ -25,7 +25,7 @@
     abbrev = "Itau"
       [author.address]
       email = "marcos.aurelio-rodrigues@itau-unibanco.com.br"
-      uri = "https://www.itau.com/"
+      uri = "https://www.itau.com.br/"
 
     [[author]]
     initials = "J."
@@ -71,9 +71,9 @@ Este documento especifica os tipos de certificados necessários para:
 * Apresentar um canal seguro e confiável para clientes do Open Banking Brasil;
 * Autenticar participantes junto do Diretório de participantes do Open Banking Brasil.
 
-# Referencias Normativas
+# Referências Normativas  {#References}
 
-The following referenced documents are indispensable for the application of this document. For dated references, only the edition cited applied. For undated references, the latest edition of the referenced document (including any amendments) applies.
+Os seguintes documentos referenciados são indispensáveis para a aplicação deste documento. Para referências datadas, apenas a edição citada se aplica. Para referências não datadas, a última edição do documento referenciado (incluindo quaisquer emendas) se aplica.
 
 * [ISODIR2] - ISO/IEC Directives Part 2 [ISODIR2]: <https://www.iso.org/sites/directives/current/part2/index.xhtml>
 * [RFC5280] -  Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List (CRL) Profile: <https://datatracker.ietf.org/doc/html/rfc5280>
@@ -110,7 +110,7 @@ Para o propósito deste documento os termos definidos na [RFC5280, [BCP195], [RF
 
 O sistema de Open Banking Brasil faz uso de cadeias de certificados e protocolo TLS para garantir a confidencialidade, autenticação e integridade do canal de comunicação utilizado pelas APIs das instituições participantes do Ecossistema bem como dos clientes de cada um dos participantes.
 
-Os certificados utilizados para o Open Banking Brasil também são necessários para autenticar as aplicações através do oAuth 2.0 mTLS ou private_key_jwt, além de també servirem para realizar a assinatura de payload pelo uso de JWS. Outra atribuição importante dos certificados é realizar a autenticação e apresentar um canal seguro para o consumidor final no ato de autenticação e uso dos serviços prestados pela entidade participante.
+Os certificados utilizados para o Open Banking Brasil também são necessários para autenticar as aplicações através do oAuth 2.0 mTLS ou private_key_jwt, além de também servirem para realizar a assinatura de payload pelo uso de JWS. Outra atribuição importante dos certificados é realizar a autenticação e apresentar um canal seguro para o usuário final no ato de autenticação e uso dos serviços prestados pela entidade participante.
 
 ## Certificados ICP-Brasil
 
@@ -136,15 +136,15 @@ O padrão de certificado utilizado deve seguir as práticas de emissão de certi
 
 ### Certificado Cliente
 
-Os certificados de Open Banking, denominados Certificado de Aplicação Cliente (Transporte) são utilizados para autenticar o canal MTLS.  Os Certificado Cliente também são utilizados para realizar a autenticação da aplicação cliente através de oAuth 2.0 mTLS ou private_key_jwt, de acordo com cadastro da aplicação realizado o processo de Dynamic Client Registration junto a entidade transmissora.
+Os certificados de Open Banking, denominados Certificado de Aplicação Cliente (Transporte) são utilizados para autenticar o canal MTLS. Os Certificados Cliente também são utilizados para realizar a autenticação da aplicação cliente através de oAuth2.0 mTLS ou private_key_jwt, de acordo com cadastro da aplicação realizado o processo de Dynamic Client Registration junto a entidade transmissora.
 
-Para emissão de certificado de cliente é necessário que a instituição participante do Open Banking Brasil tenha realizado o cadastro de aplicação ao diretório, através da emissão de Software Statement Assertion, e com isso já tenha obtido o valor de Software Statement ID.
+Para emissão de certificado de cliente é necessário que a instituição participante do Open Banking Brasil tenha realizado o cadastro de aplicação ao diretório, através do processo de emissão de Software Statement Assertion, e com isso já tenha obtido o valor de Software Statement ID.
 
 #### Atributos OpenBanking Brasil
 
 * **serialNumber:** Cadastro Nacional de Pessoal Juridica (CNPJ) da pessoa jurídica titular do certificado e associado ao atributo UID e Software Statement ID, durante validação junto ao Serviço de Diretório do OpenBanking Brasil;
-* **UID:** Código de Participante associado ao CNPJ listado no Serviço de Diretório do OpenBanking Brasil;
-* **commonName:** Software Statement ID cadastrado no Serviço de Diretório do OpenBanking Brasil e pertencente ao CNPJ e Código de Participante.
+* **organizationalUnitName:** Código de Participante associado ao CNPJ listado no Serviço de Diretório do OpenBanking Brasil;
+* **UID:** Software Statement ID cadastrado no Serviço de Diretório do OpenBanking Brasil e pertencente ao CNPJ e Código de Participante.
 
 O Certificado Cliente deve ser emitido através de cadeia V10, e deve obrigatoriamente conter os seguintes atributos:
 
@@ -153,12 +153,13 @@ O Certificado Cliente deve ser emitido através de cadeia V10, e deve obrigatori
 * **businessCategory (OID 2.5.4.15):**  Tipo de categoria comercial, devendo conter: "Private Organization" ou "Government Entity" ou "Business Entity" ou "Non-Commercial Entity"
 * **jurisdictionCountryName (OID: 1.3.6.1.4.1.311.60.2.1.3):** BR
 * **serialNumber (OID 2.5.4.5):** CNPJ
-* **UID (OID 0.9.2342.19200300.100.1.1):** Código de Participante associado ao CNPJ listado no Serviço de Diretório do OpenBanking Brasil
 * **countryName (OID 2.5.4.6):** BR
 * **organizationName (OID 2.5.4.10):** Razão Social
 * **stateOrProvinceName (OID 2.5.4.8):** Unidade da federação do endereço físico do titular do certificado
 * **localityName (OID 2.5.4.7):** Cidade do endereço físico do titular
-* **commonName (OID 2.5.4.3):** Software Statement ID gerado pelo Diretório do Open Banking Brasil
+* **organizationalUnitName (OID 2.5.4.11):** Código de Participante associado ao CNPJ listado no Serviço de Diretório do OpenBanking Brasil
+* **UID (OID 0.9.2342.19200300.100.1.1):** Software Statement ID gerado pelo Diretório do Open Banking Brasil
+* **commonName (OID 2.5.4.3):** FQDN ou Wildcard
 
 **Certificate Extensions**
 
@@ -167,10 +168,7 @@ O Certificado Cliente deve ser emitido através de cadeia V10, e deve obrigatori
 
 **Subject Alternative Name**
 
-* **otherName (OID 2.16.76.1.3.2 – ICP Brasil):** Nome do responsável pelo certificado
-* **otherName (OID 2.16.76.1.3.3 – ICP Brasil):** Cadastro Nacional de Pessoa Jurídica (CNPJ) da pessoa jurídica titular do certificado
-* **otherName (OID 2.16.76.1.3.4 – ICP Brasil):** Dados do responsável pelo certificado de pessoa jurídica titular do certificado (data de nascimento, CPF, PIS/PASEP/CI, RG);
-* **otherName (OID 2.16.76.1.3.8 – ICP Brasil):** Nome empresarial constante do CNPJ (Cadastro Nacional de Pessoa Jurídica), sem abreviações.
+* **dNSName:** FQDN ou Wildcard
 
 ### Certificado de Assinatura
 
@@ -206,18 +204,13 @@ O Certificado de Assinatura deve ser emitido através de cadeia V5, e deve obrig
 
 #### Autoridades Certificadoras Participantes
 
-A lista abaixa representa a lista de autoridades certificadoras que realizaram o processo de onboard ao Open Banking Brasil e estão habilitadas para realizar a emissão de certificados do Open Banking Brasil.
+A lista abaixo representa a lista de autoridades certificadoras que realizaram o processo de onboard ao Open Banking Brasil e estão habilitadas para realizar a emissão de certificados do Open Banking Brasil.
 
 * N/A
 
 ### Certificado para Front-End
 
-Os certificados para Front-End são utilziados para disponibilizar os serviços, em geral páginas Web, com uso de TLS, na qual são acessado por usuário final. Dado a sua finalidade, e para garantir maior interoperabilidade. Os certificados devem ser do tipo EV (Extended Validation) e deve ser ser gerado através de uma autoridade certificadora válida,
-seguindo as regras definidas na RFC 5280 e RFC 2818, em conformidade com os princípios e critérios WebTrust.
-
-### Certificado Diretorio
-
-TODO
+Os certificados para Front-End são utilziados para disponibilizar os serviços, em geral páginas Web, com uso de TLS, na qual são acessado por usuário final. Dado a sua finalidade, e para garantir maior interoperabilidade. Os certificados devem ser do tipo EV (Extended Validation) e devem ser ser gerados através de uma autoridade certificadora válida, seguindo as regras definidas na RFC 5280 e RFC 2818, em conformidade com os princípios e critérios WebTrust.
 
 # Reconhecimento
 
@@ -255,26 +248,22 @@ req_extensions = req_cert_extensions
 businessCategory = <tipo de entidade>
 jurisdictionCountryName = BR
 serialNumber = <CNPJ>
-UID = <Código de Participante>
 countryName = BR
 organizationName = <Razao Social>
 stateOrProvinceName = <UF>
 localityName = <Cidade>
-commonName = <Software Statement ID emitido pelo diretório>
+organizationalUnitName = <Código de Participante>
+UID = <Software Statement ID emitido pelo diretório>
+commonName = <FQDN|Wildcard>
 
 [ req_cert_extensions ] 
 basicConstraints = CA:FALSE
 subjectAltName = @alt_name
 keyUsage = critical,digitalSignature,keyEncipherment
-extendedKeyUsage = clientAuth,serverAuth
+extendedKeyUsage = clientAuth
 
 [ alt_name ] 
-#Name of the person responsible by the Certificate (Company Representative)
-otherName.0 = 2.16.76.1.3.2;UTF8:<Nome da pessoal responsável pela entidade>
-otherName.1 = 2.16.76.1.3.3;UTF8<CNPJ>
-#Company Representative CPF/PIS/RF
-otherName.2 = 2.16.76.1.3.4;UTF8:<CPF/PIS/RF da Pessoa responsável>
-otherName.3 = 2.16.76.1.3.8;UTF8:<Razão Social>
+DNS = <FQDN|Wildcard>
 ```
 
 ## Modelo de Configuracao de Certificado de Assinatura - OpenSSL
