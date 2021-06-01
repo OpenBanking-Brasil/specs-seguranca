@@ -187,21 +187,17 @@ Sempre que possível, os servidores de autorização devem comparar os metadados
 
 O servidor de autorização deve suportar [OpenID Connect Discovery][OIDD] conforme exigido pelo [Financial-grade API Security Profile 1.0 - Part 1: Baseline][FAPI-1-Baseline].
 
-In addition, the Authorization Server
+Adicionalmente, o Servidor de Autorização
 
-1. shall advertise its presence in the Open Banking Brasil ecosystem by being listed on the Directory of Participants;
-1. shall advertise all Open Banking Brasil REST API resources protected by the OpenID Provider on the Directory of Participants;
-1. shall advertise support for all signing, encryption, authentication mechanisms and standards required to support [Open Banking Brasil Financial API][OBB-FAPI];
-1. shall advertise support for [OpenID Dynamic Client Registration][OIDR];
-2. shall advertise `mtls_endpoint_aliases` as per clause 5 [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens][RF8705] the `token_endpoint`, `registration_endpoint` and `userinfo_endpoint`;
-3. if supporting [OAuth 2.0 Pushed Authorisation Requests][PAR] shall advertise through [OIDD] `mtls_endpoint_aliases` the `pushed_authorization_request_endpoint`;
-4. if supporting [Financial API - Client Initiated Back Channel Authentication][FAPI-CIBA] shall advertise through [OIDD] `mtls_endpoint_aliases` the `backchannel_authentication_endpoint`;
+1. deve anunciar sua presença no ecossistema Open Banking Brasil, sendo listada no Diretório de Participantes;
+2. deve anunciar todos os recursos da API REST do Open Banking Brasil protegidos pelo Provedor OpenID no Diretório de Participantes;
+3. deve anunciar suporte para todos os mecanismos de assinatura, criptografia, autenticação e padrões necessários para suportar [Open Banking Brasil Financial API][OBB-FAPI];
+4. deve anunciar suporte para [OpenID Dynamic Client Registration][OIDR];
+5. deve anunciar `mtls_endpoint_aliases` de acordo com a cláusula 5 [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication e Certificate-Bound Access Tokens][RF8705] o `token_endpoint`, `registration_endpoint` e `userinfo_endpoint`;
+6. se suportar [OAuth 2.0 Pushed Authorisation Requests][PAR], deve anunciar por meio de [OIDD] `mtls_endpoint_aliases` o `push_authorization_request_endpoint`;
+7. se suportar [Financial API - Client Initiated Back Channel Authentication][FAPI-CIBA], deve anunciar através de [OIDD] `mtls_endpoint_aliases` o `backchannel_authentication_endpoint`;
 
 ## Cliente
-
-The Client shall support [OpenID Connect Discovery][OIDD] as required by [Financial-grade API Security Profile 1.0 - Part 1: Baseline][FAPI-1-Baseline]
-
-In addition, the Authorization Server
 
 O cliente deve suportar [OpenID Connect Discovery] [OIDD] conforme exigido pelo [Financial-grade API Security Profile 1.0 - Part 1: Baseline][FAPI-1-Baseline].
 
@@ -211,28 +207,32 @@ Além disso, o servidor de autorização
 1. shall derive necessary Authorisation Server metadata by relying on an Authorization Servers OpenID Connect Discovery services only;
 1. where present, shall use endpoints advertised in `mtls_endpoint_aliases` as per clause 5 [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens][RF8705];
 
-# Open Banking Brasil OpenID Connect Registration Provisions
+1. deve contar com serviços de descoberta de ecossistemas fornecidos pelo Diretório de Participantes apenas;
+2. derivará os metadados necessários do Servidor de Autorização somente por meio dos serviços de descoberta do OpenID Connect de um Servidor de Autorização;
+3. quando presente, deve usar endpoints anunciados em `mtls_endpoint_aliases` conforme a cláusula 5 [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication e Certificate-Bound Access Tokens][RF8705];
 
-## Authorization server
+# Provisões de registro OpenID Connect do Open Banking Brasil
 
-The Authorization Server shall support the [RFC7591], [RFC7592] and [OpenID Registration][OIDR]
+## Servidor de Autorização
 
-In addition, the Authorization Server
+O servidor de autorização deve suportar o [RFC7591], [RFC7592] e [OpenID Registration][OIDR]
 
-1. shall reject dynamic client registration requests not performed over a connection secured with mutual tls using certificates issued by Brazil ICP (production) or the Directory of Participants (sandbox);
-1. shall validate that the request contains software_statement jwt signed using using the PS256 alg issued by the open banking brasil directory of participants;
-1. shall validate that the software_statement was issued (iat) not more than 5 minutes prior to the request being received;
-1. shall validate that a `jwks` (key set by value) was **not** included;
-1. shall require and validate that the `jwks_uri` matches the `software_jwks_uri` provided in the software statement;
-1. shall require and validate that `redirect_uris` match or contain a sub set of software_redirect_uris provided in the software statement;
-1. shall require and validate that all client authentication mechanism adhere to the requirements defined in [Financial-grade API Security Profile 1.0 - Part 1: Advanced](https://openid.net/specs/openid-financial-api-part-2-1_0.html);
-1. shall require encrypted request objects as required by the Brasil Open Banking Security Profile;
-1. shall validate that requested scopes are appropriate for the softwares authorized regulatory roles;
-1. should where possible validate client asserted metadata against metadata provided in the software_statement;
-1. shall accept all x.500 AttributeType name strings defined in the Distinguished Name of the x.509 Certificate Profiles defined in [Open Banking Brasil x.509 Certificate Standards][OBB-Cert-Standards];
-1. if supporting `tls_client_auth` client authenication mechanism as defined in [RFC8705] shall only accept `tls_client_auth_subject_dn`  as an indication of the certificate subject value as defined in clause 2.1.2 [RFC8705];
+Além disso, o servidor de autorização
 
-These provisions apply equally to the processing of [RFC7591], [RFC7592] and [OpenID Registration][OIDR] requests
+1. rejeitará as solicitações de registro de cliente dinâmico não realizadas em uma conexão protegida com tls mútuo usando certificados emitidos pelo Brasil ICP (produção) ou o Diretório de Participantes (sandbox);
+2. deve validar que a solicitação contém _software_statement_ jwt assinado usando o algoritmo PS256 emitido pelo diretório de participantes do Open Banking Brasil;
+4. deve validar que o _software_statement_ foi emitido (iat) não mais de 5 minutos antes do pedido ser recebido;
+5. deve validar que um `jwks` (chave definida por valor) **não** foi incluído;
+6. exigirá e validará que o `jwks_uri` corresponda ao `software_jwks_uri` fornecido na declaração do software;
+7. deve exigir e validar que `redirect_uris` corresponda ou contenha um subconjunto de software_redirect_uris fornecido na declaração do software;
+8. deve exigir e validar que todos os mecanismos de autenticação de cliente cumpram os requisitos definidos em [Financial-grade API Security Profile 1.0 - Part 1: Advanced](https://openid.net/specs/openid-financial-api-part-2-1_0.html);
+9. exigirá objetos de solicitação criptografados conforme exigido pelo Perfil de Segurança do Open Banking Brasil;
+10. deve validar se os escopos solicitados são adequados para as funções regulatórias autorizadas do software;
+11. deve, sempre que possível, validar os metadados declarados pelo cliente em relação aos metadados fornecidos no _software_statement_;
+12. deve aceitar todas as sequências de nomes de x.500 AttributeType definidas no _Distinguished Name_ dos Perfis de Certificado x.509 definidos em [Open Banking Brasil x.509 Certificate Standards][OBB-Cert-Standards];
+13. se for compatível com o mecanismo de autenticação do cliente `tls_client_auth`, conforme definido em [RFC8705], só aceitará `tls_client_auth_subject_dn` como uma indicação do valor do assunto do certificado, conforme definido na cláusula 2.1.2 [RFC8705];
+
+Estas disposições aplicam-se igualmente ao processamento de pedidos [RFC7591], [RFC7592] e [OpenID Registration][OIDR]
 
 ### Applying Server Defaults
 
