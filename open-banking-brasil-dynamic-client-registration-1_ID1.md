@@ -431,7 +431,7 @@ As seguintes pessoas contribuíram para este documento:
 * 
 {backmatter}
 
-# # Avisos
+# Avisos
 
 Copyright (c) 2021 Estrutura Inicial do Open Banking Brasil
 
