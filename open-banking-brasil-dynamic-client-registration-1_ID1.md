@@ -313,6 +313,7 @@ The following example contains all of the claims currently included in a softwar
   "software_jwks_transport_uri": "https://keystore.directory.openbankingbrasil.org.br/b961c4eb-509d-4edf-afeb-35642b38185d/25556d5a-b9dd-4e27-aa1a-cce732fe74de/transport.jwks",
   "software_logo_uri": "https://www.raidiam.com/accounting/logo.png",
   "org_id": "b961c4eb-509d-4edf-afeb-35642b38185d",
+  "org_number": "112233445566",
   "software_environment": "production",
   "software_version": 1.1,
   "software_roles": [
@@ -327,6 +328,7 @@ The following example contains all of the claims currently included in a softwar
       "authorisations": [],
       "registration_id": "13353236-OBB-CONTA",
       "authority_id": "687a1c94-b360-4e04-9589-0fa5cb16451b",
+      "authority_name": "Banco Central",
       "authorisation_role": "CONTA",
       "authority_code": "BCB",
       "status": "Active"
@@ -336,6 +338,7 @@ The following example contains all of the claims currently included in a softwar
       "authorisations": [],
       "registration_id": "13353236-OBB-DADOS",
       "authority_id": "687a1c94-b360-4e04-9589-0fa5cb16451b",
+      "authority_name": "Banco Central",
       "authorisation_role": "DADOS",
       "authority_code": "BCB",
       "status": "Active"
@@ -345,6 +348,7 @@ The following example contains all of the claims currently included in a softwar
       "authorisations": [],
       "registration_id": "13353236-OBB-PAGTO",
       "authority_id": "687a1c94-b360-4e04-9589-0fa5cb16451b",
+      "authority_name": "Banco Central",
       "authorisation_role": "PAGTO",
       "authority_code": "BCB",
       "status": "Active"
