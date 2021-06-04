@@ -1068,10 +1068,10 @@ tr:nth-child(2n+1) > td {
 <thead><tr>
 <td class="left"></td>
 <td class="center">OBB-FAPI-1-DCR-ID1</td>
-<td class="right">May 2021</td>
+<td class="right">June 2021</td>
 </tr></thead>
 <tfoot><tr>
-<td class="left">Bragg &; Security</td>
+<td class="left">Bragg & Security</td>
 <td class="center">Standards Track</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
@@ -1085,7 +1085,7 @@ tr:nth-child(2n+1) > td {
 <dd class="internet-draft">open-banking-brasil-dynamic-client-registration-1_ID1</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2021-05-19" class="published">19 May 2021</time>
+<time datetime="2021-06-02" class="published">2 June 2021</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
@@ -1356,7 +1356,7 @@ and are not to be interpreted with their natural language meanings.<a href="#sec
             <p id="section-6.1-3.4.1">shall advertise support for <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Dynamic Client Registration</a>;<a href="#section-6.1-3.4.1" class="pilcrow">¶</a></p>
 </li>
 <li id="section-6.1-3.5">
-            <p id="section-6.1-3.5.1">shall advertise <code>mtls_endpoint_aliases</code> as per clause 3.4 [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens][RF8705] the <code>token_endpoint</code>, <code>registration_endpoint</code> and <code>userinfo_endpoint</code>;<a href="#section-6.1-3.5.1" class="pilcrow">¶</a></p>
+            <p id="section-6.1-3.5.1">shall advertise <code>mtls_endpoint_aliases</code> as per clause 5 [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens][RF8705] the <code>token_endpoint</code>, <code>registration_endpoint</code> and <code>userinfo_endpoint</code>;<a href="#section-6.1-3.5.1" class="pilcrow">¶</a></p>
 </li>
 <li id="section-6.1-3.6">
             <p id="section-6.1-3.6.1">if supporting <a href="https://tools.ietf.org/html/draft-ietf-oauth-par">OAuth 2.0 Pushed Authorisation Requests</a> shall advertise through <a href="https://openid.net/specs/openid-connect-discovery-1_0.html">OIDD</a> <code>mtls_endpoint_aliases</code> the <code>pushed_authorization_request_endpoint</code>;<a href="#section-6.1-3.6.1" class="pilcrow">¶</a></p>
@@ -1382,7 +1382,7 @@ and are not to be interpreted with their natural language meanings.<a href="#sec
             <p id="section-6.2-3.2.1">shall derive necessary Authorisation Server metadata by relying on an Authorization Servers OpenID Connect Discovery services only;<a href="#section-6.2-3.2.1" class="pilcrow">¶</a></p>
 </li>
 <li id="section-6.2-3.3">
-            <p id="section-6.2-3.3.1">where present, shall use endpoints advertised in <code>mtls_endpoint_aliases</code> as per clause 3.4 [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens][RF8705];<a href="#section-6.2-3.3.1" class="pilcrow">¶</a></p>
+            <p id="section-6.2-3.3.1">where present, shall use endpoints advertised in <code>mtls_endpoint_aliases</code> as per clause 5 [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens][RF8705];<a href="#section-6.2-3.3.1" class="pilcrow">¶</a></p>
 </li>
 </ol>
 </section>
@@ -1475,22 +1475,42 @@ and are not to be interpreted with their natural language meanings.<a href="#sec
         <h3 id="name-regulatory-roles-to-openid-">
 <a href="#section-7.2" class="section-number selfRef">7.2. </a><a href="#name-regulatory-roles-to-openid-" class="section-name selfRef">Regulatory Roles to OpenID and OAuth 2.0 Mappings</a>
         </h3>
+<p id="section-7.2-1">To participate in the Open Banking ecosystem, accredited institutions must register themselves in the directory of participants according to their regulatory roles. Those roles reflect the institutions' authorization from the Central Bank and, consequently, the APIs they are allowed to use.<a href="#section-7.2-1" class="pilcrow">¶</a></p>
+<p id="section-7.2-2">The following table describes the regulatory roles for Open Banking and the related OAuth 2.0 scopes mapping. If the scopes are omitted during the DCR process, the authorization server shall grant the complete set of potential scopes based on the registering bank's regulatory roles, as described in the Server Defaults section.<a href="#section-7.2-2" class="pilcrow">¶</a></p>
 <table class="center" id="table-1">
           <caption><a href="#table-1" class="selfRef">Table 1</a></caption>
 <thead>
             <tr>
               <th class="text-left" rowspan="1" colspan="1">Regulatory Role</th>
+              <th class="text-left" rowspan="1" colspan="1">Description</th>
               <th class="text-left" rowspan="1" colspan="1">Allowed Scopes</th>
+              <th class="text-left" rowspan="1" colspan="1">Target Phase</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">DADOS</td>
-              <td class="text-left" rowspan="1" colspan="1">openid accounts credit-cards-accounts consents customers invoice-financings financings loans unarragned-accounts-overdraft consents</td>
+              <td class="text-left" rowspan="1" colspan="1">Institui&#231;&#227;o transmissora / receptora de dados (AISP)</td>
+              <td class="text-left" rowspan="1" colspan="1">openid accounts credit-cards-accounts consents customers invoice-financings financings loans unarranged-accounts-overdraft</td>
+              <td class="text-left" rowspan="1" colspan="1">Phase 2</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">PAGTO</td>
+              <td class="text-left" rowspan="1" colspan="1">Institui&#231;&#227;o prestadora de servi&#231;o de inicia&#231;&#227;o de pagamentos (PISP)</td>
               <td class="text-left" rowspan="1" colspan="1">openid payments consents</td>
+              <td class="text-left" rowspan="1" colspan="1">Phase 3</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">CONTA</td>
+              <td class="text-left" rowspan="1" colspan="1">Institui&#231;&#227;o detentora de conta (ASPSP)</td>
+              <td class="text-left" rowspan="1" colspan="1">openid</td>
+              <td class="text-left" rowspan="1" colspan="1">Phase 3</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">CCORR</td>
+              <td class="text-left" rowspan="1" colspan="1">Correspondente de cr&#233;dito</td>
+              <td class="text-left" rowspan="1" colspan="1">openid</td>
+              <td class="text-left" rowspan="1" colspan="1">Phase 3*</td>
             </tr>
           </tbody>
         </table>
@@ -1499,8 +1519,7 @@ and are not to be interpreted with their natural language meanings.<a href="#sec
           <h4 id="name-implementers-note">
 <a href="#section-7.2.1" class="section-number selfRef">7.2.1. </a><a href="#name-implementers-note" class="section-name selfRef">Implementers Note</a>
           </h4>
-<p id="section-7.2.1-1">In line with guidance from the IETF and the direction of travel for fine grained consent management. The obligation falls to the Authorisation Server to ensure that there is sufficient
- scope conveyed in an access token necessary to fulfill the Permissions conveyed in the Consent Request. This principle and requirement is reflected in the forthcoming Grant Management API.<a href="#section-7.2.1-1" class="pilcrow">¶</a></p>
+<p id="section-7.2.1-1">In line with guidance from the IETF and the direction of travel for fine grained consent management. The obligation falls to the Authorisation Server to ensure that there is sufficient scope conveyed in an access token necessary to fulfill the Permissions conveyed in the Consent Request. This principle and requirement is reflected in the forthcoming Grant Management API.<a href="#section-7.2.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1580,6 +1599,7 @@ and are not to be interpreted with their natural language meanings.<a href="#sec
   "software_jwks_transport_uri": "https://keystore.directory.openbankingbrasil.org.br/b961c4eb-509d-4edf-afeb-35642b38185d/25556d5a-b9dd-4e27-aa1a-cce732fe74de/transport.jwks",
   "software_logo_uri": "https://www.raidiam.com/accounting/logo.png",
   "org_id": "b961c4eb-509d-4edf-afeb-35642b38185d",
+  "org_number": "112233445566",
   "software_environment": "production",
   "software_version": 1.1,
   "software_roles": [
@@ -1594,6 +1614,7 @@ and are not to be interpreted with their natural language meanings.<a href="#sec
       "authorisations": [],
       "registration_id": "13353236-OBB-CONTA",
       "authority_id": "687a1c94-b360-4e04-9589-0fa5cb16451b",
+      "authority_name": "Banco Central",
       "authorisation_role": "CONTA",
       "authority_code": "BCB",
       "status": "Active"
@@ -1602,6 +1623,7 @@ and are not to be interpreted with their natural language meanings.<a href="#sec
       "authorisation_domain": "Open Banking",
       "authorisations": [],
       "registration_id": "13353236-OBB-DADOS",
+      "authority_name": "Banco Central",
       "authority_id": "687a1c94-b360-4e04-9589-0fa5cb16451b",
       "authorisation_role": "DADOS",
       "authority_code": "BCB",
@@ -1612,6 +1634,7 @@ and are not to be interpreted with their natural language meanings.<a href="#sec
       "authorisations": [],
       "registration_id": "13353236-OBB-PAGTO",
       "authority_id": "687a1c94-b360-4e04-9589-0fa5cb16451b",
+      "authority_name": "Banco Central",
       "authorisation_role": "PAGTO",
       "authority_code": "BCB",
       "status": "Active"
@@ -2945,6 +2968,9 @@ Content-Type: application/json
 </li>
 <li id="section-10-3.2">
           <p id="section-10-3.2.1">Alexandre Siqueira (Mercado Pago)<a href="#section-10-3.2.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-10-3.3">
+          <p id="section-10-3.3.1">Bernardo Vale (Banco Inter)<a href="#section-10-3.3.1" class="pilcrow">¶</a></p>
 </li>
 </ul>
 </section>
