@@ -39,43 +39,49 @@
 
 %%%
 
-# Prefácio
+.# Foreword
 
-A Estrutura Inicial do Open Banking Brasil é responsável por criar os padrões e especificações necessários para atender aos requisitos e obrigações da Legislação do Open Banking do Brasil, conforme originalmente delineado pelo [Banco Central do Brasil](https://www.bcb.gov.br/content/config/Documents/BCB_Open_Banking_Communique-April-2019.pdf). É possível que alguns dos elementos deste documento estejam sujeitos a direitos de patente. O EIOBB não se responsabiliza pela identificação de qualquer ou todos os direitos de patente.
+Este documento também está disponível em [português](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID1-ptbr.html)
 
-O Perfil de Segurança 1.0 da API de nível financeiro do Open Banking Brasil consiste nas seguintes partes:
+The Open Banking Brasil Initial Structure is responsible for creating standards and specifications necessary to meet the requirements and obligations of the Brasil Open Banking Legislation as originally outlined by the [Brasil Central Bank](https://www.bcb.gov.br/content/config/Documents/BCB_Open_Banking_Communique-April-2019.pdf). There is a possibility that some of the elements of this document may be the subject to patent rights. OBBIS shall not be held responsible for identifying any or all such patent rights.
+
+Open Banking Brasil Financial-grade API Security Profile 1.0 consists of the following parts:
 
 * [Open Banking Brasil Financial-grade API Security Profile 1.0][OBB-FAPI]
 * Open Banking Brasil Dynamic Client Registration Profile 1.0
 
-Essas partes devem ser usadas com [RFC6749], [RFC6750], [RFC7636], [OIDC], [OIDR], [RFC7591], [RFC7592], [FAPI-1-Baseline] e [FAPI-1-Advanced]
+These parts are intended to be used with [RFC6749], [RFC6750], [RFC7636], [OIDC], [OIDR], [RFC7591], [RFC7592], [FAPI-1-Baseline] and [FAPI-1-Advanced]
 
-# Introdução
+.# Introduction
 
-O Perfil de Registro de Cliente Dinâmico de Financal-grade API (FAPI) do Open Banking Brasil é um perfil de [RFC7591], [RFC7592] e [OIDR] que visa fornecer diretrizes de implementação específicas para segurança e interoperabilidade que podem ser aplicadas à identificação, registro e gerenciamento de Clientes OAuth operando no ecossistema Brasil Open Banking.
+The Open Banking Brasil Financial-grade API Dynamic Client Registration Profile is a profile of [RFC7591], [RFC7592] and [OIDR] that aims to provide specific implementation guidelines for security and interoperability which can be applied to the identification, registration and management of OAuth Clients operating in the Brasil Open Banking ecosystem.
+Although it is possible to code an OpenID Provider and Relying Party from first principles using this specification, the main audience for this specification is parties who already have a certified implementation of [OpenID Connect][OIDC] and want to achieve certification for the Brasil Open Banking programme.
 
-Embora seja possível codificar um provedor e parte de confiança OpenID desde os primeiros princípios usando esta especificação, o principal público para esta especificação são as partes que já possuem uma implementação certificada do [OpenID Connect] [OIDC] e desejam obter a certificação para o Brasil Open Programa bancário.
+.# Notational Conventions
 
-# Convenções Notacionais
-
-As palavras-chave "deve", "não deve", "deveria", "não deveria", "pode" e "pode" neste documento deve ser interpretado conforme descrito em [Diretiva ISO Parte 2] [ISODIR2].
-Estas palavras-chave não são usadas como termos de dicionário, de modo que qualquer ocorrência deles deve ser interpretada como palavras-chave e não devem ser interpretados com seus significados naturais de linguagem.
+The key words "shall", "shall not",
+"should", "should not", "may", and
+"can" in this document are to be interpreted as described in
+[ISO Directive Part 2][ISODIR2].
+These key words are not used as dictionary terms such that
+any occurrence of them shall be interpreted as key words
+and are not to be interpreted with their natural language meanings.
 
 {mainmatter}
 
-# Escopo
+# Scope
 
-Este documento especifica o método de
+This document specifies the method of
 
-* aplicativos cadastrados no [Open Banking Directory of Participants](https://web.directory.openbankingbrasil.org.br) para descobrir OpenID Providers que oferecem serviços no ecossistema Open Banking Brasil;
-* aplicativos para usar o [OpenID Connect Registration][OIDR] para integrar seus aplicativos com Bank OpenID Providers; e
-* aplicativos para usar [OAuth 2.0 Dynamic Client Registration Management Protocol][RFC7592] para gerenciar seus aplicativos com Provedores OpenID;
+* applications registered in the [Open Banking Directory of Participants](https://web.directory.openbankingbrasil.org.br) to discover OpenID Providers offering services in the Open Banking Brasil ecosystem;
+* applications to use [OpenID Connect Registration][OIDR] to onboard their applications with Bank OpenID Providers; and
+* applications to use [OAuth 2.0 Dynamic Client Registration Management Protocol][RFC7592] to manage their applications with OpenID Providers;
 
-Este documento é aplicável a todos os participantes do Open Banking no Brasil.
+This document is applicable to all participants engaging in Open Banking in Brasil.
 
-# Referências normativas
+# Normative references
 
-Os seguintes documentos referenciados são indispensáveis para a aplicação deste documento. Para referências datadas, apenas a edição citada se aplica. Para referências não datadas, a última edição do documento referenciado (incluindo quaisquer emendas) se aplica.
+The following referenced documents are indispensable for the application of this document. For dated references, only the edition cited applied. For undated references, the latest edition of the referenced document (including any amendments) applies.
 
 [ISODIR2] - ISO/IEC Directives Part 2
 [ISODIR2]: <https://www.iso.org/sites/directives/current/part2/index.xhtml
@@ -143,19 +149,19 @@ Os seguintes documentos referenciados são indispensáveis para a aplicação de
 [OBB-Cert-Standards] - Open Banking Brasil x.509 Certificate Standards
 [OBB-Cert-Standards]: <https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html
 
-# Termos e definições
+# Terms and definitions
 
-Para efeitos deste documento, aplicam-se os termos definidos em [RFC6749], [RFC6750], [RFC7636], [OpenID Connect Core][OIDC] e ISO29100.
+For the purpose of this document, the terms defined in [RFC6749], [RFC6750], [RFC7636], [OpenID Connect Core][OIDC] and ISO29100 apply.
 
-# Símbolos e Termos abreviados
+# Symbols and Abbreviated terms
 
-**SSA** – Software Statement Assertion (Afirmação de Declaração de Software)
+**SSA** – Software Statement Assertion
 
-**SS** – Software Statement (Declaração de Software)
+**SS** – Software Statement
 
-**DCR** – Dynamic Client Registration (Registro de Cliente Dinâmico)
+**DCR** – Dynamic Client Registration
 
-**API** – Application Programming Interface (Interface de Programação da Aplicação)
+**API** – Application Programming Interface
 
 **FAPI** - Financial-grade API
 
@@ -167,120 +173,114 @@ Para efeitos deste documento, aplicam-se os termos definidos em [RFC6749], [RFC6
 
 **TLS** – Transport Layer Security
 
-# Introdução
+# Introduction
 
-O ecossistema Open Banking Brasil faz proveito de um provedor de confiança da federação ou _diretório de participantes_ como a fonte mais valiosa de informações sobre participantes credenciados e softwares que estão autorizados a participar do ecossistema Open Banking Brasil.
+Brasil Open Bankings ecosystem leverages a federation trust provider or _directory of participants_ as the golden source of information on accredited participants and software that are authorized to partake in the Open Banking Brasil ecosystem.
 
-Os serviços do Diretório incluem
+The services by the Directory include
 
-* Registro e gerenciamento de software.
-* Registro e gerenciamento de credenciais de software usando certificados ICP.
-* Geração de Afirmações de Declaração de Software (SSA)
+* Software registration and management.
+* Software credential registration and management using ICP Certificates.
+* Software Statement Assertion (SSA) generation
 
-Os participantes do ecossistema devem aproveitar esses serviços para facilitar o registro do cliente OAuth orientado por API usando o processo descrito na cláusula 3.1.1 do [RFC7591] com metadados adicionais necessários para oferecer suporte ao OpenID Connect definido em [OpenID Connect Registration][OIDR].
+Participants within the ecosystem must leverage these services to facilitate API driven OAuth client registration using the process outlined in clause 3.1.1 of [RFC7591] with additional metadata necessary to support OpenID Connect defined in [OpenID Connect Registration][OIDR].
 
-Sempre que possível, os servidores de autorização devem comparar os metadados do cliente declarados por um cliente feito como parte do registro ou solicitação de gerenciamento com as declarações de metadados contidas em uma declaração de software. Nem todos os metadados que um cliente deseja fornecer podem estar contidos em uma declaração de software, por exemplo, alternativa [Metadata Langauges and Script values](https://openid.net/specs/openid-connect-registration-1_0.html#LanguagesAndScripts).
+Where possible, authorisation servers should compare client metadata asserted by a client made as part of registration or management request against metadata claims contained within a software statement. Not all metadata that a client wishes to provide may be contained in a software statement, e.g alternative [Metadata Langauges and Script values](https://openid.net/specs/openid-connect-registration-1_0.html#LanguagesAndScripts).
 
-# Provisionamentos do OpenID Connect Discovery do Open Banking Brasil 
+# Open Banking Brasil OpenID Connect Discovery provisions
 
-## Servidor de Autorização
+## Authorization server
 
-O servidor de autorização deve suportar [OpenID Connect Discovery][OIDD] conforme exigido pelo [Financial-grade API Security Profile 1.0 - Part 1: Baseline][FAPI-1-Baseline].
+The Authorization Server shall support [OpenID Connect Discovery][OIDD] as required by [Financial-grade API Security Profile 1.0 - Part 1: Baseline][FAPI-1-Baseline]
 
-Adicionalmente, o Servidor de Autorização
+In addition, the Authorization Server
 
-1. deve anunciar sua presença no ecossistema Open Banking Brasil, sendo listada no Diretório de Participantes;
-2. deve anunciar todos os recursos da API REST do Open Banking Brasil protegidos pelo Provedor OpenID no Diretório de Participantes;
-3. deve anunciar suporte para todos os mecanismos de assinatura, criptografia, autenticação e padrões necessários para suportar [Open Banking Brasil Financial API][OBB-FAPI];
-4. deve anunciar suporte para [OpenID Dynamic Client Registration][OIDR];
-5. deve anunciar `mtls_endpoint_aliases` de acordo com a cláusula 5 [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication e Certificate-Bound Access Tokens][RF8705] o `token_endpoint`, `registration_endpoint` e `userinfo_endpoint`;
-6. se suportar [OAuth 2.0 Pushed Authorisation Requests][PAR], deve anunciar por meio de [OIDD] `mtls_endpoint_aliases` o `push_authorization_request_endpoint`;
-7. se suportar [Financial API - Client Initiated Back Channel Authentication][FAPI-CIBA], deve anunciar através de [OIDD] `mtls_endpoint_aliases` o `backchannel_authentication_endpoint`;
+1. shall advertise its presence in the Open Banking Brasil ecosystem by being listed on the Directory of Participants;
+1. shall advertise all Open Banking Brasil REST API resources protected by the OpenID Provider on the Directory of Participants;
+1. shall advertise support for all signing, encryption, authentication mechanisms and standards required to support [Open Banking Brasil Financial API][OBB-FAPI];
+1. shall advertise support for [OpenID Dynamic Client Registration][OIDR];
+2. shall advertise `mtls_endpoint_aliases` as per clause 5 [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens][RF8705] the `token_endpoint`, `registration_endpoint` and `userinfo_endpoint`;
+3. if supporting [OAuth 2.0 Pushed Authorisation Requests][PAR] shall advertise through [OIDD] `mtls_endpoint_aliases` the `pushed_authorization_request_endpoint`;
+4. if supporting [Financial API - Client Initiated Back Channel Authentication][FAPI-CIBA] shall advertise through [OIDD] `mtls_endpoint_aliases` the `backchannel_authentication_endpoint`;
 
-## Cliente
+## Client
 
-O cliente deve suportar [OpenID Connect Discovery] [OIDD] conforme exigido pelo [Financial-grade API Security Profile 1.0 - Part 1: Baseline][FAPI-1-Baseline].
+The Client shall support [OpenID Connect Discovery][OIDD] as required by [Financial-grade API Security Profile 1.0 - Part 1: Baseline][FAPI-1-Baseline]
 
-Além disso, o servidor de autorização
+In addition, the Authorization Server
 
 1. shall rely on ecosystem discovery services provided by Directory of Participants only;
 1. shall derive necessary Authorisation Server metadata by relying on an Authorization Servers OpenID Connect Discovery services only;
 1. where present, shall use endpoints advertised in `mtls_endpoint_aliases` as per clause 5 [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens][RF8705];
 
-1. deve contar com serviços de descoberta de ecossistemas fornecidos pelo Diretório de Participantes apenas;
-2. derivará os metadados necessários do Servidor de Autorização somente por meio dos serviços de descoberta do OpenID Connect de um Servidor de Autorização;
-3. quando presente, deve usar endpoints anunciados em `mtls_endpoint_aliases` conforme a cláusula 5 [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication e Certificate-Bound Access Tokens][RF8705];
+# Open Banking Brasil OpenID Connect Registration Provisions
 
-# Provisões de registro OpenID Connect do Open Banking Brasil
+## Authorization server
 
-## Servidor de Autorização
+The Authorization Server shall support the [RFC7591], [RFC7592] and [OpenID Registration][OIDR]
 
-O servidor de autorização deve suportar o [RFC7591], [RFC7592] e [OpenID Registration][OIDR]
+In addition, the Authorization Server
 
-Além disso, o servidor de autorização
+1. shall reject dynamic client registration requests not performed over a connection secured with mutual tls using certificates issued by Brazil ICP (production) or the Directory of Participants (sandbox);
+1. shall validate that the request contains software_statement jwt signed using using the PS256 alg issued by the open banking brasil directory of participants;
+1. shall validate that the software_statement was issued (iat) not more than 5 minutes prior to the request being received;
+1. shall validate that a `jwks` (key set by value) was **not** included;
+1. shall require and validate that the `jwks_uri` matches the `software_jwks_uri` provided in the software statement;
+1. shall require and validate that `redirect_uris` match or contain a sub set of software_redirect_uris provided in the software statement;
+1. shall require and validate that all client authentication mechanism adhere to the requirements defined in [Financial-grade API Security Profile 1.0 - Part 1: Advanced](https://openid.net/specs/openid-financial-api-part-2-1_0.html);
+1. shall require encrypted request objects as required by the Brasil Open Banking Security Profile;
+1. shall validate that requested scopes are appropriate for the softwares authorized regulatory roles;
+1. should where possible validate client asserted metadata against metadata provided in the software_statement;
+1. shall accept all x.500 AttributeType name strings defined in the Distinguished Name of the x.509 Certificate Profiles defined in [Open Banking Brasil x.509 Certificate Standards][OBB-Cert-Standards];
+1. if supporting `tls_client_auth` client authenication mechanism as defined in [RFC8705] shall only accept `tls_client_auth_subject_dn`  as an indication of the certificate subject value as defined in clause 2.1.2 [RFC8705];
 
-1. rejeitará as solicitações de registro de cliente dinâmico não realizadas em uma conexão protegida com tls mútuo usando certificados emitidos pelo Brasil ICP (produção) ou o Diretório de Participantes (sandbox);
-2. deve validar que a solicitação contém _software_statement_ jwt assinado usando o algoritmo PS256 emitido pelo diretório de participantes do Open Banking Brasil;
-4. deve validar que o _software_statement_ foi emitido (iat) não mais de 5 minutos antes do pedido ser recebido;
-5. deve validar que um `jwks` (chave definida por valor) **não** foi incluído;
-6. exigirá e validará que o `jwks_uri` corresponda ao `software_jwks_uri` fornecido na declaração do software;
-7. deve exigir e validar que `redirect_uris` corresponda ou contenha um subconjunto de software_redirect_uris fornecido na declaração do software;
-8. deve exigir e validar que todos os mecanismos de autenticação de cliente cumpram os requisitos definidos em [Financial-grade API Security Profile 1.0 - Part 1: Advanced](https://openid.net/specs/openid-financial-api-part-2-1_0.html);
-9. exigirá objetos de solicitação criptografados conforme exigido pelo Perfil de Segurança do Open Banking Brasil;
-10. deve validar se os escopos solicitados são adequados para as funções regulatórias autorizadas do software;
-11. deve, sempre que possível, validar os metadados declarados pelo cliente em relação aos metadados fornecidos no _software_statement_;
-12. deve aceitar todas as sequências de nomes de x.500 AttributeType definidas no Nome Distinto (_Distinguished Name_) dos Perfis de Certificado x.509 definidos em [Open Banking Brasil x.509 Certificate Standards][OBB-Cert-Standards];
-13. se for compatível com o mecanismo de autenticação do cliente `tls_client_auth`, conforme definido em [RFC8705], só aceitará `tls_client_auth_subject_dn` como uma indicação do valor do assunto do certificado, conforme definido na cláusula 2.1.2 [RFC8705];
+These provisions apply equally to the processing of [RFC7591], [RFC7592] and [OpenID Registration][OIDR] requests
 
-Estas disposições aplicam-se igualmente ao processamento de pedidos [RFC7591], [RFC7592] e [OpenID Registration][OIDR]
+### Applying Server Defaults
 
-### Aplicando Padrões de Servidor
+Where properties of a DCR request are not included and are not mandatory in the specification the Authorisation Server shall apply client defaults in the following manner
 
-Quando as propriedades de uma solicitação DCR não estão incluídas e não são obrigatórias na especificação, o Servidor de Autorização deve aplicar os padrões do cliente da seguinte maneira
+1. shall select and apply the encryption algorithm and cipher choice from the most recommended of the IANA cipher suites that is supported by the Authorisation Server;
+1. shall populate defaults from values within the software statement assertion where possible;
+1. shall grant the client permission to the complete set of potential scopes based on the softwares regulatory permissions included in the software_statement;
 
-1. selecionará e aplicará o algoritmo de criptografia e a escolha da cifra a partir dos conjuntos mais recomendados de cifra da IANA que são suportados pelo servidor de autorização;
-2. preencherá os padrões de valores dentro da declaração de declaração do software, sempre que possível;
-4. deverá conceder ao cliente permissão para o conjunto completo de escopos potenciais com base nas permissões regulatórias de softwares incluídas no _software_statement_;
+### Certificate Distinguished Name Parsing
 
-### Análise do Nome Distinto do Certificado
+Clause 3 of [Lightweight Directory Access Protocol (LDAP): String Representation of Distinguished Names][RFC4514] defines the mandatory OIDs whose AttributeType strings (descriptors) must be recognized by implementers. This mandatory list does not include several of the OIDs defined in [Open Banking Brasil x.509 Certificate Standards][OBB-Cert-Standards] nor is there a defined mechanism for Authorisation Servers to publish  information regarding the format that they would expect a Dynamic Client Registration request that includes a `tls_client_auth_subject_dn` to be presented in.
 
-A cláusula 3 de [Lightweight Directory Access Protocol (LDAP): String Representation of Distinguished Names][RFC4514] define os OIDs obrigatórios cujas as _strings_ do AttributeType (descritores) devem ser reconhecidos pelos implementadores. Esta lista obrigatória não inclui vários dos OIDs definidos em [Open Banking Brasil x.509 Certificate Standards][OBB-Cert-Standards] nem existe um mecanismo definido para os Servidores de Autorização publicarem informações sobre o formato que eles esperam de uma Solicitação Dinâmica de Registro do Cliente (_Dynamic Client Registrarion_) que inclui um `tls_client_auth_subject_dn`.
+To address this ambiguity, the Authorization Server must accept all AttributeType name strings (descripters) defined in the last paragraph of clause 3 [RFC4515] in addition to all of the AttributeTypes defined in the Distinguished Name of the [Open Banking Brasil x.509 Certificate Standards][OBB-Cert-Standards].
 
-Para resolver essa ambigüidade, o Servidor de Autorização deve aceitar todas as strings de nome de AttributeType (descritores) definidas no último parágrafo da cláusula 3 [RFC4515], além de todos os AttributeTypes definidos no Nome Distinto do Certificado [Open Banking Brasil x.509 Certificate Standards][OBB-Cert-Standards].
+## Regulatory Roles to OpenID and OAuth 2.0 Mappings
 
+To participate in the Open Banking ecosystem, accredited institutions must register themselves in the directory of participants according to their regulatory roles. Those roles reflect the institutions' authorization from the Central Bank and, consequently, the APIs they are allowed to use.
 
-## Funções regulatórias para mapeamentos OpenID e OAuth 2.0
+The following table describes the regulatory roles for Open Banking and the related OAuth 2.0 scopes mapping. If the scopes are omitted during the DCR process, the authorization server shall grant the complete set of potential scopes based on the registering bank's regulatory roles, as described in the Server Defaults section.
 
-Para participar do ecossistema de Open Banking, as instituições credenciadas devem se cadastrar no diretório de participantes de acordo com seus papéis regulatórios. Essas funções refletem a autorização do Banco Central para as instituições e, consequentemente, as APIs que podem utilizar.
-
-A tabela a seguir descreve as funções regulatórias do Open Banking e o mapeamento de escopos do OAuth 2.0 relacionado. Se os escopos forem omitidos durante o processo de DCR, o servidor de autorização deve conceder o conjunto completo de escopos potenciais com base nas funções regulatórias do banco de registro, conforme descrito na seção Padrões do Servidor.
-
-
-| Papel Regulador | Descrição | Escopos Permitidos | Fase-alvo |
+| Regulatory Role | Description | Allowed Scopes | Target Phase|
 | --- | --- | --- | --- |
 | DADOS | Instituição transmissora / receptora de dados (AISP) | openid accounts credit-cards-accounts consents customers invoice-financings financings loans unarranged-accounts-overdraft | Phase 2 |
 | PAGTO | Instituição prestadora de serviço de iniciação de pagamentos (PISP) | openid payments consents | Phase 3 |
 | CONTA | Instituição detentora de conta (ASPSP) | openid | Phase 3 |
 | CCORR | Correspondente de crédito | openid | Phase 3* |
 
-### Nota dos Implementadores
+### Implementers Note
 
-Em linha com a orientação do IETF e com o conceito diretivo do gerenciamento de consentimento com menor granularidade. A obrigação recai sobre o Servidor de Autorização de garantir que haja escopo suficiente transmitido em um token de acesso necessário para cumprir as Permissões transmitidas na Solicitação de Consentimento. Este princípio e requisito são refletidos na futura API de gerenciamento de concessões.
+In line with guidance from the IETF and the direction of travel for fine grained consent management. The obligation falls to the Authorisation Server to ensure that there is sufficient scope conveyed in an access token necessary to fulfill the Permissions conveyed in the Consent Request. This principle and requirement is reflected in the forthcoming Grant Management API.
 
-## Funções regulatórias para mapeamentos de escopo OAuth 2.0 dinâmicos
+## Regulatory Roles to dynamic OAuth 2.0 scope Mappings
 
-| Papel Regulador | Escopos Permitidos |
+| Regulatory Role | Allowed Scopes |
 | --- | --- |
 | DADOS | consent:{ConsentId} |
 | PAGTO | consent:{ConsentId} |
 
-# Declaração de Software
+# Software Statement
 
-Uma declaração de software é um JSON Web Token (JWT) [RFC7519] que afirma valores de metadados sobre o software cliente como um todo.
+> A software statement is a JSON Web Token (JWT) [RFC7519] that asserts metadata values about the client software as a bundle.
 
-## Reinvidicações da Declaração de Software (Claims)
+## Software Statement Claims
 
-O exemplo a seguir contém todas as reivindicações atualmente incluídas em uma declaração de software
+The following example contains all of the claims currently included in a software statement
 
 ```
 {
@@ -359,15 +359,15 @@ O exemplo a seguir contém todas as reivindicações atualmente incluídas em um
 }
 ```
 
-# Processamento de solicitação de registro de cliente dinâmico
+# Dynamic Client Registration Request Processing
 
 !---
 ![Dynamic Client Registration](images/dcr.svg)
 !---
 
-## Enviar uma solicitação com uma declaração de software
+## Posting a request with a software statement
 
-Este exemplo inclui vários campos opcionais, alguns dos quais podem não ser aplicáveis a algumas implantações. A quebra de linha dentro dos valores são apenas para fins de exibição.
+This example includes various optional fields, some of which may not be applicable to some deployments. Line wraps within values are for display purposes only.
 
 ```
 POST /reg HTTP/1.1
@@ -408,41 +408,41 @@ Content-Type: application/json
 }
 ```
 
-## Open Banking Brasil SSA Key Store e detalhes do emissor
+## Open Banking Brasil SSA Key Store and Issuer Details
 
-**Producão**
+**Production**
 
 [https://keystore.directory.openbankingbrasil.org.br/openbanking.jwks](https://keystore.directory.openbankingbrasil.org.br/openbanking.jwks)
 
-Emissor do Open Banking Open Banking Brasil SSA de produção
+Open Banking Open Banking Brasil production SSA issuer
 
 **Sandbox**
 
 [https://keystore.sandbox.directory.openbankingbrasil.org.br/openbanking.jwks](https://keystore.sandbox.directory.openbankingbrasil.org.br/openbanking.jwks)
 
-Emissor do Open Banking Open Banking Brasil SSA de sandbox
+Open Banking Open Banking Brasil sandbox SSA issuer
 
-# Reconhecimento
+# Acknowledgement
 
-Agradecemos a todos que estabeleceram as bases para o compartilhamento seguro de dados por meio da formação do Grupo de Trabalho OpenID Foundation FAPI, o Open Banking Brasil GT Security e aos pioneiros que ficarão em seus ombros.
+With thanks to all who have set the foundations for secure and safe data sharing through the formation of the OpenID Foundation FAPI Working Group, the Open Banking Brasil GT Security and to the pioneers who will stand on their shoulders.
 
-As seguintes pessoas contribuíram para este documento:
+The following people contributed to this document:
 
 * Ralph Bragg (Raidiam)
 * Alexandre Siqueira (Mercado Pago)
 * Bernardo Vale (Banco Inter)
-* 
+
 {backmatter}
 
-# Avisos
+# Notices
 
-Copyright (c) 2021 Estrutura Inicial do Open Banking Brasil
+Copyright (c) 2021 Open Banking Brasil Initial Structure.
 
-A Estrutura Inicial do Open Banking Brasil (EIOBB) concede a qualquer Colaborador, desenvolvedor, implementador ou outra parte interessada uma licença de direitos autorais mundial não exclusiva, livre de royalties para reproduzir, preparar trabalhos derivados, distribuir, executar e exibir, estes Implementadores Rascunho ou Especificação Final exclusivamente para fins de (i) desenvolver especificações e (ii) implementar Rascunhos de Implementadores e Especificações Finais com base em tais documentos, desde que a atribuição seja feita ao EIOBB como a fonte do material, mas que tal atribuição o faça não indica endosso do EIOBB.
+The Open Banking Brasil Initial Structure (OBBIS) grants to any Contributor, developer, implementer, or other interested party a non-exclusive, royalty-free, worldwide copyright license to reproduce, prepare derivative works from, distribute, perform and display, this Implementers Draft or Final Specification solely for the purposes of (i) developing specifications, and (ii) implementing Implementers Drafts and Final Specifications based on such documents, provided that attribution be made to the OBBIS as the source of the material, but that such attribution does not indicate an endorsement by the OBBIS.
 
-A tecnologia descrita nesta especificação foi disponibilizada a partir de contribuições de várias fontes, incluindo membros da OpenID Foundation, do Grupo de Trabalho de Segurança do Open Banking Brasil e outros. Embora a Estrutura Inicial do Open Banking Brasil tenha tomado medidas para ajudar a garantir que a tecnologia esteja disponível para distribuição, ela não toma posição quanto à validade ou escopo de qualquer propriedade intelectual ou outros direitos que possam ser reivindicados como pertencentes à implementação ou uso do tecnologia descrita nesta especificação ou até que ponto qualquer licença sob tais direitos pode ou não estar disponível; nem representa que fez qualquer esforço independente para identificar tais direitos. A Estrutura Inicial do Open Banking Brasil e os contribuidores desta especificação não oferecem (e por meio deste expressamente se isentam de quaisquer) garantias (expressas, implícitas ou de outra forma), incluindo garantias implícitas de comercialização, não violação, adequação a uma finalidade específica ou título, relacionados a esta especificação, e todo o risco quanto à implementação desta especificação é assumido pelo implementador. A política de Direitos de Propriedade Intelectual do Open Banking Brasil exige que os contribuidores ofereçam uma promessa de patente de não fazer valer certas reivindicações de patentes contra outros contribuidores e implementadores. A Estrutura Inicial do Open Banking Brasil convida qualquer parte interessada a trazer à sua atenção quaisquer direitos autorais, patentes, pedidos de patentes ou outros direitos de propriedade que possam abranger a tecnologia que possa ser necessária para praticar esta especificação.
+The technology described in this specification was made available from contributions from various sources, including members of the OpenID Foundation, the Open Banking Brasil GT Security Working Group and others. Although the Open Banking Brasil Initial Structure has taken steps to help ensure that the technology is available for distribution, it takes no position regarding the validity or scope of any intellectual property or other rights that might be claimed to pertain to the implementation or use of the technology described in this specification or the extent to which any license under such rights might or might not be available; neither does it represent that it has made any independent effort to identify any such rights. The Open Banking Brasil Initial Structure and the contributors to this specification make no (and hereby expressly disclaim any) warranties (express, implied, or otherwise), including implied warranties of merchantability, non-infringement, fitness for a particular purpose, or title, related to this specification, and the entire risk as to implementing this specification is assumed by the implementer. The Open Banking Brasil Intellectual Property Rights policy requires contributors to offer a patent promise not to assert certain patent claims against other contributors and against implementers. The Open Banking Brasil Initial Structure invites any interested party to bring to its attention any copyrights, patents, patent applications, or other proprietary rights that may cover technology that may be required to practice this specification.
 
-## Apêndice A. Exemplo de afirmação de declaração de software
+## Appendix A. Example Software Statement Assertion
 
 ```
 eyJraWQiOiJzaWduZXIiLCJ0eXAiOiJKV1QiLCJhbGciOiJQUzI1NiJ9.eyJzb2Z0d2FyZV9tb2RlIjoiTGl2ZSIsInNvZnR3YXJlX3JlZGlyZWN0X3VyaXMiOlsiaHR0cHM6XC9cL3d3dy5yYWlkaWFtLmNvbVwvYWNjb3VudGluZ1wvY2IiXSwic29mdHdhcmVfc3RhdGVtZW50X3JvbGVzIjpbeyJyb2xlIjoiREFET1MiLCJhdXRob3Jpc2F0aW9uX2RvbWFpbiI6Ik9wZW4gQmFua2luZyIsInN0YXR1cyI6IkFjdGl2ZSJ9LHsicm9sZSI6IlBBR1RPIiwiYXV0aG9yaXNhdGlvbl9kb21haW4iOiJPcGVuIEJhbmtpbmciLCJzdGF0dXMiOiJBY3RpdmUifV0sInNvZnR3YXJlX2NsaWVudF9uYW1lIjoiUmFpZGlhbSBBY2NvdW50aW5nIiwib3JnX3N0YXR1cyI6IkFjdGl2ZSIsInNvZnR3YXJlX2NsaWVudF9pZCI6IkNraTFFYnZqd3loUEIxMk5HTGx6MiIsImlzcyI6Ik9wZW4gQmFua2luZyBPcGVuIEJhbmtpbmcgQnJhc2lsIHByb2QgU1NBIGlzc3VlciIsInNvZnR3YXJlX3Rvc191cmkiOiJodHRwczpcL1wvd3d3LnJhaWRpYW0uY29tXC9hY2NvdW50aW5nXC90b3MuaHRtbCIsInNvZnR3YXJlX2NsaWVudF9kZXNjcmlwdGlvbiI6IlJhaWRpYW0gQWNjb3VudGluZyBsZXZlcmFnZSBjdXR0aW5nIGVkZ2Ugb3BlbiBiYW5raW5nIGFjY2VzcyB0byBicmluZyB5b3UgcmVhbCB0aW1lIHVwIHRvIGRhdGUgdmlld3Mgb2YgeW91ciBmaW5hbmNlcyIsInNvZnR3YXJlX2p3a3NfZW5kcG9pbnQiOiJodHRwczpcL1wva2V5c3RvcmUuZGlyZWN0b3J5Lm9wZW5iYW5raW5nYnJhc2lsLm9yZy5iclwvYjk2MWM0ZWItNTA5ZC00ZWRmLWFmZWItMzU2NDJiMzgxODVkXC8yNTU1NmQ1YS1iOWRkLTRlMjctYWExYS1jY2U3MzJmZTc0ZGVcL2FwcGxpY2F0aW9uLmp3a3MiLCJzb2Z0d2FyZV9wb2xpY3lfdXJpIjoiaHR0cHM6XC9cL3d3dy5yYWlkaWFtLmNvbVwvYWNjb3VudGluZ1wvcG9saWN5Lmh0bWwiLCJzb2Z0d2FyZV9pZCI6IjI1NTU2ZDVhLWI5ZGQtNGUyNy1hYTFhLWNjZTczMmZlNzRkZSIsInNvZnR3YXJlX2NsaWVudF91cmkiOiJodHRwczpcL1wvd3d3LnJhaWRpYW0uY29tXC9hY2NvdW50aW5nLmh0bWwiLCJzb2Z0d2FyZV9qd2tzX2luYWN0aXZlX2VuZHBvaW50IjoiaHR0cHM6XC9cL2tleXN0b3JlLmRpcmVjdG9yeS5vcGVuYmFua2luZ2JyYXNpbC5vcmcuYnJcL2I5NjFjNGViLTUwOWQtNGVkZi1hZmViLTM1NjQyYjM4MTg1ZFwvMjU1NTZkNWEtYjlkZC00ZTI3LWFhMWEtY2NlNzMyZmU3NGRlXC9pbmFjdGl2ZVwvYXBwbGljYXRpb24uandrcyIsInNvZnR3YXJlX2p3a3NfdHJhbnNwb3J0X2luYWN0aXZlX2VuZHBvaW50IjoiaHR0cHM6XC9cL2tleXN0b3JlLmRpcmVjdG9yeS5vcGVuYmFua2luZ2JyYXNpbC5vcmcuYnJcL2I5NjFjNGViLTUwOWQtNGVkZi1hZmViLTM1NjQyYjM4MTg1ZFwvMjU1NTZkNWEtYjlkZC00ZTI3LWFhMWEtY2NlNzMyZmU3NGRlXC9pbmFjdGl2ZVwvdHJhbnNwb3J0Lmp3a3MiLCJzb2Z0d2FyZV9qd2tzX3RyYW5zcG9ydF9lbmRwb2ludCI6Imh0dHBzOlwvXC9rZXlzdG9yZS5kaXJlY3Rvcnkub3BlbmJhbmtpbmdicmFzaWwub3JnLmJyXC9iOTYxYzRlYi01MDlkLTRlZGYtYWZlYi0zNTY0MmIzODE4NWRcLzI1NTU2ZDVhLWI5ZGQtNGUyNy1hYTFhLWNjZTczMmZlNzRkZVwvdHJhbnNwb3J0Lmp3a3MiLCJzb2Z0d2FyZV9sb2dvX3VyaSI6Imh0dHBzOlwvXC93d3cucmFpZGlhbS5jb21cL2FjY291bnRpbmdcL2xvZ28ucG5nIiwib3JnX2lkIjoiYjk2MWM0ZWItNTA5ZC00ZWRmLWFmZWItMzU2NDJiMzgxODVkIiwic29mdHdhcmVfZW52aXJvbm1lbnQiOiJwcm9kdWN0aW9uIiwic29mdHdhcmVfdmVyc2lvbiI6MS4xMCwic29mdHdhcmVfcm9sZXMiOlsiREFET1MiLCJQQUdUTyJdLCJvcmdfbmFtZSI6Ik9wZW4gQmFua2luZyBCcmFzaWwiLCJpYXQiOjE2MTgzMzYyNjIsIm9yZ2FuaXNhdGlvbl9jb21wZXRlbnRfYXV0aG9yaXR5X2NsYWltcyI6W3siYXV0aG9yaXNhdGlvbl9kb21haW4iOiJPcGVuIEJhbmtpbmciLCJhdXRob3Jpc2F0aW9ucyI6W10sInJlZ2lzdHJhdGlvbl9pZCI6IjEzMzUzMjM2LU9CQi1DT05UQSIsImF1dGhvcml0eV9pZCI6IjY4N2ExYzk0LWIzNjAtNGUwNC05NTg5LTBmYTVjYjE2NDUxYiIsImF1dGhvcmlzYXRpb25fcm9sZSI6IkNPTlRBIiwiYXV0aG9yaXR5X2NvZGUiOiJCQ0IiLCJzdGF0dXMiOiJBY3RpdmUifSx7ImF1dGhvcmlzYXRpb25fZG9tYWluIjoiT3BlbiBCYW5raW5nIiwiYXV0aG9yaXNhdGlvbnMiOltdLCJyZWdpc3RyYXRpb25faWQiOiIxMzM1MzIzNi1PQkItREFET1MiLCJhdXRob3JpdHlfaWQiOiI2ODdhMWM5NC1iMzYwLTRlMDQtOTU4OS0wZmE1Y2IxNjQ1MWIiLCJhdXRob3Jpc2F0aW9uX3JvbGUiOiJEQURPUyIsImF1dGhvcml0eV9jb2RlIjoiQkNCIiwic3RhdHVzIjoiQWN0aXZlIn0seyJhdXRob3Jpc2F0aW9uX2RvbWFpbiI6Ik9wZW4gQmFua2luZyIsImF1dGhvcmlzYXRpb25zIjpbXSwicmVnaXN0cmF0aW9uX2lkIjoiMTMzNTMyMzYtT0JCLVBBR1RPIiwiYXV0aG9yaXR5X2lkIjoiNjg3YTFjOTQtYjM2MC00ZTA0LTk1ODktMGZhNWNiMTY0NTFiIiwiYXV0aG9yaXNhdGlvbl9yb2xlIjoiUEFHVE8iLCJhdXRob3JpdHlfY29kZSI6IkJDQiIsInN0YXR1cyI6IkFjdGl2ZSJ9XX0.W6hUAYhjT6I61rxEIVMKYKre93LTbRdzKnk9dJvUdzVgAz5B9KxZNutf27oO3k0hrjYVWBdWq23o_e4Y_AaKdpS9-rtU84JiHtmqV0wcFYIM8nqcUVWqQ-Ux6Nq9L2G-s2YNd3PcJ1e3yGg9h8553Gr7iJusKEgApzXUpkM2rBELQuumktUE_JBiuIkXmWxoRnO1cW-Osbk3MT3bxG43SPcxii07Q5S8qXI6PjCPA3fYlnaUAygwZM3O0oa7jqmSr7d9UsHuDMJfYhIKdq2wyQQKORCN-D2UopmMX-lHMvAVkkrAO08T0-7odjr4PJk-PrwuoCxeAfa7440ZDOrlmQ

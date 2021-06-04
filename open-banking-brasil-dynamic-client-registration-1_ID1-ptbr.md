@@ -15,7 +15,7 @@
     [seriesInfo]
     name = "Internet-Draft"
     status = "standard"
-    value = "open-banking-brasil-dynamic-client-registration-1_ID1"
+    value = "open-banking-brasil-dynamic-client-registration-1_ID1-ptbr"
  
     [[author]]
     initials = "R."
@@ -39,7 +39,9 @@
 
 %%%
 
-# Prefácio
+.# Prefácio  {#Forward}
+
+The normative version in [English](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID1.html)
 
 A Estrutura Inicial do Open Banking Brasil é responsável por criar os padrões e especificações necessários para atender aos requisitos e obrigações da Legislação do Open Banking do Brasil, conforme originalmente delineado pelo [Banco Central do Brasil](https://www.bcb.gov.br/content/config/Documents/BCB_Open_Banking_Communique-April-2019.pdf). É possível que alguns dos elementos deste documento estejam sujeitos a direitos de patente. O EIOBB não se responsabiliza pela identificação de qualquer ou todos os direitos de patente.
 
@@ -50,20 +52,20 @@ O Perfil de Segurança 1.0 da API de nível financeiro do Open Banking Brasil co
 
 Essas partes devem ser usadas com [RFC6749], [RFC6750], [RFC7636], [OIDC], [OIDR], [RFC7591], [RFC7592], [FAPI-1-Baseline] e [FAPI-1-Advanced]
 
-# Introdução
+.# Introdução  {#Introduction}
 
 O Perfil de Registro de Cliente Dinâmico de Financal-grade API (FAPI) do Open Banking Brasil é um perfil de [RFC7591], [RFC7592] e [OIDR] que visa fornecer diretrizes de implementação específicas para segurança e interoperabilidade que podem ser aplicadas à identificação, registro e gerenciamento de Clientes OAuth operando no ecossistema Brasil Open Banking.
 
 Embora seja possível codificar um provedor e parte de confiança OpenID desde os primeiros princípios usando esta especificação, o principal público para esta especificação são as partes que já possuem uma implementação certificada do [OpenID Connect] [OIDC] e desejam obter a certificação para o Brasil Open Programa bancário.
 
-# Convenções Notacionais
+.# Convenções Notacionais  {#Conventions}
 
 As palavras-chave "deve", "não deve", "deveria", "não deveria", "pode" e "pode" neste documento deve ser interpretado conforme descrito em [Diretiva ISO Parte 2] [ISODIR2].
 Estas palavras-chave não são usadas como termos de dicionário, de modo que qualquer ocorrência deles deve ser interpretada como palavras-chave e não devem ser interpretados com seus significados naturais de linguagem.
 
 {mainmatter}
 
-# Escopo
+# Escopo  {#Scope}
 
 Este documento especifica o método de
 
@@ -73,7 +75,7 @@ Este documento especifica o método de
 
 Este documento é aplicável a todos os participantes do Open Banking no Brasil.
 
-# Referências normativas
+# Referências normativas  {#Normative}
 
 Os seguintes documentos referenciados são indispensáveis para a aplicação deste documento. Para referências datadas, apenas a edição citada se aplica. Para referências não datadas, a última edição do documento referenciado (incluindo quaisquer emendas) se aplica.
 
@@ -143,11 +145,11 @@ Os seguintes documentos referenciados são indispensáveis para a aplicação de
 [OBB-Cert-Standards] - Open Banking Brasil x.509 Certificate Standards
 [OBB-Cert-Standards]: <https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html
 
-# Termos e definições
+# Termos e definições  {#Definitions}
 
 Para efeitos deste documento, aplicam-se os termos definidos em [RFC6749], [RFC6750], [RFC7636], [OpenID Connect Core][OIDC] e ISO29100.
 
-# Símbolos e Termos abreviados
+# Símbolos e Termos abreviados  {#Abreviations}
 
 **SSA** – Software Statement Assertion (Afirmação de Declaração de Software)
 
@@ -167,7 +169,7 @@ Para efeitos deste documento, aplicam-se os termos definidos em [RFC6749], [RFC6
 
 **TLS** – Transport Layer Security
 
-# Introdução
+# Introdução  {#Intro}
 
 O ecossistema Open Banking Brasil faz proveito de um provedor de confiança da federação ou _diretório de participantes_ como a fonte mais valiosa de informações sobre participantes credenciados e softwares que estão autorizados a participar do ecossistema Open Banking Brasil.
 
@@ -181,9 +183,9 @@ Os participantes do ecossistema devem aproveitar esses serviços para facilitar 
 
 Sempre que possível, os servidores de autorização devem comparar os metadados do cliente declarados por um cliente feito como parte do registro ou solicitação de gerenciamento com as declarações de metadados contidas em uma declaração de software. Nem todos os metadados que um cliente deseja fornecer podem estar contidos em uma declaração de software, por exemplo, alternativa [Metadata Langauges and Script values](https://openid.net/specs/openid-connect-registration-1_0.html#LanguagesAndScripts).
 
-# Provisionamentos do OpenID Connect Discovery do Open Banking Brasil 
+# Provisionamentos do OpenID Connect Discovery do Open Banking Brasil
 
-## Servidor de Autorização
+## Servidor de Autorização  {#AuthServers}
 
 O servidor de autorização deve suportar [OpenID Connect Discovery][OIDD] conforme exigido pelo [Financial-grade API Security Profile 1.0 - Part 1: Baseline][FAPI-1-Baseline].
 
@@ -211,9 +213,9 @@ Além disso, o servidor de autorização
 2. derivará os metadados necessários do Servidor de Autorização somente por meio dos serviços de descoberta do OpenID Connect de um Servidor de Autorização;
 3. quando presente, deve usar endpoints anunciados em `mtls_endpoint_aliases` conforme a cláusula 5 [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication e Certificate-Bound Access Tokens][RF8705];
 
-# Provisões de registro OpenID Connect do Open Banking Brasil
+# Provisões de registro OpenID Connect do Open Banking Brasil  {#Registration}
 
-## Servidor de Autorização
+## Servidor de Autorização  {#RegAuth}
 
 O servidor de autorização deve suportar o [RFC7591], [RFC7592] e [OpenID Registration][OIDR]
 
@@ -234,7 +236,7 @@ Além disso, o servidor de autorização
 
 Estas disposições aplicam-se igualmente ao processamento de pedidos [RFC7591], [RFC7592] e [OpenID Registration][OIDR]
 
-### Aplicando Padrões de Servidor
+### Aplicando Padrões de Servidor  {#Server}
 
 Quando as propriedades de uma solicitação DCR não estão incluídas e não são obrigatórias na especificação, o Servidor de Autorização deve aplicar os padrões do cliente da seguinte maneira
 
@@ -242,19 +244,17 @@ Quando as propriedades de uma solicitação DCR não estão incluídas e não s�
 2. preencherá os padrões de valores dentro da declaração de declaração do software, sempre que possível;
 4. deverá conceder ao cliente permissão para o conjunto completo de escopos potenciais com base nas permissões regulatórias de softwares incluídas no _software_statement_;
 
-### Análise do Nome Distinto do Certificado
+### Análise do Nome Distinto do Certificado  {#Certificate}
 
 A cláusula 3 de [Lightweight Directory Access Protocol (LDAP): String Representation of Distinguished Names][RFC4514] define os OIDs obrigatórios cujas as _strings_ do AttributeType (descritores) devem ser reconhecidos pelos implementadores. Esta lista obrigatória não inclui vários dos OIDs definidos em [Open Banking Brasil x.509 Certificate Standards][OBB-Cert-Standards] nem existe um mecanismo definido para os Servidores de Autorização publicarem informações sobre o formato que eles esperam de uma Solicitação Dinâmica de Registro do Cliente (_Dynamic Client Registrarion_) que inclui um `tls_client_auth_subject_dn`.
 
 Para resolver essa ambigüidade, o Servidor de Autorização deve aceitar todas as strings de nome de AttributeType (descritores) definidas no último parágrafo da cláusula 3 [RFC4515], além de todos os AttributeTypes definidos no Nome Distinto do Certificado [Open Banking Brasil x.509 Certificate Standards][OBB-Cert-Standards].
 
-
-## Funções regulatórias para mapeamentos OpenID e OAuth 2.0
+## Funções regulatórias para mapeamentos OpenID e OAuth 2.0  {#Regs}
 
 Para participar do ecossistema de Open Banking, as instituições credenciadas devem se cadastrar no diretório de participantes de acordo com seus papéis regulatórios. Essas funções refletem a autorização do Banco Central para as instituições e, consequentemente, as APIs que podem utilizar.
 
 A tabela a seguir descreve as funções regulatórias do Open Banking e o mapeamento de escopos do OAuth 2.0 relacionado. Se os escopos forem omitidos durante o processo de DCR, o servidor de autorização deve conceder o conjunto completo de escopos potenciais com base nas funções regulatórias do banco de registro, conforme descrito na seção Padrões do Servidor.
-
 
 | Papel Regulador | Descrição | Escopos Permitidos | Fase-alvo |
 | --- | --- | --- | --- |
@@ -263,22 +263,22 @@ A tabela a seguir descreve as funções regulatórias do Open Banking e o mapeam
 | CONTA | Instituição detentora de conta (ASPSP) | openid | Phase 3 |
 | CCORR | Correspondente de crédito | openid | Phase 3* |
 
-### Nota dos Implementadores
+### Nota dos Implementadores  {#ImplementorsNotes}
 
 Em linha com a orientação do IETF e com o conceito diretivo do gerenciamento de consentimento com menor granularidade. A obrigação recai sobre o Servidor de Autorização de garantir que haja escopo suficiente transmitido em um token de acesso necessário para cumprir as Permissões transmitidas na Solicitação de Consentimento. Este princípio e requisito são refletidos na futura API de gerenciamento de concessões.
 
-## Funções regulatórias para mapeamentos de escopo OAuth 2.0 dinâmicos
+## Funções regulatórias para mapeamentos de escopo OAuth 2.0 dinâmicos  {#Roles}
 
 | Papel Regulador | Escopos Permitidos |
 | --- | --- |
 | DADOS | consent:{ConsentId} |
 | PAGTO | consent:{ConsentId} |
 
-# Declaração de Software
+# Declaração de Software  {#SSA}
 
 Uma declaração de software é um JSON Web Token (JWT) [RFC7519] que afirma valores de metadados sobre o software cliente como um todo.
 
-## Reinvidicações da Declaração de Software (Claims)
+## Reinvidicações da Declaração de Software (Claims)  {#Claims}
 
 O exemplo a seguir contém todas as reivindicações atualmente incluídas em uma declaração de software
 
@@ -359,13 +359,13 @@ O exemplo a seguir contém todas as reivindicações atualmente incluídas em um
 }
 ```
 
-# Processamento de solicitação de registro de cliente dinâmico
+# Processamento de solicitação de registro de cliente dinâmico  {#dcr}
 
 !---
 ![Dynamic Client Registration](images/dcr.svg)
 !---
 
-## Enviar uma solicitação com uma declaração de software
+## Enviar uma solicitação com uma declaração de software  {#exampleDcr}
 
 Este exemplo inclui vários campos opcionais, alguns dos quais podem não ser aplicáveis a algumas implantações. A quebra de linha dentro dos valores são apenas para fins de exibição.
 
@@ -408,7 +408,7 @@ Content-Type: application/json
 }
 ```
 
-## Open Banking Brasil SSA Key Store e detalhes do emissor
+## Open Banking Brasil SSA Key Store e detalhes do emissor  {#keystore}
 
 **Producão**
 
@@ -422,7 +422,7 @@ Emissor do Open Banking Open Banking Brasil SSA de produção
 
 Emissor do Open Banking Open Banking Brasil SSA de sandbox
 
-# Reconhecimento
+# Reconhecimento  {#acknowledgements}
 
 Agradecemos a todos que estabeleceram as bases para o compartilhamento seguro de dados por meio da formação do Grupo de Trabalho OpenID Foundation FAPI, o Open Banking Brasil GT Security e aos pioneiros que ficarão em seus ombros.
 
@@ -431,7 +431,8 @@ As seguintes pessoas contribuíram para este documento:
 * Ralph Bragg (Raidiam)
 * Alexandre Siqueira (Mercado Pago)
 * Bernardo Vale (Banco Inter)
-* 
+
+*
 {backmatter}
 
 # Avisos
@@ -442,7 +443,7 @@ A Estrutura Inicial do Open Banking Brasil (EIOBB) concede a qualquer Colaborado
 
 A tecnologia descrita nesta especificação foi disponibilizada a partir de contribuições de várias fontes, incluindo membros da OpenID Foundation, do Grupo de Trabalho de Segurança do Open Banking Brasil e outros. Embora a Estrutura Inicial do Open Banking Brasil tenha tomado medidas para ajudar a garantir que a tecnologia esteja disponível para distribuição, ela não toma posição quanto à validade ou escopo de qualquer propriedade intelectual ou outros direitos que possam ser reivindicados como pertencentes à implementação ou uso do tecnologia descrita nesta especificação ou até que ponto qualquer licença sob tais direitos pode ou não estar disponível; nem representa que fez qualquer esforço independente para identificar tais direitos. A Estrutura Inicial do Open Banking Brasil e os contribuidores desta especificação não oferecem (e por meio deste expressamente se isentam de quaisquer) garantias (expressas, implícitas ou de outra forma), incluindo garantias implícitas de comercialização, não violação, adequação a uma finalidade específica ou título, relacionados a esta especificação, e todo o risco quanto à implementação desta especificação é assumido pelo implementador. A política de Direitos de Propriedade Intelectual do Open Banking Brasil exige que os contribuidores ofereçam uma promessa de patente de não fazer valer certas reivindicações de patentes contra outros contribuidores e implementadores. A Estrutura Inicial do Open Banking Brasil convida qualquer parte interessada a trazer à sua atenção quaisquer direitos autorais, patentes, pedidos de patentes ou outros direitos de propriedade que possam abranger a tecnologia que possa ser necessária para praticar esta especificação.
 
-## Apêndice A. Exemplo de afirmação de declaração de software
+## Apêndice A. Exemplo de afirmação de declaração de software  {#ExampleA}
 
 ```
 eyJraWQiOiJzaWduZXIiLCJ0eXAiOiJKV1QiLCJhbGciOiJQUzI1NiJ9.eyJzb2Z0d2FyZV9tb2RlIjoiTGl2ZSIsInNvZnR3YXJlX3JlZGlyZWN0X3VyaXMiOlsiaHR0cHM6XC9cL3d3dy5yYWlkaWFtLmNvbVwvYWNjb3VudGluZ1wvY2IiXSwic29mdHdhcmVfc3RhdGVtZW50X3JvbGVzIjpbeyJyb2xlIjoiREFET1MiLCJhdXRob3Jpc2F0aW9uX2RvbWFpbiI6Ik9wZW4gQmFua2luZyIsInN0YXR1cyI6IkFjdGl2ZSJ9LHsicm9sZSI6IlBBR1RPIiwiYXV0aG9yaXNhdGlvbl9kb21haW4iOiJPcGVuIEJhbmtpbmciLCJzdGF0dXMiOiJBY3RpdmUifV0sInNvZnR3YXJlX2NsaWVudF9uYW1lIjoiUmFpZGlhbSBBY2NvdW50aW5nIiwib3JnX3N0YXR1cyI6IkFjdGl2ZSIsInNvZnR3YXJlX2NsaWVudF9pZCI6IkNraTFFYnZqd3loUEIxMk5HTGx6MiIsImlzcyI6Ik9wZW4gQmFua2luZyBPcGVuIEJhbmtpbmcgQnJhc2lsIHByb2QgU1NBIGlzc3VlciIsInNvZnR3YXJlX3Rvc191cmkiOiJodHRwczpcL1wvd3d3LnJhaWRpYW0uY29tXC9hY2NvdW50aW5nXC90b3MuaHRtbCIsInNvZnR3YXJlX2NsaWVudF9kZXNjcmlwdGlvbiI6IlJhaWRpYW0gQWNjb3VudGluZyBsZXZlcmFnZSBjdXR0aW5nIGVkZ2Ugb3BlbiBiYW5raW5nIGFjY2VzcyB0byBicmluZyB5b3UgcmVhbCB0aW1lIHVwIHRvIGRhdGUgdmlld3Mgb2YgeW91ciBmaW5hbmNlcyIsInNvZnR3YXJlX2p3a3NfZW5kcG9pbnQiOiJodHRwczpcL1wva2V5c3RvcmUuZGlyZWN0b3J5Lm9wZW5iYW5raW5nYnJhc2lsLm9yZy5iclwvYjk2MWM0ZWItNTA5ZC00ZWRmLWFmZWItMzU2NDJiMzgxODVkXC8yNTU1NmQ1YS1iOWRkLTRlMjctYWExYS1jY2U3MzJmZTc0ZGVcL2FwcGxpY2F0aW9uLmp3a3MiLCJzb2Z0d2FyZV9wb2xpY3lfdXJpIjoiaHR0cHM6XC9cL3d3dy5yYWlkaWFtLmNvbVwvYWNjb3VudGluZ1wvcG9saWN5Lmh0bWwiLCJzb2Z0d2FyZV9pZCI6IjI1NTU2ZDVhLWI5ZGQtNGUyNy1hYTFhLWNjZTczMmZlNzRkZSIsInNvZnR3YXJlX2NsaWVudF91cmkiOiJodHRwczpcL1wvd3d3LnJhaWRpYW0uY29tXC9hY2NvdW50aW5nLmh0bWwiLCJzb2Z0d2FyZV9qd2tzX2luYWN0aXZlX2VuZHBvaW50IjoiaHR0cHM6XC9cL2tleXN0b3JlLmRpcmVjdG9yeS5vcGVuYmFua2luZ2JyYXNpbC5vcmcuYnJcL2I5NjFjNGViLTUwOWQtNGVkZi1hZmViLTM1NjQyYjM4MTg1ZFwvMjU1NTZkNWEtYjlkZC00ZTI3LWFhMWEtY2NlNzMyZmU3NGRlXC9pbmFjdGl2ZVwvYXBwbGljYXRpb24uandrcyIsInNvZnR3YXJlX2p3a3NfdHJhbnNwb3J0X2luYWN0aXZlX2VuZHBvaW50IjoiaHR0cHM6XC9cL2tleXN0b3JlLmRpcmVjdG9yeS5vcGVuYmFua2luZ2JyYXNpbC5vcmcuYnJcL2I5NjFjNGViLTUwOWQtNGVkZi1hZmViLTM1NjQyYjM4MTg1ZFwvMjU1NTZkNWEtYjlkZC00ZTI3LWFhMWEtY2NlNzMyZmU3NGRlXC9pbmFjdGl2ZVwvdHJhbnNwb3J0Lmp3a3MiLCJzb2Z0d2FyZV9qd2tzX3RyYW5zcG9ydF9lbmRwb2ludCI6Imh0dHBzOlwvXC9rZXlzdG9yZS5kaXJlY3Rvcnkub3BlbmJhbmtpbmdicmFzaWwub3JnLmJyXC9iOTYxYzRlYi01MDlkLTRlZGYtYWZlYi0zNTY0MmIzODE4NWRcLzI1NTU2ZDVhLWI5ZGQtNGUyNy1hYTFhLWNjZTczMmZlNzRkZVwvdHJhbnNwb3J0Lmp3a3MiLCJzb2Z0d2FyZV9sb2dvX3VyaSI6Imh0dHBzOlwvXC93d3cucmFpZGlhbS5jb21cL2FjY291bnRpbmdcL2xvZ28ucG5nIiwib3JnX2lkIjoiYjk2MWM0ZWItNTA5ZC00ZWRmLWFmZWItMzU2NDJiMzgxODVkIiwic29mdHdhcmVfZW52aXJvbm1lbnQiOiJwcm9kdWN0aW9uIiwic29mdHdhcmVfdmVyc2lvbiI6MS4xMCwic29mdHdhcmVfcm9sZXMiOlsiREFET1MiLCJQQUdUTyJdLCJvcmdfbmFtZSI6Ik9wZW4gQmFua2luZyBCcmFzaWwiLCJpYXQiOjE2MTgzMzYyNjIsIm9yZ2FuaXNhdGlvbl9jb21wZXRlbnRfYXV0aG9yaXR5X2NsYWltcyI6W3siYXV0aG9yaXNhdGlvbl9kb21haW4iOiJPcGVuIEJhbmtpbmciLCJhdXRob3Jpc2F0aW9ucyI6W10sInJlZ2lzdHJhdGlvbl9pZCI6IjEzMzUzMjM2LU9CQi1DT05UQSIsImF1dGhvcml0eV9pZCI6IjY4N2ExYzk0LWIzNjAtNGUwNC05NTg5LTBmYTVjYjE2NDUxYiIsImF1dGhvcmlzYXRpb25fcm9sZSI6IkNPTlRBIiwiYXV0aG9yaXR5X2NvZGUiOiJCQ0IiLCJzdGF0dXMiOiJBY3RpdmUifSx7ImF1dGhvcmlzYXRpb25fZG9tYWluIjoiT3BlbiBCYW5raW5nIiwiYXV0aG9yaXNhdGlvbnMiOltdLCJyZWdpc3RyYXRpb25faWQiOiIxMzM1MzIzNi1PQkItREFET1MiLCJhdXRob3JpdHlfaWQiOiI2ODdhMWM5NC1iMzYwLTRlMDQtOTU4OS0wZmE1Y2IxNjQ1MWIiLCJhdXRob3Jpc2F0aW9uX3JvbGUiOiJEQURPUyIsImF1dGhvcml0eV9jb2RlIjoiQkNCIiwic3RhdHVzIjoiQWN0aXZlIn0seyJhdXRob3Jpc2F0aW9uX2RvbWFpbiI6Ik9wZW4gQmFua2luZyIsImF1dGhvcmlzYXRpb25zIjpbXSwicmVnaXN0cmF0aW9uX2lkIjoiMTMzNTMyMzYtT0JCLVBBR1RPIiwiYXV0aG9yaXR5X2lkIjoiNjg3YTFjOTQtYjM2MC00ZTA0LTk1ODktMGZhNWNiMTY0NTFiIiwiYXV0aG9yaXNhdGlvbl9yb2xlIjoiUEFHVE8iLCJhdXRob3JpdHlfY29kZSI6IkJDQiIsInN0YXR1cyI6IkFjdGl2ZSJ9XX0.W6hUAYhjT6I61rxEIVMKYKre93LTbRdzKnk9dJvUdzVgAz5B9KxZNutf27oO3k0hrjYVWBdWq23o_e4Y_AaKdpS9-rtU84JiHtmqV0wcFYIM8nqcUVWqQ-Ux6Nq9L2G-s2YNd3PcJ1e3yGg9h8553Gr7iJusKEgApzXUpkM2rBELQuumktUE_JBiuIkXmWxoRnO1cW-Osbk3MT3bxG43SPcxii07Q5S8qXI6PjCPA3fYlnaUAygwZM3O0oa7jqmSr7d9UsHuDMJfYhIKdq2wyQQKORCN-D2UopmMX-lHMvAVkkrAO08T0-7odjr4PJk-PrwuoCxeAfa7440ZDOrlmQ

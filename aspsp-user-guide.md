@@ -46,18 +46,18 @@ The technical **services** necessary to support an ecosystem therefor must enabl
 Open Banking Brasil has adopted the following high level principles and requirements when it comes to the technical standards
 
 * Consent
-  - Customers must always be in control of who has access to their data and for what purposes it is being used.
+  * Customers must always be in control of who has access to their data and for what purposes it is being used.
 * Data Minimisation
-  - Customers must be able to share just the data that they need to for just as long as is needed.
+  * Customers must be able to share just the data that they need to for just as long as is needed.
 * Security
-  - A formal threat model has been produced assessing all potential weaknesses in communication processes.
-  - All identified weaknesses have been addressed.
+  * A formal threat model has been produced assessing all potential weaknesses in communication processes.
+  * All identified weaknesses have been addressed.
 * Identification
-  - All participants must have surety in the identification of all of the actors within the ecosystem.
+  * All participants must have surety in the identification of all of the actors within the ecosystem.
 * Authentication
-  - All participants must convey the steps that were taken to Authenticate each participant in the ecosystem and to what level this was performed.
+  * All participants must convey the steps that were taken to Authenticate each participant in the ecosystem and to what level this was performed.
 * Integrity and Non Repudiation
-  - All participants must be able to prove that messages have not been tampered with and were indeed sent only by a legitimate participant.
+  * All participants must be able to prove that messages have not been tampered with and were indeed sent only by a legitimate participant.
 
 In addition to the high level requirements the following principles have also been adopted.
 
@@ -105,25 +105,25 @@ The OpenID Foundations Connect working group has been the custodian for the inte
 
 > This specification defines mechanisms for dynamically registering
 
-OAuth 2.0 clients with Authorization Servers. Registration requests 
-send a set of desired client metadata values to the Authorization Server. 
-The resulting registration responses return a client 
-identifier to use at the Authorization Server and the client metadata 
-values registered for the client. The client can then use this 
-registration information to communicate with the Authorization Server 
-using the OAuth 2.0 protocol. This specification also defines a set of common 
+OAuth 2.0 clients with Authorization Servers. Registration requests
+send a set of desired client metadata values to the Authorization Server.
+The resulting registration responses return a client
+identifier to use at the Authorization Server and the client metadata
+values registered for the client. The client can then use this
+registration information to communicate with the Authorization Server
+using the OAuth 2.0 protocol. This specification also defines a set of common
 client metadata fields and values for clients to use during registration.
 
 [RFC7591:](https://tools.ietf.org/html/rfc7591) This specification defines methods for management of OAuth 2.0 dynamic client registrations for use cases in which the properties of a registered client may need to be changed during the lifetime of the client.
 
-The above specifications are core specifications that are required reading underpin the Open Banking Brasil 
+The above specifications are core specifications that are required reading underpin the Open Banking Brasil
 trust framework however they still are insufficient to meet all of the requirements and principles outlined earlier.
 
 ### OpenID Financial Grade 1.0 : Baseline
 
 **_This profile inherits all of the obligations of OpenID Connect Core_**
 
-Recognising there were still threats and risks that were not addressed by core OpenID Connect, the Financial Grade Working group focus is create a specification that aims to identify and then address weaknesses in the underlying OpenID Connect specification essentially create a profile for high security use cases.
+Recognising the remaining threats and risks that were not addressed by core OpenID Connect, the Financial Grade Working group focus is create a specification that aims to identify and then address weaknesses in the underlying OpenID Connect specification essentially create a profile for high security use cases.
 
 The Baseline profile was originally intended to more easily implementable by Clients and OpenID Providers at the expense of some security elements and as such does not offer the same degree of protection against request tampering and response tampering.
 
@@ -152,10 +152,6 @@ An Authorization Server or AS as defined by [RFC 6749 - The OAuth 2.0 Authorizat
 Banks, typically large banks, will not be a single entity from a technology operations point of view. They may have different brands, security and IT infrastructure for different customer segments or they may have some IT infrastructure that supports multiple brands or customer segments. This means that the technical ecosystem needs to be flexible enough to support a wide variety of Banks Infrastructure Deployments whilst ensuring that the necessary services are discoverable both Third Parties customers that need to interact with it.
 
 A flexible model for advertising authentication/authorization services and the resources that are protected by the AuthN and AuthZ is supported by the Directory.
-
-[Image for Adding new Authorization Server]
-
-[CX/UX Team need to have input here]
 
 * **Customer Friendly Name** - This is will be displayed to customers by TPPs and should be recognisable by the Banks Customers Already.
 * **Customer Friendly Logo** - This will be displayed to customers by TPPs to aid brand recognition.

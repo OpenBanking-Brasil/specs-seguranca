@@ -19,6 +19,7 @@
 <keyword>Open Banking Brasil GT Security</keyword>
 
 <note><name>Foreword</name>
+<t>Este documento também está disponível em <eref target="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID1-ptbr.html">português</eref></t>
 <t>The Open Banking Brasil Initial Structure is responsible for creating standards and specifications necessary to meet the requirements and obligations of the Brasil Open Banking Legislation as originally outlined by the <eref target="https://www.bcb.gov.br/content/config/Documents/BCB_Open_Banking_Communique-April-2019.pdf">Brasil Central Bank</eref>. There is a possibility that some of the elements of this document may be the subject to patent rights. OBBIS shall not be held responsible for identifying any or all such patent rights.</t>
 <t>Open Banking Brasil Financial-grade API Security Profile 1.0 consists of the following parts:</t>
 
@@ -231,7 +232,7 @@ and are not to be interpreted with their natural language meanings.</t>
 <tr>
 <td>DADOS</td>
 <td>Instituição transmissora / receptora de dados (AISP)</td>
-<td>openid accounts credit-cards-accounts consents customers invoice-financings financings loans unarragned-accounts-overdraft consents</td>
+<td>openid accounts credit-cards-accounts consents customers invoice-financings financings loans unarranged-accounts-overdraft</td>
 <td>Phase 2</td>
 </tr>
 
@@ -323,6 +324,7 @@ and are not to be interpreted with their natural language meanings.</t>
   &quot;software_jwks_transport_uri&quot;: &quot;https://keystore.directory.openbankingbrasil.org.br/b961c4eb-509d-4edf-afeb-35642b38185d/25556d5a-b9dd-4e27-aa1a-cce732fe74de/transport.jwks&quot;,
   &quot;software_logo_uri&quot;: &quot;https://www.raidiam.com/accounting/logo.png&quot;,
   &quot;org_id&quot;: &quot;b961c4eb-509d-4edf-afeb-35642b38185d&quot;,
+  &quot;org_number&quot;: &quot;112233445566&quot;,
   &quot;software_environment&quot;: &quot;production&quot;,
   &quot;software_version&quot;: 1.1,
   &quot;software_roles&quot;: [
@@ -337,6 +339,7 @@ and are not to be interpreted with their natural language meanings.</t>
       &quot;authorisations&quot;: [],
       &quot;registration_id&quot;: &quot;13353236-OBB-CONTA&quot;,
       &quot;authority_id&quot;: &quot;687a1c94-b360-4e04-9589-0fa5cb16451b&quot;,
+      &quot;authority_name&quot;: &quot;Banco Central&quot;,
       &quot;authorisation_role&quot;: &quot;CONTA&quot;,
       &quot;authority_code&quot;: &quot;BCB&quot;,
       &quot;status&quot;: &quot;Active&quot;
@@ -346,6 +349,7 @@ and are not to be interpreted with their natural language meanings.</t>
       &quot;authorisations&quot;: [],
       &quot;registration_id&quot;: &quot;13353236-OBB-DADOS&quot;,
       &quot;authority_id&quot;: &quot;687a1c94-b360-4e04-9589-0fa5cb16451b&quot;,
+      &quot;authority_name&quot;: &quot;Banco Central&quot;,
       &quot;authorisation_role&quot;: &quot;DADOS&quot;,
       &quot;authority_code&quot;: &quot;BCB&quot;,
       &quot;status&quot;: &quot;Active&quot;
@@ -355,6 +359,7 @@ and are not to be interpreted with their natural language meanings.</t>
       &quot;authorisations&quot;: [],
       &quot;registration_id&quot;: &quot;13353236-OBB-PAGTO&quot;,
       &quot;authority_id&quot;: &quot;687a1c94-b360-4e04-9589-0fa5cb16451b&quot;,
+      &quot;authority_name&quot;: &quot;Banco Central&quot;,
       &quot;authorisation_role&quot;: &quot;PAGTO&quot;,
       &quot;authority_code&quot;: &quot;BCB&quot;,
       &quot;status&quot;: &quot;Active&quot;

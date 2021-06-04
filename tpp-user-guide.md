@@ -17,20 +17,20 @@ At a high level the following major steps are required in order to onboard a new
 
 ### 1.1 Directory Overview
 
-The trust framework services provided by Open Banking Brasil provide all of the discovery services necessary 
-for a TPPs and ASPSPs to interact with each other without being required to validate 
-the authenticity of each others' Identity, Authorizations, Consumer Offerings (Apps), 
-APIs or Credentials for the Applications. In addition it provides a single registry of all 
+The trust framework services provided by Open Banking Brasil provide all of the discovery services necessary
+for a TPPs and ASPSPs to interact with each other without being required to validate
+the authenticity of each others' Identity, Authorizations, Consumer Offerings (Apps),
+APIs or Credentials for the Applications. In addition it provides a single registry of all
 consumer propositions being offered in the market and a single control plane for the
  regulatory authorities granting permissions to manage participants within the ecosystem.
 
 The trust framework does not have visibility or view of interactions that occur between TPPs and Providers.
  It is designed to provide trust and surety of identity and authorization only.
-  It does not sit within the communication flow between a consumer and a provider and it 
-  has no knowledge or visbility of any customer data. This trust framework model is known as 
-  transitive trust. Where two parties, a TPP and an ASPSP agree to trust a common trust 
-  providers statements and attestations regarding the legitimacy of each other and then 
-  proceed with communicating whatever they would like with no additional costly validation 
+  It does not sit within the communication flow between a consumer and a provider and it
+  has no knowledge or visbility of any customer data. This trust framework model is known as
+  transitive trust. Where two parties, a TPP and an ASPSP agree to trust a common trust
+  providers statements and attestations regarding the legitimacy of each other and then
+  proceed with communicating whatever they would like with no additional costly validation
   or checking being required.
 
 ### 1.2 Accessing the Directory
@@ -45,17 +45,17 @@ This user guide assumes that participating organisations have already been throu
 
 A software statement is an 'App' on what can be thought of as the Open Banking Brasil App Store.
  This App record contains all of the information necessary for a Bank to Technically Identity
-  and Interact with it as well as containing all of the information that assist consumers 
+  and Interact with it as well as containing all of the information that assist consumers
   using the application with confirming its legitimacy.
 
-A new application or software statement can be registered by logging on to the Directory, 
+A new application or software statement can be registered by logging on to the Directory,
 navigating to 'Software Statements' and clicking 'Create New' and populating the form. Help text is provided for each field on the screen. Please remember that the majority of this information will be displayed to customers by the Banks as part of the redirection or authorization process. As such it is important that all URIs and Descriptions are relevant for customer audience.
 
 [New Software Statement Image]
 
 #### 1.3.1 Assigning Software Regulatory Roles
 
-In a complex and diverse data sharing ecosystem, the regulatory roles that an organisation can have can change. 
+In a complex and diverse data sharing ecosystem, the regulatory roles that an organisation can have can change.
 They can be added and revoked. This means that software added to the directory can be given permission
  to have 0 or more regulatory roles. A administrator can assign to a given software any and all
   permissions that the organisation that owns the software can have.
@@ -63,11 +63,11 @@ They can be added and revoked. This means that software added to the directory c
 > Should an organisation lose a regulatory role then all software with that regulatory role will be revoked from the ecosystem so it is very important that an application is only given the roles that it actually needs in order to function.
 
 A real world example of this could be 'Amazon', Amazon has two applications, 'Amazon Accounting' and
- 'Amazon Prime'. Amazon as an organisation is an authorized DADOS and PISP, and is allowed to 
- handle customer data as well as make Open Banking Payments. Amazon Accounting should be assigned 
+ 'Amazon Prime'. Amazon as an organisation is an authorized DADOS and PISP, and is allowed to
+ handle customer data as well as make Open Banking Payments. Amazon Accounting should be assigned
  the domain role of DADOS and Amazon Prime should be assigned a domain role of PISP.
 
-In the future, should Amazon lose regulatory permission to be a PISP then only the Amazon Prime 
+In the future, should Amazon lose regulatory permission to be a PISP then only the Amazon Prime
 application would be removed from the ecosystem. Amazon Account would continue to function without issue.
 
 ### 1.4 Creating and Uploading Certificates
@@ -77,7 +77,7 @@ application would be removed from the ecosystem. Amazon Account would continue t
 The Open Banking Directory contains a PKI that can be used to create certificates for the Applications
  being registered. Simply select certificates from the drop down menu and follow the instructions.
 
-The directory supports multiple certificate and key types and an openssl command and configuration 
+The directory supports multiple certificate and key types and an openssl command and configuration
 file is made available as an example. Once you have created the necessary Certificate Signing Request
  (CSR) for both a "Transport" and "Signing" certificate you can submit them to the directory to be
   validated and minted into certificates.
@@ -88,16 +88,16 @@ file is made available as an example. Once you have created the necessary Certif
 
 Certificates must be provided by the Brasil ICP. The steps to follow are included in the [Open Banking Brasil Certificate Guide](https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil-ICP-certificate-guide.pdf)
 
-#### 1.4.3 What is a JWT, JWE, JWS and JWK.
+#### 1.4.3 What is a JWT, JWE, JWS and JWK
 
 When certificates are uploaded to the directory, the trust framework advertises them in
- [JSON Web Key Sets](https://tools.ietf.org/html/rfc7517) with each JSON Web Key or JWK 
- having a unique 'KID' or Key ID. JWK's in addition to having specific properties describing 
+ [JSON Web Key Sets](https://tools.ietf.org/html/rfc7517) with each JSON Web Key or JWK
+ having a unique 'KID' or Key ID. JWK's in addition to having specific properties describing
  the algorithm and cipher suites that they support also advertise their 'use' which can either
   be of type 'enc' for encryption or 'sig' for signing.
 
 These 'sig' keys and 'enc' key pairs are used in many places within the open banking ecosystem to
- encrypt or to sign data using the standards defined in [RFC 7519 JSON Web Token](https://tools.ietf.org/html/rfc7519) 
+ encrypt or to sign data using the standards defined in [RFC 7519 JSON Web Token](https://tools.ietf.org/html/rfc7519)
  which should be read in detail by developers.
 
 Types of JWT include
@@ -107,7 +107,7 @@ Types of JWT include
 
 Amongst many others.
 
-These JWT's may be encrypted also be encrypted using JSON Web Encryption (JWE). In the majority of cases the 
+These JWT's may be encrypted also be encrypted using JSON Web Encryption (JWE). In the majority of cases the
 keys that should be used to validate a JSON Web Signature (JWS) or the key that was used to encrypt a JWE is
  usually published as a JSON Web Key in a JSON Web Key Set with the reference to the key being carried in
   the 'kid' (Key ID) header field.
@@ -248,7 +248,7 @@ Production: [https://auth.directory.openbankingbrasil.org.br/](https://auth.dire
 
 Sandbox: [https://auth.sandbox.directory.openbankingbrasil.org.br/](https://auth.sandbox.directory.openbankingbrasil.org.br/)
 
-### 2.1 How to communicate with the Directory Authorization Server.
+### 2.1 How to communicate with the Directory Authorization Server
 
 * Use the OpenID Issuer and Clause 4 of the OpenID Discovery Specification to retrieve the 'openid-configuration' document.
 
@@ -378,8 +378,8 @@ curl --cert transport.pem --key transport.key https://matls-auth.directory.openb
 
 ### 2.2 How to communicate with the Directory APIs
 
-The Directory APIs are RESTful resources secured using the Brasil Open Banking Security Profile, 
-this means that they have the same security posture as Banks APIs. All of the Directories APIs 
+The Directory APIs are RESTful resources secured using the Brasil Open Banking Security Profile,
+this means that they have the same security posture as Banks APIs. All of the Directories APIs
 require OAuth 2.0 resource scope of `directory:software` and are secured using Mutual TLS.
 
 Please see the Directory OpenAPI v3 specification for full set of endpoints available.
@@ -571,14 +571,14 @@ Please see Open Banking Brasil Dynamic Client Registration
 
 For all options including all permission codes please see the
  [Consent API](https://openbanking-brasil.github.io/areadesenvolvedor/swagger/swagger_consents_apis.yaml).
-  The following examples are minimal but functional examples to demonstrate end to end flow. 
-  These examples are assuming that the client is communicating with an OpenID Provider leveraging 
+  The following examples are minimal but functional examples to demonstrate end to end flow.
+  These examples are assuming that the client is communicating with an OpenID Provider leveraging
   the 'tls_client_auth' token endpoint authentication mechanism. Alternative examples are available in the appendix.
 
 ### 4.1 Pre-requisites
 
 These **non normative** examples assumes that the OAuth Client has discovered the locations of
- all of the necessary endpoints to communicate with the banks resources from the Directory including 
+ all of the necessary endpoints to communicate with the banks resources from the Directory including
  the consents resource, the data resources and the OpenID authorization discovery document from the Directory.
 
 ### 4.2 Creating Consent
@@ -597,30 +597,46 @@ curl --cert transport.pem --key transport.key -H 'Authorization: Bearer 2Pjwts8m
 --data
 '{
   "data": {
+    "loggedUser": {
+      "document": {
+        "identification": "11111111111",
+        "rel": "CPF"
+      }
+    },
+    "businessEntity": {
+      "document": {
+        "identification": "11111111111111",
+        "rel": "CNPJ"
+      }
+    },
     "permissions": [
-      "ACCOUNTS_READ"
+      "ACCOUNTS_READ",
+      "ACCOUNTS_OVERDRAFT_LIMITS_READ",
+      "RESOURCES_READ"
     ],
-    "expirationDateTime": "2021-05-21T08:30:00Z",
+    "expirationDateTime": "2022-02-01T23:59:59Z",
     "transactionFromDateTime": "2021-01-01T00:00:00Z",
-    "transactionToDateTime": "2021-02-01T23:59:59Z"
+    "transactionToDateTime": "2022-02-01T23:59:59Z"
   }
 }'
 
 {
   "data": {
-    "consentId": "urn:amazingbank:0be7a3bb-33e6-4d73-b60a-9523aee6cc0d",
+    "consentId": "urn:bancoex:C1DD33123",
     "creationDateTime": "2021-05-21T08:30:00Z",
-    "status": "AWAITING_AUTHORIZATION",
+    "status": "AWAITING_AUTHORISATION",
     "statusUpdateDateTime": "2021-05-21T08:30:00Z",
     "permissions": [
-      "ACCOUNTS_READ"
+      "ACCOUNTS_READ",
+      "ACCOUNTS_OVERDRAFT_LIMITS_READ",
+      "RESOURCES_READ"
     ],
-    "expirationDateTime": "2021-05-21T08:30:00Z",
+    "expirationDateTime": "2022-02-01T23:59:59Z",
     "transactionFromDateTime": "2021-01-01T00:00:00Z",
-    "transactionToDateTime": "2021-02-01T23:59:59Z"
+    "transactionToDateTime": "2022-02-01T23:59:59Z"
   },
   "links": {
-    "self": "https://matls-api.amazingbank.com.br/consents/v1/consents/urn:amazingbank:0be7a3bb-33e6-4d73-b60a-9523aee6cc0d"
+    "self": "https://matls-api.amazingbank.com.br/consents/urn:bancoex:C1DD33123"
   },
   "meta": {
     "totalRecords": 1,
@@ -684,8 +700,8 @@ Signature ommited for brevity
 
 ### 4.3.1.1 Requesting Specific Claims
 
-It is also optional for TPPs to request additional Identity Claims including CPF and CNPJ. 
-These claims are defined in the Brasil Open Banking Security Profile. It is also possible for a 
+It is also optional for TPPs to request additional Identity Claims including CPF and CNPJ.
+These claims are defined in the Brasil Open Banking Security Profile. It is also possible for a
 TPP to request that a claim MUST match a given mechanism by relying on
  [OpenID Connect Core Clause 5.5.1](https://openid.net/specs/openid-connect-core-1_0.html#IndividualClaimsRequests)
   to request individual claims.
@@ -700,7 +716,7 @@ For example
 ```
 
 Would require that the OpenID Provider only return a successful authentication and authorization if the user
- that was authenticating could be confirmed by the Bank that they had a CPF number of 12345678123. If the 
+ that was authenticating could be confirmed by the Bank that they had a CPF number of 12345678123. If the
  Bank can not confirm this number then the authentication MUST fail.
 
 Requesting specific value claims is entirely optional from the TPP.
@@ -720,9 +736,9 @@ As per [RFC 7636 Proof Key for Code Exchange](https://tools.ietf.org/html/rfc763
 ### 4.3.4 Checking Consent Resource Status
 
 At this point, a TPP can optionally check the status of the consent request to see if it
- has changed to a status of fully authorized. For resources that do not require multi party 
+ has changed to a status of fully authorized. For resources that do not require multi party
  consent this step should not be necessary however for business accounts or joint accounts with
-  special access requirements then it may take a while for the bank to obtain the additional authorizations 
+  special access requirements then it may take a while for the bank to obtain the additional authorizations
   necessary for this consent to become completely authorized. TPPs should not abuse checking the consent status API
 
 ```
@@ -732,19 +748,21 @@ curl --cert transport.pem --key transport.key -H 'Authorization: Bearer 2Pjwts8m
 
 {
   "data": {
-    "consentId": "urn:amazingbank:0be7a3bb-33e6-4d73-b60a-9523aee6cc0d",
+    "consentId": "urn:bancoex:C1DD33123",
     "creationDateTime": "2021-05-21T08:30:00Z",
-    "status": "AUTHORIZED",
-    "statusUpdateDateTime": "2021-05-21T08:35:00Z",
+    "status": "AWAITING_AUTHORISATION",
+    "statusUpdateDateTime": "2021-05-21T08:30:00Z",
     "permissions": [
-      "ACCOUNTS_READ"
+      "ACCOUNTS_READ",
+      "ACCOUNTS_OVERDRAFT_LIMITS_READ",
+      "RESOURCES_READ"
     ],
-    "expirationDateTime": "2021-05-21T08:30:00Z",
+    "expirationDateTime": "2022-02-01T23:59:59Z",
     "transactionFromDateTime": "2021-01-01T00:00:00Z",
-    "transactionToDateTime": "2021-02-01T23:59:59Z"
+    "transactionToDateTime": "2022-02-01T23:59:59Z"
   },
   "links": {
-    "self": "https://matls-api.amazingbank.com.br/consents/v1/consents/urn:amazingbank:0be7a3bb-33e6-4d73-b60a-9523aee6cc0d"
+    "self": "https://matls-api.amazingbank.com.br/consents/urn:bancoex:C1DD33123"
   },
   "meta": {
     "totalRecords": 1,
@@ -757,14 +775,6 @@ curl --cert transport.pem --key transport.key -H 'Authorization: Bearer 2Pjwts8m
 ### 4.3.5 Access Resources
 
 With the access token that was returned in 4.2.3, the TPP now has the ability to call customers resources.
-
-### 4.4 Using Refresh tokens
-
-TODO
-
-### 4.5 Authorizing Consent - CIBA
-
-TODO
 
 ## Appendix
 
@@ -871,8 +881,8 @@ In this example a client is requesting that the Authorization Server only authen
 
 ### A.3 Example CIBA decoded Authentication Request body
 
-In this example a CIBA request is being made to request consent authorization using a previously 
-issued `id_token` from a redirect interaction as the indication of the resource owner that 
+In this example a CIBA request is being made to request consent authorization using a previously
+issued `id_token` as the indication of the resource owner that
 the bank should contact to obtain authorization.
 
 ```
