@@ -780,6 +780,32 @@ With the access token that was returned in 4.2.3, the TPP now has the ability to
 
 ### A.1 private_key_jwt client credentials grant
 
+```
+POST https://matls-auth.mockbank.poc.raidiam.io/token
+HEADERS {
+  'user-agent': 'openid-client/4.7.4 (https://github.com/panva/node-openid-client)',
+  accept: 'application/json',
+  'content-type': 'application/x-www-form-urlencoded',
+  'content-length': '940',
+  'accept-encoding': 'gzip, deflate, br'
+}
+FORM {
+  scope: 'consents',
+  grant_type: 'client_credentials',
+  client_id: 'IARVYjhBkgd5YspMTDLh1',
+  client_assertion: 'eyJhbGciOiJQUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InFSVlB1Vjc2R2k2dGJsckRxWTJka0JIVXVGZy1fX3JPSFotYnNYeFkweXMifQ.eyJpYXQiOjE2MjI4NDU1NTQsImV4cCI6MTYyMjg0NTYxNCwianRpIjoiU25yTEhfQ1VlTlRDY3pyTUY2MHlVbTJHS1RVVTdWakFVU1ptLUt1ZWd6VSIsImlzcyI6IklBUlZZamhCa2dkNVlzcE1URExoMSIsInN1YiI6IklBUlZZamhCa2dkNVlzcE1URExoMSIsImF1ZCI6Imh0dHBzOi8vbWF0bHMtYXV0aC5tb2NrYmFuay5wb2MucmFpZGlhbS5pby90b2tlbiJ9.dd0TdA3W6OmLhRceKoNVUk2vMwcodwWepa8sBvt6S6W1Mzkl1jCqlkJ7UOzCLYkmElfpRJmGhjlIV9w2NiaX_hs0mbkNnI8H51RLmReZAAtigqAOgO-5bFEdtbAPfWRjUuwnjOuP-RJxAzuXQZQMcBWWggDKTf9nNmjFdowWbntvcaxX3AUtp8g7Ng7m5UElVRe1G6Y-F85S4Hle8E2SNnI_umza1CObViGIyd-6RejCWykjdGncPHDF2PMgIm5NNseC2QbEQV7FDCNCgl3jzRqinhZ4xCj7r6YWf-LpaqWB28Mf0XiZT25k6SYQhmaHfbzJUHeIKZnQXIDl-Y3fkA',
+  client_assertion_type: 'urn:ietf:params:oauth:client-assertion-type:jwt-bearer'
+}
+
+200 FROM POST https://matls-auth.mockbank.poc.raidiam.io/token
+BODY {
+  access_token: 'gRQRfA2NYgK6pzqQTv5GdGc7MeBwNI5WSfihMniOIsF',
+  expires_in: 600,
+  token_type: 'Bearer',
+  scope: 'consents'
+}
+```
+
 ### A.2 Example decoded request object body
 
 ```
