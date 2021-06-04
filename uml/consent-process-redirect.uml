@@ -1,0 +1,71 @@
+title Bank Consent Process - Redirect
+participant Customer as psu
+participant TPP as tpp
+participant BankAS as as
+participant BankConsent as consent
+participant ICP as icp
+participant DirectoryJWKS as jwks
+participant BankAPI as api
+
+
+tpp->as: Establish mutual tls connection
+BankAS->ICP: Validate Certificate (OCSP)
+ICP-->BankAS: Certificate OK
+as->tpp: Connection Established
+alt Token Auth: tls_client_auth
+note left of tpp: Client Credentials Grant\nScope consents
+tpp->BankAS: Post token endpoint
+BankAS->tpp: Issue Access Token
+else Token Auth: private_key_jwt
+tpp->tpp: Create client_assertion JWT
+tpp->BankAS: Post token endpoint + client_assertion JWT
+BankAS->jwks: Retrieve Key Set
+jwks->BankAS: Return Key Set
+BankAS->BankAS: Validate RFC7523 Clause 2.2 client_assertion JWT\nUsing key from keyset
+BankAS->tpp: Issue Access Token
+end
+tpp->consent: Create Consent
+consent-->tpp: Consent Created + consentId
+tpp->tpp: Create Signed Request Object
+tpp->psu: Redirect to Authorisation Server
+psu->BankAS: Authenticate + Authorise
+BankAS->BankAS: Extract Request Object
+BankAS->jwks: Retrieve Key Set
+jwks->BankAS: Return Key Set
+BankAS->BankAS: Validate  Request Object Signature
+BankAS->BankAS: Validate Request
+note left of BankAS: See FAPI Conformance Suite for all requirements on an AS.
+BankAS->psu: Challenge (Authentication and Authorisation)
+psu->BankAS: Authenticate and Authorize
+note left of BankAS: The steps required to authenticate\nretrieve and present information for consent\ncapture and save consent are implementation specific.
+BankAS->consent: Update consent status
+consent->BankAS: OK
+BankAS-->psu: Redirect to TPP + authorisation code
+psu-->TPP: Redirect to TPP + authorisation code
+tpp->as: Establish mutual tls connection
+BankAS->ICP: Validate Certificate (OCSP)
+ICP-->BankAS: Certificate OK
+as->tpp: Connection Established
+alt Token Auth: tls_client_auth
+note left of tpp: Authorisation Code Exchange
+tpp->BankAS: Post token endpoint + auth code
+BankAS->tpp: Issue Access Token
+else Token Auth: private_key_jwt
+tpp->tpp: Create client_assertion JWT
+tpp->BankAS: Post token endpoint + client_assertion JWT + auth code
+BankAS->jwks: Retrieve Key Set
+jwks->BankAS: Return Key Set
+BankAS->BankAS: Validate RFC7523 Clause 2.2 client_assertion JWT\nUsing key from keyset
+BankAS->tpp: Issue Access Token
+end
+tpp->api: Establish mutual tls connection
+api->ICP: Validate Certificate (OCSP)
+ICP-->api: Certificate OK
+api->tpp: Connection Established
+tpp->api: Request Resource + access_token
+api->as: Introspect Access Token
+as->api: OK + Introspection Response
+api-->api: Valdiate mutual tls binding matches cnf claim in introspection
+api-->api: Validate scope and consent status
+note left of BankAPI: Validation of Policy Validity is implementation specific
+api->tpp: Return Resource

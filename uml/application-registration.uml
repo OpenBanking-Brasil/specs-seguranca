@@ -1,0 +1,45 @@
+title Application Registration
+participant TPP as tpp
+participant Directory as dir
+participant ICP as icp
+tpp->dir: Register Application
+dir-->tpp: Return SoftwareId
+tpp->tpp: Generate Signing CSR
+tpp->tpp: Generate Transport CSR
+alt Sandbox PKI
+note left of tpp: This process is repeated for each certificate
+tpp->dir: Submit CSR
+dir->dir: Validate CSR
+dir->dir: Create Certificate
+dir->dir: Publish  certificate on software application jwks
+dir-->tpp: Issue Cert
+else Production ICP PKI
+tpp->icp: Login to ICP
+alt ICP uses 'Login with Open Banking
+icp->tpp: Go Login with Open Banking 
+note left of tpp: This is single sign on. No user authentication required\nAll information regarding the user and the organisations\nthey are auhtorized to manage is included\nin the id_token
+tpp->dir: SSO Login With Open Banking
+dir->tpp: Go back to ICP + id_token
+tpp->icp: Login Using Open Banking + id_token
+tpp->icp: Submit CSR
+
+
+else ICP uses 'Existing Processes '
+note left of tpp: This process will need to reflect most of the validation steps\nalready performed in the directory and is out of scope
+icp->icp: Validate requester
+tpp->icp: Submit CSR
+
+end
+
+icp->dir: Retrieve Details for Organisation and Software
+dir->icp: Supply Details
+icp->icp: Validate CSR
+icp->tpp: Issue Certificate
+tpp->dir: Upload Certificate
+dir->dir: Validate Certificate Structure and Properties
+dir->icp: Check Certificate Revocation Status
+icp-->dir: Certificate OK
+dir->dir: Publish certificate on software application jwks
+
+end
+

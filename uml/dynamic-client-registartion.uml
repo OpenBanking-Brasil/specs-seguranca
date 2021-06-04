@@ -1,0 +1,31 @@
+title Dynamic Client Registration
+participant TPP as tpp
+participant DirectoryAS as diras
+participant DirectoryAPI as dir
+participant DirectoryJWKS as jwks
+participant BankAS as as
+participant ICP as icp
+
+tpp->diras: OAuth 2.0 tls_client_auth 
+note left of tpp: Client Credentials Grant\nScope directory:software
+diras->diras: Validate Certificate
+diras->ICP: Check Revocation Status (OCSP)
+ICP-->diras: Certificate OK
+diras-->tpp: Access Token
+tpp->DirectoryAPI: Retrieve Authorisation Servers + Access Token
+DirectoryAPI-->TPP: Authorisation Servers
+TPP->BankAS: Retrieve OpenID Configuration
+BankAS-->TPP: JSON OpenID Discovery Clause 4.2
+TPP->TPP: Extract Desired MetaData
+TPP->dir: Retrieve SSA
+dir-->TPP: SSA JWT
+TPP->BankAS: Post RFC7591 with SSA JWT as software_statement
+BankAS->ICP: Check Revocation Status (OCSP)
+ICP-->BankAS: Certificate OK
+BankAS->jwks: Retrieve Key Set
+jwks->BankAS: Return Key Set
+BankAS-->BankAS: Validate SSA in RFC 7591 Request
+BankAS-->BankAS: Validate RFC7591 Request
+note left of TPP: Request must be made to token endpoint\nsecured with mutual tls.
+BankAS-->TPP: Return RFC7591 Client Configuration +   RFC7592 Management Token
+TPP->TPP: Save Management Token
