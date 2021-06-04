@@ -230,54 +230,47 @@ Além disso, se o valor `response_type` `code id_token` for usado, o servidor de
 1. não deve retornar Informação de Identificação Pessoal (PII) confidenciais no token de ID na resposta de autorização, mas se for necessário,
 então ele deve criptografar o token de ID.
 
-#### Solicitando a reivindicação "cpf"  {#cpf}
+#### Solicitando a claim "cpf"  {#cpf}
 
-Este perfil define "cpf" como uma nova reivindicação padrão de acordo com cláusula 5.1 [OIDC]
+Este perfil define "cpf" como uma nova `claim` padrão de acordo com cláusula 5.1 [OIDC]
 
 O número do **CPF** (Cadastro de Pessoas Físicas, [sepeˈɛfi]; português para "Registro de Pessoas Físicas") é o cadastro de pessoa física **brasileira**. Este número é atribuído pela Receita Federal **Brasileira** para brasileiros e estrangeiros residentes que, direta ou indiretamente, pagar impostos no **Brasil**.
 
 No modelo de identidade do Open Banking Brasil, o cpf é uma string composta por números 11 caracteres de comprimento e podem começar com 0.
-Se a reivindicação cpf for solicitada como uma reivindicação essencial para o token de ID ou resposta UserInfo com um parâmetros de valores solicitando um valor cpf específico, o Servidor de Autorização DEVE retornar um valor de reivindicação cpf que corresponde ao valor solicitado. Se esta for uma reivindicação essencial e o requisito não puder ser atendido,
-  então, o Authorization Server DEVE tratar esse resultado como uma tentativa de autenticação falhada.
+
+Se a `claim` cpf for solicitada como essencial (essential=true) o authorization server deve incluir no ID Token ou na resposta ao endpoint UserInfo o cpf que corresponde ao valor do usuário autenticado na transmissora.
 
 Nome: cpf, Tipo: String, Regex: '^\d{11}$'
 
 #### Solicitando a reivindicação "cnpj"  {#cnpj}
 
 Este perfil define "cnpj" como uma nova reivindicação padrão de acordo com cláusula 5.1 [OIDC]
-  
+
 **CNPJ**, abreviação de Cadastro Nacional de Pessoas Jurídicas, é um número de identificação de empresas **brasileiras** emitidas pelo Ministério da Fazenda **brasileira**, **na**
   "Secretaria da Receita Federal" ou "Ministério da Fazenda" do Brasil. No modelo de identidade do Open Banking Brasil, pessoas físicas podem se associar a 0 ou mais CNPJs. Um CNPJ é uma string que consiste em números de 14 dígitos e pode começar com 0, os primeiros oito dígitos identificam a empresa, os quatro dígitos após a barra identificam a filial ou subsidiária ("0001" padrão para a sede), e os dois últimos são dígitos de soma de verificação. Para este perfil, o pedido de cnpj deve ser solicitado e fornecido como o número de 14 dígitos.
 
-If the cnpj Claim is requested as an Essential Claim for the ID Token or UserInfo response with a
-values parameter requesting a specific cnpj value, the Authorization Server MUST return an cnpj
-Claim Value that contains a **set** of CNPJs one of which must match the requested value. If this
- is an Essential Claim and the requirement cannot be met, then the Authorization Server MUST treat
- that outcome as a failed authentication attempt.
-
-Se a reivindicação cnpj for solicitada como uma reivindicação essencial para o token de ID ou resposta UserInfo com um parâmetros de valores solicitando um valor cnpj específico, o Servidor de Autorização DEVE retornar um cnpj Claim Value que contém um **conjunto** de CNPJs, um dos quais deve corresponder ao valor solicitado. Se este é uma Reivindicação Essencial e o requisito não pode ser atendido, então o Servidor de Autorização DEVE tratar esse resultado como uma tentativa de autenticação falhada.
+Se a `claim` `cnpj` for solicitada como essencial (essential=true) o authorization server deve incluir no ID Token ou na resposta ao endpoint UserInfo o número do cnpj relacionado à conta utilziada na autenticação do usuário autenticado na transmissora.
 
 Nome: cnpj, Tipo: Array of Strings, Array Element Regex: '^\d{14}$'
 
 #### Solicitando o "urn:brasil:openbanking:loa2" ou "urn:brasil:openbanking:loa3" Solicitação de contexto de autenticação  {#loa}
 
-* **LoA2:** Authentication performed using single factor;
-* **LoA3:** Authentication performed using multi factor (MFA)
+* **LoA2**: mecanismo de autenticação com a adoção de um único fator 
+* **LoA3**: Mecanismo de autenticação com múltiplos fatores de autenticação
 
-The following rules are applicable:
+A seguinte regra deve ser adotada para o mecanismo de autenticação:
 
-* **Read-only APIs :** shall require resource owner authentication to at least LoA2, elevating the requirement to authenticate resource owners to LoA3 is at the discretion of the Authorization Server;
-* **Read-and-Write APIs (Transactional):** shall require resource owner authentication to at least LoA3.
+* **Para controle de acesso às API´s definidas na FASE 2 (leitura de dados)**: os `Authorization Servers` das instituições trasmissoras de dados devem condicionar a autenticação do usuário proprietário do dado,  no mínimo, a adoção de método compatível com `LoA2`. A adoção de mecanismo de autenticação mais rigoroso (`LoA3`) fica a critério da instituição transmissora de acordo com sua avaliação de riscos.
+* **Para acesso às API´s das fases subsequentes (pagamento, atualização de dados etc)**: o acesso deve ser condicionado à método de autenticação compatível com `LoA3` ou superior.  
 
-**Authentication factors clarification**
+**Esclarecimentos adicionais sobre fatores de autenticação**
 
-The authentication methods are:
+São fatores de autenticação:
+* Aquilo que **você conhece**, como uma senha ou frase secreta
+* Aquilo que **você tem**, como um token, smartcard ou dispositivo
+* Aquilo que **"você é"** (algo condicionado a uma característica física exclusivamente sua), como a validação por biometria
 
-* Something you know, such as password or phrase
-* Something you have, such as token or smartcard;
-* Something you are, such as biometric validation.
-
-To performe a MFA authentication is necessary the end user to present at least two different methods as listed above. A unique method used more than once is not accepted as MFA.
+Para realizar autenticação por múltiplos fatores (MFA) é necessário que o usuário apresente, ao menos, dois diferentes  fatores dos listados acima. Um mesmo fator usado mais de uma vez - por exemplo, a apresentação de suas senhas que ele conhece - não pode ser aceito como MFA.
 
 ### Cliente confidencial  {#client}
 
@@ -295,7 +288,7 @@ Além disso, o cliente confidencial
 # Considerações de segurança  {#authserver}
 
 Os participantes devem apoiar todas as considerações de segurança especificadas na cláusula 8 [Financial-grade API Security Profile 1.0 - Parte 1: Advanced] [FAPI-1-Advanced] e o [Manual de Segurança de Banco Central do Brasil] (https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Instru%C3%A7%C3%A3o%20Normativa%20BCB&numero=99). O ICP brasileiro emite certificados RSA x509 somente, portanto, para simplificar, a seção remove o suporte para algoritmos EC e exige que apenas algoritmos de criptografia recomendados pela IANA sejam usados.
-  
+
 ## Considerações de algoritmo  {#alg}
 
 Para JWS, clientes e servidores de autorização
