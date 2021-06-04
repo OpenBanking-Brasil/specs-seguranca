@@ -19,7 +19,21 @@ As especificações deste repositório ainda estão em versão *draft*. A princ�
 ## O que eu vou encontrar nesse repositório?
 
 Esse repositório inclui o detalhamento técnico necessário para o entendimento sobre o funcionamento das principais etapas para:
- - [Registro e Cadastramento Dinâmico do Cliente de APIs](https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil-dynamic-client-registration-1_ID1.md)
- - [Perfil de Segurança do Open Banking Brasil, que inclui requisitos para o Authorization Server, para o registro da intenção de consentimento, autenticação do usuário e efetivação do consentimento e emissão do `access_token`](https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil-financial-api-1_ID1.md)
- - [Guia do usuário - ponto de vista da instituição transmissora (ASPSP)](https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/aspsp-user-guide.md)
- - [Guia do usuário - ponto de vista da instituição receptora de dados ou iniciadora de pagamentos (TTP)](https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/aspsp-user-guide.md)
+
+- [Registro e Cadastramento Dinâmico do Cliente de APIs - PTBR](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID1-ptbr.html)
+- [Dynamic Client Registration - ENG](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID1.html)
+- [Perfil de Segurança do Open Banking Brasil, que inclui requisitos para o Authorization Server, para o registro da intenção de consentimento, autenticação do usuário e efetivação do consentimento e emissão do `access_token`](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID1-ptbr.html)
+- [Open Banking Brasil OpenID FAPI Security Profile - ENG](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID1.html)
+- [Guia do usuário - ponto de vista da instituição transmissora (ASPSP)](https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/aspsp-user-guide.md)
+- [Guia do usuário - ponto de vista da instituição receptora de dados ou iniciadora de pagamentos (TTP)](https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/aspsp-user-guide.md)
+
+## Documentation Generation for Maintainers
+
+The formal specifications are created using guidelines, processes and tools created by the IETF and the OIDF which ensures consistency and familiarity for implementers. All references to the specifications should be to the normative version of the published specification published in HTML version. Linking to actively developed versions of MarkDown files directly should be avoided.
+
+The following steps can be used to generate the html version of the markdown files
+
+1. docker run -v `pwd`:/data danielfett/markdown2rfc open-banking-brasil-dynamic-client-registration-1_ID1.md
+2. find and replace '&amp;' with '&' in all html files
+3. find and replace '&lt;' with '<' in all html files
+4. find and replace '&gt;' with '>' in all html files
