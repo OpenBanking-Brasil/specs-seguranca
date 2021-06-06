@@ -245,7 +245,7 @@ Se a Claim **cpf** for solicitada como essencial para constar no ID token ou na 
 
 Se a Claim **cpf** for solicitada como essencial para constar no ID Token ou na resposta no endpoint de UserInfo, o Authorization Server deve retornar no atributo **cpf** o valor com o **CPF** do usuário autenticado.
 
-Se uma Claim indicada como essencial não puder ser preenchida ou não for compatível com o requisito (CPF fora do padrão ou divergente do informado no `value`, por exemplo), o Authorization Server deve tratar a solicitação como uma tentativa de autenticação com falha.
+Se a Claim **cpf** indicada como essencial não puder ser preenchida ou não for compatível com o requisito, o Authorization Server deve tratar a solicitação como uma tentativa de autenticação com falha.
 
 Nome: cpf, Tipo: String, Regex: '^\d{11}$'
 
@@ -259,7 +259,7 @@ Se a Claim **cnpj** for solicitada como essencial para constar no ID Token ou na
 
 Se a Claim **cnpj** for solicitada como essencial para constar no ID Token ou na resposta ao endpoint UserInfo, o Authorization Server deve incluir no ID Token ou na resposta ao endpoint UserInfo um **conjunto** que inclua um elemento com o número do **CNPJ** relacionado à conta utilizada na autenticação do usuário.
 
-Se uma Claim indicada como essencial não puder ser preenchida ou validada (padrão não é compatível, a conta autenticada ou selecionada não é PJ ou o CNPJ é divergente do informado no `value`, por exemplo), o Authorization Server deve tratar a solicitação como uma tentativa de autenticação com falha.
+Se a Claim **cnpj** indicada como essencial não puder ser preenchida ou validada, o Authorization Server deve tratar a solicitação como uma tentativa de autenticação com falha.
 
 Nome: cnpj, Tipo: Array of Strings, Array Element Regex: '^\d{14}$'
 
