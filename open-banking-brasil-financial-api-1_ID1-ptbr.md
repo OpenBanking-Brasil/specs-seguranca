@@ -38,7 +38,7 @@
       uri = "https://openbankingbrasil.org.br/"
 %%%
 
-# Prefácio  {#Foreword}
+.# Prefácio  {#Foreword}
 
 The normative version in [English](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID1.html)
 
@@ -51,13 +51,13 @@ O Financial-grade API 1.0 do Open Banking Brasil consiste nas seguintes partes:
 
 Estas partes são destinados a serem usados com [RFC6749], [RFC6750], [RFC7636], [OIDC], [FAPI-1-Baseline] e [FAPI-1-Advanced]
 
-# Introdução  {#Introduction}
+.# Introdução  {#Introduction}
 
 A Financial-grade API do Open Banking Brasil é um perfil OAuth altamente seguro que visa fornecer diretrizes de implementação específicas para segurança e interoperabilidade que podem ser aplicadas a APIs na área de Open Banking do Brasil que requerem um nível de privacidade superior ao fornecido pelo padrão [Financial-grade API Security Profile 1.0 - Part 2: Advanced][FAPI-1-Advanced]. Entre outras melhorias, esta especificação aborda considerações de privacidade identificadas em [FAPI-1-Advanced] que são relevantes nas especificações do Open Banking Brasil, mas não foram, até agora, exigidas por outras jurisdições.
 
 Embora seja possível codificar um provedor de OpenID e parte de confiança a partir dos primeiros princípios usando esta especificação, o público principal para esta especificação são as partes que já possuem uma implementação certificada do [Financial-grade API Security Profile 1.0 - Part 2: Advanced][FAPI-1-Advanced] e deseja obter a certificação para o programa Brasil Open Banking.
 
-# Convenções Notacionais  {#Notational}
+.# Convenções Notacionais  {#Notational}
 
 As palavras-chave "*deve*" (shall), "*não deve*" (shall not), "*deveria*" (should), "*não deveria*" (should not) e "*pode*" (may) presentes nesse documento devem ser interpretadas conforme as diretrizes descritas em [ISO Directive Part 2][ISODIR2] observando  seguinte equivalência:
   * "deve" => equivalente ao termo "shall" e expressa um requerimento definido no documento (nas traduções é similar ao termo "must", que pode denotar um requerimento externo ao documento);
@@ -241,9 +241,11 @@ O número do **CPF** (Cadastro de Pessoas Físicas, [sepeˈɛfi]; português par
 
 No modelo de identidade do Open Banking Brasil, o cpf é uma string composta por números 11 caracteres de comprimento e podem começar com 0.
 
-Se o parâmetro `"claims"` **cpf** for solicitado como essencial (`"essential":true`) para o ID token ou para a resposta ao endpoint de UserInfo e na solicitação constar no parâmetro `value` com determinado **CPF** exigido, o Authorization Server **deve** retornar no atributo **cpf** o valor que corresponda ao da solicitação. Se for uma "claim" indicada como essencial e não puder ser preenchido ou validado (CPF divergente do informado no `value`, por exemplo), o Authorization Server deve tratar a solicitação como uma tentativa de autenticação com falha.
+Se a Claim **cpf** for solicitada como essencial para constar no ID token ou na resposta ao endpoint de UserInfo e na solicitação constar no parâmetro `value` com determinado **CPF** exigido, o Authorization Server **deve** retornar no atributo **cpf** o valor que corresponda ao da solicitação.
 
-Se o parâmetro `"claims"` **cpf** for solicitado como essencial (`"essential=true"`) para constar no ID Token ou como resposta no endpoint de UserInfo, o Authorization Server deve retornar no atributo **cpf** o valor (_value_) com o **CPF** do usuário autenticado.
+Se a Claim **cpf** for solicitada como essencial para constar no ID Token ou na resposta no endpoint de UserInfo, o Authorization Server deve retornar no atributo **cpf** o valor com o **CPF** do usuário autenticado.
+
+Se uma Claim indicada como essencial não puder ser preenchida ou não for compatível com o requisito (CPF fora do padrão ou divergente do informado no `value`, por exemplo), o Authorization Server deve tratar a solicitação como uma tentativa de autenticação com falha.
 
 Nome: cpf, Tipo: String, Regex: '^\d{11}$'
 
@@ -253,9 +255,11 @@ Este perfil define "cnpj" como uma nova reivindicação padrão de acordo com cl
 
 **CNPJ**, abreviação de Cadastro Nacional de Pessoas Jurídicas, é um número de identificação de empresas **brasileiras** emitidas pelo Ministério da Fazenda **brasileira**, **na** "Secretaria da Receita Federal" ou "Ministério da Fazenda" do Brasil. No modelo de identidade do Open Banking Brasil, pessoas físicas podem se associar a 0 ou mais CNPJs. Um CNPJ é uma string que consiste em números de 14 dígitos e pode começar com 0, os primeiros oito dígitos identificam a empresa, os quatro dígitos após a barra identificam a filial ou subsidiária ("0001" padrão para a sede), e os dois últimos são dígitos de soma de verificação. Para este perfil, o pedido de cnpj deve ser solicitado e fornecido como o número de 14 dígitos.
 
-Se o parâmetro `claims` **cnpj** for solicitado como essencial (`"essential":true`) para o ID token ou para a resposta ao endpoint de UserInfo e na solicitação constar no parâmetro `value` determinado **CNPJ** exigido, o Authorization Server **deve** retornar no atrbuto **cnpj** um **conjunto** de *CNPJ* relacionado com o usuário um dos quais deve incluir valor que corresponda ao da solicitação. Se for uma `claim` indicada como essencial e não puder ser preenchido ou validado (a conta não é PJ ou o CNPJ é divergente do informado no _value_, por exemplo), o Authorization Server deve tratar a solicitação como uma tentativa de autenticação com falha.
+Se a Claim **cnpj** for solicitada como essencial para constar no ID Token ou na resposta ao endpoint UserInfo e na solicitação constar, no parâmetro `value`, determinado **CNPJ** exigido, o Authorization Server **deve** retornar no atributo **cnpj** um **conjunto** de **CNPJs** relacionado com o usuário, um dos quais deve incluir valor que corresponda ao da solicitação.
 
-Se o parâmetro `claims` **cnpj** for solicitado como essencial (`"essential"=true`) o Authorization Server deve incluir no ID Token ou na resposta ao endpoint UserInfo um **conjunto** que inclua um elemento com o número do **CNPJ** relacionado à conta utilizada na autenticação do usuário na transmissora.
+Se a Claim **cnpj** for solicitada como essencial para constar no ID Token ou na resposta ao endpoint UserInfo, o Authorization Server deve incluir no ID Token ou na resposta ao endpoint UserInfo um **conjunto** que inclua um elemento com o número do **CNPJ** relacionado à conta utilizada na autenticação do usuário.
+
+Se uma Claim indicada como essencial não puder ser preenchida ou validada (padrão não é compatível, a conta autenticada ou selecionada não é PJ ou o CNPJ é divergente do informado no `value`, por exemplo), o Authorization Server deve tratar a solicitação como uma tentativa de autenticação com falha.
 
 Nome: cnpj, Tipo: Array of Strings, Array Element Regex: '^\d{14}$'
 
@@ -334,7 +338,7 @@ Adicionalmente:
 
 * Consent Resource Id deve incluir caracteres seguros para url;
 * Consent Resource Id deve ser "namespaced";
-* Consent Resource Id deve ter propriedades de um _nonce_ [Nonce](https://pt.wikipedia.org/wiki/Nonce);
+* Consent Resource Id deve ter propriedades de um `nonce` [Nonce](https://openid.net/specs/openid-connect-core-1_0.html#NonceNotes);
 
 ### Dynamic Consent Scope Example  {#consentexample}
 
