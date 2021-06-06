@@ -38,7 +38,7 @@
       uri = "https://openbankingbrasil.org.br/"
 %%%
 
-.# Prefácio  {#Foreword}
+# Prefácio  {#Foreword}
 
 The normative version in [English](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID1.html)
 
@@ -201,7 +201,7 @@ Os participantes desse ecossistema precisam que os clientes de API solicitem a u
 
 O uso do parâmetro `claim` para solicitar a validação de valores de identificação explícitos requer que os clientes de API protejam com criptografia o Request Object para evitar vazamento de informações. Este risco é identificado na cláusula 7.4.1 do [FAPI-1-Advanced].
 
-Além disso, este perfil descreve o escopo específico, valores de "acr" e requisitos de gerenciamento de clientes necessários para dar suporte ao ecossistema Open Banking Brasil mais amplo.
+Além disso, este perfil descreve o escopo específico, valores de `acr` e requisitos de gerenciamento de clientes necessários para dar suporte ao ecossistema Open Banking Brasil mais amplo.
 
 Como um perfil do OAuth 2.0 Authorization Framework, este documento exige o seguinte para o perfil de segurança do Open Banking Brasil.
 
@@ -233,7 +233,7 @@ Além disso, se o valor `response_type` `code id_token` for usado, o servidor de
 
 1. *não deveria* retornar Informação de Identificação Pessoal (PII) confidenciais no token de ID na resposta de autorização, mas se for necessário, então ele *deve* criptografar o token de ID.
 
-#### Solicitando a claim "cpf"  {#cpf}
+#### Solicitando uma "claim" **cpf**  {#cpf}
 
 Este perfil define "cpf" como uma nova `claim` padrão de acordo com cláusula 5.1 [OIDC]
 
@@ -241,19 +241,21 @@ O número do **CPF** (Cadastro de Pessoas Físicas, [sepeˈɛfi]; português par
 
 No modelo de identidade do Open Banking Brasil, o cpf é uma string composta por números 11 caracteres de comprimento e podem começar com 0.
 
-Se a `claim` *cpf* for solicitada como essencial (essential=true) para o ID token ou para a resposta ao endpoint de UserInfo e na solicitação constar no parâmetro `value` determinado **CPF** exigido, o Authorization Server *deve* retornar na `claim` *cpf* o valor que corresponda ao da solicitação. Se for uma `claim` indicada como essencial e não puder ser preenchido ou validado (cpf divergente do informado no _value_, por exemplo), o Authorization Server deve tratar a solicitação como uma tentativa de autenticação com falha.
+Se o parâmetro `"claims"` **cpf** for solicitado como essencial (`"essential":true`) para o ID token ou para a resposta ao endpoint de UserInfo e na solicitação constar no parâmetro `value` com determinado **CPF** exigido, o Authorization Server **deve** retornar no atributo **cpf** o valor que corresponda ao da solicitação. Se for uma "claim" indicada como essencial e não puder ser preenchido ou validado (CPF divergente do informado no `value`, por exemplo), o Authorization Server deve tratar a solicitação como uma tentativa de autenticação com falha.
 
-Se a `claim` *cpf* for solicitada como essencial (essential=true) para constar no ID Token ou como resposta no endpoint de UserInfo, o Authorization Server deve retornar a `claim` *cpf* com o _value_ indicando o **CPF** do usuário autenticado.
+Se o parâmetro `"claims"` **cpf** for solicitado como essencial (`"essential=true"`) para constar no ID Token ou como resposta no endpoint de UserInfo, o Authorization Server deve retornar no atributo **cpf** o valor (_value_) com o **CPF** do usuário autenticado.
 
 Nome: cpf, Tipo: String, Regex: '^\d{11}$'
 
-#### Solicitando a reivindicação "cnpj"  {#cnpj}
+#### Solicitando a "claim" **cnpj**  {#cnpj}
 
 Este perfil define "cnpj" como uma nova reivindicação padrão de acordo com cláusula 5.1 [OIDC]
 
 **CNPJ**, abreviação de Cadastro Nacional de Pessoas Jurídicas, é um número de identificação de empresas **brasileiras** emitidas pelo Ministério da Fazenda **brasileira**, **na** "Secretaria da Receita Federal" ou "Ministério da Fazenda" do Brasil. No modelo de identidade do Open Banking Brasil, pessoas físicas podem se associar a 0 ou mais CNPJs. Um CNPJ é uma string que consiste em números de 14 dígitos e pode começar com 0, os primeiros oito dígitos identificam a empresa, os quatro dígitos após a barra identificam a filial ou subsidiária ("0001" padrão para a sede), e os dois últimos são dígitos de soma de verificação. Para este perfil, o pedido de cnpj deve ser solicitado e fornecido como o número de 14 dígitos.
 
-Se a `claim` `cnpj` for solicitada como essencial (essential=true) o Authorization Server deve incluir no ID Token e na resposta ao endpoint UserInfo o número do **CNPJ** relacionado à conta utilizada na autenticação do usuário na transmissora.
+Se o parâmetro `claims` **cnpj** for solicitado como essencial (`"essential":true`) para o ID token ou para a resposta ao endpoint de UserInfo e na solicitação constar no parâmetro `value` determinado **CNPJ** exigido, o Authorization Server **deve** retornar no atrbuto **cnpj** um **conjunto** de *CNPJ* relacionado com o usuário um dos quais deve incluir valor que corresponda ao da solicitação. Se for uma `claim` indicada como essencial e não puder ser preenchido ou validado (a conta não é PJ ou o CNPJ é divergente do informado no _value_, por exemplo), o Authorization Server deve tratar a solicitação como uma tentativa de autenticação com falha.
+
+Se o parâmetro `claims` **cnpj** for solicitado como essencial (`"essential"=true`) o Authorization Server deve incluir no ID Token ou na resposta ao endpoint UserInfo um **conjunto** que inclua um elemento com o número do **CNPJ** relacionado à conta utilizada na autenticação do usuário na transmissora.
 
 Nome: cnpj, Tipo: Array of Strings, Array Element Regex: '^\d{14}$'
 
@@ -318,7 +320,7 @@ Para TLS, endpoints do Servidor de Autenticação e endpoints do Servidor de Rec
 
 ### Introdução  {#authmechintro}
 
-Os mecanismos existentes para gerenciar adequadamente o acesso aos recursos definidos em [RFC6749] são insuficientes para atender aos requisitos de um ecossistema de compartilhamento de dados moderno. Aproveitar strings de escopo estático não fornece aos consumidores controle de granularidade suficiente para compartilhar com terceiros. O Open Banking Brasil optou por implementar uma [API de consentimento] (https://openbanking-brasil.github.io/areadesenvolvedor/swagger/swagger_consents_apis.yaml) como um recurso protegido OAuth 2.0 que pode ser usado para gerenciar o acesso granular aos recursos. A referência ao recurso de consentimento será transmitida como parte de um escopo de recurso dinâmico OAuth 2.0.
+Os mecanismos existentes para gerenciar adequadamente o acesso aos recursos definidos em [RFC6749] são insuficientes para atender aos requisitos de um ecossistema de compartilhamento de dados moderno. Aproveitar strings de escopo estático não fornece aos consumidores controle de granularidade suficiente para compartilhar com terceiros. O Open Banking Brasil optou por implementar uma [API de consentimento](https://openbanking-brasil.github.io/areadesenvolvedor/swagger/swagger_consents_apis.yaml) como um recurso protegido OAuth 2.0 que pode ser usado para gerenciar o acesso granular aos recursos. A referência ao recurso de consentimento será transmitida como parte de um escopo de recurso dinâmico OAuth 2.0.
 
 ### Definição de Escopo de Consentimento Dinâmico  {#consent}
 
