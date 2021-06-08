@@ -382,6 +382,7 @@ As seguintes pessoas contribuíram para este documento:
 * Joseph Heenan (Authlete)
 * Alexandre Siqueira (Mercado Pago)
 * Marcos Rodrigues (Itaú)
+* Mário Ginglass (BNDES)
 
 {backmatter}
 
