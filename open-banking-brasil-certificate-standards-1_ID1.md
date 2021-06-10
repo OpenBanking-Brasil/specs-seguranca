@@ -1,12 +1,12 @@
 %%%
 
     #
-    # Open Banking Brasil Certificate Standards 1.0 Implementers Draft 1
+    # Open Banking Brasil Certificate Standards 1.0 Implementers 1
     # (open-banking-brasil-certificate-standards-1_ID1)
     #
     #
 
-    title = "Open Banking Brasil Certificate Standards 1.0 Implementers Draft 1"
+    title = "Open Banking Brasil Certificate Standards 1.0 Implementers 1"
     abbrev = "OBB-CERT-1-ID1"
     ipr = "none"
     workgroup = "Open Banking Brasil GT Security"
