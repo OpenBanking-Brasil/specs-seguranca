@@ -934,11 +934,3 @@ the bank should contact to obtain authorization.
   }
 }
 ```
-
-### A. 4. Example id_token with cpf claim populated
-
-TODO
-
-### A. 5. Example id_token with cpf and cnpjs claim populated
-
-TODO
