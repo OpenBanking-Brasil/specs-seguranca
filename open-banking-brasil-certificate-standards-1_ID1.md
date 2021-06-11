@@ -1,7 +1,7 @@
 %%%
 
     #
-    # Open Banking Brasil Certificate Standards 1.0 Implementers Draft 1
+    # Padrão de Certificados Open Banking Brasil 1.0
     # (open-banking-brasil-certificate-standards-1_ID1)
     #
     #
@@ -9,8 +9,8 @@
     title = "Padrão de Certificados Open Banking Brasil 1.0"
     abbrev = "OBB-CERT-1-ID1"
     ipr = "none"
-    workgroup = "Open Banking Brasil GT Security"
-    keyword = ["FAPI", "CERT", "Open Banking Brasil GT Security"]
+    workgroup = "GT Segurança Open Banking Brasil"
+    keyword = ["FAPI", "CERTIFICADOS", "GT Segurança Open Banking Brasil"]
 
     [seriesInfo]
     name = "Internet-Draft"
@@ -39,10 +39,10 @@
 
     [[author]]
     initials = "GT"
-    surname = "Security"
-    fullname = "OBBIS GT Security"
-    organization = "Open Banking Brasil Initial Structure"
-    abbrev = "OBBIS"
+    surname = "Segurança"
+    fullname = "GT Segurança"
+    organization = "Estrutura Inicial do Open Banking Brasil"
+    abbrev = "EIOBB"
       [author.address]
       email = "gt-seguranca@openbankingbr.org"
       uri = "https://openbankingbrasil.org.br/"
@@ -50,7 +50,7 @@
 
 .# Prefácio
 
-A Estrutura Inicial do Open Banking Brasil é responsável por criar os padrões e especificações necessários para atender aos requisitos e obrigações da Legislação do Open Banking do Brasil, conforme originalmente delineado pelo [Banco Central do Brasil](https://www.bcb.gov.br/content/config/Documents/BCB_Open_Banking_Communique-April-2019.pdf). É possível que alguns dos elementos deste documento estejam sujeitos a direitos de patente. A Estrutura Inicial do Open Banking Brasil não se responsabiliza pela identificação de qualquer ou todos os direitos de patente.
+A Estrutura Inicial do Open Banking Brasil (EIOBB) é responsável por criar os padrões e especificações necessários para atender aos requisitos e obrigações da Legislação do Open Banking do Brasil, conforme originalmente delineado pelo [Banco Central do Brasil](https://www.bcb.gov.br/content/config/Documents/BCB_Open_Banking_Communique-April-2019.pdf). É possível que alguns dos elementos deste documento estejam sujeitos a direitos de patente. A Estrutura Inicial do Open Banking Brasil não se responsabiliza pela identificação de qualquer ou todos os direitos de patente.
 
 .# Objetivo
 
@@ -58,7 +58,13 @@ Especificar o conjunto de certificados necessários que devem ser utilizados pel
 
 .# Convenções Notacionais
 
-As palavras-chave "deve", "não deve", "recomenda", "não recomenda", "pode" e "pode" neste documento devem ser interpretadas conforme descrito na [Diretiva ISO Parte 2] [ISODIR2]. Essas palavras-chave não são usadas como termos de dicionário, de forma que qualquer ocorrência delas deve ser interpretada como palavras-chave e não devem ser interpretadas com seus significados em linguagem natural.
+As palavras-chave "*deve*" (shall), "*não deve*" (shall not), "*deveria*" (should), "*não deveria*" (should not) e "*pode*" (may) presentes nesse documento devem ser interpretadas conforme as diretrizes descritas em [ISO Directive Part 2][ISODIR2] observando  seguinte equivalência:
+  * "deve" => equivalente ao termo "shall" e expressa um requerimento definido no documento (nas traduções é similar ao termo "must", que pode denotar um requerimento externo ao documento);
+  * "não deve" => equivalente ao termo "shall not" e também expressa um requerimento definido no documento;
+  * "deveria" e "não deveria"=> equivalente ao termo "should" e "should not" e expressa uma recomendação
+  * "pode" => equivalente ao termo "may" indica uma permissão
+
+Estas palavras-chave não são usadas como termos de dicionário, de modo que qualquer ocorrência deles deve ser interpretada como palavras-chave e não devem ser interpretados com seus significados de linguagem natural.
 
 {mainmatter}
 
