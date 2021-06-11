@@ -296,7 +296,7 @@ To performe a MFA authentication is necessary the end user to present at least t
 ### Confidential client
 
 A confidential client shall support the provisions specified in clause 5.2.3 of
-[Financial-grade API Security Profile 1.0 - Part 1: Advanced][FAPI-1-Advanced],
+[Financial-grade API Security Profile 1.0 - Part 2: Advanced][FAPI-1-Advanced],
 
 In addition, the confidential client
 
