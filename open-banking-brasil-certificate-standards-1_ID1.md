@@ -6,7 +6,7 @@
     #
     #
 
-    title = "Open Banking Brasil Certificate Standards 1.0 Implementers Draft 1"
+    title = "Padrão de Certificados Open Banking Brasil 1.0"
     abbrev = "OBB-CERT-1-ID1"
     ipr = "none"
     workgroup = "Open Banking Brasil GT Security"
@@ -50,11 +50,11 @@
 
 .# Prefácio
 
-A Estrutura Inicial do Open Banking Brasil é responsável por criar padrões e especificações necessárias para garantir que os requisitos e obrigações da Regulações do Open Banking Brasil como originalmente publicadas pelo Banco Central do Brasil. É possível que parte dos elementos deste documento estejam sujeitos a direitos autorais.  A Estrutura Inicial do Open Banking Brasil não deve ser responsável por identificar nenhuma parte ou totalidade destes direitos autorais.
+A Estrutura Inicial do Open Banking Brasil é responsável por criar os padrões e especificações necessários para atender aos requisitos e obrigações da Legislação do Open Banking do Brasil, conforme originalmente delineado pelo [Banco Central do Brasil](https://www.bcb.gov.br/content/config/Documents/BCB_Open_Banking_Communique-April-2019.pdf). É possível que alguns dos elementos deste documento estejam sujeitos a direitos de patente. A Estrutura Inicial do Open Banking Brasil não se responsabiliza pela identificação de qualquer ou todos os direitos de patente.
 
 .# Objetivo
 
-Especificar o conjunto de certificados necessários para o Open Banking Brasil são padrões de certificados que devem ser utilizados por seus participantes para garantir interoperabilidade para autenticação, confidencialidade, integridade e não repúdio entre as entidades participantes do Open Banking Brasil, bem como para os usuários e consumidores destas entidades. O público desta especificação são entidades que são participantes do Open Banking Brasil e necessitam fazer a emissão de certificados para autenticar junto a outras entidades bem como oferecer a seus clientes um canal de autenticação seguro.
+Especificar o conjunto de certificados necessários que devem ser utilizados pelas entidades participantes do Open Banking Brasil para garantir interoperabilidade para autenticação, confidencialidade, integridade e não repúdio entre os participantes, bem como para os usuários e consumidores destas entidades. O público desta especificação são  entidades participantes do Open Banking Brasil que necessitam fazer a emissão de certificados para se autenticar junto a outras entidades, bem como oferecer a seus clientes um canal de autenticação seguro.
 
 .# Convenções Notacionais
 
@@ -66,10 +66,10 @@ As palavras-chave "deve", "não deve", "recomenda", "não recomenda", "pode" e "
 
 Este documento especifica os tipos de certificados necessários para:
 
-* Autenticar mutuamente (MTLS - Mutual - TLS) as aplicações dos participantes;
+* Autenticar mutuamente (MTLS - Mutual TLS) as aplicações dos participantes;
 * Assinatura de Mensagens (JWS - JSON Web Signature) de aplicações para garantir a autenticidade e não repúdio de mensagens entre os participantes;
 * Apresentar um canal seguro e confiável para clientes do Open Banking Brasil;
-* Autenticar participantes junto do Diretório de participantes do Open Banking Brasil.
+* Autenticar participantes no Diretório de participantes do Open Banking Brasil.
 
 # Referências Normativas  {#References}
 
@@ -89,11 +89,11 @@ Os seguintes documentos referenciados são indispensáveis para a aplicação de
 * [BCB-IN99] - Manual de Segurança do Open Banking: <https://www.in.gov.br/en/web/dou/-/instrucao-normativa-bcb-n-99-de-14-de-abril-de-2021-314641007>
 * [RFC2818] - HTTP Over TLS: <https://datatracker.ietf.org/doc/html/rfc2818>
 
-# Termos e Definicoes
+# Termos e Definições
 
-Para o propósito deste documento os termos definidos na [RFC5280, [BCP195], [RFC8705], e ISO29100 são aplicáveis.
+Para o propósito deste documento os termos definidos na [RFC5280], [BCP195], [RFC8705], e ISO29100 são aplicáveis.
 
-# Glossario
+# Glossário
 
 * **SSA** – Software Statement Assertion
 * **SS** – Software Statement
@@ -104,17 +104,17 @@ Para o propósito deste documento os termos definidos na [RFC5280, [BCP195], [RF
 * **mTLS** – Mutual Transport Layer Security
 * **ICP** - Infraestrutura de Chave Públicas Brasileira
 
-# Padrao de Certificados Open Banking Brasil
+# Padrão de Certificados Open Banking Brasil
 
-## Introducao
+## Introdução
 
-O sistema de Open Banking Brasil faz uso de cadeias de certificados e protocolo TLS para garantir a confidencialidade, autenticação e integridade do canal de comunicação utilizado pelas APIs das instituições participantes do Ecossistema bem como dos clientes de cada um dos participantes.
+O ecossistema do Open Banking Brasil faz uso de cadeias de certificados e protocolo TLS para garantir a confidencialidade, autenticação e integridade do canal de comunicação utilizado pelas APIs das instituições participantes, bem como dos clientes de cada um dos participantes.
 
-Os certificados utilizados para o Open Banking Brasil também são necessários para autenticar as aplicações através do oAuth 2.0 mTLS ou private_key_jwt, além de também servirem para realizar a assinatura de payload pelo uso de JWS. Outra atribuição importante dos certificados é realizar a autenticação e apresentar um canal seguro para o usuário final no ato de autenticação e uso dos serviços prestados pela entidade participante.
+Os certificados utilizados pelo Open Banking Brasil também são necessários para autenticar as aplicações através do oAuth 2.0 mTLS ou private_key_jwt, além de também servirem para realizar a assinatura de payload pelo uso de JWS. Outra atribuição importante dos certificados é autenticar e apresentar um canal seguro para o usuário final no ato de autenticação e uso dos serviços prestados pela entidade participante.
 
 ## Certificados ICP-Brasil
 
-Os certificados emitidos junto a Autoridades Certificadoras autorizadas pelo ICP-Brasil são utilizados apenas na comunicação entre as entidades participantes do ecossistema do Open Banking Brasil.
+Os certificados emitidos pelas Autoridades Certificadoras autorizadas pelo ICP-Brasil são utilizados apenas na comunicação entre as entidades participantes do ecossistema do Open Banking Brasil.
 
 Os processos de emissão e revogação dos certificados são de responsabilidade das próprias Autoridades Certificadores, sendo regulamentados por Declarações de Prática de Certificação, e supervisionadas pelo Comitê Gestor da Infraestrutura de Chaves Públicas Brasileira.
 
@@ -136,15 +136,15 @@ O padrão de certificado utilizado deve seguir as práticas de emissão de certi
 
 ### Certificado Cliente
 
-Os certificados de Open Banking, denominados Certificado de Aplicação Cliente (Transporte) são utilizados para autenticar o canal MTLS. Os Certificados Cliente também são utilizados para realizar a autenticação da aplicação cliente através de oAuth2.0 mTLS ou private_key_jwt, de acordo com cadastro da aplicação realizado o processo de Dynamic Client Registration junto a entidade transmissora.
+Os Certificados de Aplicação Cliente (Transporte) são utilizados para autenticar o canal mTLS e para realizar a autenticação da aplicação cliente através de oAuth2.0 mTLS ou private_key_jwt, de acordo com o cadastro da aplicação realizado pelo processo de Dynamic Client Registration junto à entidade transmissora.
 
-Para emissão de certificado de cliente é necessário que a instituição participante do Open Banking Brasil tenha realizado o cadastro de aplicação ao diretório, através do processo de emissão de Software Statement Assertion, e com isso já tenha obtido o valor de Software Statement ID.
+Para emissão de Certificado Cliente é necessário que a instituição participante do Open Banking Brasil tenha realizado o cadastro da aplicação no Serviço de Diretório, através do processo de emissão de Software Statement Assertion, e com isso já tenha obtido o valor de Software Statement ID.
 
-#### Atributos OpenBanking Brasil
+#### Atributos Open Banking Brasil
 
-* **serialNumber:** Cadastro Nacional de Pessoal Juridica (CNPJ) da pessoa jurídica titular do certificado e associado ao atributo UID e Software Statement ID, durante validação junto ao Serviço de Diretório do OpenBanking Brasil;
-* **organizationalUnitName:** Código de Participante associado ao CNPJ listado no Serviço de Diretório do OpenBanking Brasil;
-* **UID:** Software Statement ID cadastrado no Serviço de Diretório do OpenBanking Brasil e pertencente ao CNPJ e Código de Participante.
+* **serialNumber:** Cadastro Nacional de Pessoal Jurídica (CNPJ) da pessoa jurídica titular do certificado e associado ao atributo UID e Software Statement ID, durante validação junto ao Serviço de Diretório do Open Banking Brasil;
+* **organizationalUnitName:** Código de Participante associado ao CNPJ listado no Serviço de Diretório do Open Banking Brasil;
+* **UID:** Software Statement ID cadastrado no Serviço de Diretório do Open Banking Brasil e pertencente ao CNPJ e Código de Participante.
 
 O Certificado Cliente deve ser emitido através de cadeia V10, e deve obrigatoriamente conter os seguintes atributos:
 
@@ -157,7 +157,7 @@ O Certificado Cliente deve ser emitido através de cadeia V10, e deve obrigatori
 * **organizationName (OID 2.5.4.10):** Razão Social
 * **stateOrProvinceName (OID 2.5.4.8):** Unidade da federação do endereço físico do titular do certificado
 * **localityName (OID 2.5.4.7):** Cidade do endereço físico do titular
-* **organizationalUnitName (OID 2.5.4.11):** Código de Participante associado ao CNPJ listado no Serviço de Diretório do OpenBanking Brasil
+* **organizationalUnitName (OID 2.5.4.11):** Código de Participante associado ao CNPJ listado no Serviço de Diretório do Open Banking Brasil
 * **UID (OID 0.9.2342.19200300.100.1.1):** Software Statement ID gerado pelo Diretório do Open Banking Brasil
 * **commonName (OID 2.5.4.3):** FQDN ou Wildcard
 
@@ -172,18 +172,18 @@ O Certificado Cliente deve ser emitido através de cadeia V10, e deve obrigatori
 
 ### Certificado de Assinatura
 
-Os certificados de Open Banking, denominados Certificado de Assinatura (Assinatura) são utilizados para realizar assinatura do payload através do uso de JWS (JSON Web Signature).
+Os Certificados de Assinatura são utilizados para realizar assinatura do payload através do uso de JWS (JSON Web Signature).
 
 #### Atributos Open Banking Brasil presentes no Certificado
 
-* **UID:** Código de Participante associado ao CNPJ listado no Serviço de Diretório do OpenBanking Brasil;
-* **commonName:** Razão Social cadastrado no Serviço de Diretório do OpenBanking Brasil e pertencente ao CNPJ e Código de Participante.
+* **UID:** Código de Participante associado ao CNPJ listado no Serviço de Diretório do Open Banking Brasil;
+* **commonName:** Razão Social cadastrado no Serviço de Diretório do Open Banking Brasil e pertencente ao CNPJ e Código de Participante.
 
 O Certificado de Assinatura deve ser emitido através de cadeia V5, e deve obrigatoriamente conter os seguintes atributos:
 
 **Distinguished Name**
 
-* **UID (OID 0.9.2342.19200300.100.1.1):**  Código de Participante associado ao CNPJ listado no Serviço de Diretório do OpenBanking Brasil
+* **UID (OID 0.9.2342.19200300.100.1.1):**  Código de Participante associado ao CNPJ listado no Serviço de Diretório do Open Banking Brasil
 * **countryName (OID 2.5.4.6):** BR
 * **organizationName (OID 2.5.4.10):** ICP-Brasil
 * **organizationalUnitName (OID 2.5.4.11):** Nome da Autoridade Certificadora
@@ -199,18 +199,18 @@ O Certificado de Assinatura deve ser emitido através de cadeia V5, e deve obrig
 
 * **otherName (OID 2.16.76.1.3.2 – ICP-Brasil):** Nome do responsável pelo certificado
 * **otherName (OID 2.16.76.1.3.3 – ICP-Brasil):** Cadastro Nacional de Pessoa Jurídica (CNPJ) da pessoa jurídica titular do certificado;
-* **otherName (OID 2.16.76.1.3.4 – ICP-Brasil):** Responsável pelo certificado de pessoa jurídica titular do certificado (data de nascimento, CPF, PIS/PASEP/CI, RG);
+* **otherName (OID 2.16.76.1.3.4 – ICP-Brasil):** Responsável pelo certificado de pessoa jurídica titular do certificado (data de nascimento, CPF, PIS/PASEP/CI, RG);
 * **otherName (OID 2.16.76.1.3.7  – ICP-Brasil):** Número do Cadastro Especifico do INSS (CEI) da pessoa jurídica titular do certificado.
 
 #### Autoridades Certificadoras Participantes
 
-A lista abaixo representa a lista de autoridades certificadoras que realizaram o processo de onboard ao Open Banking Brasil e estão habilitadas para realizar a emissão de certificados do Open Banking Brasil.
+As seguintes autoridades certificadoras realizaram o processo de onboard ao Open Banking Brasil e estão habilitadas para realizar a emissão de certificados do Open Banking Brasil.
 
 * N/A
 
 ### Certificado para Front-End
 
-Os certificados para Front-End são utilziados para disponibilizar os serviços, em geral páginas Web, com uso de TLS, na qual são acessado por usuário final. Dado a sua finalidade, e para garantir maior interoperabilidade. Os certificados devem ser do tipo EV (Extended Validation) e devem ser ser gerados através de uma autoridade certificadora válida, seguindo as regras definidas na RFC 5280 e RFC 2818, em conformidade com os princípios e critérios WebTrust.
+Os certificados para Front-End são utilizados para disponibilizar serviços, em geral páginas Web, com uso de TLS, que são acessados pelo usuário final. Dado a sua finalidade, e para garantir maior interoperabilidade, os certificados devem ser do tipo EV (Extended Validation) e devem ser ser gerados através de uma autoridade certificadora válida, seguindo as regras definidas na RFC 5280 e RFC 2818, em conformidade com os princípios e critérios WebTrust.
 
 # Reconhecimento
 
@@ -221,6 +221,7 @@ As seguintes pessoas contribuíram para este documento:
 * Marcos Rodrigues (Itaú)
 * José Michael Dias (Grupo Pan)
 * Ralph Bragg (Raidiam)
+* Ediemerson Moreira Alves (Santander)
 
 # Informativo
 
@@ -232,7 +233,7 @@ A tecnologia descrita nesta especificação foi disponibilizada a partir de cont
 
 # Apendice
 
-## Modelo de Configuracao de Certificado Cliente - OpenSSL
+## Modelo de Configuração de Certificado Cliente - OpenSSL
 
 ```
 [req]
@@ -266,7 +267,7 @@ extendedKeyUsage = clientAuth
 DNS = <FQDN|Wildcard>
 ```
 
-## Modelo de Configuracao de Certificado de Assinatura - OpenSSL
+## Modelo de Configuração de Certificado de Assinatura - OpenSSL
 
 ```
 [req]
