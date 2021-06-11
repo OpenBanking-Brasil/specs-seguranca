@@ -114,7 +114,7 @@ registration information to communicate with the Authorization Server
 using the OAuth 2.0 protocol. This specification also defines a set of common
 client metadata fields and values for clients to use during registration.
 
-[RFC7591:](https://tools.ietf.org/html/rfc7591) This specification defines methods for management of OAuth 2.0 dynamic client registrations for use cases in which the properties of a registered client may need to be changed during the lifetime of the client.
+[RFC7592:](https://tools.ietf.org/html/rfc7592) This specification defines methods for management of OAuth 2.0 dynamic client registrations for use cases in which the properties of a registered client may need to be changed during the lifetime of the client.
 
 The above specifications are core specifications that are required reading underpin the Open Banking Brasil
 trust framework however they still are insufficient to meet all of the requirements and principles outlined earlier.
