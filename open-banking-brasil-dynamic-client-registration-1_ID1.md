@@ -317,7 +317,7 @@ The following example contains all of the claims currently included in a softwar
   "org_id": "b961c4eb-509d-4edf-afeb-35642b38185d",
   "org_number": "112233445566",
   "software_environment": "production",
-  "software_version": 1.1,
+  "software_version": "1.1",
   "software_roles": [
     "DADOS",
     "PAGTO"
