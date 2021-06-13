@@ -60,8 +60,14 @@ Embora seja possível codificar um provedor e parte de confiança OpenID desde o
 
 .# Convenções Notacionais  {#Conventions}
 
-As palavras-chave "deve", "não deve", "deveria", "não deveria", "pode" e "pode" neste documento deve ser interpretado conforme descrito em [Diretiva ISO Parte 2] [ISODIR2].
-Estas palavras-chave não são usadas como termos de dicionário, de modo que qualquer ocorrência deles deve ser interpretada como palavras-chave e não devem ser interpretados com seus significados naturais de linguagem.
+As palavras-chave "*deve*" (shall), "*não deve*" (shall not), "*deveria*" (should), "*não deveria*" (should not) e "*pode*" (may) presentes nesse documento devem ser interpretadas conforme as diretrizes descritas em [ISO Directive Part 2][ISODIR2] observando  seguinte equivalência:
+  * "deve" => equivalente ao termo "shall" e expressa um requerimento definido no documento (nas traduções é similar ao termo "must", que pode denotar um requerimento externo ao documento);
+  * ]
+  * "não deve" => equivalente ao termo "shall not" e também expressa um requerimento definido no documento;
+  * "deveria" e "não deveria"=> equivalente ao termo "should" e "should not" e expressa uma recomendação
+  * "pode" => equivalente ao termo "may" indica uma permissão
+
+Estas palavras-chave não são usadas como termos de dicionário, de modo que qualquer ocorrência deles deve ser interpretada como palavras-chave e não devem ser interpretados com seus significados de linguagem natural.
 
 {mainmatter}
 
