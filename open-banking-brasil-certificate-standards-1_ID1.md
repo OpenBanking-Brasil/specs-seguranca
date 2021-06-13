@@ -176,11 +176,11 @@ O Certificado Cliente deve ser emitido através de cadeia V10, e deve obrigatori
 
 * **dNSName:** FQDN ou Wildcard
 
-### Certificado de Assinatura {#CertificadodeAssinatura}
+### Certificado de Assinatura {#CertificadoAssinatura}
 
 Os Certificados de Assinatura são utilizados para realizar assinatura do payload através do uso de JWS (JSON Web Signature).
 
-#### Atributos Open Banking Brasil Presentes no Certificado {#Atributos Open Banking Brasil Presentes no Certificado}
+#### Atributos Open Banking Brasil Presentes no Certificado {#AtributosCertificado}
 
 * **UID:** Código de Participante associado ao CNPJ listado no Serviço de Diretório do Open Banking Brasil;
 * **commonName:** Razão Social cadastrado no Serviço de Diretório do Open Banking Brasil e pertencente ao CNPJ e Código de Participante.
