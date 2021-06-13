@@ -77,7 +77,7 @@ Este documento especifica os tipos de certificados necessários para:
 * Apresentar um canal seguro e confiável para clientes do Open Banking Brasil;
 * Autenticar participantes no Diretório de participantes do Open Banking Brasil.
 
-# Referências Normativas  {#Referencias Normativas}
+# Referências Normativas  {#ReferenciasNormativas}
 
 Os seguintes documentos referenciados são indispensáveis para a aplicação deste documento. Para referências datadas, apenas a edição citada se aplica. Para referências não datadas, a última edição do documento referenciado (incluindo quaisquer emendas) se aplica.
 
@@ -95,7 +95,7 @@ Os seguintes documentos referenciados são indispensáveis para a aplicação de
 * [BCB-IN99] - Manual de Segurança do Open Banking: <https://www.in.gov.br/en/web/dou/-/instrucao-normativa-bcb-n-99-de-14-de-abril-de-2021-314641007>
 * [RFC2818] - HTTP Over TLS: <https://datatracker.ietf.org/doc/html/rfc2818>
 
-# Termos e Definições {#Termos e Definicoes}
+# Termos e Definições {#TermosDefinicoes}
 
 Para o propósito deste documento os termos definidos na [RFC5280], [BCP195], [RFC8705], e ISO29100 são aplicáveis.
 
@@ -110,7 +110,7 @@ Para o propósito deste documento os termos definidos na [RFC5280], [BCP195], [R
 * **mTLS** – Mutual Transport Layer Security
 * **ICP** - Infraestrutura de Chave Públicas Brasileira
 
-# Padrão de Certificados Open Banking Brasil {#Padrao de Certificados Open Banking Brasil}
+# Padrão de Certificados Open Banking Brasil {#PadraoCertificadosOpenBankingBrasil}
 
 ## Introdução {#Introducao}
 
@@ -118,7 +118,7 @@ O ecossistema do Open Banking Brasil faz uso de cadeias de certificados e protoc
 
 Os certificados utilizados pelo Open Banking Brasil também são necessários para autenticar as aplicações através do oAuth 2.0 mTLS ou private_key_jwt, além de também servirem para realizar a assinatura de payload pelo uso de JWS. Outra atribuição importante dos certificados é autenticar e apresentar um canal seguro para o usuário final no ato de autenticação e uso dos serviços prestados pela entidade participante.
 
-## Certificados ICP-Brasil {#Certificados ICP-Brasil}
+## Certificados ICP-Brasil {#CertificadosICPBrasil}
 
 Os certificados emitidos pelas Autoridades Certificadoras autorizadas pelo ICP-Brasil são utilizados apenas na comunicação entre as entidades participantes do ecossistema do Open Banking Brasil.
 
@@ -134,19 +134,19 @@ Todos os certificados emitidos junto ao ICP-Brasil devem possuir as seguintes ca
 * Algoritmo de Chaves: RSA 2048 bits;
 * Message Digest: SHA 256 bits.
 
-### Certificado Servidor {#Certificado Servidor}
+### Certificado Servidor {#CertificadoServidor}
 
 O Certificado Servidor deve ser emitido para proteger e autenticar o canal TLS utilizado pelas APIs que serão consumidas pelas aplicações cliente de entidades participantes do Open Banking.
 
 O padrão de certificado utilizado deve seguir as práticas de emissão de certificados existentes de "CERTIFICADO PARA SERVIDOR WEB – ICP-Brasil".
 
-### Certificado Cliente {#Certificado Cliente}
+### Certificado Cliente {#CertificadoCliente}
 
 Os Certificados de Aplicação Cliente (Transporte) são utilizados para autenticar o canal mTLS e para realizar a autenticação da aplicação cliente através de oAuth2.0 mTLS ou private_key_jwt, de acordo com o cadastro da aplicação realizado pelo processo de Dynamic Client Registration junto à entidade transmissora.
 
 Para emissão de Certificado Cliente é necessário que a instituição participante do Open Banking Brasil tenha realizado o cadastro da aplicação no Serviço de Diretório, através do processo de emissão de Software Statement Assertion, e com isso já tenha obtido o valor de Software Statement ID.
 
-#### Atributos Open Banking Brasil {#Atributos Open Banking Brasil}
+#### Atributos Open Banking Brasil {#AtributosOpenBankingBrasil}
 
 * **serialNumber:** Cadastro Nacional de Pessoal Jurídica (CNPJ) da pessoa jurídica titular do certificado e associado ao atributo UID e Software Statement ID, durante validação junto ao Serviço de Diretório do Open Banking Brasil;
 * **organizationalUnitName:** Código de Participante associado ao CNPJ listado no Serviço de Diretório do Open Banking Brasil;
@@ -176,7 +176,7 @@ O Certificado Cliente deve ser emitido através de cadeia V10, e deve obrigatori
 
 * **dNSName:** FQDN ou Wildcard
 
-### Certificado de Assinatura {#Certificado de Assinatura}
+### Certificado de Assinatura {#CertificadodeAssinatura}
 
 Os Certificados de Assinatura são utilizados para realizar assinatura do payload através do uso de JWS (JSON Web Signature).
 
@@ -208,13 +208,13 @@ O Certificado de Assinatura deve ser emitido através de cadeia V5, e deve obrig
 * **otherName (OID 2.16.76.1.3.4 – ICP-Brasil):** Responsável pelo certificado de pessoa jurídica titular do certificado (data de nascimento, CPF, PIS/PASEP/CI, RG);
 * **otherName (OID 2.16.76.1.3.7  – ICP-Brasil):** Número do Cadastro Especifico do INSS (CEI) da pessoa jurídica titular do certificado.
 
-#### Autoridades Certificadoras Participantes {#Autoridades Certificadoras Participantes}
+#### Autoridades Certificadoras Participantes {#AutoridadesCertificadorasParticipantes}
 
 As seguintes autoridades certificadoras realizaram o processo de onboard ao Open Banking Brasil e estão habilitadas para realizar a emissão de certificados do Open Banking Brasil.
 
 * N/A
 
-### Certificado para Front-End {#Certificado para Front-End}
+### Certificado para Front-End {#CertificadoFrontEnd}
 
 Os certificados para Front-End são utilizados para disponibilizar serviços, em geral páginas Web, com uso de TLS, que são acessados pelo usuário final. Dado a sua finalidade, e para garantir maior interoperabilidade, os certificados devem ser do tipo EV (Extended Validation) e devem ser ser gerados através de uma autoridade certificadora válida, seguindo as regras definidas na RFC 5280 e RFC 2818, em conformidade com os princípios e critérios WebTrust.
 
@@ -239,7 +239,7 @@ A tecnologia descrita nesta especificação foi disponibilizada a partir de cont
 
 # Apêndice {#Apendice}
 
-## Modelo de Configuração de Certificado Cliente - OpenSSL {#Modelo de Configuracao de Certificado Cliente - OpenSSL}
+## Modelo de Configuração de Certificado Cliente - OpenSSL {#ModeloConfiguracaoCertificadoClienteOpenSSL}
 
 ```
 [req]
@@ -273,7 +273,7 @@ extendedKeyUsage = clientAuth
 DNS = <FQDN|Wildcard>
 ```
 
-## Modelo de Configuração de Certificado de Assinatura - OpenSSL {#Modelo de Configuracao de Certificado de Assinatura - OpenSSL}
+## Modelo de Configuração de Certificado de Assinatura - OpenSSL {#ModeloConfiguracaoCertificadoAssinaturaOpenSSL}
 
 ```
 [req]
