@@ -282,7 +282,7 @@ Para realizar autenticação por múltiplos fatores (MFA) é necessário que o u
 ### Cliente confidencial  {#client}
 
 Um cliente confidencial deve apoiar as disposições especificadas na cláusula 5.2.3 de
-[Financial-grade API Security Profile 1.0 - Part 1: Advanced][FAPI-1-Advanced],
+[Financial-grade API Security Profile 1.0 - Part 2: Advanced][FAPI-1-Advanced],
 
 Além disso, o cliente confidencial
 
