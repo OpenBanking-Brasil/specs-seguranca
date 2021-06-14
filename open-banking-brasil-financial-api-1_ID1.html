@@ -1124,7 +1124,7 @@ tr:nth-child(2n+1) > td {
       <h2 id="name-introduction">
 <a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
-<p id="section-note.2-1">The Open Banking Brasil Financial-grade API is a highly secured OAuth profile that aims to provide specific implementation guidelines for security and interoperability which can be applied to APIs in the Brasil Open Banking Area area that require a higher level of privacy than provided by standard <a href="https://openid.net/specs/openid-financial-api-part-2-1_0.html">Financial-grade API Security Profile 1.0 - Part 2: Advanced</a>. Among other enhancements, this specification addresses privacy considerations identified in <a href="https://openid.net/specs/openid-financial-api-part-2-1_0.html">FAPI-1-Advanced</a> that are relevent in the Open Banking Brasil specifications but have not, so far, been required by other jurisdictions.<a href="#section-note.2-1" class="pilcrow">¶</a></p>
+<p id="section-note.2-1">The Open Banking Brasil Financial-grade API is a highly secured OAuth profile that aims to provide specific implementation guidelines for security and interoperability which can be applied to APIs in the Brasil Open Banking area that require a higher level of privacy than provided by standard <a href="https://openid.net/specs/openid-financial-api-part-2-1_0.html">Financial-grade API Security Profile 1.0 - Part 2: Advanced</a>. Among other enhancements, this specification addresses privacy considerations identified in <a href="https://openid.net/specs/openid-financial-api-part-2-1_0.html">FAPI-1-Advanced</a> that are relevent in the Open Banking Brasil specifications but have not, so far, been required by other jurisdictions.<a href="#section-note.2-1" class="pilcrow">¶</a></p>
 <p id="section-note.2-2">Although it is possible to code an OpenID Provider and Relying Party from first principles using this specification, the main audience for this specification is parties who already have a certified implementation of <a href="https://openid.net/specs/openid-financial-api-part-2-1_0.html">Financial-grade API Security Profile 1.0 - Part 2: Advanced</a> and want to achieve certification for the Brasil Open Banking programme.<a href="#section-note.2-2" class="pilcrow">¶</a></p>
 </section>
 <section class="note" id="section-note.3">
@@ -1334,7 +1334,7 @@ and are not to be interpreted with their natural language meanings.<a href="#sec
             <p id="section-5.1-3.1.1">attacks that address privacy considerations identified in clause 9.1 of [FAPI1 Advanced]<a href="#section-5.1-3.1.1" class="pilcrow">¶</a></p>
 </li>
 <li id="section-5.1-3.2">
-            <p id="section-5.1-3.2.1">the requirement to support fine grained access to resources for data minimisation purposes<a href="#section-5.1-3.2.1" class="pilcrow">¶</a></p>
+            <p id="section-5.1-3.2.1">the requirement to support fine-grained access to resources for data minimisation purposes<a href="#section-5.1-3.2.1" class="pilcrow">¶</a></p>
 </li>
 <li id="section-5.1-3.3">
             <p id="section-5.1-3.3.1">the requirement to convey the Authentication Context Request that was performed by an OpenID Provider to a Client to enable a appropriate client management of customer conduct risk.<a href="#section-5.1-3.3.1" class="pilcrow">¶</a></p>
@@ -1439,7 +1439,7 @@ then it shall encrypt the ID Token.<a href="#section-5.2.2.1-3.1.1" class="pilcr
 In the Brasil Open Banking identity model, the cpf is a string consisting of numbers that is 11
 characters long and may start with a 0.
 If the cpf Claim is requested as an Essential Claim for the ID Token or UserInfo response with a
-values parameter requesting a specific cpf value, the Authorization Server MUST return an cpf Claim Value
+values parameter requesting a specific cpf value, the Authorization Server MUST return a cpf Claim Value
 that matches the requested value. If this is an Essential Claim and the requirement cannot be met,
  then the Authorization Server MUST treat that outcome as a failed authentication attempt.<a href="#section-5.2.2.2-2" class="pilcrow">¶</a></p>
 <p id="section-5.2.2.2-3">Name: cpf, Type: String, Regex: '<sup>d{11}$'</sup><a href="#section-5.2.2.2-3" class="pilcrow">¶</a></p>
@@ -1460,7 +1460,7 @@ that matches the requested value. If this is an Essential Claim and the requirem
   subsidiary ("0001" defaults to the headquarters), and the last two are checksum digits.
    For this profile, the cnpj claim must be requested and supplied as the 14 digit number.<a href="#section-5.2.2.3-2" class="pilcrow">¶</a></p>
 <p id="section-5.2.2.3-3">If the cnpj Claim is requested as an Essential Claim for the ID Token or UserInfo response with a
-values parameter requesting a specific cnpj value, the Authorization Server MUST return an cnpj
+values parameter requesting a specific cnpj value, the Authorization Server MUST return a cnpj
 Claim Value that contains a <strong>set</strong> of CNPJs one of which must match the requested value. If this
  is an Essential Claim and the requirement cannot be met, then the Authorization Server MUST treat
  that outcome as a failed authentication attempt.<a href="#section-5.2.2.3-3" class="pilcrow">¶</a></p>
@@ -1522,7 +1522,7 @@ Claim Value that contains a <strong>set</strong> of CNPJs one of which must matc
               <p id="section-5.2.3-3.1.1">shall support <em>encrypted</em> request objects<a href="#section-5.2.3-3.1.1" class="pilcrow">¶</a></p>
 </li>
 <li id="section-5.2.3-3.2">
-              <p id="section-5.2.3-3.2.1">shall support pushed authorisation requests <a href="https://tools.ietf.org/html/draft-ietf-oauth-par">PAR</a><a href="#section-5.2.3-3.2.1" class="pilcrow">¶</a></p>
+              <p id="section-5.2.3-3.2.1">shall support Pushed Authorisation Requests <a href="https://tools.ietf.org/html/draft-ietf-oauth-par">PAR</a><a href="#section-5.2.3-3.2.1" class="pilcrow">¶</a></p>
 </li>
 <li id="section-5.2.3-3.3">
               <p id="section-5.2.3-3.3.1">shall use <em>encrypted</em> request objects if not using <a href="https://tools.ietf.org/html/draft-ietf-oauth-par">PAR</a><a href="#section-5.2.3-3.3.1" class="pilcrow">¶</a></p>
@@ -1662,7 +1662,7 @@ Claim Value that contains a <strong>set</strong> of CNPJs one of which must matc
           <h4 id="name-introduction-5">
 <a href="#section-7.2.1" class="section-number selfRef">7.2.1. </a><a href="#name-introduction-5" class="section-name selfRef">Introduction</a>
           </h4>
-<p id="section-7.2.1-1">The Consent Resource has a life cycle that is managed seperately and distinctly from the OAuth 2.0 Authorisation Framework. The state transitions and expected behaviours and error conditions expected of REST Resouces protected with this profile are defined in the functional API specifications published by Open Banking Brasil.<a href="#section-7.2.1-1" class="pilcrow">¶</a></p>
+<p id="section-7.2.1-1">The Consent Resource has a life cycle that is managed seperately and distinctly from the OAuth 2.0 Authorisation Framework. The state transitions and expected behaviours and error conditions expected of REST Resources protected with this profile are defined in the functional API specifications published by Open Banking Brasil.<a href="#section-7.2.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="authorization-server-1">
@@ -1688,7 +1688,7 @@ Claim Value that contains a <strong>set</strong> of CNPJs one of which must matc
               <p id="section-7.2.2-2.5.1">may reduce requested scope to a level sufficient to enable access to data resources specified in the Permissions element of a linked Consent Resource object;<a href="#section-7.2.2-2.5.1" class="pilcrow">¶</a></p>
 </li>
 <li id="section-7.2.2-2.6">
-              <p id="section-7.2.2-2.6.1">shall retain a complete audit history of the consent resource in acoordance with current Central Bank brazilian regulation;<a href="#section-7.2.2-2.6.1" class="pilcrow">¶</a></p>
+              <p id="section-7.2.2-2.6.1">shall retain a complete audit history of the consent resource in accordance with current Central Bank brazilian regulation;<a href="#section-7.2.2-2.6.1" class="pilcrow">¶</a></p>
 </li>
 </ol>
 </section>
