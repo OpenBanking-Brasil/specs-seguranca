@@ -222,17 +222,17 @@ The Authorization Server shall support the [RFC7591], [RFC7592] and [OpenID Regi
 In addition, the Authorization Server
 
 1. shall reject dynamic client registration requests not performed over a connection secured with mutual tls using certificates issued by Brazil ICP (production) or the Directory of Participants (sandbox);
-1. shall validate that the request contains software_statement jwt signed using using the PS256 alg issued by the open banking brasil directory of participants;
-1. shall validate that the software_statement was issued (iat) not more than 5 minutes prior to the request being received;
-1. shall validate that a `jwks` (key set by value) was **not** included;
-1. shall require and validate that the `jwks_uri` matches the `software_jwks_uri` provided in the software statement;
-1. shall require and validate that `redirect_uris` match or contain a sub set of software_redirect_uris provided in the software statement;
-1. shall require and validate that all client authentication mechanism adhere to the requirements defined in [Financial-grade API Security Profile 1.0 - Part 1: Advanced](https://openid.net/specs/openid-financial-api-part-2-1_0.html);
-1. shall require encrypted request objects as required by the Brasil Open Banking Security Profile;
-1. shall validate that requested scopes are appropriate for the softwares authorized regulatory roles;
-1. should where possible validate client asserted metadata against metadata provided in the software_statement;
-1. shall accept all x.500 AttributeType name strings defined in the Distinguished Name of the x.509 Certificate Profiles defined in [Open Banking Brasil x.509 Certificate Standards][OBB-Cert-Standards];
-1. if supporting `tls_client_auth` client authenication mechanism as defined in [RFC8705] shall only accept `tls_client_auth_subject_dn`  as an indication of the certificate subject value as defined in clause 2.1.2 [RFC8705];
+2. shall validate that the request contains software_statement JWT signed using the `PS256` algorithim issued by the Open Banking Brasil directory of participants;
+3. shall validate that the `software_statement` was issued (iat) not more than 5 minutes prior to the request being received;
+4. shall validate that a `jwks` (key set by value) was **not** included;
+5. shall require and validate that the `jwks_uri` matches the `software_jwks_uri` provided in the software statement;
+6. shall require and validate that `redirect_uris` match or contain a sub set of software_redirect_uris provided in the software statement;
+7. shall require and validate that all client authentication mechanism adhere to the requirements defined in [Financial-grade API Security Profile 1.0 - Part 1: Advanced](https://openid.net/specs/openid-financial-api-part-2-1_0.html);
+8. shall require encrypted request objects as required by the Brasil Open Banking Security Profile;
+9. shall validate that requested scopes are appropriate for the softwares authorized regulatory roles;
+10. should where possible validate client asserted metadata against metadata provided in the software_statement;
+11. shall accept all x.500 AttributeType name strings defined in the Distinguished Name of the x.509 Certificate Profiles defined in [Open Banking Brasil x.509 Certificate Standards][OBB-Cert-Standards];
+12. if supporting `tls_client_auth` client authenication mechanism as defined in [RFC8705] shall only accept `tls_client_auth_subject_dn`  as an indication of the certificate subject value as defined in clause 2.1.2 [RFC8705];
 
 These provisions apply equally to the processing of [RFC7591], [RFC7592] and [OpenID Registration][OIDR] requests
 
@@ -317,7 +317,7 @@ The following example contains all of the claims currently included in a softwar
   "org_id": "b961c4eb-509d-4edf-afeb-35642b38185d",
   "org_number": "112233445566",
   "software_environment": "production",
-  "software_version": 1.1,
+  "software_version": "1.1",
   "software_roles": [
     "DADOS",
     "PAGTO"

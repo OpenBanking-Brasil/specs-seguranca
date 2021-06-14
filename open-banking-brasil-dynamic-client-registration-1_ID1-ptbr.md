@@ -222,7 +222,7 @@ O servidor de autorização deve suportar o [RFC7591], [RFC7592] e [OpenID Regis
 Além disso, o servidor de autorização
 
 1. rejeitará as solicitações de registro de cliente dinâmico não realizadas em uma conexão protegida com tls mútuo usando certificados emitidos pelo Brasil ICP (produção) ou o Diretório de Participantes (sandbox);
-2. deve validar que a solicitação contém _software_statement_ jwt assinado usando o algoritmo PS256 emitido pelo diretório de participantes do Open Banking Brasil;
+2. deve validar que a solicitação contém _software_statement_ JWT assinado usando o algoritmo `PS256` emitido pelo diretório de participantes do Open Banking Brasil;
 4. deve validar que o _software_statement_ foi emitido (iat) não mais de 5 minutos antes do pedido ser recebido;
 5. deve validar que um `jwks` (chave definida por valor) **não** foi incluído;
 6. exigirá e validará que o `jwks_uri` corresponda ao `software_jwks_uri` fornecido na declaração do software;
@@ -317,7 +317,7 @@ O exemplo a seguir contém todas as reivindicações atualmente incluídas em um
   "org_id": "b961c4eb-509d-4edf-afeb-35642b38185d",
   "org_number": "112233445566",
   "software_environment": "production",
-  "software_version": 1.1,
+  "software_version": "1.1",
   "software_roles": [
     "DADOS",
     "PAGTO"
