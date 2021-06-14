@@ -178,7 +178,7 @@ Para efeitos deste documento, os termos definidos em [RFC6749], [RFC6750], [RFC7
 
 **MFA** - Multi-Factor Authentication (Autenticação por Múltiplos Fatores)
 
-# Brasil Open Banking Security Profile  {#securityprofile}
+# Profile de Segurança para o Open Banking Brasil {#securityprofile}
 
 ## Introdução  {#secintroduction}
 
@@ -285,7 +285,7 @@ Para realizar autenticação por múltiplos fatores (MFA) é necessário que o u
 ### Cliente confidencial  {#client}
 
 Um cliente confidencial deve apoiar as disposições especificadas na cláusula 5.2.3 de
-[Financial-grade API Security Profile 1.0 - Part 2: Advanced][FAPI-1-Advanced],
+[Financial-grade API Security Profile 1.0 - Part 1: Advanced][FAPI-1-Advanced],
 
 Além disso, o cliente confidencial
 
