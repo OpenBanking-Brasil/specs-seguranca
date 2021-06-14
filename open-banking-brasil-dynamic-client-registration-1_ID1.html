@@ -1407,7 +1407,7 @@ and are not to be interpreted with their natural language meanings.<a href="#sec
             <p id="section-7.1-3.1.1">shall reject dynamic client registration requests not performed over a connection secured with mutual tls using certificates issued by Brazil ICP (production) or the Directory of Participants (sandbox);<a href="#section-7.1-3.1.1" class="pilcrow">¶</a></p>
 </li>
 <li id="section-7.1-3.2">
-            <p id="section-7.1-3.2.1">shall validate that the request contains software_statement jwt signed using using the PS256 alg issued by the open banking brasil directory of participants;<a href="#section-7.1-3.2.1" class="pilcrow">¶</a></p>
+            <p id="section-7.1-3.2.1">shall validate that the request contains <code>software_statement</code> JWT signed using  the <code>PS256</code> algorithm issued by the Open Banking Brasil directory of participants;<a href="#section-7.1-3.2.1" class="pilcrow">¶</a></p>
 </li>
 <li id="section-7.1-3.3">
             <p id="section-7.1-3.3.1">shall validate that the software_statement was issued (iat) not more than 5 minutes prior to the request being received;<a href="#section-7.1-3.3.1" class="pilcrow">¶</a></p>
