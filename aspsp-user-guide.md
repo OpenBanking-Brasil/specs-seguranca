@@ -1,173 +1,155 @@
 # Open Banking Brasil
 
-## Ecosystem Overview
+## Visão geral do ecossistema
 
-At its heart, Open Banking Brasil is a Data Sharing ecosystem where Customers of Banks and other Financial Institutions wish to share their account information or give permission for payments to be executed on their behalf with third party services.
+Em sua essência, o Open Banking Brasil é um ecossistema de compartilhamento de dados onde os clientes de bancos e outras instituições financeiras desejam compartilhar suas informações de conta ou dar permissão para que os pagamentos sejam executados em seu nome com serviços de terceiros.
 
-There are a number of roles required to tie any system of Identification, Authentication and Authorization together, irrespective of sector. All these roles are required, but multiple roles may be held by each participant. In general, the end User ("Subject"), is giving a system ("Client") a pass ("Access Token") to access a protected resource held by the Provider ("Resource Server"). This requires the User and Client to be Identified and Authenticated, and for the Authorization to be confirmed.
+Há uma série de funções necessárias para vincular qualquer sistema de Identificação, Autenticação e Autorização, independentemente do setor. Todas essas funções são necessárias, mas várias funções podem ser desempenhadas por cada participante. Em geral, o Usuário final ("Assunto"), está dando a um sistema ("Cliente") uma autorização ("Token de Acesso") para acessar um recurso protegido mantido pelo Provedor ("Servidor de Recursos"). Isso exige que o usuário e o cliente sejam identificados e autenticados e que a autorização seja confirmada.
 
-The exact rules and legal requirements for each role in a specific sector forms a "Trust Framework". Each ecosystem requires a standardised set of rules and legal requirements that covers all the roles and obligations for the above interactions. The combination of who provides which role(s), and the levels to which they must carry out those roles and the standards which they those operations must be performed can be captured in a sector specific "Trust Framework".
+As regras exatas e os requisitos legais para cada função em um setor específico formam um "Arcabouço de confiança" ('Trust Framework'). Cada ecossistema requer um conjunto padronizado de regras e requisitos legais que abrangem todas as funções e obrigações das interações acima. A combinação de quem fornece qual(is) função(ões) e os níveis aos quais eles devem desempenhar essas funções e os padrões pelos quais essas operações devem ser realizadas podem ser capturados em uma "Arcabouço de Confiança" ('Trust Framework') específico do setor.
 
-Different Trust Frameworks will have different implementation options, but a common Trust Framework is a prerequisite to turn a 'sector' into an 'ecosystem'. A common trust framework significantly reduces complexity and hence costs, increases scalability and interoperability within the sector as well as opening up options for the type of cross-sector standardisation that Open Banking Brasil is pursuing.
+Diferentes arcabouços de confiança terão diferentes opções de implementação, mas uma arcabouço de confiança comum é um pré-requisito para transformar um 'setor' em um 'ecossistema'. Um arcabouço de confiança comum reduz significativamente a complexidade e, portanto, os custos, aumenta a escalabilidade e a interoperabilidade dentro do setor, bem como abre opções para o tipo de padronização intersetorial que o Open Banking Brasil está buscando.
 
-Different implementations can be defined for sectors, which have different pros / cons and costs associated for different participants. Each of the proposed implementations could be used for any sector if the right prerequisites are in place. The right solution will depend on the appetite and alignment of each set of participants.
+Diferentes implementações podem ser definidas para setores, que têm diferentes prós / contras e custos associados para diferentes participantes. Cada uma das implementações propostas pode ser usada para qualquer setor se os pré-requisitos corretos estiverem em vigor. A solução certa dependerá do apetite e alinhamento de cada conjunto de participantes.
 
-Implementation of a common mechanism for Open Banking Brasil will require a commitment to symmetry across sectors to build sector-specific details into the Trust Framework principles.
+A implementação de um mecanismo comum para o Open Banking Brasil exigirá um compromisso com a simetria entre os setores para incluir detalhes específicos do setor nos princípios do Trust Framework.
 
-Technical choices need to be made to ensure that any implementation provides a strict and consistent base to be credible, but retains the flexibility to adapt to future needs. This implies open-source standards which are widely available, widely understood, and have been tried and tested. In addition, there are a choice of partners who could manage any technical build, meaning any commercial market is maintained.
+É necessário fazer escolhas técnicas para garantir que qualquer implementação forneça uma base estrita e consistente para ter credibilidade mas retenha a flexibilidade para se adaptar às necessidades futuras. Isso implica padrões de código-fonte aberto amplamente disponíveis, amplamente compreendidos e que foram experimentados e testados. Além disso, há uma escolha de parceiros que podem apoiar qualquer construção técnica, o que significa que continuará havendo espaço para desenvolvimento comercial de soluções.
 
-### Participants in a Data Sharing Ecosystem
+### Participantes de um ecossistema de compartilhamento de dados
 
-In the consumer-focused Open Banking ecosystems we are considering, we have three main players:
+Nos ecossistemas de Open Banking voltados para o consumidor que estamos considerando, temos três participantes principais:
 
-* the User (Consumer)
-* the Provider (offering core Banking Services)
-* and a Third Party Provider (TPP, offering an Open Banking proposition):
+* o usuário (consumidor)
+* o Provedor (oferecendo serviços bancários básicos)
+* e um provedor terceirizado (TPP, oferecendo uma proposta de Open Banking):
 
-In all the cases that follow, we assume:
+Em todos os casos a seguir, assumimos:
 
-* A User holds an account for a core service or set of resources from the Provider
-* A Third Party offers the User a proposition enabled through Smart Data sharing
-* The User provides consent to the Third Party for the purposes of delivering that proposition
-* The Provider has obligations to safeguard the User data, but also to share it when instructed.
+* Um usuário possui uma conta para um serviço principal ou conjunto de recursos do Provedor
+* Um terceiro oferece ao usuário uma proposta habilitada por meio do compartilhamento inteligente de dados
+* O usuário dá consentimento ao terceiro para fins de entrega dessa proposta
+* O Provedor tem a obrigação de salvaguardar os dados do Usuário, mas também de compartilhá-los quando instruído.
 
-We also have fourth providers and that is trust service providers which are entities providing technical surety to both Providers (Banks and Third Party Providers (TPPs) that they all authorized to partake in the ecosystem.
+Também temos quartos provedores, que são provedores de serviços de confiança, que são entidades que fornecem garantia técnica a ambos os Provedores (Bancos e Provedores Terceirizados (TPPs) que todos estão autorizados a participar do ecossistema.
 
-The technical **standards** necessary to support the trust framework therefor must address all of the following requirements.
+Os **padrões** técnicos necessários para dar suporte ao arcabouço de confiança devem atender a todos os requisitos a seguir.
 
-* Identification of all participants in the ecosystem.
-* Authentication when required of all participants to each other.
-* Authorization confirmation of all participants within a data sharing ecosystem.
+* Identificação de todos os participantes do ecossistema.
+* Autenticação quando exigida de todos os participantes entre si.
+* Confirmação de autorização de todos os participantes em um ecossistema de compartilhamento de dados.
 
-The technical **services** necessary to support an ecosystem therefor must enable all of the above requirements **on a continuous and ongoing basis** . Not just at a single point of registration
+Os **serviços** técnicos necessários para suportar um ecossistema devem habilitar todos os requisitos acima **em uma base contínua e em modo contínuo**. Não apenas em um único ponto de registro.
 
-### Specification Principles and High Level Requirements
+### Princípios de Especificação e Requisitos de Alto Nível
 
-Open Banking Brasil has adopted the following high level principles and requirements when it comes to the technical standards
+O Open Banking Brasil adotou os seguintes princípios e requisitos de alto nível no que diz respeito às normas técnicas
 
-* Consent
-  * Customers must always be in control of who has access to their data and for what purposes it is being used.
-* Data Minimisation
-  * Customers must be able to share just the data that they need to for just as long as is needed.
-* Security
-  * A formal threat model has been produced assessing all potential weaknesses in communication processes.
-  * All identified weaknesses have been addressed.
-* Identification
-  * All participants must have surety in the identification of all of the actors within the ecosystem.
-* Authentication
-  * All participants must convey the steps that were taken to Authenticate each participant in the ecosystem and to what level this was performed.
-* Integrity and Non Repudiation
-  * All participants must be able to prove that messages have not been tampered with and were indeed sent only by a legitimate participant.
+* Consentimento
+  * Os clientes devem estar sempre no controle de quem tem acesso aos seus dados e para que fins eles estão sendo usados.
+* Minimização de dados
+  * Os clientes devem ser capazes de compartilhar apenas os dados de que precisam, pelo tempo que for necessário.
+* Segurança
+  * Um modelo formal de ameaça foi produzido avaliando todas as fraquezas potenciais nos processos de comunicação.
+  * Todos os pontos fracos identificados foram corrigidos.
+* Identificação
+  * Todos os participantes devem ter segurança na identificação de todos os atores do ecossistema.
+* Autenticação
+  * Todos os participantes devem transmitir as etapas que foram executadas para autenticar cada participante no ecossistema e em que nível isso foi executado.
+* Integridade e não repúdio
+  * Todos os participantes devem ser capazes de provar que as mensagens não foram adulteradas e, na verdade, foram enviadas apenas por um participante legítimo.
 
-In addition to the high level requirements the following principles have also been adopted.
+Além dos requisitos de alto nível, os seguintes princípios também foram adotados.
 
-* Don't reinvent the wheel, if a specification exists that is fit for purpose, widely adopted and publicly available. Use it.
-* Engage with other standards bodies to learn from past experience regarding what has worked, what has not worked and what can be done better.
-* Ensure wide spread industry support and by in to ensure maximum chances of success and most importantly customer safety.
-* Solicit feedback early and often and recognise that it will take several iterations to develop a standard as defined by World Trade Organisation processes.
-* The Trust Framework underpinning the data sharing ecosystem that is Open Banking Brasil is a technical framework that needs to be flexible enough to allow participants and the ecosystem to innovate, grow and develop whilst remaining interoperable.
+* Não reinvente a roda, se existir uma especificação que seja adequada para o propósito, amplamente adotada e publicamente disponível, use-a.
+* Envolva-se com outros organismos de normalização para aprender com a experiência anterior sobre o que funcionou, o que não funcionou e o que pode ser feito melhor.
+* Assegurar o amplo suporte da indústria para garantir o máximo de chances de sucesso e, mais importante, a segurança do cliente.
+* Solicite feedback com antecedência e com frequência, reconheça que serão necessárias várias iterações para desenvolver um padrão conforme definido pelos processos da Organização Mundial do Comércio.
+* O Arcabouço de Confiança ('Trust Framework') que sustenta o ecossistema de compartilhamento de dados que é o Open Banking Brasil é um arcabouço técnico que precisa ser flexível o suficiente para permitir que os participantes e o ecossistema inovem, cresçam e se desenvolvam enquanto permanecem interoperáveis.
 
-All participants must be assured that all actors within the ecosystem are handling their data safely, securely at all times. This requires that all participants publicly test their systems for conformance to the specifications and make available the results of their conformance testing for public scrutiny by other participants.
+Todos os participantes devem ter certeza de que todos os atores do ecossistema estão lidando com seus dados com segurança, com segurança o tempo todo. Isso requer que todos os participantes testem publicamente seus sistemas quanto à conformidade com as especificações e disponibilizem os resultados de seus testes de conformidade para exame público de outros participantes.
 
-**This is a requirement that applies to both providers of data (Banks) and consumers of data (TPPs).**
+**Este é um requisito que se aplica a fornecedores de dados (bancos) e consumidores de dados (TPPs).**
 
-## The Core Security Standards
+## Os principais padrões de segurança
 
-### The OAuth 2.0 Authorization Framework
+### A estrutura de autorização OAuth 2.0
 
-The data sharing ecosystem defined by Brazil consists of many different standards all of which revolve around concepts, roles and obligations that were technically defined in the [OAuth 2.0 Authorization Framework.](https://tools.ietf.org/html/rfc6749)
+O ecossistema de compartilhamento de dados definido pelo Brasil consiste em muitos padrões diferentes, todos girando em torno de conceitos, funções e obrigações que foram tecnicamente definidos no [OAuth 2.0 Authorization Framework.](https://tools.ietf.org/html/rfc6749).
 
-> The OAuth 2.0 authorization framework enables a third-party
+> A estrutura de autorização OAuth 2.0 permite um aplicativo de terceiro (aplicativo TPP) obter acesso limitado a um serviço HTTP, seja em nome de um proprietário de recurso por meio da orquestração de uma interação de aprovação entre o proprietário do recurso e o serviço HTTP, ou permitindo o aplicativo de terceiros (aplicativo TPP) obter acesso em seu próprio nome.
 
-application to obtain limited access to an HTTP service, either on
+A especificação base OAuth 2.0 não fornece, por si só, informações suficientes para atender a todas as necessidades definidas pela estrutura de confiança do Open Banking Basil. Mais notavelmente, está faltando uma maneira de transmitir informações de identidade do cliente em um formato padronizado de um provedor para um cliente e os mecanismos de autenticação que foram definidos na especificação original não são seguros o suficiente para atender aos requisitos de uma indústria altamente regulamentada.
 
-behalf of a resource owner by orchestrating an approval interaction
+### OpenID Connect - A camada de identidade para a Internet
 
-between the resource owner and the HTTP service, or by allowing the
+**_Este perfil herda todas as obrigações do OAuth 2.0_**
 
-third-party application to obtain access on its own behalf.
+> [OpenID Connect](https://openid.net/connect/) é um conjunto de especificações leves que fornecem uma estrutura para interações de identidade por meio de APIs do tipo REST. A implementação mais simples do OpenID Connect permite que clientes de todos os tipos, incluindo clientes baseados em navegador, celulares e clientes javascript, solicitem e recebam informações sobre identidades e sessões atualmente autenticadas. O conjunto de especificações é extensível, permitindo que os participantes também suportem, opcionalmente, criptografia de dados de identidade, descoberta do provedor OpenID e gerenciamento avançado de sessão, incluindo logout.
 
-The base OAuth 2.0. specification does not provide by itself enough information in order to meet all of the needs defined by the Open Banking Basil trust framework. Most notably it is missing a way to convey Customer Identity information in a standardized format from a Provider to a Client and the authentication mechanisms that were defined in the original specification are not secure enough to meet the requirements of a highly regulated industry.
+O grupo de trabalho OpenID Foundations Connect tem sido o guardião do Padrão de Identidade "de fato" da Internet por muitos anos, trabalhando em várias especificações que se baseiam na Estrutura de Autorização OAuth 2.0, adicionando recursos e requisitos de suporte para melhorar a segurança da estrutura subjacente.
 
-### OpenID Connect - The Identity Layer for the Internet
+[Open ID Connect Core:](https://openid.net/specs/openid-connect-core-1_0.html) é um perfil do OAuth 2.0, o que significa que herda todos os requisitos e obrigações do [OAuth 2.0](https://tools.ietf.org/html/rfc6749), mas define o conceito de um id_token e introduz novos mecanismos de autenticação.
 
-**_This profile inherits all of the obligations of OAuth 2.0_**
+[Open ID Connect Discovery:](https://openid.net/specs/openid-connect-discovery-1_0.html) apresenta o conceito de um documento de descoberta usado por provedores OpenID Connect para anunciar como os clientes OAuth 2.0 podem se comunicar com eles e quais recursos e opções o provedor OIDC oferece suporte.
 
-> [OpenID Connect](https://openid.net/connect/) is a suite of lightweight specifications that provide a framework for identity interactions via REST like APIs. The simplest deployment of OpenID Connect allows for clients of all types including browser-based, mobile, and javascript clients, to request and receive information about identities and currently authenticated sessions. The specification suite is extensible, allowing participants to optionally also support encryption of identity data, discovery of the OpenID Provider, and advanced session management, including logout.
+[RFC7591:](https://tools.ietf.org/html/rfc7591) Além de definir o processo de registro dinâmico de clientes OAuth, esta especificação apresenta o conceito de um [Software Statement](https://tools.ietf.org/html/rfc7591#section-2.3) ("Declaração de Software") que pode ser usada para fornecer informações sobre um cliente que é atestado por um serviço de terceiros. Outros atributos de metadados também são definidos na [OpenID Connect Registration Specification](https://openid.net/specs/openid-connect-registration-1_0.html)
 
-The OpenID Foundations Connect working group has been the custodian for the internets de-facto Identity Standard for many years working on several specifications that build upon the OAuth 2.0 Authorization Framework adding in supporting features and requirements in order to improve the security of the underlying framework.
+> Esta especificação define mecanismos para registrar dinamicamente Clientes OAuth 2.0 com servidores de autorização ('Authorization Servers'). Pedidos de registro enviam um conjunto de valores de metadados do cliente desejados para o 'Authorization Server'. As respostas de registro resultantes retornam um identificador de cliente para usar no servidor de autorização e os valores de metadados registrados para o cliente. O cliente pode então usar esta informações de registro para se comunicar com o servidor de autorização usando o protocolo OAuth 2.0. Esta especificação também define um conjunto de campos de metadados do cliente e valores para os clientes usarem durante o registro.
 
-[Open ID Connect Core:](https://openid.net/specs/openid-connect-core-1_0.html) Is a profile of OAuth 2.0 meaning it inherits all of the requirements and obligations of [OAuth 2.0](https://tools.ietf.org/html/rfc6749) but defines the concept of an id_token and introduces new authentication mechanisms.
+[RFC7592:](https://tools.ietf.org/html/rfc7592) Esta especificação define métodos de gerenciamento de registros de cliente dinâmico OAuth 2.0 para casos de uso em que as propriedades de um cliente registrado podem precisar ser alteradas durante a vida do cliente.
 
-[Open ID Connect Discovery:](https://openid.net/specs/openid-connect-discovery-1_0.html) Introduces the concept of a discovery document that is used by OpenID Connect Providers to advertise how OAuth 2.0 Clients can communicate with it and what features and options the OIDC Provider Supports.
+As especificações acima são especificações básicas cuja leitura obrigatória sustenta o arcabouço de confiança do Open Banking Brasil, entretanto, eles ainda são insuficientes para atender a todos os requisitos e princípios descritos anteriormente.
 
-[RFC7591:](https://tools.ietf.org/html/rfc7591) In addition to defining the process for dynamic registartion of OAuth clients, This specification introduces the concept of a [Software Statement](https://tools.ietf.org/html/rfc7591#section-2.3) which can be used to provide information about a a client that is attested by a third party service. Further meta data attributes are also defined in the [OpenID Connect Registration Specification](https://openid.net/specs/openid-connect-registration-1_0.html)
+### OpenID Financial Grade 1.0: Baseline
 
-> This specification defines mechanisms for dynamically registering
+**_Este perfil herda todas as obrigações do OpenID Connect Core_**
 
-OAuth 2.0 clients with Authorization Servers. Registration requests
-send a set of desired client metadata values to the Authorization Server.
-The resulting registration responses return a client
-identifier to use at the Authorization Server and the client metadata
-values registered for the client. The client can then use this
-registration information to communicate with the Authorization Server
-using the OAuth 2.0 protocol. This specification also defines a set of common
-client metadata fields and values for clients to use during registration.
+Reconhecendo as ameaças e riscos restantes que não foram tratados pelo OpenID Connect principal, o foco do grupo de trabalho do Financial Grade é criar uma especificação que visa identificar e, em seguida, abordar os pontos fracos na especificação OpenID Connect subjacente, essencialmente, criar um perfil para casos de uso de alta segurança.
 
-[RFC7592:](https://tools.ietf.org/html/rfc7592) This specification defines methods for management of OAuth 2.0 dynamic client registrations for use cases in which the properties of a registered client may need to be changed during the lifetime of the client.
+O perfil Baseline foi originalmente planejado para ser mais facilmente implementado por clientes e provedores de OpenID às custas de alguns elementos de segurança e, como tal, não oferece o mesmo grau de proteção contra violação de solicitação e violação de resposta.
 
-The above specifications are core specifications that are required reading underpin the Open Banking Brasil
-trust framework however they still are insufficient to meet all of the requirements and principles outlined earlier.
+### OpenID Financial Grade 1.0: Avançado
 
-### OpenID Financial Grade 1.0 : Baseline
+**_Este perfil herda todas as obrigações do OpenID FAPI 1.0: Baseline_**
 
-**_This profile inherits all of the obligations of OpenID Connect Core_**
+O atual padrão de ouro para API Security, o [FAPI 1.0: Advanced profile](https://openid.net/specs/openid-financial-api-part-2-1_0.html) fornece uma **especificação de arcabouço** que foi usado como ponto de partida para a criação de uma especificação para o Open Banking Brasil.
 
-Recognising the remaining threats and risks that were not addressed by core OpenID Connect, the Financial Grade Working group focus is create a specification that aims to identify and then address weaknesses in the underlying OpenID Connect specification essentially create a profile for high security use cases.
-
-The Baseline profile was originally intended to more easily implementable by Clients and OpenID Providers at the expense of some security elements and as such does not offer the same degree of protection against request tampering and response tampering.
-
-### OpenID Financial Grade 1.0 : Advanced
-
-**_This profile inherits all of the obligations of OpenID FAPI 1.0: Baseline_**
-
-The current Gold Standard for API Security, the [FAPI 1.0: Advanced profile](https://openid.net/specs/openid-financial-api-part-2-1_0.html) provide a **framework specification** that has been used as a starting point on which to create a specification for Open Banking Brasil.
-
-> This document specifies an advanced security profile of OAuth that is suitable to be used for protecting APIs with high inherent risk. Examples include APIs that give access to highly sensitive data or that can be used to trigger financial transactions (e.g., payment initiation). This document specifies the controls against attacks such as: authorization request tampering, authorization response tampering including code injection, state injection, and token request phishing. Additional details are available in the security considerations section.
+> Este documento especifica um perfil de segurança avançado do OAuth que é adequado para ser usado para proteger APIs com alto risco inerente. Os exemplos incluem APIs que dão acesso a dados altamente confidenciais ou que podem ser usados para acionar transações financeiras (por exemplo, início de pagamento). Este documento especifica os controles contra ataques, como: violação de solicitação de autorização, violação de resposta de autorização, incluindo injeção de código, injeção de estado e phishing de solicitação de token. Detalhes adicionais estão disponíveis na seção de considerações de segurança.
 
 ![Hierachy of OAuth 2.0 Profiles](https://miro.medium.com/max/700/1*R8d0lkvVRlEMG9WBXCZsdQ.png)
 
-# ASPSP End To End User Guide
+# Guia do usuário final para ASPSP
 
-## 1.0 Registering a Bank
+## 1.0 Registrando um Banco
 
-### 1.1 Directory Overview
+### 1.1 Visão geral do diretório
 
-The trust framework services provided by Open Banking Brasil provide all of the discovery services necessary for a TPPs and ASPSPs to interact with each other without being required to validate the authenticity of each others Identity, Authorizations, Consumer Offerings (Apps), APIs or Credentials
+Os serviços do arcabouço de confiança fornecidos pelo Open Banking Brasil fornecem todos os serviços de descoberta necessários para que TPPs e ASPSPs interajam entre si, sem que sejam necessários para validar a autenticidade de cada um.
 
-An Authorization Server or AS as defined by [RFC 6749 - The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749) perform several functions in a Data Sharing ecosystem like Open Banking. Please read ensure that the concepts roles and responsibilities defined in the original RFC are well understood before proceeding. In addition please ensure that the concepts, roles and responsibilities defined in [OpenID Connect Core](https://openid.net/specs/openid-connect-core-1_0.html) and how they extended the concepts defined in RFC 6749 are equally as well understood.
+Um Authorization Server ou AS conforme definido por [RFC 6749 - The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749) executa várias funções em um ecossistema de compartilhamento de dados como o Open Banking. Antes de prosseguir, certifique-se de que os conceitos de funções e responsabilidades definidos no RFC original sejam bem compreendidos. Além disso, certifique-se de que os conceitos, funções e responsabilidades definidos no [OpenID Connect Core](https://openid.net/specs/openid-connect-core-1_0.html) e como eles estendem os conceitos definidos no RFC 6749 são igualmente bem compreendido.
 
-### 1.2 Registering an Authorization Server and OpenID Provider
+### 1.2 Registrando um servidor de autorização e provedor de OpenID
 
-Banks, typically large banks, will not be a single entity from a technology operations point of view. They may have different brands, security and IT infrastructure for different customer segments or they may have some IT infrastructure that supports multiple brands or customer segments. This means that the technical ecosystem needs to be flexible enough to support a wide variety of Banks Infrastructure Deployments whilst ensuring that the necessary services are discoverable both Third Parties customers that need to interact with it.
+Os bancos, geralmente grandes bancos, não serão uma entidade única do ponto de vista das operações de tecnologia. Eles podem ter marcas, segurança e infraestrutura de TI diferentes para diferentes segmentos de clientes ou podem ter alguma infraestrutura de TI que ofereça suporte a várias marcas ou segmentos de clientes. Isso significa que o ecossistema técnico precisa ser flexível o suficiente para suportar uma ampla variedade de implantações de infraestrutura de bancos, garantindo que os serviços necessários possam ser descobertos por clientes de terceiros que precisam interagir com ele.
 
-A flexible model for advertising authentication/authorization services and the resources that are protected by the AuthN and AuthZ is supported by the Directory.
+Um modelo flexível para anunciar serviços de autenticação / autorização e os recursos protegidos pelo AuthN e AuthZ é suportado pelo Diretório.
 
-* **Customer Friendly Name** - This is will be displayed to customers by TPPs and should be recognisable by the Banks Customers Already.
-* **Customer Friendly Logo** - This will be displayed to customers by TPPs to aid brand recognition.
-* **Description** - This may be displayed to customers by TPPs to aid brand recognition.
-* **Terms of Service** - This is a link to the Banks Terms of Service which may be included by TPPs.
-* **Notification WebHook** - Authorization Servers can register a WebHook that will receive pushed updates regarding changes to participants, their software or certificates.
-* **OpenID Well Known Document Uri** - Link to the Authorization Server's Discovery Document.
+* **Nome Amigável do Cliente** - Será exibido aos clientes pelos TPPs e já deve ser reconhecido pelos Clientes do Banco.
+* **Logotipo amigável ao cliente** - Será exibido aos clientes pelos TPPs para auxiliar no reconhecimento da marca.
+* **Descrição** - Isso pode ser exibido aos clientes por TPPs para auxiliar no reconhecimento da marca.
+* **Termos de Serviço** - Este é um link para os Termos de Serviço do banco, que podem ser incluídos pelos TPPs.
+* **WebHook de notificação** - Os servidores de autorização podem registrar um WebHook que receberá atualizações por push sobre as alterações dos participantes, seus softwares ou certificados.
+* **OpenID Well Known Document Uri** - Link para o documento de descoberta do Authorization Server.
 
-A Bank may choose to have one Authorization Server or many provided that it can satisfy the following requirements.
+Um banco pode optar por ter um servidor de autorização ou muitos, desde que satisfaça os seguintes requisitos.
 
-* A customer can recognise the Authorization Server as a place that they would normally Bank with.
-* The Authorization Server can issue tokens for the resource and services that a customer or TPP is looking for.
+* Um cliente pode reconhecer o servidor de autorização como um local com o qual normalmente faria interação com o seu banco.
+* O Authorization Server pode emitir tokens para os recursos e serviços que um cliente ou TPP está procurando.
 
-### 1.3 Registering Resources
+### 1.3 Registrando recursos
 
-Once a Bank has registered an Authorization Server, it needs to advertise what resources, APIs or Services it can provide authorization for.
+Depois que um banco registra um servidor de autorização, ele precisa anunciar para quais recursos, APIs ou serviços ele pode fornecer autorização.
 
 [Authorization Resources management image]
 
@@ -183,24 +165,24 @@ Once a Bank has registered an Authorization Server, it needs to advertise what r
 | 3 | Amazing Banking | [https://auth.payments.amazingbank.org.br/.well-known/openid-configuration](https://auth.payments.amazingbank.org.br/.well-known/openid-configuration) | payments consents | 1 |
 | 3 | Amazing Banking | [https://auth.payments.amazingbank.org.br/.well-known/openid-configuration](https://auth.payments.amazingbank.org.br/.well-known/openid-configuration) | payments | 1 |
 
-In the above example, Amazing Banking is advertising two services that should be recognisable to customers. "Amazing Business Banking" and "Amazing Banking". These **may or may not be** directly related to "Brands" as different Banks may need to advertise different authentication services even within a sub brand.
+No exemplo acima, o Amazing Banking está anunciando dois serviços que devem ser reconhecidos pelos clientes. "Amazing Business Banking" e "Amazing Banking". Estes **podem ou não estar** diretamente relacionados a "Marcas", pois bancos diferentes podem precisar anunciar serviços de autenticação diferentes, mesmo dentro de uma submarca.
 
-In addition the bank advertises what resources each of the Authorization Servers are protecting or offering. In the above example Amazing Banking is supporting both version 1 and version 2 of the account information API and that "Amazing Banking" has two separate authentication and authorization systems for Payments and Account Information .
+Além disso, o banco anuncia quais recursos cada um dos servidores de autorização está protegendo ou oferecendo. No exemplo acima, o Amazing Banking é compatível com a versão 1 e a versão 2 da API de informações da conta e o "Amazing Banking" tem dois sistemas separados de autenticação e autorização para Pagamentos e Informações da conta.
 
-Correctly advertising what resources are offered by each server is important to achieving the scale envisaged by Brasil Open Banking and critical for ensuring that customers can identify their banking service easily and that TPPs can route customers to the correct Authorization Service based on the resources that protected by each service.
+Anunciar corretamente quais recursos são oferecidos por cada servidor é importante para atingir a escala prevista pelo Open Banking  Brasil e fundamental para garantir que os clientes possam identificar seu serviço bancário facilmente e que os TPPs possam encaminhar os clientes para o Serviço de Autorização correto com base nos recursos protegidos por cada serviço.
 
-## 2.0 Validating a client registration request
+## 2.0 Validando uma solicitação de registro de cliente
 
-Using OpenID Connect Discovery and the Brasil Open Banking Dynamic Client Registration specification. A TPP can register their application at each of the Authorization Servers available in the ecosystem.
+Usando o OpenID Connect Discovery e a especificação de Registro de Cliente Dinâmico (DCR) do Open Banking Brasil. Um TPP pode registrar seu aplicativo em cada um dos Servidores de Autorização disponíveis no ecossistema.
 
-### 2.1 OpenID Connect Registration and OAuth 2.0 Dynamic Client Registration
+### 2.1 Registro OpenID Connect e OAuth 2.0 Dynamic Client Registration
 
-Please see Open Banking Brasil Dynamic Client Registration Specification Clause 7 for details.
+Consulte a Cláusula 7 da Especificação de Registro do Cliente Dinâmico (DCR) do Open Banking Brasil para obter detalhes.
 
-### 2.2 Software Statement Assertion Processing
+### 2.2 Processamento de declaração de software
 
-Please see Open Banking Brasil Dynamic Client Registration Specification Clause 8 for details.
+Consulte a Cláusula 8 da Especificação de Registro do Cliente Dinâmico (DCR) do Open Banking Brasil para obter detalhes.
 
-## 3.0 Validating an Authorization Request
+## 3.0 Validando um Pedido de Autorização
 
-Please see Open Banking Security Profile Clause 5 for details.
+Consulte a Cláusula 5 do Perfil de Segurança do Open Banking para obter detalhes.
