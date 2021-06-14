@@ -185,7 +185,7 @@ The services by the Directory include
 
 Participants within the ecosystem must leverage these services to facilitate API driven OAuth client registration using the process outlined in clause 3.1.1 of [RFC7591] with additional metadata necessary to support OpenID Connect defined in [OpenID Connect Registration][OIDR].
 
-Where possible, authorisation servers should compare client metadata asserted by a client made as part of registration or management request against metadata claims contained within a software statement. Not all metadata that a client wishes to provide may be contained in a software statement, e.g alternative [Metadata Langauges and Script values](https://openid.net/specs/openid-connect-registration-1_0.html#LanguagesAndScripts).
+Where possible, authorisation servers should compare client metadata asserted by a client made as part of registration or management request against metadata claims contained within a software statement. Not all metadata that a client wishes to provide may be contained in a software statement, e.g alternative [Metadata Languages and Script values](https://openid.net/specs/openid-connect-registration-1_0.html#LanguagesAndScripts).
 
 # Open Banking Brasil OpenID Connect Discovery provisions
 
@@ -200,7 +200,7 @@ In addition, the Authorization Server
 1. shall advertise support for all signing, encryption, authentication mechanisms and standards required to support [Open Banking Brasil Financial API][OBB-FAPI];
 1. shall advertise support for [OpenID Dynamic Client Registration][OIDR];
 2. shall advertise `mtls_endpoint_aliases` as per clause 5 [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens][RF8705] the `token_endpoint`, `registration_endpoint` and `userinfo_endpoint`;
-3. if supporting [OAuth 2.0 Pushed Authorisation Requests][PAR] shall advertise through [OIDD] `mtls_endpoint_aliases` the `pushed_authorization_request_endpoint`;
+3. if supporting [OAuth 2.0 Pushed Authorization Requests][PAR] shall advertise through [OIDD] `mtls_endpoint_aliases` the `pushed_authorization_request_endpoint`;
 4. if supporting [Financial API - Client Initiated Back Channel Authentication][FAPI-CIBA] shall advertise through [OIDD] `mtls_endpoint_aliases` the `backchannel_authentication_endpoint`;
 
 ## Client
@@ -232,7 +232,7 @@ In addition, the Authorization Server
 9. shall validate that requested scopes are appropriate for the softwares authorized regulatory roles;
 10. should where possible validate client asserted metadata against metadata provided in the software_statement;
 11. shall accept all x.500 AttributeType name strings defined in the Distinguished Name of the x.509 Certificate Profiles defined in [Open Banking Brasil x.509 Certificate Standards][OBB-Cert-Standards];
-12. if supporting `tls_client_auth` client authenication mechanism as defined in [RFC8705] shall only accept `tls_client_auth_subject_dn`  as an indication of the certificate subject value as defined in clause 2.1.2 [RFC8705];
+12. if supporting `tls_client_auth` client authentication mechanism as defined in [RFC8705] shall only accept `tls_client_auth_subject_dn`  as an indication of the certificate subject value as defined in clause 2.1.2 [RFC8705];
 
 These provisions apply equally to the processing of [RFC7591], [RFC7592] and [OpenID Registration][OIDR] requests
 
@@ -248,7 +248,7 @@ Where properties of a DCR request are not included and are not mandatory in the 
 
 Clause 3 of [Lightweight Directory Access Protocol (LDAP): String Representation of Distinguished Names][RFC4514] defines the mandatory OIDs whose AttributeType strings (descriptors) must be recognized by implementers. This mandatory list does not include several of the OIDs defined in [Open Banking Brasil x.509 Certificate Standards][OBB-Cert-Standards] nor is there a defined mechanism for Authorisation Servers to publish  information regarding the format that they would expect a Dynamic Client Registration request that includes a `tls_client_auth_subject_dn` to be presented in.
 
-To address this ambiguity, the Authorization Server must accept all AttributeType name strings (descripters) defined in the last paragraph of clause 3 [RFC4515] in addition to all of the AttributeTypes defined in the Distinguished Name of the [Open Banking Brasil x.509 Certificate Standards][OBB-Cert-Standards].
+To address this ambiguity, the Authorization Server must accept all AttributeType name strings (descriptors) defined in the last paragraph of clause 3 [RFC4515] in addition to all of the AttributeTypes defined in the Distinguished Name of the [Open Banking Brasil x.509 Certificate Standards][OBB-Cert-Standards].
 
 ## Regulatory Roles to OpenID and OAuth 2.0 Mappings
 
@@ -265,7 +265,7 @@ The following table describes the regulatory roles for Open Banking and the rela
 
 ### Implementers Note
 
-In line with guidance from the IETF and the direction of travel for fine grained consent management. The obligation falls to the Authorisation Server to ensure that there is sufficient scope conveyed in an access token necessary to fulfill the Permissions conveyed in the Consent Request. This principle and requirement is reflected in the forthcoming Grant Management API.
+In line with guidance from the IETF and the direction of travel for fine-grained consent management. The obligation falls to the Authorisation Server to ensure that there is sufficient scope conveyed in an access token necessary to fulfill the Permissions conveyed in the Consent Request. This principle and requirement is reflected in the forthcoming Grant Management API.
 
 ## Regulatory Roles to dynamic OAuth 2.0 scope Mappings
 

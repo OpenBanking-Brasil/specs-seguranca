@@ -1328,7 +1328,7 @@ and are not to be interpreted with their natural language meanings.<a href="#sec
 </li>
 </ul>
 <p id="section-5-4">Participants within the ecosystem must leverage these services to facilitate API driven OAuth client registration using the process outlined in clause 3.1.1 of <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a> with additional metadata necessary to support OpenID Connect defined in <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Connect Registration</a>.<a href="#section-5-4" class="pilcrow">¶</a></p>
-<p id="section-5-5">Where possible, authorisation servers should compare client metadata asserted by a client made as part of registration or management request against metadata claims contained within a software statement. Not all metadata that a client wishes to provide may be contained in a software statement, e.g alternative <a href="https://openid.net/specs/openid-connect-registration-1_0.html#LanguagesAndScripts">Metadata Langauges and Script values</a>.<a href="#section-5-5" class="pilcrow">¶</a></p>
+<p id="section-5-5">Where possible, authorisation servers should compare client metadata asserted by a client made as part of registration or management request against metadata claims contained within a software statement. Not all metadata that a client wishes to provide may be contained in a software statement, e.g alternative <a href="https://openid.net/specs/openid-connect-registration-1_0.html#LanguagesAndScripts">Metadata Languages and Script values</a>.<a href="#section-5-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="open-banking-brasil-openid-connect-discovery-provisions">
@@ -1360,7 +1360,7 @@ and are not to be interpreted with their natural language meanings.<a href="#sec
             <p id="section-6.1-3.5.1">shall advertise <code>mtls_endpoint_aliases</code> as per clause 5 [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens][RF8705] the <code>token_endpoint</code>, <code>registration_endpoint</code> and <code>userinfo_endpoint</code>;<a href="#section-6.1-3.5.1" class="pilcrow">¶</a></p>
 </li>
 <li id="section-6.1-3.6">
-            <p id="section-6.1-3.6.1">if supporting <a href="https://tools.ietf.org/html/draft-ietf-oauth-par">OAuth 2.0 Pushed Authorisation Requests</a> shall advertise through <a href="https://openid.net/specs/openid-connect-discovery-1_0.html">OIDD</a> <code>mtls_endpoint_aliases</code> the <code>pushed_authorization_request_endpoint</code>;<a href="#section-6.1-3.6.1" class="pilcrow">¶</a></p>
+            <p id="section-6.1-3.6.1">if supporting <a href="https://tools.ietf.org/html/draft-ietf-oauth-par">OAuth 2.0 Pushed Authorization Requests</a> shall advertise through <a href="https://openid.net/specs/openid-connect-discovery-1_0.html">OIDD</a> <code>mtls_endpoint_aliases</code> the <code>pushed_authorization_request_endpoint</code>;<a href="#section-6.1-3.6.1" class="pilcrow">¶</a></p>
 </li>
 <li id="section-6.1-3.7">
             <p id="section-6.1-3.7.1">if supporting <a href="https://bitbucket.org/openid/fapi/src/master/Financial_API_WD_CIBA.md">Financial API - Client Initiated Back Channel Authentication</a> shall advertise through <a href="https://openid.net/specs/openid-connect-discovery-1_0.html">OIDD</a> <code>mtls_endpoint_aliases</code> the <code>backchannel_authentication_endpoint</code>;<a href="#section-6.1-3.7.1" class="pilcrow">¶</a></p>
@@ -1437,7 +1437,7 @@ and are not to be interpreted with their natural language meanings.<a href="#sec
             <p id="section-7.1-3.11.1">shall accept all x.500 AttributeType name strings defined in the Distinguished Name of the x.509 Certificate Profiles defined in <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html">Open Banking Brasil x.509 Certificate Standards</a>;<a href="#section-7.1-3.11.1" class="pilcrow">¶</a></p>
 </li>
 <li id="section-7.1-3.12">
-            <p id="section-7.1-3.12.1">if supporting <code>tls_client_auth</code> client authenication mechanism as defined in <a href="https://tools.ietf.org/html/rfc8705">RFC8705</a> shall only accept <code>tls_client_auth_subject_dn</code>  as an indication of the certificate subject value as defined in clause 2.1.2 <a href="https://tools.ietf.org/html/rfc8705">RFC8705</a>;<a href="#section-7.1-3.12.1" class="pilcrow">¶</a></p>
+            <p id="section-7.1-3.12.1">if supporting <code>tls_client_auth</code> client authentication mechanism as defined in <a href="https://tools.ietf.org/html/rfc8705">RFC8705</a> shall only accept <code>tls_client_auth_subject_dn</code>  as an indication of the certificate subject value as defined in clause 2.1.2 <a href="https://tools.ietf.org/html/rfc8705">RFC8705</a>;<a href="#section-7.1-3.12.1" class="pilcrow">¶</a></p>
 </li>
 </ol>
 <p id="section-7.1-4">These provisions apply equally to the processing of <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a>, <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a> and <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Registration</a> requests<a href="#section-7.1-4" class="pilcrow">¶</a></p>
@@ -1466,7 +1466,7 @@ and are not to be interpreted with their natural language meanings.<a href="#sec
 <a href="#section-7.1.2" class="section-number selfRef">7.1.2. </a><a href="#name-certificate-distinguished-n" class="section-name selfRef">Certificate Distinguished Name Parsing</a>
           </h4>
 <p id="section-7.1.2-1">Clause 3 of <a href="https://www.rfc-editor.org/rfc/rfc4514">Lightweight Directory Access Protocol (LDAP): String Representation of Distinguished Names</a> defines the mandatory OIDs whose AttributeType strings (descriptors) must be recognized by implementers. This mandatory list does not include several of the OIDs defined in <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html">Open Banking Brasil x.509 Certificate Standards</a> nor is there a defined mechanism for Authorisation Servers to publish  information regarding the format that they would expect a Dynamic Client Registration request that includes a <code>tls_client_auth_subject_dn</code> to be presented in.<a href="#section-7.1.2-1" class="pilcrow">¶</a></p>
-<p id="section-7.1.2-2">To address this ambiguity, the Authorization Server must accept all AttributeType name strings (descripters) defined in the last paragraph of clause 3 [RFC4515] in addition to all of the AttributeTypes defined in the Distinguished Name of the <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html">Open Banking Brasil x.509 Certificate Standards</a>.<a href="#section-7.1.2-2" class="pilcrow">¶</a></p>
+<p id="section-7.1.2-2">To address this ambiguity, the Authorization Server must accept all AttributeType name strings (descriptors) defined in the last paragraph of clause 3 [RFC4515] in addition to all of the AttributeTypes defined in the Distinguished Name of the <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html">Open Banking Brasil x.509 Certificate Standards</a>.<a href="#section-7.1.2-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1520,7 +1520,7 @@ and are not to be interpreted with their natural language meanings.<a href="#sec
           <h4 id="name-implementers-note">
 <a href="#section-7.2.1" class="section-number selfRef">7.2.1. </a><a href="#name-implementers-note" class="section-name selfRef">Implementers Note</a>
           </h4>
-<p id="section-7.2.1-1">In line with guidance from the IETF and the direction of travel for fine grained consent management. The obligation falls to the Authorisation Server to ensure that there is sufficient scope conveyed in an access token necessary to fulfill the Permissions conveyed in the Consent Request. This principle and requirement is reflected in the forthcoming Grant Management API.<a href="#section-7.2.1-1" class="pilcrow">¶</a></p>
+<p id="section-7.2.1-1">In line with guidance from the IETF and the direction of travel for fine-grained consent management. The obligation falls to the Authorisation Server to ensure that there is sufficient scope conveyed in an access token necessary to fulfill the Permissions conveyed in the Consent Request. This principle and requirement is reflected in the forthcoming Grant Management API.<a href="#section-7.2.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
