@@ -1,17 +1,17 @@
-# Third Party Provider End To End User Guide
+# Guia do usuário final para provedor de terceiros
 
-## 1.0 Registering an Application
+## 1.0 Registrando um aplicativo
 
-At a high level the following major steps are required in order to onboard a new application into the Open Banking Brasil ecosystem.
+Em um alto nível, as seguintes etapas principais são necessárias para integrar um novo aplicativo no ecossistema Open Banking Brasil.
 
-1. Register your organisation on the directory of participants (User Interface)
-2. Register your application on the directory of participants (User Interface)
-3. Obtain credentials for your application from the Brasil ICP (Out of scope of this document)
-4. Register your credentials for your application on the directory of participants (User Interface)
-5. Identify providers of Account information or Payment Services of interest to customers of your application by searching the directory of participants (API)
-6. Register your application with each provider (API)
+1. Cadastre sua organização no diretório de participantes (Interface do Usuário)
+2. Cadastre seu aplicativo no diretório de participantes (Interface do Usuário)
+3. Obtenha credenciais para sua aplicação junto ao Brasil ICP (fora do escopo deste documento)
+4. Registre suas credenciais para o seu aplicativo no diretório de participantes (Interface do Usuário)
+5. Identifique provedores de informações de conta ou serviços de pagamento de interesse dos clientes de seu aplicativo, pesquisando o diretório de participantes (API)
+6. Registre seu aplicativo com cada provedor (API)
 
-### 1.1 Sequence Diagram
+### 1.1 Diagrama de Sequência
 
 ![enter image description here](https://www.websequencediagrams.com/files/render?link=XqaI0EvQK7BEN8bkFdykE7gq0frHqu744LprGQVxytViXWvVvCjey3siD0lbnTuZ)
 
@@ -33,86 +33,69 @@ The trust framework does not have visibility or view of interactions that occur 
   proceed with communicating whatever they would like with no additional costly validation
   or checking being required.
 
-### 1.2 Accessing the Directory
+### 1.1 Visão geral do diretório
 
-This user guide assumes that participating organisations have already been through the onboarding
- process with the Open Banking Brasil Initial Structure and have completed all of the necessary onboarding,
-  contract signing and individual administrator onboarding processes.
+Os serviços do arcabouço de confiança fornecidos pelo Open Banking Brasil fornecem todos os serviços de descoberta necessários para que TPPs e ASPSPs interajam entre si sem serem obrigados a validar a autenticidade de identidade, autorizações, ofertas ao consumidor (Apps) uns dos outros, APIs ou credenciais para os aplicativos. Além disso, fornece um único registro de todas propostas ao consumidor sendo oferecidas no mercado e um único ambiente de controle para as autoridades regulatórias que concedem permissões para gerenciar participantes dentro do ecossistema.
+
+O arcabouço de confiança não tem visibilidade ou visão das interações que ocorrem entre TPPs e Provedores. Ele é projetado para fornecer confiança e garantia de identidade e autorização apenas. Ele não se enquadra no fluxo de comunicação entre um consumidor e um provedor e não tem conhecimento ou visibilidade de quaisquer dados do cliente. Este modelo de arcabouço de confiança é conhecido como confiança transitiva onde duas partes, um TPP e um ASPSP, concordam em confiar nas declarações e atestados de legitimidade uns dos outros emtidos por um provedor de confiança comum e, em seguida, prossigam comunicando o que quiserem, sem qualquer validação adicional onerosa ou outro tipo de verificação.
+
+### 1.2 Acessando o diretório
+
+Este guia do usuário assume que as organizações participantes já passaram pelo processo de iniciação com a Estrutura Inicial do Open Banking Brasil e já concluíram todas as integrações necessárias, processos de assinatura de contrato e inclusão de administrador individual.
 
 [Login Image]
 
-### 1.3 Creating a new Software Statement
+### 1.3 Criação de uma nova declaração de software
 
-A software statement is an 'App' on what can be thought of as the Open Banking Brasil App Store.
- This App record contains all of the information necessary for a Bank to Technically Identity
-  and Interact with it as well as containing all of the information that assist consumers
-  using the application with confirming its legitimacy.
+Uma declaração de software descreve um aplicativo inserido naquilo que pode ser considerado a 'App Store' do Open Banking Brasil. Este registro de aplicativo contém todas as informações necessárias para que um banco identifique tecnicamente e interaja com o aplicativo, além de conter todas as informações que auxiliam os consumidores que estejam utilizando-o a confirmar sua legitimidade.
 
-A new application or software statement can be registered by logging on to the Directory,
-navigating to 'Software Statements' and clicking 'Create New' and populating the form. Help text is provided for each field on the screen. Please remember that the majority of this information will be displayed to customers by the Banks as part of the redirection or authorization process. As such it is important that all URIs and Descriptions are relevant for customer audience.
+Um novo aplicativo ou declaração de software pode ser registrado fazendo logon no Diretório, navegando até 'Software Statements', clicando em 'Criar Novo' e preenchendo o formulário. O texto de ajuda é fornecido para cada campo da tela. Lembre-se de que a maioria dessas informações será exibida aos clientes pelos Bancos como parte do processo de redirecionamento ou autorização. Como tal, é importante que todas as URIs e descrições sejam relevantes para o público.
 
 [New Software Statement Image]
-
-#### 1.3.1 Assigning Software Regulatory Roles
-
-In a complex and diverse data sharing ecosystem, the regulatory roles that an organisation can have can change.
-They can be added and revoked. This means that software added to the directory can be given permission
- to have 0 or more regulatory roles. A administrator can assign to a given software any and all
-  permissions that the organisation that owns the software can have.
-
-> Should an organisation lose a regulatory role then all software with that regulatory role will be revoked from the ecosystem so it is very important that an application is only given the roles that it actually needs in order to function.
-
-A real world example of this could be 'Amazon', Amazon has two applications, 'Amazon Accounting' and
- 'Amazon Prime'. Amazon as an organisation is an authorized DADOS and PISP, and is allowed to
- handle customer data as well as make Open Banking Payments. Amazon Accounting should be assigned
- the domain role of DADOS and Amazon Prime should be assigned a domain role of PISP.
 
 In the future, should Amazon lose regulatory permission to be a PISP then only the Amazon Prime
 application would be removed from the ecosystem. Amazon Account would continue to function without issue.
 
-### 1.4 Creating and Uploading Certificates
+#### 1.3.1 Atribuição de funções regulatórias de software
+
+Em um ecossistema de compartilhamento de dados complexo e diversificado, as funções regulatórias de uma organização podem mudar. Eles podem ser adicionados e revogados. Isso significa que o software adicionado ao diretório pode receber permissão ter zero (0) ou mais funções regulatórias. Um administrador pode atribuir a um determinado software todo e qualquer permissões que a organização proprietária do software pode ter.
+
+> Se uma organização perder uma função reguladora, todo software com essa função regulatória será revogado do ecossistema, portanto, é muito importante que um aplicativo receba apenas as funções de que realmente precisa para funcionar.
+
+Um exemplo do mundo real disso poderia ser 'Amazon', a Amazon tem dois aplicativos, 'Amazon Accounting' e 'Amazon Prime'. A Amazon como organização é um DADOS e PISP autorizados e tem permissão para lidar com dados de clientes bem como fazer pagamentos via Open Banking. 'Amazon Accounting' dever receber a função de domínio de DADOS e 'Amazon Prime' deve receber uma função de domínio de PISP.
+
+No futuro, se a Amazon perder a permissão regulatória para ser um PISP, apenas a aplicação 'Amazon Prime' seria removida do ecossistema. O 'Amazon Accounting' continuaria a funcionar sem problemas.
+
+### 1.4 Criação e upload de certificados
 
 #### 1.4.1 Sandbox
 
-The Open Banking Directory contains a PKI that can be used to create certificates for the Applications
- being registered. Simply select certificates from the drop down menu and follow the instructions.
+O Diretório do Open Banking contém uma Infraestrutura de Chave Pública que pode ser usada para criar certificados para os Aplicativos sendo registrados. Basta selecionar certificados no menu e seguir as instruções.
 
-The directory supports multiple certificate and key types and an openssl command and configuration
-file is made available as an example. Once you have created the necessary Certificate Signing Request
- (CSR) for both a "Transport" and "Signing" certificate you can submit them to the directory to be
-  validated and minted into certificates.
+O diretório suporta vários certificados, tipos de chave e um comando e configuração openssl será disponibilizado como um exemplo. Depois de criar a solicitação de assinatura de certificado (Certificate Signing Request - CSR) para um certificado de "Transporte" e "Assinatura", você pode enviá-los ao diretório para ser validados e transformados em certificados.
 
-> Please remember to follow your organisations key management practices for certificate generation. These credentials and keys need to be handled carefully. A significant key compromise event could lead to customer data being compromised.
+> Lembre-se de seguir as práticas de gerenciamento de chaves de sua organização para a geração de certificados. Essas credenciais e chaves precisam ser manuseadas com cuidado. Um evento significativo de comprometimento de chave pode levar ao comprometimento dos dados do cliente.
 
-#### 1.4.2 Production
+#### 1.4.2 Produção
 
-Certificates must be provided by the Brasil ICP. The steps to follow are included in the [Open Banking Brasil Certificate Guide](https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil-ICP-certificate-guide.pdf)
+Os certificados devem ser fornecidos pelo ICP Brasil. As etapas a seguir estão incluídas no [Open Banking Brasil Certificate Guide](https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil-ICP-certificate-guide.pdf)
 
-#### 1.4.3 What is a JWT, JWE, JWS and JWK
+#### 1.4.3 O que é um JWT, JWE, JWS e JWK
 
-When certificates are uploaded to the directory, the trust framework advertises them in
- [JSON Web Key Sets](https://tools.ietf.org/html/rfc7517) with each JSON Web Key or JWK
- having a unique 'KID' or Key ID. JWK's in addition to having specific properties describing
- the algorithm and cipher suites that they support also advertise their 'use' which can either
-  be of type 'enc' for encryption or 'sig' for signing.
+Quando os certificados são carregados para o diretório, o arcabouço de confiança os anuncia em [JSON Web Key Sets](https://tools.ietf.org/html/rfc7517) com cada JSON Web Key ou JWK tendo um 'KID' ou um Key ID. Os JWKs, além de ter propriedades específicas que descrevem o algoritmo e os conjuntos de criptografia que eles suportam também anunciam seu "uso", que pode ser do tipo 'enc' para criptografia ou 'sig' para assinatura.
 
-These 'sig' keys and 'enc' key pairs are used in many places within the open banking ecosystem to
- encrypt or to sign data using the standards defined in [RFC 7519 JSON Web Token](https://tools.ietf.org/html/rfc7519)
- which should be read in detail by developers.
+Essas chaves 'sig' e pares de chaves 'enc' são usadas em muitos lugares dentro do ecossistema do Open Banking para criptografar ou assinar dados usando os padrões definidos em [RFC 7519 JSON Web Token](https://tools.ietf.org/html/rfc7519) que deve ser lido em detalhes pelos desenvolvedores.
 
-Types of JWT include
+Tipos de JWT incluem
 
-* OpenID Connect Request Objects defined in [Open ID Connect Core](https://openid.net/specs/openid-connect-core-1_0.html)
-* OpenID Connect `id_token` defined in [Open ID Connect Core](https://openid.net/specs/openid-connect-core-1_0.html)
+* OpenID Connect Request Objects definidos em [Open ID Connect Core](https://openid.net/specs/openid-connect-core-1_0.html)
+* OpenID Connect `id_token` definido em [Open ID Connect Core](https://openid.net/specs/openid-connect-core-1_0.html)
 
-Amongst many others.
+Entre muitos outros.
 
-These JWT's may be encrypted also be encrypted using JSON Web Encryption (JWE). In the majority of cases the
-keys that should be used to validate a JSON Web Signature (JWS) or the key that was used to encrypt a JWE is
- usually published as a JSON Web Key in a JSON Web Key Set with the reference to the key being carried in
-  the 'kid' (Key ID) header field.
+Esses JWTs podem ser criptografados também usando o JSON Web Encryption (JWE). Na maioria dos casos, as chaves que devem ser usadas para validar uma assinatura da Web JSON (JWS) ou a chave que foi usada para criptografar um JWE é geralmente publicado como uma JSON Web Key em um JSON Web Key Set com a referência à chave que está sendo carregada no campo de cabeçalho 'kid' (Key ID).
 
-**As a worked example: An example JWT Request Object**
+** Como um exemplo prático: Um exemplo de objeto de solicitação JWT **
 
 ```
 eyJhbGciOiJQUzI1NiIsInR5cCI6Im9hdXRoLWF1dGh6LXJlcStqd3QiLCJraWQiOiJQV0FpNXJ1UWNIZnpQenEySkZkcFk3bkFVaDZMelRUUXREQlVwT00zN0pRIn0.
@@ -122,7 +105,7 @@ eyJzY29wZSI6Im9wZW5pZCBvcGVuYmFua2luZ2JyYXNpbDpncmFudDpHREVSWkdSV28tZU9FeVE3Q1Vm
 hhi9dxmweydoXsQeyZETBWJFqMjFrTzcRYXulsscdJQ2md6Zkd8siimYRZ7vPNOOL5uxRSgQRMYWza6MnldUr99XfddbilVS6c_RhbvOrppNOmAC7F4J8aIYcOuF-E2EoHF5dK2c4v9IUkwuTnYZbGDoL0V6r5k3Ywil77Z_-lUMudGCXp2n9twx9kEpTdkWFUf2xbJocWMAYbrhvcK2bAWtC8Dg0V9ntlsAhCh-q4o22Ytt9yYFdmrnU8fJNfViTRhroDIgMwpN27BrIMywvX2zhCY037Hj26fFtoZBqEpDvcsa5d_qDWeeiTfHZYUgiydGswBv09D-FL7SH_EieQ
 ```
 
-The example above is decoded below. In the header is 'kid' of `PWAi5ruQcHfzPzq2JFdpY7nAUh6LzTTQtDBUpOM37JQ` which can be located in the JSON Web KeySet for this client [here](https://keystore.sandbox.directory.openbankingbrasil.org.br/74e929d9-33b6-4d85-8ba7-c146c867a817/1509a662-6b3a-4cb8-b7c0-ffb6e596eb0d/application.jwks)
+O exemplo acima é decodificado abaixo. No cabeçalho está 'kid' de `PWAi5ruQcHfzPzq2JFdpY7nAUh6LzTTQtDBUpOM37JQ`, que pode ser localizado no JSON Web KeySet para este cliente [aqui](https://keystore.sandbox.directory.openbankingbrasil.org.br/74e929d9-33b6-4d85-8ba7-c146c867a817/1509a662-6b3a-4cb8-b7c0-ffb6e596eb0d/application.jwks)
 
 ```
 {
@@ -186,7 +169,7 @@ The example above is decoded below. In the header is 'kid' of `PWAi5ruQcHfzPzq2J
 }
 ```
 
-The public JWK from the JWKS taken from the uri given earlier
+O JWK público do JWKS retirado da uri fornecido anteriormente
 
 ```
 {
@@ -203,7 +186,7 @@ The public JWK from the JWKS taken from the uri given earlier
 }
 ```
 
-The private key that was used to create the JWS
+A chave privada que foi usada para criar o JWS
 
 ```
 -----BEGIN PRIVATE KEY-----
@@ -236,21 +219,22 @@ DerRuq0u0Ed/FKLPiYhqg9kJLA==
 -----END PRIVATE KEY-----
 ```
 
-## 2.0 Interacting with the Trust Services APIs
+## 2.0 Interagindo com as APIs de serviços de confiança
 
-When an application is registered on the Directory, the central service uses the provided meta data and certificates to create for the software a OAuth 2.0 client that has a grant type of 'client credentials' as defined in [RFC6749](https://tools.ietf.org/html/rfc6749) with a client authentication mechanism of 'tls_client_auth' as defined in [RFC 8705](https://tools.ietf.org/html/rfc8705)
+Quando um aplicativo é registrado no Diretório, o serviço central usa os metadados e certificados fornecidos para criar para o software um cliente OAuth 2.0 que tem um tipo de concessão de 'credenciais de cliente', conforme definido em [RFC6749](https://tools.ietf.org/html/rfc6749) com um mecanismo de autenticação de cliente de 'tls_client_auth', conforme definido em [RFC 8705](https://tools.ietf.org/html/rfc8705).
 
-Using the ClientID listed on the software statement in the Directory, [OpenID Connect Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html) and the OpenID Provider Issuer configuration below, a participant has all of the necessary infomation to discover, authenticate and interact with the Directory APIs.
+Usando o ClientID listado na declaração do software no Diretório, [OpenID Connect Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html) e a configuração do OpenID Provider Issuer abaixo, um participante tem todos das informações necessárias para descobrir, autenticar e interagir com as APIs do Diretório.
 
 ### 2.1 Trust Framework Issuer
 
-Production: [https://auth.directory.openbankingbrasil.org.br/](https://auth.directory.openbankingbrasil.org.br/)
+Produção: [https://auth.directory.openbankingbrasil.org.br/](https://auth.directory.openbankingbrasil.org.br/)
 
 Sandbox: [https://auth.sandbox.directory.openbankingbrasil.org.br/](https://auth.sandbox.directory.openbankingbrasil.org.br/)
 
-### 2.1 How to communicate with the Directory Authorization Server
 
-* Use the OpenID Issuer and Clause 4 of the OpenID Discovery Specification to retrieve the 'openid-configuration' document.
+### 2.1 Como se comunicar com o Directory Authorization Server
+
+* Use o OpenID Issuer e a Cláusula 4 da OpenID Discovery Specification para obter o documento 'openid-configuration'.
 
 ```
 curl https://auth.directory.openbankingbrasil.org.br/.well-known/openid-configuration
@@ -360,7 +344,7 @@ curl https://auth.directory.openbankingbrasil.org.br/.well-known/openid-configur
 }
 ```
 
-* Retrieve the Mutual TLS token endpoint alias as defined by [RFC8705 - OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens](https://tools.ietf.org/html/rfc8705)
+* Obtenha o 'alias' do endpoint do Mutual TLS Token, conforme definido por [RFC8705 - OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens](https://tools.ietf.org/html/rfc8705)
 
 ```
 "mtls_endpoint_aliases":{
@@ -368,7 +352,7 @@ curl https://auth.directory.openbankingbrasil.org.br/.well-known/openid-configur
      }
 ```
 
-* Establish a Mutual TLS connection using the transport certificate registered early and request an access token with the scope 'directory:software'
+* Estabeleça uma conexão TLS mútua usando o certificado de transporte registrado anteriormente e solicite um token de acesso com o escopo 'diretório: software'
 
 ```
 curl --cert transport.pem --key transport.key https://matls-auth.directory.openbankingbrasil.org.br/token -X POST -d 'client_id=_jjLAgCC8qucQOyo9wIcX&grant_type=client_credentials&scope=directory:software'
@@ -376,17 +360,15 @@ curl --cert transport.pem --key transport.key https://matls-auth.directory.openb
 {"access_token":"gSeWnhpnDIvotI80TYm8KoeFT4MMtJPawIMXJzFFApX","expires_in":600,"token_type":"Bearer","scope":"directory:software"}
 ```
 
-### 2.2 How to communicate with the Directory APIs
+### 2.2 Como se comunicar com as APIs do Directory
 
-The Directory APIs are RESTful resources secured using the Brasil Open Banking Security Profile,
-this means that they have the same security posture as Banks APIs. All of the Directories APIs
-require OAuth 2.0 resource scope of `directory:software` and are secured using Mutual TLS.
+As APIs do Directory são recursos RESTful protegidos usando o Perfil de Segurança do Open Banking Brasil. Isso significa que eles têm a mesma postura de segurança das APIs do Bancos. Todas as APIs de diretórios requerem o escopo do recurso OAuth 2.0 de `directory:software` e são protegidos usando Mutual TLS.
 
-Please see the Directory OpenAPI v3 specification for full set of endpoints available.
+Consulte a especificação do Directory OpenAPI v3 para o conjunto completo de endpoints disponíveis.
 
-### 2.2 Discovering Banks Authorization Servers
+### 2.2 Descobrindo servidores de autorização de bancos
 
-Interrogate the participants (public information) resource and retrieve a list of all participants and their Authorization Servers.
+Faça uma busca pelo recurso de participantes (informações públicas) e obtenha uma lista de todos os participantes e seus servidores de autorização.
 
 ```
 curl https://data.directory.openbankingbrasil.org.br/participants
@@ -524,24 +506,23 @@ curl https://data.directory.openbankingbrasil.org.br/participants
    }
 ]
 ```
+Filtre os participantes por aqueles que possuem servidores de autorização protegendo os recursos que você está interessado em acessar para o seu produto. No exemplo acima, existem dois servidores de autorização para 'Amazing Bank', um para o negócio de varejo e um para o banco corporativo.
 
-Filter the participants to those that have Authorization Servers protecting resources that you are interested in accessing for your product. In the example above, there are two Authorization Servers for 'Amazing Bank' one for the Retail Business and one for the Business Banking.
+O aplicativo agora descobriu a lista de bancos que estão oferecendo APIs que podem ser úteis para os clientes do aplicativo e pode gerar uma lista de 'nomes de clientes amigáveis' de bancos e logotipos para exibir aos consumidores para permitir que eles selecionem o banco a partir do qual desejam compartilhar dados.
 
-The App now has discovered the list of Banks that are offering APIs that might be useful to customers of the Application and the App can now generate a list of Banks 'Customer Friendly Names' and Logos to display to consumers to enable them to select the bank from which they want to share data.
-
-## 3.0 Registering the application with a provider
+## 3.0 Registrando o aplicativo com um provedor
 
 ![enter image description here](https://www.websequencediagrams.com/files/render?link=1Xqm7oHVrWJ0Ya34s9kdzG1kHpwLobAftNdQHHvf44ikYZadVrou8iFhiFC9pSMP)
 
-From the example given above we can see that the location of the "OpenIDDiscoveryDocument" is advertised by each of the Authorization Servers.
+A partir do exemplo dado acima, podemos ver que a localização do "OpenIDDiscoveryDocument" é anunciada por cada um dos servidores de autorização.
 
-## 3.1 Creating a Software Statement
+## 3.1 Criação de uma declaração de software
 
-A software statement assertion (SSA) is a signed JWT from the Directory that contains all of the information about an application that exists at a point in time on the directory. It includes the location of all of the public keys that are linked to this software statement and all of the other metadata a bank needs to validate the legitimacy of the application.
+Uma afirmação de declaração de software (software statement assertion - SSA) é um JWT assinado do Diretório que contém todas as informações sobre um aplicativo que existe em um determinado momento no diretório. Inclui a localização de todas as chaves públicas vinculadas à esta declaração de software e todos os outros metadados de que um banco precisa para validar a legitimidade do aplicativo.
 
-An SSA does not have an expiry, it is simply a point in time record of what existed as valid attributes at the point of time that it was created. Banks should accept an SSA that is less than a few minutes old but the exact window may differ between providers.
+Um SSA não tem período de validade, é simplesmente um registro pontual do que existia como atributos válidos no momento em que foi criado. Os bancos devem aceitar um SSA com menos de alguns minutos, mas a janela exata pode ser diferente entre os provedores.
 
-**Obtain an access token and then retrieve the software statement for a application on the Directory.**
+** Obtenha um token de acesso e, em seguida, carregue a declaração do software para um aplicativo no diretório. **
 
 ```
 curl --cert transport.pem --key transport.key https://matls-auth.directory.openbankingbrasil.org.br/token -X POST -d 'client_id=_jjLAgCC8qucQOyo9wIcX&grant_type=client_credentials&scope=directory:software' -k
@@ -553,44 +534,39 @@ curl --cert transport.pem --key transport.key https://matls-api.directory.openba
 eyJraWQiOiJzaWduZXIiLCJ0eXAiOiJKV1QiLCJhbGciOiJQUzI1NiJ9.eyJzb2Z0d2FyZV9tb2RlIjoiTGl2ZSIsInNvZnR3YXJlX3JlZGlyZWN0X3VyaXMiOlsiaHR0cHM6XC9cL3d3dy5yYWlkaWFtLmNvbVwvYWJnXC9jYjEiLCJodHRwczpcL1wvd3d3LnJhaWRpYW0uY29tXC9hYmdcL2NiMiJdLCJzb2Z0d2FyZV9zdGF0ZW1lbnRfcm9sZXMiOlt7InJvbGUiOiJEQURPUyIsImF1dGhvcmlzYXRpb25fZG9tYWluIjoiT3BlbiBCYW5raW5nIiwic3RhdHVzIjoiQWN0aXZlIn1dLCJzb2Z0d2FyZV9jbGllbnRfbmFtZSI6IkFjY291bnRzIEJlIEdvbmUiLCJvcmdfc3RhdHVzIjoiQWN0aXZlIiwic29mdHdhcmVfY2xpZW50X2lkIjoiX2pqTEFnQ0M4cXVjUU95bzl3SWNYIiwiaXNzIjoiT3BlbiBCYW5raW5nIE9wZW4gQmFua2luZyBCcmFzaWwgcHJvZCBTU0EgaXNzdWVyIiwic29mdHdhcmVfdG9zX3VyaSI6Imh0dHBzOlwvXC93d3cucmFpZGlhbS5jb21cL2FiZ1wvdG9zLmh0bWwiLCJzb2Z0d2FyZV9jbGllbnRfZGVzY3JpcHRpb24iOiJBY2NvdW50cyBiZSBnb25lIHdpbGwgdXNlIHlvdXIgb3BlbiBiYW5raW5nIGRhdGEgdG8gYXV0b21hdGUgeW91ciBhY2NvdW50YW5jeSBhbmQgYm9vayBrZWVwaW5nIG1hc3NpdmUgc2F2aW5nIHlvdSB0aW1lLiIsInNvZnR3YXJlX2p3a3NfZW5kcG9pbnQiOiJodHRwczpcL1wva2V5c3RvcmUuZGlyZWN0b3J5Lm9wZW5iYW5raW5nYnJhc2lsLm9yZy5iclwvYjk2MWM0ZWItNTA5ZC00ZWRmLWFmZWItMzU2NDJiMzgxODVkXC82NDgzYTJkMy0yYjBkLTRmYzgtYTc1Ni1lN2JlNzkwMTNmYTBcL2FwcGxpY2F0aW9uLmp3a3MiLCJzb2Z0d2FyZV9wb2xpY3lfdXJpIjoiaHR0cHM6XC9cL3d3dy5yYWlkaWFtLmNvbVwvYWJnXC9wb2xpY3kuaHRtbCIsInNvZnR3YXJlX2lkIjoiNjQ4M2EyZDMtMmIwZC00ZmM4LWE3NTYtZTdiZTc5MDEzZmEwIiwic29mdHdhcmVfY2xpZW50X3VyaSI6Imh0dHBzOlwvXC93d3cucmFpZGlhbS5jb21cL2FiZy5odG1sIiwic29mdHdhcmVfandrc19pbmFjdGl2ZV9lbmRwb2ludCI6Imh0dHBzOlwvXC9rZXlzdG9yZS5kaXJlY3Rvcnkub3BlbmJhbmtpbmdicmFzaWwub3JnLmJyXC9iOTYxYzRlYi01MDlkLTRlZGYtYWZlYi0zNTY0MmIzODE4NWRcLzY0ODNhMmQzLTJiMGQtNGZjOC1hNzU2LWU3YmU3OTAxM2ZhMFwvaW5hY3RpdmVcL2FwcGxpY2F0aW9uLmp3a3MiLCJzb2Z0d2FyZV9qd2tzX3RyYW5zcG9ydF9pbmFjdGl2ZV9lbmRwb2ludCI6Imh0dHBzOlwvXC9rZXlzdG9yZS5kaXJlY3Rvcnkub3BlbmJhbmtpbmdicmFzaWwub3JnLmJyXC9iOTYxYzRlYi01MDlkLTRlZGYtYWZlYi0zNTY0MmIzODE4NWRcLzY0ODNhMmQzLTJiMGQtNGZjOC1hNzU2LWU3YmU3OTAxM2ZhMFwvaW5hY3RpdmVcL3RyYW5zcG9ydC5qd2tzIiwic29mdHdhcmVfandrc190cmFuc3BvcnRfZW5kcG9pbnQiOiJodHRwczpcL1wva2V5c3RvcmUuZGlyZWN0b3J5Lm9wZW5iYW5raW5nYnJhc2lsLm9yZy5iclwvYjk2MWM0ZWItNTA5ZC00ZWRmLWFmZWItMzU2NDJiMzgxODVkXC82NDgzYTJkMy0yYjBkLTRmYzgtYTc1Ni1lN2JlNzkwMTNmYTBcL3RyYW5zcG9ydC5qd2tzIiwic29mdHdhcmVfbG9nb191cmkiOiJodHRwczpcL1wvd3d3LnJhaWRpYW0uY29tXC9hYmdcL2xvZ28ucG5nIiwib3JnX2lkIjoiYjk2MWM0ZWItNTA5ZC00ZWRmLWFmZWItMzU2NDJiMzgxODVkIiwic29mdHdhcmVfZW52aXJvbm1lbnQiOiJwcm9kdWN0aW9uIiwic29mdHdhcmVfdmVyc2lvbiI6MS4xMCwic29mdHdhcmVfcm9sZXMiOlsiREFET1MiXSwib3JnX25hbWUiOiJPcGVuIEJhbmtpbmcgQnJhc2lsIiwiaWF0IjoxNjE4Njk1OTI4LCJvcmdhbmlzYXRpb25fY29tcGV0ZW50X2F1dGhvcml0eV9jbGFpbXMiOlt7ImF1dGhvcmlzYXRpb25fZG9tYWluIjoiT3BlbiBCYW5raW5nIiwiYXV0aG9yaXNhdGlvbnMiOltdLCJyZWdpc3RyYXRpb25faWQiOiIxMzM1MzIzNi1PQkItQ09OVEEiLCJhdXRob3JpdHlfaWQiOiI2ODdhMWM5NC1iMzYwLTRlMDQtOTU4OS0wZmE1Y2IxNjQ1MWIiLCJhdXRob3Jpc2F0aW9uX3JvbGUiOiJDT05UQSIsImF1dGhvcml0eV9jb2RlIjoiQkNCIiwic3RhdHVzIjoiQWN0aXZlIn0seyJhdXRob3Jpc2F0aW9uX2RvbWFpbiI6Ik9wZW4gQmFua2luZyIsImF1dGhvcmlzYXRpb25zIjpbXSwicmVnaXN0cmF0aW9uX2lkIjoiMTMzNTMyMzYtT0JCLURBRE9TIiwiYXV0aG9yaXR5X2lkIjoiNjg3YTFjOTQtYjM2MC00ZTA0LTk1ODktMGZhNWNiMTY0NTFiIiwiYXV0aG9yaXNhdGlvbl9yb2xlIjoiREFET1MiLCJhdXRob3JpdHlfY29kZSI6IkJDQiIsInN0YXR1cyI6IkFjdGl2ZSJ9LHsiYXV0aG9yaXNhdGlvbl9kb21haW4iOiJPcGVuIEJhbmtpbmciLCJhdXRob3Jpc2F0aW9ucyI6W10sInJlZ2lzdHJhdGlvbl9pZCI6IjEzMzUzMjM2LU9CQi1QQUdUTyIsImF1dGhvcml0eV9pZCI6IjY4N2ExYzk0LWIzNjAtNGUwNC05NTg5LTBmYTVjYjE2NDUxYiIsImF1dGhvcmlzYXRpb25fcm9sZSI6IlBBR1RPIiwiYXV0aG9yaXR5X2NvZGUiOiJCQ0IiLCJzdGF0dXMiOiJBY3RpdmUifV19.axxRvn5aPqBLZtJSZvMXdotcmHyS_iu8jv40VdG2HTplF9qpZ4mDoIviquVceU2eH3eoMINXNcr0BLfBACdp2bLjD_FeCCYlOlgp1w7dCXxAYiFndiMniwkdyI9xxvVx9jJjETpP8owfV6QI_cprPxOCK7fF90s9frq_rby8ixL7K2DHM-UQ_bA320W84WRjwJrmexJlPrlBxEa823_kyaPIUU-tk7yKvve0hU_pSgI6U1g5CJpFr1zJVRJhPZ6E1ekRzkaRq2nnF2FoI96bTNwFLYitKojiqWsHwPMdnUWPAuLS6EY3toYCqISOS8Tzi_u3tp3TMsJhS_lOrkRtpA
 ```
 
-## 3.3 Sending an RFC7591 Dynamic Client Registration Request
+## 3.3 Enviando uma solicitação de registro de cliente dinâmico RFC7591
 
-Please see Open Banking Brasil Dynamic Client Registration
+Consulte o cadastro de clientes dinâmicos (DCR) do Open Banking Brasil
 
-## 3.4 Saving the RFC7592 Dynamic Client Management Token
+## 3.4 Salvando o Token de Gerenciamento de Cliente Dinâmico RFC7592
 
-Please see Open Banking Brasil Dynamic Client Registration
+Consulte o cadastro de clientes dinâmicos (DCR) do Open Banking Brasil
 
-## 3.5 Modifying a client using RFC7592 Dynamic Client Management Token
+## 3.5 Modificando um cliente usando RFC7592 Dynamic Client Management Token
 
-Please see Open Banking Brasil Dynamic Client Registration
+Consulte o cadastro de clientes dinâmicos (DCR) do Open Banking Brasil
 
-## 4.0 Obtaining Access to Customers Resources
+## 4.0 Obtendo acesso aos recursos dos clientes
 
 ![enter image description here](https://www.websequencediagrams.com/files/render?link=v8xPrADYGTMbCT8aW6qogJ6tQz8y3XBdJKQN6iSyXypJJ7XKnJdauvr9btnAfpog)
 
-For all options including all permission codes please see the
- [Consent API](https://openbanking-brasil.github.io/areadesenvolvedor/swagger/swagger_consents_apis.yaml).
-  The following examples are minimal but functional examples to demonstrate end to end flow.
-  These examples are assuming that the client is communicating with an OpenID Provider leveraging
-  the 'tls_client_auth' token endpoint authentication mechanism. Alternative examples are available in the appendix.
+Para todas as opções, incluindo todos os códigos de permissão, consulte o [Consent API](https://openbanking-brasil.github.io/areadesenvolvedor/swagger/swagger_consents_apis.yaml). Os exemplos a seguir são exemplos mínimos mas funcionais, para demonstrar o fluxo de ponta a ponta. Esses exemplos pressupõem que o cliente está se comunicando com um provedor de OpenID, aproveitando o mecanismo de autenticação de endpoint do token 'tls_client_auth'. Exemplos alternativos estão disponíveis no apêndice. 
 
-### 4.1 Pre-requisites
+### 4.1 Pré-requisitos
 
-These **non normative** examples assumes that the OAuth Client has discovered the locations of
- all of the necessary endpoints to communicate with the banks resources from the Directory including
- the consents resource, the data resources and the OpenID authorization discovery document from the Directory.
+Esses exemplos **não normativos** presumem que o cliente OAuth descobriu os locais de todos os 'endpoints' necessários para se comunicar com os recursos dos bancos do Diretório, incluindo o recurso de consentimento, os recursos de dados e o documento de descoberta de autorização OpenID do Diretório.
 
-### 4.2 Creating Consent
+### 4.2 Criando Consentimento
 
 ```
-1. Obtain an Access Token with the scope 'consents'
+1. Obtendo um Token de Acesso com escopo 'consents'
 
 curl --cert transport.pem --key transport.key https://matls-auth.amazingbank.com.br/token -X POST -d 'client_id=clientIdFromAmazingBank&grant_type=client_credentials&scope=consents'
 
 {"access_token":"2Pjwts8m1KRZmm0aJyXbOTB8zRosN55fo8Ewdulhxxa","expires_in":600,"token_type":"Bearer","scope":"consents"}
 
-2. Create a consent resource
+2. Criando um recurso de consentimento
+
 curl --cert transport.pem --key transport.key -H 'Authorization: Bearer 2Pjwts8m1KRZmm0aJyXbOTB8zRosN55fo8Ewdulhxxa'
 -H "Content-Type: application/json"
  https://matls-api.amazingbank.com.br/consents/v1/consents
@@ -646,12 +622,11 @@ curl --cert transport.pem --key transport.key -H 'Authorization: Bearer 2Pjwts8m
 }
 ```
 
-### 4.3 Authorizing Consent - Redirect
+### 4.3 Autorizando Consentimento - Redirecionar
 
-### 4.3.1 Create OpenID Connect Request Object
+### 4.3.1 Criar OpenID Connect Request Object
 
-All requirements for the OpenID Request Object are included in Brasil Open Banking Security Profile
-
+Todos os requisitos para o OpenID Request Object estão incluídos no perfil de segurança do Open Banking Brasil.
 ```
 {
  "alg": "PS256",
@@ -695,18 +670,14 @@ All requirements for the OpenID Request Object are included in Brasil Open Banki
   "exp": 1618672638,
   "nbf": 1618672338
 }
-Signature ommited for brevity
+Assinatura omitida por questões de brevidade
 ```
 
-### 4.3.1.1 Requesting Specific Claims
+### 4.3.1.1 Solicitação de reivindicações específicas
 
-It is also optional for TPPs to request additional Identity Claims including CPF and CNPJ.
-These claims are defined in the Brasil Open Banking Security Profile. It is also possible for a
-TPP to request that a claim MUST match a given mechanism by relying on
- [OpenID Connect Core Clause 5.5.1](https://openid.net/specs/openid-connect-core-1_0.html#IndividualClaimsRequests)
-  to request individual claims.
+Também é opcional para TPPs solicitar reinvidicação de identidade ('Identity Claims') adicionais, incluindo CPF e CNPJ. Essas reivindicações são definidas no Perfil de Segurança do Open Banking Brasil. Também é possível para um TPP solicitar que uma reivindicação DEVE corresponder a um determinado mecanismo, baseando-se em [OpenID Connect Core Clause 5.5.1](https://openid.net/specs/openid-connect-core-1_0.html#IndividualClaimsRequests) para solicitar reivindicações individuais.
 
-For example
+Por exemplo
 
 ```
 "cpf": {
@@ -715,31 +686,24 @@ For example
       },
 ```
 
-Would require that the OpenID Provider only return a successful authentication and authorization if the user
- that was authenticating could be confirmed by the Bank that they had a CPF number of 12345678123. If the
- Bank can not confirm this number then the authentication MUST fail.
+Exigiria que o provedor OpenID retornasse apenas uma autenticação e autorização bem-sucedidas se o usuário que estava autenticando poderia ser confirmado pelo Banco que eles tinham um número de CPF de 12345678123. Se o banco não pode confirmar este número, então a autenticação DEVE falhar.
 
-Requesting specific value claims is entirely optional from the TPP.
+Solicitar reivindicações de valor específico é totalmente opcional do TPP.
 
-### 4.3.2 Redirect User to Authorization Server for Authorization
+### 4.3.2 Redirecionar o usuário ao servidor de autorização para autorização
 
-As per OpenID Connect Core.
-
+De acordo com o OpenID Connect Core.
 ```
 https://auth.amazingbank.com.br/auth?client_id=clientIdFromAmazingBank&scope=openid&request=eyJhbGciOiJQUzI1NiIsInR5cCI6Im9hdXRoLWF1dGh6LXJlcStqd3QiLCJraWQiOiJQV0FpNXJ1UWNIZnpQenEySkZkcFk3bkFVaDZMelRUUXRE...j1CpNMT7NtDerEl32E8plGnsuA
 ```
 
-### 4.3.3 Obtaining Access Token via Authorization Code Exchange
+### 4.3.3 Obtenção de token de acesso por meio de troca de código de autorização
 
-As per [RFC 7636 Proof Key for Code Exchange](https://tools.ietf.org/html/rfc7636)
+Conforme [RFC 7636 Proof Key for Code Exchange](https://tools.ietf.org/html/rfc7636)
 
-### 4.3.4 Checking Consent Resource Status
+### 4.3.4 Verificação do status do recurso de consentimento
 
-At this point, a TPP can optionally check the status of the consent request to see if it
- has changed to a status of fully authorized. For resources that do not require multi party
- consent this step should not be necessary however for business accounts or joint accounts with
-  special access requirements then it may take a while for the bank to obtain the additional authorizations
-  necessary for this consent to become completely authorized. TPPs should not abuse checking the consent status API
+Neste ponto, um TPP pode, opcionalmente, verificar o status da solicitação de consentimento para ver se mudou para totalmente autorizado. Esta etapa não deverá ser necessária para recursos que não requerem consentimento de múltiplos indíviduos, entretanto, para contas comerciais ou contas conjuntas com requisitos de acesso especiais, então pode demorar um pouco para o banco obter as autorizações adicionais necessárias para que esse consentimento seja totalmente autorizado. Os TPPs não devem abusar da verificação do status de consentimento API.
 
 ```
 1. Check a consent resource
@@ -772,13 +736,13 @@ curl --cert transport.pem --key transport.key -H 'Authorization: Bearer 2Pjwts8m
 }
 ```
 
-### 4.3.5 Access Resources
+### 4.3.5 Acesso aos Recursos
 
-With the access token that was returned in 4.2.3, the TPP now has the ability to call customers resources.
+Com o token de acesso que foi retornado em 4.2.3, o TPP agora tem a capacidade de chamar os recursos dos clientes.
 
-## Appendix
+## Apêndice
 
-### A.1 private_key_jwt client credentials grant
+### A.1 concessão de credenciais de cliente private_key_jwt
 
 ```
 POST https://matls-auth.mockbank.poc.raidiam.io/token
@@ -806,7 +770,7 @@ BODY {
 }
 ```
 
-### A.2 Example decoded request object body
+### A.2 Exemplo de corpo de objeto de solicitação decodificado
 
 ```
 {
@@ -870,9 +834,9 @@ BODY {
 }
 ```
 
-### A.2 Example decoded request object body with specific claim values being requested
+### A.2 Exemplo de decodificação do corpo de uma solicitação com valores de reivindicação específicos sendo solicitados
 
-In this example a client is requesting that the Authorization Server only authenticates the customer if the cpf claim matches the provided value. The processing requirements for requests with a specific 'cpf' value are defined in the Open Banking Brasil Security Profile.
+Neste exemplo, um cliente está solicitando que o Authorization Server autentique o cliente apenas se a declaração cpf corresponder ao valor fornecido. Os requisitos de processamento para solicitações com um valor 'cpf' específico são definidos no Perfil de Segurança do Open Banking Brasil.
 
 ```
 {
@@ -905,11 +869,10 @@ In this example a client is requesting that the Authorization Server only authen
 }
 ```
 
-### A.3 Example CIBA decoded Authentication Request body
+### A.3 Exemplo de decodificação do corpo de solicitação de autenticação CIBA
 
-In this example a CIBA request is being made to request consent authorization using a previously
-issued `id_token` as the indication of the resource owner that
-the bank should contact to obtain authorization.
+Neste exemplo, uma solicitação CIBA está sendo feita para solicitar autorização de consentimento usando um `id_token` emitido como a indicação do proprietário do recurso que
+o banco deve entrar em contato para obter autorização.
 
 ```
 {

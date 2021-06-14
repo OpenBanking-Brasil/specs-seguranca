@@ -114,7 +114,7 @@ registration information to communicate with the Authorization Server
 using the OAuth 2.0 protocol. This specification also defines a set of common
 client metadata fields and values for clients to use during registration.
 
-[RFC7591:](https://tools.ietf.org/html/rfc7591) This specification defines methods for management of OAuth 2.0 dynamic client registrations for use cases in which the properties of a registered client may need to be changed during the lifetime of the client.
+[RFC7592:](https://tools.ietf.org/html/rfc7592) This specification defines methods for management of OAuth 2.0 dynamic client registrations for use cases in which the properties of a registered client may need to be changed during the lifetime of the client.
 
 The above specifications are core specifications that are required reading underpin the Open Banking Brasil
 trust framework however they still are insufficient to meet all of the requirements and principles outlined earlier.
@@ -165,7 +165,7 @@ A Bank may choose to have one Authorization Server or many provided that it can 
 * A customer can recognise the Authorization Server as a place that they would normally Bank with.
 * The Authorization Server can issue tokens for the resource and services that a customer or TPP is looking for.
 
-### 1.2 Registering Resources
+### 1.3 Registering Resources
 
 Once a Bank has registered an Authorization Server, it needs to advertise what resources, APIs or Services it can provide authorization for.
 
@@ -195,12 +195,12 @@ Using OpenID Connect Discovery and the Brasil Open Banking Dynamic Client Regist
 
 ### 2.1 OpenID Connect Registration and OAuth 2.0 Dynamic Client Registration
 
-Please see Open Banking Brasil Dynamic Client Registration Specification Clause X for details.
+Please see Open Banking Brasil Dynamic Client Registration Specification Clause 7 for details.
 
 ### 2.2 Software Statement Assertion Processing
 
-Please see Open Banking Brasil Dynamic Client Registration Specification Clause X for details.
+Please see Open Banking Brasil Dynamic Client Registration Specification Clause 8 for details.
 
 ## 3.0 Validating an Authorization Request
 
-Please see Open Banking Security Profile Clause X for details.
+Please see Open Banking Security Profile Clause 5 for details.
