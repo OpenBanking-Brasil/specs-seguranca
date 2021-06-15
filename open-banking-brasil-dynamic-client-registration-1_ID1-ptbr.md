@@ -186,7 +186,7 @@ Os serviços do Diretório incluem:
 
 Os participantes do ecossistema devem aproveitar esses serviços para facilitar o registro de cliente OAuth orientado por API usando o processo descrito na cláusula 3.1.1 do [RFC7591] com metadados adicionais necessários para oferecer suporte ao OpenID Connect definido em [OpenID Connect Registration][OIDR].
 
-Sempre que possível, os servidores de autorização devem comparar os metadados do cliente declarados por um cliente, feito como parte do registro ou solicitação de gerenciamento, com as declarações de metadados contidas em uma declaração de software. Nem todos os metadados que um cliente deseja fornecer podem estar contidos em uma declaração de software *(software statement)*, por exemplo, alternativa [Metadata Langauges and Script values](https://openid.net/specs/openid-connect-registration-1_0.html#LanguagesAndScripts).
+Sempre que possível, os servidores de autorização devem comparar os metadados do cliente declarados por um cliente, feito como parte do registro ou solicitação de gerenciamento, com as declarações de metadados contidas em uma declaração de software. Nem todos os metadados que um cliente deseja fornecer podem estar contidos em uma declaração de software *(software statement)*, por exemplo, alternativa [Metadata Languages and Script values](https://openid.net/specs/openid-connect-registration-1_0.html#LanguagesAndScripts).
 
 # Provisionamentos do OpenID Connect Discovery do Open Banking Brasil
 
