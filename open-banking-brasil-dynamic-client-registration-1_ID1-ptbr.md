@@ -62,7 +62,6 @@ Embora seja possível codificar um *OpenID Provider* e *Relying Party* desde o p
 
 As palavras-chave "*deve*" (shall), "*não deve*" (shall not), "*deveria*" (should), "*não deveria*" (should not) e "*pode*" (may) presentes nesse documento devem ser interpretadas conforme as diretrizes descritas em [ISO Directive Part 2][ISODIR2] observando  seguinte equivalência:
   * "deve" => equivalente ao termo "shall" e expressa um requerimento definido no documento (nas traduções é similar ao termo "must", que pode denotar um requerimento externo ao documento);
-  * ]
   * "não deve" => equivalente ao termo "shall not" e também expressa um requerimento definido no documento;
   * "deveria" e "não deveria"=> equivalente ao termo "should" e "should not" e expressa uma recomendação
   * "pode" => equivalente ao termo "may" indica uma permissão
@@ -177,7 +176,7 @@ Para efeitos deste documento, aplicam-se os termos definidos em [RFC6749], [RFC6
 
 # Introdução  {#Intro}
 
-O ecossistema Open Banking Brasil apoia-se em um provedor de confiança federal ou _diretório de participantes_ como a fonte mais valiosa de informações sobre participantes credenciados e softwares que estão autorizados a participar do ecossistema Open Banking Brasil.
+O ecossistema Open Banking Brasil apoia-se em um provedor de confiança ou _diretório de participantes_ como a fonte mais valiosa de informações sobre participantes credenciados e softwares que estão autorizados a participar do ecossistema Open Banking Brasil.
 
 Os serviços do Diretório incluem:
 
@@ -223,7 +222,7 @@ O servidor de autorização deve suportar o [RFC7591], [RFC7592] e [OpenID Regis
 
 Além disso, o servidor de autorização
 
-1. deve rejeitar as solicitações de registro de cliente dinâmico não realizadas em uma conexão protegida com mutual tls usando certificados emitidos pelo Brasil ICP (produção) ou o Diretório de Participantes (sandbox);
+1. deve rejeitar as solicitações de registro de cliente dinâmico não realizadas em uma conexão protegida com mTLS usando certificados emitidos pelo Brasil ICP (produção) ou o Diretório de Participantes (sandbox);
 2. deve validar que a solicitação contém _software_statement_ JWT assinado usando o algoritmo `PS256` emitido pelo Diretório de Participantes do Open Banking Brasil;
 3. deve validar que o _software_statement_ foi emitido (iat  - *issued at*) não mais de 5 minutos antes do pedido ser recebido;
 4. deve validar que um `jwks` (chave definida por valor) **não** foi incluído;
