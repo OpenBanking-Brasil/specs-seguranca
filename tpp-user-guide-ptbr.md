@@ -1,4 +1,4 @@
-# Guia do usuário final para provedor de terceiros
+# Guia do usuário final para receptores de dados e iniciadores de pagamento (TTP/PISP)
 
 ## 1.0 Registrando um aplicativo
 
