@@ -75,7 +75,7 @@ Estas palavras-chave não são usadas como termos de dicionário, de modo que qu
 
 Este documento especifica o método de
 
-* aplicativos cadastrados no [Diretório de Participantes do Open Banking](https://web.directory.openbankingbrasil.org.br) para descobrir OpenID Providers que oferecem serviços no ecossistema Open Banking Brasil;
+* aplicativos cadastrados no [Diretorio de Participantes do Open Banking](https://web.directory.openbankingbrasil.org.br) para descobrir OpenID Providers que oferecem serviços no ecossistema Open Banking Brasil;
 * aplicativos para usar o [OpenID Connect Registration][OIDR] para integrar seus aplicativos com OpenID Providers dos bancos; e
 * aplicativos para usar [OAuth 2.0 Dynamic Client Registration Management Protocol][RFC7592] para gerenciar seus aplicativos com OpenID Providers;
 
@@ -101,13 +101,13 @@ Os seguintes documentos referenciados são indispensáveis para a aplicação de
 [RFC6819]: <https://tools.ietf.org/html/rfc6819
 
 [RFC7519] - JSON Web Token (JWT)
-[RFC7519]:<https://tools.ietf.org/html/rfc7519
+[RFC7519]: <https://tools.ietf.org/html/rfc7519
 
 [RFC7591] - OAuth 2.0 Dynamic Client Registration Protocol
-[RFC7591]:<https://tools.ietf.org/html/rfc7591
+[RFC7591]: <https://tools.ietf.org/html/rfc7591
 
 [RFC7592] - OAuth 2.0 Dynamic Client Registration Management Protocol
-[RFC7592]:<https://tools.ietf.org/html/rfc7592
+[RFC7592]: <https://tools.ietf.org/html/rfc7592
 
 [BCP195] - Recommendations for Secure Use of Transport Layer Security (TLS) and Datagram Transport Layer Security (DTLS)
 [BCP195]: <https://tools.ietf.org/html/bcp195
@@ -207,7 +207,7 @@ Adicionalmente, o Servidor de Autorização
 
 ## Cliente  {#Client}
 
-O cliente deve suportar [OpenID Connect Discovery] [OIDD] conforme exigido pelo [Financial-grade API Security Profile 1.0 - Part 1: Baseline][FAPI-1-Baseline].
+O cliente deve suportar [OpenID Connect Discovery][OIDD] conforme exigido pelo [Financial-grade API Security Profile 1.0 - Part 1: Baseline][FAPI-1-Baseline].
 
 Além disso, o servidor de autorização
 
@@ -229,7 +229,7 @@ Além disso, o servidor de autorização
 4. deve validar que um `jwks` (chave definida por valor) **não** foi incluído;
 5. deve exigir e validar que o `jwks_uri` corresponda ao `software_jwks_uri` fornecido na declaração do software;
 6. deve exigir e validar que o `redirect_uris` corresponde ou contém um subconjunto de `software_redirect_uris` fornecido na declaração do software;
-7. deve exigir e validar que todos os mecanismos de autenticação de cliente cumpram os requisitos definidos em [Financial-grade API Security Profile 1.0 - Part 1: Advanced](https://openid.net/specs/openid-financial-api-part-2-1_0.html);
+7. deve exigir e validar que todos os mecanismos de autenticação de cliente cumpram os requisitos definidos em [Financial-grade API Security Profile 1.0 - Part 2: Advanced](https://openid.net/specs/openid-financial-api-part-2-1_0.html);
 8. deve exigir requisições criptografadoas de objetos conforme exigido pelo Perfil de Segurança do Open Banking Brasil;
 9. deve validar se os escopos solicitados são adequados para as funções regulatórias autorizadas do software;
 10. deve, sempre que possível, validar os metadados declarados pelo cliente em relação aos metadados fornecidos no _software_statement_;
