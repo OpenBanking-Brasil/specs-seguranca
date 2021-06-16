@@ -1,85 +1,85 @@
-# Open Banking Brasil
+# Open Banking Brasil  {#OpenBankingBrasil}
 
-## Visão geral do ecossistema
+## Visão geral do ecossistema  {#VisaoGeral}
 
 Em sua essência, o Open Banking Brasil é um ecossistema de compartilhamento de dados onde os clientes de bancos e outras instituições financeiras desejam compartilhar suas informações de conta ou dar permissão para que os pagamentos sejam executados em seu nome com serviços de terceiros.
 
-Há uma série de funções necessárias para vincular qualquer sistema de Identificação, Autenticação e Autorização, independentemente do setor. Todas essas funções são necessárias, mas várias funções podem ser desempenhadas por cada participante. Em geral, o Usuário final ("Assunto"), está dando a um sistema ("Cliente") uma autorização ("Token de Acesso") para acessar um recurso protegido mantido pelo Provedor ("Servidor de Recursos"). Isso exige que o usuário e o cliente sejam identificados e autenticados e que a autorização seja confirmada.
+Há uma série de funções necessárias para vincular qualquer sistema de Identificação, Autenticação e Autorização, independentemente do setor. Todas essas funções são necessárias, mas várias funções podem ser desempenhadas por cada participante. Em geral, o usuário final ("Subject"), está dando a um sistema ("Client") uma autorização ("Access Token") para acessar um recurso protegido mantido pelo Provedor ("Resource Server"). Isso exige que o *Subject* e o *Client* sejam identificados e autenticados e que a autorização seja confirmada.
 
-As regras exatas e os requisitos legais para cada função em um setor específico formam um "Arcabouço de confiança" ('Trust Framework'). Cada ecossistema requer um conjunto padronizado de regras e requisitos legais que abrangem todas as funções e obrigações das interações acima. A combinação de quem fornece qual(is) função(ões) e os níveis aos quais eles devem desempenhar essas funções e os padrões pelos quais essas operações devem ser realizadas podem ser capturados em uma "Arcabouço de Confiança" ('Trust Framework') específico do setor.
+As regras exatas e os requisitos legais para cada função em um setor específico formam um framework de confiança ('Trust Framework'). Cada ecossistema requer um conjunto padronizado de regras e requisitos legais que abrangem todas as funções e obrigações das interações acima. A combinação de quem fornece qual(is) função(ões), os níveis aos quais eles devem desempenhar essas funções e os padrões pelos quais essas operações devem ser definidas um framework de confiança específico do setor.
 
-Diferentes arcabouços de confiança terão diferentes opções de implementação, mas uma arcabouço de confiança comum é um pré-requisito para transformar um 'setor' em um 'ecossistema'. Um arcabouço de confiança comum reduz significativamente a complexidade e, portanto, os custos, aumenta a escalabilidade e a interoperabilidade dentro do setor, bem como abre opções para o tipo de padronização intersetorial que o Open Banking Brasil está buscando.
+Diferentes frameworks de confiança terão diferentes opções de implementação, mas um framework de confiança comum é um pré-requisito para transformar um 'setor' em um 'ecossistema'. Um framework de confiança comum reduz significativamente a complexidade e, portanto, os custos, aumenta a escalabilidade e a interoperabilidade dentro do setor, bem como abre opções para o tipo de padronização intersetorial que o Open Banking Brasil está buscando.
 
 Diferentes implementações podem ser definidas para setores, que têm diferentes prós / contras e custos associados para diferentes participantes. Cada uma das implementações propostas pode ser usada para qualquer setor se os pré-requisitos corretos estiverem em vigor. A solução certa dependerá do apetite e alinhamento de cada conjunto de participantes.
 
-A implementação de um mecanismo comum para o Open Banking Brasil exigirá um compromisso com a simetria entre os setores para incluir detalhes específicos do setor nos princípios do Trust Framework.
+A implementação de um mecanismo comum para o Open Banking Brasil exigirá um compromisso com a simetria entre os setores para incluir detalhes específicos do setor nos princípios do framework de confiança.
 
-É necessário fazer escolhas técnicas para garantir que qualquer implementação forneça uma base estrita e consistente para ter credibilidade mas retenha a flexibilidade para se adaptar às necessidades futuras. Isso implica padrões de código-fonte aberto amplamente disponíveis, amplamente compreendidos e que foram experimentados e testados. Além disso, há uma escolha de parceiros que podem apoiar qualquer construção técnica, o que significa que continuará havendo espaço para desenvolvimento comercial de soluções.
+É necessário fazer escolhas técnicas para garantir que qualquer implementação forneça uma base estrita e consistente para ter credibilidade, mas mantenha a flexibilidade para se adaptar às necessidades futuras. Isso implica padrões de código-fonte aberto amplamente disponíveis, amplamente compreendidos e que foram experimentados e testados. Além disso, há uma escolha de parceiros que podem apoiar qualquer construção técnica, o que significa que continuará havendo espaço para desenvolvimento comercial de soluções.
 
-### Participantes de um ecossistema de compartilhamento de dados
+### Participantes de um ecossistema de compartilhamento de dados  {#Participantes}
 
 Nos ecossistemas de Open Banking voltados para o consumidor que estamos considerando, temos três participantes principais:
 
-* o usuário (consumidor)
-* o Provedor (oferecendo serviços bancários básicos)
-* e um provedor terceirizado (TPP, oferecendo uma proposta de Open Banking):
+* o usuário (cliente)
+* a instituição transmissora de dados (oferecendo serviços bancários)
+* a instituição receptora de dados (TPP - Third Party Provider, oferecendo uma proposta de Open Banking):
 
 Em todos os casos a seguir, assumimos:
 
-* Um usuário possui uma conta para um serviço principal ou conjunto de recursos do Provedor
-* Um terceiro oferece ao usuário uma proposta habilitada por meio do compartilhamento inteligente de dados
-* O usuário dá consentimento ao terceiro para fins de entrega dessa proposta
-* O Provedor tem a obrigação de salvaguardar os dados do Usuário, mas também de compartilhá-los quando instruído.
+* Um usuário possui uma conta para um serviço principal ou conjunto de recursos numa instituição transmissora de dados
+* Uma instituição receptora de dados oferece ao usuário uma proposta habilitada por meio do compartilhamento inteligente de dados
+* O usuário dá consentimento à instituição receptora de dados para fins de entrega dessa proposta
+* A instituição transmissora de dados tem a obrigação de salvaguardar os dados do usuário, mas também de compartilhá-los quando instruído.
 
-Também temos quartos provedores, que são provedores de serviços de confiança, que são entidades que fornecem garantia técnica a ambos os Provedores (Bancos e Provedores Terceirizados (TPPs) que todos estão autorizados a participar do ecossistema.
+Também temos provedores de serviços de confiança, que são entidades que fornecem garantia técnica a ambas instituições (transmissoras e receptoras) que todos estão autorizados a participar do ecossistema.
 
-Os **padrões** técnicos necessários para dar suporte ao arcabouço de confiança devem atender a todos os requisitos a seguir.
+Os **padrões** técnicos necessários para dar suporte ao framework de confiança devem atender a todos os requisitos a seguir.
 
 * Identificação de todos os participantes do ecossistema.
 * Autenticação quando exigida de todos os participantes entre si.
 * Confirmação de autorização de todos os participantes em um ecossistema de compartilhamento de dados.
 
-Os **serviços** técnicos necessários para suportar um ecossistema devem habilitar todos os requisitos acima **em uma base contínua e em modo contínuo**. Não apenas em um único ponto de registro.
+Os **serviços** técnicos necessários para suportar um ecossistema devem habilitar todos os requisitos acima **em uma base e em modo contínuos**, isto é, não apenas em um único ponto de registro.
 
-### Princípios de Especificação e Requisitos de Alto Nível
+### Princípios de Especificação e Requisitos de Alto Nível  {#Principios}
 
 O Open Banking Brasil adotou os seguintes princípios e requisitos de alto nível no que diz respeito às normas técnicas
 
 * Consentimento
-  * Os clientes devem estar sempre no controle de quem tem acesso aos seus dados e para que fins eles estão sendo usados.
+  * Os clientes devem estar sempre no controle de quem tem acesso aos seus dados e para quais fins eles estão sendo usados.
 * Minimização de dados
   * Os clientes devem ser capazes de compartilhar apenas os dados de que precisam, pelo tempo que for necessário.
 * Segurança
-  * Um modelo formal de ameaça foi produzido avaliando todas as fraquezas potenciais nos processos de comunicação.
+  * Uma modelagem de ameças foi produzido avaliando todas as fraquezas potenciais nos processos de comunicação.
   * Todos os pontos fracos identificados foram corrigidos.
 * Identificação
   * Todos os participantes devem ter segurança na identificação de todos os atores do ecossistema.
 * Autenticação
-  * Todos os participantes devem transmitir as etapas que foram executadas para autenticar cada participante no ecossistema e em que nível isso foi executado.
+  * Todos os participantes devem comunicar as etapas que foram executadas para autenticar cada participante no ecossistema e em que nível isso foi executado.
 * Integridade e não repúdio
   * Todos os participantes devem ser capazes de provar que as mensagens não foram adulteradas e, na verdade, foram enviadas apenas por um participante legítimo.
 
 Além dos requisitos de alto nível, os seguintes princípios também foram adotados.
 
-* Não reinvente a roda, se existir uma especificação que seja adequada para o propósito, amplamente adotada e publicamente disponível, use-a.
-* Envolva-se com outros organismos de normalização para aprender com a experiência anterior sobre o que funcionou, o que não funcionou e o que pode ser feito melhor.
+* Não reinventar a roda, se existir uma especificação que seja adequada para o propósito, amplamente adotada e publicamente disponível, use-a.
+* Envolva-se com outros órgãos de normalização para aprender com a experiência anterior sobre o que funcionou, o que não funcionou e o que pode ser feito melhor.
 * Assegurar o amplo suporte da indústria para garantir o máximo de chances de sucesso e, mais importante, a segurança do cliente.
 * Solicite feedback com antecedência e com frequência, reconheça que serão necessárias várias iterações para desenvolver um padrão conforme definido pelos processos da Organização Mundial do Comércio.
-* O Arcabouço de Confiança ('Trust Framework') que sustenta o ecossistema de compartilhamento de dados que é o Open Banking Brasil é um arcabouço técnico que precisa ser flexível o suficiente para permitir que os participantes e o ecossistema inovem, cresçam e se desenvolvam enquanto permanecem interoperáveis.
+* O framework de confiança que sustenta o ecossistema de compartilhamento de dados, que é o Open Banking Brasil, é um framework técnico que precisa ser flexível o suficiente para permitir que os participantes e o ecossistema inovem, cresçam e se desenvolvam, enquanto permanecem interoperáveis.
 
-Todos os participantes devem ter certeza de que todos os atores do ecossistema estão lidando com seus dados com segurança, com segurança o tempo todo. Isso requer que todos os participantes testem publicamente seus sistemas quanto à conformidade com as especificações e disponibilizem os resultados de seus testes de conformidade para exame público de outros participantes.
+Todos os participantes devem ter certeza de que todos os atores do ecossistema estão lidando com seus dados com segurança tempo todo. Isso requer que todos os participantes testem publicamente seus sistemas quanto à conformidade com as especificações e disponibilizem os resultados de seus testes de conformidade para exame público de outros participantes.
 
-**Este é um requisito que se aplica a fornecedores de dados (bancos) e consumidores de dados (TPPs).**
+**Este é um requisito que se aplica a transmissores e receptores de dados.**
 
-## Os principais padrões de segurança
+## Os principais padrões de segurança  {#Padroes}
 
-### A estrutura de autorização OAuth 2.0
+### A estrutura de autorização OAuth 2.0  {#OAuth20}
 
 O ecossistema de compartilhamento de dados definido pelo Brasil consiste em muitos padrões diferentes, todos girando em torno de conceitos, funções e obrigações que foram tecnicamente definidos no [OAuth 2.0 Authorization Framework.](https://tools.ietf.org/html/rfc6749).
 
-> A estrutura de autorização OAuth 2.0 permite um aplicativo de terceiro (aplicativo TPP) obter acesso limitado a um serviço HTTP, seja em nome de um proprietário de recurso por meio da orquestração de uma interação de aprovação entre o proprietário do recurso e o serviço HTTP, ou permitindo o aplicativo de terceiros (aplicativo TPP) obter acesso em seu próprio nome.
+> A estrutura de autorização OAuth 2.0 permite um aplicativo de uma instituição receptora de dados obter acesso limitado a um serviço HTTP, seja em nome de um proprietário de recurso por meio da orquestração de uma interação de aprovação entre o proprietário do recurso e o serviço HTTP, ou permitindo o aplicativo da instituição receptora obter acesso em seu próprio nome.
 
-A especificação base OAuth 2.0 não fornece, por si só, informações suficientes para atender a todas as necessidades definidas pela estrutura de confiança do Open Banking Basil. Mais notavelmente, está faltando uma maneira de transmitir informações de identidade do cliente em um formato padronizado de um provedor para um cliente e os mecanismos de autenticação que foram definidos na especificação original não são seguros o suficiente para atender aos requisitos de uma indústria altamente regulamentada.
+A especificação base OAuth 2.0 não fornece, por si só, informações suficientes para atender a todas as necessidades definidas pelo framework de confiança do Open Banking Basil. Mais notavelmente, está faltando uma maneira de transmitir informações de identidade do cliente em um formato padronizado de uma instituição transmissora para uma receptora, e os mecanismos de autenticação que foram definidos na especificação original não são seguros o suficiente para atender aos requisitos de uma indústria altamente regulamentada.
 
 ### OpenID Connect - A camada de identidade para a Internet
 
