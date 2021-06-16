@@ -189,7 +189,7 @@ Os participantes do ecossistema devem aproveitar esses serviços para facilitar 
 
 Sempre que possível, os servidores de autorização devem comparar os metadados do cliente declarados por um cliente, feito como parte do registro ou solicitação de gerenciamento, com as declarações de metadados contidas em uma declaração de software. Nem todos os metadados que um cliente deseja fornecer podem estar contidos em uma declaração de software *(software statement)*, por exemplo, alternativa [Metadata Languages and Script values](https://openid.net/specs/openid-connect-registration-1_0.html#LanguagesAndScripts).
 
-# Provisionamentos do OpenID Connect Discovery do Open Banking Brasil
+# Provisionamentos do OpenID Connect Discovery do Open Banking Brasil  {#Provisions}
 
 ## Servidor de Autorização  {#AuthServers}
 
@@ -205,7 +205,7 @@ Adicionalmente, o Servidor de Autorização
 6. se suportar [OAuth 2.0 Pushed Authorisation Requests][PAR], deve anunciar por meio de [OIDD] `mtls_endpoint_aliases` o `push_authorization_request_endpoint`;
 7. se suportar [Financial API - Client Initiated Back Channel Authentication][FAPI-CIBA], deve anunciar através de [OIDD] `mtls_endpoint_aliases` o `backchannel_authentication_endpoint`;
 
-## Cliente
+## Cliente  {#Client}
 
 O cliente deve suportar [OpenID Connect Discovery] [OIDD] conforme exigido pelo [Financial-grade API Security Profile 1.0 - Part 1: Baseline][FAPI-1-Baseline].
 
@@ -437,7 +437,7 @@ As seguintes pessoas contribuíram para este documento:
 *
 {backmatter}
 
-# Avisos
+# Avisos  {#Notice}
 
 Copyright (c) 2021 Estrutura Inicial do Open Banking Brasil
 
