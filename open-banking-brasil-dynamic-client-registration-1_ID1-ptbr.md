@@ -61,10 +61,11 @@ Embora seja possível codificar um *OpenID Provider* e *Relying Party* desde o p
 .# Convenções Notacionais  {#Conventions}
 
 As palavras-chave "*deve*" (shall), "*não deve*" (shall not), "*deveria*" (should), "*não deveria*" (should not) e "*pode*" (may) presentes nesse documento devem ser interpretadas conforme as diretrizes descritas em [ISO Directive Part 2][ISODIR2] observando  seguinte equivalência:
-  * "deve" => equivalente ao termo "shall" e expressa um requerimento definido no documento (nas traduções é similar ao termo "must", que pode denotar um requerimento externo ao documento);
-  * "não deve" => equivalente ao termo "shall not" e também expressa um requerimento definido no documento;
-  * "deveria" e "não deveria"=> equivalente ao termo "should" e "should not" e expressa uma recomendação
-  * "pode" => equivalente ao termo "may" indica uma permissão
+
+* "deve" => equivalente ao termo "shall" e expressa um requerimento definido no documento (nas traduções é similar ao termo "must", que pode denotar um requerimento externo ao documento);
+* "não deve" => equivalente ao termo "shall not" e também expressa um requerimento definido no documento;
+* "deveria" e "não deveria"=> equivalente ao termo "should" e "should not" e expressa uma recomendação
+* "pode" => equivalente ao termo "may" indica uma permissão
 
 Estas palavras-chave não são usadas como termos de dicionário, de modo que qualquer ocorrência deles deve ser interpretada como palavras-chave e não devem ser interpretados com seus significados de linguagem natural.
 
@@ -74,7 +75,7 @@ Estas palavras-chave não são usadas como termos de dicionário, de modo que qu
 
 Este documento especifica o método de
 
-* aplicativos cadastrados no [Diretório de Participantes do Open Banking](https://web.directory.openbankingbrasil.org.br) para descobrir OpenID Providers que oferecem serviços no ecossistema Open Banking Brasil;
+* aplicativos cadastrados no [Diretorio de Participantes do Open Banking](https://web.directory.openbankingbrasil.org.br) para descobrir OpenID Providers que oferecem serviços no ecossistema Open Banking Brasil;
 * aplicativos para usar o [OpenID Connect Registration][OIDR] para integrar seus aplicativos com OpenID Providers dos bancos; e
 * aplicativos para usar [OAuth 2.0 Dynamic Client Registration Management Protocol][RFC7592] para gerenciar seus aplicativos com OpenID Providers;
 
@@ -100,13 +101,13 @@ Os seguintes documentos referenciados são indispensáveis para a aplicação de
 [RFC6819]: <https://tools.ietf.org/html/rfc6819
 
 [RFC7519] - JSON Web Token (JWT)
-[RFC7519]:<https://tools.ietf.org/html/rfc7519
+[RFC7519]: <https://tools.ietf.org/html/rfc7519
 
 [RFC7591] - OAuth 2.0 Dynamic Client Registration Protocol
-[RFC7591]:<https://tools.ietf.org/html/rfc7591
+[RFC7591]: <https://tools.ietf.org/html/rfc7591
 
 [RFC7592] - OAuth 2.0 Dynamic Client Registration Management Protocol
-[RFC7592]:<https://tools.ietf.org/html/rfc7592
+[RFC7592]: <https://tools.ietf.org/html/rfc7592
 
 [BCP195] - Recommendations for Secure Use of Transport Layer Security (TLS) and Datagram Transport Layer Security (DTLS)
 [BCP195]: <https://tools.ietf.org/html/bcp195
@@ -188,7 +189,7 @@ Os participantes do ecossistema devem aproveitar esses serviços para facilitar 
 
 Sempre que possível, os servidores de autorização devem comparar os metadados do cliente declarados por um cliente, feito como parte do registro ou solicitação de gerenciamento, com as declarações de metadados contidas em uma declaração de software. Nem todos os metadados que um cliente deseja fornecer podem estar contidos em uma declaração de software *(software statement)*, por exemplo, alternativa [Metadata Languages and Script values](https://openid.net/specs/openid-connect-registration-1_0.html#LanguagesAndScripts).
 
-# Provisionamentos do OpenID Connect Discovery do Open Banking Brasil
+# Provisionamentos do OpenID Connect Discovery do Open Banking Brasil  {#Provisions}
 
 ## Servidor de Autorização  {#AuthServers}
 
@@ -204,9 +205,9 @@ Adicionalmente, o Servidor de Autorização
 6. se suportar [OAuth 2.0 Pushed Authorisation Requests][PAR], deve anunciar por meio de [OIDD] `mtls_endpoint_aliases` o `push_authorization_request_endpoint`;
 7. se suportar [Financial API - Client Initiated Back Channel Authentication][FAPI-CIBA], deve anunciar através de [OIDD] `mtls_endpoint_aliases` o `backchannel_authentication_endpoint`;
 
-## Cliente
+## Cliente  {#Client}
 
-O cliente deve suportar [OpenID Connect Discovery] [OIDD] conforme exigido pelo [Financial-grade API Security Profile 1.0 - Part 1: Baseline][FAPI-1-Baseline].
+O cliente deve suportar [OpenID Connect Discovery][OIDD] conforme exigido pelo [Financial-grade API Security Profile 1.0 - Part 1: Baseline][FAPI-1-Baseline].
 
 Além disso, o servidor de autorização
 
@@ -228,7 +229,7 @@ Além disso, o servidor de autorização
 4. deve validar que um `jwks` (chave definida por valor) **não** foi incluído;
 5. deve exigir e validar que o `jwks_uri` corresponda ao `software_jwks_uri` fornecido na declaração do software;
 6. deve exigir e validar que o `redirect_uris` corresponde ou contém um subconjunto de `software_redirect_uris` fornecido na declaração do software;
-7. deve exigir e validar que todos os mecanismos de autenticação de cliente cumpram os requisitos definidos em [Financial-grade API Security Profile 1.0 - Part 1: Advanced](https://openid.net/specs/openid-financial-api-part-2-1_0.html);
+7. deve exigir e validar que todos os mecanismos de autenticação de cliente cumpram os requisitos definidos em [Financial-grade API Security Profile 1.0 - Part 2: Advanced](https://openid.net/specs/openid-financial-api-part-2-1_0.html);
 8. deve exigir requisições criptografadoas de objetos conforme exigido pelo Perfil de Segurança do Open Banking Brasil;
 9. deve validar se os escopos solicitados são adequados para as funções regulatórias autorizadas do software;
 10. deve, sempre que possível, validar os metadados declarados pelo cliente em relação aos metadados fornecidos no _software_statement_;
@@ -433,10 +434,9 @@ As seguintes pessoas contribuíram para este documento:
 * Alexandre Siqueira (Mercado Pago)
 * Bernardo Vale (Banco Inter)
 
-*
 {backmatter}
 
-# Avisos
+# Avisos  {#Notice}
 
 Copyright (c) 2021 Estrutura Inicial do Open Banking Brasil
 
