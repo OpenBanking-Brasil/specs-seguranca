@@ -434,7 +434,6 @@ As seguintes pessoas contribuíram para este documento:
 * Alexandre Siqueira (Mercado Pago)
 * Bernardo Vale (Banco Inter)
 
-*
 {backmatter}
 
 # Avisos  {#Notice}
