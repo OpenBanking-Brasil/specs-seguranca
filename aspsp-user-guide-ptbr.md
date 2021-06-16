@@ -50,7 +50,7 @@ O Open Banking Brasil adotou os seguintes princípios e requisitos de alto níve
 * Minimização de dados
   * Os clientes devem ser capazes de compartilhar apenas os dados de que precisam, pelo tempo que for necessário.
 * Segurança
-  * Uma modelagem de ameças foi produzido avaliando todas as fraquezas potenciais nos processos de comunicação.
+  * Uma modelagem de ameaças foi produzido avaliando todas as fraquezas potenciais nos processos de comunicação.
   * Todos os pontos fracos identificados foram corrigidos.
 * Identificação
   * Todos os participantes devem ter segurança na identificação de todos os atores do ecossistema.
@@ -81,75 +81,75 @@ O ecossistema de compartilhamento de dados definido pelo Brasil consiste em muit
 
 A especificação base OAuth 2.0 não fornece, por si só, informações suficientes para atender a todas as necessidades definidas pelo framework de confiança do Open Banking Basil. Mais notavelmente, está faltando uma maneira de transmitir informações de identidade do cliente em um formato padronizado de uma instituição transmissora para uma receptora, e os mecanismos de autenticação que foram definidos na especificação original não são seguros o suficiente para atender aos requisitos de uma indústria altamente regulamentada.
 
-### OpenID Connect - A camada de identidade para a Internet
+### OpenID Connect - A camada de identidade para a Internet  {#OIDC}
 
 **_Este perfil herda todas as obrigações do OAuth 2.0_**
 
-> [OpenID Connect](https://openid.net/connect/) é um conjunto de especificações leves que fornecem uma estrutura para interações de identidade por meio de APIs do tipo REST. A implementação mais simples do OpenID Connect permite que clientes de todos os tipos, incluindo clientes baseados em navegador, celulares e clientes javascript, solicitem e recebam informações sobre identidades e sessões atualmente autenticadas. O conjunto de especificações é extensível, permitindo que os participantes também suportem, opcionalmente, criptografia de dados de identidade, descoberta do provedor OpenID e gerenciamento avançado de sessão, incluindo logout.
+> [OpenID Connect](https://openid.net/connect/) é um conjunto de especificações leves que fornecem uma estrutura para interações de identidade por meio de APIs do tipo REST. A implementação mais simples do OpenID Connect permite que *clients* de todos os tipos, incluindo baseados em navegador, celulares e *clients* javascript, solicitem e recebam informações sobre identidades e sessões atualmente autenticadas. O conjunto de especificações é extensível, permitindo que os participantes também suportem, opcionalmente, criptografia de dados de identidade, descoberta do Provedor OpenID e gerenciamento avançado de sessão, incluindo logout.
 
-O grupo de trabalho OpenID Foundations Connect tem sido o guardião do Padrão de Identidade "de fato" da Internet por muitos anos, trabalhando em várias especificações que se baseiam na Estrutura de Autorização OAuth 2.0, adicionando recursos e requisitos de suporte para melhorar a segurança da estrutura subjacente.
+O grupo de trabalho OpenID Foundations Connect tem sido o guardião do Padrão de Identidade "de fato" da Internet por muitos anos, trabalhando em várias especificações que se baseiam no Framework de Autorização OAuth 2.0, adicionando recursos e requisitos de suporte para melhorar a segurança da estrutura subjacente.
 
 [Open ID Connect Core:](https://openid.net/specs/openid-connect-core-1_0.html) é um perfil do OAuth 2.0, o que significa que herda todos os requisitos e obrigações do [OAuth 2.0](https://tools.ietf.org/html/rfc6749), mas define o conceito de um id_token e introduz novos mecanismos de autenticação.
 
-[Open ID Connect Discovery:](https://openid.net/specs/openid-connect-discovery-1_0.html) apresenta o conceito de um documento de descoberta usado por provedores OpenID Connect para anunciar como os clientes OAuth 2.0 podem se comunicar com eles e quais recursos e opções o provedor OIDC oferece suporte.
+[Open ID Connect Discovery:](https://openid.net/specs/openid-connect-discovery-1_0.html) apresenta o conceito de um documento de descoberta usado por provedores OpenID Connect para anunciar como os *clients* OAuth 2.0 podem se comunicar com eles e quais recursos e opções o provedor OIDC (Open ID Connect) oferece suporte.
 
-[RFC7591:](https://tools.ietf.org/html/rfc7591) Além de definir o processo de registro dinâmico de clientes OAuth, esta especificação apresenta o conceito de um [Software Statement](https://tools.ietf.org/html/rfc7591#section-2.3) ("Declaração de Software") que pode ser usada para fornecer informações sobre um cliente que é atestado por um serviço de terceiros. Outros atributos de metadados também são definidos na [OpenID Connect Registration Specification](https://openid.net/specs/openid-connect-registration-1_0.html)
+[RFC7591:](https://tools.ietf.org/html/rfc7591) além de definir o processo de registro dinâmico de *clients* OAuth, esta especificação apresenta o conceito de [Software Statement](https://tools.ietf.org/html/rfc7591#section-2.3) ("Declaração de Software") que pode ser usada para fornecer informações sobre um *client* que é atestado por um serviço de terceiros. Outros atributos de metadados também são definidos na [OpenID Connect Registration Specification](https://openid.net/specs/openid-connect-registration-1_0.html)
 
-> Esta especificação define mecanismos para registrar dinamicamente Clientes OAuth 2.0 com servidores de autorização ('Authorization Servers'). Pedidos de registro enviam um conjunto de valores de metadados do cliente desejados para o 'Authorization Server'. As respostas de registro resultantes retornam um identificador de cliente para usar no servidor de autorização e os valores de metadados registrados para o cliente. O cliente pode então usar esta informações de registro para se comunicar com o servidor de autorização usando o protocolo OAuth 2.0. Esta especificação também define um conjunto de campos de metadados do cliente e valores para os clientes usarem durante o registro.
+> Esta especificação define mecanismos para registrar dinamicamente *clients* OAuth 2.0 com servidores de autorização ('Authorization Servers'). Pedidos de registro enviam um conjunto de valores de metadados do *client* desejado para o 'Authorization Server'. As respostas de registro resultantes retornam um identificador de *client* para usar no servidor de autorização e os valores de metadados registrados para o *client*. O *client* pode então usar esta informação de registro para se comunicar com o *Authorization Server* usando o protocolo OAuth 2.0. Esta especificação também define um conjunto de campos de metadados do *client* e valores para os *clients* usarem durante o registro.
 
-[RFC7592:](https://tools.ietf.org/html/rfc7592) Esta especificação define métodos de gerenciamento de registros de cliente dinâmico OAuth 2.0 para casos de uso em que as propriedades de um cliente registrado podem precisar ser alteradas durante a vida do cliente.
+[RFC7592:](https://tools.ietf.org/html/rfc7592) Esta especificação define métodos de gerenciamento de registros de cliente dinâmico (*dynamic client registration*) do OAuth 2.0 para casos de uso em que as propriedades de um *client* registrado podem precisar ser alteradas durante a vida do *client*.
 
-As especificações acima são especificações básicas cuja leitura obrigatória sustenta o arcabouço de confiança do Open Banking Brasil, entretanto, eles ainda são insuficientes para atender a todos os requisitos e princípios descritos anteriormente.
+As especificações acima são especificações básicas cuja leitura obrigatória sustenta o framework de confiança do Open Banking Brasil. Entretanto, eles ainda são insuficientes para atender a todos os requisitos e princípios descritos anteriormente.
 
-### OpenID Financial Grade 1.0: Baseline
+### OpenID Financial Grade 1.0: Baseline  {#FAPI1Baseline}
 
 **_Este perfil herda todas as obrigações do OpenID Connect Core_**
 
-Reconhecendo as ameaças e riscos restantes que não foram tratados pelo OpenID Connect principal, o foco do grupo de trabalho do Financial Grade é criar uma especificação que visa identificar e, em seguida, abordar os pontos fracos na especificação OpenID Connect subjacente, essencialmente, criar um perfil para casos de uso de alta segurança.
+Reconhecendo as ameaças e riscos restantes que não foram tratados pelo OpenID Connect principal, o grupo de trabalho Financial Grade tem como foco criar uma especificação que visa identificar e, em seguida, abordar os pontos fracos na especificação OpenID Connect subjacente. Essencialmente, criar um perfil para casos de uso que exigem alta segurança.
 
-O perfil Baseline foi originalmente planejado para ser mais facilmente implementado por clientes e provedores de OpenID às custas de alguns elementos de segurança e, como tal, não oferece o mesmo grau de proteção contra violação de solicitação e violação de resposta.
+O perfil Baseline foi originalmente planejado para ser mais facilmente implementado por *clients* e provedores de OpenID às custas de alguns elementos de segurança e, como tal, não oferece o mesmo grau de proteção contra violação de solicitação e violação de resposta.
 
-### OpenID Financial Grade 1.0: Avançado
+### OpenID Financial Grade 1.0: Avançado  {#FAPI1Advanced}
 
 **_Este perfil herda todas as obrigações do OpenID FAPI 1.0: Baseline_**
 
-O atual padrão de ouro para API Security, o [FAPI 1.0: Advanced profile](https://openid.net/specs/openid-financial-api-part-2-1_0.html) fornece uma **especificação de arcabouço** que foi usado como ponto de partida para a criação de uma especificação para o Open Banking Brasil.
+O atual padrão de ouro para API Security, o [FAPI 1.0: Advanced profile](https://openid.net/specs/openid-financial-api-part-2-1_0.html) fornece uma **framework de especificação** que foi usado como ponto de partida para a criação de uma especificação para o Open Banking Brasil.
 
-> Este documento especifica um perfil de segurança avançado do OAuth que é adequado para ser usado para proteger APIs com alto risco inerente. Os exemplos incluem APIs que dão acesso a dados altamente confidenciais ou que podem ser usados para acionar transações financeiras (por exemplo, início de pagamento). Este documento especifica os controles contra ataques, como: violação de solicitação de autorização, violação de resposta de autorização, incluindo injeção de código, injeção de estado e phishing de solicitação de token. Detalhes adicionais estão disponíveis na seção de considerações de segurança.
+> Este documento especifica um perfil de segurança avançado do OAuth que é adequado para ser usado para proteger APIs com alto risco inerente. Os exemplos incluem APIs que dão acesso a dados altamente confidenciais ou que podem ser usados para acionar transações financeiras (por exemplo, início de pagamento). Este documento especifica os controles contra ataques, como: violação de solicitação de autorização, violação de resposta de autorização, incluindo injeção de código, injeção de estado e phishing de solicitação de token.
 
 ![Hierachy of OAuth 2.0 Profiles](https://miro.medium.com/max/700/1*R8d0lkvVRlEMG9WBXCZsdQ.png)
 
-# Guia do usuário final para ASPSP
+# Guia do usuário final para Transmissoras de Dados {#Guia}
 
-## 1.0 Registrando um Banco
+## 1.0 Registrando um Banco  {#RegistrandoBanco}
 
-### 1.1 Visão geral do diretório
+### 1.1 Visão geral do diretório  {#Diretorio}
 
-Os serviços do arcabouço de confiança fornecidos pelo Open Banking Brasil fornecem todos os serviços de descoberta necessários para que TPPs e ASPSPs interajam entre si, sem que sejam necessários para validar a autenticidade de cada um.
+Os serviços do framework de confiança providos pelo Open Banking Brasil fornecem todos os serviços de descoberta necessários para que instituiçoes transmissores e receptoras interajam entre si, sem que sejam necessários para validar a autenticidade de cada um.
 
-Um Authorization Server ou AS conforme definido por [RFC 6749 - The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749) executa várias funções em um ecossistema de compartilhamento de dados como o Open Banking. Antes de prosseguir, certifique-se de que os conceitos de funções e responsabilidades definidos no RFC original sejam bem compreendidos. Além disso, certifique-se de que os conceitos, funções e responsabilidades definidos no [OpenID Connect Core](https://openid.net/specs/openid-connect-core-1_0.html) e como eles estendem os conceitos definidos no RFC 6749 são igualmente bem compreendido.
+Um Authorization Server ou AS, conforme definido por [RFC 6749 - The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749), executa várias funções em um ecossistema de compartilhamento de dados como o Open Banking Brasil. Antes de prosseguir, certifique-se de que os conceitos de funções e responsabilidades definidos na RFC original sejam bem compreendidos. Além disso, certifique-se de que os conceitos, funções e responsabilidades definidos no [OpenID Connect Core](https://openid.net/specs/openid-connect-core-1_0.html) e como eles estendem os conceitos definidos no RFC 6749 são igualmente bem compreendidos.
 
-### 1.2 Registrando um servidor de autorização e provedor de OpenID
+### 1.2 Registrando um Authorization Server e OpenID Provider {#AuthorizationServer}
 
-Os bancos, geralmente grandes bancos, não serão uma entidade única do ponto de vista das operações de tecnologia. Eles podem ter marcas, segurança e infraestrutura de TI diferentes para diferentes segmentos de clientes ou podem ter alguma infraestrutura de TI que ofereça suporte a várias marcas ou segmentos de clientes. Isso significa que o ecossistema técnico precisa ser flexível o suficiente para suportar uma ampla variedade de implantações de infraestrutura de bancos, garantindo que os serviços necessários possam ser descobertos por clientes de terceiros que precisam interagir com ele.
+Os bancos, geralmente grandes bancos, não serão uma entidade única do ponto de vista das operações de tecnologia. Eles podem ter marcas, segurança e infraestrutura de TI diferentes para diferentes segmentos de clientes, ou podem ter alguma infraestrutura de TI que ofereça suporte a várias marcas ou segmentos de clientes. Isso significa que o ecossistema técnico precisa ser flexível o suficiente para suportar uma ampla variedade de implantações de infraestrutura de bancos, garantindo que os serviços necessários possam ser descobertos por clientes de instituições receptoras que precisam interagir com ele.
 
 Um modelo flexível para anunciar serviços de autenticação / autorização e os recursos protegidos pelo AuthN e AuthZ é suportado pelo Diretório.
 
-* **Nome Amigável do Cliente** - Será exibido aos clientes pelos TPPs e já deve ser reconhecido pelos Clientes do Banco.
-* **Logotipo amigável ao cliente** - Será exibido aos clientes pelos TPPs para auxiliar no reconhecimento da marca.
-* **Descrição** - Isso pode ser exibido aos clientes por TPPs para auxiliar no reconhecimento da marca.
-* **Termos de Serviço** - Este é um link para os Termos de Serviço do banco, que podem ser incluídos pelos TPPs.
-* **WebHook de notificação** - Os servidores de autorização podem registrar um WebHook que receberá atualizações por push sobre as alterações dos participantes, seus softwares ou certificados.
+* **Nome Amigável do Cliente** - Será exibido aos clientes pelas instituições receptoras, e já deve ser reconhecido pelos clientes do Banco.
+* **Logotipo amigável ao cliente** - Será exibido aos clientes pelos instituições receptoras para auxiliar no reconhecimento da marca.
+* **Descrição** - Isso pode ser exibido aos clientes pelas instituições receptoras para auxiliar no reconhecimento da marca.
+* **Termos de Serviço** - Este é um link para os Termos de Serviço do banco, que podem ser incluídos pelas instituições receptoras.
+* **WebHook de notificação** - *Authorization Servers* podem registrar um WebHook que receberá atualizações por push sobre as alterações dos participantes, seus softwares ou certificados.
 * **OpenID Well Known Document Uri** - Link para o documento de descoberta do Authorization Server.
 
-Um banco pode optar por ter um servidor de autorização ou muitos, desde que satisfaça os seguintes requisitos.
+Um banco pode optar por ter um *Authorization Servers* ou muitos, desde que satisfaça os seguintes requisitos.
 
-* Um cliente pode reconhecer o servidor de autorização como um local com o qual normalmente faria interação com o seu banco.
-* O Authorization Server pode emitir tokens para os recursos e serviços que um cliente ou TPP está procurando.
+* Um cliente pode reconhecer o *Authorization Servers* como um local com o qual normalmente faria interação com o seu banco.
+* O Authorization Server pode emitir tokens para os recursos e serviços que um cliente ou insituição receptora está procurando.
 
-### 1.3 Registrando recursos
+### 1.3 Registrando recursos  {#Recursos}
 
-Depois que um banco registra um servidor de autorização, ele precisa anunciar para quais recursos, APIs ou serviços ele pode fornecer autorização.
+Depois que um banco registra um *Authorization Servers*, ele precisa anunciar para quais recursos, APIs ou serviços ele pode fornecer autorização.
 
 [Authorization Resources management image]
 
@@ -167,22 +167,22 @@ Depois que um banco registra um servidor de autorização, ele precisa anunciar 
 
 No exemplo acima, o Amazing Banking está anunciando dois serviços que devem ser reconhecidos pelos clientes. "Amazing Business Banking" e "Amazing Banking". Estes **podem ou não estar** diretamente relacionados a "Marcas", pois bancos diferentes podem precisar anunciar serviços de autenticação diferentes, mesmo dentro de uma submarca.
 
-Além disso, o banco anuncia quais recursos cada um dos servidores de autorização está protegendo ou oferecendo. No exemplo acima, o Amazing Banking é compatível com a versão 1 e a versão 2 da API de informações da conta e o "Amazing Banking" tem dois sistemas separados de autenticação e autorização para Pagamentos e Informações da conta.
+Além disso, o banco anuncia quais recursos cada um dos servidores de autorização está protegendo ou oferecendo. No exemplo acima, o Amazing Banking é compatível com a versão 1 e a versão 2 da API de informações da conta, e o "Amazing Banking" tem dois sistemas separados de autenticação e autorização para Pagamentos e Informações da conta.
 
-Anunciar corretamente quais recursos são oferecidos por cada servidor é importante para atingir a escala prevista pelo Open Banking  Brasil e fundamental para garantir que os clientes possam identificar seu serviço bancário facilmente e que os TPPs possam encaminhar os clientes para o Serviço de Autorização correto com base nos recursos protegidos por cada serviço.
+Anunciar corretamente quais recursos são oferecidos por cada servidor é importante para atingir a escala prevista pelo Open Banking Brasil, além de ser fundamental para garantir que os clientes possam identificar seu serviço bancário facilmente e que as instituições receptoras possam encaminhar os clientes para o *Authorization Server* correto com base nos recursos protegidos por cada serviço.
 
-## 2.0 Validando uma solicitação de registro de cliente
+## 2.0 Validando uma solicitação de registro de cliente  {#Validando}
 
-Usando o OpenID Connect Discovery e a especificação de Registro de Cliente Dinâmico (DCR) do Open Banking Brasil. Um TPP pode registrar seu aplicativo em cada um dos Servidores de Autorização disponíveis no ecossistema.
+Usando o OpenID Connect Discovery e a especificação de Dynamic Client Registration (DCR) do Open Banking Brasil. Uma instituição receptora pode registrar seu aplicativo em cada um dos *Authorization Servers* disponíveis no ecossistema.
 
-### 2.1 Registro OpenID Connect e OAuth 2.0 Dynamic Client Registration
+### 2.1 Registro OpenID Connect e OAuth 2.0 Dynamic Client Registration  {#DCR}
 
 Consulte a Cláusula 7 da Especificação de Registro do Cliente Dinâmico (DCR) do Open Banking Brasil para obter detalhes.
 
-### 2.2 Processamento de declaração de software
+### 2.2 Processamento de declaração de software (Software Statement Assertion) {#SSA}
 
 Consulte a Cláusula 8 da Especificação de Registro do Cliente Dinâmico (DCR) do Open Banking Brasil para obter detalhes.
 
-## 3.0 Validando um Pedido de Autorização
+## 3.0 Validando um Pedido de Autorização  {#PedidoAuthz}
 
-Consulte a Cláusula 5 do Perfil de Segurança do Open Banking para obter detalhes.
+Consulte a Cláusula 5 do Perfil de Segurança do Open Banking Brasil para obter detalhes.
