@@ -53,7 +53,7 @@ These parts are intended to be used with [RFC6749], [RFC6750], [RFC7636], [OIDC]
 
 .# Introduction
 
-The Open Banking Brasil Financial-grade API is a highly secured OAuth profile that aims to provide specific implementation guidelines for security and interoperability which can be applied to APIs in the Brasil Open Banking Area area that require a higher level of privacy than provided by standard [Financial-grade API Security Profile 1.0 - Part 2: Advanced][FAPI-1-Advanced]. Among other enhancements, this specification addresses privacy considerations identified in [FAPI-1-Advanced] that are relevent in the Open Banking Brasil specifications but have not, so far, been required by other jurisdictions.
+The Open Banking Brasil Financial-grade API is a highly secured OAuth profile that aims to provide specific implementation guidelines for security and interoperability which can be applied to APIs in the Brasil Open Banking area that require a higher level of privacy than provided by standard [Financial-grade API Security Profile 1.0 - Part 2: Advanced][FAPI-1-Advanced]. Among other enhancements, this specification addresses privacy considerations identified in [FAPI-1-Advanced] that are relevent in the Open Banking Brasil specifications but have not, so far, been required by other jurisdictions.
 
 Although it is possible to code an OpenID Provider and Relying Party from first principles using this specification, the main audience for this specification is parties who already have a certified implementation of [Financial-grade API Security Profile 1.0 - Part 2: Advanced][FAPI-1-Advanced] and want to achieve certification for the Brasil Open Banking programme.
 
@@ -187,7 +187,7 @@ The Brasil Open Banking Security profile specifies additional security and ident
 This profile describes security and features provisions for a server and client that are necessary for the Brasil Open Banking Programme by defining the measures to mitigate or address:
 
 * attacks that address privacy considerations identified in clause 9.1 of [FAPI1 Advanced]
-* the requirement to support fine grained access to resources for data minimisation purposes
+* the requirement to support fine-grained access to resources for data minimisation purposes
 * the requirement to convey the Authentication Context Request that was performed by an OpenID Provider to a Client to enable a appropriate client management of customer conduct risk.
 * the requirement for clients to assert a pre-existing customer relationship by asserting a customer identity claim as part of the authorization flow.
 
@@ -243,7 +243,7 @@ The **CPF** number (Cadastro de Pessoas Físicas, [sepeˈɛfi]; Portuguese for "
 In the Brasil Open Banking identity model, the cpf is a string consisting of numbers that is 11
 characters long and may start with a 0.
 If the cpf Claim is requested as an Essential Claim for the ID Token or UserInfo response with a
-values parameter requesting a specific cpf value, the Authorization Server MUST return an cpf Claim Value
+values parameter requesting a specific cpf value, the Authorization Server MUST return a cpf Claim Value
 that matches the requested value. If this is an Essential Claim and the requirement cannot be met,
  then the Authorization Server MUST treat that outcome as a failed authentication attempt.
 
@@ -263,7 +263,7 @@ This profile defines "cnpj" as a new standard claim as per
    For this profile, the cnpj claim must be requested and supplied as the 14 digit number.
 
 If the cnpj Claim is requested as an Essential Claim for the ID Token or UserInfo response with a
-values parameter requesting a specific cnpj value, the Authorization Server MUST return an cnpj
+values parameter requesting a specific cnpj value, the Authorization Server MUST return a cnpj
 Claim Value that contains a **set** of CNPJs one of which must match the requested value. If this
  is an Essential Claim and the requirement cannot be met, then the Authorization Server MUST treat
  that outcome as a failed authentication attempt.
@@ -301,7 +301,7 @@ A confidential client shall support the provisions specified in clause 5.2.3 of
 In addition, the confidential client
 
 1. shall support _encrypted_ request objects
-2. shall support pushed authorisation requests [PAR]
+2. shall support Pushed Authorisation Requests [PAR]
 3. shall use _encrypted_ request objects if not using [PAR]
 4. shall support parameterized OAuth 2.0 resource scope _consent_ as defined in clause 6.3.1 [OIDF FAPI WG Lodging Intent Pattern][LIWP]
 5. shall support refresh tokens
@@ -362,7 +362,7 @@ consent:urn:bancoex:C1DD33123
 
 ### Introduction
 
-The Consent Resource has a life cycle that is managed seperately and distinctly from the OAuth 2.0 Authorisation Framework. The state transitions and expected behaviours and error conditions expected of REST Resouces protected with this profile are defined in the functional API specifications published by Open Banking Brasil.
+The Consent Resource has a life cycle that is managed seperately and distinctly from the OAuth 2.0 Authorisation Framework. The state transitions and expected behaviours and error conditions expected of REST Resources protected with this profile are defined in the functional API specifications published by Open Banking Brasil.
 
 ### Authorization server
 
@@ -373,7 +373,7 @@ In addition to the requirements outlined in Open Banking Brasil security provisi
 3. shall ensure Access Tokens are issued with sufficient scope necessary for access to data specified in the Permissions element of a linked Consent Resource object;
 4. shall not reject an authorisation request requesting more scope than is necessary to access data specified in the Permissions element of a linked Consent Resource object;
 5. may reduce requested scope to a level sufficient to enable access to data resources specified in the Permissions element of a linked Consent Resource object;
-6. shall retain a complete audit history of the consent resource in acoordance with current Central Bank brazilian regulation;
+6. shall retain a complete audit history of the consent resource in accordance with current Central Bank brazilian regulation;
 
 ### Confidential Client
 
