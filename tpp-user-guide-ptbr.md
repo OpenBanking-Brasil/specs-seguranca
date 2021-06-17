@@ -545,6 +545,7 @@ Esses exemplos **não normativos** presumem que o cliente OAuth descobriu os loc
 
 
 1. Obtendo um Token de Acesso com escopo 'consents'
+
 ```
 curl --cert transport.pem --key transport.key https://matls-auth.amazingbank.com.br/token -X POST -d 'client_id=clientIdFromAmazingBank&grant_type=client_credentials&scope=consents'
 
@@ -552,6 +553,7 @@ curl --cert transport.pem --key transport.key https://matls-auth.amazingbank.com
 ```
 
 2. Criando um recurso de consentimento
+
 ```
 curl --cert transport.pem --key transport.key -H 'Authorization: Bearer 2Pjwts8m1KRZmm0aJyXbOTB8zRosN55fo8Ewdulhxxa'
 -H "Content-Type: application/json"
