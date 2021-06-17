@@ -127,7 +127,7 @@ ASPSP - *Account Servicing Payment Service Provider*
 
 ### 1.1 Visão Geral do Diretório  {#Diretorio}
 
-Os serviços do framework de confiança providos pelo Open Banking Brasil fornecem todos os serviços de descoberta necessários para que instituiçoes transmissores e receptoras interajam entre si, sem que seja necessário validar a autenticidade de cada um.
+Os serviços do framework de confiança providos pelo Open Banking Brasil fornecem todos os serviços de descoberta necessários para que instituiçoes transmissores e receptoras interajam entre si, sem que seja preciso validar individualmente a autenticidade de cada participante.
 
 Um *Authorization Server* ou AS, conforme definido por [RFC 6749 - The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749), executa várias funções em um ecossistema de compartilhamento de dados como o Open Banking Brasil. Antes de prosseguir, certifique-se de que os conceitos de funções e responsabilidades definidos na RFC original sejam bem compreendidos. Além disso, certifique-se de que os conceitos, funções e responsabilidades definidos no [OpenID Connect Core](https://openid.net/specs/openid-connect-core-1_0.html) e como eles estendem os conceitos definidos no RFC 6749 são igualmente bem compreendidos.
 
