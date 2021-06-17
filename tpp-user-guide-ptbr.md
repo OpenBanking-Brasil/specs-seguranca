@@ -1,4 +1,4 @@
-# Guia do usuário para instituições receptores de dados e iniciadores de pagamento (TTP)
+# Guia do Usuário para Instituições Receptores de Dados e Iniciadores de Pagamento (TTP/PISP)
 
 TPP - Third Party Provider | PISP - Payment Initiation Service Provider
 
