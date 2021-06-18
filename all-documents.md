@@ -5,7 +5,7 @@
 
 ## Introdução   {#Introducao}
 
-Esta seção tem como finalidade auxiliar na auto avaliação aos cumprimentos dos requisitos de segurança da informação relacionados a autorização e autenticação de APIs e End-Users, emissão de certificados digitais e requisitos para o onboarding no Diretório de participantes para as Instituições participantes do Open Banking.
+Esta seção tem como finalidade auxiliar na auto avaliação aos cumprimentos dos requisitos de segurança da informação relacionados a autorização e autenticação de APIs e End-Users, emissão de certificados digitais e requisitos para o onboarding no Diretório de Participantes para as Instituições participantes do Open Banking.
 
 As instituições participantes do Open Banking possuem a obrigação de acompanhar a edição e a revogação de eventuais normas com impacto no tema de forma a estar permanentemente em dia com as determinações legais. Compõem, de forma não exaustiva, o rol de atos normativos cuja observância é essencial pelas instituições participantes do Open Banking:
 
@@ -386,7 +386,7 @@ Este profile é aplicável a todos os participantes do Open Banking no Brasil.
 
 ### Diretório de Participantes  {#Intro}
 
-O ecossistema Open Banking Brasil apoia-se em um provedor de confiança ou _diretório de participantes_ como a fonte mais valiosa de informações sobre participantes credenciados e softwares que estão autorizados a participar do ecossistema Open Banking Brasil.
+O ecossistema Open Banking Brasil apoia-se em um provedor de confiança ou _Diretório de Participantes_ como a fonte mais valiosa de informações sobre participantes credenciados e softwares que estão autorizados a participar do ecossistema Open Banking Brasil.
 
 Os serviços do Diretório incluem:
 
@@ -1606,7 +1606,7 @@ Este documento especifica os tipos de certificados necessários para:
 * Autenticar mutuamente (MTLS - Mutual TLS) as aplicações dos participantes;
 * Assinatura de Mensagens (JWS - JSON Web Signature) de aplicações para garantir a autenticidade e não repúdio de mensagens entre os participantes;
 * Apresentar um canal seguro e confiável para clientes do Open Banking Brasil;
-* Autenticar participantes no Diretório de participantes do Open Banking Brasil.
+* Autenticar participantes no Diretório de Participantes do Open Banking Brasil.
 
 ### Introdução {#Introducao}
 
@@ -1902,16 +1902,16 @@ Os seguintes documentos referenciados são indispensáveis para a adoção das e
 
 Sigla | Descrição | Informação
 -----|------|------
-"API	| Application Programming Interface - Interface de programação de aplicativo | Uma interface de programação de aplicativo é um conjunto de rotinas, protocolos e ferramentas para construir aplicativos de software. Uma API especifica como os componentes de software devem interagir."
+API	| Application Programming Interface - Interface de programação de aplicativo | Uma interface de programação de aplicativo é um conjunto de rotinas, protocolos e ferramentas para construir aplicativos de software. Uma API especifica como os componentes de software devem interagir
 AC | Autoridade Certificadora | 
-"AES	| Advanced Encryption Standard | Algoritmo de criptografia de bloco simétrico com uma chave de criptografia de 256 bits"
-"AR | Autoridade de Registro	| "
+AES	| Advanced Encryption Standard | Algoritmo de criptografia de bloco simétrico com uma chave de criptografia de 256 bits"
+AR | Autoridade de Registro	| 
 ASPSP | Account Servicing Payment Service Provide - Instituições Transmissoras - Provedor de serviços de pagamento de manutenção de contas | Um ASPSP é qualquer instituição financeira que oferece uma conta de pagamento com acesso online. Os ASPSPs devem fornecer acesso para permitir que terceiros (TPP) registrados acessem as informações da conta através de APIs
 Autenticação mútua |  | Chamamos de autenticação mútua quando ambos cliente e servidor apresentam certificados para serem validados pelo par.
 Back-End | | Aplicação ou código que da inteligência de negócio as ações solicitadas via API , código que efetivamente realiza a função desejada
 CIBA | Client Initiated Backchannel Authentication | A autenticação de backchannel iniciada pelo cliente (CIBA) é um dos padrões mais recentes da OpenID Foundation. são categorizados como "fluxo desacoplado", Ele permite novas maneiras de obter o consentimento do usuário final
 Claims | | São escopos/declarações usadas em uma API durante a autenticação para autorizar o acesso aos detalhes de um usuário, como nome e imagem por exemplo. Cada escopo retorna um conjunto de atributos do usuário, que são chamados de declarações.
-"CSR	| Certificate Signing Request | Contém informação que irá ser incluída no seu certificado como o nome da empresa/organização, common name (domínio), localidade e país. Também contém a chave pública (public key) que será incluída no seu certificado. Normalmente é também criada uma chave privada (private key) ao mesmo tempo que é criado o CSR"
+CSR	| Certificate Signing Request | Contém informação que irá ser incluída no seu certificado como o nome da empresa/organização, common name (domínio), localidade e país. Também contém a chave pública (public key) que será incluída no seu certificado. Normalmente é também criada uma chave privada (private key) ao mesmo tempo que é criado o CSR"
 CSRF | Cross Site Request Forgery |
 DCR | Dynamic Client Registration |
 ECDHE | Elliptic-curve Diffie–Hellman | É um protocolo de contrato chave que permite que duas partes, cada uma com um par de chaves público-privado de curva elíptica, estabeleçam um segredo compartilhado em um canal inseguro
