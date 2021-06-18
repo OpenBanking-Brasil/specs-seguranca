@@ -10,22 +10,31 @@ Esta seção tem como finalidade auxiliar na auto avaliação aos cumprimentos d
 As instituições participantes do Open Banking possuem a obrigação de acompanhar a edição e a revogação de eventuais normas com impacto no tema de forma a estar permanentemente em dia com as determinações legais. Compõem, de forma não exaustiva, o rol de atos normativos cuja observância é essencial pelas instituições participantes do Open Banking:
 
 [Resolução Conjunta CMN/BCB nº 1, de 2020](https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20Conjunta&numero=1)
+
 [Resolução CMN nº 4.658, de 2018](https://www.bcb.gov.br/pre/normativos/busca/downloadNormativo.asp?arquivo=/Lists/Normativos/Attachments/50581/Res_4658_v1_O.pdf)
+
 [Circular BCB nº 3.909, de 2018](https://www.bcb.gov.br/pre/normativos/busca/downloadNormativo.asp?arquivo=/Lists/Normativos/Attachments/50645/Circ_3909_v1_O.pdf)
+
 [Resolução BCB nº 37, de 4 de Novembro de 2020](https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Instru%C3%A7%C3%A3o%20Normativa%20BCB&numero=37)
+
 [Resolução BCB n° 32 de 29/10/2020](https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=32)
+
 [Lei Geral de Proteção de Dados Pessoais (LGPD - Lei nº 13.709, de 2018)](http://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/L13709.htm)
 
 Estas especificações baseiam-se, referenciam, e complementam, quando aplicável, os seguintes documentos:
 
 [BCP 195/RFC 7525](https://tools.ietf.org/html/rfc7525)
+
 [Owasp API Top 10](https://owasp.org/www-project-api-security/)
+
 [Sans Top 25 Software Errors](https://www.sans.org/top25-software-errors)
+
 [CWE Top 25 Software Weaknesses](https://cwe.mitre.org/top25/archive/2020/2020_cwe_top25.html)
 
 Além desse guia, foi elaborado um checklist para auxiliar os participantes do Open Banking a alcançar um nível adequado de Segurança da Informação, esse checklist pode ser baixado em formato Word ou Excel a seguir.
 
 [Download Autoavaliação dos requisitos de SI - 1.0.docx](https://openbanking-brasil.github.io/areadesenvolvedor/documents/Autoavalia%C3%A7%C3%A3o_dos_requisitos_de%20_SI-1.0.docx)
+
 [Download Autoavaliação dos requisitos de SI - 1.0.xlsx](https://openbanking-brasil.github.io/areadesenvolvedor/documents/Autoavalia%C3%A7%C3%A3o_dos_requisitos_de%20_SI-1.0.xlsx)
 
 ## Visão Geral do Ecossistema  {#VisaoGeral}
