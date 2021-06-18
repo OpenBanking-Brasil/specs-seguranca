@@ -1,5 +1,3 @@
-# Índice
-
 * TOC
 {:toc}
 
