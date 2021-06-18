@@ -211,8 +211,8 @@ In addition, the Authorization Server
 1. shall support a signed and encrypted JWE request object passed by value or shall require pushed authorization requests [PAR];
 2. shall distribute discovery metadata (such as the authorization endpoint) via the metadata document as specified in [OIDD] and [RFC8414]
 3. shall support the claims parameter as defined in clause 5.5 [OpenID Connect Core][OIDC]
-4. shall support the oidc standard claim "cpf" as defined in clause 5.2.2.2 of this document
-5. shall support the oidc standard claim "cnpj" as defined in clause 5.2.2.3 of this document
+4. shall support the oidc standard claim "cpf" as defined in clause 5.2.2.2 of this document if providing access to resources where the resource owner is a `natural person`
+5. shall support the oidc standard claim "cnpj" as defined in clause 5.2.2.3 of this document if providing access to resources where the resource owner is a `legal person`
 6. shall support the acr "urn:brasil:openbanking:loa2" as defined in clause 5.2.2.4 of this document
 7. should support the acr "urn:brasil:openbanking:loa3" as defined in clause 5.2.2.4 of this document
 8. shall implement the user info endpoint as defined in clause 5.3 [OpenID Connect Core][OIDC]
