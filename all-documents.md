@@ -1,6 +1,7 @@
 # Índice
 
-[TOC]
+* TOC
+{:toc}
 
 # Segurança  {#Seguranca}
 
