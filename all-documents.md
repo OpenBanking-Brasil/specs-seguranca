@@ -119,6 +119,127 @@ As palavras-chave "*deve*" (shall), "*não deve*" (shall not), "*deveria*" (shou
 
 Estas palavras-chave não são usadas como termos de dicionário, de modo que qualquer ocorrência deles deve ser interpretada como palavras-chave e não devem ser interpretados com seus significados de linguagem natural.
 
+## Referências normativas  {#Normative}
+
+Os seguintes documentos referenciados são indispensáveis para a adoção das especificações deste documento. Para referências datadas, apenas a edição citada se aplica. Para referências não datadas, deve-se aplicar a última edição do documento referenciado (incluindo quaisquer emendas).
+
+[ISODIR2]: https://www.iso.org/sites/directives/current/part2/index.xhtml
+[ISODIR2] - ISO/IEC Directives Part 2
+
+[ISO29100]: https://www.iso.org/standard/45123.html
+[ISO29100] - Information technology - Security techniques - Privacy framework
+
+[RFC6749]: https://tools.ietf.org/html/rfc6749
+[RFC6749] - The OAuth 2.0 Authorization Framework
+
+[RFC6750]: https://tools.ietf.org/html/rfc6750
+[RFC6750] - The OAuth 2.0 Authorization Framework: Bearer Token Usage
+
+[RFC7636]: https://tools.ietf.org/html/rfc7636
+[RFC7636] - Proof Key for Code Exchange by OAuth Public Clients
+
+[RFC6819]: https://tools.ietf.org/html/rfc6819
+[RFC6819] - OAuth 2.0 Threat Model and Security Considerations
+
+[RFC7519]: https://tools.ietf.org/html/rfc7519
+[RFC7519] - JSON Web Token (JWT)
+
+[RFC7591]: https://tools.ietf.org/html/rfc7591
+[RFC7591] - OAuth 2.0 Dynamic Client Registration Protocol
+
+[RFC7592]: https://tools.ietf.org/html/rfc7592
+[RFC7592] - OAuth 2.0 Dynamic Client Registration Management Protocol
+
+[BCP195]: https://tools.ietf.org/html/bcp195
+[BCP195] - Recommendations for Secure Use of Transport Layer Security (TLS) and Datagram Transport Layer Security (DTLS)
+
+[OIDC]: https://openid.net/specs/openid-connect-core-1_0.html
+[OIDC] - OpenID Connect Core 1.0 incorporating errata set 1
+
+[FAPI-CIBA]: https://bitbucket.org/openid/fapi/src/master/Financial_API_WD_CIBA.md
+[FAPI-CIBA] - Financial-grade API: Client Initiated Backchannel Authentication Profile
+
+[OIDD]: https://openid.net/specs/openid-connect-discovery-1_0.html
+[OIDD] - OpenID Connect Discovery 1.0 incorporating errata set 1
+
+[OIDR]: https://openid.net/specs/openid-connect-registration-1_0.html
+[OIDR] - OpenID Connect Registration 1.0 incorporating errata set 1
+
+[RFC8705]: https://tools.ietf.org/html/rfc8705
+[RFC8705] - OAuth 2.0 Mutual TLS Client Authentication and Certificate Bound Access Tokens
+
+[JARM]: https://bitbucket.org/openid/fapi/src/master/Financial_API_JWT_Secured_Authorization_Response_Mode.md
+[JARM] - Financial-grade API: JWT Secured Authorization Response Mode for OAuth 2.0 (JARM)
+
+[PAR]: https://tools.ietf.org/html/draft-ietf-oauth-par
+[PAR] - OAuth 2.0 Pushed Authorization Requests
+
+[JAR]: https://tools.ietf.org/html/draft-ietf-oauth-jwsreq
+[JAR] - OAuth 2.0 JWT Secured Authorization Request
+
+[FAPI-1-Baseline]: https://openid.net/specs/openid-financial-api-part-1-1_0.html
+[FAPI-1-Baseline] - Financial-grade API Security Profile 1.0 - Part 1: Baseline
+
+[FAPI-1-Advanced]: https://openid.net/specs/openid-financial-api-part-2-1_0.html
+[FAPI-1-Advanced] - Financial-grade API Security Profile 1.0 - Part 2: Advanced
+
+[FAPI-2-Baseline]: https://bitbucket.org/openid/fapi/src/master/FAPI_2_0_Baseline_Profile.md
+[FAPI-2-Baseline] - Financial-grade API Security Profile 2.0 - Part 1: Baseline
+
+[LIWP]: https://bitbucket.org/openid/fapi/src/master/Financial_API_Lodging_Intent.md
+[LIWP] - OIDF FAPI WG Lodging Intent Working Paper
+
+[OBB-FAPI]: https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID1.html
+[OBB-FAPI] - Open Banking Brasil Financial-grade API Security Profile 1.0
+
+[OBB-FAPI-DCR]: https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID1.html
+[OBB-FAPI-DCR] - Open Banking Brasil Financial-grade API Dynamic Client Registration Profile 1.0
+
+[OBB-Cert-Standards]: https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html
+[OBB-Cert-Standards] - Open Banking Brasil x.509 Certificate Standards
+
+## Glossário  {#terms}
+
+Sigla | Descrição | Informação
+-----|------|------
+API	| Application Programming Interface - Interface de programação de aplicativo | Uma interface de programação de aplicativo é um conjunto de rotinas, protocolos e ferramentas para construir aplicativos de software. Uma API especifica como os componentes de software devem interagir
+AC | Autoridade Certificadora | 
+AES	| Advanced Encryption Standard | Algoritmo de criptografia de bloco simétrico com uma chave de criptografia de 256 bits
+AR | Autoridade de Registro	| 
+ASPSP | Account Servicing Payment Service Provide - Instituições Transmissoras - Provedor de serviços de pagamento de manutenção de contas | Um ASPSP é qualquer instituição financeira que oferece uma conta de pagamento com acesso online. Os ASPSPs devem fornecer acesso para permitir que terceiros (TPP) registrados acessem as informações da conta através de APIs
+Autenticação mútua |  | Chamamos de autenticação mútua quando ambos cliente e servidor apresentam certificados para serem validados pelo par.
+Back-End | | Aplicação ou código que da inteligência de negócio as ações solicitadas via API , código que efetivamente realiza a função desejada
+CIBA | Client Initiated Backchannel Authentication | A autenticação de backchannel iniciada pelo cliente (CIBA) é um dos padrões mais recentes da OpenID Foundation. são categorizados como "fluxo desacoplado", Ele permite novas maneiras de obter o consentimento do usuário final
+Claims | | São escopos/declarações usadas em uma API durante a autenticação para autorizar o acesso aos detalhes de um usuário, como nome e imagem por exemplo. Cada escopo retorna um conjunto de atributos do usuário, que são chamados de declarações.
+CSR	| Certificate Signing Request | Contém informação que irá ser incluída no seu certificado como o nome da empresa/organização, common name (domínio), localidade e país. Também contém a chave pública (public key) que será incluída no seu certificado. Normalmente é também criada uma chave privada (private key) ao mesmo tempo que é criado o CSR
+CSRF | Cross Site Request Forgery |
+DCR | Dynamic Client Registration |
+ECDHE | Elliptic-curve Diffie–Hellman | É um protocolo de contrato chave que permite que duas partes, cada uma com um par de chaves público-privado de curva elíptica, estabeleçam um segredo compartilhado em um canal inseguro
+ECDSA | Elliptic Curve Digital Signature Algorithm | É um algoritmo de método de assinatura digital de documentos utilizando criptografia baseada em curvas elípticas.
+EIOBB | Estrutura Inicial do Open Banking Brasil |
+End User | | Identificação de usuário final que possui as informações que se deseja acessar
+FAPI | Financial-grade API | Especificação técnica de API e define requisitos técnicos adicionais para o setor financeiro
+Header | | É o cabeçalho de uma solicitação ou resposta que transmite contexto e metadados adicionais sobre a solicitação ou resposta. Por exemplo, em uma mensagem de solicitação podem ser usados para fornecer credenciais de autenticação.
+HTTP | Hyper Text Transfer Protocol |
+ICP-Brasil | Infraestrutura de Chaves Públicas Brasileira | Na definição oficial, “uma cadeia hierárquica de confiança que viabiliza a emissão de certificados digitais para identificação virtual do cidadão
+Json | JavaScript Object Notation | Json é um modelo para armazenamento e transmissão de informações no formato texto.
+JWS | JSON Web Signature | É uma forma de garantir a integridade das informações em um formato altamente serializado
+JWT | JSON Web Token | É uma técnica definida na RFC 7519 para autenticação remota entre duas partes. Ele é uma das formas mais utilizadas para autenticar usuários em APIs RESTful.
+MAC | Código de Autenticação de Mensagem | Permite que as declarações sejam assinadas digitalmente ou protegidas por integridade utilizando JWS
+MFA | Multi-Factor Authentication |
+mTLS | Mutual Transport Layer Security |
+Oauth | | O OAuth é um protocolo de autorização para API's web voltado a permitir que aplicações client acessem um recurso protegido em nome de um usuário.
+OIDC | OpenID Connect | OpenID Connect é um protocolo de identidade simples com padrão aberto
+OIDF | OpenID Foundation | 
+Payload | | O Payload é a Carga Útil do token JWT. É aqui que você coloca informações como a quem o token pertence, qual a expiração dele, quando ele foi criado, entre outras coisas
+PISP | Payment Initiation Service Provider | 
+PKCE | Proof Key for Code Exchange | Chave de prova para troca de código por clientes públicos Oauth
+REST | Representational State Transfer | 
+SHA256 | Secure Hash Algorithm | É um conjunto de funções criptográficas de hash
+SS | Software Statement |
+SSA | Software Statement Assertion | SSA é um JSON Web Token (JWT) que contém metadados sobre uma instância de aplicativo client desenvolvida por um TPP. O JWT é emitido e assinado pelo OpenBanking Directory.
+TLS	| Transport Layer Security | 
+TPP	| Third Party Provider - Instituições Provedoras - Provedores terceirizados | As instituições provedoras são organizações que usam APIs desenvolvidas pelos ASPSP para acessar contas de clientes, a fim de fornecer serviços de informações de contas
 
 ## Principais Padrões de Segurança  {#Padroes}
 
@@ -1818,125 +1939,3 @@ Tanto transmissoras quanto receptoras devem seguir as orientações da Apple e d
 
 No caso de um usuário não ter o aplicativo instalado em seu dispositivo, ou se ele tiver um sistema operacional mais antigo ou sem suporte (por exemplo, Windows Mobile), esses métodos permitirão que o usuário seja redirecionado para uma página web mobile.
 
-## Referências normativas  {#Normative}
-
-Os seguintes documentos referenciados são indispensáveis para a adoção das especificações deste documento. Para referências datadas, apenas a edição citada se aplica. Para referências não datadas, deve-se aplicar a última edição do documento referenciado (incluindo quaisquer emendas).
-
-[ISODIR2]: https://www.iso.org/sites/directives/current/part2/index.xhtml
-[ISODIR2] - ISO/IEC Directives Part 2
-
-[ISO29100]: https://www.iso.org/standard/45123.html
-[ISO29100] - Information technology - Security techniques - Privacy framework
-
-[RFC6749]: https://tools.ietf.org/html/rfc6749
-[RFC6749] - The OAuth 2.0 Authorization Framework
-
-[RFC6750]: https://tools.ietf.org/html/rfc6750
-[RFC6750] - The OAuth 2.0 Authorization Framework: Bearer Token Usage
-
-[RFC7636]: https://tools.ietf.org/html/rfc7636
-[RFC7636] - Proof Key for Code Exchange by OAuth Public Clients
-
-[RFC6819]: https://tools.ietf.org/html/rfc6819
-[RFC6819] - OAuth 2.0 Threat Model and Security Considerations
-
-[RFC7519]: https://tools.ietf.org/html/rfc7519
-[RFC7519] - JSON Web Token (JWT)
-
-[RFC7591]: https://tools.ietf.org/html/rfc7591
-[RFC7591] - OAuth 2.0 Dynamic Client Registration Protocol
-
-[RFC7592]: https://tools.ietf.org/html/rfc7592
-[RFC7592] - OAuth 2.0 Dynamic Client Registration Management Protocol
-
-[BCP195]: https://tools.ietf.org/html/bcp195
-[BCP195] - Recommendations for Secure Use of Transport Layer Security (TLS) and Datagram Transport Layer Security (DTLS)
-
-[OIDC]: https://openid.net/specs/openid-connect-core-1_0.html
-[OIDC] - OpenID Connect Core 1.0 incorporating errata set 1
-
-[FAPI-CIBA]: https://bitbucket.org/openid/fapi/src/master/Financial_API_WD_CIBA.md
-[FAPI-CIBA] - Financial-grade API: Client Initiated Backchannel Authentication Profile
-
-[OIDD]: https://openid.net/specs/openid-connect-discovery-1_0.html
-[OIDD] - OpenID Connect Discovery 1.0 incorporating errata set 1
-
-[OIDR]: https://openid.net/specs/openid-connect-registration-1_0.html
-[OIDR] - OpenID Connect Registration 1.0 incorporating errata set 1
-
-[RFC8705]: https://tools.ietf.org/html/rfc8705
-[RFC8705] - OAuth 2.0 Mutual TLS Client Authentication and Certificate Bound Access Tokens
-
-[JARM]: https://bitbucket.org/openid/fapi/src/master/Financial_API_JWT_Secured_Authorization_Response_Mode.md
-[JARM] - Financial-grade API: JWT Secured Authorization Response Mode for OAuth 2.0 (JARM)
-
-[PAR]: https://tools.ietf.org/html/draft-ietf-oauth-par
-[PAR] - OAuth 2.0 Pushed Authorization Requests
-
-[JAR]: https://tools.ietf.org/html/draft-ietf-oauth-jwsreq
-[JAR] - OAuth 2.0 JWT Secured Authorization Request
-
-[FAPI-1-Baseline]: https://openid.net/specs/openid-financial-api-part-1-1_0.html
-[FAPI-1-Baseline] - Financial-grade API Security Profile 1.0 - Part 1: Baseline
-
-[FAPI-1-Advanced]: https://openid.net/specs/openid-financial-api-part-2-1_0.html
-[FAPI-1-Advanced] - Financial-grade API Security Profile 1.0 - Part 2: Advanced
-
-[FAPI-2-Baseline]: https://bitbucket.org/openid/fapi/src/master/FAPI_2_0_Baseline_Profile.md
-[FAPI-2-Baseline] - Financial-grade API Security Profile 2.0 - Part 1: Baseline
-
-[LIWP]: https://bitbucket.org/openid/fapi/src/master/Financial_API_Lodging_Intent.md
-[LIWP] - OIDF FAPI WG Lodging Intent Working Paper
-
-[OBB-FAPI]: https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID1.html
-[OBB-FAPI] - Open Banking Brasil Financial-grade API Security Profile 1.0
-
-[OBB-FAPI-DCR]: https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID1.html
-[OBB-FAPI-DCR] - Open Banking Brasil Financial-grade API Dynamic Client Registration Profile 1.0
-
-[OBB-Cert-Standards]: https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html
-[OBB-Cert-Standards] - Open Banking Brasil x.509 Certificate Standards
-
-
-## Glossário  {#terms}
-
-Sigla | Descrição | Informação
------|------|------
-API	| Application Programming Interface - Interface de programação de aplicativo | Uma interface de programação de aplicativo é um conjunto de rotinas, protocolos e ferramentas para construir aplicativos de software. Uma API especifica como os componentes de software devem interagir
-AC | Autoridade Certificadora | 
-AES	| Advanced Encryption Standard | Algoritmo de criptografia de bloco simétrico com uma chave de criptografia de 256 bits"
-AR | Autoridade de Registro	| 
-ASPSP | Account Servicing Payment Service Provide - Instituições Transmissoras - Provedor de serviços de pagamento de manutenção de contas | Um ASPSP é qualquer instituição financeira que oferece uma conta de pagamento com acesso online. Os ASPSPs devem fornecer acesso para permitir que terceiros (TPP) registrados acessem as informações da conta através de APIs
-Autenticação mútua |  | Chamamos de autenticação mútua quando ambos cliente e servidor apresentam certificados para serem validados pelo par.
-Back-End | | Aplicação ou código que da inteligência de negócio as ações solicitadas via API , código que efetivamente realiza a função desejada
-CIBA | Client Initiated Backchannel Authentication | A autenticação de backchannel iniciada pelo cliente (CIBA) é um dos padrões mais recentes da OpenID Foundation. são categorizados como "fluxo desacoplado", Ele permite novas maneiras de obter o consentimento do usuário final
-Claims | | São escopos/declarações usadas em uma API durante a autenticação para autorizar o acesso aos detalhes de um usuário, como nome e imagem por exemplo. Cada escopo retorna um conjunto de atributos do usuário, que são chamados de declarações.
-CSR	| Certificate Signing Request | Contém informação que irá ser incluída no seu certificado como o nome da empresa/organização, common name (domínio), localidade e país. Também contém a chave pública (public key) que será incluída no seu certificado. Normalmente é também criada uma chave privada (private key) ao mesmo tempo que é criado o CSR"
-CSRF | Cross Site Request Forgery |
-DCR | Dynamic Client Registration |
-ECDHE | Elliptic-curve Diffie–Hellman | É um protocolo de contrato chave que permite que duas partes, cada uma com um par de chaves público-privado de curva elíptica, estabeleçam um segredo compartilhado em um canal inseguro
-ECDSA | Elliptic Curve Digital Signature Algorithm | É um algoritmo de método de assinatura digital de documentos utilizando criptografia baseada em curvas elípticas.
-EIOBB | Estrutura Inicial do Open Banking Brasil |
-End User | | Identificação de usuário final que possui as informações que se deseja acessar
-FAPI | Financial-grade API | Especificação técnica de API e define requisitos técnicos adicionais para o setor financeiro
-Header | | É o cabeçalho de uma solicitação ou resposta que transmite contexto e metadados adicionais sobre a solicitação ou resposta. Por exemplo, em uma mensagem de solicitação podem ser usados para fornecer credenciais de autenticação.
-HTTP | Hyper Text Transfer Protocol |
-ICP-Brasil | Infraestrutura de Chaves Públicas Brasileira | Na definição oficial, “uma cadeia hierárquica de confiança que viabiliza a emissão de certificados digitais para identificação virtual do cidadão
-Json | JavaScript Object Notation | Json é um modelo para armazenamento e transmissão de informações no formato texto.
-JWS | JSON Web Signature | É uma forma de garantir a integridade das informações em um formato altamente serializado
-JWT | JSON Web Token | É uma técnica definida na RFC 7519 para autenticação remota entre duas partes. Ele é uma das formas mais utilizadas para autenticar usuários em APIs RESTful.
-MAC | Código de Autenticação de Mensagem | Permite que as declarações sejam assinadas digitalmente ou protegidas por integridade utilizando JWS
-MFA | Multi-Factor Authentication |
-mTLS | Mutual Transport Layer Security |
-Oauth | | O OAuth é um protocolo de autorização para API's web voltado a permitir que aplicações client acessem um recurso protegido em nome de um usuário.
-OIDC | OpenID Connect | OpenID Connect é um protocolo de identidade simples com padrão aberto
-OIDF | OpenID Foundation | 
-Payload | | O Payload é a Carga Útil do token JWT. É aqui que você coloca informações como a quem o token pertence, qual a expiração dele, quando ele foi criado, entre outras coisas
-PISP | Payment Initiation Service Provider | 
-PKCE | Proof Key for Code Exchange | Chave de prova para troca de código por clientes públicos Oauth
-REST | Representational State Transfer | 
-SHA256 | Secure Hash Algorithm | É um conjunto de funções criptográficas de hash
-SS | Software Statement |
-SSA | Software Statement Assertion | SSA é um JSON Web Token (JWT) que contém metadados sobre uma instância de aplicativo client desenvolvida por um TPP. O JWT é emitido e assinado pelo OpenBanking Directory.
-TLS	| Transport Layer Security | "
-TPP	| Third Party Provider - Instituições Provedoras - Provedores terceirizados | As instituições provedoras são organizações que usam APIs desenvolvidas pelos ASPSP para acessar contas de clientes, a fim de fornecer serviços de informações de contas"
