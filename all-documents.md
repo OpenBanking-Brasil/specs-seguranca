@@ -1822,80 +1822,81 @@ No caso de um usuário não ter o aplicativo instalado em seu dispositivo, ou se
 
 Os seguintes documentos referenciados são indispensáveis para a adoção das especificações deste documento. Para referências datadas, apenas a edição citada se aplica. Para referências não datadas, deve-se aplicar a última edição do documento referenciado (incluindo quaisquer emendas).
 
+[ISODIR2]: https://www.iso.org/sites/directives/current/part2/index.xhtml
 [ISODIR2] - ISO/IEC Directives Part 2
-[ISODIR2]: <https://www.iso.org/sites/directives/current/part2/index.xhtml
 
+[ISO29100]: https://www.iso.org/standard/45123.html
 [ISO29100] - Information technology - Security techniques - Privacy framework
-[ISO29100]: <https://www.iso.org/standard/45123.html>
 
+[RFC6749]: https://tools.ietf.org/html/rfc6749
 [RFC6749] - The OAuth 2.0 Authorization Framework
-[RFC6749]: <https://tools.ietf.org/html/rfc6749
 
+[RFC6750]: https://tools.ietf.org/html/rfc6750
 [RFC6750] - The OAuth 2.0 Authorization Framework: Bearer Token Usage
-[RFC6750]: <https://tools.ietf.org/html/rfc6750
 
+[RFC7636]: https://tools.ietf.org/html/rfc7636
 [RFC7636] - Proof Key for Code Exchange by OAuth Public Clients
-[RFC7636]: <https://tools.ietf.org/html/rfc7636
 
+[RFC6819]: https://tools.ietf.org/html/rfc6819
 [RFC6819] - OAuth 2.0 Threat Model and Security Considerations
-[RFC6819]: <https://tools.ietf.org/html/rfc6819
 
+[RFC7519]: https://tools.ietf.org/html/rfc7519
 [RFC7519] - JSON Web Token (JWT)
-[RFC7519]:<https://tools.ietf.org/html/rfc7519
 
+[RFC7591]: https://tools.ietf.org/html/rfc7591
 [RFC7591] - OAuth 2.0 Dynamic Client Registration Protocol
-[RFC7591]:<https://tools.ietf.org/html/rfc7591
 
+[RFC7592]: https://tools.ietf.org/html/rfc7592
 [RFC7592] - OAuth 2.0 Dynamic Client Registration Management Protocol
-[RFC7592]:<https://tools.ietf.org/html/rfc7592
 
+[BCP195]: https://tools.ietf.org/html/bcp195
 [BCP195] - Recommendations for Secure Use of Transport Layer Security (TLS) and Datagram Transport Layer Security (DTLS)
-[BCP195]: <https://tools.ietf.org/html/bcp195
 
+[OIDC]: https://openid.net/specs/openid-connect-core-1_0.html
 [OIDC] - OpenID Connect Core 1.0 incorporating errata set 1
-[OIDC]: <https://openid.net/specs/openid-connect-core-1_0.html
 
+[FAPI-CIBA]: https://bitbucket.org/openid/fapi/src/master/Financial_API_WD_CIBA.md
 [FAPI-CIBA] - Financial-grade API: Client Initiated Backchannel Authentication Profile
-[FAPI-CIBA]: <https://bitbucket.org/openid/fapi/src/master/Financial_API_WD_CIBA.md
 
-[OIDD] -  OpenID Connect Discovery 1.0 incorporating errata set 1
-[OIDD]: <https://openid.net/specs/openid-connect-discovery-1_0.html
+[OIDD]: https://openid.net/specs/openid-connect-discovery-1_0.html
+[OIDD] - OpenID Connect Discovery 1.0 incorporating errata set 1
 
-[OIDR] -  OpenID Connect Registration 1.0 incorporating errata set 1
-[OIDR]: <https://openid.net/specs/openid-connect-registration-1_0.html
+[OIDR]: https://openid.net/specs/openid-connect-registration-1_0.html
+[OIDR] - OpenID Connect Registration 1.0 incorporating errata set 1
 
+[RFC8705]: https://tools.ietf.org/html/rfc8705
 [RFC8705] - OAuth 2.0 Mutual TLS Client Authentication and Certificate Bound Access Tokens
-[RFC8705]: <https://tools.ietf.org/html/rfc8705
 
+[JARM]: https://bitbucket.org/openid/fapi/src/master/Financial_API_JWT_Secured_Authorization_Response_Mode.md
 [JARM] - Financial-grade API: JWT Secured Authorization Response Mode for OAuth 2.0 (JARM)
-[JARM]: <https://bitbucket.org/openid/fapi/src/master/Financial_API_JWT_Secured_Authorization_Response_Mode.md
 
+[PAR]: https://tools.ietf.org/html/draft-ietf-oauth-par
 [PAR] - OAuth 2.0 Pushed Authorization Requests
-[PAR]: <https://tools.ietf.org/html/draft-ietf-oauth-par
 
+[JAR]: https://tools.ietf.org/html/draft-ietf-oauth-jwsreq
 [JAR] - OAuth 2.0 JWT Secured Authorization Request
-[JAR]: <https://tools.ietf.org/html/draft-ietf-oauth-jwsreq
 
+[FAPI-1-Baseline]: https://openid.net/specs/openid-financial-api-part-1-1_0.html
 [FAPI-1-Baseline] - Financial-grade API Security Profile 1.0 - Part 1: Baseline
-[FAPI-1-Baseline]: <https://openid.net/specs/openid-financial-api-part-1-1_0.html
 
+[FAPI-1-Advanced]: https://openid.net/specs/openid-financial-api-part-2-1_0.html
 [FAPI-1-Advanced] - Financial-grade API Security Profile 1.0 - Part 2: Advanced
-[FAPI-1-Advanced]: <https://openid.net/specs/openid-financial-api-part-2-1_0.html
 
+[FAPI-2-Baseline]: https://bitbucket.org/openid/fapi/src/master/FAPI_2_0_Baseline_Profile.md
 [FAPI-2-Baseline] - Financial-grade API Security Profile 2.0 - Part 1: Baseline
-[FAPI-2-Baseline]: <https://bitbucket.org/openid/fapi/src/master/FAPI_2_0_Baseline_Profile.md
 
+[LIWP]: https://bitbucket.org/openid/fapi/src/master/Financial_API_Lodging_Intent.md
 [LIWP] - OIDF FAPI WG Lodging Intent Working Paper
-[LIWP]: <https://bitbucket.org/openid/fapi/src/master/Financial_API_Lodging_Intent.md
 
+[OBB-FAPI]: https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID1.html
 [OBB-FAPI] - Open Banking Brasil Financial-grade API Security Profile 1.0
-[OBB-FAPI]: <https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID1.html
 
+[OBB-FAPI-DCR]: https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID1.html
 [OBB-FAPI-DCR] - Open Banking Brasil Financial-grade API Dynamic Client Registration Profile 1.0
-[OBB-FAPI-DCR]: <https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID1.html
 
+[OBB-Cert-Standards]: https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html
 [OBB-Cert-Standards] - Open Banking Brasil x.509 Certificate Standards
-[OBB-Cert-Standards]: <https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html
+
 
 ## Glossário  {#terms}
 
