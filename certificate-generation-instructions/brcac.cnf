@@ -1,59 +1,29 @@
-oid_section = new_oids
+[req]
+default_bits = 2048
+default_md = sha256
+encrypt_key = yes
+prompt = no
+string_mask = utf8only
+distinguished_name = client_distinguished_name
+req_extensions = req_cert_extensions
 
-[ new_oids ]
-atributos-obrigatorios_cnpj  = 2.16.76.1.3.3
-atributos-obrigatorios_name_cnpj  = 2.16.76.1.3.8
-
-[ req ]
-default_bits            = 2048                  # RSA key size
-encrypt_key             = no                    # Protect private key: yes or no. yes recommended
-default_md              = sha256                # MD to use. sha256 recommended
-utf8                    = yes                   # Input is UTF-8.
-string_mask             = utf8only              # Emit UTF-8 strings
-prompt                  = no                    # Prompt for DN. yes or no. 
-distinguished_name      = client_dn             # DN template. Mandatory to include organizationIdentifier
-req_extensions          = client_reqext         # Desired extensions
-
-[ client_dn ]
-
-#Fixed value
-countryName             = BR
-
-#Organisation Name from directory
-organizationName        = Open Banking Brasil
-
-#Can be Anything (not validated right now, must be present)
-commonName              = Whatever
-
-#Software Statement Id
-UID                     = be42d3a5-9861-4305-9deb-a22756ea7e82
-
-#One of "Private Organization", "Government Entity", "Business Entity", "Non-Commercial Entity"
-businessCategory        = Private Organization
-
-#Country of registration of the company
+[ client_distinguished_name ]
+businessCategory = <type of organization>
 jurisdictionCountryName = BR
+serialNumber = <CNPJ>
+countryName = BR
+organizationName = <Company Name>
+stateOrProvinceName = <UF>
+localityName = <City>
+organizationalUnitName = <PArticipante Code>
+UID = <Software Statement ID issued by the Directory>
+commonName = <FQDN|Wildcard>
 
-#CNPJ/registration number
-serialNumber            = 1335323600189
+[ req_cert_extensions ] 
+basicConstraints = CA:FALSE
+subjectAltName = @alt_name
+keyUsage = critical,digitalSignature,keyEncipherment
+extendedKeyUsage = clientAuth
 
-#City of registration address
-localityName            = BOTAFOGO
-
-#Organisation Id from directory
-organizationalUnitName  = 74e929d9-33b6-4d85-8ba7-c146c867a817
-
-#Anything, (not validated right now, must be present)
-stateOrProvinceName     = BOTAFOGO / RIO DE JANEIRO, RJ
-
-[ client_reqext ]
-keyUsage                = critical,digitalSignature,keyEncipherment
-extendedKeyUsage        = clientAuth 
-subjectKeyIdentifier    = hash
-basicConstraints        = CA:FALSE
-subjectAltName           = @alt_names
-
-[alt_names]
-#DNS names may be present in this certificate type, but are not validated
-DNS.1=anything.com
-
+[ alt_name ] 
+DNS = <FQDN|Wildcard>

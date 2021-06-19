@@ -50,37 +50,40 @@
 
 .# Prefácio
 
-A Estrutura Inicial do Open Banking Brasil (EIOBB) é responsável por criar os padrões e especificações necessários para atender aos requisitos e obrigações da Legislação do Open Banking do Brasil, conforme originalmente delineado pelo [Banco Central do Brasil](https://www.bcb.gov.br/content/config/Documents/BCB_Open_Banking_Communique-April-2019.pdf). É possível que alguns dos elementos deste documento estejam sujeitos a direitos de patente. A Estrutura Inicial do Open Banking Brasil não se responsabiliza pela identificação de qualquer ou todos os direitos de patente.
+Este documento também esta disponível em [português](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1-ptBR.html)
 
-.# Objetivo
+The Open Banking Brasil Initial Structure is responsible for creating standards and specifications necessary to meet the requirements and obligations of the Brasil Open Banking Legislation as originally outlined by the [Brasil Central Bank](https://www.bcb.gov.br/content/config/Documents/BCB_Open_Banking_Communique-April-2019.pdf). There is a possibility that some of the elements of this document may be the subject to patent rights. OBBIS shall not be held responsible for identifying any or all such patent rights.
 
-Especificar o conjunto de certificados necessários que devem ser utilizados pelas entidades participantes do Open Banking Brasil para garantir interoperabilidade para autenticação, confidencialidade, integridade e não repúdio entre os participantes, bem como para os usuários e consumidores destas entidades. O público desta especificação são  entidades participantes do Open Banking Brasil que necessitam fazer a emissão de certificados para se autenticar junto a outras entidades, bem como oferecer a seus clientes um canal de autenticação seguro.
+.# Objective
 
-.# Convenções Notacionais
+Specify the set of necessary certificates that must be used by participating organizations in Open Banking Brasil to ensure interoperability for validation, confidentiality, integrity and non-repudiation among participants, as well as for users and consumers of these entities. The public in this class are entities participating in Open Banking Brasil that issue certificates to authenticate themselves with other entities, as well as offer their customers a secure authentication channel.
 
-As palavras-chave "*deve*" (shall), "*não deve*" (shall not), "*deveria*" (should), "*não deveria*" (should not) e "*pode*" (may) presentes nesse documento devem ser interpretadas conforme as diretrizes descritas em [ISO Directive Part 2][ISODIR2] observando  seguinte equivalência:
 
-* "deve" => equivalente ao termo "shall" e expressa um requerimento definido no documento (nas traduções é similar ao termo "must", que pode denotar um requerimento externo ao documento);
-* "não deve" => equivalente ao termo "shall not" e também expressa um requerimento definido no documento;
-* "deveria" e "não deveria"=> equivalente ao termo "should" e "should not" e expressa uma recomendação
-* "pode" => equivalente ao termo "may" indica uma permissão
 
-Estas palavras-chave não são usadas como termos de dicionário, de modo que qualquer ocorrência deles deve ser interpretada como palavras-chave e não devem ser interpretados com seus significados de linguagem natural.
+.# Notational Conventions
+
+The key words "shall", "shall not",
+"should", "should not", "may", and
+"can" in this document are to be interpreted as described in
+[ISO Directive Part 2][ISODIR2].
+These key words are not used as dictionary terms such that
+any occurrence of them shall be interpreted as key words
+and are not to be interpreted with their natural language meanings.
 
 {mainmatter}
 
-# Escopo {#Escopo}
+# Scope
 
-Este documento especifica os tipos de certificados necessários para:
+This document specifies the types of certificates required for:
 
-* Autenticar mutuamente (MTLS - Mutual TLS) as aplicações dos participantes;
-* Assinatura de Mensagens (JWS - JSON Web Signature) de aplicações para garantir a autenticidade e não repúdio de mensagens entre os participantes;
-* Apresentar um canal seguro e confiável para clientes do Open Banking Brasil;
-* Autenticar participantes no Diretório de participantes do Open Banking Brasil.
+* Mutually authenticate (MTLS - Mutual TLS) participants' applications;
+* Message Signature (JWS - JSON Web Signature) applications to ensure authenticity and non-repudiation of messages between participants;
+* Provide a safe and reliable channel for Open Banking Brasil customers;
+* Authenticate participants in the Open Banking Brasil Participant Directory.
 
 # Referências Normativas  {#ReferenciasNormativas}
 
-Os seguintes documentos referenciados são indispensáveis para a aplicação deste documento. Para referências datadas, apenas a edição citada se aplica. Para referências não datadas, a última edição do documento referenciado (incluindo quaisquer emendas) se aplica.
+The following referenced documents are indispensable for the application of this document. For dated references, only the edition cited applied. For undated references, the latest edition of the referenced document (including any amendments) applies.
 
 * [ISODIR2] - ISO/IEC Directives Part 2 [ISODIR2]: <https://www.iso.org/sites/directives/current/part2/index.xhtml>
 * [RFC5280] -  Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List (CRL) Profile: <https://datatracker.ietf.org/doc/html/rfc5280>
@@ -96,9 +99,9 @@ Os seguintes documentos referenciados são indispensáveis para a aplicação de
 * [BCB-IN99] - Manual de Segurança do Open Banking: <https://www.in.gov.br/en/web/dou/-/instrucao-normativa-bcb-n-99-de-14-de-abril-de-2021-314641007>
 * [RFC2818] - HTTP Over TLS: <https://datatracker.ietf.org/doc/html/rfc2818>
 
-# Termos e Definições {#TermosDefinicoes}
+# Terms and definitions
 
-Para o propósito deste documento os termos definidos na [RFC5280], [BCP195], [RFC8705], e ISO29100 são aplicáveis.
+For the purpose of this document, the terms defined in [RFC5280], [BCP195], [RFC8705], e ISO29100 apply.
 
 # Glossário {#Glossario}
 
@@ -111,62 +114,62 @@ Para o propósito deste documento os termos definidos na [RFC5280], [BCP195], [R
 * **mTLS** – Mutual Transport Layer Security
 * **ICP** - Infraestrutura de Chave Públicas Brasileira
 
-# Padrão de Certificados Open Banking Brasil {#PadraoCertificadosOpenBankingBrasil}
+# Open Banking Brasil Standard
 
-## Introdução {#Introducao}
+## Introduction
 
-O ecossistema do Open Banking Brasil faz uso de cadeias de certificados e protocolo TLS para garantir a confidencialidade, autenticação e integridade do canal de comunicação utilizado pelas APIs das instituições participantes, bem como dos clientes de cada um dos participantes.
+The Open Banking Brazil ecosystem makes use of chains of certificates and TLS protocol to guarantee the confidentiality, authentication and integrity of the communication channel used by the APIs of the participating organizations, as well as the customers of each of the participants.
 
-Os certificados utilizados pelo Open Banking Brasil também são necessários para autenticar as aplicações através do oAuth 2.0 mTLS ou private_key_jwt, além de também servirem para realizar a assinatura de payload pelo uso de JWS. Outra atribuição importante dos certificados é autenticar e apresentar um canal seguro para o usuário final no ato de autenticação e uso dos serviços prestados pela entidade participante.
+The certificates used by Open Banking Brasil are also required to authenticate applications through oAuth 2.0 mTLS or private_key_jwt, in addition to being used to perform the payload signature using JWS. Another important attribution of certificates is to authenticate and present a secure channel to the end user in the act of authentication and use of services provided by the participating organizations.
 
-## Certificados ICP-Brasil {#CertificadosICPBrasil}
+## ICP-Brasil Certificates
 
-Os certificados emitidos pelas Autoridades Certificadoras autorizadas pelo ICP-Brasil são utilizados apenas na comunicação entre as entidades participantes do ecossistema do Open Banking Brasil.
+Certificates issued by Certifying Authorities authorized by ICP-Brasil are only used for communication between entities participating in the Open Banking Brasil ecosystem.
 
-Os processos de emissão e revogação dos certificados são de responsabilidade das próprias Autoridades Certificadores, sendo regulamentados por Declarações de Prática de Certificação, e supervisionadas pelo Comitê Gestor da Infraestrutura de Chaves Públicas Brasileira.
+The certificate issuing and revocation processes are responsibility of the Certifate Authorities themselves, being regulated by Certification Practice Statements, and supervised by the Management Committee of the Brazilian Public Key Infrastructure (Comitê Gestor da Infraestrutura de Chaves Públicas Brasileira).
 
-As práticas, processos, disponibilização e valores praticados pelas Autoridades Certificadoras não são de responsabilidade do Estrutura Inicial do Open Banking Brasil.
+The practices, processes, availability and values practiced by the Certification Authorities are not responsibility of the Initial Structure of Open Banking Brasil.
 
-**Algoritmos**
+**Algorithms**
 
-Todos os certificados emitidos junto ao ICP-Brasil devem possuir as seguintes características:
+All certificates issued by ICP-Brasil must have the following characteristics:
 
-* Tipo A do ICP-Brasil;
-* Algoritmo de Chaves: RSA 2048 bits;
+* Type A of ICP-Brasil;
+* Key Algorithms: RSA 2048 bits;
 * Message Digest: SHA 256 bits.
 
-### Certificado Servidor {#CertificadoServidor}
+### Server Certificate
 
-O Certificado Servidor deve ser emitido para proteger e autenticar o canal TLS utilizado pelas APIs que serão consumidas pelas aplicações cliente de entidades participantes do Open Banking.
+The Server Certificate must be issued to protect and authenticate the TLS channel used by the APIs that will be consumed by client applications of organizations participating in Open Banking.
 
-O padrão de certificado utilizado deve seguir as práticas de emissão de certificados existentes de "CERTIFICADO PARA SERVIDOR WEB – ICP-Brasil".
+The certificate standard used must follow the existing certificate issuing practices of "CERTIFICATE FOR WEB SERVER – ICP-Brasil".
 
-### Certificado Cliente {#CertificadoCliente}
+### Client Certificate
 
-Os Certificados de Aplicação Cliente (Transporte) são utilizados para autenticar o canal mTLS e para realizar a autenticação da aplicação cliente através de oAuth2.0 mTLS ou private_key_jwt, de acordo com o cadastro da aplicação realizado pelo processo de Dynamic Client Registration junto à entidade transmissora.
+Client Application Certificates (Transport) are used to authenticate the mTLS channel and to authenticate the client application through oAuth2.0 mTLS or private_key_jwt, according to the application registration performed by the Dynamic Client Registration process with the transmitting organization.
 
-Para emissão de Certificado Cliente é necessário que a instituição participante do Open Banking Brasil tenha realizado o cadastro da aplicação no Serviço de Diretório, através do processo de emissão de Software Statement Assertion, e com isso já tenha obtido o valor de Software Statement ID.
+To issue a Client Certificate, the participating organization in Open Banking Brasil must register the application in the Directory Service through the Software Statement Assertion issue process, and thus have already obtained the Software Statement ID value.
 
-#### Atributos Open Banking Brasil {#AtributosOpenBankingBrasil}
+#### Open Banking Brasil Attributes
 
-* **serialNumber:** Cadastro Nacional de Pessoal Jurídica (CNPJ) da pessoa jurídica titular do certificado e associado ao atributo UID e Software Statement ID, durante validação junto ao Serviço de Diretório do Open Banking Brasil;
-* **organizationalUnitName:** Código de Participante associado ao CNPJ listado no Serviço de Diretório do Open Banking Brasil;
-* **UID:** Software Statement ID cadastrado no Serviço de Diretório do Open Banking Brasil e pertencente ao CNPJ e Código de Participante.
+* **serialNumber:** National Register of Legal Personnel (CNPJ) of the legal entity holding the certificate and associated with the UID attribute and Software Statement ID, during validation with the Directory Service of Open Banking Brasil;
+* **organizationalUnitName:** Participant Code associated with the CNPJ listed in the Directory Service of Open Banking Brasil;
+* **UID:** Software Statement ID registered in the Directory Service of Open Banking Brasil and belonging to the CNPJ and Participant Code.
 
-O Certificado Cliente deve ser emitido através de cadeia V10, e deve obrigatoriamente conter os seguintes atributos:
+The Client Certificate must be issued through the V10 chain, and must contain the following attributes:
 
 **Distinguished Name**
 
-* **businessCategory (OID 2.5.4.15):**  Tipo de categoria comercial, devendo conter: "Private Organization" ou "Government Entity" ou "Business Entity" ou "Non-Commercial Entity"
+* **businessCategory (OID 2.5.4.15):** Type of business category, which must contain: "Private Organization" or "Government Entity" or "Business Entity" or "Non-Commercial Entity"
 * **jurisdictionCountryName (OID: 1.3.6.1.4.1.311.60.2.1.3):** BR
 * **serialNumber (OID 2.5.4.5):** CNPJ
 * **countryName (OID 2.5.4.6):** BR
-* **organizationName (OID 2.5.4.10):** Razão Social
-* **stateOrProvinceName (OID 2.5.4.8):** Unidade da federação do endereço físico do titular do certificado
-* **localityName (OID 2.5.4.7):** Cidade do endereço físico do titular
-* **organizationalUnitName (OID 2.5.4.11):** Código de Participante associado ao CNPJ listado no Serviço de Diretório do Open Banking Brasil
-* **UID (OID 0.9.2342.19200300.100.1.1):** Software Statement ID gerado pelo Diretório do Open Banking Brasil
-* **commonName (OID 2.5.4.3):** FQDN ou Wildcard
+* **organizationName (OID 2.5.4.10):** Company Name
+* **stateOrProvinceName (OID 2.5.4.8):** Federation unit of the certificate holder's physical address
+* **localityName (OID 2.5.4.7):** City of the holder's physical address
+* **organizationalUnitName (OID 2.5.4.11):** Participant Code associated with the CNPJ listed in the Directory Service of Open Banking Brasil
+* **UID (OID 0.9.2342.19200300.100.1.1):** Software Statement ID generated by Open Banking Brasil Directory
+* **commonName (OID 2.5.4.3):** FQDN or Wildcard
 
 **Certificate Extensions**
 
@@ -175,28 +178,28 @@ O Certificado Cliente deve ser emitido através de cadeia V10, e deve obrigatori
 
 **Subject Alternative Name**
 
-* **dNSName:** FQDN ou Wildcard
+* **dNSName:** FQDN or Wildcard
 
-### Certificado de Assinatura {#CertificadoAssinatura}
+### Signature Certificate
 
-Os Certificados de Assinatura são utilizados para realizar assinatura do payload através do uso de JWS (JSON Web Signature).
+Signature Certificates are used to perform payload signature through the use of JWS (JSON Web Signature).
 
-#### Atributos Open Banking Brasil Presentes no Certificado {#AtributosCertificado}
+#### Open Banking Brasil Attributes Present in the Certificate
 
-* **UID:** Código de Participante associado ao CNPJ listado no Serviço de Diretório do Open Banking Brasil;
-* **commonName:** Razão Social cadastrado no Serviço de Diretório do Open Banking Brasil e pertencente ao CNPJ e Código de Participante.
+* **UID:** Participant Code associated with the CNPJ listed in the Directory Service of Open Banking Brasil;
+* **commonName:** Company Name registered in the Directory Service of Open Banking Brasil and belonging to the CNPJ and Participant Code.
 
-O Certificado de Assinatura deve ser emitido através de cadeia V5, e deve obrigatoriamente conter os seguintes atributos:
+The Signature Certificate must be issued through the V5 chain, and must contain the following attributes:
 
 **Distinguished Name**
 
-* **UID (OID 0.9.2342.19200300.100.1.1):**  Código de Participante associado ao CNPJ listado no Serviço de Diretório do Open Banking Brasil
+* **UID (OID 0.9.2342.19200300.100.1.1):** Participant Code associated with the CNPJ listed in the Directory Service of Open Banking Brazil
 * **countryName (OID 2.5.4.6):** BR
 * **organizationName (OID 2.5.4.10):** ICP-Brasil
-* **organizationalUnitName (OID 2.5.4.11):** Nome da Autoridade Certificadora
-* **organizationalUnitName (OID 2.5.4.11):** CNPJ da Autoridade de Registro
-* **organizationalUnitName (OID 2.5.4.11):** Tipo de identificação utilizada (presencial, videoconferência ou certificado digital)
-* **commonName (OID 2.5.4.3):** Nome da Razão Social
+* **organizationalUnitName (OID 2.5.4.11):** Certificate Authority Name
+* **organizationalUnitName (OID 2.5.4.11):** CNPJ of the Registration Authority
+* **organizationalUnitName (OID 2.5.4.11):** Type of identification used (in person, videoconference or digital certificate)
+* **commonName (OID 2.5.4.3):** Company Name
 
 **Certificate Extensions**
 
@@ -204,43 +207,44 @@ O Certificado de Assinatura deve ser emitido através de cadeia V5, e deve obrig
 
 **Subject Alternative Name**
 
-* **otherName (OID 2.16.76.1.3.2 – ICP-Brasil):** Nome do responsável pelo certificado
-* **otherName (OID 2.16.76.1.3.3 – ICP-Brasil):** Cadastro Nacional de Pessoa Jurídica (CNPJ) da pessoa jurídica titular do certificado;
-* **otherName (OID 2.16.76.1.3.4 – ICP-Brasil):** Responsável pelo certificado de pessoa jurídica titular do certificado (data de nascimento, CPF, PIS/PASEP/CI, RG);
-* **otherName (OID 2.16.76.1.3.7  – ICP-Brasil):** Número do Cadastro Especifico do INSS (CEI) da pessoa jurídica titular do certificado.
+* **otherName (OID 2.16.76.1.3.2 – ICP-Brasil):** Name of the person responsible for the certificate
+* **otherName (OID 2.16.76.1.3.3 – ICP-Brasil):** National Register of Legal Entities (CNPJ) of the legal entity holding the certificate;
+* **otherName (OID 2.16.76.1.3.4 – ICP-Brasil):** Responsible for the certificate of legal entity holding the certificate (date of birth, CPF, PIS/PASEP/CI, RG);
+* **otherName (OID 2.16.76.1.3.7 – ICP-Brasil):** INSS Specific Registry Number (CEI) of the legal entity holding the certificate.
 
-#### Autoridades Certificadoras Participantes {#AutoridadesCertificadorasParticipantes}
+#### Participating Certificate Authorities
 
-As seguintes autoridades certificadoras realizaram o processo de onboard ao Open Banking Brasil e estão habilitadas para realizar a emissão de certificados do Open Banking Brasil.
+The following certifying authorities carried out the onboard process for Open Banking Brasil and are authorized to issue Open Banking Brasil certificates.
 
 * N/A
 
-### Certificado para Front-End {#CertificadoFrontEnd}
+### Front-End Certificates
 
-Os certificados para Front-End são utilizados para disponibilizar serviços, em geral páginas Web, com uso de TLS, que são acessados pelo usuário final. Dado a sua finalidade, e para garantir maior interoperabilidade, os certificados devem ser do tipo EV (Extended Validation) e devem ser ser gerados através de uma autoridade certificadora válida, seguindo as regras definidas na RFC 5280 e RFC 2818, em conformidade com os princípios e critérios WebTrust.
+Front-End certificates are used to provide services, in general web pages, using TLS, which are accessed by the end user. Given their purpose, and to ensure greater interoperability, certificates must be of the EV (Extended Validation) type and must be generated through a valid certificte authority, following the rules defined in RFC 5280 and RFC 2818, in accordance with the principles and WebTrust criteria.
 
-# Reconhecimento {#Reconhecimento}
+# Acknowledgements
 
-Agradecemos a todos que estabeleceram as bases para o compartilhamento seguro e seguro de dados por meio da formação do Grupo de Trabalho FAPI da OpenID Foundation, o GT-Segurança do Open Banking Brasil e aos pioneiros que ficarão em seus ombros.
+With thanks to all who have set the foundations for secure and safe data sharing through the formation of the OpenID Foundation FAPI Working Group, the Open Banking Brasil GT Security and to the pioneers who will stand on their shoulders.
 
-As seguintes pessoas contribuíram para este documento:
+The following people contributed to this document:
 
 * Marcos Rodrigues (Itaú)
 * José Michael Dias (Grupo Pan)
 * Ralph Bragg (Raidiam)
 * Ediemerson Moreira Alves (Santander)
 
-# Informativo {#Informativo}
+# Notices
 
-Copyright (c) 2021 Estrutura Inicial do Open Banking Brasil.
+Copyright (c) 2021 Open Banking Brasil Initial Structure.
 
-A Estrutura Inicial do Open Banking Brasil (EIOBB) concede a qualquer Colaborador, desenvolvedor, implementador ou outra parte interessada uma licença de direitos autorais mundial não exclusiva, livre de royalties para reproduzir, preparar trabalhos derivados, distribuir, executar e exibir, estes Implementadores Rascunho ou Especificação Final exclusivamente para fins de (i) desenvolver especificações e (ii) implementar Rascunhos de Implementações e Especificações Finais com base em tais documentos, desde que a atribuição seja feita ao EIOBB como a fonte do material, mas que tal atribuição o faça não indica endosso do EIOBB.
+The Open Banking Brasil Initial Structure (OBBIS) grants to any Contributor, developer, implementer, or other interested party a non-exclusive, royalty-free, worldwide copyright license to reproduce, prepare derivative works from, distribute, perform and display, this Implementers Draft or Final Specification solely for the purposes of (i) developing specifications, and (ii) implementing Implementers Drafts and Final Specifications based on such documents, provided that attribution be made to the OBBIS as the source of the material, but that such attribution does not indicate an endorsement by the OBBIS.
 
-A tecnologia descrita nesta especificação foi disponibilizada a partir de contribuições de várias fontes, incluindo membros da OpenID Foundation, do GT-Segurança do Open Banking Brasil e outros. Embora a Estrutura Inicial do Open Banking Brasil tenha tomado medidas para ajudar a garantir que a tecnologia esteja disponível para distribuição, ela não toma posição quanto à validade ou escopo de qualquer propriedade intelectual ou outros direitos que possam ser reivindicados como pertencentes à implementação ou uso do tecnologia descrita nesta especificação ou até que ponto qualquer licença sob tais direitos pode ou não estar disponível; nem representa que fez qualquer esforço independente para identificar tais direitos. A Estrutura Inicial do Open Banking Brasil e os contribuidores desta especificação não oferecem (e por meio deste expressamente se isentam de quaisquer) garantias (expressas, implícitas ou de outra forma), incluindo garantias implícitas de comercialização, não violação, adequação a uma finalidade específica ou título, relacionados a esta especificação, e todo o risco quanto à implementação desta especificação é assumido pelo implementador. A política de Direitos de Propriedade Intelectual do Open Banking Brasil exige que os contribuidores ofereçam uma promessa de patente de não fazer valer certas reivindicações de patentes contra outros contribuidores e implementadores. A Estrutura Inicial do Open Banking Brasil convida qualquer parte interessada a trazer à sua atenção quaisquer direitos autorais, patentes, pedidos de patentes ou outros direitos de propriedade que possam abranger a tecnologia que possa ser necessária para praticar esta especificação.
+The technology described in this specification was made available from contributions from various sources, including members of the OpenID Foundation, the Open Banking Brasil GT Security Working Group and others. Although the Open Banking Brasil Initial Structure has taken steps to help ensure that the technology is available for distribution, it takes no position regarding the validity or scope of any intellectual property or other rights that might be claimed to pertain to the implementation or use of the technology described in this specification or the extent to which any license under such rights might or might not be available; neither does it represent that it has made any independent effort to identify any such rights. The Open Banking Brasil Initial Structure and the contributors to this specification make no (and hereby expressly disclaim any) warranties (express, implied, or otherwise), including implied warranties of merchantability, non-infringement, fitness for a particular purpose, or title, related to this specification, and the entire risk as to implementing this specification is assumed by the implementer. The Open Banking Brasil Intellectual Property Rights policy requires contributors to offer a patent promise not to assert certain patent claims against other contributors and against implementers. The Open Banking Brasil Initial Structure invites any interested party to bring to its attention any copyrights, patents, patent applications, or other proprietary rights that may cover technology that may be required to practice this specification.
 
-# Apêndice {#Apendice}
 
-## Modelo de Configuração de Certificado Cliente - OpenSSL {#ModeloConfiguracaoCertificadoClienteOpenSSL}
+# Appendix
+
+## Configuration Template for Client Certificate - OpenSSL 
 
 ```
 [req]
@@ -253,15 +257,15 @@ distinguished_name = client_distinguished_name
 req_extensions = req_cert_extensions
 
 [ client_distinguished_name ]
-businessCategory = <tipo de entidade>
+businessCategory = <type of organization>
 jurisdictionCountryName = BR
 serialNumber = <CNPJ>
 countryName = BR
-organizationName = <Razao Social>
+organizationName = <Company Name>
 stateOrProvinceName = <UF>
-localityName = <Cidade>
-organizationalUnitName = <Código de Participante>
-UID = <Software Statement ID emitido pelo diretório>
+localityName = <City>
+organizationalUnitName = <PArticipante Code>
+UID = <Software Statement ID issued by the Directory>
 commonName = <FQDN|Wildcard>
 
 [ req_cert_extensions ] 
@@ -274,7 +278,7 @@ extendedKeyUsage = clientAuth
 DNS = <FQDN|Wildcard>
 ```
 
-## Modelo de Configuração de Certificado de Assinatura - OpenSSL {#ModeloConfiguracaoCertificadoAssinaturaOpenSSL}
+## Configuration Template for Signature Certificate - OpenSSL
 
 ```
 [req]
@@ -290,10 +294,10 @@ req_extensions = req_cert_extensions
 UID = <Código de Participante>
 countryName = BR
 organizationName = ICP-Brasil
-0.organizationalUnitName = <Autoridade Certificadora>
-1.organizationalUnitName = <CNPJ da Autoridade Registradora>
-2.organizationalUnitName = <Tipo de validação>
-commonName = <Razão Social>
+0.organizationalUnitName = <Certificate Authority>
+1.organizationalUnitName = <CNPJ da Registration Authority>
+2.organizationalUnitName = <Validation type>
+commonName = <Company Name>
 
 [ req_cert_extensions ] 
 basicConstraints = CA:FALSE
@@ -301,8 +305,8 @@ subjectAltName = @alt_name
 keyUsage = critical,digitalSignature,nonRepudiation
 
 [ alt_name ] 
-otherName.0 = 2.16.76.1.3.2;UTF8:<Nome da pessoal responsável pela entidade>#CNPJ
+otherName.0 = 2.16.76.1.3.2;UTF8:<Name of the person responsible for the organization>
 otherName.1 = 2.16.76.1.3.3;UTF8<CNPJ>
-otherName.2 = 2.16.76.1.3.4;UTF8:<CPF/PIS/RF da Pessoa responsável>
-otherName.3 = 2.16.76.1.3.7;UTF8:<Número de INSS>
+otherName.2 = 2.16.76.1.3.4;UTF8:<CPF/PIS/RF of responsible person>
+otherName.3 = 2.16.76.1.3.7;UTF8:<INSS Number>
 ```

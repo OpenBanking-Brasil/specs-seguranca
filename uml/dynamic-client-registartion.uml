@@ -4,13 +4,13 @@ participant DirectoryAS as diras
 participant DirectoryAPI as dir
 participant DirectoryJWKS as jwks
 participant BankAS as as
-participant ICP as icp
+participant ICP-Brasil as icp
 
 tpp->diras: OAuth 2.0 tls_client_auth 
 note left of tpp: Client Credentials Grant\nScope directory:software
 diras->diras: Validate Certificate
-diras->ICP: Check Revocation Status (OCSP)
-ICP-->diras: Certificate OK
+diras->icp: Check Revocation Status
+icp-->diras: Certificate OK
 diras-->tpp: Access Token
 tpp->DirectoryAPI: Retrieve Authorisation Servers + Access Token
 DirectoryAPI-->TPP: Authorisation Servers
@@ -20,8 +20,8 @@ TPP->TPP: Extract Desired MetaData
 TPP->dir: Retrieve SSA
 dir-->TPP: SSA JWT
 TPP->BankAS: Post RFC7591 with SSA JWT as software_statement
-BankAS->ICP: Check Revocation Status (OCSP)
-ICP-->BankAS: Certificate OK
+BankAS->icp: Check Revocation Status
+icp-->BankAS: Certificate OK
 BankAS->jwks: Retrieve Key Set
 jwks->BankAS: Return Key Set
 BankAS-->BankAS: Validate SSA in RFC 7591 Request
