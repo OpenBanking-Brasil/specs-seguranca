@@ -1,13 +1,13 @@
 * TOC
 {:toc}
 
-# Segurança  {#Seguranca}
+# Segurança  {#seguranca}
 
-## Introdução   {#Introducao}
+## Introdução   {introducao}
 
-Esta seção tem como finalidade auxiliar na auto avaliação aos cumprimentos dos requisitos de segurança da informação relacionados a autorização e autenticação de APIs e End-Users, emissão de certificados digitais e requisitos para o onboarding no Diretório de Participantes para as Instituições participantes do Open Banking.
+Esta seção tem como finalidade auxiliar na auto avaliação aos cumprimentos dos requisitos de segurança da informação relacionados à autorização e autenticação de APIs e clientes de bancos e outras instituições financeiras, emissão de certificados digitais e requisitos para o onboarding no Diretório de Participantes para as instituições participantes do Open Banking Brasil.
 
-As instituições participantes do Open Banking possuem a obrigação de acompanhar a edição e a revogação de eventuais normas com impacto no tema de forma a estar permanentemente em dia com as determinações legais. Compõem, de forma não exaustiva, o rol de atos normativos cuja observância é essencial pelas instituições participantes do Open Banking:
+As instituições participantes do Open Banking Brasil possuem a obrigação de acompanhar a edição e a revogação de eventuais normas com impacto no tema, de forma a estar permanentemente em dia com as determinações legais. Compõem, de forma não exaustiva, o rol de atos normativos cuja observância é essencial pelas instituições participantes do Open Banking Brasil:
 
 [Resolução Conjunta CMN/BCB nº 1, de 2020](https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20Conjunta&numero=1)
 
@@ -31,56 +31,56 @@ Estas especificações baseiam-se, referenciam, e complementam, quando aplicáve
 
 [CWE Top 25 Software Weaknesses](https://cwe.mitre.org/top25/archive/2020/2020_cwe_top25.html)
 
-Além desse guia, foi elaborado um checklist para auxiliar os participantes do Open Banking a alcançar um nível adequado de Segurança da Informação, esse checklist pode ser baixado em formato Word ou Excel a seguir.
+Além desse guia, foi elaborado um checklist para auxiliar os participantes do Open Banking Brasil a alcançar um nível adequado de segurança da informação. Esse checklist pode ser baixado em formato Word ou Excel a seguir.
 
 [Download Autoavaliação dos requisitos de SI - 1.0.docx](https://openbanking-brasil.github.io/areadesenvolvedor/documents/Autoavalia%C3%A7%C3%A3o_dos_requisitos_de%20_SI-1.0.docx)
 
 [Download Autoavaliação dos requisitos de SI - 1.0.xlsx](https://openbanking-brasil.github.io/areadesenvolvedor/documents/Autoavalia%C3%A7%C3%A3o_dos_requisitos_de%20_SI-1.0.xlsx)
 
-## Visão Geral do Ecossistema  {#VisaoGeral}
+## Visão Geral do Ecossistema  {#visao-geral-ecossistema}
 
 Em sua essência, o Open Banking Brasil é um ecossistema de compartilhamento de dados onde os clientes de bancos e outras instituições financeiras desejam compartilhar suas informações de conta ou dar permissão para que os pagamentos sejam executados em seu nome com serviços de terceiros.
 
-Há uma série de funções necessárias para vincular qualquer sistema de identificação, autenticação e autorização, independentemente do setor. Todas essas funções são necessárias, mas várias funções podem ser desempenhadas por cada participante. Em geral, o usuário final ("Subject"), está dando a um sistema ("Client") uma autorização ("Access Token") para acessar um recurso protegido mantido pelo provedor ("Resource Server"). Isso exige que o *Subject* e o *Client* sejam identificados e autenticados e que a autorização seja confirmada.
+Há uma série de funções necessárias para vincular qualquer sistema de identificação, autenticação e autorização, independentemente do setor. Todas essas funções são necessárias, mas várias funções podem ser desempenhadas por cada participante. Em geral, o usuário final está dando à um sistema uma autorização (*access token*) para acessar um recurso protegido mantido pelo provedor (*resource server*). Isso exige que o usuário final e o sistema sejam identificados e autenticados e que a autorização seja confirmada.
 
-As regras exatas e os requisitos legais para cada função em um setor específico formam um framework de confiança ('Trust Framework'). Cada ecossistema requer um conjunto padronizado de regras e requisitos legais que abrangem todas as funções e obrigações das interações acima. A combinação de quem fornece qual(is) função(ões), os níveis aos quais eles devem desempenhar essas funções e os padrões pelos quais essas operações devem ser definidas por um framework de confiança específico do setor.
+As regras exatas e os requisitos legais para cada função em um setor específico formam um framework de confiança (*trust framework*). Cada ecossistema requer um conjunto padronizado de regras e requisitos legais que abrangem todas as funções e obrigações das interações acima. A combinação de quem fornece qual(is) função(ões), os níveis aos quais eles devem desempenhar essas funções, e os padrões pelos quais essas operações devem ser realizadas, devem ser definidas por um framework de confiança específico do setor.
 
-Diferentes frameworks de confiança terão diferentes opções de implementação, mas um framework de confiança comum é um pré-requisito para transformar um 'setor' em um 'ecossistema'. Um framework de confiança comum reduz significativamente a complexidade e custos, aumenta a escalabilidade e a interoperabilidade dentro do setor, bem como abre opções para o tipo de padronização intersetorial que o Open Banking Brasil está buscando.
+Diferentes frameworks de confiança terão diferentes opções de implementação, mas um framework de confiança comum é um pré-requisito para transformar um *setor* em um *ecossistema*. Um framework de confiança comum reduz significativamente a complexidade e custos, aumenta a escalabilidade e a interoperabilidade dentro do setor, bem como abre opções para o tipo de padronização intersetorial que o Open Banking Brasil está buscando.
 
-Diferentes implementações podem ser definidas para setores, com diferentes prós / contras e custos associados para diferentes participantes. Cada uma das implementações propostas pode ser usada para qualquer setor se os pré-requisitos corretos estiverem em vigor. A solução certa dependerá do apetite e alinhamento de cada conjunto de participantes.
+Diferentes implementações podem ser definidas para setores, com diferentes prós e contras e custos associados para diferentes participantes. Cada uma das implementações propostas pode ser usada para qualquer setor se os pré-requisitos corretos estiverem em vigor. A solução certa dependerá do apetite e alinhamento de cada conjunto de participantes.
 
 A implementação de um mecanismo comum para o Open Banking Brasil exigirá um compromisso com a simetria entre os setores para incluir detalhes específicos do setor nos princípios do framework de confiança.
 
 É necessário fazer escolhas técnicas para garantir que qualquer implementação forneça uma base estrita e consistente para ter credibilidade, mas mantenha a flexibilidade para se adaptar às necessidades futuras. Isso implica padrões de código-fonte aberto amplamente disponíveis, amplamente compreendidos e que foram experimentados e testados. Além de habilitar um gama de parceiros e fornecedores que podem apoiar qualquer construção técnica, o que significa que continuará havendo espaço para desenvolvimento comercial de soluções.
 
-### Participantes de um Ecossistema de Compartilhamento de Dados  {#Participantes}
+### Participantes de um Ecossistema de Compartilhamento de Dados  {#participantes-ecossistema-compartilhamento-dados}
 
 Nos ecossistemas de Open Banking voltados para o consumidor que estamos considerando, temos três participantes principais:
 
-* o cliente (*user*)
-* a instituição transmissora de dados (*provider*), que oferece serviços bancários
-* a instituição receptora de dados (*TPP - Third Party Provider*), que oferece uma proposta de Open Banking para o cliente:
+* o cliente (usuário final que possui as informações que se deseja acessar);
+* a instituição transmissora de dados, que oferece serviços bancários;
+* a instituição receptora de dados, que oferece uma proposta de Open Banking para o cliente.
 
 Em todos os casos a seguir, assumimos:
 
-* Um cliente possui uma conta para um serviço principal ou conjunto de recursos numa instituição transmissora de dados
-* Uma instituição receptora de dados oferece ao cliente uma proposta habilitada por meio do compartilhamento inteligente de dados
-* O cliente dá consentimento à instituição receptora de dados para fins de entrega dessa proposta
+* Um cliente possui uma conta para um serviço principal ou conjunto de recursos numa instituição transmissora de dados;
+* Uma instituição receptora de dados oferece ao cliente uma proposta habilitada por meio do compartilhamento inteligente de dados;
+* O cliente dá consentimento à instituição receptora de dados para fins de entrega dessa proposta;
 * A instituição transmissora de dados tem a obrigação de salvaguardar os dados do cliente, mas também de compartilhá-los quando instruído.
 
 O ecossistema também possui provedores de serviços de confiança, que são entidades que fornecem garantia técnica a ambas instituições (transmissoras e receptoras) de que todos estão autorizados a participar do ecossistema.
 
 Os **padrões** técnicos necessários para dar suporte ao framework de confiança devem atender todos os requisitos a seguir:
 
-* Identificação de todos os participantes do ecossistema
-* Autenticação quando exigida de todos os participantes entre si
-* Confirmação de autorização de todos os participantes em um ecossistema de compartilhamento de dados
+* Identificação de todos os participantes do ecossistema;
+* Autenticação quando exigida de todos os participantes entre si;
+* Confirmação de autorização de todos os participantes em um ecossistema de compartilhamento de dados.
 
 Os **serviços** técnicos necessários para suportar um ecossistema devem habilitar todos os requisitos acima **em uma base e modo contínuos**, isto é, não apenas em um único ponto de registro.
 
-### Princípios de Especificação e Requisitos de Alto Nível  {#Principios}
+### Princípios de Requisitos  {#principios-requisitos}
 
-O Open Banking Brasil adotou os seguintes princípios e requisitos de alto nível no que diz respeito às normas técnicas.
+O Open Banking Brasil adotou os seguintes princípios e requisitos no que diz respeito às normas técnicas do ecossistema:
 
 * Consentimento
   * Os clientes devem estar sempre no controle de quem tem acesso aos seus dados e para quais fins eles estão sendo usados.
@@ -96,30 +96,30 @@ O Open Banking Brasil adotou os seguintes princípios e requisitos de alto níve
 * Integridade e não repúdio
   * Todos os participantes devem ser capazes de provar que as mensagens não foram adulteradas e, na verdade, foram enviadas apenas por um participante legítimo.
 
-Além dos requisitos de alto nível, os seguintes princípios também foram adotados.
+Além disse, as seguintes diretrizes também foram adotadas:
 
-* Não reinventar a roda, se existir uma especificação que seja adequada para o propósito, amplamente adotada e publicamente disponível, deve-se adotá-la.
-* Envolver-se com outros órgãos de normalização para aprender com experiências anteriores sobre o que funcionou, o que não funcionou, e o que pode ser feito melhor.
-* Assegurar o amplo suporte da indústria para garantir o máximo de chances de sucesso e, mais importante, a segurança do cliente.
-* Solicitar feedback com antecedência e com frequência, reconhecer que serão necessárias várias iterações para desenvolver um padrão.
+* Não reinventar a roda, se existir uma especificação que seja adequada para o propósito, amplamente adotada e publicamente disponível, deve-se adotá-la;
+* Envolver-se com outros órgãos de normalização para aprender com experiências anteriores sobre o que funcionou, o que não funcionou, e o que pode ser feito melhor;
+* Assegurar o amplo suporte da indústria para garantir o máximo de chances de sucesso e, mais importante, a segurança do cliente;
+* Solicitar feedback com antecedência e com frequência, reconhecer que serão necessárias várias iterações para desenvolver um padrão;
 * O framework de confiança que sustenta o ecossistema de compartilhamento de dados, que é o Open Banking Brasil, é um framework técnico que precisa ser flexível o suficiente para permitir que os participantes e o ecossistema inovem, cresçam e se desenvolvam, enquanto permanecem interoperáveis.
 
 Todos os participantes devem ter certeza de que todos os atores do ecossistema estão lidando com seus dados com segurança tempo todo. Isso requer que todos os participantes testem publicamente seus sistemas quanto à conformidade com as especificações e disponibilizem os resultados de seus testes de conformidade para exame público de outros participantes.
 
 **Este é um requisito aplicável às instituições participantes transmissoras e receptoras de dados.**
 
-## Convenções Notacionais  {#Notational}
+## Convenções Notacionais  {#convencoes-notacionais}
 
-As palavras-chave "*deve*" (shall), "*não deve*" (shall not), "*deveria*" (should), "*não deveria*" (should not) e "*pode*" (may) presentes nesse documento devem ser interpretadas conforme as diretrizes descritas em [ISO Directive Part 2][ISODIR2] observando  seguinte equivalência:
+As palavras-chave "**deve**" (*shall*), "**não deve**" (*shall not*), "**deveria**" (*should*), "**não deveria**" (*should not*) e "**pode**" (*may*) presentes nesse documento devem ser interpretadas conforme as diretrizes descritas em [ISO Directive Part 2][ISODIR2], observando a seguinte equivalência:
 
 * "deve" => equivalente ao termo "shall" e expressa um requerimento definido no documento (nas traduções é similar ao termo "must", que pode denotar um requerimento externo ao documento);
 * "não deve" => equivalente ao termo "shall not" e também expressa um requerimento definido no documento;
 * "deveria" e "não deveria"=> equivalente ao termo "should" e "should not" e expressa uma recomendação
 * "pode" => equivalente ao termo "may" indica uma permissão
 
-Estas palavras-chave não são usadas como termos de dicionário, de modo que qualquer ocorrência deles deve ser interpretada como palavras-chave e não devem ser interpretados com seus significados de linguagem natural.
+Estas palavras-chave não são usadas conforme significado de dicionário, de modo que qualquer ocorrência deles deve ser interpretada como palavras-chave e não devem ser interpretados com seus significados de linguagem natural.
 
-## Referências normativas  {#Normative}
+## Referências Normativas  {#referencias-normativas}
 
 Os seguintes documentos referenciados são indispensáveis para a adoção das especificações deste documento. Para referências datadas, apenas a edição citada se aplica. Para referências não datadas, deve-se aplicar a última edição do documento referenciado (incluindo quaisquer emendas).
 
