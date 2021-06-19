@@ -203,9 +203,9 @@ Os seguintes documentos referenciados são indispensáveis para a adoção das e
 Sigla | Descrição | Informação
 -----|------|------
 API	| Application Programming Interface - Interface de programação de aplicativo | Uma interface de programação de aplicativo é um conjunto de rotinas, protocolos e ferramentas para construir aplicativos de software. Uma API especifica como os componentes de software devem interagir
-AC | Autoridade Certificadora | 
+AC | Autoridade Certificadora |
 AES	| Advanced Encryption Standard | Algoritmo de criptografia de bloco simétrico com uma chave de criptografia de 256 bits
-AR | Autoridade de Registro	| 
+AR | Autoridade de Registro	|
 ASPSP | Account Servicing Payment Service Provide - Instituições Transmissoras - Provedor de serviços de pagamento de manutenção de contas | Um ASPSP é qualquer instituição financeira que oferece uma conta de pagamento com acesso online. Os ASPSPs devem fornecer acesso para permitir que terceiros (TPP) registrados acessem as informações da conta através de APIs
 Autenticação mútua |  | Chamamos de autenticação mútua quando ambos cliente e servidor apresentam certificados para serem validados pelo par.
 Back-End | | Aplicação ou código que da inteligência de negócio as ações solicitadas via API , código que efetivamente realiza a função desejada
@@ -230,15 +230,15 @@ MFA | Multi-Factor Authentication |
 mTLS | Mutual Transport Layer Security |
 Oauth | | O OAuth é um protocolo de autorização para API's web voltado a permitir que aplicações client acessem um recurso protegido em nome de um usuário.
 OIDC | OpenID Connect | OpenID Connect é um protocolo de identidade simples com padrão aberto
-OIDF | OpenID Foundation | 
+OIDF | OpenID Foundation |
 Payload | | O Payload é a Carga Útil do token JWT. É aqui que você coloca informações como a quem o token pertence, qual a expiração dele, quando ele foi criado, entre outras coisas
-PISP | Payment Initiation Service Provider | 
+PISP | Payment Initiation Service Provider |
 PKCE | Proof Key for Code Exchange | Chave de prova para troca de código por clientes públicos Oauth
-REST | Representational State Transfer | 
+REST | Representational State Transfer |
 SHA256 | Secure Hash Algorithm | É um conjunto de funções criptográficas de hash
 SS | Software Statement |
 SSA | Software Statement Assertion | SSA é um JSON Web Token (JWT) que contém metadados sobre uma instância de aplicativo client desenvolvida por um TPP. O JWT é emitido e assinado pelo OpenBanking Directory.
-TLS	| Transport Layer Security | 
+TLS	| Transport Layer Security |
 TPP	| Third Party Provider - Instituições Provedoras - Provedores terceirizados | As instituições provedoras são organizações que usam APIs desenvolvidas pelos ASPSP para acessar contas de clientes, a fim de fornecer serviços de informações de contas
 
 ## Principais Padrões de Segurança  {#Padroes}
@@ -335,8 +335,8 @@ Além disso, ele deve:
 1. deve suportar Request Objects JWE assinados e criptografados passados por valor ou deve exigir requisições do tipo "pushed authorization requests" [PAR]
 2. deve publicar metadados de descoberta (incluindo a do endpoint de autorização) por meio do documento de metadado especificado em [OIDD] e [RFC8414] (".well-known")
 3. deve suportar os parâmetros `claims` como definido no item 5.5 do [OpenID Connect Core][OIDC]
-4. deve suportar o atributo `claim` padrão oidc "cpf" conforme definido no item 5.2.2.2 deste documento
-5. deve suportar o atributo `claim` padrão oidc "cnpj" conforme definido no item 5.2.2.3 deste documento
+4. deve suportar o atributo `claim` padrão oidc "cpf" conforme definido no item 5.2.2.2 deste documento, se a instituição oferece acesso a recursos de pessoas físicas.
+5. deve suportar o atributo `claim` padrão oidc "cnpj" conforme definido no item 5.2.2.3 deste documento, se a instituição oferece acesso a recursos de pessoas jurídicas.
 6. deve suportar o atributo `acr` "urn:brasil:openbanking:loa2" como definido no item 5.2.2.4 deste documento
 7. deveria suportar o atributo `acr` "urn:brasil:openbanking:loa3" como definido no item 5.2.2.4 deste documento
 8. deve implementar o endpoint "userinfo" como definido no item 5.3 do [OpenID Connect Core][OIDC]
@@ -1861,13 +1861,13 @@ organizationalUnitName = <Código de Participante>
 UID = <Software Statement ID emitido pelo diretório>
 commonName = <FQDN|Wildcard>
 
-[ req_cert_extensions ] 
+[ req_cert_extensions ]
 basicConstraints = CA:FALSE
 subjectAltName = @alt_name
 keyUsage = critical,digitalSignature,keyEncipherment
 extendedKeyUsage = clientAuth
 
-[ alt_name ] 
+[ alt_name ]
 DNS = <FQDN|Wildcard>
 ```
 
@@ -1892,12 +1892,12 @@ organizationName = ICP-Brasil
 2.organizationalUnitName = <Tipo de validação>
 commonName = <Razão Social>
 
-[ req_cert_extensions ] 
+[ req_cert_extensions ]
 basicConstraints = CA:FALSE
 subjectAltName = @alt_name
 keyUsage = critical,digitalSignature,nonRepudiation
 
-[ alt_name ] 
+[ alt_name ]
 otherName.0 = 2.16.76.1.3.2;UTF8:<Nome da pessoa responsável pela entidade>#CNPJ
 otherName.1 = 2.16.76.1.3.3;UTF8<CNPJ>
 otherName.2 = 2.16.76.1.3.4;UTF8:<CPF/PIS/RF da Pessoa responsável>
@@ -1938,4 +1938,3 @@ Tanto transmissoras quanto receptoras devem seguir as orientações da Apple e d
 * Android: https://developer.android.com/training/app-links/index.html (cobre 65% de todos os usuários do Android, que estão no Android 6.0 ou posterior).
 
 No caso de um usuário não ter o aplicativo instalado em seu dispositivo, ou se ele tiver um sistema operacional mais antigo ou sem suporte (por exemplo, Windows Mobile), esses métodos permitirão que o usuário seja redirecionado para uma página web mobile.
-
