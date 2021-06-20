@@ -198,96 +198,94 @@ Os seguintes documentos referenciados são indispensáveis para a adoção das e
 [OBB-Cert-Standards]: https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html
 [OBB-Cert-Standards] - Open Banking Brasil x.509 Certificate Standards
 
-## Glossário  {#terms}
+## Glossário  {#glossario}
 
 Sigla | Descrição | Informação
 -----|------|------
-API	| Application Programming Interface - Interface de programação de aplicativo | Uma interface de programação de aplicativo é um conjunto de rotinas, protocolos e ferramentas para construir aplicativos de software. Uma API especifica como os componentes de software devem interagir
-AC | Autoridade Certificadora | 
+API	| Application Programming Interface | Uma interface de programação de aplicativo é um conjunto de rotinas, protocolos e ferramentas para construir aplicativos de software. Uma API especifica como os componentes de software devem interagir
+AC | Autoridade Certificadora | É uma entidade, que pode ser pública ou privada, responsável por emitir, distribuir, renovar, revogar e gerenciar Certificados Digitais dos solicitantes ou de outras ACs que estejam abaixo dela
 AES	| Advanced Encryption Standard | Algoritmo de criptografia de bloco simétrico com uma chave de criptografia de 256 bits
-AR | Autoridade de Registro	| 
-ASPSP | Account Servicing Payment Service Provide - Instituições Transmissoras - Provedor de serviços de pagamento de manutenção de contas | Um ASPSP é qualquer instituição financeira que oferece uma conta de pagamento com acesso online. Os ASPSPs devem fornecer acesso para permitir que terceiros (TPP) registrados acessem as informações da conta através de APIs
-Autenticação mútua |  | Chamamos de autenticação mútua quando ambos cliente e servidor apresentam certificados para serem validados pelo par.
-Back-End | | Aplicação ou código que da inteligência de negócio as ações solicitadas via API , código que efetivamente realiza a função desejada
+AR | Autoridade de Registro	| A AR está abaixo da Autoridade Certificadora (AC) e tem como missão receber o cliente para realizar conferência da documentação e emissão do certificado
+ASPSP | Account Servicing Payment Service Provide | Um ASPSP é qualquer instituição financeira (transmissora ou provedora de serviços de pagamento de manutenção de contas) que oferece uma conta de pagamento com acesso online. Os ASPSPs devem fornecer acesso para permitir que terceiros (TPP) registrados acessem as informações da conta através de APIs
+Autenticação mútua |  | Chamamos de autenticação mútua quando ambos cliente e servidor apresentam certificados para serem validados pelo par
 CIBA | Client Initiated Backchannel Authentication | A autenticação de backchannel iniciada pelo cliente (CIBA) é um dos padrões mais recentes da OpenID Foundation. são categorizados como "fluxo desacoplado", Ele permite novas maneiras de obter o consentimento do usuário final
-Claims | | São escopos/declarações usadas em uma API durante a autenticação para autorizar o acesso aos detalhes de um usuário, como nome e imagem por exemplo. Cada escopo retorna um conjunto de atributos do usuário, que são chamados de declarações.
+Claims | | São escopos/declarações usadas em uma API durante a autenticação para autorizar o acesso aos detalhes de um usuário, como nome e imagem por exemplo. Cada escopo retorna um conjunto de atributos do usuário, que são chamados de declarações
+Cliente | | Identificação de usuário final que possui as informações que se deseja acessar
 CSR	| Certificate Signing Request | Contém informação que irá ser incluída no seu certificado como o nome da empresa/organização, common name (domínio), localidade e país. Também contém a chave pública (public key) que será incluída no seu certificado. Normalmente é também criada uma chave privada (private key) ao mesmo tempo que é criado o CSR
-CSRF | Cross Site Request Forgery |
-DCR | Dynamic Client Registration |
+DCR | Dynamic Client Registration | Especificação que define mecanismos para registrar dinamicamente clientes OAuth 2.0 com Authorization Servers
 ECDHE | Elliptic-curve Diffie–Hellman | É um protocolo de contrato chave que permite que duas partes, cada uma com um par de chaves público-privado de curva elíptica, estabeleçam um segredo compartilhado em um canal inseguro
 ECDSA | Elliptic Curve Digital Signature Algorithm | É um algoritmo de método de assinatura digital de documentos utilizando criptografia baseada em curvas elípticas.
-EIOBB | Estrutura Inicial do Open Banking Brasil |
-End User | | Identificação de usuário final que possui as informações que se deseja acessar
+EIOBB | Estrutura Inicial do Open Banking Brasil | Responsável por criar padrões e especificações necessárias para atender aos requisitos e obrigações da Legislação do Open Banking do Brasil, conforme originalmente delineado pelo Banco Central do Brasil
 FAPI | Financial-grade API | Especificação técnica de API e define requisitos técnicos adicionais para o setor financeiro
-Header | | É o cabeçalho de uma solicitação ou resposta que transmite contexto e metadados adicionais sobre a solicitação ou resposta. Por exemplo, em uma mensagem de solicitação podem ser usados para fornecer credenciais de autenticação.
-HTTP | Hyper Text Transfer Protocol |
+Header | | É o cabeçalho de uma solicitação ou resposta que transmite contexto e metadados adicionais sobre a solicitação ou resposta. Por exemplo, em uma mensagem de solicitação podem ser usados para fornecer credenciais de autenticação
+HTTP | Hyper Text Transfer Protocol | É um protocolo de comunicação base para a comunicação de dados da World Wide Web
 ICP-Brasil | Infraestrutura de Chaves Públicas Brasileira | Na definição oficial, “uma cadeia hierárquica de confiança que viabiliza a emissão de certificados digitais para identificação virtual do cidadão
-Json | JavaScript Object Notation | Json é um modelo para armazenamento e transmissão de informações no formato texto.
+Json | JavaScript Object Notation | Json é um modelo para armazenamento e transmissão de informações no formato texto
 JWS | JSON Web Signature | É uma forma de garantir a integridade das informações em um formato altamente serializado
-JWT | JSON Web Token | É uma técnica definida na RFC 7519 para autenticação remota entre duas partes. Ele é uma das formas mais utilizadas para autenticar usuários em APIs RESTful.
+JWT | JSON Web Token | É uma técnica definida na RFC 7519 para autenticação remota entre duas partes. Ele é uma das formas mais utilizadas para autenticar usuários em APIs RESTful
 MAC | Código de Autenticação de Mensagem | Permite que as declarações sejam assinadas digitalmente ou protegidas por integridade utilizando JWS
-MFA | Multi-Factor Authentication |
-mTLS | Mutual Transport Layer Security |
+MFA | Multi-Factor Authentication | Adiciona uma camada de proteção ao processo de entrada. Os usuários fornecem uma verificação de identidade adicional ao acessar contas ou aplicativos, como a leitura de uma impressão digital ou a adição de um código recebido por telefone
+mTLS | Mutual Transport Layer Security | É uma extensão do TLS que requer que ambos o servidor e o cliente verifiquem seus certificados
 Oauth | | O OAuth é um protocolo de autorização para API's web voltado a permitir que aplicações client acessem um recurso protegido em nome de um usuário.
 OIDC | OpenID Connect | OpenID Connect é um protocolo de identidade simples com padrão aberto
-OIDF | OpenID Foundation | 
-Payload | | O Payload é a Carga Útil do token JWT. É aqui que você coloca informações como a quem o token pertence, qual a expiração dele, quando ele foi criado, entre outras coisas
-PISP | Payment Initiation Service Provider | 
+OIDF | OpenID Foundation | A OpenID Foundation é uma organização internacional sem fins lucrativos de padronização comprometida em habilitar, promover e proteger as tecnologias OpenID
+Payload | | O Payload é a carga útil do token JWT. É aqui que você coloca informações como a quem o token pertence, qual a expiração dele, quando ele foi criado, entre outras coisas
+PISP | Payment Initiation Service Provider | Instituição prestadora de serviço de iniciação de pagamentos
 PKCE | Proof Key for Code Exchange | Chave de prova para troca de código por clientes públicos Oauth
-REST | Representational State Transfer | 
+REST | Representational State Transfer | É um estilo arquitetural da World Wide Web que consiste de um conjunto coordenado de restrições aplicadas a componentes, conectores e elementos de dados dentro de um sistema
 SHA256 | Secure Hash Algorithm | É um conjunto de funções criptográficas de hash
-SS | Software Statement |
-SSA | Software Statement Assertion | SSA é um JSON Web Token (JWT) que contém metadados sobre uma instância de aplicativo client desenvolvida por um TPP. O JWT é emitido e assinado pelo OpenBanking Directory.
-TLS	| Transport Layer Security | 
-TPP	| Third Party Provider - Instituições Provedoras - Provedores terceirizados | As instituições provedoras são organizações que usam APIs desenvolvidas pelos ASPSP para acessar contas de clientes, a fim de fornecer serviços de informações de contas
+SS | Software Statement | É um JSON Web Token (JWT) que contém metadados sobre o software cliente como um pacote, sendo atestado por um serviço de terceiros.
+SSA | Software Statement Assertion | É um JSON Web Token (JWT) que contém metadados sobre uma instância de aplicativo client desenvolvida por um TPP. O JWT é emitido e assinado pelo Diretório do Open Banking Brasi
+TLS	| Transport Layer Security | É um protocolo de segurança projetado para fornecer segurança nas comunicações sobre uma rede de computadores
+TPP	| Third Party Provider | As instituições provedoras são organizações que usam APIs desenvolvidas pelos ASPSP para acessar contas de clientes, a fim de fornecer serviços de informações de contas. No Open Baking Brasil são chamadas de instituições receptoras de dados.
 
-## Principais Padrões de Segurança  {#Padroes}
+## Principais Padrões de Segurança  {#principais-padroes-seguranca}
 
-### Estrutura de Autorização OAuth 2.0  {#OAuth20}
+### Estrutura de Autorização OAuth 2.0  {#estrutura-autorizacao-oauth20}
 
-O ecossistema de compartilhamento de dados definido pelo Brasil consiste em muitos padrões diferentes, todos girando em torno de conceitos, funções e obrigações que foram tecnicamente definidos no [OAuth 2.0 Authorization Framework.](https://tools.ietf.org/html/rfc6749).
+O ecossistema de compartilhamento de dados definido pelo Open Banking Brasil consiste em muitos padrões diferentes, todos girando em torno de conceitos, funções e obrigações que foram tecnicamente definidos no [OAuth 2.0 Authorization Framework.](https://tools.ietf.org/html/rfc6749).
 
 > A estrutura de autorização OAuth 2.0 permite uma aplicação de terceiros (*third-party application*) obter acesso limitado a um serviço HTTP, seja em nome do proprietário de recurso (*resource owner*) por meio da orquestração de uma interação de aprovação entre o proprietário do recurso e o serviço HTTP, ou permitindo a aplicação de terceiros obter acesso em seu próprio nome.
 
-A especificação base OAuth 2.0 não fornece, por si só, informações suficientes para atender a todas as necessidades definidas pelo framework de confiança do Open Banking Brasil. Mais notavelmente, não possui uma maneira de transmitir informações de identidade do cliente em um formato padronizado de uma instituição transmissora para uma receptora, e os mecanismos de autenticação que foram definidos na especificação original não são seguros o suficiente para atender aos requisitos de uma indústria altamente regulamentada.
+A especificação base OAuth 2.0 não fornece, por si só, informações suficientes para atender a todas as necessidades definidas pelo framework de confiança do Open Banking Brasil, pois não possui uma maneira de transmitir informações de identidade do cliente em um formato padronizado de uma instituição transmissora para uma receptora, e os mecanismos de autenticação que foram definidos na especificação original não são seguros o suficiente para atender aos requisitos de uma indústria altamente regulamentada.
 
-### OpenID Connect - A Camada de Identidade para a Internet  {#OIDC}
+### OpenID Connect - A Camada de Identidade para a Internet  {#openid-connect-camada-identidade-internet}
 
 **_Este perfil herda todas as obrigações do OAuth 2.0_**
 
-> [OpenID Connect](https://openid.net/connect/) é um conjunto de especificações simplificadas que fornecem uma estrutura para interações de identidade por meio de APIs do tipo REST. A implementação mais simples do OpenID Connect permite que *clients* de todos os tipos, incluindo baseados em navegador, celulares e *clients* javascript, solicitem e recebam informações sobre identidades e sessões atualmente autenticadas. O conjunto de especificações é extensível, permitindo que os participantes também suportem, opcionalmente, criptografia de dados de identidade, descoberta do *OpenID Provider* e gerenciamento avançado de sessão, incluindo logout.
+> [OpenID Connect](https://openid.net/connect/) é um conjunto de especificações simplificadas que fornecem uma estrutura para interações de identidade por meio de APIs do tipo REST. A implementação mais simples do OpenID Connect permite que aplicações clientes de todos os tipos, incluindo baseados em navegador, celulares e javascript, solicitem e recebam informações sobre identidades e sessões atualmente autenticadas. O conjunto de especificações é extensível, permitindo que os participantes também suportem, opcionalmente, criptografia de dados de identidade, descoberta do OpenID Provider e gerenciamento avançado de sessão, incluindo logout.
 
-O grupo de trabalho OpenID Foundations Connect tem sido o guardião do Padrão de Identidade "de fato" da Internet por muitos anos, trabalhando em várias especificações que se baseiam no framework de autorização OAuth 2.0, adicionando recursos e requisitos de suporte para melhorar a segurança do framework em si.
+O grupo de trabalho OpenID Foundations Connect tem sido o guardião do padrão de identidade "de fato" da internet por muitos anos, trabalhando em várias especificações que se baseiam no framework de autorização OAuth 2.0, adicionando recursos e requisitos de suporte para melhorar a segurança do framework em si.
 
 [Open ID Connect Core:](https://openid.net/specs/openid-connect-core-1_0.html) é um perfil do OAuth 2.0, o que significa que herda todos os requisitos e obrigações do [OAuth 2.0](https://tools.ietf.org/html/rfc6749), mas define o conceito de um `id_token` e introduz novos mecanismos de autenticação.
 
-[Open ID Connect Discovery:](https://openid.net/specs/openid-connect-discovery-1_0.html) apresenta o conceito de um documento de descoberta usado por *OpenID Connect (OIDC) Providers* para anunciar como os *clients* OAuth 2.0 podem se comunicar com eles e quais recursos e opções o *OIDC Provider* oferece suporte.
+[Open ID Connect Discovery:](https://openid.net/specs/openid-connect-discovery-1_0.html) apresenta o conceito de um documento de descoberta usado por OIDC Providers para anunciar como os clientes OAuth 2.0 podem se comunicar com eles e quais recursos e opções o OIDC Provider oferece suporte.
 
-[RFC7591:](https://tools.ietf.org/html/rfc7591) além de definir o processo de registro dinâmico de *clients* OAuth, esta especificação apresenta o conceito de [Software Statement](https://tools.ietf.org/html/rfc7591#section-2.3) ("Declaração de Software"), que pode ser usada para fornecer informações sobre um *client* que é atestado por um serviço de terceiros. Outros atributos de metadados também são definidos no [OpenID Connect Registration Specification](https://openid.net/specs/openid-connect-registration-1_0.html)
+[RFC7591:](https://tools.ietf.org/html/rfc7591) além de definir o processo de Dynamic Client Registration, esta especificação apresenta o conceito de [Software Statement](https://tools.ietf.org/html/rfc7591#section-2.3), que pode ser usada para fornecer informações sobre um software cliente que é atestado por um serviço de terceiros. Outros atributos de metadados também são definidos no [OpenID Connect Registration Specification](https://openid.net/specs/openid-connect-registration-1_0.html)
 
-> Esta especificação define mecanismos para registrar dinamicamente *clients* OAuth 2.0 com *Authorization Servers* (servidores de autorização). Pedidos de registro enviam um conjunto de valores de metadados do *client* desejado para o *Authorization Server*. As respostas de registro resultantes retornam um *client identifier* para ser usado no *Authorization Server* e os valores de metadados registrados para o *client*. O *client* pode então usar esta informação de registro para se comunicar com o *Authorization Server* usando o protocolo OAuth 2.0. Esta especificação também define um conjunto de campos de metadados do *client* e valores para os *clients* usarem durante o registro.
+> Esta especificação define mecanismos para registrar dinamicamente cliente OAuth 2.0 com Authorization Servers. Pedidos de registro enviam um conjunto de valores de metadados do cliente desejado para o *Authorization Server*. As respostas de registro resultantes retornam um identificador de cliente para ser usado no *Authorization Server* e os valores de metadados registrados para o cliente. O cliente pode então usar esta informação de registro para se comunicar com o Authorization Server usando o protocolo OAuth 2.0. Esta especificação também define um conjunto de campos de metadados do cliente e valores para que devem ser usados durante o registro.
 
-[RFC7592:](https://tools.ietf.org/html/rfc7592) Esta especificação define métodos de gerenciamento de *dynamic client registration* (registros de cliente dinâmico) do OAuth 2.0 para casos de uso em que as propriedades de um *client* registrado necessitam ser alteradas durante a vida do *client*.
+[RFC7592:](https://tools.ietf.org/html/rfc7592) Esta especificação define métodos de gerenciamento de Dynamic Client Registration do OAuth 2.0 para casos de uso em que as propriedades de um cliente registrado necessitam ser alteradas durante seu ciclo de vida.
 
 As especificações acima são especificações básicas cuja leitura obrigatória sustenta o framework de confiança do Open Banking Brasil. Entretanto, eles ainda são insuficientes para atender a todos os requisitos e princípios descritos anteriormente.
 
-### OpenID Financial Grade 1.0: Baseline  {#FAPI1Baseline}
+### OpenID Financial Grade 1.0: Baseline  {#openid-financial-grade-baseline}
 
 **_Este perfil herda todas as obrigações do OpenID Connect Core_**
 
 Reconhecendo as ameaças e riscos restantes que não foram tratados pelo OpenID Connect Core, o grupo de trabalho Financial Grade tem como foco criar uma especificação que visa identificar e endereçar os pontos fracos na especificação OpenID Connect, essencialmente criando um perfil para casos de uso que exigem alto nível segurança.
 
-O perfil Baseline foi originalmente planejado para ser mais facilmente implementado por *clients* e *OpenID Providers* às custas de alguns elementos de segurança e, como tal, não oferece o mesmo grau de proteção contra violação de solicitação e resposta.
+O perfil Baseline foi originalmente planejado para ser mais facilmente implementado por cliente e OpenID Providers às custas de alguns elementos de segurança e, como tal, não oferece um alto nível de proteção contra violação de solicitação e resposta.
 
-### OpenID Financial Grade 1.0: Avançado  {#FAPI1Advanced}
+### OpenID Financial Grade 1.0: Advanced  {#openid-financial-grade-advanced}
 
 **_Este perfil herda todas as obrigações do OpenID FAPI 1.0: Baseline_**
 
-O [FAPI 1.0: Advanced profile](https://openid.net/specs/openid-financial-api-part-2-1_0.html) é atual padrão ouro para API Security, fornecendo um **framework de especificação** que foi usado como ponto de partida para a criação de uma especificação para o Open Banking Brasil.
+O [FAPI 1.0: Advanced profile](https://openid.net/specs/openid-financial-api-part-2-1_0.html) é atual padrão ouro para API Security, fornecendo um framework que foi usado como ponto de partida para a criação da especificação para o Open Banking Brasil.
 
-> Este padrão especifica um perfil de segurança avançado do OAuth que é adequado para ser usado para proteger APIs com alto risco inerente. Os exemplos incluem APIs que dão acesso a dados altamente confidenciais ou que podem ser usados para acionar transações financeiras (por exemplo, início de pagamento). Este padrão especifica os controles contra ataques, como: violação de solicitação de autorização, violação de resposta de autorização, incluindo injeção de código, injeção de estado e phishing de solicitação de token.
+> Este padrão especifica um perfil de segurança avançado do OAuth que é adequado para ser usado para proteger APIs com alto risco inerente. Os exemplos incluem APIs que dão acesso a dados altamente confidenciais ou que podem ser usados para acionar transações financeiras (por exemplo, início de pagamento). Este padrão especifica os controles contra ataques, como: violação de solicitação de autorização, violação de resposta de autorização incluindo injeção de código, injeção de estado e phishing de solicitação de token.
 
-![Hierachy of OAuth 2.0 Profiles](https://miro.medium.com/max/700/1*R8d0lkvVRlEMG9WBXCZsdQ.png)
+![Hierachy of OAuth 2.0 Profiles](images/fapi.png)
 
 ## Open Banking Brasil Financial-grade API Security Profile 1.0
 
