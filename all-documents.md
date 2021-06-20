@@ -195,7 +195,7 @@ Os seguintes documentos referenciados são indispensáveis para a adoção das e
 [OBB-FAPI-DCR]: #dynamic-client-registration-profile
 [OBB-FAPI-DCR] - Open Banking Brasil Dynamic Client Registration Profile 1.0
 
-[OBB-Cert-Standards]: {#padrao-certificados-obb}
+[OBB-Cert-Standards]: #padrao-certificados-obb
 [OBB-Cert-Standards] - Padrão de Certificados Open Banking Brasil
 
 ## Glossário  {#glossario}
