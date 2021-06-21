@@ -589,10 +589,10 @@ A tabela a seguir descreve as funções regulatórias do Open Banking Brasil e o
 
 | Papel Regulador | Descrição | Escopos Permitidos | Fase-alvo |
 | --- | --- | --- | --- |
-| DADOS | Instituição transmissora / receptora de dados (AISP) | openid accounts credit-cards-accounts consents customers invoice-financings financings loans unarranged-accounts-overdraft | Phase 2 |
-| PAGTO | Instituição prestadora de serviço de iniciação de pagamentos (PISP) | openid payments consents | Phase 3 |
-| CONTA | Instituição detentora de conta (ASPSP) | openid | Phase 3 |
-| CCORR | Correspondente de crédito | openid | Phase 3* |
+| DADOS | Instituição transmissora / receptora de dados (AISP) | openid accounts credit-cards-accounts consents customers invoice-financings financings loans unarranged-accounts-overdraft | Fase 2 |
+| PAGTO | Instituição prestadora de serviço de iniciação de pagamentos (PISP) | openid payments consents | Fase 3 |
+| CONTA | Instituição detentora de conta (ASPSP) | openid | Fase 3 |
+| CCORR | Correspondente de crédito | openid | Fase 3* |
 
 ##### Nota dos Implementadores  {#nota-implementadores}
 
