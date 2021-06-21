@@ -761,39 +761,37 @@ Emissor do Open Banking Open Banking Brasil SSA de sandbox.
 eyJraWQiOiJzaWduZXIiLCJ0eXAiOiJKV1QiLCJhbGciOiJQUzI1NiJ9.eyJzb2Z0d2FyZV9tb2RlIjoiTGl2ZSIsInNvZnR3YXJlX3JlZGlyZWN0X3VyaXMiOlsiaHR0cHM6XC9cL3d3dy5yYWlkaWFtLmNvbVwvYWNjb3VudGluZ1wvY2IiXSwic29mdHdhcmVfc3RhdGVtZW50X3JvbGVzIjpbeyJyb2xlIjoiREFET1MiLCJhdXRob3Jpc2F0aW9uX2RvbWFpbiI6Ik9wZW4gQmFua2luZyIsInN0YXR1cyI6IkFjdGl2ZSJ9LHsicm9sZSI6IlBBR1RPIiwiYXV0aG9yaXNhdGlvbl9kb21haW4iOiJPcGVuIEJhbmtpbmciLCJzdGF0dXMiOiJBY3RpdmUifV0sInNvZnR3YXJlX2NsaWVudF9uYW1lIjoiUmFpZGlhbSBBY2NvdW50aW5nIiwib3JnX3N0YXR1cyI6IkFjdGl2ZSIsInNvZnR3YXJlX2NsaWVudF9pZCI6IkNraTFFYnZqd3loUEIxMk5HTGx6MiIsImlzcyI6Ik9wZW4gQmFua2luZyBPcGVuIEJhbmtpbmcgQnJhc2lsIHByb2QgU1NBIGlzc3VlciIsInNvZnR3YXJlX3Rvc191cmkiOiJodHRwczpcL1wvd3d3LnJhaWRpYW0uY29tXC9hY2NvdW50aW5nXC90b3MuaHRtbCIsInNvZnR3YXJlX2NsaWVudF9kZXNjcmlwdGlvbiI6IlJhaWRpYW0gQWNjb3VudGluZyBsZXZlcmFnZSBjdXR0aW5nIGVkZ2Ugb3BlbiBiYW5raW5nIGFjY2VzcyB0byBicmluZyB5b3UgcmVhbCB0aW1lIHVwIHRvIGRhdGUgdmlld3Mgb2YgeW91ciBmaW5hbmNlcyIsInNvZnR3YXJlX2p3a3NfZW5kcG9pbnQiOiJodHRwczpcL1wva2V5c3RvcmUuZGlyZWN0b3J5Lm9wZW5iYW5raW5nYnJhc2lsLm9yZy5iclwvYjk2MWM0ZWItNTA5ZC00ZWRmLWFmZWItMzU2NDJiMzgxODVkXC8yNTU1NmQ1YS1iOWRkLTRlMjctYWExYS1jY2U3MzJmZTc0ZGVcL2FwcGxpY2F0aW9uLmp3a3MiLCJzb2Z0d2FyZV9wb2xpY3lfdXJpIjoiaHR0cHM6XC9cL3d3dy5yYWlkaWFtLmNvbVwvYWNjb3VudGluZ1wvcG9saWN5Lmh0bWwiLCJzb2Z0d2FyZV9pZCI6IjI1NTU2ZDVhLWI5ZGQtNGUyNy1hYTFhLWNjZTczMmZlNzRkZSIsInNvZnR3YXJlX2NsaWVudF91cmkiOiJodHRwczpcL1wvd3d3LnJhaWRpYW0uY29tXC9hY2NvdW50aW5nLmh0bWwiLCJzb2Z0d2FyZV9qd2tzX2luYWN0aXZlX2VuZHBvaW50IjoiaHR0cHM6XC9cL2tleXN0b3JlLmRpcmVjdG9yeS5vcGVuYmFua2luZ2JyYXNpbC5vcmcuYnJcL2I5NjFjNGViLTUwOWQtNGVkZi1hZmViLTM1NjQyYjM4MTg1ZFwvMjU1NTZkNWEtYjlkZC00ZTI3LWFhMWEtY2NlNzMyZmU3NGRlXC9pbmFjdGl2ZVwvYXBwbGljYXRpb24uandrcyIsInNvZnR3YXJlX2p3a3NfdHJhbnNwb3J0X2luYWN0aXZlX2VuZHBvaW50IjoiaHR0cHM6XC9cL2tleXN0b3JlLmRpcmVjdG9yeS5vcGVuYmFua2luZ2JyYXNpbC5vcmcuYnJcL2I5NjFjNGViLTUwOWQtNGVkZi1hZmViLTM1NjQyYjM4MTg1ZFwvMjU1NTZkNWEtYjlkZC00ZTI3LWFhMWEtY2NlNzMyZmU3NGRlXC9pbmFjdGl2ZVwvdHJhbnNwb3J0Lmp3a3MiLCJzb2Z0d2FyZV9qd2tzX3RyYW5zcG9ydF9lbmRwb2ludCI6Imh0dHBzOlwvXC9rZXlzdG9yZS5kaXJlY3Rvcnkub3BlbmJhbmtpbmdicmFzaWwub3JnLmJyXC9iOTYxYzRlYi01MDlkLTRlZGYtYWZlYi0zNTY0MmIzODE4NWRcLzI1NTU2ZDVhLWI5ZGQtNGUyNy1hYTFhLWNjZTczMmZlNzRkZVwvdHJhbnNwb3J0Lmp3a3MiLCJzb2Z0d2FyZV9sb2dvX3VyaSI6Imh0dHBzOlwvXC93d3cucmFpZGlhbS5jb21cL2FjY291bnRpbmdcL2xvZ28ucG5nIiwib3JnX2lkIjoiYjk2MWM0ZWItNTA5ZC00ZWRmLWFmZWItMzU2NDJiMzgxODVkIiwic29mdHdhcmVfZW52aXJvbm1lbnQiOiJwcm9kdWN0aW9uIiwic29mdHdhcmVfdmVyc2lvbiI6MS4xMCwic29mdHdhcmVfcm9sZXMiOlsiREFET1MiLCJQQUdUTyJdLCJvcmdfbmFtZSI6Ik9wZW4gQmFua2luZyBCcmFzaWwiLCJpYXQiOjE2MTgzMzYyNjIsIm9yZ2FuaXNhdGlvbl9jb21wZXRlbnRfYXV0aG9yaXR5X2NsYWltcyI6W3siYXV0aG9yaXNhdGlvbl9kb21haW4iOiJPcGVuIEJhbmtpbmciLCJhdXRob3Jpc2F0aW9ucyI6W10sInJlZ2lzdHJhdGlvbl9pZCI6IjEzMzUzMjM2LU9CQi1DT05UQSIsImF1dGhvcml0eV9pZCI6IjY4N2ExYzk0LWIzNjAtNGUwNC05NTg5LTBmYTVjYjE2NDUxYiIsImF1dGhvcmlzYXRpb25fcm9sZSI6IkNPTlRBIiwiYXV0aG9yaXR5X2NvZGUiOiJCQ0IiLCJzdGF0dXMiOiJBY3RpdmUifSx7ImF1dGhvcmlzYXRpb25fZG9tYWluIjoiT3BlbiBCYW5raW5nIiwiYXV0aG9yaXNhdGlvbnMiOltdLCJyZWdpc3RyYXRpb25faWQiOiIxMzM1MzIzNi1PQkItREFET1MiLCJhdXRob3JpdHlfaWQiOiI2ODdhMWM5NC1iMzYwLTRlMDQtOTU4OS0wZmE1Y2IxNjQ1MWIiLCJhdXRob3Jpc2F0aW9uX3JvbGUiOiJEQURPUyIsImF1dGhvcml0eV9jb2RlIjoiQkNCIiwic3RhdHVzIjoiQWN0aXZlIn0seyJhdXRob3Jpc2F0aW9uX2RvbWFpbiI6Ik9wZW4gQmFua2luZyIsImF1dGhvcmlzYXRpb25zIjpbXSwicmVnaXN0cmF0aW9uX2lkIjoiMTMzNTMyMzYtT0JCLVBBR1RPIiwiYXV0aG9yaXR5X2lkIjoiNjg3YTFjOTQtYjM2MC00ZTA0LTk1ODktMGZhNWNiMTY0NTFiIiwiYXV0aG9yaXNhdGlvbl9yb2xlIjoiUEFHVE8iLCJhdXRob3JpdHlfY29kZSI6IkJDQiIsInN0YXR1cyI6IkFjdGl2ZSJ9XX0.W6hUAYhjT6I61rxEIVMKYKre93LTbRdzKnk9dJvUdzVgAz5B9KxZNutf27oO3k0hrjYVWBdWq23o_e4Y_AaKdpS9-rtU84JiHtmqV0wcFYIM8nqcUVWqQ-Ux6Nq9L2G-s2YNd3PcJ1e3yGg9h8553Gr7iJusKEgApzXUpkM2rBELQuumktUE_JBiuIkXmWxoRnO1cW-Osbk3MT3bxG43SPcxii07Q5S8qXI6PjCPA3fYlnaUAygwZM3O0oa7jqmSr7d9UsHuDMJfYhIKdq2wyQQKORCN-D2UopmMX-lHMvAVkkrAO08T0-7odjr4PJk-PrwuoCxeAfa7440ZDOrlmQ
 ```
 
-## Guia do Usuário para Entidades Transmissoras de Dados (ASPSP) {#Guia}
+## Guia do Usuário para Entidades Transmissoras de Dados {#guia-usuario-entidades-transmissoras-dados}
 
-### 1.0 Registrando um Banco  {#RegistrandoBanco}
+### Registrando um Banco  {#registrando-banco}
 
-#### 1.1 Visão Geral do Diretório  {#Diretorio}
+#### Visão Geral do Diretório  {#visado-geral-diretorio}
 
 Os serviços do framework de confiança providos pelo Open Banking Brasil fornecem todos os serviços de descoberta necessários para que instituições transmissores e receptoras interajam entre si, sem que seja preciso validar individualmente a autenticidade de cada participante.
 
-Um *Authorization Server* ou AS, conforme definido por [RFC 6749 - The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749), executa várias funções em um ecossistema de compartilhamento de dados como o Open Banking Brasil. Antes de prosseguir, certifique-se de que os conceitos de funções e responsabilidades definidos na RFC original sejam bem compreendidos. Além disso, certifique-se de que os conceitos, funções e responsabilidades definidos no [OpenID Connect Core](https://openid.net/specs/openid-connect-core-1_0.html) e como eles estendem os conceitos definidos no RFC 6749 são igualmente bem compreendidos.
+Um Authorization Server, conforme definido por [RFC 6749 - The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749), executa várias funções em um ecossistema de compartilhamento de dados como o Open Banking Brasil. Antes de prosseguir, certifique-se de que os conceitos de funções e responsabilidades definidos na RFC original sejam bem compreendidos. Além disso, certifique-se de que os conceitos, funções e responsabilidades definidos no [OpenID Connect Core][OIDC] e como eles estendem os conceitos definidos no RFC 6749 são igualmente bem compreendidos.
 
-#### 1.2 Registrando um Authorization Server e OpenID Provider {#AuthorizationServer}
+#### Registrando um Authorization Server e OpenID Provider {#registrando-as-openid-provider}
 
 Os bancos, geralmente grandes bancos, não serão uma entidade única do ponto de vista das operações de tecnologia. Eles podem ter marcas, segurança e infraestrutura de TI diferentes para diferentes segmentos de clientes, ou podem ter alguma infraestrutura de TI que ofereça suporte a várias marcas ou segmentos de clientes. Isso significa que o ecossistema técnico precisa ser flexível o suficiente para suportar uma ampla variedade de implantações de infraestrutura de bancos, garantindo que os serviços necessários possam ser descobertos por clientes de instituições receptoras que precisam interagir com ele.
 
-Um modelo flexível para anunciar serviços de autenticação / autorização e os recursos protegidos pelo AuthN e AuthZ é suportado pelo Diretório.
+Um modelo flexível para anunciar serviços de autenticação/autorização e recursos protegidos pelo AuthN e AuthZ é suportado pelo Diretório.
 
-* **Customer Friendly Name** - Será exibido aos clientes pelas instituições receptoras, e já deve ser reconhecido pelos clientes do banco.
-* **Customer Friendly Logo** - Será exibido aos clientes pelas instituições receptoras para auxiliar no reconhecimento da marca.
-* **Description** - Isso pode ser exibido aos clientes pelas instituições receptoras para auxiliar no reconhecimento da marca.
-* **Terms of Service** - Este é um link para os Termos de Serviço do banco, que podem ser incluídos pelas instituições receptoras.
-* **Notification WebHook** - *Authorization Servers* podem registrar um WebHook que receberá atualizações por push sobre as alterações dos participantes, seus softwares ou certificados.
+* **Customer Friendly Name** - Será exibido aos clientes pelas instituições receptoras, e já deve ser reconhecido pelos clientes do banco;
+* **Customer Friendly Logo** - Será exibido aos clientes pelas instituições receptoras para auxiliar no reconhecimento da marca;
+* **Description** - Isso pode ser exibido aos clientes pelas instituições receptoras para auxiliar no reconhecimento da marca;
+* **Terms of Service** - Este é um link para os Termos de Serviço do banco, que podem ser incluídos pelas instituições receptoras;
+* **Notification WebHook** - Authorization Servers podem registrar um WebHook que receberá atualizações por push sobre as alterações dos participantes, seus softwares ou certificados;
 * **OpenID Well Known Document Uri** - Link para o documento de descoberta do Authorization Server.
 
-Um banco pode optar por ter um *Authorization Servers* ou muitos, desde que satisfaça os seguintes requisitos.
+Um banco pode optar por ter um Authorization Servers ou muitos, desde que satisfaça os seguintes requisitos:
 
-* Um cliente pode reconhecer o *Authorization Server* como um local com o qual normalmente faria interação com o seu banco.
-* O *Authorization Server* pode emitir tokens para os recursos e serviços que um cliente ou insituição receptora está procurando.
+* Um cliente pode reconhecer o Authorization Server como um local com o qual normalmente faria interação com o seu banco;
+* O Authorization Server pode emitir tokens para os recursos e serviços que um cliente ou insituição receptora está procurando.
 
-#### 1.3 Registrando Recursos  {#Recursos}
+#### Registrando Recursos  {#registrando-recursos}
 
-Depois que um banco registra um *Authorization Server*, ele precisa anunciar para quais recursos, APIs ou serviços ele pode fornecer autorização.
-
-[Authorization Resources management image]
+Depois que um banco registra um Authorization Server, ele precisa anunciar para quais recursos, APIs ou serviços ele pode fornecer autorização.
 
 | Auth Id | Auth Customer Friendly Name | Well Known | Resource | Version |
 | --- | --- | --- | --- | --- |
@@ -807,27 +805,27 @@ Depois que um banco registra um *Authorization Server*, ele precisa anunciar par
 | 3 | Amazing Banking | [https://auth.payments.amazingbank.org.br/.well-known/openid-configuration](https://auth.payments.amazingbank.org.br/.well-known/openid-configuration) | payments consents | 1 |
 | 3 | Amazing Banking | [https://auth.payments.amazingbank.org.br/.well-known/openid-configuration](https://auth.payments.amazingbank.org.br/.well-known/openid-configuration) | payments | 1 |
 
-No exemplo acima, o Amazing Banking está anunciando dois serviços que devem ser reconhecidos pelos clientes. "Amazing Business Banking" e "Amazing Banking". Estes **podem ou não estar** diretamente relacionados a "Marcas", pois bancos diferentes podem precisar anunciar serviços de autenticação diferentes, mesmo dentro de uma submarca.
+No exemplo acima, o Amazing Banking está anunciando dois serviços que devem ser reconhecidos pelos clientes. "Amazing Business Banking" e "Amazing Banking". Estes **podem ou não estar** diretamente relacionados à "marcas", pois bancos diferentes podem precisar anunciar serviços de autenticação diferentes, mesmo dentro de uma submarca.
 
-Além disso, o banco anuncia quais recursos cada um dos servidores de autorização está protegendo ou oferecendo. No exemplo acima, o Amazing Banking é compatível com a versão 1 e a versão 2 da API de informações da conta, e o "Amazing Banking" tem dois sistemas separados de autenticação e autorização para Pagamentos e Informações da conta.
+Além disso, o banco anuncia quais recursos cada um dos servidores de autorização está protegendo ou oferecendo. No exemplo acima, o "Amazing Banking" é compatível com a versão 1 e a versão 2 da API de informações da conta, e o "Amazing Banking" tem dois sistemas separados de autenticação e autorização para pagamentos e informações da conta.
 
-Anunciar corretamente quais recursos são oferecidos por cada servidor é importante para atingir a escala prevista pelo Open Banking Brasil, além de ser fundamental para garantir que os clientes possam identificar seu serviço bancário facilmente e que as instituições receptoras possam encaminhar os clientes para o *Authorization Server* correto com base nos recursos protegidos por cada serviço.
+Anunciar corretamente quais recursos são oferecidos por cada servidor é importante para atingir a escala prevista pelo Open Banking Brasil, além de ser fundamental para garantir que os clientes possam identificar seu serviço bancário facilmente e que as instituições receptoras possam encaminhar os clientes para o Authorization Server correto com base nos recursos protegidos por cada serviço.
 
-### 2.0 Validando uma Solicitação de Registro de Cliente  {#Validando}
+### Validando uma Solicitação de Registro de Cliente  {#validando-solitacao-registro-cliente}
 
-Usando o OpenID Connect Discovery e a especificação de Dynamic Client Registration (DCR) do Open Banking Brasil. Uma instituição receptora pode registrar seu aplicativo em cada um dos *Authorization Servers* disponíveis no ecossistema.
+Usando o OpenID Connect Discovery e a especificação do DCR do Open Banking Brasil, uma instituição receptora pode registrar seu aplicativo em cada um dos Authorization Servers disponíveis no ecossistema.
 
-#### 2.1 Registro OpenID Connect e OAuth 2.0 Dynamic Client Registration  {#DCR}
+#### Registrando OpenID Connect e OAuth 2.0 Dynamic Client Registration  {#registrando-openid-connetc-oath-dcr}
 
-Consulte a Cláusula 7 da Especificação de Dynamic Client Registration (DCR) do Open Banking Brasil para obter detalhes.
+Consulte o item [Processamento de uma Solicitação DCR](#processamento-solicitacao-dcr) da especificação de Dynamic Client Registration do Open Banking Brasil para obter detalhes.
 
-#### 2.2 Processamento de declaração de software (Software Statement Assertion) {#SSA}
+#### Processamento de Software Statement Assertion) {#processamento-ssa}
 
-Consulte a Cláusula 8 da Especificação de Dynamic Client Registration (DCR) do Open Banking Brasil para obter detalhes.
+Consulte o item [Software Statement](#software-statement) da especificação de Dynamic Client Registration do Open Banking Brasil para obter detalhes.
 
-### 3.0 Validando um Pedido de Autorização  {#PedidoAuthz}
+### Validando um Pedido de Autorização  {#validando-pedido-autorizacao}
 
-Consulte a Cláusula 5 do Perfil de Segurança do Open Banking Brasil (Financial-grade API Security Profile) para obter detalhes.
+Consulte o item [Perfil de Segurança Open Banking Brasil Financial-grade API 1.0](#perfil-seguranca-obb-fapi) para obter detalhes.
 
 ## Guia do Usuário para Instituições Receptores de Dados e Iniciadores de Pagamento (TTP/PISP)
 
