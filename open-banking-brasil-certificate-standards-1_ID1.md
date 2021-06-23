@@ -1,16 +1,16 @@
 %%%
 
     #
-    # Padrão de Certificados Open Banking Brasil 1.0
+    # Open Banking Brasil Certificate Standards 1.0
     # (open-banking-brasil-certificate-standards-1_ID1)
     #
     #
 
-    title = "Padrão de Certificados Open Banking Brasil 1.0"
+    title = "Open Banking Brasil Certificate Standards 1.0"
     abbrev = "OBB-CERT-1-ID1"
     ipr = "none"
-    workgroup = "GT Segurança Open Banking Brasil"
-    keyword = ["FAPI", "CERTIFICADOS", "GT Segurança Open Banking Brasil"]
+    workgroup = "Open Banking Brasil GT Security"
+    keyword = ["FAPI", "CERTIFICATES", "Open Banking Brasil GT Security"]
 
     [seriesInfo]
     name = "Internet-Draft"
@@ -48,7 +48,7 @@
       uri = "https://openbankingbrasil.org.br/"
 %%%
 
-.# Prefácio
+.# Foreword
 
 Este documento também esta disponível em [português](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1-ptBR.html)
 
@@ -57,8 +57,6 @@ The Open Banking Brasil Initial Structure is responsible for creating standards 
 .# Objective
 
 Specify the set of necessary certificates that must be used by participating organizations in Open Banking Brasil to ensure interoperability for validation, confidentiality, integrity and non-repudiation among participants, as well as for users and consumers of these entities. The public in this class are entities participating in Open Banking Brasil that issue certificates to authenticate themselves with other entities, as well as offer their customers a secure authentication channel.
-
-
 
 .# Notational Conventions
 
@@ -81,7 +79,7 @@ This document specifies the types of certificates required for:
 * Provide a safe and reliable channel for Open Banking Brasil customers;
 * Authenticate participants in the Open Banking Brasil Participant Directory.
 
-# Referências Normativas  {#ReferenciasNormativas}
+# Normative refences
 
 The following referenced documents are indispensable for the application of this document. For dated references, only the edition cited applied. For undated references, the latest edition of the referenced document (including any amendments) applies.
 
@@ -103,7 +101,7 @@ The following referenced documents are indispensable for the application of this
 
 For the purpose of this document, the terms defined in [RFC5280], [BCP195], [RFC8705], e ISO29100 apply.
 
-# Glossário {#Glossario}
+# Glossary
 
 * **SSA** – Software Statement Assertion
 * **SS** – Software Statement
