@@ -15,7 +15,7 @@
     [seriesInfo]
     name = "Internet-Draft"
     status = "standard"
-    value = "open-banking-brasil-certificate-standards-1_ID1"
+    value = "open-banking-brasil-certificate-standards-1_ID1-ptbr"
 
     [[author]]
     initials = "M."
