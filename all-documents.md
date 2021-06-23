@@ -695,7 +695,7 @@ O exemplo a seguir contém todas as *claims* atualmente incluídas em um softwar
 ### Processamento de uma Solicitação DCR  {#processamento-solicitacao-dcr}
 
 !---
-![Dynamic Client Registration](images/dcr.svg)
+![Dynamic Client Registration](images/dynamic-client-registration.png)
 !---
 
 #### Enviando uma Solicitação com um Software Statement  {#enviando-solicitacao-ss}
