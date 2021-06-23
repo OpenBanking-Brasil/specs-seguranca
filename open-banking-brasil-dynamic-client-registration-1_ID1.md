@@ -362,7 +362,7 @@ The following example contains all of the claims currently included in a softwar
 # Dynamic Client Registration Request Processing
 
 !---
-![Dynamic Client Registration](images/dcr.svg)
+![Dynamic Client Registration](images/dynamic-client-registration.png)
 !---
 
 ## Posting a request with a software statement
