@@ -1,6 +1,7 @@
 # Guia do Usuário para Instituições Receptores de Dados e Iniciadores de Pagamento (TTP/PISP)
 
-TPP - Third Party Provider | PISP - Payment Initiation Service Provider
+TPP - Third Party Provider
+PISP - Payment Initiation Service Provider
 
 ## 1.0 Registrando um Aplicativo  {#RegistrantoApp}
 
@@ -15,7 +16,7 @@ Em um alto nível, as seguintes etapas principais são necessárias para integra
 
 ### 1.1 Diagrama de Sequência  {#DiagramaSeq}
 
-![enter image description here](https://www.websequencediagrams.com/files/render?link=XqaI0EvQK7BEN8bkFdykE7gq0frHqu744LprGQVxytViXWvVvCjey3siD0lbnTuZ)
+![Registrando um Aplicativo](images/application-registration.png)
 
 ### 1.1 Visão Geral do Diretório {#VisaoDir}
 
@@ -497,7 +498,7 @@ O aplicativo agora descobriu a lista de bancos que estão oferecendo APIs que po
 
 ## 3.0 Registrando o Aplicativo com um Provedor  {#RegAppProv}
 
-![enter image description here](https://www.websequencediagrams.com/files/render?link=1Xqm7oHVrWJ0Ya34s9kdzG1kHpwLobAftNdQHHvf44ikYZadVrou8iFhiFC9pSMP)
+![DCR](images/dynamic-client-registration.png)
 
 A partir do exemplo dado acima, podemos ver que a localização do "OpenIDDiscoveryDocument" é anunciada por cada um dos Authorization Server.
 
@@ -533,7 +534,7 @@ Consulte o [Dynamic Client Registration do Open Banking Brasil](https://openbank
 
 ## 4.0 Obtendo Acesso aos Recursos dos Clientes  {#AcessoClientes}
 
-![enter image description here](https://www.websequencediagrams.com/files/render?link=v8xPrADYGTMbCT8aW6qogJ6tQz8y3XBdJKQN6iSyXypJJ7XKnJdauvr9btnAfpog)
+![Consent](images/consent-process-redirect.png)
 
 Para todas as opções, incluindo todos os códigos de permissão, consulte o [Consent API](https://openbanking-brasil.github.io/areadesenvolvedor/swagger/swagger_consents_apis.yaml). Os exemplos a seguir são exemplos mínimos, mas funcionais para demonstrar o fluxo de ponta a ponta. Esses exemplos pressupõem que o cliente está se comunicando com um provedor de OpenID, aproveitando o mecanismo de autenticação de endpoint do token 'tls_client_auth'. Exemplos alternativos estão disponíveis no apêndice.
 
