@@ -364,7 +364,7 @@ O exemplo a seguir contém todas as reivindicações atualmente incluídas em um
 # Processamento de solicitação de registro de cliente dinâmico  {#dcr}
 
 !---
-![Dynamic Client Registration](images/dcr.svg)
+![Dynamic Client Registration](images/dynamic-client-registration.png)
 !---
 
 ## Enviar uma solicitação com uma declaração de software  {#exampleDcr}
