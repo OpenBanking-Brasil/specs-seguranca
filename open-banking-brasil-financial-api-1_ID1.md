@@ -369,12 +369,12 @@ The Consent Resource has a life cycle that is managed seperately and distinctly 
 In addition to the requirements outlined in Open Banking Brasil security provisions the Authorization Server
 
 1. shall only issue refresh tokens when linked to active and valid consent;
-1. shall only share access to resources when presented with an access token linked to an active and valid consent;
-2. shall revoke refresh tokens and where practicable access tokens when the linked Consent Resource is deleted;
-3. shall ensure Access Tokens are issued with sufficient scope necessary for access to data specified in the Permissions element of a linked Consent Resource object;
-4. shall not reject an authorisation request requesting more scope than is necessary to access data specified in the Permissions element of a linked Consent Resource object;
-5. may reduce requested scope to a level sufficient to enable access to data resources specified in the Permissions element of a linked Consent Resource object;
-6. shall retain a complete audit history of the consent resource in accordance with current Central Bank brazilian regulation;
+2. shall only share access to resources when presented with an access token linked to an active and valid consent;
+3. shall revoke refresh tokens and where practicable access tokens when the linked Consent Resource is deleted;
+4. shall ensure Access Tokens are issued with sufficient scope necessary for access to data specified in the Permissions element of a linked Consent Resource object;
+5. shall not reject an authorisation request requesting more scope than is necessary to access data specified in the Permissions element of a linked Consent Resource object;
+6. may reduce requested scope to a level sufficient to enable access to data resources specified in the Permissions element of a linked Consent Resource object;
+7. shall retain a complete audit history of the consent resource in accordance with current Central Bank brazilian regulation;
 
 ### Confidential Client
 
