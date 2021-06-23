@@ -1,6 +1,3 @@
-* TOC
-{:toc}
-
 # Segurança  {#seguranca}
 
 ## Introdução   {#introducao}
