@@ -15,7 +15,7 @@ As instituições participantes do Open Banking Brasil possuem a obrigação de 
 
 [Circular BCB nº 3.909, de 2018](https://www.bcb.gov.br/pre/normativos/busca/downloadNormativo.asp?arquivo=/Lists/Normativos/Attachments/50645/Circ_3909_v1_O.pdf)
 
-[Resolução BCB nº 37, de 4 de Novembro de 2020](https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Instru%C3%A7%C3%A3o%20Normativa%20BCB&numero=37)
+[Resolução BCB nº 99, de 14 de abril de 2020](https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Instru%C3%A7%C3%A3o%20Normativa%20BCB&numero=99)
 
 [Resolução BCB n° 32 de 29/10/2020](https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=32)
 
@@ -283,7 +283,7 @@ O perfil Baseline foi originalmente planejado para ser mais facilmente implement
 
 **_Este perfil herda todas as obrigações do OpenID FAPI 1.0: Baseline_**
 
-O [FAPI 1.0: Advanced profile](https://openid.net/specs/openid-financial-api-part-2-1_0.html) é atual padrão ouro para API Security, fornecendo um framework que foi usado como ponto de partida para a criação da especificação para o Open Banking Brasil.
+O profile [FAPI 1.0: Advanced](https://openid.net/specs/openid-financial-api-part-2-1_0.html) é atual padrão ouro para API Security, fornecendo um framework que foi usado como ponto de partida para a criação da especificação para o Open Banking Brasil.
 
 > Este padrão especifica um perfil de segurança avançado do OAuth que é adequado para ser usado para proteger APIs com alto risco inerente. Os exemplos incluem APIs que dão acesso a dados altamente confidenciais ou que podem ser usados para acionar transações financeiras (por exemplo, início de pagamento). Este padrão especifica os controles contra ataques, como: violação de solicitação de autorização, violação de resposta de autorização incluindo injeção de código, injeção de estado e phishing de solicitação de token.
 
