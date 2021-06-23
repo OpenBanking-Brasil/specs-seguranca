@@ -774,7 +774,7 @@ curl --cert transport.pem --key transport.key -H 'Authorization: Bearer 2Pjwts8m
 
 ### 4.3.5 Access Resources
 
-With the access token that was returned in 4.2.3, the TPP now has the ability to call customers resources.
+With the access token that was returned in 4.3.3, the TPP now has the ability to call customers resources.
 
 ## Appendix
 
