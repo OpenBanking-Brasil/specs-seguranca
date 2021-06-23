@@ -475,12 +475,13 @@ O recurso de consentimento tem um ciclo de vida gerenciado separada e distintame
 
 Além dos requisitos descritos nas disposições de segurança do Open Banking Brasil, o Authorization Server
 
-1. deve emitir _refresh tokens_ com validade igual ao *expirationDateTime* definido no Consentimento (Consent Resource) relacionado;
-2. deve revogar os _refresh tokens_ e, quando aplicável, os _access tokens_ quando o Consentimento (Consent Resource) relacionado for apagado;
-3. deve garantir que os _access tokens_ são emitidos com os _scopes_ necessários para permitir acesso aos dados especificados em elemento _Permission_ do Consentimento (Consent Resource Object) relacionado;
-4. não deve rejeitar pedido de autorização com _scopes_ além do necessário para permitir acesso a dados definidos em elemento _Permission_ do Consentimento (Consent Resource Object) relacionado;
-5. pode reduzir o escopo solicitado para um nível que seja suficiente para permitir o acesso aos dados definidos em elemento _Permission_ do Consentimento (Consent Resource Object) relacionado;
-6. deve manter registros sobre o histórico dos consentimentos para permitir a adequada formação de trilhas de auditoria em conformidade com a regulação em vigor.
+1. deve apenas emitir _refresh_tokens_ quando vinculados a um consentimento ativo e válido;
+2. somente deve compartilhar o acesso aos recursos quando apresentado _access_token_ vinculado a um consentimento ativo e válido;
+3. deve revogar os _refresh tokens_ e, quando aplicável, os _access tokens_ quando o Consentimento (Consent Resource) relacionado for apagado;
+4. deve garantir que os _access tokens_ são emitidos com os _scopes_ necessários para permitir acesso aos dados especificados em elemento _Permission_ do Consentimento (Consent Resource Object) relacionado;
+5. não deve rejeitar pedido de autorização com _scopes_ além do necessário para permitir acesso a dados definidos em elemento _Permission_ do Consentimento (Consent Resource Object) relacionado;
+6. pode reduzir o escopo solicitado para um nível que seja suficiente para permitir o acesso aos dados definidos em elemento _Permission_ do Consentimento (Consent Resource Object) relacionado;
+7. deve manter registros sobre o histórico dos consentimentos para permitir a adequada formação de trilhas de auditoria em conformidade com a regulação em vigor.
 
 #### Cliente OAuth2 confidencial  {#clientconfidential}
 
