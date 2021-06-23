@@ -13,7 +13,7 @@ At a high level the following major steps are required in order to onboard a new
 
 ### 1.1 Sequence Diagram
 
-![enter image description here](https://www.websequencediagrams.com/files/render?link=XqaI0EvQK7BEN8bkFdykE7gq0frHqu744LprGQVxytViXWvVvCjey3siD0lbnTuZ)
+![Sequence Diagram](images/application-registration.png)
 
 ### 1.1 Directory Overview
 
@@ -39,7 +39,7 @@ This user guide assumes that participating organisations have already been throu
  process with the Open Banking Brasil Initial Structure and have completed all of the necessary onboarding,
   contract signing and individual administrator onboarding processes.
 
-[Login Image]
+![Login Image](images/directory_logon.png)
 
 ### 1.3 Creating a new Software Statement
 
@@ -51,7 +51,7 @@ A software statement is an 'App' on what can be thought of as the Open Banking B
 A new application or software statement can be registered by logging on to the Directory,
 navigating to 'Software Statements' and clicking 'Create New' and populating the form. Help text is provided for each field on the screen. Please remember that the majority of this information will be displayed to customers by the Banks as part of the redirection or authorization process. As such it is important that all URIs and Descriptions are relevant for customer audience.
 
-[New Software Statement Image]
+![New Software Statement Image](images/ssa_form.png)
 
 #### 1.3.1 Assigning Software Regulatory Roles
 
@@ -531,7 +531,7 @@ The App now has discovered the list of Banks that are offering APIs that might b
 
 ## 3.0 Registering the application with a provider
 
-![enter image description here](https://www.websequencediagrams.com/files/render?link=1Xqm7oHVrWJ0Ya34s9kdzG1kHpwLobAftNdQHHvf44ikYZadVrou8iFhiFC9pSMP)
+![DCR](images/dynamic-client-registration.png)
 
 From the example given above we can see that the location of the "OpenIDDiscoveryDocument" is advertised by each of the Authorization Servers.
 
@@ -567,7 +567,7 @@ Please see Open Banking Brasil Dynamic Client Registration
 
 ## 4.0 Obtaining Access to Customers Resources
 
-![enter image description here](https://www.websequencediagrams.com/files/render?link=v8xPrADYGTMbCT8aW6qogJ6tQz8y3XBdJKQN6iSyXypJJ7XKnJdauvr9btnAfpog)
+![Consent](images/consent-process-redirect.png)
 
 For all options including all permission codes please see the
  [Consent API](https://openbanking-brasil.github.io/areadesenvolvedor/swagger/swagger_consents_apis.yaml).
