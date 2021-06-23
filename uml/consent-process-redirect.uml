@@ -3,14 +3,14 @@ participant Customer as psu
 participant TPP as tpp
 participant BankAS as as
 participant BankConsent as consent
-participant ICP as icp
+participant ICP-Brasil as icp
 participant DirectoryJWKS as jwks
 participant BankAPI as api
 
 
 tpp->as: Establish mutual tls connection
-BankAS->ICP: Validate Certificate (OCSP)
-ICP-->BankAS: Certificate OK
+BankAS->icp: Validate Certificate
+icp-->BankAS: Certificate OK
 as->tpp: Connection Established
 alt Token Auth: tls_client_auth
 note left of tpp: Client Credentials Grant\nScope consents
@@ -43,8 +43,8 @@ consent->BankAS: OK
 BankAS-->psu: Redirect to TPP + authorisation code
 psu-->TPP: Redirect to TPP + authorisation code
 tpp->as: Establish mutual tls connection
-BankAS->ICP: Validate Certificate (OCSP)
-ICP-->BankAS: Certificate OK
+BankAS->icp: Validate Certificate
+icp-->BankAS: Certificate OK
 as->tpp: Connection Established
 alt Token Auth: tls_client_auth
 note left of tpp: Authorisation Code Exchange
@@ -59,8 +59,8 @@ BankAS->BankAS: Validate RFC7523 Clause 2.2 client_assertion JWT\nUsing key from
 BankAS->tpp: Issue Access Token
 end
 tpp->api: Establish mutual tls connection
-api->ICP: Validate Certificate (OCSP)
-ICP-->api: Certificate OK
+api->icp: Validate Certificate
+icp-->api: Certificate OK
 api->tpp: Connection Established
 tpp->api: Request Resource + access_token
 api->as: Introspect Access Token
