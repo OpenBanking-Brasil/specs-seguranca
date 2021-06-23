@@ -215,12 +215,12 @@ In addition, the Authorization Server
 5. shall support the oidc standard claim "cnpj" as defined in clause 5.2.2.3 of this document if providing access to resources where the resource owner is not a `natural person`
 6. shall support the acr "urn:brasil:openbanking:loa2" as defined in clause 5.2.2.4 of this document
 7. should support the acr "urn:brasil:openbanking:loa3" as defined in clause 5.2.2.4 of this document
-8. shall implement the user info endpoint as defined in clause 5.3 [OpenID Connect Core][OIDC]
-9. shall support parameterized OAuth 2.0 resource scope _consent_ as defined in clause 6.3.1 [OIDF FAPI WG Lodging Intent Pattern][LIWP]
-10. may support [Financial-grade API: Client Initiated Backchannel Authentication Profile][FAPI-CIBA]
-11. shall support [Financial-grade API: Client Initiated Backchannel Authentication Profile][FAPI-CIBA] if supporting scope _payments_
-12. shall support refresh tokens
-13. shall issue access tokens with an expiry no greater than 900 seconds and no less than 300 seconds
+8. shall implement the userinfo endpoint as defined in clause 5.3 [OpenID Connect Core][OIDC]
+10. shall support parameterized OAuth 2.0 resource scope _consent_ as defined in clause 6.3.1 [OIDF FAPI WG Lodging Intent Pattern][LIWP]
+11. may support [Financial-grade API: Client Initiated Backchannel Authentication Profile][FAPI-CIBA]
+12. shall support [Financial-grade API: Client Initiated Backchannel Authentication Profile][FAPI-CIBA] if supporting scope _payments_
+13. shall support refresh tokens
+14. shall issue access tokens with an expiry no greater than 900 seconds and no less than 300 seconds
 
 #### ID Token as detached signature
 
