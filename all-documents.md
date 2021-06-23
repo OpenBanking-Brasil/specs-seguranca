@@ -15,7 +15,7 @@ As instituições participantes do Open Banking Brasil possuem a obrigação de 
 
 [Circular BCB nº 3.909, de 2018](https://www.bcb.gov.br/pre/normativos/busca/downloadNormativo.asp?arquivo=/Lists/Normativos/Attachments/50645/Circ_3909_v1_O.pdf)
 
-[Resolução BCB nº 99, de 14 de abril de 2020](https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Instru%C3%A7%C3%A3o%20Normativa%20BCB&numero=99)
+[Resolução BCB nº 99, de 14 de abril de 2021](https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Instru%C3%A7%C3%A3o%20Normativa%20BCB&numero=99)
 
 [Resolução BCB n° 32 de 29/10/2020](https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=32)
 
