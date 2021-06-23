@@ -1071,7 +1071,7 @@ tr:nth-child(2n+1) > td {
 <td class="right">June 2021</td>
 </tr></thead>
 <tfoot><tr>
-<td class="left">Bragg & Security</td>
+<td class="left">Bragg &amp; Security</td>
 <td class="center">Standards Track</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
@@ -1085,7 +1085,7 @@ tr:nth-child(2n+1) > td {
 <dd class="internet-draft">open-banking-brasil-financial-api-1_ID1</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2021-06-04" class="published">4 June 2021</time>
+<time datetime="2021-06-23" class="published">23 June 2021</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
@@ -1107,7 +1107,7 @@ tr:nth-child(2n+1) > td {
       <h2 id="name-foreword">
 <a href="#name-foreword" class="section-name selfRef">Foreword</a>
       </h2>
-<p id="section-note.1-1">Este documento tamb&#233;m est&#225; dispon&#237;vel em <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID1-ptbr.html">portugu&#234;s</a><a href="#section-note.1-1" class="pilcrow">¶</a></p>
+<p id="section-note.1-1">Este documento tamb&#233;m est&#225; dispon&#237;vel em <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID1-ptbr.html">portugu&#234;s</a>.<a href="#section-note.1-1" class="pilcrow">¶</a></p>
 <p id="section-note.1-2">The Open Banking Brasil Initial Structure is responsible for creating standards and specifications necessary to meet the requirements and obligations of the Brasil Open Banking Legislation as originally outlined by the <a href="https://www.bcb.gov.br/content/config/Documents/BCB_Open_Banking_Communique-April-2019.pdf">Brasil Central Bank</a>. There is a possibility that some of the elements of this document may be the subject to patent rights. OBBIS shall not be held responsible for identifying any or all such patent rights.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
 <p id="section-note.1-3">Open Banking Brasil Financial-grade API Security Profile 1.0 consists of the following parts:<a href="#section-note.1-3" class="pilcrow">¶</a></p>
 <ul class="note">
@@ -1383,7 +1383,7 @@ In addition this profile describes the specific scope, acr and client management
               <p id="section-5.2.2-3.4.1">shall support the oidc standard claim "cpf" as defined in clause 5.2.2.2 of this document<a href="#section-5.2.2-3.4.1" class="pilcrow">¶</a></p>
 </li>
 <li id="section-5.2.2-3.5">
-              <p id="section-5.2.2-3.5.1">shall support the oidc standard claim "cnpj" as defined in clause 5.2.2.3 of this document<a href="#section-5.2.2-3.5.1" class="pilcrow">¶</a></p>
+              <p id="section-5.2.2-3.5.1">shall support the oidc standard claim "cnpj" as defined in clause 5.2.2.3 of this document if providing access to resources where the resource owner is not a <code>natural person</code><a href="#section-5.2.2-3.5.1" class="pilcrow">¶</a></p>
 </li>
 <li id="section-5.2.2-3.6">
               <p id="section-5.2.2-3.6.1">shall support the acr "urn:brasil:openbanking:loa2" as defined in clause 5.2.2.4 of this document<a href="#section-5.2.2-3.6.1" class="pilcrow">¶</a></p>
@@ -1432,7 +1432,7 @@ then it shall encrypt the ID Token.<a href="#section-5.2.2.1-3.1.1" class="pilcr
             </h5>
 <p id="section-5.2.2.2-1">This profile defines "cpf" as a new standard claim as per
  clause 5.1 <a href="https://openid.net/specs/openid-connect-core-1_0.html">OIDC</a><a href="#section-5.2.2.2-1" class="pilcrow">¶</a></p>
-<p id="section-5.2.2.2-2">The <strong>CPF</strong> number (Cadastro de Pessoas F&#237;sicas, [sepe&#712;&#603;fi]; Portuguese for "Natural Persons Register")
+<p id="section-5.2.2.2-2">The <strong>CPF</strong> number (Cadastro de Pessoas F&amp;#237;sicas, [sepe&amp;#712;&amp;#603;fi]; Portuguese for "Natural Persons Register")
  is the <strong>Brazilian</strong> individual taxpayer registry identification. This number is attributed by
  the <strong>Brazilian</strong> Federal Revenue to Brazilians and resident aliens who, directly or indirectly,
   pay taxes in <strong>Brazil</strong>.
@@ -1452,9 +1452,9 @@ that matches the requested value. If this is an Essential Claim and the requirem
             </h5>
 <p id="section-5.2.2.3-1">This profile defines "cnpj" as a new standard claim as per
  clause 5.1<a href="https://openid.net/specs/openid-connect-core-1_0.html">OIDC</a><a href="#section-5.2.2.3-1" class="pilcrow">¶</a></p>
-<p id="section-5.2.2.3-2"><strong>CNPJ</strong>, short for Cadastro Nacional de Pessoas Jur&#237;dicas, is an identification number
+<p id="section-5.2.2.3-2"><strong>CNPJ</strong>, short for Cadastro Nacional de Pessoas Jur&amp;#237;dicas, is an identification number
  of <strong>Brazilian</strong> companies issued by the <strong>Brazilian</strong> Ministry of Revenue, <strong>in</strong>
- Portuguese "Secretaria da Receita Federal" or "Minist&#233;rio da Fazenda". In the Brasil Open Banking identity model,
+ Portuguese "Secretaria da Receita Federal" or "Minist&amp;#233;rio da Fazenda". In the Brasil Open Banking identity model,
  individuals can associated with 0 or more CNPJs. A CNPJ is a string consisting of numbers that is 14 digits long and may start with a 0,
  the first eight digits identify the company, the four digits after the slash identify the branch or
   subsidiary ("0001" defaults to the headquarters), and the last two are checksum digits.
@@ -1546,7 +1546,7 @@ Claim Value that contains a <strong>set</strong> of CNPJs one of which must matc
 <a href="#section-6" class="section-number selfRef">6. </a><a href="#name-security-considerations" class="section-name selfRef">Security considerations</a>
       </h2>
 <p id="section-6-1">Participants shall support all security considerations specified in clause 8
- <a href="https://openid.net/specs/openid-financial-api-part-2-1_0.html">Financial-grade API Security Profile 1.0 - Part 1: Advanced</a> and the <a href="https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Instru%C3%A7%C3%A3o%20Normativa%20BCB&numero=99">Brazilian Central Bank Open Banking Security Manual</a>.
+ <a href="https://openid.net/specs/openid-financial-api-part-2-1_0.html">Financial-grade API Security Profile 1.0 - Part 1: Advanced</a> and the <a href="https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Instru%C3%A7%C3%A3o%20Normativa%20BCB&amp;numero=99">Brazilian Central Bank Open Banking Security Manual</a>.
  The Brazilian ICP issues RSA x509 certificates only therefor section removes for simplicity support for EC algorithms
  and requires that only IANA recommended encryption algorithms be used.<a href="#section-6-1" class="pilcrow">¶</a></p>
 <div id="algorithm-considerations">
@@ -1673,22 +1673,25 @@ Claim Value that contains a <strong>set</strong> of CNPJs one of which must matc
 <p id="section-7.2.2-1">In addition to the requirements outlined in Open Banking Brasil security provisions the Authorization Server<a href="#section-7.2.2-1" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="normal type-1" id="section-7.2.2-2">
             <li id="section-7.2.2-2.1">
-              <p id="section-7.2.2-2.1.1">shall issue refresh tokens with validity equal to the <em>expirationDateTime</em> defined on the linked Consent Resource;<a href="#section-7.2.2-2.1.1" class="pilcrow">¶</a></p>
+              <p id="section-7.2.2-2.1.1">shall only issue refresh tokens when linked to active and valid consent;<a href="#section-7.2.2-2.1.1" class="pilcrow">¶</a></p>
 </li>
 <li id="section-7.2.2-2.2">
-              <p id="section-7.2.2-2.2.1">shall revoke refresh tokens and where practicable access tokens when the linked Consent Resource is deleted;<a href="#section-7.2.2-2.2.1" class="pilcrow">¶</a></p>
+              <p id="section-7.2.2-2.2.1">shall only share access to resources when presented with an access token linked to an active and valid consent;<a href="#section-7.2.2-2.2.1" class="pilcrow">¶</a></p>
 </li>
 <li id="section-7.2.2-2.3">
-              <p id="section-7.2.2-2.3.1">shall ensure Access Tokens are issued with sufficient scope necessary for access to data specified in the Permissions element of a linked Consent Resource object;<a href="#section-7.2.2-2.3.1" class="pilcrow">¶</a></p>
+              <p id="section-7.2.2-2.3.1">shall revoke refresh tokens and where practicable access tokens when the linked Consent Resource is deleted;<a href="#section-7.2.2-2.3.1" class="pilcrow">¶</a></p>
 </li>
 <li id="section-7.2.2-2.4">
-              <p id="section-7.2.2-2.4.1">shall not reject an authorisation request requesting more scope than is necessary to access data specified in the Permissions element of a linked Consent Resource object;<a href="#section-7.2.2-2.4.1" class="pilcrow">¶</a></p>
+              <p id="section-7.2.2-2.4.1">shall ensure Access Tokens are issued with sufficient scope necessary for access to data specified in the Permissions element of a linked Consent Resource object;<a href="#section-7.2.2-2.4.1" class="pilcrow">¶</a></p>
 </li>
 <li id="section-7.2.2-2.5">
-              <p id="section-7.2.2-2.5.1">may reduce requested scope to a level sufficient to enable access to data resources specified in the Permissions element of a linked Consent Resource object;<a href="#section-7.2.2-2.5.1" class="pilcrow">¶</a></p>
+              <p id="section-7.2.2-2.5.1">shall not reject an authorisation request requesting more scope than is necessary to access data specified in the Permissions element of a linked Consent Resource object;<a href="#section-7.2.2-2.5.1" class="pilcrow">¶</a></p>
 </li>
 <li id="section-7.2.2-2.6">
-              <p id="section-7.2.2-2.6.1">shall retain a complete audit history of the consent resource in accordance with current Central Bank brazilian regulation;<a href="#section-7.2.2-2.6.1" class="pilcrow">¶</a></p>
+              <p id="section-7.2.2-2.6.1">may reduce requested scope to a level sufficient to enable access to data resources specified in the Permissions element of a linked Consent Resource object;<a href="#section-7.2.2-2.6.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-7.2.2-2.7">
+              <p id="section-7.2.2-2.7.1">shall retain a complete audit history of the consent resource in accordance with current Central Bank brazilian regulation;<a href="#section-7.2.2-2.7.1" class="pilcrow">¶</a></p>
 </li>
 </ol>
 </section>
@@ -1731,7 +1734,7 @@ Claim Value that contains a <strong>set</strong> of CNPJs one of which must matc
           <p id="section-8-3.3.1">Alexandre Siqueira (Mercado Pago)<a href="#section-8-3.3.1" class="pilcrow">¶</a></p>
 </li>
 <li id="section-8-3.4">
-          <p id="section-8-3.4.1">Marcos Rodrigues (Ita&#250;)<a href="#section-8-3.4.1" class="pilcrow">¶</a></p>
+          <p id="section-8-3.4.1">Marcos Rodrigues (Ita&amp;#250;)<a href="#section-8-3.4.1" class="pilcrow">¶</a></p>
 </li>
 </ul>
 </section>
