@@ -1731,7 +1731,7 @@ O ecossistema do Open Banking Brasil faz uso de cadeias de certificados e protoc
 
 Os certificados utilizados pelo Open Banking Brasil também são necessários para autenticar as aplicações através do oAuth 2.0 mTLS ou private_key_jwt, além de também servirem para realizar a assinatura de payload pelo uso de JWS. Outra atribuição importante dos certificados é autenticar e apresentar um canal seguro para o usuário final no ato de autenticação e uso dos serviços prestados pela entidade participante.
 
-### Certificados ICP-Brasil {#CertificadosICPBrasil}
+### Certificados ICP-Brasil {#certificados-icp-brasil}
 
 Os certificados emitidos pelas Autoridades Certificadoras autorizadas pelo ICP-Brasil são utilizados apenas na comunicação entre as entidades participantes do ecossistema do Open Banking Brasil.
 
@@ -1747,19 +1747,19 @@ Todos os certificados emitidos junto ao ICP-Brasil devem possuir as seguintes ca
 * Algoritmo de Chaves: RSA 2048 bits;
 * Message Digest: SHA 256 bits.
 
-#### Certificado Servidor {#CertificadoServidor}
+#### Certificado Servidor {#certificado-servidor}
 
 O Certificado Servidor deve ser emitido para proteger e autenticar o canal TLS utilizado pelas APIs que serão consumidas pelas aplicações cliente OAuth 2.0 de entidades participantes do Open Banking.
 
 O padrão de certificado utilizado deve seguir as práticas de emissão de certificados existentes de "CERTIFICADO PARA SERVIDOR WEB – ICP-Brasil".
 
-#### Certificado Cliente {#CertificadoCliente}
+#### Certificado Cliente {#certificado-cliente}
 
 Os Certificados de Aplicação (Transporte) são utilizados para autenticar o canal mTLS e para realizar a autenticação da aplicação cliente através de oAuth2.0 mTLS ou private_key_jwt, de acordo com o cadastro da aplicação realizado pelo processo de Dynamic Client Registration junto à entidade transmissora.
 
 Para emissão de Certificado Cliente é necessário que a instituição participante do Open Banking Brasil tenha realizado o cadastro da aplicação no Serviço de Diretório, através do processo de emissão de Software Statement Assertion, e com isso já tenha obtido o valor de Software Statement ID.
 
-##### Atributos Open Banking Brasil {#AtributosOpenBankingBrasil}
+##### Atributos Open Banking Brasil {#atributos-open-banking-brasil}
 
 * **serialNumber:** Cadastro Nacional de Pessoal Jurídica (CNPJ) da pessoa jurídica titular do certificado e associado ao atributo UID e Software Statement ID, durante validação junto ao Serviço de Diretório do Open Banking Brasil;
 * **organizationalUnitName:** Código de Participante associado ao CNPJ listado no Serviço de Diretório do Open Banking Brasil;
@@ -1789,11 +1789,11 @@ O Certificado Cliente deve ser emitido através de cadeia V10, e deve obrigatori
 
 * **dNSName:** FQDN ou Wildcard
 
-#### Certificado de Assinatura {#CertificadoAssinatura}
+#### Certificado de Assinatura {#certificado-assinatura}
 
 Os Certificados de Assinatura são utilizados para realizar assinatura do payload através do uso de JWS (JSON Web Signature).
 
-##### Atributos Open Banking Brasil Presentes no Certificado {#AtributosCertificado}
+##### Atributos Open Banking Brasil Presentes no Certificado {#atributos-obb-presente-certificado}
 
 * **UID:** Código de Participante associado ao CNPJ listado no Serviço de Diretório do Open Banking Brasil;
 * **commonName:** Razão Social cadastrado no Serviço de Diretório do Open Banking Brasil e pertencente ao CNPJ e Código de Participante.
@@ -1821,19 +1821,19 @@ O Certificado de Assinatura deve ser emitido através de cadeia V5, e deve obrig
 * **otherName (OID 2.16.76.1.3.4 – ICP-Brasil):** Responsável pelo certificado de pessoa jurídica titular do certificado (data de nascimento, CPF, PIS/PASEP/CI, RG);
 * **otherName (OID 2.16.76.1.3.7  – ICP-Brasil):** Número do Cadastro Especifico do INSS (CEI) da pessoa jurídica titular do certificado.
 
-#### Certificado para Front-End {#CertificadoFrontEnd}
+#### Certificado para Front-End {#certificado-frontend}
 
 Os certificados para Front-End são utilizados para disponibilizar serviços, em geral páginas Web, com uso de TLS, que são acessados pelo usuário final. Dado a sua finalidade, e para garantir maior interoperabilidade, os certificados devem ser do tipo EV (Extended Validation) e devem ser gerados através de uma autoridade certificadora válida, seguindo as regras definidas na RFC 5280 e RFC 2818, em conformidade com os princípios e critérios WebTrust.
 
-### Autoridades Certificadoras Participantes {#AutoridadesCertificadorasParticipantes}
+### Autoridades Certificadoras Participantes {#autoridades-certificadoras-participantes}
 
 As seguintes autoridades certificadoras realizaram o processo de onboard ao Open Banking Brasil e estão habilitadas para realizar a emissão de certificados do Open Banking Brasil.
 
-* N/A
+* SERPRO
 
 ### Apêndice {#certificados-apendice}
 
-#### A.1 Modelo de Configuração de Certificado Cliente - OpenSSL {#ModeloConfiguracaoCertificadoClienteOpenSSL}
+#### A.1 Modelo de Configuração de Certificado Cliente - OpenSSL {#certificados-a1}
 
 ```
 [req]
@@ -1867,7 +1867,7 @@ extendedKeyUsage = clientAuth
 DNS = <FQDN|Wildcard>
 ```
 
-#### A.2 Modelo de Configuração de Certificado de Assinatura - OpenSSL {#ModeloConfiguracaoCertificadoAssinaturaOpenSSL}
+#### A.2 Modelo de Configuração de Certificado de Assinatura - OpenSSL {#certificados-a2}
 
 ```
 [req]
@@ -1899,7 +1899,7 @@ otherName.1 = 2.16.76.1.3.3;UTF8<CNPJ>
 otherName.2 = 2.16.76.1.3.4;UTF8:<CPF/PIS/RF da Pessoa responsável>
 otherName.3 = 2.16.76.1.3.7;UTF8:<Número de INSS>
 ```
-## Casos de Erro
+## Casos de Erro  {#casos-erro}
 
 A convenção do Open Banking Brasil mapeou alguns erros esperados durante o fluxo do usuário no ecossistema. Existem orientações especificas já tratadas no Manual do Usuário. Aqui, trataremos a visão mais técnica do que pode ser feito em caso de erro.
 
@@ -1911,11 +1911,11 @@ A convenção do Open Banking Brasil mapeou alguns erros esperados durante o flu
 * Após o consentimento completo, o app do Receptor não consegue acessar os dados por indisponibilidade: Deve-se tentar novamente. Access Token ainda é válido, portanto deve-se tentar novamente sem maiores prejuízos técnicos.
 * Após o consentimento completo, o app do Receptor não consegue acessar os dados por pendência de autorização de um terceiro (ex.: Dupla alçada): Deve-se consultar a API de Resources para verificar as pendências e saber como proceder.
 
-##  Redirecionamento App-to-app
+##  Redirecionamento App-to-app  {#reqirecionamento-app-to-app}
 
 O redirecionamento 'App-to-App' permite que a Instituição Receptora redirecione um usuário do seu aplicativo (em um navegador ou app) para o App da Instituição Transmissora, instalado no dispositivo do usuário. Nesse caso, a receptora é capaz de transmitir detalhes de sua solicitação junto com as preferências do usuário (por exemplo, tipo de produto, one-step authentication, etc) e ligar diretamente o seu usuário à tela ou função de login do aplicativo da transmissora, através de um deep-link. O usuário é então autenticado no aplicativo usando as mesmas credenciais/métodos normalmente usados quando ele acessa diretamente sua conta. Isso não deve envolver nenhuma etapa adicional (como, por exemplo, ser redirecionado primeiro para uma página da web para selecionar qual aplicativo da instituição transmissora usar) e não deve exigir que o usuário forneça qualquer identificador ou outras credenciais diferentes das já exigidas pela Instituição Transmissora em seu App. Quando o usuário não tem o App da transmissora, eles devem experimentar um fluxo de redirecionamento que também não deve envolver etapas adicionais do que seria o caso quando ele autentica diretamente na transmissora (por exemplo, ser redirecionado para o site mobile da transmissora).
 
-### Como funciona o fluxo de redirecionamento
+### Como Funciona o Fluxo de Redirecionamento (#como-funciona-fluxo-redirecionamento}
 
 Ao usar um serviço baseado no padrão de APIs Open Banking Brasil para redirecionamento, o usuário será redirecionado duas vezes:
 
@@ -1923,7 +1923,7 @@ Ao usar um serviço baseado no padrão de APIs Open Banking Brasil para redireci
 
 2. Na volta da interface da transmissora para a interface da receptora (para completar qualquer operação com a receptora). Este redirecionamento é especificado pela receptora como parte do primeiro redirecionamento.
 
-### Implementação de deep links
+### Implementação de Deep Links  {#implementacao-deep-links}
 
 Uma jornada perfeita para o usuário, que ignora o navegador integrado (por exemplo, Safari) em seu dispositivo mobile, pode ser implementada para qualquer URL, ou seja, ambos: a) para o redirecionamento inicial para o qual a transmissora envia o usuário para os servidores da transmissora, E b) a URL de redirecionamento para o qual a transmissora envia o usuário de volta para a receptora após a autenticação/autorização.
 
