@@ -213,7 +213,7 @@ Além disso, o servidor de autorização
 
 1. deve contar com serviços de descoberta do ecossistemas fornecidos apenas pelo Diretório de Participantes;
 2. deve derivar os metadados necessários do Authorization Server somente por meio do serviço OpenID Connect Discovery dos Authorization Servers;
-3. quando presente, deve usar endpoints anunciados em `mtls_endpoint_aliases` conforme a cláusula 5 [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication e Certificate-Bound Access Tokens][RF8705];
+3. quando presente, deve usar endpoints anunciados em `mtls_endpoint_aliases` conforme a cláusula 5 [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication e Certificate-Bound Access Tokens][RFC8705];
 
 # Provisões de registro OpenID Connect do Open Banking Brasil  {#Registration}
 

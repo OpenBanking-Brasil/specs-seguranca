@@ -196,12 +196,12 @@ The Authorization Server shall support [OpenID Connect Discovery][OIDD] as requi
 In addition, the Authorization Server
 
 1. shall advertise its presence in the Open Banking Brasil ecosystem by being listed on the Directory of Participants;
-1. shall advertise all Open Banking Brasil REST API resources protected by the OpenID Provider on the Directory of Participants;
-1. shall advertise support for all signing, encryption, authentication mechanisms and standards required to support [Open Banking Brasil Financial API][OBB-FAPI];
-1. shall advertise support for [OpenID Dynamic Client Registration][OIDR];
-2. shall advertise `mtls_endpoint_aliases` as per clause 5 [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens][RF8705] the `token_endpoint`, `registration_endpoint` and `userinfo_endpoint`;
-3. if supporting [OAuth 2.0 Pushed Authorization Requests][PAR] shall advertise through [OIDD] `mtls_endpoint_aliases` the `pushed_authorization_request_endpoint`;
-4. if supporting [Financial API - Client Initiated Back Channel Authentication][FAPI-CIBA] shall advertise through [OIDD] `mtls_endpoint_aliases` the `backchannel_authentication_endpoint`;
+2. shall advertise all Open Banking Brasil REST API resources protected by the OpenID Provider on the Directory of Participants;
+3. shall advertise support for all signing, encryption, authentication mechanisms and standards required to support [Open Banking Brasil Financial API][OBB-FAPI];
+4. shall advertise support for [OpenID Dynamic Client Registration][OIDR];
+5. shall advertise `mtls_endpoint_aliases` as per clause 5 [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens][RFC8705] the `token_endpoint`, `registration_endpoint` and `userinfo_endpoint`;
+6. if supporting [OAuth 2.0 Pushed Authorization Requests][PAR] shall advertise through [OIDD] `mtls_endpoint_aliases` the `pushed_authorization_request_endpoint`;
+7. if supporting [Financial API - Client Initiated Back Channel Authentication][FAPI-CIBA] shall advertise through [OIDD] `mtls_endpoint_aliases` the `backchannel_authentication_endpoint`;
 
 ## Client
 
@@ -210,8 +210,8 @@ The Client shall support [OpenID Connect Discovery][OIDD] as required by [Financ
 In addition, the Authorization Server
 
 1. shall rely on ecosystem discovery services provided by Directory of Participants only;
-1. shall derive necessary Authorisation Server metadata by relying on an Authorization Servers OpenID Connect Discovery services only;
-1. where present, shall use endpoints advertised in `mtls_endpoint_aliases` as per clause 5 [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens][RF8705];
+2. shall derive necessary Authorisation Server metadata by relying on an Authorization Servers OpenID Connect Discovery services only;
+3. where present, shall use endpoints advertised in `mtls_endpoint_aliases` as per clause 5 [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens][RF8705];
 
 # Open Banking Brasil OpenID Connect Registration Provisions
 
@@ -241,8 +241,8 @@ These provisions apply equally to the processing of [RFC7591], [RFC7592] and [Op
 Where properties of a DCR request are not included and are not mandatory in the specification the Authorisation Server shall apply client defaults in the following manner
 
 1. shall select and apply the encryption algorithm and cipher choice from the most recommended of the IANA cipher suites that is supported by the Authorisation Server;
-1. shall populate defaults from values within the software statement assertion where possible;
-1. shall grant the client permission to the complete set of potential scopes based on the softwares regulatory permissions included in the software_statement;
+2. shall populate defaults from values within the software statement assertion where possible;
+3. shall grant the client permission to the complete set of potential scopes based on the softwares regulatory permissions included in the software_statement;
 
 ### Certificate Distinguished Name Parsing
 
