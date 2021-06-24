@@ -335,10 +335,10 @@ Além disso, ele deve:
 1. deve suportar Request Objects JWE assinados e criptografados passados por valor ou deve exigir requisições do tipo "pushed authorization requests" [PAR]
 2. deve publicar metadados de descoberta (incluindo a do endpoint de autorização) por meio do documento de metadado especificado em [OIDD] e [RFC8414] (".well-known")
 3. deve suportar os parâmetros `claims` como definido no item 5.5 do [OpenID Connect Core][OIDC]
-4. deve suportar o atributo `claim` padrão oidc "cpf" conforme [definido neste documento](#cpf)
-5. deve suportar o atributo `claim` padrão oidc "cnpj" conforme [definido neste documento](#cnpj), se a instituição for detentora de conta para pessoas jurídicas
-6. deve suportar o atributo `acr` "urn:brasil:openbanking:loa2" como [definido neste documento](#loa)
-7. deveria suportar o atributo `acr` "urn:brasil:openbanking:loa3" como [definido neste documento](#loa)
+4. deve suportar o atributo `claim` padrão oidc "cpf" conforme definido no item [Solicitando a "claim" **cpf*](#solicitando-claim-cpf)
+5. deve suportar o atributo `claim` padrão oidc "cnpj" conforme definido no item [Solicitando a "claim" **cnpj**](#solicitando-claim-cnpj), se a instituição for detentora de conta para pessoas jurídicas
+6. deve suportar o atributo `acr` "urn:brasil:openbanking:loa2" conforme definido no item [Solicitação de Contexto de Autenticação](#solicitacao-contexto-autenticacao)
+7. deveria suportar o atributo `acr` "urn:brasil:openbanking:loa3" conforme definido no item [Solicitação de Contexto de Autenticação](#solicitacao-contexto-autenticacao)
 8. deve implementar o endpoint "userinfo" como definido no item 5.3 do [OpenID Connect Core][OIDC]
 9. deve suportar o escopo parametrizável ("parameterized OAuth 2.0 resource scope") _consent_ como definido no item 6.3.1 de [OIDF FAPI WG Lodging Intent Pattern][LIWP]
 10. pode suportar [Financial-grade API: Client Initiated Backchannel Authentication Profile][FAPI-CIBA]
@@ -530,7 +530,7 @@ Adicionalmente, o Authorization Server:
 2. deve anunciar todos os recursos API REST do Open Banking Brasil protegidos pelo OpenID Provider no Diretório de Participantes;
 3. deve anunciar suporte para todos os mecanismos de assinatura, criptografia, autenticação e padrões necessários para suportar o [Perfil de Segurança Open Banking Brasil Financial-grade API][OBB-FAPI];
 4. deve anunciar suporte para [OpenID Dynamic Client Registration][OIDR];
-5. deve anunciar `mtls_endpoint_aliases` de acordo com a cláusula 5 [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication e Certificate-Bound Access Tokens][RF8705] o `token_endpoint`, `registration_endpoint` e `userinfo_endpoint`;
+5. deve anunciar `mtls_endpoint_aliases` de acordo com a cláusula 5 da [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication e Certificate-Bound Access Tokens][RFC8705] o `token_endpoint`, `registration_endpoint` e `userinfo_endpoint`;
 6. se suportar [OAuth 2.0 Pushed Authorisation Requests][PAR], deve anunciar por meio de [OIDD] `mtls_endpoint_aliases` o `push_authorization_request_endpoint`;
 7. se suportar [Financial API - Client Initiated Back Channel Authentication][FAPI-CIBA], deve anunciar através de [OIDD] `mtls_endpoint_aliases` o `backchannel_authentication_endpoint`;
 
