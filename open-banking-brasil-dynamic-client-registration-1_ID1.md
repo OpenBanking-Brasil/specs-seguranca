@@ -16,7 +16,7 @@
     name = "Internet-Draft"
     status = "standard"
     value = "open-banking-brasil-dynamic-client-registration-1_ID1"
- 
+
     [[author]]
     initials = "R."
     surname = "Bragg"
@@ -258,8 +258,8 @@ The following table describes the regulatory roles for Open Banking and the rela
 
 | Regulatory Role | Description | Allowed Scopes | Target Phase|
 | --- | --- | --- | --- |
-| DADOS | Instituição transmissora / receptora de dados (AISP) | openid accounts credit-cards-accounts consents customers invoice-financings financings loans unarranged-accounts-overdraft | Phase 2 |
-| PAGTO | Instituição prestadora de serviço de iniciação de pagamentos (PISP) | openid payments consents | Phase 3 |
+| DADOS | Instituição transmissora / receptora de dados (AISP) | openid accounts credit-cards-accounts consents customers invoice-financings financings loans unarranged-accounts-overdraft resources | Phase 2 |
+| PAGTO | Instituição prestadora de serviço de iniciação de pagamentos (PISP) | openid payments consents resources | Phase 3 |
 | CONTA | Instituição detentora de conta (ASPSP) | openid | Phase 3 |
 | CCORR | Correspondente de crédito | openid | Phase 3* |
 
