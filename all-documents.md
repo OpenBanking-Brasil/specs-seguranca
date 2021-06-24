@@ -420,7 +420,7 @@ Além disso, o cliente OAuth2 confidencial:
 
 ### Considerações de Segurança  {#consideracoes-seguranca}
 
-Os participantes devem suportar todas as considerações de segurança especificadas na cláusula 8 do [Financial-grade API Security Profile 1.0 - Parte 2: Advanced] [FAPI-1-Advanced] e o [Manual de Segurança de Banco Central do Brasil] (https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Instru%C3%A7%C3%A3o%20Normativa%20BCB&numero=99). O ICP-Brasil emite somente certificados RSA x509 e, para simplificar, a seção remove o suporte para algoritmos EC e exige que apenas algoritmos de criptografia recomendados pela IANA sejam usados.
+Os participantes devem suportar todas as considerações de segurança especificadas na cláusula 8 do [Financial-grade API Security Profile 1.0 - Parte 2: Advanced] [FAPI-1-Advanced] e o [Manual de Segurança de Banco Central do Brasil](https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Instru%C3%A7%C3%A3o%20Normativa%20BCB&numero=99). O ICP-Brasil emite somente certificados RSA x509 e, para simplificar, a seção remove o suporte para algoritmos EC e exige que apenas algoritmos de criptografia recomendados pela IANA sejam usados.
 
 #### Considerações de Algoritmo  {#consideracoes-algoritmo}
 
