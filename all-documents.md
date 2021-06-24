@@ -591,8 +591,8 @@ A tabela a seguir descreve as funções regulatórias do Open Banking Brasil e o
 
 | Papel Regulador | Descrição | Escopos Permitidos | Fase-alvo |
 | --- | --- | --- | --- |
-| DADOS | Instituição transmissora / receptora de dados (AISP) | openid accounts credit-cards-accounts consents customers invoice-financings financings loans unarranged-accounts-overdraft | Fase 2 |
-| PAGTO | Instituição prestadora de serviço de iniciação de pagamentos (PISP) | openid payments consents | Fase 3 |
+| DADOS | Instituição transmissora / receptora de dados (AISP) | openid accounts credit-cards-accounts consents customers invoice-financings financings loans unarranged-accounts-overdraft resources | Fase 2 |
+| PAGTO | Instituição prestadora de serviço de iniciação de pagamentos (PISP) | openid payments consents resources | Fase 3 |
 | CONTA | Instituição detentora de conta (ASPSP) | openid | Fase 3 |
 | CCORR | Correspondente de crédito | openid | Fase 3* |
 
@@ -1493,7 +1493,7 @@ Todos os requisitos para o OpenID Request Object estão incluídos no [Perfil de
 Assinatura omitida por questões de brevidade
 ```
 
-#### 4.3.1.1 Solicitação de Claims Específicas  {#SolicitacaoClaims}
+#### Solicitação de Claims Específicas  {#SolicitacaoClaims}
 
 Também é opcional para TPPs solicitar `claims` de identidade ('Identity Claims') adicionais, incluindo CPF e CNPJ. Essas `claims` são definidas no Perfil de Segurança do Open Banking Brasil. Também é possível para um TPP solicitar que uma `claim` corresponda a um determinado valor, baseando-se em [OpenID Connect Core Clause 5.5.1](https://openid.net/specs/openid-connect-core-1_0.html#IndividualClaimsRequests) para solicitar `claims` individuais.
 
