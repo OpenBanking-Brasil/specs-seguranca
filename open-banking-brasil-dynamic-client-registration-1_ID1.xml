@@ -2,297 +2,652 @@
 <!-- name="GENERATOR" content="github.com/mmarkdown/mmark Mmark Markdown Processor - mmark.miek.nl" -->
 <rfc version="3" ipr="none" docName="open-banking-brasil-dynamic-client-registration-1_ID1" submissionType="IETF" category="std" xml:lang="en" xmlns:xi="http://www.w3.org/2001/XInclude" consensus="true">
 
-<front>
-<title abbrev="OBB-FAPI-1-DCR-ID1">Open Banking Brasil Financial-grade API Dynamic Client Registration 1.0 Implementers Draft 1</title><seriesInfo value="open-banking-brasil-dynamic-client-registration-1_ID1" status="standard" name="Internet-Draft"></seriesInfo>
-<author initials="R." surname="Bragg" fullname="Ralph Bragg"><organization abbrev="Raidiam">Raidiam</organization><address><postal><street></street>
-</postal><email>ralph.bragg@raidiam.com</email>
-<uri>https://www.raidiam.com/</uri>
-</address></author>
-<author initials="GT" surname="Security" fullname="OBBIS GT Security"><organization abbrev="OBBIS">Open Banking Brasil Initial Structure</organization><address><postal><street></street>
-</postal><email>gt-seguranca@openbankingbr.org</email>
-<uri>https://openbankingbrasil.org.br/</uri>
-</address></author>
-<date/>
-<area>Internet</area>
-<workgroup>Open Banking Brasil GT Security</workgroup>
-<keyword>FAPI</keyword>
-<keyword>Open Banking Brasil GT Security</keyword>
+  <front>
+    <title abbrev="OBB-FAPI-1-DCR-ID1">Open Banking Brasil Financial-grade API Dynamic Client Registration 1.0 Implementers Draft 1</title>
+    <seriesInfo value="open-banking-brasil-dynamic-client-registration-1_ID1" status="standard" name="Internet-Draft"></seriesInfo>
+    <author initials="R." surname="Bragg" fullname="Ralph Bragg">
+      <organization abbrev="Raidiam">Raidiam</organization>
+      <address>
+        <postal>
+          <street></street>
+        </postal>
+        <email>ralph.bragg@raidiam.com</email>
+        <uri>https://www.raidiam.com/</uri>
+      </address>
+    </author>
+    <author initials="GT" surname="Security" fullname="OBBIS GT Security">
+      <organization abbrev="OBBIS">Open Banking Brasil Initial Structure</organization>
+      <address>
+        <postal>
+          <street></street>
+        </postal>
+        <email>gt-seguranca@openbankingbr.org</email>
+        <uri>https://openbankingbrasil.org.br/</uri>
+      </address>
+    </author>
+    <date />
+    <area>Internet</area>
+    <workgroup>Open Banking Brasil GT Security</workgroup>
+    <keyword>FAPI</keyword>
+    <keyword>Open Banking Brasil GT Security</keyword>
 
-<note><name>Foreword</name>
-<t>Este documento também está disponível em <eref target="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID1-ptbr.html">português</eref></t>
-<t>The Open Banking Brasil Initial Structure is responsible for creating standards and specifications necessary to meet the requirements and obligations of the Brasil Open Banking Legislation as originally outlined by the <eref target="https://www.bcb.gov.br/content/config/Documents/BCB_Open_Banking_Communique-April-2019.pdf">Brasil Central Bank</eref>. There is a possibility that some of the elements of this document may be the subject to patent rights. OBBIS shall not be held responsible for identifying any or all such patent rights.</t>
-<t>Open Banking Brasil Financial-grade API Security Profile 1.0 consists of the following parts:</t>
+    <note>
+      <name>Foreword</name>
+      <t>
+        Este documento também está disponível em
+        <eref target="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID1-ptbr.html">português</eref>
+      </t>
+      <t>
+        The Open Banking Brasil Initial Structure is responsible for creating standards and specifications necessary to meet the requirements and obligations of the Brasil Open Banking Legislation as originally outlined by the
+        <eref target="https://www.bcb.gov.br/content/config/Documents/BCB_Open_Banking_Communique-April-2019.pdf">Brasil Central Bank</eref>
+        . There is a possibility that some of the elements of this document may be the subject to patent rights. OBBIS shall not be held responsible for identifying any or all such patent rights.
+      </t>
+      <t>Open Banking Brasil Financial-grade API Security Profile 1.0 consists of the following parts:</t>
 
-<ul>
-<li><t><eref target="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID1.html">Open Banking Brasil Financial-grade API Security Profile 1.0</eref></t>
-</li>
-<li><t>Open Banking Brasil Dynamic Client Registration Profile 1.0</t>
-</li>
-</ul>
-<t>These parts are intended to be used with <eref target="https://tools.ietf.org/html/rfc6749">RFC6749</eref>, <eref target="https://tools.ietf.org/html/rfc6750">RFC6750</eref>, <eref target="https://tools.ietf.org/html/rfc7636">RFC7636</eref>, <eref target="https://openid.net/specs/openid-connect-core-1_0.html">OIDC</eref>, <eref target="https://openid.net/specs/openid-connect-registration-1_0.html">OIDR</eref>, <eref target="https://tools.ietf.org/html/rfc7591">RFC7591</eref>, <eref target="https://tools.ietf.org/html/rfc7592">RFC7592</eref>, <eref target="https://openid.net/specs/openid-financial-api-part-1-1_0.html">FAPI-1-Baseline</eref> and <eref target="https://openid.net/specs/openid-financial-api-part-2-1_0.html">FAPI-1-Advanced</eref></t>
-</note>
+      <ul>
+        <li>
+          <t>
+            <eref target="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID1.html">Open Banking Brasil Financial-grade API Security Profile 1.0</eref>
+          </t>
+        </li>
+        <li>
+          <t>Open Banking Brasil Dynamic Client Registration Profile 1.0</t>
+        </li>
+      </ul>
+      <t>
+        These parts are intended to be used with
+        <eref target="https://tools.ietf.org/html/rfc6749">RFC6749</eref>
+        ,
+        <eref target="https://tools.ietf.org/html/rfc6750">RFC6750</eref>
+        ,
+        <eref target="https://tools.ietf.org/html/rfc7636">RFC7636</eref>
+        ,
+        <eref target="https://openid.net/specs/openid-connect-core-1_0.html">OIDC</eref>
+        ,
+        <eref target="https://openid.net/specs/openid-connect-registration-1_0.html">OIDR</eref>
+        ,
+        <eref target="https://tools.ietf.org/html/rfc7591">RFC7591</eref>
+        ,
+        <eref target="https://tools.ietf.org/html/rfc7592">RFC7592</eref>
+        ,
+        <eref target="https://openid.net/specs/openid-financial-api-part-1-1_0.html">FAPI-1-Baseline</eref>
+        and
+        <eref target="https://openid.net/specs/openid-financial-api-part-2-1_0.html">FAPI-1-Advanced</eref>
+      </t>
+    </note>
 
-<note><name>Introduction</name>
-<t>The Open Banking Brasil Financial-grade API Dynamic Client Registration Profile is a profile of <eref target="https://tools.ietf.org/html/rfc7591">RFC7591</eref>, <eref target="https://tools.ietf.org/html/rfc7592">RFC7592</eref> and <eref target="https://openid.net/specs/openid-connect-registration-1_0.html">OIDR</eref> that aims to provide specific implementation guidelines for security and interoperability which can be applied to the identification, registration and management of OAuth Clients operating in the Brasil Open Banking ecosystem.
-Although it is possible to code an OpenID Provider and Relying Party from first principles using this specification, the main audience for this specification is parties who already have a certified implementation of <eref target="https://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect</eref> and want to achieve certification for the Brasil Open Banking programme.</t>
-</note>
+    <note>
+      <name>Introduction</name>
+      <t>
+        The Open Banking Brasil Financial-grade API Dynamic Client Registration Profile is a profile of
+        <eref target="https://tools.ietf.org/html/rfc7591">RFC7591</eref>
+        ,
+        <eref target="https://tools.ietf.org/html/rfc7592">RFC7592</eref>
+        and
+        <eref target="https://openid.net/specs/openid-connect-registration-1_0.html">OIDR</eref>
+        that aims to provide specific implementation guidelines for security and interoperability which can be applied to the identification, registration and management of OAuth Clients operating in the Brasil Open Banking ecosystem.
+Although it is possible to code an OpenID Provider and Relying Party from first principles using this specification, the main audience for this specification is parties who already have a certified implementation of
+        <eref target="https://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect</eref>
+        and want to achieve certification for the Brasil Open Banking programme.
+      </t>
+    </note>
 
-<note><name>Notational Conventions</name>
-<t>The key words &quot;shall&quot;, &quot;shall not&quot;,
+    <note>
+      <name>Notational Conventions</name>
+      <t>
+        The key words &quot;shall&quot;, &quot;shall not&quot;,
 &quot;should&quot;, &quot;should not&quot;, &quot;may&quot;, and
 &quot;can&quot; in this document are to be interpreted as described in
-<eref target="https://www.iso.org/sites/directives/current/part2/index.xhtml">ISO Directive Part 2</eref>.
+        <eref target="https://www.iso.org/sites/directives/current/part2/index.xhtml">ISO Directive Part 2</eref>
+        .
 These key words are not used as dictionary terms such that
 any occurrence of them shall be interpreted as key words
-and are not to be interpreted with their natural language meanings.</t>
-</note>
+and are not to be interpreted with their natural language meanings.
+      </t>
+    </note>
 
-</front>
+  </front>
 
-<middle>
+  <middle>
 
-<section anchor="scope"><name>Scope</name>
-<t>This document specifies the method of</t>
+    <section anchor="scope">
+      <name>Scope</name>
+      <t>This document specifies the method of</t>
 
-<ul>
-<li><t>applications registered in the <eref target="https://web.directory.openbankingbrasil.org.br">Open Banking Directory of Participants</eref> to discover OpenID Providers offering services in the Open Banking Brasil ecosystem;</t>
-</li>
-<li><t>applications to use <eref target="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Connect Registration</eref> to onboard their applications with Bank OpenID Providers; and</t>
-</li>
-<li><t>applications to use <eref target="https://tools.ietf.org/html/rfc7592">OAuth 2.0 Dynamic Client Registration Management Protocol</eref> to manage their applications with OpenID Providers;</t>
-</li>
-</ul>
-<t>This document is applicable to all participants engaging in Open Banking in Brasil.</t>
-</section>
+      <ul>
+        <li>
+          <t>
+            applications registered in the
+            <eref target="https://web.directory.openbankingbrasil.org.br">Open Banking Directory of Participants</eref>
+            to discover OpenID Providers offering services in the Open Banking Brasil ecosystem;
+          </t>
+        </li>
+        <li>
+          <t>
+            applications to use
+            <eref target="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Connect Registration</eref>
+            to onboard their applications with Bank OpenID Providers; and
+          </t>
+        </li>
+        <li>
+          <t>
+            applications to use
+            <eref target="https://tools.ietf.org/html/rfc7592">OAuth 2.0 Dynamic Client Registration Management Protocol</eref>
+            to manage their applications with OpenID Providers;
+          </t>
+        </li>
+      </ul>
+      <t>This document is applicable to all participants engaging in Open Banking in Brasil.</t>
+    </section>
 
-<section anchor="normative-references"><name>Normative references</name>
-<t>The following referenced documents are indispensable for the application of this document. For dated references, only the edition cited applied. For undated references, the latest edition of the referenced document (including any amendments) applies.</t>
-<t><eref target="https://www.iso.org/sites/directives/current/part2/index.xhtml">ISODIR2</eref> - ISO/IEC Directives Part 2</t>
-<t><eref target="https://tools.ietf.org/html/rfc6749">RFC6749</eref> - The OAuth 2.0 Authorization Framework</t>
-<t><eref target="https://tools.ietf.org/html/rfc6750">RFC6750</eref> - The OAuth 2.0 Authorization Framework: Bearer Token Usage</t>
-<t><eref target="https://tools.ietf.org/html/rfc7636">RFC7636</eref> - Proof Key for Code Exchange by OAuth Public Clients</t>
-<t><eref target="https://tools.ietf.org/html/rfc6819">RFC6819</eref> - OAuth 2.0 Threat Model and Security Considerations</t>
-<t><eref target="https://tools.ietf.org/html/rfc7519">RFC7519</eref> - JSON Web Token (JWT)</t>
-<t><eref target="https://tools.ietf.org/html/rfc7591">RFC7591</eref> - OAuth 2.0 Dynamic Client Registration Protocol</t>
-<t><eref target="https://tools.ietf.org/html/rfc7592">RFC7592</eref> - OAuth 2.0 Dynamic Client Registration Management Protocol</t>
-<t><eref target="https://tools.ietf.org/html/bcp195">BCP195</eref> - Recommendations for Secure Use of Transport Layer Security (TLS) and Datagram Transport Layer Security (DTLS)</t>
-<t><eref target="https://openid.net/specs/openid-connect-core-1_0.html">OIDC</eref> - OpenID Connect Core 1.0 incorporating errata set 1</t>
-<t><eref target="https://bitbucket.org/openid/fapi/src/master/Financial_API_WD_CIBA.md">FAPI-CIBA</eref> - Financial-grade API: Client Initiated Backchannel Authentication Profile</t>
-<t><eref target="https://www.rfc-editor.org/rfc/rfc4514">RFC4514</eref> - Lightweight Directory Access Protocol (LDAP): String Representation of Distinguished Names</t>
-<t><eref target="https://openid.net/specs/openid-connect-discovery-1_0.html">OIDD</eref> -  OpenID Connect Discovery 1.0 incorporating errata set 1</t>
-<t><eref target="https://openid.net/specs/openid-connect-registration-1_0.html">OIDR</eref> -  OpenID Connect Registration 1.0 incorporating errata set 1</t>
-<t><eref target="https://tools.ietf.org/html/rfc8705">RFC8705</eref> - OAuth 2.0 Mutual TLS Client Authentication and Certificate Bound Access Tokens</t>
-<t><eref target="https://bitbucket.org/openid/fapi/src/master/Financial_API_JWT_Secured_Authorization_Response_Mode.md">JARM</eref> - Financial-grade API: JWT Secured Authorization Response Mode for OAuth 2.0 (JARM)</t>
-<t><eref target="https://tools.ietf.org/html/draft-ietf-oauth-par">PAR</eref> - OAuth 2.0 Pushed Authorization Requests</t>
-<t><eref target="https://tools.ietf.org/html/draft-ietf-oauth-jwsreq">JAR</eref> - OAuth 2.0 JWT Secured Authorization Request</t>
-<t><eref target="https://openid.net/specs/openid-financial-api-part-1-1_0.html">FAPI-1-Baseline</eref> - Financial-grade API Security Profile 1.0 - Part 1: Baseline</t>
-<t><eref target="https://openid.net/specs/openid-financial-api-part-2-1_0.html">FAPI-1-Advanced</eref> - Financial-grade API Security Profile 1.0 - Part 2: Advanced</t>
-<t><eref target="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID1.html">OBB-FAPI</eref> - Open Banking Brasil Financial-grade API Security Profile 1.0</t>
-<t><eref target="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html">OBB-Cert-Standards</eref> - Open Banking Brasil x.509 Certificate Standards</t>
-</section>
+    <section anchor="normative-references">
+      <name>Normative references</name>
+      <t>The following referenced documents are indispensable for the application of this document. For dated references, only the edition cited applied. For undated references, the latest edition of the referenced document (including any amendments) applies.</t>
+      <t>
+        <eref target="https://www.iso.org/sites/directives/current/part2/index.xhtml">ISODIR2</eref>
+        - ISO/IEC Directives Part 2
+      </t>
+      <t>
+        <eref target="https://tools.ietf.org/html/rfc6749">RFC6749</eref>
+        - The OAuth 2.0 Authorization Framework
+      </t>
+      <t>
+        <eref target="https://tools.ietf.org/html/rfc6750">RFC6750</eref>
+        - The OAuth 2.0 Authorization Framework: Bearer Token Usage
+      </t>
+      <t>
+        <eref target="https://tools.ietf.org/html/rfc7636">RFC7636</eref>
+        - Proof Key for Code Exchange by OAuth Public Clients
+      </t>
+      <t>
+        <eref target="https://tools.ietf.org/html/rfc6819">RFC6819</eref>
+        - OAuth 2.0 Threat Model and Security Considerations
+      </t>
+      <t>
+        <eref target="https://tools.ietf.org/html/rfc7519">RFC7519</eref>
+        - JSON Web Token (JWT)
+      </t>
+      <t>
+        <eref target="https://tools.ietf.org/html/rfc7591">RFC7591</eref>
+        - OAuth 2.0 Dynamic Client Registration Protocol
+      </t>
+      <t>
+        <eref target="https://tools.ietf.org/html/rfc7592">RFC7592</eref>
+        - OAuth 2.0 Dynamic Client Registration Management Protocol
+      </t>
+      <t>
+        <eref target="https://tools.ietf.org/html/bcp195">BCP195</eref>
+        - Recommendations for Secure Use of Transport Layer Security (TLS) and Datagram Transport Layer Security (DTLS)
+      </t>
+      <t>
+        <eref target="https://openid.net/specs/openid-connect-core-1_0.html">OIDC</eref>
+        - OpenID Connect Core 1.0 incorporating errata set 1
+      </t>
+      <t>
+        <eref target="https://bitbucket.org/openid/fapi/src/master/Financial_API_WD_CIBA.md">FAPI-CIBA</eref>
+        - Financial-grade API: Client Initiated Backchannel Authentication Profile
+      </t>
+      <t>
+        <eref target="https://www.rfc-editor.org/rfc/rfc4514">RFC4514</eref>
+        - Lightweight Directory Access Protocol (LDAP): String Representation of Distinguished Names
+      </t>
+      <t>
+        <eref target="https://openid.net/specs/openid-connect-discovery-1_0.html">OIDD</eref>
+        -  OpenID Connect Discovery 1.0 incorporating errata set 1
+      </t>
+      <t>
+        <eref target="https://openid.net/specs/openid-connect-registration-1_0.html">OIDR</eref>
+        -  OpenID Connect Registration 1.0 incorporating errata set 1
+      </t>
+      <t>
+        <eref target="https://tools.ietf.org/html/rfc8705">RFC8705</eref>
+        - OAuth 2.0 Mutual TLS Client Authentication and Certificate Bound Access Tokens
+      </t>
+      <t>
+        <eref target="https://bitbucket.org/openid/fapi/src/master/Financial_API_JWT_Secured_Authorization_Response_Mode.md">JARM</eref>
+        - Financial-grade API: JWT Secured Authorization Response Mode for OAuth 2.0 (JARM)
+      </t>
+      <t>
+        <eref target="https://tools.ietf.org/html/draft-ietf-oauth-par">PAR</eref>
+        - OAuth 2.0 Pushed Authorization Requests
+      </t>
+      <t>
+        <eref target="https://tools.ietf.org/html/draft-ietf-oauth-jwsreq">JAR</eref>
+        - OAuth 2.0 JWT Secured Authorization Request
+      </t>
+      <t>
+        <eref target="https://openid.net/specs/openid-financial-api-part-1-1_0.html">FAPI-1-Baseline</eref>
+        - Financial-grade API Security Profile 1.0 - Part 1: Baseline
+      </t>
+      <t>
+        <eref target="https://openid.net/specs/openid-financial-api-part-2-1_0.html">FAPI-1-Advanced</eref>
+        - Financial-grade API Security Profile 1.0 - Part 2: Advanced
+      </t>
+      <t>
+        <eref target="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID1.html">OBB-FAPI</eref>
+        - Open Banking Brasil Financial-grade API Security Profile 1.0
+      </t>
+      <t>
+        <eref target="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html">OBB-Cert-Standards</eref>
+        - Open Banking Brasil x.509 Certificate Standards
+      </t>
+    </section>
 
-<section anchor="terms-and-definitions"><name>Terms and definitions</name>
-<t>For the purpose of this document, the terms defined in <eref target="https://tools.ietf.org/html/rfc6749">RFC6749</eref>, <eref target="https://tools.ietf.org/html/rfc6750">RFC6750</eref>, <eref target="https://tools.ietf.org/html/rfc7636">RFC7636</eref>, <eref target="https://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect Core</eref> and ISO29100 apply.</t>
-</section>
+    <section anchor="terms-and-definitions">
+      <name>Terms and definitions</name>
+      <t>
+        For the purpose of this document, the terms defined in
+        <eref target="https://tools.ietf.org/html/rfc6749">RFC6749</eref>
+        ,
+        <eref target="https://tools.ietf.org/html/rfc6750">RFC6750</eref>
+        ,
+        <eref target="https://tools.ietf.org/html/rfc7636">RFC7636</eref>
+        ,
+        <eref target="https://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect Core</eref>
+        and ISO29100 apply.
+      </t>
+    </section>
 
-<section anchor="symbols-and-abbreviated-terms"><name>Symbols and Abbreviated terms</name>
-<t><strong>SSA</strong> – Software Statement Assertion</t>
-<t><strong>SS</strong> – Software Statement</t>
-<t><strong>DCR</strong> – Dynamic Client Registration</t>
-<t><strong>API</strong> – Application Programming Interface</t>
-<t><strong>FAPI</strong> - Financial-grade API</t>
-<t><strong>HTTP</strong> – Hyper Text Transfer Protocol</t>
-<t><strong>OIDF</strong> - OpenID Foundation</t>
-<t><strong>REST</strong> – Representational State Transfer</t>
-<t><strong>TLS</strong> – Transport Layer Security</t>
-</section>
+    <section anchor="symbols-and-abbreviated-terms">
+      <name>Symbols and Abbreviated terms</name>
+      <t>
+        <strong>SSA</strong>
+        – Software Statement Assertion
+      </t>
+      <t>
+        <strong>SS</strong>
+        – Software Statement
+      </t>
+      <t>
+        <strong>DCR</strong>
+        – Dynamic Client Registration
+      </t>
+      <t>
+        <strong>API</strong>
+        – Application Programming Interface
+      </t>
+      <t>
+        <strong>FAPI</strong>
+        - Financial-grade API
+      </t>
+      <t>
+        <strong>HTTP</strong>
+        – Hyper Text Transfer Protocol
+      </t>
+      <t>
+        <strong>OIDF</strong>
+        - OpenID Foundation
+      </t>
+      <t>
+        <strong>REST</strong>
+        – Representational State Transfer
+      </t>
+      <t>
+        <strong>TLS</strong>
+        – Transport Layer Security
+      </t>
+    </section>
 
-<section anchor="introduction"><name>Introduction</name>
-<t>Brasil Open Bankings ecosystem leverages a federation trust provider or <em>directory of participants</em> as the golden source of information on accredited participants and software that are authorized to partake in the Open Banking Brasil ecosystem.</t>
-<t>The services by the Directory include</t>
+    <section anchor="introduction">
+      <name>Introduction</name>
+      <t>
+        Brasil Open Bankings ecosystem leverages a federation trust provider or
+        <em>directory of participants</em>
+        as the golden source of information on accredited participants and software that are authorized to partake in the Open Banking Brasil ecosystem.
+      </t>
+      <t>The services by the Directory include</t>
 
-<ul>
-<li><t>Software registration and management.</t>
-</li>
-<li><t>Software credential registration and management using ICP Certificates.</t>
-</li>
-<li><t>Software Statement Assertion (SSA) generation</t>
-</li>
-</ul>
-<t>Participants within the ecosystem must leverage these services to facilitate API driven OAuth client registration using the process outlined in clause 3.1.1 of <eref target="https://tools.ietf.org/html/rfc7591">RFC7591</eref> with additional metadata necessary to support OpenID Connect defined in <eref target="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Connect Registration</eref>.</t>
-<t>Where possible, authorisation servers should compare client metadata asserted by a client made as part of registration or management request against metadata claims contained within a software statement. Not all metadata that a client wishes to provide may be contained in a software statement, e.g alternative <eref target="https://openid.net/specs/openid-connect-registration-1_0.html#LanguagesAndScripts">Metadata Langauges and Script values</eref>.</t>
-</section>
+      <ul>
+        <li>
+          <t>Software registration and management.</t>
+        </li>
+        <li>
+          <t>Software credential registration and management using ICP Certificates.</t>
+        </li>
+        <li>
+          <t>Software Statement Assertion (SSA) generation</t>
+        </li>
+      </ul>
+      <t>
+        Participants within the ecosystem must leverage these services to facilitate API driven OAuth client registration using the process outlined in clause 3.1.1 of
+        <eref target="https://tools.ietf.org/html/rfc7591">RFC7591</eref>
+        with additional metadata necessary to support OpenID Connect defined in
+        <eref target="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Connect Registration</eref>
+        .
+      </t>
+      <t>
+        Where possible, authorisation servers should compare client metadata asserted by a client made as part of registration or management request against metadata claims contained within a software statement. Not all metadata that a client wishes to provide may be contained in a software statement, e.g alternative
+        <eref target="https://openid.net/specs/openid-connect-registration-1_0.html#LanguagesAndScripts">Metadata Langauges and Script values</eref>
+        .
+      </t>
+    </section>
 
-<section anchor="open-banking-brasil-openid-connect-discovery-provisions"><name>Open Banking Brasil OpenID Connect Discovery provisions</name>
+    <section anchor="open-banking-brasil-openid-connect-discovery-provisions">
+      <name>Open Banking Brasil OpenID Connect Discovery provisions</name>
 
-<section anchor="authorization-server"><name>Authorization server</name>
-<t>The Authorization Server shall support <eref target="https://openid.net/specs/openid-connect-discovery-1_0.html">OpenID Connect Discovery</eref> as required by <eref target="https://openid.net/specs/openid-financial-api-part-1-1_0.html">Financial-grade API Security Profile 1.0 - Part 1: Baseline</eref></t>
-<t>In addition, the Authorization Server</t>
+      <section anchor="authorization-server">
+        <name>Authorization server</name>
+        <t>
+          The Authorization Server shall support
+          <eref target="https://openid.net/specs/openid-connect-discovery-1_0.html">OpenID Connect Discovery</eref>
+          as required by
+          <eref target="https://openid.net/specs/openid-financial-api-part-1-1_0.html">Financial-grade API Security Profile 1.0 - Part 1: Baseline</eref>
+        </t>
+        <t>In addition, the Authorization Server</t>
 
-<ol>
-<li><t>shall advertise its presence in the Open Banking Brasil ecosystem by being listed on the Directory of Participants;</t>
-</li>
-<li><t>shall advertise all Open Banking Brasil REST API resources protected by the OpenID Provider on the Directory of Participants;</t>
-</li>
-<li><t>shall advertise support for all signing, encryption, authentication mechanisms and standards required to support <eref target="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID1.html">Open Banking Brasil Financial API</eref>;</t>
-</li>
-<li><t>shall advertise support for <eref target="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Dynamic Client Registration</eref>;</t>
-</li>
-<li><t>shall advertise <tt>mtls_endpoint_aliases</tt> as per clause 5 [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens][RF8705] the <tt>token_endpoint</tt>, <tt>registration_endpoint</tt> and <tt>userinfo_endpoint</tt>;</t>
-</li>
-<li><t>if supporting <eref target="https://tools.ietf.org/html/draft-ietf-oauth-par">OAuth 2.0 Pushed Authorisation Requests</eref> shall advertise through <eref target="https://openid.net/specs/openid-connect-discovery-1_0.html">OIDD</eref> <tt>mtls_endpoint_aliases</tt> the <tt>pushed_authorization_request_endpoint</tt>;</t>
-</li>
-<li><t>if supporting <eref target="https://bitbucket.org/openid/fapi/src/master/Financial_API_WD_CIBA.md">Financial API - Client Initiated Back Channel Authentication</eref> shall advertise through <eref target="https://openid.net/specs/openid-connect-discovery-1_0.html">OIDD</eref> <tt>mtls_endpoint_aliases</tt> the <tt>backchannel_authentication_endpoint</tt>;</t>
-</li>
-</ol>
-</section>
+        <ol>
+          <li>
+            <t>shall advertise its presence in the Open Banking Brasil ecosystem by being listed on the Directory of Participants;</t>
+          </li>
+          <li>
+            <t>shall advertise all Open Banking Brasil REST API resources protected by the OpenID Provider on the Directory of Participants;</t>
+          </li>
+          <li>
+            <t>
+              shall advertise support for all signing, encryption, authentication mechanisms and standards required to support
+              <eref target="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID1.html">Open Banking Brasil Financial API</eref>
+              ;
+            </t>
+          </li>
+          <li>
+            <t>
+              shall advertise support for
+              <eref target="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Dynamic Client Registration</eref>
+              ;
+            </t>
+          </li>
+          <li>
+            <t>
+              shall advertise
+              <tt>mtls_endpoint_aliases</tt>
+              as per clause 5 [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens][RF8705] the
+              <tt>token_endpoint</tt>
+              ,
+              <tt>registration_endpoint</tt>
+              and
+              <tt>userinfo_endpoint</tt>
+              ;
+            </t>
+          </li>
+          <li>
+            <t>
+              if supporting
+              <eref target="https://tools.ietf.org/html/draft-ietf-oauth-par">OAuth 2.0 Pushed Authorisation Requests</eref>
+              shall advertise through
+              <eref target="https://openid.net/specs/openid-connect-discovery-1_0.html">OIDD</eref>
+              <tt>mtls_endpoint_aliases</tt>
+              the
+              <tt>pushed_authorization_request_endpoint</tt>
+              ;
+            </t>
+          </li>
+          <li>
+            <t>
+              if supporting
+              <eref target="https://bitbucket.org/openid/fapi/src/master/Financial_API_WD_CIBA.md">Financial API - Client Initiated Back Channel Authentication</eref>
+              shall advertise through
+              <eref target="https://openid.net/specs/openid-connect-discovery-1_0.html">OIDD</eref>
+              <tt>mtls_endpoint_aliases</tt>
+              the
+              <tt>backchannel_authentication_endpoint</tt>
+              ;
+            </t>
+          </li>
+        </ol>
+      </section>
 
-<section anchor="client"><name>Client</name>
-<t>The Client shall support <eref target="https://openid.net/specs/openid-connect-discovery-1_0.html">OpenID Connect Discovery</eref> as required by <eref target="https://openid.net/specs/openid-financial-api-part-1-1_0.html">Financial-grade API Security Profile 1.0 - Part 1: Baseline</eref></t>
-<t>In addition, the Authorization Server</t>
+      <section anchor="client">
+        <name>Client</name>
+        <t>
+          The Client shall support
+          <eref target="https://openid.net/specs/openid-connect-discovery-1_0.html">OpenID Connect Discovery</eref>
+          as required by
+          <eref target="https://openid.net/specs/openid-financial-api-part-1-1_0.html">Financial-grade API Security Profile 1.0 - Part 1: Baseline</eref>
+        </t>
+        <t>In addition, the Client</t>
 
-<ol>
-<li><t>shall rely on ecosystem discovery services provided by Directory of Participants only;</t>
-</li>
-<li><t>shall derive necessary Authorisation Server metadata by relying on an Authorization Servers OpenID Connect Discovery services only;</t>
-</li>
-<li><t>where present, shall use endpoints advertised in <tt>mtls_endpoint_aliases</tt> as per clause 5 [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens][RF8705];</t>
-</li>
-</ol>
-</section>
-</section>
+        <ol>
+          <li>
+            <t>shall rely on ecosystem discovery services provided by Directory of Participants only;</t>
+          </li>
+          <li>
+            <t>shall derive necessary Authorisation Server metadata by relying on an Authorization Servers OpenID Connect Discovery services only;</t>
+          </li>
+          <li>
+            <t>
+              where present, shall use endpoints advertised in
+              <tt>mtls_endpoint_aliases</tt>
+              as per clause 5 [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens][RF8705];
+            </t>
+          </li>
+        </ol>
+      </section>
+    </section>
 
-<section anchor="open-banking-brasil-openid-connect-registration-provisions"><name>Open Banking Brasil OpenID Connect Registration Provisions</name>
+    <section anchor="open-banking-brasil-openid-connect-registration-provisions">
+      <name>Open Banking Brasil OpenID Connect Registration Provisions</name>
 
-<section anchor="authorization-server-1"><name>Authorization server</name>
-<t>The Authorization Server shall support the <eref target="https://tools.ietf.org/html/rfc7591">RFC7591</eref>, <eref target="https://tools.ietf.org/html/rfc7592">RFC7592</eref> and <eref target="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Registration</eref></t>
-<t>In addition, the Authorization Server</t>
+      <section anchor="authorization-server-1">
+        <name>Authorization server</name>
+        <t>
+          The Authorization Server shall support the
+          <eref target="https://tools.ietf.org/html/rfc7591">RFC7591</eref>
+          ,
+          <eref target="https://tools.ietf.org/html/rfc7592">RFC7592</eref>
+          and
+          <eref target="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Registration</eref>
+        </t>
+        <t>In addition, the Authorization Server</t>
 
-<ol>
-<li><t>shall reject dynamic client registration requests not performed over a connection secured with mutual tls using certificates issued by Brazil ICP (production) or the Directory of Participants (sandbox);</t>
-</li>
-<li><t>shall validate that the request contains software_statement jwt signed using using the PS256 alg issued by the open banking brasil directory of participants;</t>
-</li>
-<li><t>shall validate that the software_statement was issued (iat) not more than 5 minutes prior to the request being received;</t>
-</li>
-<li><t>shall validate that a <tt>jwks</tt> (key set by value) was <strong>not</strong> included;</t>
-</li>
-<li><t>shall require and validate that the <tt>jwks_uri</tt> matches the <tt>software_jwks_uri</tt> provided in the software statement;</t>
-</li>
-<li><t>shall require and validate that <tt>redirect_uris</tt> match or contain a sub set of software<em>redirect</em>uris provided in the software statement;</t>
-</li>
-<li><t>shall require and validate that all client authentication mechanism adhere to the requirements defined in <eref target="https://openid.net/specs/openid-financial-api-part-2-1_0.html">Financial-grade API Security Profile 1.0 - Part 1: Advanced</eref>;</t>
-</li>
-<li><t>shall require encrypted request objects as required by the Brasil Open Banking Security Profile;</t>
-</li>
-<li><t>shall validate that requested scopes are appropriate for the softwares authorized regulatory roles;</t>
-</li>
-<li><t>should where possible validate client asserted metadata against metadata provided in the software_statement;</t>
-</li>
-<li><t>shall accept all x.500 AttributeType name strings defined in the Distinguished Name of the x.509 Certificate Profiles defined in <eref target="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html">Open Banking Brasil x.509 Certificate Standards</eref>;</t>
-</li>
-<li><t>if supporting <tt>tls_client_auth</tt> client authenication mechanism as defined in <eref target="https://tools.ietf.org/html/rfc8705">RFC8705</eref> shall only accept <tt>tls_client_auth_subject_dn</tt>  as an indication of the certificate subject value as defined in clause 2.1.2 <eref target="https://tools.ietf.org/html/rfc8705">RFC8705</eref>;</t>
-</li>
-</ol>
-<t>These provisions apply equally to the processing of <eref target="https://tools.ietf.org/html/rfc7591">RFC7591</eref>, <eref target="https://tools.ietf.org/html/rfc7592">RFC7592</eref> and <eref target="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Registration</eref> requests</t>
+        <ol>
+          <li>
+            <t>shall reject dynamic client registration requests not performed over a connection secured with mutual tls using certificates issued by Brazil ICP (production) or the Directory of Participants (sandbox);</t>
+          </li>
+          <li>
+            <t>shall validate that the request contains software_statement jwt signed using using the PS256 alg issued by the open banking brasil directory of participants;</t>
+          </li>
+          <li>
+            <t>shall validate that the software_statement was issued (iat) not more than 5 minutes prior to the request being received;</t>
+          </li>
+          <li>
+            <t>
+              shall validate that a
+              <tt>jwks</tt>
+              (key set by value) was
+              <strong>not</strong>
+              included;
+            </t>
+          </li>
+          <li>
+            <t>
+              shall require and validate that the
+              <tt>jwks_uri</tt>
+              matches the
+              <tt>software_jwks_uri</tt>
+              provided in the software statement;
+            </t>
+          </li>
+          <li>
+            <t>
+              shall require and validate that
+              <tt>redirect_uris</tt>
+              match or contain a sub set of software
+              <em>redirect</em>
+              uris provided in the software statement;
+            </t>
+          </li>
+          <li>
+            <t>
+              shall require and validate that all client authentication mechanism adhere to the requirements defined in
+              <eref target="https://openid.net/specs/openid-financial-api-part-2-1_0.html">Financial-grade API Security Profile 1.0 - Part 1: Advanced</eref>
+              ;
+            </t>
+          </li>
+          <li>
+            <t>shall require encrypted request objects as required by the Brasil Open Banking Security Profile;</t>
+          </li>
+          <li>
+            <t>shall validate that requested scopes are appropriate for the softwares authorized regulatory roles;</t>
+          </li>
+          <li>
+            <t>should where possible validate client asserted metadata against metadata provided in the software_statement;</t>
+          </li>
+          <li>
+            <t>
+              shall accept all x.500 AttributeType name strings defined in the Distinguished Name of the x.509 Certificate Profiles defined in
+              <eref target="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html">Open Banking Brasil x.509 Certificate Standards</eref>
+              ;
+            </t>
+          </li>
+          <li>
+            <t>
+              if supporting
+              <tt>tls_client_auth</tt>
+              client authenication mechanism as defined in
+              <eref target="https://tools.ietf.org/html/rfc8705">RFC8705</eref>
+              shall only accept
+              <tt>tls_client_auth_subject_dn</tt>
+              as an indication of the certificate subject value as defined in clause 2.1.2
+              <eref target="https://tools.ietf.org/html/rfc8705">RFC8705</eref>
+              ;
+            </t>
+          </li>
+        </ol>
+        <t>
+          These provisions apply equally to the processing of
+          <eref target="https://tools.ietf.org/html/rfc7591">RFC7591</eref>
+          ,
+          <eref target="https://tools.ietf.org/html/rfc7592">RFC7592</eref>
+          and
+          <eref target="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Registration</eref>
+          requests
+        </t>
 
-<section anchor="applying-server-defaults"><name>Applying Server Defaults</name>
-<t>Where properties of a DCR request are not included and are not mandatory in the specification the Authorisation Server shall apply client defaults in the following manner</t>
+        <section anchor="applying-server-defaults">
+          <name>Applying Server Defaults</name>
+          <t>Where properties of a DCR request are not included and are not mandatory in the specification the Authorisation Server shall apply client defaults in the following manner</t>
 
-<ol>
-<li><t>shall select and apply the encryption algorithm and cipher choice from the most recommended of the IANA cipher suites that is supported by the Authorisation Server;</t>
-</li>
-<li><t>shall populate defaults from values within the software statement assertion where possible;</t>
-</li>
-<li><t>shall grant the client permission to the complete set of potential scopes based on the softwares regulatory permissions included in the software_statement;</t>
-</li>
-</ol>
-</section>
+          <ol>
+            <li>
+              <t>shall select and apply the encryption algorithm and cipher choice from the most recommended of the IANA cipher suites that is supported by the Authorisation Server;</t>
+            </li>
+            <li>
+              <t>shall populate defaults from values within the software statement assertion where possible;</t>
+            </li>
+            <li>
+              <t>shall grant the client permission to the complete set of potential scopes based on the softwares regulatory permissions included in the software_statement;</t>
+            </li>
+          </ol>
+        </section>
 
-<section anchor="certificate-distinguished-name-parsing"><name>Certificate Distinguished Name Parsing</name>
-<t>Clause 3 of <eref target="https://www.rfc-editor.org/rfc/rfc4514">Lightweight Directory Access Protocol (LDAP): String Representation of Distinguished Names</eref> defines the mandatory OIDs whose AttributeType strings (descriptors) must be recognized by implementers. This mandatory list does not include several of the OIDs defined in <eref target="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html">Open Banking Brasil x.509 Certificate Standards</eref> nor is there a defined mechanism for Authorisation Servers to publish  information regarding the format that they would expect a Dynamic Client Registration request that includes a <tt>tls_client_auth_subject_dn</tt> to be presented in.</t>
-<t>To address this ambiguity, the Authorization Server must accept all AttributeType name strings (descripters) defined in the last paragraph of clause 3 [RFC4515] in addition to all of the AttributeTypes defined in the Distinguished Name of the <eref target="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html">Open Banking Brasil x.509 Certificate Standards</eref>.</t>
-</section>
-</section>
+        <section anchor="certificate-distinguished-name-parsing">
+          <name>Certificate Distinguished Name Parsing</name>
+          <t>
+            Clause 3 of
+            <eref target="https://www.rfc-editor.org/rfc/rfc4514">Lightweight Directory Access Protocol (LDAP): String Representation of Distinguished Names</eref>
+            defines the mandatory OIDs whose AttributeType strings (descriptors) must be recognized by implementers. This mandatory list does not include several of the OIDs defined in
+            <eref target="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html">Open Banking Brasil x.509 Certificate Standards</eref>
+            nor is there a defined mechanism for Authorisation Servers to publish  information regarding the format that they would expect a Dynamic Client Registration request that includes a
+            <tt>tls_client_auth_subject_dn</tt>
+            to be presented in.
+          </t>
+          <t>
+            To address this ambiguity, the Authorization Server must accept all AttributeType name strings (descripters) defined in the last paragraph of clause 3 [RFC4515] in addition to all of the AttributeTypes defined in the Distinguished Name of the
+            <eref target="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html">Open Banking Brasil x.509 Certificate Standards</eref>
+            .
+          </t>
+        </section>
+      </section>
 
-<section anchor="regulatory-roles-to-openid-and-oauth-2-0-mappings"><name>Regulatory Roles to OpenID and OAuth 2.0 Mappings</name>
-<t>To participate in the Open Banking ecosystem, accredited institutions must register themselves in the directory of participants according to their regulatory roles. Those roles reflect the institutions' authorization from the Central Bank and, consequently, the APIs they are allowed to use.</t>
-<t>The following table describes the regulatory roles for Open Banking and the related OAuth 2.0 scopes mapping. If the scopes are omitted during the DCR process, the authorization server shall grant the complete set of potential scopes based on the registering bank's regulatory roles, as described in the Server Defaults section.</t>
-<table>
-<thead>
-<tr>
-<th>Regulatory Role</th>
-<th>Description</th>
-<th>Allowed Scopes</th>
-<th>Target Phase</th>
-</tr>
-</thead>
+      <section anchor="regulatory-roles-to-openid-and-oauth-2-0-mappings">
+        <name>Regulatory Roles to OpenID and OAuth 2.0 Mappings</name>
+        <t>To participate in the Open Banking ecosystem, accredited institutions must register themselves in the directory of participants according to their regulatory roles. Those roles reflect the institutions' authorization from the Central Bank and, consequently, the APIs they are allowed to use.</t>
+        <t>The following table describes the regulatory roles for Open Banking and the related OAuth 2.0 scopes mapping. If the scopes are omitted during the DCR process, the authorization server shall grant the complete set of potential scopes based on the registering bank's regulatory roles, as described in the Server Defaults section.</t>
+        <table>
+          <thead>
+            <tr>
+              <th>Regulatory Role</th>
+              <th>Description</th>
+              <th>Allowed Scopes</th>
+              <th>Target Phase</th>
+            </tr>
+          </thead>
 
-<tbody>
-<tr>
-<td>DADOS</td>
-<td>Instituição transmissora / receptora de dados (AISP)</td>
-<td>openid accounts credit-cards-accounts consents customers invoice-financings financings loans unarranged-accounts-overdraft</td>
-<td>Phase 2</td>
-</tr>
+          <tbody>
+            <tr>
+              <td>DADOS</td>
+              <td>Instituição transmissora / receptora de dados (AISP)</td>
+              <td>openid accounts credit-cards-accounts consents customers invoice-financings financings loans unarranged-accounts-overdraft</td>
+              <td>Phase 2</td>
+            </tr>
 
-<tr>
-<td>PAGTO</td>
-<td>Instituição prestadora de serviço de iniciação de pagamentos (PISP)</td>
-<td>openid payments consents</td>
-<td>Phase 3</td>
-</tr>
+            <tr>
+              <td>PAGTO</td>
+              <td>Instituição prestadora de serviço de iniciação de pagamentos (PISP)</td>
+              <td>openid payments consents</td>
+              <td>Phase 3</td>
+            </tr>
 
-<tr>
-<td>CONTA</td>
-<td>Instituição detentora de conta (ASPSP)</td>
-<td>openid</td>
-<td>Phase 3</td>
-</tr>
+            <tr>
+              <td>CONTA</td>
+              <td>Instituição detentora de conta (ASPSP)</td>
+              <td>openid</td>
+              <td>Phase 3</td>
+            </tr>
 
-<tr>
-<td>CCORR</td>
-<td>Correspondente de crédito</td>
-<td>openid</td>
-<td>Phase 3*</td>
-</tr>
-</tbody>
-</table>
-<section anchor="implementers-note"><name>Implementers Note</name>
-<t>In line with guidance from the IETF and the direction of travel for fine grained consent management. The obligation falls to the Authorisation Server to ensure that there is sufficient scope conveyed in an access token necessary to fulfill the Permissions conveyed in the Consent Request. This principle and requirement is reflected in the forthcoming Grant Management API.</t>
-</section>
-</section>
+            <tr>
+              <td>CCORR</td>
+              <td>Correspondente de crédito</td>
+              <td>openid</td>
+              <td>Phase 3*</td>
+            </tr>
+          </tbody>
+        </table>
+        <section anchor="implementers-note">
+          <name>Implementers Note</name>
+          <t>In line with guidance from the IETF and the direction of travel for fine grained consent management. The obligation falls to the Authorisation Server to ensure that there is sufficient scope conveyed in an access token necessary to fulfill the Permissions conveyed in the Consent Request. This principle and requirement is reflected in the forthcoming Grant Management API.</t>
+        </section>
+      </section>
 
-<section anchor="regulatory-roles-to-dynamic-oauth-2-0-scope-mappings"><name>Regulatory Roles to dynamic OAuth 2.0 scope Mappings</name>
-<table>
-<thead>
-<tr>
-<th>Regulatory Role</th>
-<th>Allowed Scopes</th>
-</tr>
-</thead>
+      <section anchor="regulatory-roles-to-dynamic-oauth-2-0-scope-mappings">
+        <name>Regulatory Roles to dynamic OAuth 2.0 scope Mappings</name>
+        <table>
+          <thead>
+            <tr>
+              <th>Regulatory Role</th>
+              <th>Allowed Scopes</th>
+            </tr>
+          </thead>
 
-<tbody>
-<tr>
-<td>DADOS</td>
-<td>consent:{ConsentId}</td>
-</tr>
+          <tbody>
+            <tr>
+              <td>DADOS</td>
+              <td>consent:{ConsentId}</td>
+            </tr>
 
-<tr>
-<td>PAGTO</td>
-<td>consent:{ConsentId}</td>
-</tr>
-</tbody>
-</table></section>
-</section>
+            <tr>
+              <td>PAGTO</td>
+              <td>consent:{ConsentId}</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </section>
 
-<section anchor="software-statement"><name>Software Statement</name>
-<blockquote><t>A software statement is a JSON Web Token (JWT) <eref target="https://tools.ietf.org/html/rfc7519">RFC7519</eref> that asserts metadata values about the client software as a bundle.</t>
-</blockquote>
-<section anchor="software-statement-claims"><name>Software Statement Claims</name>
-<t>The following example contains all of the claims currently included in a software statement</t>
+    <section anchor="software-statement">
+      <name>Software Statement</name>
+      <blockquote>
+        <t>
+          A software statement is a JSON Web Token (JWT)
+          <eref target="https://tools.ietf.org/html/rfc7519">RFC7519</eref>
+          that asserts metadata values about the client software as a bundle.
+        </t>
+      </blockquote>
+      <section anchor="software-statement-claims">
+        <name>Software Statement Claims</name>
+        <t>The following example contains all of the claims currently included in a software statement</t>
 
-<artwork>{
+        <artwork>{
   &quot;software_mode&quot;: &quot;Live&quot;,
   &quot;software_redirect_uris&quot;: [
     &quot;https://www.raidiam.com/accounting/cb&quot;
@@ -367,16 +722,20 @@ and are not to be interpreted with their natural language meanings.</t>
   ]
 }
 </artwork>
-</section>
-</section>
+      </section>
+    </section>
 
-<section anchor="dynamic-client-registration-request-processing"><name>Dynamic Client Registration Request Processing</name>
-<figure><artwork src="images/dcr.svg" type="Dynamic Client Registration"/></figure>
+    <section anchor="dynamic-client-registration-request-processing">
+      <name>Dynamic Client Registration Request Processing</name>
+      <figure>
+        <artwork src="images/dcr.svg" type="Dynamic Client Registration" />
+      </figure>
 
-<section anchor="posting-a-request-with-a-software-statement"><name>Posting a request with a software statement</name>
-<t>This example includes various optional fields, some of which may not be applicable to some deployments. Line wraps within values are for display purposes only.</t>
+      <section anchor="posting-a-request-with-a-software-statement">
+        <name>Posting a request with a software statement</name>
+        <t>This example includes various optional fields, some of which may not be applicable to some deployments. Line wraps within values are for display purposes only.</t>
 
-<artwork>POST /reg HTTP/1.1
+        <artwork>POST /reg HTTP/1.1
 Host: auth.raidiam.com
 Content-Type: application/json
 {
@@ -413,48 +772,63 @@ Content-Type: application/json
 ]
 }
 </artwork>
-</section>
+      </section>
 
-<section anchor="open-banking-brasil-ssa-key-store-and-issuer-details"><name>Open Banking Brasil SSA Key Store and Issuer Details</name>
-<t><strong>Production</strong></t>
-<t><eref target="https://keystore.directory.openbankingbrasil.org.br/openbanking.jwks">https://keystore.directory.openbankingbrasil.org.br/openbanking.jwks</eref></t>
-<t>Open Banking Open Banking Brasil production SSA issuer</t>
-<t><strong>Sandbox</strong></t>
-<t><eref target="https://keystore.sandbox.directory.openbankingbrasil.org.br/openbanking.jwks">https://keystore.sandbox.directory.openbankingbrasil.org.br/openbanking.jwks</eref></t>
-<t>Open Banking Open Banking Brasil sandbox SSA issuer</t>
-</section>
-</section>
+      <section anchor="open-banking-brasil-ssa-key-store-and-issuer-details">
+        <name>Open Banking Brasil SSA Key Store and Issuer Details</name>
+        <t>
+          <strong>Production</strong>
+        </t>
+        <t>
+          <eref target="https://keystore.directory.openbankingbrasil.org.br/openbanking.jwks">https://keystore.directory.openbankingbrasil.org.br/openbanking.jwks</eref>
+        </t>
+        <t>Open Banking Open Banking Brasil production SSA issuer</t>
+        <t>
+          <strong>Sandbox</strong>
+        </t>
+        <t>
+          <eref target="https://keystore.sandbox.directory.openbankingbrasil.org.br/openbanking.jwks">https://keystore.sandbox.directory.openbankingbrasil.org.br/openbanking.jwks</eref>
+        </t>
+        <t>Open Banking Open Banking Brasil sandbox SSA issuer</t>
+      </section>
+    </section>
 
-<section anchor="acknowledgement"><name>Acknowledgement</name>
-<t>With thanks to all who have set the foundations for secure and safe data sharing through the formation of the OpenID Foundation FAPI Working Group, the Open Banking Brasil GT Security and to the pioneers who will stand on their shoulders.</t>
-<t>The following people contributed to this document:</t>
+    <section anchor="acknowledgement">
+      <name>Acknowledgement</name>
+      <t>With thanks to all who have set the foundations for secure and safe data sharing through the formation of the OpenID Foundation FAPI Working Group, the Open Banking Brasil GT Security and to the pioneers who will stand on their shoulders.</t>
+      <t>The following people contributed to this document:</t>
 
-<ul>
-<li><t>Ralph Bragg (Raidiam)</t>
-</li>
-<li><t>Alexandre Siqueira (Mercado Pago)</t>
-</li>
-<li><t>Bernardo Vale (Banco Inter)</t>
-</li>
-</ul>
-</section>
+      <ul>
+        <li>
+          <t>Ralph Bragg (Raidiam)</t>
+        </li>
+        <li>
+          <t>Alexandre Siqueira (Mercado Pago)</t>
+        </li>
+        <li>
+          <t>Bernardo Vale (Banco Inter)</t>
+        </li>
+      </ul>
+    </section>
 
-</middle>
+  </middle>
 
-<back>
+  <back>
 
-<section anchor="notices"><name>Notices</name>
-<t>Copyright (c) 2021 Open Banking Brasil Initial Structure.</t>
-<t>The Open Banking Brasil Initial Structure (OBBIS) grants to any Contributor, developer, implementer, or other interested party a non-exclusive, royalty-free, worldwide copyright license to reproduce, prepare derivative works from, distribute, perform and display, this Implementers Draft or Final Specification solely for the purposes of (i) developing specifications, and (ii) implementing Implementers Drafts and Final Specifications based on such documents, provided that attribution be made to the OBBIS as the source of the material, but that such attribution does not indicate an endorsement by the OBBIS.</t>
-<t>The technology described in this specification was made available from contributions from various sources, including members of the OpenID Foundation, the Open Banking Brasil GT Security Working Group and others. Although the Open Banking Brasil Initial Structure has taken steps to help ensure that the technology is available for distribution, it takes no position regarding the validity or scope of any intellectual property or other rights that might be claimed to pertain to the implementation or use of the technology described in this specification or the extent to which any license under such rights might or might not be available; neither does it represent that it has made any independent effort to identify any such rights. The Open Banking Brasil Initial Structure and the contributors to this specification make no (and hereby expressly disclaim any) warranties (express, implied, or otherwise), including implied warranties of merchantability, non-infringement, fitness for a particular purpose, or title, related to this specification, and the entire risk as to implementing this specification is assumed by the implementer. The Open Banking Brasil Intellectual Property Rights policy requires contributors to offer a patent promise not to assert certain patent claims against other contributors and against implementers. The Open Banking Brasil Initial Structure invites any interested party to bring to its attention any copyrights, patents, patent applications, or other proprietary rights that may cover technology that may be required to practice this specification.</t>
+    <section anchor="notices">
+      <name>Notices</name>
+      <t>Copyright (c) 2021 Open Banking Brasil Initial Structure.</t>
+      <t>The Open Banking Brasil Initial Structure (OBBIS) grants to any Contributor, developer, implementer, or other interested party a non-exclusive, royalty-free, worldwide copyright license to reproduce, prepare derivative works from, distribute, perform and display, this Implementers Draft or Final Specification solely for the purposes of (i) developing specifications, and (ii) implementing Implementers Drafts and Final Specifications based on such documents, provided that attribution be made to the OBBIS as the source of the material, but that such attribution does not indicate an endorsement by the OBBIS.</t>
+      <t>The technology described in this specification was made available from contributions from various sources, including members of the OpenID Foundation, the Open Banking Brasil GT Security Working Group and others. Although the Open Banking Brasil Initial Structure has taken steps to help ensure that the technology is available for distribution, it takes no position regarding the validity or scope of any intellectual property or other rights that might be claimed to pertain to the implementation or use of the technology described in this specification or the extent to which any license under such rights might or might not be available; neither does it represent that it has made any independent effort to identify any such rights. The Open Banking Brasil Initial Structure and the contributors to this specification make no (and hereby expressly disclaim any) warranties (express, implied, or otherwise), including implied warranties of merchantability, non-infringement, fitness for a particular purpose, or title, related to this specification, and the entire risk as to implementing this specification is assumed by the implementer. The Open Banking Brasil Intellectual Property Rights policy requires contributors to offer a patent promise not to assert certain patent claims against other contributors and against implementers. The Open Banking Brasil Initial Structure invites any interested party to bring to its attention any copyrights, patents, patent applications, or other proprietary rights that may cover technology that may be required to practice this specification.</t>
 
-<section anchor="appendix-a-example-software-statement-assertion"><name>Appendix A. Example Software Statement Assertion</name>
+      <section anchor="appendix-a-example-software-statement-assertion">
+        <name>Appendix A. Example Software Statement Assertion</name>
 
-<artwork>eyJraWQiOiJzaWduZXIiLCJ0eXAiOiJKV1QiLCJhbGciOiJQUzI1NiJ9.eyJzb2Z0d2FyZV9tb2RlIjoiTGl2ZSIsInNvZnR3YXJlX3JlZGlyZWN0X3VyaXMiOlsiaHR0cHM6XC9cL3d3dy5yYWlkaWFtLmNvbVwvYWNjb3VudGluZ1wvY2IiXSwic29mdHdhcmVfc3RhdGVtZW50X3JvbGVzIjpbeyJyb2xlIjoiREFET1MiLCJhdXRob3Jpc2F0aW9uX2RvbWFpbiI6Ik9wZW4gQmFua2luZyIsInN0YXR1cyI6IkFjdGl2ZSJ9LHsicm9sZSI6IlBBR1RPIiwiYXV0aG9yaXNhdGlvbl9kb21haW4iOiJPcGVuIEJhbmtpbmciLCJzdGF0dXMiOiJBY3RpdmUifV0sInNvZnR3YXJlX2NsaWVudF9uYW1lIjoiUmFpZGlhbSBBY2NvdW50aW5nIiwib3JnX3N0YXR1cyI6IkFjdGl2ZSIsInNvZnR3YXJlX2NsaWVudF9pZCI6IkNraTFFYnZqd3loUEIxMk5HTGx6MiIsImlzcyI6Ik9wZW4gQmFua2luZyBPcGVuIEJhbmtpbmcgQnJhc2lsIHByb2QgU1NBIGlzc3VlciIsInNvZnR3YXJlX3Rvc191cmkiOiJodHRwczpcL1wvd3d3LnJhaWRpYW0uY29tXC9hY2NvdW50aW5nXC90b3MuaHRtbCIsInNvZnR3YXJlX2NsaWVudF9kZXNjcmlwdGlvbiI6IlJhaWRpYW0gQWNjb3VudGluZyBsZXZlcmFnZSBjdXR0aW5nIGVkZ2Ugb3BlbiBiYW5raW5nIGFjY2VzcyB0byBicmluZyB5b3UgcmVhbCB0aW1lIHVwIHRvIGRhdGUgdmlld3Mgb2YgeW91ciBmaW5hbmNlcyIsInNvZnR3YXJlX2p3a3NfZW5kcG9pbnQiOiJodHRwczpcL1wva2V5c3RvcmUuZGlyZWN0b3J5Lm9wZW5iYW5raW5nYnJhc2lsLm9yZy5iclwvYjk2MWM0ZWItNTA5ZC00ZWRmLWFmZWItMzU2NDJiMzgxODVkXC8yNTU1NmQ1YS1iOWRkLTRlMjctYWExYS1jY2U3MzJmZTc0ZGVcL2FwcGxpY2F0aW9uLmp3a3MiLCJzb2Z0d2FyZV9wb2xpY3lfdXJpIjoiaHR0cHM6XC9cL3d3dy5yYWlkaWFtLmNvbVwvYWNjb3VudGluZ1wvcG9saWN5Lmh0bWwiLCJzb2Z0d2FyZV9pZCI6IjI1NTU2ZDVhLWI5ZGQtNGUyNy1hYTFhLWNjZTczMmZlNzRkZSIsInNvZnR3YXJlX2NsaWVudF91cmkiOiJodHRwczpcL1wvd3d3LnJhaWRpYW0uY29tXC9hY2NvdW50aW5nLmh0bWwiLCJzb2Z0d2FyZV9qd2tzX2luYWN0aXZlX2VuZHBvaW50IjoiaHR0cHM6XC9cL2tleXN0b3JlLmRpcmVjdG9yeS5vcGVuYmFua2luZ2JyYXNpbC5vcmcuYnJcL2I5NjFjNGViLTUwOWQtNGVkZi1hZmViLTM1NjQyYjM4MTg1ZFwvMjU1NTZkNWEtYjlkZC00ZTI3LWFhMWEtY2NlNzMyZmU3NGRlXC9pbmFjdGl2ZVwvYXBwbGljYXRpb24uandrcyIsInNvZnR3YXJlX2p3a3NfdHJhbnNwb3J0X2luYWN0aXZlX2VuZHBvaW50IjoiaHR0cHM6XC9cL2tleXN0b3JlLmRpcmVjdG9yeS5vcGVuYmFua2luZ2JyYXNpbC5vcmcuYnJcL2I5NjFjNGViLTUwOWQtNGVkZi1hZmViLTM1NjQyYjM4MTg1ZFwvMjU1NTZkNWEtYjlkZC00ZTI3LWFhMWEtY2NlNzMyZmU3NGRlXC9pbmFjdGl2ZVwvdHJhbnNwb3J0Lmp3a3MiLCJzb2Z0d2FyZV9qd2tzX3RyYW5zcG9ydF9lbmRwb2ludCI6Imh0dHBzOlwvXC9rZXlzdG9yZS5kaXJlY3Rvcnkub3BlbmJhbmtpbmdicmFzaWwub3JnLmJyXC9iOTYxYzRlYi01MDlkLTRlZGYtYWZlYi0zNTY0MmIzODE4NWRcLzI1NTU2ZDVhLWI5ZGQtNGUyNy1hYTFhLWNjZTczMmZlNzRkZVwvdHJhbnNwb3J0Lmp3a3MiLCJzb2Z0d2FyZV9sb2dvX3VyaSI6Imh0dHBzOlwvXC93d3cucmFpZGlhbS5jb21cL2FjY291bnRpbmdcL2xvZ28ucG5nIiwib3JnX2lkIjoiYjk2MWM0ZWItNTA5ZC00ZWRmLWFmZWItMzU2NDJiMzgxODVkIiwic29mdHdhcmVfZW52aXJvbm1lbnQiOiJwcm9kdWN0aW9uIiwic29mdHdhcmVfdmVyc2lvbiI6MS4xMCwic29mdHdhcmVfcm9sZXMiOlsiREFET1MiLCJQQUdUTyJdLCJvcmdfbmFtZSI6Ik9wZW4gQmFua2luZyBCcmFzaWwiLCJpYXQiOjE2MTgzMzYyNjIsIm9yZ2FuaXNhdGlvbl9jb21wZXRlbnRfYXV0aG9yaXR5X2NsYWltcyI6W3siYXV0aG9yaXNhdGlvbl9kb21haW4iOiJPcGVuIEJhbmtpbmciLCJhdXRob3Jpc2F0aW9ucyI6W10sInJlZ2lzdHJhdGlvbl9pZCI6IjEzMzUzMjM2LU9CQi1DT05UQSIsImF1dGhvcml0eV9pZCI6IjY4N2ExYzk0LWIzNjAtNGUwNC05NTg5LTBmYTVjYjE2NDUxYiIsImF1dGhvcmlzYXRpb25fcm9sZSI6IkNPTlRBIiwiYXV0aG9yaXR5X2NvZGUiOiJCQ0IiLCJzdGF0dXMiOiJBY3RpdmUifSx7ImF1dGhvcmlzYXRpb25fZG9tYWluIjoiT3BlbiBCYW5raW5nIiwiYXV0aG9yaXNhdGlvbnMiOltdLCJyZWdpc3RyYXRpb25faWQiOiIxMzM1MzIzNi1PQkItREFET1MiLCJhdXRob3JpdHlfaWQiOiI2ODdhMWM5NC1iMzYwLTRlMDQtOTU4OS0wZmE1Y2IxNjQ1MWIiLCJhdXRob3Jpc2F0aW9uX3JvbGUiOiJEQURPUyIsImF1dGhvcml0eV9jb2RlIjoiQkNCIiwic3RhdHVzIjoiQWN0aXZlIn0seyJhdXRob3Jpc2F0aW9uX2RvbWFpbiI6Ik9wZW4gQmFua2luZyIsImF1dGhvcmlzYXRpb25zIjpbXSwicmVnaXN0cmF0aW9uX2lkIjoiMTMzNTMyMzYtT0JCLVBBR1RPIiwiYXV0aG9yaXR5X2lkIjoiNjg3YTFjOTQtYjM2MC00ZTA0LTk1ODktMGZhNWNiMTY0NTFiIiwiYXV0aG9yaXNhdGlvbl9yb2xlIjoiUEFHVE8iLCJhdXRob3JpdHlfY29kZSI6IkJDQiIsInN0YXR1cyI6IkFjdGl2ZSJ9XX0.W6hUAYhjT6I61rxEIVMKYKre93LTbRdzKnk9dJvUdzVgAz5B9KxZNutf27oO3k0hrjYVWBdWq23o_e4Y_AaKdpS9-rtU84JiHtmqV0wcFYIM8nqcUVWqQ-Ux6Nq9L2G-s2YNd3PcJ1e3yGg9h8553Gr7iJusKEgApzXUpkM2rBELQuumktUE_JBiuIkXmWxoRnO1cW-Osbk3MT3bxG43SPcxii07Q5S8qXI6PjCPA3fYlnaUAygwZM3O0oa7jqmSr7d9UsHuDMJfYhIKdq2wyQQKORCN-D2UopmMX-lHMvAVkkrAO08T0-7odjr4PJk-PrwuoCxeAfa7440ZDOrlmQ
+        <artwork>eyJraWQiOiJzaWduZXIiLCJ0eXAiOiJKV1QiLCJhbGciOiJQUzI1NiJ9.eyJzb2Z0d2FyZV9tb2RlIjoiTGl2ZSIsInNvZnR3YXJlX3JlZGlyZWN0X3VyaXMiOlsiaHR0cHM6XC9cL3d3dy5yYWlkaWFtLmNvbVwvYWNjb3VudGluZ1wvY2IiXSwic29mdHdhcmVfc3RhdGVtZW50X3JvbGVzIjpbeyJyb2xlIjoiREFET1MiLCJhdXRob3Jpc2F0aW9uX2RvbWFpbiI6Ik9wZW4gQmFua2luZyIsInN0YXR1cyI6IkFjdGl2ZSJ9LHsicm9sZSI6IlBBR1RPIiwiYXV0aG9yaXNhdGlvbl9kb21haW4iOiJPcGVuIEJhbmtpbmciLCJzdGF0dXMiOiJBY3RpdmUifV0sInNvZnR3YXJlX2NsaWVudF9uYW1lIjoiUmFpZGlhbSBBY2NvdW50aW5nIiwib3JnX3N0YXR1cyI6IkFjdGl2ZSIsInNvZnR3YXJlX2NsaWVudF9pZCI6IkNraTFFYnZqd3loUEIxMk5HTGx6MiIsImlzcyI6Ik9wZW4gQmFua2luZyBPcGVuIEJhbmtpbmcgQnJhc2lsIHByb2QgU1NBIGlzc3VlciIsInNvZnR3YXJlX3Rvc191cmkiOiJodHRwczpcL1wvd3d3LnJhaWRpYW0uY29tXC9hY2NvdW50aW5nXC90b3MuaHRtbCIsInNvZnR3YXJlX2NsaWVudF9kZXNjcmlwdGlvbiI6IlJhaWRpYW0gQWNjb3VudGluZyBsZXZlcmFnZSBjdXR0aW5nIGVkZ2Ugb3BlbiBiYW5raW5nIGFjY2VzcyB0byBicmluZyB5b3UgcmVhbCB0aW1lIHVwIHRvIGRhdGUgdmlld3Mgb2YgeW91ciBmaW5hbmNlcyIsInNvZnR3YXJlX2p3a3NfZW5kcG9pbnQiOiJodHRwczpcL1wva2V5c3RvcmUuZGlyZWN0b3J5Lm9wZW5iYW5raW5nYnJhc2lsLm9yZy5iclwvYjk2MWM0ZWItNTA5ZC00ZWRmLWFmZWItMzU2NDJiMzgxODVkXC8yNTU1NmQ1YS1iOWRkLTRlMjctYWExYS1jY2U3MzJmZTc0ZGVcL2FwcGxpY2F0aW9uLmp3a3MiLCJzb2Z0d2FyZV9wb2xpY3lfdXJpIjoiaHR0cHM6XC9cL3d3dy5yYWlkaWFtLmNvbVwvYWNjb3VudGluZ1wvcG9saWN5Lmh0bWwiLCJzb2Z0d2FyZV9pZCI6IjI1NTU2ZDVhLWI5ZGQtNGUyNy1hYTFhLWNjZTczMmZlNzRkZSIsInNvZnR3YXJlX2NsaWVudF91cmkiOiJodHRwczpcL1wvd3d3LnJhaWRpYW0uY29tXC9hY2NvdW50aW5nLmh0bWwiLCJzb2Z0d2FyZV9qd2tzX2luYWN0aXZlX2VuZHBvaW50IjoiaHR0cHM6XC9cL2tleXN0b3JlLmRpcmVjdG9yeS5vcGVuYmFua2luZ2JyYXNpbC5vcmcuYnJcL2I5NjFjNGViLTUwOWQtNGVkZi1hZmViLTM1NjQyYjM4MTg1ZFwvMjU1NTZkNWEtYjlkZC00ZTI3LWFhMWEtY2NlNzMyZmU3NGRlXC9pbmFjdGl2ZVwvYXBwbGljYXRpb24uandrcyIsInNvZnR3YXJlX2p3a3NfdHJhbnNwb3J0X2luYWN0aXZlX2VuZHBvaW50IjoiaHR0cHM6XC9cL2tleXN0b3JlLmRpcmVjdG9yeS5vcGVuYmFua2luZ2JyYXNpbC5vcmcuYnJcL2I5NjFjNGViLTUwOWQtNGVkZi1hZmViLTM1NjQyYjM4MTg1ZFwvMjU1NTZkNWEtYjlkZC00ZTI3LWFhMWEtY2NlNzMyZmU3NGRlXC9pbmFjdGl2ZVwvdHJhbnNwb3J0Lmp3a3MiLCJzb2Z0d2FyZV9qd2tzX3RyYW5zcG9ydF9lbmRwb2ludCI6Imh0dHBzOlwvXC9rZXlzdG9yZS5kaXJlY3Rvcnkub3BlbmJhbmtpbmdicmFzaWwub3JnLmJyXC9iOTYxYzRlYi01MDlkLTRlZGYtYWZlYi0zNTY0MmIzODE4NWRcLzI1NTU2ZDVhLWI5ZGQtNGUyNy1hYTFhLWNjZTczMmZlNzRkZVwvdHJhbnNwb3J0Lmp3a3MiLCJzb2Z0d2FyZV9sb2dvX3VyaSI6Imh0dHBzOlwvXC93d3cucmFpZGlhbS5jb21cL2FjY291bnRpbmdcL2xvZ28ucG5nIiwib3JnX2lkIjoiYjk2MWM0ZWItNTA5ZC00ZWRmLWFmZWItMzU2NDJiMzgxODVkIiwic29mdHdhcmVfZW52aXJvbm1lbnQiOiJwcm9kdWN0aW9uIiwic29mdHdhcmVfdmVyc2lvbiI6MS4xMCwic29mdHdhcmVfcm9sZXMiOlsiREFET1MiLCJQQUdUTyJdLCJvcmdfbmFtZSI6Ik9wZW4gQmFua2luZyBCcmFzaWwiLCJpYXQiOjE2MTgzMzYyNjIsIm9yZ2FuaXNhdGlvbl9jb21wZXRlbnRfYXV0aG9yaXR5X2NsYWltcyI6W3siYXV0aG9yaXNhdGlvbl9kb21haW4iOiJPcGVuIEJhbmtpbmciLCJhdXRob3Jpc2F0aW9ucyI6W10sInJlZ2lzdHJhdGlvbl9pZCI6IjEzMzUzMjM2LU9CQi1DT05UQSIsImF1dGhvcml0eV9pZCI6IjY4N2ExYzk0LWIzNjAtNGUwNC05NTg5LTBmYTVjYjE2NDUxYiIsImF1dGhvcmlzYXRpb25fcm9sZSI6IkNPTlRBIiwiYXV0aG9yaXR5X2NvZGUiOiJCQ0IiLCJzdGF0dXMiOiJBY3RpdmUifSx7ImF1dGhvcmlzYXRpb25fZG9tYWluIjoiT3BlbiBCYW5raW5nIiwiYXV0aG9yaXNhdGlvbnMiOltdLCJyZWdpc3RyYXRpb25faWQiOiIxMzM1MzIzNi1PQkItREFET1MiLCJhdXRob3JpdHlfaWQiOiI2ODdhMWM5NC1iMzYwLTRlMDQtOTU4OS0wZmE1Y2IxNjQ1MWIiLCJhdXRob3Jpc2F0aW9uX3JvbGUiOiJEQURPUyIsImF1dGhvcml0eV9jb2RlIjoiQkNCIiwic3RhdHVzIjoiQWN0aXZlIn0seyJhdXRob3Jpc2F0aW9uX2RvbWFpbiI6Ik9wZW4gQmFua2luZyIsImF1dGhvcmlzYXRpb25zIjpbXSwicmVnaXN0cmF0aW9uX2lkIjoiMTMzNTMyMzYtT0JCLVBBR1RPIiwiYXV0aG9yaXR5X2lkIjoiNjg3YTFjOTQtYjM2MC00ZTA0LTk1ODktMGZhNWNiMTY0NTFiIiwiYXV0aG9yaXNhdGlvbl9yb2xlIjoiUEFHVE8iLCJhdXRob3JpdHlfY29kZSI6IkJDQiIsInN0YXR1cyI6IkFjdGl2ZSJ9XX0.W6hUAYhjT6I61rxEIVMKYKre93LTbRdzKnk9dJvUdzVgAz5B9KxZNutf27oO3k0hrjYVWBdWq23o_e4Y_AaKdpS9-rtU84JiHtmqV0wcFYIM8nqcUVWqQ-Ux6Nq9L2G-s2YNd3PcJ1e3yGg9h8553Gr7iJusKEgApzXUpkM2rBELQuumktUE_JBiuIkXmWxoRnO1cW-Osbk3MT3bxG43SPcxii07Q5S8qXI6PjCPA3fYlnaUAygwZM3O0oa7jqmSr7d9UsHuDMJfYhIKdq2wyQQKORCN-D2UopmMX-lHMvAVkkrAO08T0-7odjr4PJk-PrwuoCxeAfa7440ZDOrlmQ
 </artwork>
-</section>
-</section>
+      </section>
+    </section>
 
-</back>
+  </back>
 
 </rfc>
