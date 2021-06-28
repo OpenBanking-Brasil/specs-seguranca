@@ -207,7 +207,7 @@ In addition, the Authorization Server
 
 The Client shall support [OpenID Connect Discovery][OIDD] as required by [Financial-grade API Security Profile 1.0 - Part 1: Baseline][FAPI-1-Baseline]
 
-In addition, the Authorization Server
+In addition, the Client
 
 1. shall rely on ecosystem discovery services provided by Directory of Participants only;
 2. shall derive necessary Authorisation Server metadata by relying on an Authorization Servers OpenID Connect Discovery services only;
