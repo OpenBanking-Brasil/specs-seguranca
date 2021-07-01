@@ -197,7 +197,7 @@ O Open Banking Brasil tem um requisito para endereçar considerações de privac
 
 Os participantes desse ecossistema precisam que os clientes de API solicitem a um provedor openid a confirmação dos valores das `claims` de identificação do usuário como parte de uma solicitação de autorização usando o mecanismo definido na cláusula 5.5.1 de [OIDC].
 
-O uso do parâmetro `claims` para solicitar a validação de valores de identificação explícitos requer que os clientes de API protejam com criptografia o Request Object para evitar vazamento de informações. Este risco é identificado na cláusula 7.4.1 do [FAPI-1-Advanced].
+O uso do parâmetro `claims` para solicitar a validação de valores de identificação explícitos requer que os clientes de API protejam com criptografia o Request Object para evitar vazamento de informações. Este risco é identificado na cláusula 7.4.1 do [FAPI-1-Baseline].
 
 Além disso, este perfil descreve o escopo específico, valores de `acr` e requisitos de gerenciamento de clientes necessários para dar suporte ao ecossistema Open Banking Brasil mais amplo.
 
@@ -274,6 +274,7 @@ A seguinte regra deve ser adotada para o mecanismo de autenticação:
 **Esclarecimentos adicionais sobre fatores de autenticação**
 
 São fatores de autenticação:
+
 * Aquilo que **você conhece**, como uma senha ou frase secreta
 * Aquilo que **você tem**, como um token, smartcard ou dispositivo
 * Aquilo que **"você é"**, ou seja, autenticação condicionada a apresentação de uma característica física exclusivamente sua, como a validação por biometria
