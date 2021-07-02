@@ -1829,7 +1829,7 @@ Os certificados para Front-End são utilizados para disponibilizar serviços, em
 
 As seguintes autoridades certificadoras realizaram o processo de onboard ao Open Banking Brasil e estão habilitadas para realizar a emissão de certificados do Open Banking Brasil.
 
-* SERPRO
+* N/A
 
 ### Apêndice {#certificados-apendice}
 
