@@ -214,7 +214,7 @@ The Signature Certificate must be issued through the V5 chain, and must contain 
 
 The following certifying authorities carried out the onboard process for Open Banking Brasil and are authorized to issue Open Banking Brasil certificates.
 
-* SERPRO
+* N/A
 
 ### Front-End Certificates
 
