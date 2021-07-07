@@ -363,7 +363,10 @@ Além dos requisitos descritos nas disposições de segurança do Open Banking B
 4. deve garantir que os _access tokens_ são emitidos com os _scopes_ necessários para permitir acesso aos dados especificados em elemento _Permission_ do Consentimento (Consent Resource Object) relacionado;
 5. não deve rejeitar pedido de autorização com _scopes_ além do necessário para permitir acesso a dados definidos em elemento _Permission_ do Consentimento (Consent Resource Object) relacionado;
 6. pode reduzir o escopo solicitado para um nível que seja suficiente para permitir o acesso aos dados definidos em elemento _Permission_ do Consentimento (Consent Resource Object) relacionado;
-7. deve manter registros sobre o histórico dos consentimento para permitir a adequada formação de trilhas de auditoria em conformidade com a regulação em vigor.
+7. deve manter registros sobre o histórico dos consentimento para permitir a adequada formação de trilhas de auditoria em conformidade com a regulação em vigor;
+8. deve retornar falha na autenticação e o código de retorno _access_denied_ no parâmetro _erro_ (como especificado na seção 4.1.2.1 da RFC 6749) caso o CPF do usuário autenticado não seja o mesmo indicado no elemento _loggedUser_ do Consentimento (Consent Resource Object);
+9. deve retornar falha na autenticação e o código de retorno _access_denied_ no parâmetro _erro_ (como especificado na seção 4.1.2.1 da RFC 6749) caso o elemento _businessEntity_ não tenha sido preenchido no Consentimento (Consent Resource Object) relacionado e o usuário tenha selecionado ou se autenticado por meio de credencial relacionada à conta do tipo Pessoa Jurídica (PJ);
+10. deve condicionar a autenticação ou seleção de contas do tipo PJ à consistência entre o CNPJ relacionado à(s) conta(s) e o valor presente no elemento _businessEntity_ do Consentimento (Consent Resource Object). Em caso de divergência deve retornar falha na autenticação e o código de retorno _access_denied_ no parâmetro _erro_ (como especificado na seção 4.1.2.1 da RFC 6749).
 
 ### Cliente confidencial  {#clientconfidential}
 
