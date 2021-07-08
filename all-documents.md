@@ -320,7 +320,7 @@ O Open Banking Brasil tem um requisito para endereçar considerações de privac
 
 Os participantes desse ecossistema precisam que os clientes OAuth2 solicitem a um OpenID Provider a confirmação dos valores das `claims` de identificação do usuário como parte de uma solicitação de autorização usando o mecanismo definido na cláusula 5.5.1 de [OIDC].
 
-O uso do parâmetro `claims` para solicitar a validação de valores de identificação explícitos requer que os clientes OAuth2 protejam com criptografia o Request Object para evitar vazamento de informações. Este risco é identificado na cláusula 7.4.1 do [FAPI-1-Advanced].
+O uso do parâmetro `claims` para solicitar a validação de valores de identificação explícitos requer que os clientes OAuth2 protejam com criptografia o Request Object para evitar vazamento de informações. Este risco é identificado na cláusula 7.4.1 do [FAPI-1-Baseline].
 
 Além disso, este perfil descreve o escopo específico, valores de *acr* e requisitos de gerenciamento de clientes OAuth2 necessários para dar suporte ao ecossistema Open Banking Brasil mais amplo.
 
