@@ -215,7 +215,8 @@ O Certificado de Assinatura deve ser emitido através de cadeia V5, e deve obrig
 
 As seguintes autoridades certificadoras realizaram o processo de onboard ao Open Banking Brasil e estão habilitadas para realizar a emissão de certificados do Open Banking Brasil.
 
-* N/A
+* Serpro
+* Serasa
 
 ### Certificado para Front-End {#CertificadoFrontEnd}
 
