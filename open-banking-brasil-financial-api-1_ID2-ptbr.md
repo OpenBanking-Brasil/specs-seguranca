@@ -1,13 +1,13 @@
 %%%
 
     #
-    # Open Banking Brasil Financial-grade API Security Profile 1.0 Implementers Draft 1
-    # (open-banking-brasil-financial-api-1_ID1)
+    # Open Banking Brasil Financial-grade API Security Profile 1.0 Implementers Draft 2
+    # (open-banking-brasil-financial-api-1_ID2)
     #
     #
 
-    title = "Open Banking Brasil Financial-grade API Security Profile 1.0 Implementers Draft 1"
-    abbrev = "OBB-FAPI-1-ID1"
+    title = "Open Banking Brasil Financial-grade API Security Profile 1.0 Implementers Draft 2"
+    abbrev = "OBB-FAPI-1-ID2"
     ipr = "none"
     workgroup = "Open Banking Brasil GT Security"
     keyword = ["FAPI", "Open Banking Brasil GT Security"]
@@ -15,7 +15,7 @@
     [seriesInfo]
     name = "Internet-Draft"
     status = "standard"
-    value = "open-banking-brasil-financial-api-1_ID1-ptbr"
+    value = "open-banking-brasil-financial-api-1_ID2-ptbr"
 
     [[author]]
     initials = "R."
@@ -40,7 +40,7 @@
 
 .# Prefácio  {#Foreword}
 
-The normative version in [English](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID1.html)
+The normative version in [English](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID2.html)
 
 A Estrutura Inicial do Open Banking Brasil (EIOBB) é responsável por criar padrões e especificações necessárias para atender aos requisitos e obrigações da Legislação do Open Banking do Brasil, conforme originalmente delineado pelo [Banco Central do Brasil](https://www.bcb.gov.br/content/config/Documents/BCB_Open_Banking_Communique-April-2019.pdf). É possível que alguns dos elementos deste documento estejam sujeitos a direitos autorais ou patenteados. O EIOBB não se responsabiliza pela identificação de qualquer ou todos esses direitos.
 
