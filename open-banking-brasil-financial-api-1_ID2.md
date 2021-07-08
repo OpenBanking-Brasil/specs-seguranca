@@ -375,6 +375,9 @@ In addition to the requirements outlined in Open Banking Brasil security provisi
 5. shall not reject an authorisation request requesting more scope than is necessary to access data specified in the Permissions element of a linked Consent Resource object;
 6. may reduce requested scope to a level sufficient to enable access to data resources specified in the Permissions element of a linked Consent Resource object;
 7. shall retain a complete audit history of the consent resource in accordance with current Central Bank brazilian regulation;
+8. shall return authentication failure and return code _access_denied_ in the _error_ parameter (as specified in section 4.1.2.1 of RFC 6749) if the CPF of the authenticated user is not the same as indicated in the _loggedUser_ element of the Consent Resource Object;
+9. shall return authentication failure and return code _access_denied_ in the _error_ parameter (as specified in section 4.1.2.1 of RFC 6749) if the _businessEntity_ element has not been populated in the related Consent Resource Object and the user has selected or authenticated by using a credential related to a business account;
+10. an autenticated or selected business account´s CNPJ must match the value present in the _businessEntity_ element of the Consent Resource Object. In case of divergence authorization server shall return authentication failure and return code _access_denied_ in the _error_ parameter (as specified in section 4.1.2.1 of RFC 6749).
 
 ### Confidential Client
 
