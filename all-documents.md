@@ -320,7 +320,7 @@ O Open Banking Brasil tem um requisito para endereçar considerações de privac
 
 Os participantes desse ecossistema precisam que os clientes OAuth2 solicitem a um OpenID Provider a confirmação dos valores das `claims` de identificação do usuário como parte de uma solicitação de autorização usando o mecanismo definido na cláusula 5.5.1 de [OIDC].
 
-O uso do parâmetro `claims` para solicitar a validação de valores de identificação explícitos requer que os clientes OAuth2 protejam com criptografia o Request Object para evitar vazamento de informações. Este risco é identificado na cláusula 7.4.1 do [FAPI-1-Advanced].
+O uso do parâmetro `claims` para solicitar a validação de valores de identificação explícitos requer que os clientes OAuth2 protejam com criptografia o Request Object para evitar vazamento de informações. Este risco é identificado na cláusula 7.4.1 do [FAPI-1-Baseline].
 
 Além disso, este perfil descreve o escopo específico, valores de *acr* e requisitos de gerenciamento de clientes OAuth2 necessários para dar suporte ao ecossistema Open Banking Brasil mais amplo.
 
@@ -542,7 +542,7 @@ Além disso, o Authorization Server:
 
 1. deve contar com serviços de descoberta do ecossistema fornecidos apenas pelo Diretório de Participantes;
 2. deve derivar os metadados necessários do Authorization Server somente por meio do serviço OpenID Connect Discovery;
-3. quando presente, deve usar endpoints anunciados em `mtls_endpoint_aliases` conforme a cláusula 5 [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication e Certificate-Bound Access Tokens][RF8705];
+3. quando presente, deve usar endpoints anunciados em `mtls_endpoint_aliases` conforme a cláusula 5 [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication e Certificate-Bound Access Tokens][RFC8705];
 
 ### Requisitos de Registro OpenID Connect  {#requisitos-registro-openid-connect}
 
@@ -1032,7 +1032,7 @@ Para conhecer um pouco mais e exercitar, visite o site [JWT-IO](https://jwt.io/)
 
 ### Interagindo com as APIs de Serviços de Confiança  {#interagindo-apis-diretorio}
 
-Quando um aplicativo é registrado no Diretório, o serviço central usa os metadados e certificados fornecidos para criar para o software um cliente OAuth 2.0 que tem um `grant type` do tipo `client credentials`, conforme definido em [RFC6749](https://tools.ietf.org/html/rfc6749) e com um mecanismo de autenticação de cliente OAuth 2.0 definido como `tls_client_auth`, conforme definido em [RFC 8705].
+Quando um aplicativo é registrado no Diretório, o serviço central usa os metadados e certificados fornecidos para criar para o software um cliente OAuth 2.0 que tem um `grant type` do tipo `client credentials`, conforme definido em [RFC6749](https://tools.ietf.org/html/rfc6749) e com um mecanismo de autenticação de cliente OAuth 2.0 definido como `tls_client_auth`, conforme definido em [RFC 8705][RFC8705].
 
 Usando o ClientID listado na declaração do software (software statement) no Diretório, [OpenID Connect Discovery][OIDD] e a configuração do OpenID Provider Issuer abaixo, um participante tem todos das informações necessárias para descobrir, autenticar e interagir com as APIs do Diretório.
 
