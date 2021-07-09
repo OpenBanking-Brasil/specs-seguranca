@@ -396,6 +396,7 @@ The following people contributed to this document:
 * Joseph Heenan (Authlete)
 * Alexandre Siqueira (Mercado Pago)
 * Marcos Rodrigues (Itaú)
+* Mário Ginglass (BNDES)
 
 {backmatter}
 
