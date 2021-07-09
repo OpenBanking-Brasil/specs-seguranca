@@ -1068,7 +1068,7 @@ tr:nth-child(2n+1) > td {
 <thead><tr>
 <td class="left"></td>
 <td class="center">OBB-FAPI-1-DCR-ID1</td>
-<td class="right">June 2021</td>
+<td class="right">July 2021</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Bragg & Security</td>
@@ -1085,7 +1085,7 @@ tr:nth-child(2n+1) > td {
 <dd class="internet-draft">open-banking-brasil-dynamic-client-registration-1_ID1-ptbr</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2021-06-23" class="published">23 June 2021</time>
+<time datetime="2021-07-08" class="published">8 July 2021</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
@@ -1366,7 +1366,7 @@ tr:nth-child(2n+1) > td {
             <p id="section-6.1-3.4.1">deve anunciar suporte para <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Dynamic Client Registration</a>;<a href="#section-6.1-3.4.1" class="pilcrow">¶</a></p>
 </li>
 <li id="section-6.1-3.5">
-            <p id="section-6.1-3.5.1">deve anunciar <code>mtls_endpoint_aliases</code> de acordo com a cl&#225;usula 5 [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication e Certificate-Bound Access Tokens][RF8705] o <code>token_endpoint</code>, <code>registration_endpoint</code> e <code>userinfo_endpoint</code>;<a href="#section-6.1-3.5.1" class="pilcrow">¶</a></p>
+            <p id="section-6.1-3.5.1">deve anunciar <code>mtls_endpoint_aliases</code> de acordo com a cl&#225;usula 5 <a href="https://tools.ietf.org/html/rfc8705">RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication e Certificate-Bound Access Tokens</a> o <code>token_endpoint</code>, <code>registration_endpoint</code> e <code>userinfo_endpoint</code>;<a href="#section-6.1-3.5.1" class="pilcrow">¶</a></p>
 </li>
 <li id="section-6.1-3.6">
             <p id="section-6.1-3.6.1">se suportar <a href="https://tools.ietf.org/html/draft-ietf-oauth-par">OAuth 2.0 Pushed Authorisation Requests</a>, deve anunciar por meio de <a href="https://openid.net/specs/openid-connect-discovery-1_0.html">OIDD</a> <code>mtls_endpoint_aliases</code> o <code>push_authorization_request_endpoint</code>;<a href="#section-6.1-3.6.1" class="pilcrow">¶</a></p>
@@ -1392,7 +1392,7 @@ tr:nth-child(2n+1) > td {
             <p id="section-6.2-3.2.1">deve derivar os metadados necess&#225;rios do Authorization Server somente por meio do servi&#231;o OpenID Connect Discovery dos Authorization Servers;<a href="#section-6.2-3.2.1" class="pilcrow">¶</a></p>
 </li>
 <li id="section-6.2-3.3">
-            <p id="section-6.2-3.3.1">quando presente, deve usar endpoints anunciados em <code>mtls_endpoint_aliases</code> conforme a cl&#225;usula 5 [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication e Certificate-Bound Access Tokens][RF8705];<a href="#section-6.2-3.3.1" class="pilcrow">¶</a></p>
+            <p id="section-6.2-3.3.1">quando presente, deve usar endpoints anunciados em <code>mtls_endpoint_aliases</code> conforme a cl&#225;usula 5 <a href="https://tools.ietf.org/html/rfc8705">RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication e Certificate-Bound Access Tokens</a>;<a href="#section-6.2-3.3.1" class="pilcrow">¶</a></p>
 </li>
 </ol>
 </section>
@@ -1501,13 +1501,13 @@ tr:nth-child(2n+1) > td {
             <tr>
               <td class="text-left" rowspan="1" colspan="1">DADOS</td>
               <td class="text-left" rowspan="1" colspan="1">Institui&#231;&#227;o transmissora / receptora de dados (AISP)</td>
-              <td class="text-left" rowspan="1" colspan="1">openid accounts credit-cards-accounts consents customers invoice-financings financings loans unarranged-accounts-overdraft</td>
+              <td class="text-left" rowspan="1" colspan="1">openid accounts credit-cards-accounts consents customers invoice-financings financings loans unarranged-accounts-overdraft resources</td>
               <td class="text-left" rowspan="1" colspan="1">Phase 2</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">PAGTO</td>
               <td class="text-left" rowspan="1" colspan="1">Institui&#231;&#227;o prestadora de servi&#231;o de inicia&#231;&#227;o de pagamentos (PISP)</td>
-              <td class="text-left" rowspan="1" colspan="1">openid payments consents</td>
+              <td class="text-left" rowspan="1" colspan="1">openid payments consents resources</td>
               <td class="text-left" rowspan="1" colspan="1">Phase 3</td>
             </tr>
             <tr>
@@ -1660,7 +1660,7 @@ tr:nth-child(2n+1) > td {
       <h2 id="name-processamento-de-solicita23">
 <a href="#section-9" class="section-number selfRef">9. </a><a href="#name-processamento-de-solicita23" class="section-name selfRef">Processamento de solicita&#231;&#227;o de registro de cliente din&#226;mico</a>
       </h2>
-<p><img src="images/dynamic-client-registration.png" alt="Processamento de solicita&#231;&#227;o de registro de cliente din&#226;mico" /></p>
+<p><img src="images/dynamic-client-registration.png" alt="Dynamic Client Registration Request Processing" /></p>
 <div id="exampleDcr">
 <section id="section-9.1">
         <h3 id="name-enviar-uma-solicita231227o-">
