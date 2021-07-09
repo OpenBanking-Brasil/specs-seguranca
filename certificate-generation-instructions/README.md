@@ -4,4 +4,4 @@ These sh scripts and openssl configuration files can be used to create certifica
 
 ## Error Handling
 
-At present the directory is not returning detailed error messages when a CSR fails validation. This is being addressed as a priority.
+Detailed error messages are now being returned by the directory. Please contact the service desk if you continue to have issues.
