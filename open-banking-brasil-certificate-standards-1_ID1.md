@@ -216,6 +216,7 @@ The following certifying authorities carried out the onboard process for Open Ba
 
 * Serpro
 * Serasa
+* Soluti
 
 ### Front-End Certificates
 
