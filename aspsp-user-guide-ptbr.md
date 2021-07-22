@@ -119,7 +119,7 @@ O [FAPI 1.0: Advanced profile](https://openid.net/specs/openid-financial-api-par
 
 ![Hierachy of OAuth 2.0 Profiles](https://miro.medium.com/max/700/1*R8d0lkvVRlEMG9WBXCZsdQ.png)
 
-# Guia do Uusuário para Entidades Transmissoras de Dados (ASPSP) {#Guia}
+# Guia do Usuário para Entidades Transmissoras de Dados (ASPSP) {#Guia}
 
 ASPSP - *Account Servicing Payment Service Provider*
 
