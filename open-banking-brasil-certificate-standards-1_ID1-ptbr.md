@@ -306,7 +306,7 @@ keyUsage = critical,digitalSignature,nonRepudiation
 
 [ alt_name ] 
 otherName.0 = 2.16.76.1.3.2;UTF8:<Nome da pessoal responsável pela entidade>#CNPJ
-otherName.1 = 2.16.76.1.3.3;UTF8<CNPJ>
+otherName.1 = 2.16.76.1.3.3;UTF8:<CNPJ>
 otherName.2 = 2.16.76.1.3.4;UTF8:<CPF/PIS/RF da Pessoa responsável>
 otherName.3 = 2.16.76.1.3.7;UTF8:<Número de INSS>
 ```
