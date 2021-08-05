@@ -306,32 +306,32 @@ Os participantes devem apoiar todas as considerações de segurança especificad
 
 ## Considerações sobre assinatura do conteúdo de mensagens (JWS) {#jws}
 
-- Para garantir a integridade e o não-repúdio das informações tramitadas em API´s sensíveis e que indicam essa necessidade na sua documentação, deve ser adotado a estrutura no padrão JWS definida na [RFC7515] e que inclui:
- - Cabeçalho (_JSON Object Signing and Encryption – JOSE Header_), onde se define o algoritmo utilizado e inclui informações sobre a chave pública ou certificado que podem ser utilizadas para validar a assinatura;
- - Payload (_JWS Payload_): conteúdo propriamente dito e detalhado na especificação da API;
- - Assinatura digital (_JWS Signature_): assinatura digital, realizada conforme parâmetros do cabeçalho.
-- Cada elemento acima deve ser codificado utilizando o padrão Base64url [RFC4648](https://tools.ietf.org/html/rfc4648#section-5) e, feito isso, os elementos devem ser concatenados com “.” (método JWS Compact Serialization, conforme definido na [RFC7515]).
+1. Para garantir a integridade e o não-repúdio das informações tramitadas em API´s sensíveis e que indicam essa necessidade na sua documentação, deve ser adotado a estrutura no padrão JWS definida na [RFC7515] e que inclui:
+   * Cabeçalho (_JSON Object Signing and Encryption – JOSE Header_), onde se define o algoritmo utilizado e inclui informações sobre a chave pública ou certificado que podem ser utilizadas para validar a assinatura;
+   * Payload (_JWS Payload_): conteúdo propriamente dito e detalhado na especificação da API;
+   * Assinatura digital (_JWS Signature_): assinatura digital, realizada conforme parâmetros do cabeçalho.
+2. Cada elemento acima deve ser codificado utilizando o padrão Base64url [RFC4648](https://tools.ietf.org/html/rfc4648#section-5) e, feito isso, os elementos devem ser concatenados com “.” (método JWS Compact Serialization, conforme definido na [RFC7515]).
 
- - O payload das mensagens (_Request Object_ e _Response Object_) assinadas devem incluir as seguintes claims presentes na [RFC7519] (JWT):
-  – **aud** (no _Request Object_): a instituição detentora da conta deverá validar se o valor do campo "aud" coincide com o endpoint sendo acionado;
-  – **aud** (no _Response Object_): a instituição iniciadora deverá validar se o valor do campo **aud** coincide com o seu próprio `organisationId` listado no diretório;
-  – **iss** (no Request Object e no Response Object): o receptor da mensagem deverá validar que o valor do campo **iss** coincide com o organisationId do emissor;
-  – **jti** (no Request Object e no Response Object): o valor do campo **jit** deverá ser preenchido com o UUID definido pela instituição de acordo com a RFC 4122 usando o versão 4;
-   – **iat** (no Request Object e no Response Object): o valor do campo **iat** deverá ser preenchido com o timestamp com horário da geração da mensagem.
+3. O payload das mensagens (_Request Object_ e _Response Object_) assinadas devem incluir as seguintes `claims` presentes na [RFC7519] (JWT):
+   * **aud** (no _Request Object_): o Provedor do Recurso (p. ex. a instituição detentora da conta) deverá validar se o valor do campo **aud** coincide com o endpoint sendo acionado;
+   * **aud** (no _Response Object_): o cliente da API (p. e. instituição iniciadora) deverá validar se o valor do campo **aud** coincide com o seu próprio `organisationId` listado no diretório;
+   * **iss** (no Request Object e no Response Object): o receptor da mensagem deverá validar se o valor do campo **iss** coincide com o `organisationId` do emissor;
+   * **jti** (no Request Object e no Response Object): o valor do campo **jit** deverá ser preenchido com o UUID definido pela instituição de acordo com a RFC 4122 usando o versão 4;
+   * **iat** (no Request Object e no Response Object): o valor do campo **iat** deverá ser preenchido com o _timestamp_ com horário da geração da mensagem.
 
- - O content-type HTTP das requisições e respostas com mensagens JWS deve ser definido como: "application/jwt".
+4. O content-type HTTP das requisições e respostas com mensagens JWS deve ser definido como: "application/jwt".
 
-- No cabeçalho JOSE deve constar os seguintes atributos:
- – **alg** - deve ser preenchido com o valor `PS256`";
- – **kid** - deve ser obrigatoriamente preenchido com o valor do identificador da chave utilizado para a assinatura;
- – **typ** - deve ser preenchido com o valor `JWT`.
+5. No cabeçalho JOSE deve constar os seguintes atributos:
+   * **alg** - deve ser preenchido com o valor `PS256`";
+   * **kid** - deve ser obrigatoriamente preenchido com o valor do identificador da chave utilizado para a assinatura;
+   * **typ** - deve ser preenchido com o valor `JWT`.
 
-- Em caso de erro na validação da assinatura pelo `Provedor do Recurso` a API deve retornar mensagem de erro HTTP com `status code` **400** e a resposta deve indicar a falha na validação da assinatura (p. ex. `bad signature`).
-- Erros na validação da mensagem recebida pela aplicação cliente (p. ex. iniciador de pagamento) devem ser registrados e o `Provedor do Recurso` (p. ex. instituição detentora de conta) deve ser notificado.
+* Em caso de erro na validação da assinatura pelo `Provedor do Recurso` a API deve retornar mensagem de erro HTTP com `status code` **400** e a resposta deve indicar a falha na validação da assinatura (p. ex. `bad signature`).
+* Erros na validação da mensagem recebida pela aplicação cliente (p. ex. iniciador de pagamento) devem ser registrados e o `Provedor do Recurso` (p. ex. instituição detentora de conta) deve ser notificado.
 
-- O receptor  deve validar a consistência da assinatura digital da mensagem JWS **exclusivamente com base nas informações obtidas do diretório**, ou seja, com base nas chaves publicadas no JWKS da instituição no diretório.
+6. O receptor  deve validar a consistência da assinatura digital da mensagem JWS **exclusivamente com base nas informações obtidas do diretório**, ou seja, com base nas chaves publicadas no JWKS da instituição no diretório.
 
-- As assinaturas devem ser realizadas com uso do certificado digital de assinatura especificado no [Padrão de Certificados Open Banking Brasil](https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil-certificate-standards-1_ID1-ptbr.md#certificado-de-assinatura-certificadoassinatura).
+7. As assinaturas devem ser realizadas com uso do certificado digital de assinatura especificado no [Padrão de Certificados Open Banking Brasil](https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil-certificate-standards-1_ID1-ptbr.md#certificado-de-assinatura-certificadoassinatura).
 
 ### Considerações sobre algoritmos de assinatura {#alg}
 
