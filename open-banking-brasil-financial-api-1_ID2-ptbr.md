@@ -306,7 +306,7 @@ Os participantes devem apoiar todas as considerações de segurança especificad
 
 ## Considerações sobre assinatura do conteúdo de mensagens (JWS) {#jws}
 
-1. Para garantir a integridade e o não-repúdio das informações tramitadas em API´s sensíveis e que indicam essa necessidade na sua documentação, deve ser adotado a estrutura no padrão JWS definida na [RFC7515] e que inclui:
+1. Para garantir a integridade e o não-repúdio das informações tramitadas em **API´s sensíveis e que indicam essa necessidade na sua documentação**, deve ser adotado a estrutura no padrão JWS definida na [RFC7515] e que inclui:
    * Cabeçalho (_JSON Object Signing and Encryption – JOSE Header_), onde se define o algoritmo utilizado e inclui informações sobre a chave pública ou certificado que podem ser utilizadas para validar a assinatura;
    * Payload (_JWS Payload_): conteúdo propriamente dito e detalhado na especificação da API;
    * Assinatura digital (_JWS Signature_): assinatura digital, realizada conforme parâmetros do cabeçalho.
