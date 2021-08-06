@@ -312,12 +312,12 @@ Os participantes devem apoiar todas as considerações de segurança especificad
    * Assinatura digital (_JWS Signature_): assinatura digital, realizada conforme parâmetros do cabeçalho.
 2. Cada elemento acima deve ser codificado utilizando o padrão Base64url [RFC4648](https://tools.ietf.org/html/rfc4648#section-5) e, feito isso, os elementos devem ser concatenados com “.” (método JWS Compact Serialization, conforme definido na [RFC7515]).
 
-3. O payload das mensagens (_Request Object_ e _Response Object_) assinadas devem incluir as seguintes `claims` presentes na [RFC7519] (JWT):
-   * **aud** (no _Request Object_): o Provedor do Recurso (p. ex. a instituição detentora da conta) deverá validar se o valor do campo **aud** coincide com o endpoint sendo acionado;
-   * **aud** (no _Response Object_): o cliente da API (p. e. instituição iniciadora) deverá validar se o valor do campo **aud** coincide com o seu próprio `organisationId` listado no diretório;
-   * **iss** (no Request Object e no Response Object): o receptor da mensagem deverá validar se o valor do campo **iss** coincide com o `organisationId` do emissor;
-   * **jti** (no Request Object e no Response Object): o valor do campo **jti** deverá ser preenchido com o UUID definido pela instituição de acordo com a RFC 4122 usando o versão 4;
-   * **iat** (no Request Object e no Response Object): o valor do campo **iat** deverá ser preenchido com o _timestamp_ com horário da geração da mensagem.
+3. O payload das mensagens (requisição _JWT_ e resposta _JWT_) assinadas devem incluir as seguintes `claims` presentes na [RFC7519] (JWT):
+   * **aud** (na requisição _JWT_): o Provedor do Recurso (p. ex. a instituição detentora da conta) deverá validar se o valor do campo **aud** coincide com o endpoint sendo acionado;
+   * **aud** (na resposta _JWT_): o cliente da API (p. e. instituição iniciadora) deverá validar se o valor do campo **aud** coincide com o seu próprio `organisationId` listado no diretório;
+   * **iss** (na requisição _JWT_ e na resposta _JWT_): o receptor da mensagem deverá validar se o valor do campo **iss** coincide com o `organisationId` do emissor;
+   * **jti** (na requisição _JWT_ e na resposta _JWT_): o valor do campo **jti** deverá ser preenchido com o UUID definido pela instituição de acordo com a [RFC4122] usando o versão 4;
+   * **iat** (na requisição _JWT_ e na resposta _JWT_): o valor do campo **iat** deverá ser preenchido com horário da geração da mensagem e de acordo com o padrão  estabelecido na [RFC7519](https://datatracker.ietf.org/doc/html/rfc7519#section-2) para o formato _NumericDate_.
 
 4. O content-type HTTP das requisições e respostas com mensagens JWS deve ser definido como: "application/jwt".
 
