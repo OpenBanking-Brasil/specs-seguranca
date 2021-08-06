@@ -326,7 +326,7 @@ Os participantes devem apoiar todas as considerações de segurança especificad
    * **kid** - deve ser obrigatoriamente preenchido com o valor do identificador da chave utilizado para a assinatura;
    * **typ** - deve ser preenchido com o valor `JWT`.
 
-* Em caso de erro na validação da assinatura pelo `Provedor do Recurso` a API deve retornar mensagem de erro HTTP com `status code` **400** e a resposta deve indicar a falha na validação da assinatura (p. ex. `bad signature`).
+* Em caso de erro na validação da assinatura pelo `Provedor do Recurso` a API deve retornar mensagem de erro HTTP com `status code` **400** e a resposta deve incluir na propriedade `code` do objeto de resposta de erro especificado na API (`ResponseError`) a indicação da falha com o conteúdo `BAD_SIGNATURE`.
 * Erros na validação da mensagem recebida pela aplicação cliente (p. ex. iniciador de pagamento) devem ser registrados e o `Provedor do Recurso` (p. ex. instituição detentora de conta) deve ser notificado.
 
 6. O receptor  deve validar a consistência da assinatura digital da mensagem JWS **exclusivamente com base nas informações obtidas do diretório**, ou seja, com base nas chaves publicadas no JWKS da instituição no diretório.
