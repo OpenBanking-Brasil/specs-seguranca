@@ -316,7 +316,7 @@ Os participantes devem apoiar todas as considerações de segurança especificad
    * **aud** (no _Request Object_): o Provedor do Recurso (p. ex. a instituição detentora da conta) deverá validar se o valor do campo **aud** coincide com o endpoint sendo acionado;
    * **aud** (no _Response Object_): o cliente da API (p. e. instituição iniciadora) deverá validar se o valor do campo **aud** coincide com o seu próprio `organisationId` listado no diretório;
    * **iss** (no Request Object e no Response Object): o receptor da mensagem deverá validar se o valor do campo **iss** coincide com o `organisationId` do emissor;
-   * **jti** (no Request Object e no Response Object): o valor do campo **jit** deverá ser preenchido com o UUID definido pela instituição de acordo com a RFC 4122 usando o versão 4;
+   * **jti** (no Request Object e no Response Object): o valor do campo **jti** deverá ser preenchido com o UUID definido pela instituição de acordo com a RFC 4122 usando o versão 4;
    * **iat** (no Request Object e no Response Object): o valor do campo **iat** deverá ser preenchido com o _timestamp_ com horário da geração da mensagem.
 
 4. O content-type HTTP das requisições e respostas com mensagens JWS deve ser definido como: "application/jwt".
