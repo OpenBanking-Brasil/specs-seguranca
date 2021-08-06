@@ -1,13 +1,13 @@
 %%%
 
     #
-    # Open Banking Brasil Financial-grade API Security Profile 1.0 Implementers Draft 2
-    # (open-banking-brasil-financial-api-1_ID2)
+    # Open Banking Brasil Financial-grade API Security Profile 1.0 Implementers Draft 3
+    # (open-banking-brasil-financial-api-1_ID3)
     #
     #
 
-    title = "Open Banking Brasil Financial-grade API Security Profile 1.0 Implementers Draft 2"
-    abbrev = "OBB-FAPI-1-ID2"
+    title = "Open Banking Brasil Financial-grade API Security Profile 1.0 Implementers Draft 3"
+    abbrev = "OBB-FAPI-1-ID3"
     ipr = "none"
     workgroup = "Open Banking Brasil GT Security"
     keyword = ["FAPI", "Open Banking Brasil GT Security"]
@@ -15,7 +15,7 @@
     [seriesInfo]
     name = "Internet-Draft"
     status = "standard"
-    value = "open-banking-brasil-financial-api-1_ID2"
+    value = "open-banking-brasil-financial-api-1_ID3"
 
     [[author]]
     initials = "R."
@@ -40,7 +40,7 @@
 
 .# Foreword
 
-Este documento também está disponível em [português](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID2-ptbr.html)
+Este documento também está disponível em [português](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID3-ptbr.html)
 
 The Open Banking Brasil Initial Structure is responsible for creating standards and specifications necessary to meet the requirements and obligations of the Brasil Open Banking Legislation as originally outlined by the [Brasil Central Bank](https://www.bcb.gov.br/content/config/Documents/BCB_Open_Banking_Communique-April-2019.pdf). There is a possibility that some of the elements of this document may be the subject to patent rights. OBBIS shall not be held responsible for identifying any or all such patent rights.
 
@@ -98,6 +98,9 @@ The following referenced documents are indispensable for the application of this
 [RFC6819] - OAuth 2.0 Threat Model and Security Considerations
 [RFC6819]: <https://tools.ietf.org/html/rfc6819
 
+[RFC7515] - JSON Web Signature (JWS)
+[RFC7515]:<https://tools.ietf.org/html/rfc7515
+
 [RFC7519] - JSON Web Token (JWT)
 [RFC7519]:<https://tools.ietf.org/html/rfc7519
 
@@ -151,6 +154,9 @@ The following referenced documents are indispensable for the application of this
 
 [OBB-FAPI-DCR] - Open Banking Brasil Financial-grade API Dynamic Client Registration Profile 1.0
 [OBB-FAPI-DCR]: <https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID1.html
+
+[RFC4648] - The Base16, Base32, and Base64 Data Encodings
+[RFC4648]: <https://tools.ietf.org/html/rfc4648
 
 # Terms and definitions
 
@@ -309,9 +315,38 @@ In addition, the confidential client
 # Security considerations
 
 Participants shall support all security considerations specified in clause 8
- [Financial-grade API Security Profile 1.0 - Part 1: Advanced][FAPI-1-Advanced] and the [Brazilian Central Bank Open Banking Security Manual](https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Instru%C3%A7%C3%A3o%20Normativa%20BCB&numero=99).
+ [Financial-grade API Security Profile 1.0 - Part 1: Advanced][FAPI-1-Advanced] and the [Brazilian Central Bank Open Banking Security Manual](https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Instru%C3%A7%C3%A3o%20Normativa%20BCB&numero=134).
  The Brazilian ICP issues RSA x509 certificates only therefor section removes for simplicity support for EC algorithms
  and requires that only IANA recommended encryption algorithms be used.
+
+## Message Content Signing Considerations (JWS) {#jws}
+
+1. JWS standad defined in [RFC7515] shall be adopted to ensure integrity and non-repudiation of information processed in sensitive **API's (message sign requirement is indicated at API´s documentation/swagger)**, which includes:
+  * Header (_JSON Object Signing and Encryption – JOSE Header_), which defines the algorithm used and includes information about the public key or certificate that can be used to validate the signature;
+  * Payload (_JWS Payload_): content itself as detailed in the API specification;
+  * Digital signature (_JWS Signature_): digital signature, performed according to header parameters.
+2. Each of elements above must be encoded using the Base64url pattern [RFC4648](https://tools.ietf.org/html/rfc4648#section-5) and the elements must be concatenated with “.” (JWS Compact Serialization method as defined in [RFC7515]).
+
+3. The payload of signed messages (request _JWT_ and response _JWT_) shall include the following claims as defined at [RFC7519] (JWT):
+  * **aud** (in the _JWT_ request): the Resource Provider (eg the institution holding the account) must validate if the value of the **aud** field matches the endpoint being triggered;
+   * **aud** (in _JWT_ response): the API client (eg initiating institution) shall validate if the value of the **aud** field matches its own `organisationId` listed in the directory;
+   * **iss** (in the _JWT_ request and in the _JWT_ response): the receiver of the message shall validate if the value of the **iss** field matches the `organisationId` of the sender;
+   * **jti** (in the _JWT_ request and in the _JWT_ response): the value of the **jti** field shall be filled with the UUID defined by the institution according to [RFC4122] version 4;
+   * **iat** (in the _JWT_ request and in the _JWT_ response): the **iat** field  shall be filled with the message generation time and according to the standard established in [RFC7519](https:// datatracker.ietf.org/doc/html/rfc7519#section-2) to the _NumericDate_ format.
+
+4. The HTTP content-type of requests and responses with JWS messages shall be defined as: "application/jwt".
+
+5. The JOSE header must contain the following attributes:
+   * **alg** - shall be filled with the value `PS256`";
+   * **kid** - shall be filled with the key identifier value used for the signature;
+   * **typ** - shall be filled with the value `JWT`.
+
+* In case of error in signature validation by `Resource Provider` the API provider shall return HTTP error message with `status code` **400** and the `ResponseError` content shall include, in the `code` property, the content `BAD_SIGNATURE`.
+* Errors in validating the signed messages received by the client application (eg payment initiator) must be logged and the `Resource Provider` (eg account holding institution) must be notified.
+
+6. The receiver shall validate the consistency of the JWS message's digital signature **exclusively based on the information obtained from the directory**, that is, based on the keys published in the institution's JWKS in the directory.
+
+7. Signatures must be performed using the digital signature certificate specified in the [Open Banking Brazil Certificates Standard](https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil -certificate-standards-1_ID1-ptbr.md#certificate-of-signing-certificatesignature).
 
 ## Algorithm considerations
 

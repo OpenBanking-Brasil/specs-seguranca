@@ -338,7 +338,7 @@ Participants shall support all security considerations specified in clause 8
 
  5. The JOSE header must contain the following attributes:
     * **alg** - shall be filled with the value `PS256`";
-    * **kid** - shall be filled in with the key identifier value used for the signature;
+    * **kid** - shall be filled with the key identifier value used for the signature;
     * **typ** - shall be filled with the value `JWT`.
 
  * In case of error in signature validation by `Resource Provider` the API provider shall return HTTP error message with `status code` **400** and the `ResponseError` content shall include, in the `code` property, the content `BAD_SIGNATURE`.
