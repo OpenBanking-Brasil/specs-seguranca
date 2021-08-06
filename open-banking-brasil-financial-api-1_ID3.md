@@ -1,13 +1,13 @@
 %%%
 
     #
-    # Open Banking Brasil Financial-grade API Security Profile 1.0 Implementers Draft 2
-    # (open-banking-brasil-financial-api-1_ID2)
+    # Open Banking Brasil Financial-grade API Security Profile 1.0 Implementers Draft 3
+    # (open-banking-brasil-financial-api-1_ID3)
     #
     #
 
-    title = "Open Banking Brasil Financial-grade API Security Profile 1.0 Implementers Draft 2"
-    abbrev = "OBB-FAPI-1-ID2"
+    title = "Open Banking Brasil Financial-grade API Security Profile 1.0 Implementers Draft 3"
+    abbrev = "OBB-FAPI-1-ID3"
     ipr = "none"
     workgroup = "Open Banking Brasil GT Security"
     keyword = ["FAPI", "Open Banking Brasil GT Security"]
@@ -15,7 +15,7 @@
     [seriesInfo]
     name = "Internet-Draft"
     status = "standard"
-    value = "open-banking-brasil-financial-api-1_ID2"
+    value = "open-banking-brasil-financial-api-1_ID3"
 
     [[author]]
     initials = "R."
@@ -40,7 +40,7 @@
 
 .# Foreword
 
-Este documento também está disponível em [português](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID2-ptbr.html)
+Este documento também está disponível em [português](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID3-ptbr.html)
 
 The Open Banking Brasil Initial Structure is responsible for creating standards and specifications necessary to meet the requirements and obligations of the Brasil Open Banking Legislation as originally outlined by the [Brasil Central Bank](https://www.bcb.gov.br/content/config/Documents/BCB_Open_Banking_Communique-April-2019.pdf). There is a possibility that some of the elements of this document may be the subject to patent rights. OBBIS shall not be held responsible for identifying any or all such patent rights.
 
@@ -322,31 +322,31 @@ Participants shall support all security considerations specified in clause 8
 ## Message Content Signing Considerations (JWS) {#jws}
 
 1. JWS standad defined in [RFC7515] shall be adopted to ensure integrity and non-repudiation of information processed in sensitive **API's (message sign requirement is indicated at API´s documentation/swagger)**, which includes:
-   * Header (_JSON Object Signing and Encryption – JOSE Header_), which defines the algorithm used and includes information about the public key or certificate that can be used to validate the signature;
-   * Payload (_JWS Payload_): content itself as detailed in the API specification;
-   * Digital signature (_JWS Signature_): digital signature, performed according to header parameters.
+  * Header (_JSON Object Signing and Encryption – JOSE Header_), which defines the algorithm used and includes information about the public key or certificate that can be used to validate the signature;
+  * Payload (_JWS Payload_): content itself as detailed in the API specification;
+  * Digital signature (_JWS Signature_): digital signature, performed according to header parameters.
 2. Each of elements above must be encoded using the Base64url pattern [RFC4648](https://tools.ietf.org/html/rfc4648#section-5) and the elements must be concatenated with “.” (JWS Compact Serialization method as defined in [RFC7515]).
 
 3. The payload of signed messages (request _JWT_ and response _JWT_) shall include the following claims as defined at [RFC7519] (JWT):
-   * **aud** (in the _JWT_ request): the Resource Provider (eg the institution holding the account) must validate if the value of the **aud** field matches the endpoint being triggered;
-    * **aud** (in _JWT_ response): the API client (eg initiating institution) shall validate if the value of the **aud** field matches its own `organisationId` listed in the directory;
-    * **iss** (in the _JWT_ request and in the _JWT_ response): the receiver of the message shall validate if the value of the **iss** field matches the `organisationId` of the sender;
-    * **jti** (in the _JWT_ request and in the _JWT_ response): the value of the **jti** field shall be filled with the UUID defined by the institution according to [RFC4122] version 4;
-    * **iat** (in the _JWT_ request and in the _JWT_ response): the **iat** field  shall be filled with the message generation time and according to the standard established in [RFC7519](https:// datatracker.ietf.org/doc/html/rfc7519#section-2) to the _NumericDate_ format.
+  * **aud** (in the _JWT_ request): the Resource Provider (eg the institution holding the account) must validate if the value of the **aud** field matches the endpoint being triggered;
+   * **aud** (in _JWT_ response): the API client (eg initiating institution) shall validate if the value of the **aud** field matches its own `organisationId` listed in the directory;
+   * **iss** (in the _JWT_ request and in the _JWT_ response): the receiver of the message shall validate if the value of the **iss** field matches the `organisationId` of the sender;
+   * **jti** (in the _JWT_ request and in the _JWT_ response): the value of the **jti** field shall be filled with the UUID defined by the institution according to [RFC4122] version 4;
+   * **iat** (in the _JWT_ request and in the _JWT_ response): the **iat** field  shall be filled with the message generation time and according to the standard established in [RFC7519](https:// datatracker.ietf.org/doc/html/rfc7519#section-2) to the _NumericDate_ format.
 
- 4. The HTTP content-type of requests and responses with JWS messages shall be defined as: "application/jwt".
+4. The HTTP content-type of requests and responses with JWS messages shall be defined as: "application/jwt".
 
- 5. The JOSE header must contain the following attributes:
-    * **alg** - shall be filled with the value `PS256`";
-    * **kid** - shall be filled with the key identifier value used for the signature;
-    * **typ** - shall be filled with the value `JWT`.
+5. The JOSE header must contain the following attributes:
+   * **alg** - shall be filled with the value `PS256`";
+   * **kid** - shall be filled with the key identifier value used for the signature;
+   * **typ** - shall be filled with the value `JWT`.
 
- * In case of error in signature validation by `Resource Provider` the API provider shall return HTTP error message with `status code` **400** and the `ResponseError` content shall include, in the `code` property, the content `BAD_SIGNATURE`.
- * Errors in validating the signed messages received by the client application (eg payment initiator) must be logged and the `Resource Provider` (eg account holding institution) must be notified.
+* In case of error in signature validation by `Resource Provider` the API provider shall return HTTP error message with `status code` **400** and the `ResponseError` content shall include, in the `code` property, the content `BAD_SIGNATURE`.
+* Errors in validating the signed messages received by the client application (eg payment initiator) must be logged and the `Resource Provider` (eg account holding institution) must be notified.
 
- 6. The receiver shall validate the consistency of the JWS message's digital signature **exclusively based on the information obtained from the directory**, that is, based on the keys published in the institution's JWKS in the directory.
+6. The receiver shall validate the consistency of the JWS message's digital signature **exclusively based on the information obtained from the directory**, that is, based on the keys published in the institution's JWKS in the directory.
 
- 7. Signatures must be performed using the digital signature certificate specified in the [Open Banking Brazil Certificates Standard](https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil -certificate-standards-1_ID1-ptbr.md#certificate-of-signing-certificatesignature).
+7. Signatures must be performed using the digital signature certificate specified in the [Open Banking Brazil Certificates Standard](https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil -certificate-standards-1_ID1-ptbr.md#certificate-of-signing-certificatesignature).
 
 ## Algorithm considerations
 
@@ -410,6 +410,9 @@ In addition to the requirements outlined in Open Banking Brasil security provisi
 5. shall not reject an authorisation request requesting more scope than is necessary to access data specified in the Permissions element of a linked Consent Resource object;
 6. may reduce requested scope to a level sufficient to enable access to data resources specified in the Permissions element of a linked Consent Resource object;
 7. shall retain a complete audit history of the consent resource in accordance with current Central Bank brazilian regulation;
+8. shall return authentication failure and return code _access_denied_ in the _error_ parameter (as specified in section 4.1.2.1 of [RFC6749]) if the CPF of the authenticated user is not the same as indicated in the _loggedUser_ element of the Consent Resource Object;
+9. shall return authentication failure and return code _access_denied_ in the _error_ parameter (as specified in section 4.1.2.1 of [RFC6749]) if the _businessEntity_ element has not been populated in the related Consent Resource Object and the user has selected or authenticated by using a credential related to a business account;
+10. an autenticated or selected business account´s CNPJ must match the value present in the _businessEntity_ element of the Consent Resource Object. In case of divergence authorization server shall return authentication failure and return code _access_denied_ in the _error_ parameter (as specified in section 4.1.2.1 of [RFC6749]).
 
 ### Confidential Client
 

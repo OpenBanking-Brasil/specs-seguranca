@@ -1,13 +1,13 @@
 %%%
 
     #
-    # Open Banking Brasil Financial-grade API Security Profile 1.0 Implementers Draft 2
-    # (open-banking-brasil-financial-api-1_ID2)
+    # Open Banking Brasil Financial-grade API Security Profile 1.0 Implementers Draft 3
+    # (open-banking-brasil-financial-api-1_ID3)
     #
     #
 
-    title = "Open Banking Brasil Financial-grade API Security Profile 1.0 Implementers Draft 2"
-    abbrev = "OBB-FAPI-1-ID2"
+    title = "Open Banking Brasil Financial-grade API Security Profile 1.0 Implementers Draft 3"
+    abbrev = "OBB-FAPI-1-ID3"
     ipr = "none"
     workgroup = "Open Banking Brasil GT Security"
     keyword = ["FAPI", "Open Banking Brasil GT Security"]
@@ -40,7 +40,7 @@
 
 .# Prefácio  {#Foreword}
 
-The normative version in [English](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID2.html)
+The normative version in [English](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID3.html)
 
 A Estrutura Inicial do Open Banking Brasil (EIOBB) é responsável por criar padrões e especificações necessárias para atender aos requisitos e obrigações da Legislação do Open Banking do Brasil, conforme originalmente delineado pelo [Banco Central do Brasil](https://www.bcb.gov.br/content/config/Documents/BCB_Open_Banking_Communique-April-2019.pdf). É possível que alguns dos elementos deste documento estejam sujeitos a direitos autorais ou patenteados. O EIOBB não se responsabiliza pela identificação de qualquer ou todos esses direitos.
 
@@ -398,7 +398,10 @@ Além dos requisitos descritos nas disposições de segurança do Open Banking B
 4. deve garantir que os _access tokens_ são emitidos com os _scopes_ necessários para permitir acesso aos dados especificados em elemento _Permission_ do Consentimento (Consent Resource Object) relacionado;
 5. não deve rejeitar pedido de autorização com _scopes_ além do necessário para permitir acesso a dados definidos em elemento _Permission_ do Consentimento (Consent Resource Object) relacionado;
 6. pode reduzir o escopo solicitado para um nível que seja suficiente para permitir o acesso aos dados definidos em elemento _Permission_ do Consentimento (Consent Resource Object) relacionado;
-7. deve manter registros sobre o histórico dos consentimento para permitir a adequada formação de trilhas de auditoria em conformidade com a regulação em vigor.
+7. deve manter registros sobre o histórico dos consentimento para permitir a adequada formação de trilhas de auditoria em conformidade com a regulação em vigor;
+8. deve retornar falha na autenticação e o código de retorno _access_denied_ no parâmetro _erro_ (como especificado na seção 4.1.2.1 da [RFC6749]) caso o CPF do usuário autenticado não seja o mesmo indicado no elemento _loggedUser_ do Consentimento (Consent Resource Object);
+9. deve retornar falha na autenticação e o código de retorno _access_denied_ no parâmetro _erro_ (como especificado na seção 4.1.2.1 da [RFC6749]) caso o elemento _businessEntity_ não tenha sido preenchido no Consentimento (Consent Resource Object) relacionado e o usuário tenha selecionado ou se autenticado por meio de credencial relacionada à conta do tipo Pessoa Jurídica (PJ);
+10. deve condicionar a autenticação ou seleção de contas do tipo PJ à consistência entre o CNPJ relacionado à(s) conta(s) e o valor presente no elemento _businessEntity_ do Consentimento (Consent Resource Object). Em caso de divergência deve retornar falha na autenticação e o código de retorno _access_denied_ no parâmetro _erro_ (como especificado na seção 4.1.2.1 da [RFC6749]).
 
 ### Cliente confidencial  {#clientconfidential}
 
