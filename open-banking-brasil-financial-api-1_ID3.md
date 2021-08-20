@@ -288,10 +288,10 @@ The following rules are applicable to **access control to Open Banking Brazil AP
 
 * In accordance to Art. 17 of [Joint Resolution nº 01 - Open Banking Brasil](https://www.in.gov.br/en/web/dou/-/resolucao-conjunta-n-1-de-4-de-maio-de-2020-255165055), institutions must adopt procedures and controls for client authentication **compatible with those applicable in their electronic service channels**.
 * So, in compliance with the regulation, it is suggested that:
-   * **For Read-Only APIs  (Phase 2)**: the `Authorization Servers` **should** adopt, at least, an authentication method compatible with `LoA2`; and
-   * **For Read-Write API´s (subsequent phases)**: the `Authorization Servers` **should** adopt an authentication method compatible with `LoA3` or higher.
+   * **For Read-Only APIs  (Phase 2)**: the _Authorization Servers_ **should** adopt, at least, an authentication method compatible with `LoA2`; and
+   * **For Read-Write API´s (subsequent phases)**: the _Authorization Servers_ **should** adopt an authentication method compatible with `LoA3` or higher.
 
-In all cases, the adoption of a more rigorous authentication mechanism (`LoA3` or higher) is at the discretion of the Bank (ASPSP), according to its risk assessment and in a manner compatible with the mechanisms usually used. So, the API client (TTP/PISP) **shall not** define any value to `acr` claim, but the method adopted by ASPSP **shall** be presented at `acr` claim returned by `Authorization Server`.
+In all cases, the adoption of a more rigorous authentication mechanism (`LoA3` or higher) is at the discretion of the Bank (ASPSP), according to its risk assessment and in a manner compatible with the mechanisms usually used. So, the API client (TTP/PISP) **shall not** define any value to `acr` claim, but the method adopted by ASPSP **shall** be presented at `acr` claim returned by _Authorization Server_.
 
 **Authentication factors clarification**
 
