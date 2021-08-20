@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" class="Internet-Draft">
 <head>
-<meta http-equiv="refresh" content="0; URL=https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID2-ptbr.html" />
 <meta charset="utf-8">
 <meta content="Common,Latin" name="scripts">
 <meta content="initial-scale=1.0" name="viewport">
-<title>Open Banking Brasil Financial-grade API Security Profile 1.0 Implementers Draft 1</title>
+<title>Open Banking Brasil Financial-grade API Security Profile 1.0 Implementers Draft 2</title>
 <meta content="Ralph Bragg" name="author">
 <meta content="OBBIS GT Security" name="author">
 <meta content="xml2rfc 2.40.1" name="generator">
 <meta content="FAPI" name="keyword">
 <meta content="Open Banking Brasil GT Security" name="keyword">
-<meta content="open-banking-brasil-financial-api-1_ID1-ptbr" name="ietf.draft">
-<link href="./open-banking-brasil-financial-api-1_ID1-ptbr.xml" rel="alternate" type="application/rfc+xml">
+<meta content="open-banking-brasil-financial-api-1_ID2-ptbr" name="ietf.draft">
+<link href="./open-banking-brasil-financial-api-1_ID2-ptbr.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
 <style type="text/css">/*
 
@@ -1064,13 +1063,12 @@ tr:nth-child(2n+1) > td {
 <link href="rfc-local.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<h1>A versão "Open Banking Brasil Financial-grade API Security Profile 1.0 Implementers Draft 1" está descontinuada. Você pode acessar a versão <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID2-ptbr.html">"Implementers Draft 2"</a>.</h1>
 <script src="metadata.min.js"></script>
 <table class="ears">
 <thead><tr>
 <td class="left"></td>
-<td class="center">OBB-FAPI-1-ID1</td>
-<td class="right">June 2021</td>
+<td class="center">OBB-FAPI-1-ID2</td>
+<td class="right">August 2021</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Bragg & Security</td>
@@ -1084,10 +1082,10 @@ tr:nth-child(2n+1) > td {
 <dt class="label-workgroup">Workgroup:</dt>
 <dd class="workgroup">Open Banking Brasil GT Security</dd>
 <dt class="label-internet-draft">Internet-Draft:</dt>
-<dd class="internet-draft">open-banking-brasil-financial-api-1_ID1-ptbr</dd>
+<dd class="internet-draft">open-banking-brasil-financial-api-1_ID2-ptbr</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2021-06-23" class="published">23 June 2021</time>
+<time datetime="2021-08-06" class="published">6 August 2021</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
@@ -1104,12 +1102,13 @@ tr:nth-child(2n+1) > td {
 </dd>
 </dl>
 </div>
-<h1 id="title">Open Banking Brasil Financial-grade API Security Profile 1.0 Implementers Draft 1</h1>
+<h1 id="title">Open Banking Brasil Financial-grade API Security Profile 1.0 Implementers Draft 2</h1>
 <section class="note" id="section-note.1">
       <h2 id="name-pref225cio">
 <a href="#name-pref225cio" class="section-name selfRef">Pref&#225;cio</a>
       </h2>
-<p id="section-note.1-1">The normative version in <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID1.html">English</a>.<a href="#section-note.1-1" class="pilcrow">¶</a></p>
+<p id="section-note.1-1">The normative version in <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID2.html">English.</a><a href="#section-note.1-1" class="pilcrow">¶</a></p>
+<p id="section-note.1-1"><b>A versão 1 (descontinuada) deste documento pode ser acessada <a href="https://openbanking-brasil.github.io/specs-seguranca/versions/open-banking-brasil-financial-api-1_ID1-ptbr-deprecated.html">aqui.</a><a href="#section-note.1-1" class="pilcrow">¶</a></b></p>
 <p id="section-note.1-2">A Estrutura Inicial do Open Banking Brasil (EIOBB) &#233; respons&#225;vel por criar padr&#245;es e especifica&#231;&#245;es necess&#225;rias para atender aos requisitos e obriga&#231;&#245;es da Legisla&#231;&#227;o do Open Banking do Brasil, conforme originalmente delineado pelo <a href="https://www.bcb.gov.br/content/config/Documents/BCB_Open_Banking_Communique-April-2019.pdf">Banco Central do Brasil</a>. &#201; poss&#237;vel que alguns dos elementos deste documento estejam sujeitos a direitos autorais ou patenteados. O EIOBB n&#227;o se responsabiliza pela identifica&#231;&#227;o de qualquer ou todos esses direitos.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
 <p id="section-note.1-3">O Financial-grade API 1.0 do Open Banking Brasil consiste nas seguintes partes:<a href="#section-note.1-3" class="pilcrow">¶</a></p>
 <ul class="note">
@@ -1194,13 +1193,16 @@ tr:nth-child(2n+1) > td {
             <p id="section-toc.1-1.6.1"><a href="#section-6" class="xref">6</a>.  <a href="#name-considera231245es-de-segura" class="xref">Considera&#231;&#245;es de seguran&#231;a</a><a href="#section-toc.1-1.6.1" class="pilcrow">¶</a></p>
 <ul class="toc ulEmpty">
 <li class="toc ulEmpty" id="section-toc.1-1.6.2.1">
-                <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="xref">6.1</a>.  <a href="#name-considera231245es-de-algori" class="xref">Considera&#231;&#245;es de algoritmo</a><a href="#section-toc.1-1.6.2.1.1" class="pilcrow">¶</a></p>
+                <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="xref">6.1</a>.  <a href="#name-considera231245es-sobre-ass" class="xref">Considera&#231;&#245;es sobre assinatura do conte&#250;do de mensagens (JWS)</a><a href="#section-toc.1-1.6.2.1.1" class="pilcrow">¶</a></p>
 <ul class="toc ulEmpty">
 <li class="toc ulEmpty" id="section-toc.1-1.6.2.1.2.1">
-                    <p id="section-toc.1-1.6.2.1.2.1.1"><a href="#section-6.1.1" class="xref">6.1.1</a>.  <a href="#name-considera231245es-de-algorit" class="xref">Considera&#231;&#245;es de algoritmo de criptografia</a><a href="#section-toc.1-1.6.2.1.2.1.1" class="pilcrow">¶</a></p>
+                    <p id="section-toc.1-1.6.2.1.2.1.1"><a href="#section-6.1.1" class="xref">6.1.1</a>.  <a href="#name-considera231245es-sobre-alg" class="xref">Considera&#231;&#245;es sobre algoritmos de assinatura</a><a href="#section-toc.1-1.6.2.1.2.1.1" class="pilcrow">¶</a></p>
 </li>
 <li class="toc ulEmpty" id="section-toc.1-1.6.2.1.2.2">
-                    <p id="section-toc.1-1.6.2.1.2.2.1"><a href="#section-6.1.2" class="xref">6.1.2</a>.  <a href="#name-considera231245es-sobre-o-u" class="xref">Considera&#231;&#245;es sobre o uso seguro do Transport Layer Security</a><a href="#section-toc.1-1.6.2.1.2.2.1" class="pilcrow">¶</a></p>
+                    <p id="section-toc.1-1.6.2.1.2.2.1"><a href="#section-6.1.2" class="xref">6.1.2</a>.  <a href="#name-considera231245es-de-algori" class="xref">Considera&#231;&#245;es de algoritmo de criptografia</a><a href="#section-toc.1-1.6.2.1.2.2.1" class="pilcrow">¶</a></p>
+</li>
+<li class="toc ulEmpty" id="section-toc.1-1.6.2.1.2.3">
+                    <p id="section-toc.1-1.6.2.1.2.3.1"><a href="#section-6.1.3" class="xref">6.1.3</a>.  <a href="#name-considera231245es-sobre-o-u" class="xref">Considera&#231;&#245;es sobre o uso seguro do Transport Layer Security</a><a href="#section-toc.1-1.6.2.1.2.3.1" class="pilcrow">¶</a></p>
 </li>
 </ul>
 </li>
@@ -1286,23 +1288,25 @@ tr:nth-child(2n+1) > td {
 <p id="section-2-4"><a href="https://tools.ietf.org/html/rfc6750">RFC6750</a> - The OAuth 2.0 Authorization Framework: Bearer Token Usage<a href="#section-2-4" class="pilcrow">¶</a></p>
 <p id="section-2-5"><a href="https://tools.ietf.org/html/rfc7636">RFC7636</a> - Proof Key for Code Exchange by OAuth Public Clients<a href="#section-2-5" class="pilcrow">¶</a></p>
 <p id="section-2-6"><a href="https://tools.ietf.org/html/rfc6819">RFC6819</a> - OAuth 2.0 Threat Model and Security Considerations<a href="#section-2-6" class="pilcrow">¶</a></p>
-<p id="section-2-7"><a href="https://tools.ietf.org/html/rfc7519">RFC7519</a> - JSON Web Token (JWT)<a href="#section-2-7" class="pilcrow">¶</a></p>
-<p id="section-2-8"><a href="https://tools.ietf.org/html/rfc7591">RFC7591</a> - OAuth 2.0 Dynamic Client Registration Protocol<a href="#section-2-8" class="pilcrow">¶</a></p>
-<p id="section-2-9"><a href="https://tools.ietf.org/html/rfc7592">RFC7592</a> - OAuth 2.0 Dynamic Client Registration Management Protocol<a href="#section-2-9" class="pilcrow">¶</a></p>
-<p id="section-2-10"><a href="https://tools.ietf.org/html/bcp195">BCP195</a> - Recommendations for Secure Use of Transport Layer Security (TLS) and Datagram Transport Layer Security (DTLS)<a href="#section-2-10" class="pilcrow">¶</a></p>
-<p id="section-2-11"><a href="https://openid.net/specs/openid-connect-core-1_0.html">OIDC</a> - OpenID Connect Core 1.0 incorporating errata set 1<a href="#section-2-11" class="pilcrow">¶</a></p>
-<p id="section-2-12"><a href="https://bitbucket.org/openid/fapi/src/master/Financial_API_WD_CIBA.md">FAPI-CIBA</a> - Financial-grade API: Client Initiated Backchannel Authentication Profile<a href="#section-2-12" class="pilcrow">¶</a></p>
-<p id="section-2-13"><a href="https://openid.net/specs/openid-connect-discovery-1_0.html">OIDD</a> -  OpenID Connect Discovery 1.0 incorporating errata set 1<a href="#section-2-13" class="pilcrow">¶</a></p>
-<p id="section-2-14"><a href="https://openid.net/specs/openid-connect-registration-1_0.html">OIDR</a> -  OpenID Connect Registration 1.0 incorporating errata set 1<a href="#section-2-14" class="pilcrow">¶</a></p>
-<p id="section-2-15"><a href="https://tools.ietf.org/html/rfc8705">RFC8705</a> - OAuth 2.0 Mutual TLS Client Authentication and Certificate Bound Access Tokens<a href="#section-2-15" class="pilcrow">¶</a></p>
-<p id="section-2-16"><a href="https://bitbucket.org/openid/fapi/src/master/Financial_API_JWT_Secured_Authorization_Response_Mode.md">JARM</a> - Financial-grade API: JWT Secured Authorization Response Mode for OAuth 2.0 (JARM)<a href="#section-2-16" class="pilcrow">¶</a></p>
-<p id="section-2-17"><a href="https://tools.ietf.org/html/draft-ietf-oauth-par">PAR</a> - OAuth 2.0 Pushed Authorization Requests<a href="#section-2-17" class="pilcrow">¶</a></p>
-<p id="section-2-18"><a href="https://tools.ietf.org/html/draft-ietf-oauth-jwsreq">JAR</a> - OAuth 2.0 JWT Secured Authorization Request<a href="#section-2-18" class="pilcrow">¶</a></p>
-<p id="section-2-19"><a href="https://openid.net/specs/openid-financial-api-part-1-1_0.html">FAPI-1-Baseline</a> - Financial-grade API Security Profile 1.0 - Part 1: Baseline<a href="#section-2-19" class="pilcrow">¶</a></p>
-<p id="section-2-20"><a href="https://openid.net/specs/openid-financial-api-part-2-1_0.html">FAPI-1-Advanced</a> - Financial-grade API Security Profile 1.0 - Part 2: Advanced<a href="#section-2-20" class="pilcrow">¶</a></p>
-<p id="section-2-21"><a href="https://bitbucket.org/openid/fapi/src/master/FAPI_2_0_Baseline_Profile.md">FAPI-2-Baseline</a> - Financial-grade API Security Profile 2.0 - Part 1: Baseline<a href="#section-2-21" class="pilcrow">¶</a></p>
-<p id="section-2-22"><a href="https://bitbucket.org/openid/fapi/src/master/Financial_API_Lodging_Intent.md">LIWP</a> - OIDF FAPI WG Lodging Intent Working Paper<a href="#section-2-22" class="pilcrow">¶</a></p>
-<p id="section-2-23"><a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID1.html">OBB-FAPI-DCR</a> - Open Banking Brasil Financial-grade API Dynamic Client Registration Profile 1.0<a href="#section-2-23" class="pilcrow">¶</a></p>
+<p id="section-2-7"><a href="https://tools.ietf.org/html/rfc7515">RFC7515</a> - JSON Web Signature (JWS)<a href="#section-2-7" class="pilcrow">¶</a></p>
+<p id="section-2-8"><a href="https://tools.ietf.org/html/rfc7519">RFC7519</a> - JSON Web Token (JWT)<a href="#section-2-8" class="pilcrow">¶</a></p>
+<p id="section-2-9"><a href="https://tools.ietf.org/html/rfc7591">RFC7591</a> - OAuth 2.0 Dynamic Client Registration Protocol<a href="#section-2-9" class="pilcrow">¶</a></p>
+<p id="section-2-10"><a href="https://tools.ietf.org/html/rfc7592">RFC7592</a> - OAuth 2.0 Dynamic Client Registration Management Protocol<a href="#section-2-10" class="pilcrow">¶</a></p>
+<p id="section-2-11"><a href="https://tools.ietf.org/html/bcp195">BCP195</a> - Recommendations for Secure Use of Transport Layer Security (TLS) and Datagram Transport Layer Security (DTLS)<a href="#section-2-11" class="pilcrow">¶</a></p>
+<p id="section-2-12"><a href="https://openid.net/specs/openid-connect-core-1_0.html">OIDC</a> - OpenID Connect Core 1.0 incorporating errata set 1<a href="#section-2-12" class="pilcrow">¶</a></p>
+<p id="section-2-13"><a href="https://bitbucket.org/openid/fapi/src/master/Financial_API_WD_CIBA.md">FAPI-CIBA</a> - Financial-grade API: Client Initiated Backchannel Authentication Profile<a href="#section-2-13" class="pilcrow">¶</a></p>
+<p id="section-2-14"><a href="https://openid.net/specs/openid-connect-discovery-1_0.html">OIDD</a> -  OpenID Connect Discovery 1.0 incorporating errata set 1<a href="#section-2-14" class="pilcrow">¶</a></p>
+<p id="section-2-15"><a href="https://openid.net/specs/openid-connect-registration-1_0.html">OIDR</a> -  OpenID Connect Registration 1.0 incorporating errata set 1<a href="#section-2-15" class="pilcrow">¶</a></p>
+<p id="section-2-16"><a href="https://tools.ietf.org/html/rfc8705">RFC8705</a> - OAuth 2.0 Mutual TLS Client Authentication and Certificate Bound Access Tokens<a href="#section-2-16" class="pilcrow">¶</a></p>
+<p id="section-2-17"><a href="https://bitbucket.org/openid/fapi/src/master/Financial_API_JWT_Secured_Authorization_Response_Mode.md">JARM</a> - Financial-grade API: JWT Secured Authorization Response Mode for OAuth 2.0 (JARM)<a href="#section-2-17" class="pilcrow">¶</a></p>
+<p id="section-2-18"><a href="https://tools.ietf.org/html/draft-ietf-oauth-par">PAR</a> - OAuth 2.0 Pushed Authorization Requests<a href="#section-2-18" class="pilcrow">¶</a></p>
+<p id="section-2-19"><a href="https://tools.ietf.org/html/draft-ietf-oauth-jwsreq">JAR</a> - OAuth 2.0 JWT Secured Authorization Request<a href="#section-2-19" class="pilcrow">¶</a></p>
+<p id="section-2-20"><a href="https://openid.net/specs/openid-financial-api-part-1-1_0.html">FAPI-1-Baseline</a> - Financial-grade API Security Profile 1.0 - Part 1: Baseline<a href="#section-2-20" class="pilcrow">¶</a></p>
+<p id="section-2-21"><a href="https://openid.net/specs/openid-financial-api-part-2-1_0.html">FAPI-1-Advanced</a> - Financial-grade API Security Profile 1.0 - Part 2: Advanced<a href="#section-2-21" class="pilcrow">¶</a></p>
+<p id="section-2-22"><a href="https://bitbucket.org/openid/fapi/src/master/FAPI_2_0_Baseline_Profile.md">FAPI-2-Baseline</a> - Financial-grade API Security Profile 2.0 - Part 1: Baseline<a href="#section-2-22" class="pilcrow">¶</a></p>
+<p id="section-2-23"><a href="https://bitbucket.org/openid/fapi/src/master/Financial_API_Lodging_Intent.md">LIWP</a> - OIDF FAPI WG Lodging Intent Working Paper<a href="#section-2-23" class="pilcrow">¶</a></p>
+<p id="section-2-24"><a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID1.html">OBB-FAPI-DCR</a> - Open Banking Brasil Financial-grade API Dynamic Client Registration Profile 1.0<a href="#section-2-24" class="pilcrow">¶</a></p>
+<p id="section-2-25"><a href="https://tools.ietf.org/html/rfc4648">RFC4648</a> - The Base16, Base32, and Base64 Data Encodings<a href="#section-2-25" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="definitions">
@@ -1487,11 +1491,19 @@ tr:nth-child(2n+1) > td {
 </li>
 </ul>
 <p id="section-5.2.2.4-4"><strong>Esclarecimentos adicionais sobre fatores de autentica&#231;&#227;o</strong><a href="#section-5.2.2.4-4" class="pilcrow">¶</a></p>
-<p id="section-5.2.2.4-5">S&#227;o fatores de autentica&#231;&#227;o:
-* Aquilo que <strong>voc&#234; conhece</strong>, como uma senha ou frase secreta
-* Aquilo que <strong>voc&#234; tem</strong>, como um token, smartcard ou dispositivo
-* Aquilo que <strong>"voc&#234; &#233;"</strong>, ou seja, autentica&#231;&#227;o condicionada a apresenta&#231;&#227;o de uma caracter&#237;stica f&#237;sica exclusivamente sua, como a valida&#231;&#227;o por biometria<a href="#section-5.2.2.4-5" class="pilcrow">¶</a></p>
-<p id="section-5.2.2.4-6">Para realizar autentica&#231;&#227;o por m&#250;ltiplos fatores (MFA) &#233; necess&#225;rio que o usu&#225;rio apresente, ao menos, dois diferentes  fatores dos listados acima. Um mesmo fator usado mais de uma vez - por exemplo, a apresenta&#231;&#227;o de suas senhas que ele conhece - n&#227;o pode ser aceito como MFA.<a href="#section-5.2.2.4-6" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.4-5">S&#227;o fatores de autentica&#231;&#227;o:<a href="#section-5.2.2.4-5" class="pilcrow">¶</a></p>
+<ul>
+<li id="section-5.2.2.4-6.1">
+                <p id="section-5.2.2.4-6.1.1">Aquilo que <strong>voc&#234; conhece</strong>, como uma senha ou frase secreta<a href="#section-5.2.2.4-6.1.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-5.2.2.4-6.2">
+                <p id="section-5.2.2.4-6.2.1">Aquilo que <strong>voc&#234; tem</strong>, como um token, smartcard ou dispositivo<a href="#section-5.2.2.4-6.2.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-5.2.2.4-6.3">
+                <p id="section-5.2.2.4-6.3.1">Aquilo que <strong>"voc&#234; &#233;"</strong>, ou seja, autentica&#231;&#227;o condicionada a apresenta&#231;&#227;o de uma caracter&#237;stica f&#237;sica exclusivamente sua, como a valida&#231;&#227;o por biometria<a href="#section-5.2.2.4-6.3.1" class="pilcrow">¶</a></p>
+</li>
+</ul>
+<p id="section-5.2.2.4-7">Para realizar autentica&#231;&#227;o por m&#250;ltiplos fatores (MFA) &#233; necess&#225;rio que o usu&#225;rio apresente, ao menos, dois diferentes  fatores dos listados acima. Um mesmo fator usado mais de uma vez - por exemplo, a apresenta&#231;&#227;o de suas senhas que ele conhece - n&#227;o pode ser aceito como MFA.<a href="#section-5.2.2.4-7" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1532,43 +1544,122 @@ tr:nth-child(2n+1) > td {
       <h2 id="name-considera231245es-de-segura">
 <a href="#section-6" class="section-number selfRef">6. </a><a href="#name-considera231245es-de-segura" class="section-name selfRef">Considera&#231;&#245;es de seguran&#231;a</a>
       </h2>
-<p id="section-6-1">Os participantes devem apoiar todas as considera&#231;&#245;es de seguran&#231;a especificadas na cl&#225;usula 8 <a href="https://openid.net/specs/openid-financial-api-part-2-1_0.html">Financial-grade API Security Profile 1.0 - Parte 2: Advanced</a> e o <a href="https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Instru%C3%A7%C3%A3o%20Normativa%20BCB&numero=99">Manual de Seguran&#231;a de Banco Central do Brasil</a>. O ICP brasileiro emite certificados RSA x509 somente, portanto, para simplificar, a se&#231;&#227;o remove o suporte para algoritmos EC e exige que apenas algoritmos de criptografia recomendados pela IANA sejam usados.<a href="#section-6-1" class="pilcrow">¶</a></p>
-<div id="alg">
+<p id="section-6-1">Os participantes devem apoiar todas as considera&#231;&#245;es de seguran&#231;a especificadas na cl&#225;usula 8 <a href="https://openid.net/specs/openid-financial-api-part-2-1_0.html">Financial-grade API Security Profile 1.0 - Parte 2: Advanced</a> e o <a href="https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Instru%C3%A7%C3%A3o%20Normativa%20BCB&numero=134">Manual de Seguran&#231;a de Banco Central do Brasil</a>. O ICP brasileiro emite certificados RSA x509 somente, portanto, para simplificar, a se&#231;&#227;o remove o suporte para algoritmos EC e exige que apenas algoritmos de criptografia recomendados pela IANA sejam usados.<a href="#section-6-1" class="pilcrow">¶</a></p>
+<div id="jws">
 <section id="section-6.1">
-        <h3 id="name-considera231245es-de-algori">
-<a href="#section-6.1" class="section-number selfRef">6.1. </a><a href="#name-considera231245es-de-algori" class="section-name selfRef">Considera&#231;&#245;es de algoritmo</a>
+        <h3 id="name-considera231245es-sobre-ass">
+<a href="#section-6.1" class="section-number selfRef">6.1. </a><a href="#name-considera231245es-sobre-ass" class="section-name selfRef">Considera&#231;&#245;es sobre assinatura do conte&#250;do de mensagens (JWS)</a>
         </h3>
-<p id="section-6.1-1">Para JWS, clientes e servidores de autoriza&#231;&#227;o<a href="#section-6.1-1" class="pilcrow">¶</a></p>
-<ol start="1" type="1" class="normal type-1" id="section-6.1-2">
-          <li id="section-6.1-2.1">
-            <p id="section-6.1-2.1.1">devem usar o algoritmo PS256;<a href="#section-6.1-2.1.1" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="normal type-1" id="section-6.1-1">
+          <li id="section-6.1-1.1">
+            <p id="section-6.1-1.1.1">Para garantir a integridade e o n&#227;o-rep&#250;dio das informa&#231;&#245;es tramitadas em <strong>API's sens&#237;veis e que indicam essa necessidade na sua documenta&#231;&#227;o</strong>, deve ser adotado a estrutura no padr&#227;o JWS definida na <a href="https://tools.ietf.org/html/rfc7515">RFC7515</a> e que inclui:<a href="#section-6.1-1.1.1" class="pilcrow">¶</a></p>
+<ul>
+<li id="section-6.1-1.1.2.1">
+                <p id="section-6.1-1.1.2.1.1">Cabe&#231;alho (<em>JSON Object Signing and Encryption - JOSE Header</em>), onde se define o algoritmo utilizado e inclui informa&#231;&#245;es sobre a chave p&#250;blica ou certificado que podem ser utilizadas para validar a assinatura;<a href="#section-6.1-1.1.2.1.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-6.1-1.1.2.2">
+                <p id="section-6.1-1.1.2.2.1">Payload (<em>JWS Payload</em>): conte&#250;do propriamente dito e detalhado na especifica&#231;&#227;o da API;<a href="#section-6.1-1.1.2.2.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-6.1-1.1.2.3">
+                <p id="section-6.1-1.1.2.3.1">Assinatura digital (<em>JWS Signature</em>): assinatura digital, realizada conforme par&#226;metros do cabe&#231;alho.<a href="#section-6.1-1.1.2.3.1" class="pilcrow">¶</a></p>
+</li>
+</ul>
+</li>
+<li id="section-6.1-1.2">
+            <p id="section-6.1-1.2.1">Cada elemento acima deve ser codificado utilizando o padr&#227;o Base64url <a href="https://tools.ietf.org/html/rfc4648#section-5">RFC4648</a> e, feito isso, os elementos devem ser concatenados com "." (m&#233;todo JWS Compact Serialization, conforme definido na <a href="https://tools.ietf.org/html/rfc7515">RFC7515</a>).<a href="#section-6.1-1.2.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-6.1-1.3">
+            <p id="section-6.1-1.3.1">O payload das mensagens (requisi&#231;&#227;o <em>JWT</em> e resposta <em>JWT</em>) assinadas devem incluir as seguintes <code>claims</code> presentes na <a href="JWT">RFC7519</a>:<a href="#section-6.1-1.3.1" class="pilcrow">¶</a></p>
+<ul>
+<li id="section-6.1-1.3.2.1">
+                <p id="section-6.1-1.3.2.1.1"><strong>aud</strong> (na requisi&#231;&#227;o <em>JWT</em>): o Provedor do Recurso (p. ex. a institui&#231;&#227;o detentora da conta) dever&#225; validar se o valor do campo <strong>aud</strong> coincide com o endpoint sendo acionado;<a href="#section-6.1-1.3.2.1.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-6.1-1.3.2.2">
+                <p id="section-6.1-1.3.2.2.1"><strong>aud</strong> (na resposta <em>JWT</em>): o cliente da API (p. e. institui&#231;&#227;o iniciadora) dever&#225; validar se o valor do campo <strong>aud</strong> coincide com o seu pr&#243;prio <code>organisationId</code> listado no diret&#243;rio;<a href="#section-6.1-1.3.2.2.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-6.1-1.3.2.3">
+                <p id="section-6.1-1.3.2.3.1"><strong>iss</strong> (na requisi&#231;&#227;o <em>JWT</em> e na resposta <em>JWT</em>): o receptor da mensagem dever&#225; validar se o valor do campo <strong>iss</strong> coincide com o <code>organisationId</code> do emissor;<a href="#section-6.1-1.3.2.3.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-6.1-1.3.2.4">
+                <p id="section-6.1-1.3.2.4.1"><strong>jti</strong> (na requisi&#231;&#227;o <em>JWT</em> e na resposta <em>JWT</em>): o valor do campo <strong>jti</strong> dever&#225; ser preenchido com o UUID definido pela institui&#231;&#227;o de acordo com a [RFC4122] usando o vers&#227;o 4;<a href="#section-6.1-1.3.2.4.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-6.1-1.3.2.5">
+                <p id="section-6.1-1.3.2.5.1"><strong>iat</strong> (na requisi&#231;&#227;o <em>JWT</em> e na resposta <em>JWT</em>): o valor do campo <strong>iat</strong> dever&#225; ser preenchido com hor&#225;rio da gera&#231;&#227;o da mensagem e de acordo com o padr&#227;o  estabelecido na <a href="https://datatracker.ietf.org/doc/html/rfc7519#section-2">RFC7519</a> para o formato <em>NumericDate</em>.<a href="#section-6.1-1.3.2.5.1" class="pilcrow">¶</a></p>
+</li>
+</ul>
+</li>
+<li id="section-6.1-1.4">
+            <p id="section-6.1-1.4.1">O content-type HTTP das requisi&#231;&#245;es e respostas com mensagens JWS deve ser definido como: "application/jwt".<a href="#section-6.1-1.4.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-6.1-1.5">
+            <p id="section-6.1-1.5.1">No cabe&#231;alho JOSE deve constar os seguintes atributos:<a href="#section-6.1-1.5.1" class="pilcrow">¶</a></p>
+<ul>
+<li id="section-6.1-1.5.2.1">
+                <p id="section-6.1-1.5.2.1.1"><strong>alg</strong> - deve ser preenchido com o valor <code>PS256</code>";<a href="#section-6.1-1.5.2.1.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-6.1-1.5.2.2">
+                <p id="section-6.1-1.5.2.2.1"><strong>kid</strong> - deve ser obrigatoriamente preenchido com o valor do identificador da chave utilizado para a assinatura;<a href="#section-6.1-1.5.2.2.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-6.1-1.5.2.3">
+                <p id="section-6.1-1.5.2.3.1"><strong>typ</strong> - deve ser preenchido com o valor <code>JWT</code>.<a href="#section-6.1-1.5.2.3.1" class="pilcrow">¶</a></p>
+</li>
+</ul>
 </li>
 </ol>
-<div id="cipher">
+<ul>
+<li id="section-6.1-2.1">
+            <p id="section-6.1-2.1.1">Em caso de erro na valida&#231;&#227;o da assinatura pelo <code>Provedor do Recurso</code> a API deve retornar mensagem de erro HTTP com <code>status code</code> <strong>400</strong> e a resposta deve incluir na propriedade <code>code</code> do objeto de resposta de erro especificado na API (<code>ResponseError</code>) a indica&#231;&#227;o da falha com o conte&#250;do <code>BAD_SIGNATURE</code>.<a href="#section-6.1-2.1.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-6.1-2.2">
+            <p id="section-6.1-2.2.1">Erros na valida&#231;&#227;o da mensagem recebida pela aplica&#231;&#227;o cliente (p. ex. iniciador de pagamento) devem ser registrados e o <code>Provedor do Recurso</code> (p. ex. institui&#231;&#227;o detentora de conta) deve ser notificado.<a href="#section-6.1-2.2.1" class="pilcrow">¶</a></p>
+</li>
+</ul>
+<ol start="6" type="1" class="normal type-1" id="section-6.1-3">
+          <li id="section-6.1-3.1">
+            <p id="section-6.1-3.1.1">O receptor  deve validar a consist&#234;ncia da assinatura digital da mensagem JWS <strong>exclusivamente com base nas informa&#231;&#245;es obtidas do diret&#243;rio</strong>, ou seja, com base nas chaves publicadas no JWKS da institui&#231;&#227;o no diret&#243;rio.<a href="#section-6.1-3.1.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-6.1-3.2">
+            <p id="section-6.1-3.2.1">As assinaturas devem ser realizadas com uso do certificado digital de assinatura especificado no <a href="https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil-certificate-standards-1_ID1-ptbr.md#certificado-de-assinatura-certificadoassinatura">Padr&#227;o de Certificados Open Banking Brasil</a>.<a href="#section-6.1-3.2.1" class="pilcrow">¶</a></p>
+</li>
+</ol>
+<div id="alg">
 <section id="section-6.1.1">
-          <h4 id="name-considera231245es-de-algorit">
-<a href="#section-6.1.1" class="section-number selfRef">6.1.1. </a><a href="#name-considera231245es-de-algorit" class="section-name selfRef">Considera&#231;&#245;es de algoritmo de criptografia</a>
+          <h4 id="name-considera231245es-sobre-alg">
+<a href="#section-6.1.1" class="section-number selfRef">6.1.1. </a><a href="#name-considera231245es-sobre-alg" class="section-name selfRef">Considera&#231;&#245;es sobre algoritmos de assinatura</a>
           </h4>
-<p id="section-6.1.1-1">Para JWE, clientes e servidores de autoriza&#231;&#227;o<a href="#section-6.1.1-1" class="pilcrow">¶</a></p>
+<p id="section-6.1.1-1">Para JWS, clientes e servidores de autoriza&#231;&#227;o<a href="#section-6.1.1-1" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="normal type-1" id="section-6.1.1-2">
             <li id="section-6.1.1-2.1">
-              <p id="section-6.1.1-2.1.1">devem usar RSA-OAEP com A256GCM<a href="#section-6.1.1-2.1.1" class="pilcrow">¶</a></p>
+              <p id="section-6.1.1-2.1.1">devem usar o algoritmo PS256;<a href="#section-6.1.1-2.1.1" class="pilcrow">¶</a></p>
+</li>
+</ol>
+</section>
+</div>
+<div id="cipher">
+<section id="section-6.1.2">
+          <h4 id="name-considera231245es-de-algori">
+<a href="#section-6.1.2" class="section-number selfRef">6.1.2. </a><a href="#name-considera231245es-de-algori" class="section-name selfRef">Considera&#231;&#245;es de algoritmo de criptografia</a>
+          </h4>
+<p id="section-6.1.2-1">Para JWE, clientes e servidores de autoriza&#231;&#227;o<a href="#section-6.1.2-1" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="normal type-1" id="section-6.1.2-2">
+            <li id="section-6.1.2-2.1">
+              <p id="section-6.1.2-2.1.1">devem usar RSA-OAEP com A256GCM<a href="#section-6.1.2-2.1.1" class="pilcrow">¶</a></p>
 </li>
 </ol>
 </section>
 </div>
 <div id="tls">
-<section id="section-6.1.2">
+<section id="section-6.1.3">
           <h4 id="name-considera231245es-sobre-o-u">
-<a href="#section-6.1.2" class="section-number selfRef">6.1.2. </a><a href="#name-considera231245es-sobre-o-u" class="section-name selfRef">Considera&#231;&#245;es sobre o uso seguro do Transport Layer Security</a>
+<a href="#section-6.1.3" class="section-number selfRef">6.1.3. </a><a href="#name-considera231245es-sobre-o-u" class="section-name selfRef">Considera&#231;&#245;es sobre o uso seguro do Transport Layer Security</a>
           </h4>
-<p id="section-6.1.2-1">Para TLS, endpoints do Servidor de Autentica&#231;&#227;o e endpoints do Servidor de Recursos usados diretamente pelo cliente:<a href="#section-6.1.2-1" class="pilcrow">¶</a></p>
-<ol start="1" type="1" class="normal type-1" id="section-6.1.2-2">
-            <li id="section-6.1.2-2.1">
-              <p id="section-6.1.2-2.1.1">devem suportar <code>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256</code><a href="#section-6.1.2-2.1.1" class="pilcrow">¶</a></p>
+<p id="section-6.1.3-1">Para TLS, endpoints do Servidor de Autentica&#231;&#227;o e endpoints do Servidor de Recursos usados diretamente pelo cliente:<a href="#section-6.1.3-1" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="normal type-1" id="section-6.1.3-2">
+            <li id="section-6.1.3-2.1">
+              <p id="section-6.1.3-2.1.1">devem suportar <code>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256</code><a href="#section-6.1.3-2.1.1" class="pilcrow">¶</a></p>
 </li>
-<li id="section-6.1.2-2.2">
-              <p id="section-6.1.2-2.2.1">devem suportar <code>TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384</code><a href="#section-6.1.2-2.2.1" class="pilcrow">¶</a></p>
+<li id="section-6.1.3-2.2">
+              <p id="section-6.1.3-2.2.1">devem suportar <code>TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384</code><a href="#section-6.1.3-2.2.1" class="pilcrow">¶</a></p>
 </li>
 </ol>
 </section>
