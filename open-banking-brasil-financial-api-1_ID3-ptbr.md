@@ -272,10 +272,15 @@ Nome: cnpj, Tipo: Array of Strings, Array Element Regex: '^\d{14}$'
 * **LoA2**: mecanismo de autenticação com a adoção de um único fator
 * **LoA3**: mecanismo de autenticação com múltiplos fatores de autenticação
 
-A seguinte regra deve ser adotada para o mecanismo de autenticação:
+A seguinte orientação deve ser observada para o mecanismo de autenticação:
 
-* **Para controle de acesso às API´s definidas na FASE 2 (leitura de dados)**: os `Authorization Servers` das instituições transmissoras de dados devem condicionar a autenticação do usuário proprietário do dado, no mínimo, a adoção de método compatível com `LoA2`. A adoção de mecanismo de autenticação mais rigoroso (`LoA3`) fica a critério da instituição transmissora de acordo com sua avaliação de riscos.
-* **Para acesso às API´s das fases subsequentes (em especial pagamento)**: o acesso deve ser condicionado à método de autenticação compatível com `LoA3` ou superior.  
+Sobre os mecanismos de autenticação:
+* De acordo com o Art. 17 da Resolução Conjunta nº 01, as instituições devem adotar  procedimentos e controles para autenticação de cliente **compatíveis com os aplicáveis ao acesso a seus canais de atendimento eletrônicos**.
+* Em observância à regulação em vigor, sugere-se que:
+  * **Para a autenticação do usuário em autorizações de acessos às APIs de compartilhamento de dados (Fase 2)**, os `Authorization Servers` **deveriam** adotar, no mínimo, método compatível com `LoA2`; e
+  * **Para a autenticação do usuário em autorizações de acessos às API´s das fases subsequentes**, os `Authorization Servers` **deveriam** adotar método de autenticação compatível com `LoA3` ou superior.
+
+Em todos os casos, a adoção de mecanismo de autenticação mais rigoroso (`LoA3` ou superior) fica a critério da instituição transmissora ou detentora de conta, de acordo com sua avaliação de riscos e de forma compatível com os mecanismos habitualmente utilizados. Portanto, o cliente de API **não deve** estabelecer na claim `acr` qualquer método a ser exigido, mas o método adotado pelo ASPSP **deve** ser retornado pelo `Authorization Server` na claim `acr` conforme estabelecido nesta definição.
 
 **Esclarecimentos adicionais sobre fatores de autenticação**
 
