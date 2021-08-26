@@ -157,7 +157,7 @@ The example above is decoded below. In the header is 'kid' of `PWAi5ruQcHfzPzq2J
         "essential": true
       }
     },
-    "user_info": {
+    "userinfo": {
       "auth_time": {
         "essential": true
       },
@@ -838,7 +838,7 @@ BODY {
         "essential": true
       }
     },
-    "user_info": {
+    "userinfo": {
       "auth_time": {
         "essential": true
       },
