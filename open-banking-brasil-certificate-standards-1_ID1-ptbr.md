@@ -308,7 +308,7 @@ keyUsage = critical,digitalSignature,nonRepudiation
 otherName.1 = 2.16.76.1.3.3;UTF8:<CNPJ>
 ```
 
-## Tabela com Tipo de Certificado vs Uso vs Tipo 
+## Tabela com Endpoints vs Tipo de Certificado e mTLS
 Publicamos abaixo quais endpoints podem ser publicados utilizando certificado EV como autenticação do consentimento e os endpoints de autenticação de APIs privadas/negócios que devem ser publicadas usando certificado ICP. 
 Você também poderá verificar quais endpoints devem ser protegidos com mTLS.
 
