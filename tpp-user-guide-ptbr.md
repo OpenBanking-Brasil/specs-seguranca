@@ -11,7 +11,7 @@ Em um alto nível, as seguintes etapas principais são necessárias para integra
 2. Cadastre seu aplicativo no Diretório de Participantes (Interface do Usuário)
 3. Obtenha credenciais para sua aplicação junto à uma autoridade certificadora ICP-Brasi)(fora do escopo deste documento)
 4. Registre suas credenciais para o seu aplicativo no Diretório de Participantes (Interface do Usuário)
-5. Identifique provedores de informações de conta ou serviços de pagamento de interesse dos clientes de seu aplicativo, pesquisando o Diretório de Participantes (API)
+5. Identifique provedores de informações de conta ou serviços dpagamento de interesse dos clientes de seu aplicativo, pesquisando o Diretório de Participantes (API)
 6. Registre seu aplicativo com cada provedor (API)
 
 ### 1.1 Diagrama de Sequência  {#DiagramaSeq}
@@ -123,7 +123,7 @@ O exemplo acima é apresentado decodificado logo abaixo. No cabeçalho está inc
         "essential": true
       }
     },
-    "user_info": {
+    "userinfo": {
       "auth_time": {
         "essential": true
       },
@@ -794,7 +794,9 @@ BODY {
         "essential": true
       }
     },
-    "user_info": {
+    "user
+    
+    info": {
       "auth_time": {
         "essential": true
       },
