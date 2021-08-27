@@ -311,6 +311,10 @@ otherName.2 = 2.16.76.1.3.4;UTF8:<CPF/PIS/RF da Pessoa responsável>
 otherName.3 = 2.16.76.1.3.7;UTF8:<Número de INSS>
 ```
 
+## Tabela com Tipo de Certificado vs Uso vs Tipo 
+Publicamos abaixo quais endpoints podem ser publicados utilizando certificado EV como autenticação do consentimento e os endpoints de autenticação de APIs privadas/negócios que devem ser publicadas usando certificado ICP. 
+Você também poderá verificar quais endpoints devem ser protegidos com mTLS.
+
 Fase | Grupo | API | EV | ICP | mTLS
 -- | -- | -- | -- | -- | --
 NA | OIDC | .well-known/openid-configuration | X | X |  
