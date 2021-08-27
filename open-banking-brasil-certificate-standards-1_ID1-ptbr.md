@@ -95,7 +95,7 @@ Os seguintes documentos referenciados são indispensáveis para a aplicação de
 * [OBB-FAPI] - Open Banking Brasil Financial-grade API Security Profile 1.0 [OBB-FAPI]: <https://github.com/OpenBanking-Brasil/specs-seguranca/open-banking-brasil-financial-api-1_ID1.html>
 * [DOC-ICP-01] - DECLARAÇÃO DE PRÁTICAS DE CERTIFICAÇÃO DA AUTORIDADE CERTIFICADORA RAIZ DA ICP-BRASIL: <https://www.gov.br/iti/pt-br/centrais-de-conteudo/doc-icp-01-v-5-2-dpc-da-ac-raiz-da-icp-brasil-pdf>
 * [RFC6749] - The OAuth 2.0 Authorization Framework [RFC6749]: <https://tools.ietf.org/html/rfc6749>
-* [BCB-IN99] - Manual de Segurança do Open Banking: <https://www.in.gov.br/en/web/dou/-/instrucao-normativa-bcb-n-99-de-14-de-abril-de-2021-314641007>
+* [BCB-IN134] - Manual de Segurança do Open Banking: <https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Instru%C3%A7%C3%A3o%20Normativa%20BCB&numero=134>
 * [RFC2818] - HTTP Over TLS: <https://datatracker.ietf.org/doc/html/rfc2818>
 
 # Termos e Definições {#TermosDefinicoes}
@@ -233,6 +233,7 @@ As seguintes pessoas contribuíram para este documento:
 * José Michael Dias (Grupo Pan)
 * Ralph Bragg (Raidiam)
 * Ediemerson Moreira Alves (Santander)
+* João Rodolfo Vieira (Itaú)
 
 # Informativo {#Informativo}
 
@@ -266,7 +267,7 @@ stateOrProvinceName = <UF>
 localityName = <Cidade>
 organizationalUnitName = <Código de Participante>
 UID = <Software Statement ID emitido pelo diretório>
-commonName = <FQDN|Wildcard>
+commonName = <FQDN>
 
 [ req_cert_extensions ] 
 basicConstraints = CA:FALSE
@@ -275,7 +276,7 @@ keyUsage = critical,digitalSignature,keyEncipherment
 extendedKeyUsage = clientAuth
 
 [ alt_name ] 
-DNS = <FQDN|Wildcard>
+DNS = <FQDN>
 ```
 
 ## Modelo de Configuração de Certificado de Assinatura - OpenSSL {#ModeloConfiguracaoCertificadoAssinaturaOpenSSL}
@@ -305,8 +306,29 @@ subjectAltName = @alt_name
 keyUsage = critical,digitalSignature,nonRepudiation
 
 [ alt_name ] 
-otherName.0 = 2.16.76.1.3.2;UTF8:<Nome da pessoal responsável pela entidade>#CNPJ
 otherName.1 = 2.16.76.1.3.3;UTF8:<CNPJ>
-otherName.2 = 2.16.76.1.3.4;UTF8:<CPF/PIS/RF da Pessoa responsável>
-otherName.3 = 2.16.76.1.3.7;UTF8:<Número de INSS>
 ```
+## Tabela com Endpoints vs Tipo de Certificado e mTLS
+Abaixo apresentamos quais endpoints podem ser publicados utilizando certificado EV como autenticação do consentimento e os endpoints de autenticação de APIs privadas/negócios que devem ser publicadas usando certificado ICP. Você também poderá verificar quais endpoints devem proteger suas conexões utilizando mTLS.
+
+Fase | Grupo | API | EV | ICP | mTLS
+-- | -- | -- | -- | -- | --
+NA | OIDC | .well-known/openid-configuration | X | X |  
+NA | OIDC | jwks_uri | X | X |  
+NA | OIDC | authorization_endpoint | X |   |  
+NA | OIDC | token_endpoint |   | X | X
+NA | OIDC | userinfo_endpoint |   | X | X
+NA | OIDC | pushed_authorization_request_endpoint |   | X | X
+NA | DCR | registration_endpoint |   | X | X
+NA | OIDC | revocation_endpoint |   | X | X
+NA | OIDC | introspection_endpoint |   | X | X
+2 | Consentimentos | /consents/* |   | X | X
+2 | Resources | /resources/* |   | X | X
+2 | Dados | /customers/* |   | X | X
+2 | Cartão | /credit-cards-accounts/* |   | X | X
+2 | Contas | /accounts/* |   | X | X
+2 | Empréstimos | /loans/* |   | X | X
+2 | Financiamentos | /financings/* |   | X | X
+2 | Adiantamento | /unarranged-accounts-overdraft/* |   | X | X
+2 | Direitos   Creditórios | /invoice-financings/* |   | X | X
+3 | Pagamentos | /payments/* |   | X | X
