@@ -150,7 +150,6 @@ Os Certificados de Aplicação Cliente (Transporte) são utilizados para autenti
 Para emissão de Certificado Cliente é necessário que a instituição participante do Open Banking Brasil tenha realizado o cadastro da aplicação no Serviço de Diretório, através do processo de emissão de Software Statement Assertion, e com isso já tenha obtido o valor de Software Statement ID.
 
 #### Atributos Open Banking Brasil {#AtributosOpenBankingBrasil}
-
 * **serialNumber:** Cadastro Nacional de Pessoal Jurídica (CNPJ) da pessoa jurídica titular do certificado e associado ao atributo UID e Software Statement ID, durante validação junto ao Serviço de Diretório do Open Banking Brasil;
 * **organizationalUnitName:** Código de Participante associado ao CNPJ listado no Serviço de Diretório do Open Banking Brasil;
 * **UID:** Software Statement ID cadastrado no Serviço de Diretório do Open Banking Brasil e pertencente ao CNPJ e Código de Participante.
@@ -168,7 +167,7 @@ O Certificado Cliente deve ser emitido através de cadeia V10, e deve obrigatori
 * **localityName (OID 2.5.4.7):** Cidade do endereço físico do titular
 * **organizationalUnitName (OID 2.5.4.11):** Código de Participante associado ao CNPJ listado no Serviço de Diretório do Open Banking Brasil
 * **UID (OID 0.9.2342.19200300.100.1.1):** Software Statement ID gerado pelo Diretório do Open Banking Brasil
-* **commonName (OID 2.5.4.3):** FQDN ou Wildcard
+* **commonName (OID 2.5.4.3):** FQDN
 
 **Certificate Extensions**
 
@@ -177,7 +176,7 @@ O Certificado Cliente deve ser emitido através de cadeia V10, e deve obrigatori
 
 **Subject Alternative Name**
 
-* **dNSName:** FQDN ou Wildcard
+* **dNSName:** FQDN
 
 ### Certificado de Assinatura {#CertificadoAssinatura}
 
@@ -233,6 +232,7 @@ As seguintes pessoas contribuíram para este documento:
 * José Michael Dias (Grupo Pan)
 * Ralph Bragg (Raidiam)
 * Ediemerson Moreira Alves (Santander)
+* João Rodolfo (Itaú)
 
 # Informativo {#Informativo}
 
@@ -266,7 +266,7 @@ stateOrProvinceName = <UF>
 localityName = <Cidade>
 organizationalUnitName = <Código de Participante>
 UID = <Software Statement ID emitido pelo diretório>
-commonName = <FQDN|Wildcard>
+commonName = <FQDN>
 
 [ req_cert_extensions ] 
 basicConstraints = CA:FALSE
@@ -275,7 +275,7 @@ keyUsage = critical,digitalSignature,keyEncipherment
 extendedKeyUsage = clientAuth
 
 [ alt_name ] 
-DNS = <FQDN|Wildcard>
+DNS = <FQDN>
 ```
 
 ## Modelo de Configuração de Certificado de Assinatura - OpenSSL {#ModeloConfiguracaoCertificadoAssinaturaOpenSSL}
@@ -305,10 +305,7 @@ subjectAltName = @alt_name
 keyUsage = critical,digitalSignature,nonRepudiation
 
 [ alt_name ] 
-otherName.0 = 2.16.76.1.3.2;UTF8:<Nome da pessoal responsável pela entidade>#CNPJ
 otherName.1 = 2.16.76.1.3.3;UTF8:<CNPJ>
-otherName.2 = 2.16.76.1.3.4;UTF8:<CPF/PIS/RF da Pessoa responsável>
-otherName.3 = 2.16.76.1.3.7;UTF8:<Número de INSS>
 ```
 
 ## Tabela com Tipo de Certificado vs Uso vs Tipo 
