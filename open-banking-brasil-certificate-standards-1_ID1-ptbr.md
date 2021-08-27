@@ -310,3 +310,25 @@ otherName.1 = 2.16.76.1.3.3;UTF8:<CNPJ>
 otherName.2 = 2.16.76.1.3.4;UTF8:<CPF/PIS/RF da Pessoa responsável>
 otherName.3 = 2.16.76.1.3.7;UTF8:<Número de INSS>
 ```
+
+Fase | Grupo | API | EV | ICP | mTLS
+-- | -- | -- | -- | -- | --
+NA | OIDC | .well-known/openid-configuration | X | X |  
+NA | OIDC | jwks_uri | X | X |  
+NA | OIDC | authorization_endpoint | X |   |  
+NA | OIDC | token_endpoint |   | X | X
+NA | OIDC | userinfo_endpoint |   | X | X
+NA | OIDC | pushed_authorization_request_endpoint |   | X | X
+NA | DCR | registration_endpoint |   | X | X
+NA | OIDC | revocation_endpoint |   | X | X
+NA | OIDC | introspection_endpoint |   | X | X
+2 | Consentimentos | /consents/* |   | X | X
+2 | Resources | /resources/* |   | X | X
+2 | Dados | /customers/* |   | X | X
+2 | Cartão | /credit-cards-accounts/* |   | X | X
+2 | Contas | /accounts/* |   | X | X
+2 | Empréstimos | /loans/* |   | X | X
+2 | Financiamentos | /financings/* |   | X | X
+2 | Adiantamento | /unarranged-accounts-overdraft/* |   | X | X
+2 | Direitos   Creditórios | /invoice-financings/* |   | X | X
+3 | Pagamentos | /payments/* |   | X | X
