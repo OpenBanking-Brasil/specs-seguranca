@@ -123,7 +123,7 @@ O exemplo acima é apresentado decodificado logo abaixo. No cabeçalho está inc
         "essential": true
       }
     },
-    "user_info": {
+    "userinfo": {
       "auth_time": {
         "essential": true
       },
@@ -794,7 +794,7 @@ BODY {
         "essential": true
       }
     },
-    "user_info": {
+    "userinfo": {
       "auth_time": {
         "essential": true
       },

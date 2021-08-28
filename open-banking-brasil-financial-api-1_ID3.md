@@ -225,7 +225,7 @@ In addition, the Authorization Server
 10. shall support parameterized OAuth 2.0 resource scope _consent_ as defined in clause 6.3.1 [OIDF FAPI WG Lodging Intent Pattern][LIWP]
 11. may support [Financial-grade API: Client Initiated Backchannel Authentication Profile][FAPI-CIBA]
 12. shall support [Financial-grade API: Client Initiated Backchannel Authentication Profile][FAPI-CIBA] if supporting scope _payments_
-13. shall support refresh tokens
+13. shall support refresh tokens issued with an expiry time defined with the same value as Consent Object
 14. shall issue access tokens with an expiry no greater than 900 seconds and no less than 300 seconds
 
 #### ID Token as detached signature
@@ -416,7 +416,8 @@ In addition to the requirements outlined in Open Banking Brasil security provisi
 7. shall retain a complete audit history of the consent resource in accordance with current Central Bank brazilian regulation;
 8. shall return authentication failure and return code _access_denied_ in the _error_ parameter (as specified in section 4.1.2.1 of [RFC6749]) if the CPF of the authenticated user is not the same as indicated in the _loggedUser_ element of the Consent Resource Object;
 9. shall return authentication failure and return code _access_denied_ in the _error_ parameter (as specified in section 4.1.2.1 of [RFC6749]) if the _businessEntity_ element has not been populated in the related Consent Resource Object and the user has selected or authenticated by using a credential related to a business account;
-10. an autenticated or selected business account´s CNPJ must match the value present in the _businessEntity_ element of the Consent Resource Object. In case of divergence authorization server shall return authentication failure and return code _access_denied_ in the _error_ parameter (as specified in section 4.1.2.1 of [RFC6749]).
+10. an autenticated or selected business account´s CNPJ must match the value present in the _businessEntity_ element of the Consent Resource Object. In case of divergence authorization server shall return authentication failure and return code _access_denied_ in the _error_ parameter (as specified in section 4.1.2.1 of [RFC6749]);
+11. an issued _refresh_token_ shall be valid until the linked Consent Resource object is still valid.
 
 ### Confidential Client
 

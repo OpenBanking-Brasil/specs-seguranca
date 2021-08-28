@@ -404,7 +404,8 @@ Além dos requisitos descritos nas disposições de segurança do Open Banking B
 7. deve manter registros sobre o histórico dos consentimento para permitir a adequada formação de trilhas de auditoria em conformidade com a regulação em vigor;
 8. deve retornar falha na autenticação e o código de retorno _access_denied_ no parâmetro _erro_ (como especificado na seção 4.1.2.1 da [RFC6749]) caso o CPF do usuário autenticado não seja o mesmo indicado no elemento _loggedUser_ do Consentimento (Consent Resource Object);
 9. deve retornar falha na autenticação e o código de retorno _access_denied_ no parâmetro _erro_ (como especificado na seção 4.1.2.1 da [RFC6749]) caso o elemento _businessEntity_ não tenha sido preenchido no Consentimento (Consent Resource Object) relacionado e o usuário tenha selecionado ou se autenticado por meio de credencial relacionada à conta do tipo Pessoa Jurídica (PJ);
-10. deve condicionar a autenticação ou seleção de contas do tipo PJ à consistência entre o CNPJ relacionado à(s) conta(s) e o valor presente no elemento _businessEntity_ do Consentimento (Consent Resource Object). Em caso de divergência deve retornar falha na autenticação e o código de retorno _access_denied_ no parâmetro _erro_ (como especificado na seção 4.1.2.1 da [RFC6749]).
+10. deve condicionar a autenticação ou seleção de contas do tipo PJ à consistência entre o CNPJ relacionado à(s) conta(s) e o valor presente no elemento _businessEntity_ do Consentimento (Consent Resource Object). Em caso de divergência deve retornar falha na autenticação e o código de retorno _access_denied_ no parâmetro _erro_ (como especificado na seção 4.1.2.1 da [RFC6749]);
+11. o _refresh_token_ emitido deve permanecer válido enquanto o consentimento ao qual está relacionado for válido. 
 
 ### Cliente confidencial  {#clientconfidential}
 
