@@ -316,23 +316,23 @@ otherName.0 = 2.16.76.1.3.3;UTF8:<CNPJ>
 ## Tabela com Endpoints vs Tipo de Certificado e mTLS
 Abaixo apresentamos quais endpoints podem ser publicados utilizando certificado EV como autenticação do consentimento e os endpoints de autenticação de APIs privadas/negócios que devem ser publicadas usando certificado ICP. Você também poderá verificar quais endpoints devem proteger suas conexões utilizando mTLS.
 
-Fase | Grupo | API | EV | ICP | mTLS
--- | -- | -- | -- | -- | --
-NA | OIDC | .well-known/openid-configuration | X | X |  
-NA | OIDC | jwks_uri | X | X |  
-NA | OIDC | authorization_endpoint | X |   |  
-NA | OIDC | token_endpoint |   | X | X
-NA | OIDC | userinfo_endpoint |   | X | X
-NA | OIDC | pushed_authorization_request_endpoint |   | X | X
-NA | DCR | registration_endpoint |   | X | X
-NA | OIDC | revocation_endpoint |   | X | X
-2 | Consentimentos | /consents/* |   | X | X
-2 | Resources | /resources/* |   | X | X
-2 | Dados | /customers/* |   | X | X
-2 | Cartão | /credit-cards-accounts/* |   | X | X
-2 | Contas | /accounts/* |   | X | X
-2 | Empréstimos | /loans/* |   | X | X
-2 | Financiamentos | /financings/* |   | X | X
-2 | Adiantamento | /unarranged-accounts-overdraft/* |   | X | X
-2 | Direitos   Creditórios | /invoice-financings/* |   | X | X
-3 | Pagamentos | /payments/* |   | X | X
+Fase | Grupo | API | Certificado | mTLS
+-- | -- | -- | -- |  --
+NA | OIDC | .well-known/openid-configuration | EV ou ICP WEB SSL |  
+NA | OIDC | jwks_uri | EV ou ICP WEB SSL |  
+NA | OIDC | authorization_endpoint | EV |   |  
+NA | OIDC | token_endpoint | ICP WEB SSL | Obrigatório
+NA | OIDC | userinfo_endpoint | ICP WEB SSL | Obrigatório
+NA | OIDC | pushed_authorization_request_endpoint |  ICP WEB SSL | Obrigatório
+NA | DCR | registration_endpoint |  ICP WEB SSL | Obrigatório
+NA | OIDC | revocation_endpoint | ICP WEB SSL | Obrigatório
+2 | Consentimentos | /consents/* |  ICP WEB SSL | Obrigatório
+2 | Resources | /resources/* | ICP WEB SSL | Obrigatório
+2 | Dados | /customers/* | ICP WEB SSL | Obrigatório
+2 | Cartão | /credit-cards-accounts/* | ICP WEB SSL | Obrigatório
+2 | Contas | /accounts/* | ICP WEB SSL | Obrigatório
+2 | Empréstimos | /loans/* | ICP WEB SSL | Obrigatório
+2 | Financiamentos | /financings/* | ICP WEB SSL | Obrigatório
+2 | Adiantamento | /unarranged-accounts-overdraft/* | ICP WEB SSL | Obrigatório
+2 | Direitos   Creditórios | /invoice-financings/* | ICP WEB SSL | Obrigatório
+3 | Pagamentos | /payments/* | ICP WEB SSL | Obrigatório
