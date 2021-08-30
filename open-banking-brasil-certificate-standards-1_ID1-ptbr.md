@@ -273,7 +273,7 @@ stateOrProvinceName = <UF>
 localityName = <Cidade>
 organizationalUnitName = <Código de Participante>
 UID = <Software Statement ID emitido pelo diretório>
-commonName = <FQDN>
+commonName = <FQDN|Wildcard>
 
 [ req_cert_extensions ]
 basicConstraints = CA:FALSE
@@ -282,7 +282,7 @@ keyUsage = critical,digitalSignature,keyEncipherment
 extendedKeyUsage = clientAuth
 
 [ alt_name ]
-DNS = <FQDN>
+DNS = <FQDN|Wildcard>
 ```
 
 ## Modelo de Configuração de Certificado de Assinatura - OpenSSL {#ModeloConfiguracaoCertificadoAssinaturaOpenSSL}

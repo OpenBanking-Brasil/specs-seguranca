@@ -222,11 +222,13 @@ In addition, the Authorization Server
 6. shall support the acr "urn:brasil:openbanking:loa2" as defined in clause 5.2.2.4 of this document
 7. should support the acr "urn:brasil:openbanking:loa3" as defined in clause 5.2.2.4 of this document
 8. shall implement the userinfo endpoint as defined in clause 5.3 [OpenID Connect Core][OIDC]
-10. shall support parameterized OAuth 2.0 resource scope _consent_ as defined in clause 6.3.1 [OIDF FAPI WG Lodging Intent Pattern][LIWP]
-11. may support [Financial-grade API: Client Initiated Backchannel Authentication Profile][FAPI-CIBA]
-12. shall support [Financial-grade API: Client Initiated Backchannel Authentication Profile][FAPI-CIBA] if supporting scope _payments_
-13. shall support refresh tokens
-14. shall issue access tokens with an expiry no greater than 900 seconds and no less than 300 seconds
+9. shall support parameterized OAuth 2.0 resource scope _consent_ as defined in clause 6.3.1 [OIDF FAPI WG Lodging Intent Pattern][LIWP]
+10. may support [Financial-grade API: Client Initiated Backchannel Authentication Profile][FAPI-CIBA]
+11. shall support [Financial-grade API: Client Initiated Backchannel Authentication Profile][FAPI-CIBA] if supporting scope _payments_
+12. shall support refresh tokens
+13. shall issue access tokens with an expiry no greater than 900 seconds and no less than 300 seconds
+14. shall always include an acr claim in the id_token
+
 
 #### ID Token as detached signature
 
@@ -291,7 +293,7 @@ The following rules are applicable to **access control to Open Banking Brazil AP
    * **For Read-Only APIs  (Phase 2)**: the _Authorization Servers_ **should** adopt, at least, an authentication method compatible with `LoA2`; and
    * **For Read-Write API´s (subsequent phases)**: the _Authorization Servers_ **should** adopt an authentication method compatible with `LoA3` or higher.
 
-In all cases, the adoption of a more rigorous authentication mechanism (`LoA3` or higher) is at the discretion of the Bank (ASPSP), according to its risk assessment and in a manner compatible with the mechanisms usually used. So, the API client (TTP/PISP) **shall not** define any value to `acr` claim, but the method adopted by ASPSP **shall** be presented at `acr` claim returned by _Authorization Server_.
+In all cases, the adoption of a more rigorous authentication mechanism (`LoA3` or higher) is at the discretion of the Bank (ASPSP), according to its risk assessment and in a manner compatible with the mechanisms usually used.
 
 **Authentication factors clarification**
 
@@ -315,6 +317,7 @@ In addition, the confidential client
 3. shall use _encrypted_ request objects if not using [PAR]
 4. shall support parameterized OAuth 2.0 resource scope _consent_ as defined in clause 6.3.1 [OIDF FAPI WG Lodging Intent Pattern][LIWP]
 5. shall support refresh tokens
+6. shall not request specific `acr` values if requesting `acr` as an essential claim
 
 # Security considerations
 
@@ -417,7 +420,7 @@ In addition to the requirements outlined in Open Banking Brasil security provisi
 8. shall return authentication failure and return code _access_denied_ in the _error_ parameter (as specified in section 4.1.2.1 of [RFC6749]) if the CPF of the authenticated user is not the same as indicated in the _loggedUser_ element of the Consent Resource Object;
 9. shall return authentication failure and return code _access_denied_ in the _error_ parameter (as specified in section 4.1.2.1 of [RFC6749]) if the _businessEntity_ element has not been populated in the related Consent Resource Object and the user has selected or authenticated by using a credential related to a business account;
 10. an autenticated or selected business account´s CNPJ must match the value present in the _businessEntity_ element of the Consent Resource Object. In case of divergence authorization server shall return authentication failure and return code _access_denied_ in the _error_ parameter (as specified in section 4.1.2.1 of [RFC6749]);
-11. an issued _refresh_token_ shall be valid until the linked Consent Resource object is still valid.
+11. shall ensure _refresh_tokens_ expiration time is at least equal to the linked consent resource expiration time.
 
 ### Confidential Client
 

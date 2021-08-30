@@ -227,7 +227,8 @@ Além disso, ele deve:
 10. pode suportar [Financial-grade API: Client Initiated Backchannel Authentication Profile][FAPI-CIBA]
 11. deve suportar [Financial-grade API: Client Initiated Backchannel Authentication Profile][FAPI-CIBA] se suportar o scope _payments_
 12. deve suportar `refresh tokens`
-13. deve emitir `access tokens` com o tempo de expiração entre 300 (mínimo) e 900 (máximo) segundos.
+13. deve emitir `access tokens` com o tempo de expiração entre 300 (mínimo) e 900 (máximo) segundos
+14. deve sempre incluir a claim `acr` no id_token
 
 #### Token de ID como assinatura separada  {#detached}
 
@@ -278,7 +279,7 @@ A seguinte orientação deve ser observada para o mecanismo de autenticação:
   * **Para a autenticação do usuário em autorizações de acessos às APIs de compartilhamento de dados (Fase 2)**, os _Authorization Servers_ **deveriam** adotar, no mínimo, método compatível com `LoA2`; e
   * **Para a autenticação do usuário em autorizações de acessos às API´s das fases subsequentes**, os _Authorization Servers_ **deveriam** adotar método de autenticação compatível com `LoA3` ou superior.
 
-Em todos os casos, a adoção de mecanismo de autenticação mais rigoroso (`LoA3` ou superior) fica a critério da instituição transmissora ou detentora de conta, de acordo com sua avaliação de riscos e de forma compatível com os mecanismos habitualmente utilizados. Portanto, o cliente de API **não deve** estabelecer na claim `acr` qualquer método a ser exigido, mas o método adotado pelo ASPSP **deve** ser retornado pelo _Authorization Server_ na claim `acr` conforme estabelecido nesta definição.
+Em todos os casos, a adoção de mecanismo de autenticação mais rigoroso (`LoA3` ou superior) fica a critério da instituição transmissora ou detentora de conta, de acordo com sua avaliação de riscos e de forma compatível com os mecanismos habitualmente utilizados.
 
 **Esclarecimentos adicionais sobre fatores de autenticação**
 
@@ -302,6 +303,7 @@ Além disso, o cliente confidencial
 3. deve usar objetos de solicitação _encrypted_ se não usar [PAR]
 4. deve suportar o escopo de recurso OAuth 2.0 parametrizado _consent_ conforme definido na cláusula 6.3.1 [OIDF FAPI WG Lodging Intent Pattern][LIWP]
 5. deve suportar `refresh tokens`
+6. não deve incluir um valor específico na claim `acr` caso defina a _claim_ `acr`como _essential_
 
 # Considerações de segurança  {#authserver}
 
@@ -405,7 +407,7 @@ Além dos requisitos descritos nas disposições de segurança do Open Banking B
 8. deve retornar falha na autenticação e o código de retorno _access_denied_ no parâmetro _erro_ (como especificado na seção 4.1.2.1 da [RFC6749]) caso o CPF do usuário autenticado não seja o mesmo indicado no elemento _loggedUser_ do Consentimento (Consent Resource Object);
 9. deve retornar falha na autenticação e o código de retorno _access_denied_ no parâmetro _erro_ (como especificado na seção 4.1.2.1 da [RFC6749]) caso o elemento _businessEntity_ não tenha sido preenchido no Consentimento (Consent Resource Object) relacionado e o usuário tenha selecionado ou se autenticado por meio de credencial relacionada à conta do tipo Pessoa Jurídica (PJ);
 10. deve condicionar a autenticação ou seleção de contas do tipo PJ à consistência entre o CNPJ relacionado à(s) conta(s) e o valor presente no elemento _businessEntity_ do Consentimento (Consent Resource Object). Em caso de divergência deve retornar falha na autenticação e o código de retorno _access_denied_ no parâmetro _erro_ (como especificado na seção 4.1.2.1 da [RFC6749]);
-11. o _refresh_token_ emitido deve ter a mesma validade do consentimento ao qual está relacionado. 
+11. o _refresh_token_ emitido deve ter a mesma validade do consentimento ao qual está relacionado.
 
 ### Cliente confidencial  {#clientconfidential}
 
