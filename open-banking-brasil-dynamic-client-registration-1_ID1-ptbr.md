@@ -250,7 +250,7 @@ Quando as propriedades de uma solicitação DCR não estão incluídas e não s�
 
 A cláusula 3 do [Lightweight Directory Access Protocol (LDAP): String Representation of Distinguished Names][RFC4514] define os OIDs obrigatórios cujas as _strings_ do AttributeType (descritores) devem ser reconhecidos pelos implementadores. Esta lista obrigatória não inclui vários dos OIDs definidos em [Open Banking Brasil x.509 Certificate Standards][OBB-Cert-Standards], nem existe um mecanismo definido para os Servidores de Autorização publicarem informações sobre o formato que eles esperam de uma Solicitação Dinâmica de Registro do Cliente (_Dynamic Client Registrarion_) que inclui um `tls_client_auth_subject_dn`.
 
-Para resolver essa ambigüidade, o Servidor de Autorização deve aceitar todas as strings de nome de AttributeType (descritores) definidas no último parágrafo da cláusula 3 [RFC4515], além de todos os AttributeTypes definidos no Distinguished Name [Open Banking Brasil x.509 Certificate Standards][OBB-Cert-Standards].
+Para resolver essa ambigüidade, o Servidor de Autorização deve aceitar todas as strings de nome de AttributeType (descritores) definidas no último parágrafo da cláusula 3 [RFC4514], além de todos os AttributeTypes definidos no Distinguished Name [Open Banking Brasil x.509 Certificate Standards][OBB-Cert-Standards].
 
 ## Funções regulatórias para mapeamentos OpenID e OAuth 2.0  {#Regs}
 
