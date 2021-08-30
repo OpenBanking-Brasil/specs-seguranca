@@ -321,21 +321,21 @@ otherName.3 = 2.16.76.1.3.7;UTF8:<INSS Number>
 
 OBB phase | group | endpoint | certificate type | mTLS
 -- | -- | -- | -- |  --
-NA | OIDC | .well-known/openid-configuration | EV ou ICP WEB SSL |  
-NA | OIDC | jwks_uri | EV ou ICP WEB SSL |  
+NA | OIDC | .well-known/openid-configuration | EV or ICP WEB SSL |  
+NA | OIDC | jwks_uri | EV or ICP WEB SSL |  
 NA | OIDC | authorization_endpoint | EV |   |  
-NA | OIDC | token_endpoint | ICP WEB SSL | Obrigatório
-NA | OIDC | userinfo_endpoint | ICP WEB SSL | Obrigatório
-NA | OIDC | pushed_authorization_request_endpoint |  ICP WEB SSL | Obrigatório
-NA | DCR | registration_endpoint |  ICP WEB SSL | Obrigatório
-NA | OIDC | revocation_endpoint | ICP WEB SSL | Obrigatório
-2 | Consentimentos | /consents/* |  ICP WEB SSL | Obrigatório
-2 | Resources | /resources/* | ICP WEB SSL | Obrigatório
-2 | Dados | /customers/* | ICP WEB SSL | Obrigatório
-2 | Cartão | /credit-cards-accounts/* | ICP WEB SSL | Obrigatório
-2 | Contas | /accounts/* | ICP WEB SSL | Obrigatório
-2 | Empréstimos | /loans/* | ICP WEB SSL | Obrigatório
-2 | Financiamentos | /financings/* | ICP WEB SSL | Obrigatório
-2 | Adiantamento | /unarranged-accounts-overdraft/* | ICP WEB SSL | Obrigatório
-2 | Direitos   Creditórios | /invoice-financings/* | ICP WEB SSL | Obrigatório
-3 | Pagamentos | /payments/* | ICP WEB SSL | Obrigatório
+NA | OIDC | token_endpoint | ICP WEB SSL | Required
+NA | OIDC | userinfo_endpoint | ICP WEB SSL | Required
+NA | OIDC | pushed_authorization_request_endpoint |  ICP WEB SSL | Required
+NA | DCR | registration_endpoint |  ICP WEB SSL | Required
+NA | OIDC | revocation_endpoint | ICP WEB SSL | Required
+2 | Consentimentos | /consents/* |  ICP WEB SSL | Required
+2 | Resources | /resources/* | ICP WEB SSL | Required
+2 | Dados | /customers/* | ICP WEB SSL | Required
+2 | Cartão | /credit-cards-accounts/* | ICP WEB SSL | Required
+2 | Contas | /accounts/* | ICP WEB SSL | Required
+2 | Empréstimos | /loans/* | ICP WEB SSL | Required
+2 | Financiamentos | /financings/* | ICP WEB SSL | Required
+2 | Adiantamento | /unarranged-accounts-overdraft/* | ICP WEB SSL | Required
+2 | Direitos   Creditórios | /invoice-financings/* | ICP WEB SSL | Required
+3 | Pagamentos | /payments/* | ICP WEB SSL | Required
