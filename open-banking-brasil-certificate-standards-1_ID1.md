@@ -222,11 +222,13 @@ The following certifying authorities carried out the onboard process for Open Ba
 
 Front-End certificates are used to provide services, in general web pages, using TLS, which are accessed by the end user. Given their purpose, and to ensure greater interoperability, certificates must be of the EV (Extended Validation) type and must be generated through a valid certificte authority, following the rules defined in RFC 5280 and RFC 2818, in accordance with the principles and WebTrust criteria.
 
-### About certificates for exchanging information between Open Banking participating institutions and partners (non-participating)
+### About certificates for exchanging information between authorized institutions and partners (non-participating)
 
-According to section IV of Joint Resolution No. 1 of May 4, 2020, the establishment of bilateral partnerships with non-participating institutions is an arrangement provided  in the regulation and which must observe, as appropriate, the same communication and security requirements that are applicable to information exchange between participating institutions.
+According to section IV of Joint Resolution No. 1 of May 4, 2020, the establishment of bilateral partnerships between authorized institutions and partners is an arrangement provided in the regulation and which must observe, where applicable, the same standards and certificates requirements that are applicable to exchange of information between participating institutions.
 
-In accordance with §2 of Art. 10 of Provisional Measure 2200-2 of August 24, 2001 and with the provisions of item 3.12 in BCB Normative Instruction No. 134, for bilateral communication between institutions and partners, the use is authorized, by mutual agreement between the parties, of a private PKI, provided that the requirements of this _profile for security certificates_ are observed, including their formatting, algorithms and attributes. The values ​​for filling in attributes required in this specification but not applicable to the partner, must be defined in common agreement between the participating institution and the partner.
+In accordance with §2 of Art. 10 of Provisional Measure 2200-2 of August 24, 2001 and with the provisions of item 3.12 in BCB Normative Instruction No. 134, for bilateral communication between institutions and partners, the use is authorized, by mutual agreement between the parties, of a private PKI, provided that the requirements of this _profile for security certificates_ are observed, including their formatting, algorithms and established attributes.
+
+The values ​​for filling in the attributes required in this specification, but not applicable to the partner, should be defined in common agreement between the authorized institution and the partner, which does not exempt the authorized institution from the responsibility for filling it in properly.
 
 # Acknowledgements
 

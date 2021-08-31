@@ -252,6 +252,20 @@ A cláusula 3 do [Lightweight Directory Access Protocol (LDAP): String Represent
 
 Para resolver essa ambigüidade, o Servidor de Autorização deve aceitar todas as strings de nome de AttributeType (descritores) definidas no último parágrafo da cláusula 3 [RFC4514], além de todos os AttributeTypes definidos no Distinguished Name [Open Banking Brasil x.509 Certificate Standards][OBB-Cert-Standards].
 
+Segue na tabela abaixo alguns exemplos de decodificação:
+
+- Obtenha na ordem reversa os atributos do certificado
+- Concatene cada RDN (RelativeDistinguishedName) com uma virgula (',')
+- Use as strings da RFC (CN, L, ST, O, OU, C, Street, DC, UID) + os nomes dos atributos definidos nesta especificação para uso no OBB (businessCategory, jurisdictionCountryName , serialNumber)
+
+Exemplos:
+subject_dn | Issuer
+-- | --
+UID=67c57882-043b-11ec-9a03-0242ac130003,jurisdictionCountryName=BR,businessCategory=Private      Organization,serialNumber=00038166000954,CN=mycn.bank.com.br,OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59,O=MY BANK SA,L=SAO PAULO,ST=SP,C=BR | issuer=CN=Open Banking SANDBOX Issuing CA   - G1,OU=Open Banking,O=Open   Banking Brasil,C=BR
+UID=67c57882-043b-11ec-9a03-0242ac130003,   jurisdictionCountryName=BR,businessCategory=Business Entity,CN=mycn.bank.gov.br,serialNumber=00038166000954,OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59,O=My Public Bank,L=BRASILIA,ST=DF,C=BR | issuer=CN=Autoridade Certificadora do SERPRO SSLv1,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR,jurisdictionCountryName=BR,businessCategory=Private
+Organization,UID=67c57882-043b-11ec-9a03-0242ac130003,CN=openbanking.mybank.com.br,serialNumber=00038166000954,OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59,L=Goiania,ST=GO,O=MyBank SA,C=BR | issuer=CN=AC SOLUTI SSL EV,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR
+CN=mycn.bank.com.br,UID=67c57882-043b-11ec-9a03-0242ac130003,OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59,L=Sao   Paulo,ST=SP,O=MyBank SA,C=BR,serialNumber=00038166000954,   jurisdictionCountryName=BR,businessCategory=Private   Organization | issuer=CN=AC SERASA SSL EV,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR
+
 ## Funções regulatórias para mapeamentos OpenID e OAuth 2.0  {#Regs}
 
 Para participar do ecossistema do Open Banking, as instituições credenciadas devem se cadastrar no Diretório de Participantes de acordo com seus papéis regulatórios. Essas funções refletem a autorização do Banco Central para as instituições e, consequentemente, as APIs que podem utilizar.

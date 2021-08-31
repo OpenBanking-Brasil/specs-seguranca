@@ -225,8 +225,7 @@ Além disso, ele deve:
 8. deve implementar o endpoint "userinfo" como definido no item 5.3 do [OpenID Connect Core][OIDC]
 9. deve suportar o escopo parametrizável ("parameterized OAuth 2.0 resource scope") _consent_ como definido no item 6.3.1 de [OIDF FAPI WG Lodging Intent Pattern][LIWP]
 10. pode suportar [Financial-grade API: Client Initiated Backchannel Authentication Profile][FAPI-CIBA]
-11. deve suportar [Financial-grade API: Client Initiated Backchannel Authentication Profile][FAPI-CIBA] se suportar o scope _payments_
-###>> 11a. deve suportar [Financial-grade API: Client Initiated Backchannel Authentication Profile][FAPI-CIBA] se suportar o scope _xxxxx_ (ou seja, caso ofereça APIs que exijam fluxo desacoplado como no encaminhamento de proposta de crédito)
+11. (requisito temporariamente retirado)
 12. deve suportar `refresh tokens`
 13. deve emitir `access tokens` com o tempo de expiração entre 300 (mínimo) e 900 (máximo) segundos
 14. deve sempre incluir a claim `acr` no id_token
