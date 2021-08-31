@@ -329,6 +329,7 @@ NA | OIDC | userinfo_endpoint | ICP WEB SSL | Required
 NA | OIDC | pushed_authorization_request_endpoint |  ICP WEB SSL | Required
 NA | DCR | registration_endpoint |  ICP WEB SSL | Required
 NA | OIDC | revocation_endpoint | ICP WEB SSL | Required
+NA | OIDC | introspection_endpoint _(*)_ | ICP WEB SSL | Required
 2 | Consentimentos | /consents/* |  ICP WEB SSL | Required
 2 | Resources | /resources/* | ICP WEB SSL | Required
 2 | Dados | /customers/* | ICP WEB SSL | Required
@@ -339,3 +340,5 @@ NA | OIDC | revocation_endpoint | ICP WEB SSL | Required
 2 | Adiantamento | /unarranged-accounts-overdraft/* | ICP WEB SSL | Required
 2 | Direitos   Creditórios | /invoice-financings/* | ICP WEB SSL | Required
 3 | Pagamentos | /payments/* | ICP WEB SSL | Required
+
+_(*)_ if for some reason this endpoint should be public, which is not recommended.

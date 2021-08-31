@@ -317,7 +317,8 @@ In addition, the confidential client
 3. shall use _encrypted_ request objects if not using [PAR]
 4. shall support parameterized OAuth 2.0 resource scope _consent_ as defined in clause 6.3.1 [OIDF FAPI WG Lodging Intent Pattern][LIWP]
 5. shall support refresh tokens
-6. shall not request specific `acr` values if requesting `acr` as an essential claim
+6. shall not populate the `acr` claim with required values
+7. shall require the `acr` claim as an essential claim
 
 # Security considerations
 
