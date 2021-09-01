@@ -220,7 +220,7 @@ The following certifying authorities carried out the onboard process for Open Ba
 
 ### Front-End Certificates
 
-Front-End certificates are used to provide services, in general web pages, using TLS, which are accessed by the end user. Given their purpose, and to ensure greater interoperability, certificates must be of the EV (Extended Validation) type and must be generated through a valid certificte authority, following the rules defined in RFC 5280 and RFC 2818, in accordance with the principles and WebTrust criteria.
+x509 Certificates that are used to secure communication channels between end-users browsers and banks services must be trusted be issued by a certificate authority certified by the CA Browser Forum. In addition, and to ensure greater interoperability, certificates must meet the requirements for CAB Forum EV (Extended Validation), following the rules defined in RFC 5280 and RFC 2818, in accordance with the principles and WebTrust criteria.
 
 ### About certificates for exchanging information between authorized institutions and partners (non-participating)
 
