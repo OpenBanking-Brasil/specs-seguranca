@@ -273,9 +273,8 @@ Nome: cnpj, Tipo: Array of Strings, Array Element Regex: '^\d{14}$'
 * **LoA3**: mecanismo de autenticação com múltiplos fatores de autenticação
 
 A seguinte regra deve ser adotada para o mecanismo de autenticação:
-
 * **Para controle de acesso às API´s definidas na FASE 2 (leitura de dados)**: os `Authorization Servers` das instituições transmissoras de dados devem condicionar a autenticação do usuário proprietário do dado, no mínimo, a adoção de método compatível com `LoA2`. A adoção de mecanismo de autenticação mais rigoroso (`LoA3`) fica a critério da instituição transmissora de acordo com sua avaliação de riscos.
-* **Para acesso às API´s das fases subsequentes (em especial pagamento)**: o acesso deve ser condicionado à método de autenticação compatível com `LoA3` ou superior.  
+* **Para acesso às API´s das fases subsequentes (em especial pagamento)**: o acesso deve ser condicionado à método de autenticação compatível com `LoA3` ou superior.
 
 **Esclarecimentos adicionais sobre fatores de autenticação**
 

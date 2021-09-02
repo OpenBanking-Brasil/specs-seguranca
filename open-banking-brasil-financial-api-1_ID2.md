@@ -286,7 +286,7 @@ This profile defines "urn:brasil:openbanking:loa2" and "urn:brasil:openbanking:l
 
 The following rules are applicable:
 
-* **Read-only APIs :** shall require resource owner authentication to at least LoA2, elevating the requirement to authenticate resource owners to LoA3 is at the discretion of the Authorization Server;
+* * **Read-only APIs :** shall require resource owner authentication to at least LoA2, elevating the requirement to authenticate resource owners to LoA3 is at the discretion of the Authorization Server;
 * **Read-and-Write APIs (Transactional):** shall require resource owner authentication to at least LoA3.
 
 **Authentication factors clarification**

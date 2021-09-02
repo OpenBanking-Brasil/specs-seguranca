@@ -95,7 +95,7 @@ Os seguintes documentos referenciados são indispensáveis para a aplicação de
 * [OBB-FAPI] - Open Banking Brasil Financial-grade API Security Profile 1.0 [OBB-FAPI]: <https://github.com/OpenBanking-Brasil/specs-seguranca/open-banking-brasil-financial-api-1_ID1.html>
 * [DOC-ICP-01] - DECLARAÇÃO DE PRÁTICAS DE CERTIFICAÇÃO DA AUTORIDADE CERTIFICADORA RAIZ DA ICP-BRASIL: <https://www.gov.br/iti/pt-br/centrais-de-conteudo/doc-icp-01-v-5-2-dpc-da-ac-raiz-da-icp-brasil-pdf>
 * [RFC6749] - The OAuth 2.0 Authorization Framework [RFC6749]: <https://tools.ietf.org/html/rfc6749>
-* [BCB-IN99] - Manual de Segurança do Open Banking: <https://www.in.gov.br/en/web/dou/-/instrucao-normativa-bcb-n-99-de-14-de-abril-de-2021-314641007>
+* [BCB-IN134] - Manual de Segurança do Open Banking: <https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Instru%C3%A7%C3%A3o%20Normativa%20BCB&numero=134>
 * [RFC2818] - HTTP Over TLS: <https://datatracker.ietf.org/doc/html/rfc2818>
 
 # Termos e Definições {#TermosDefinicoes}
@@ -223,6 +223,14 @@ As seguintes autoridades certificadoras realizaram o processo de onboard ao Open
 
 Os certificados para Front-End são utilizados para disponibilizar serviços, em geral páginas Web, com uso de TLS, que são acessados pelo usuário final. Dado a sua finalidade, e para garantir maior interoperabilidade, os certificados devem ser do tipo EV (Extended Validation) e devem ser ser gerados através de uma autoridade certificadora válida, seguindo as regras definidas na RFC 5280 e RFC 2818, em conformidade com os princípios e critérios WebTrust.
 
+### Sobre certificados para troca de informações entre instituições autorizadas e parceiros
+
+De acordo com a seção IV da Resolução Conjunta nº 1 de 4 de maio de 2020, o  estabelecimento de parcerias bilaterais entre instituições autorizadas e parceiros é um arranjo previsto na regulação e que deve observar, no que couber, inclusive os mesmos padrões e certificados de segurança que são aplicáveis para a troca de informações entre as instituições participantes.
+
+Em consonância com o §2º do Art. 10 da Medida Provisória 2.200-2 de 24 de agosto de 2001 e com o disposto no item 3.12 na Instrução Normativa BCB Nº 134, para a comunicação bilateral entre as instituições e parceiros fica autorizado o uso, em comum acordo entre as partes, de uma PKI privada desde que observados os requisitos deste _perfil para os certificados segurança_, o que inclui sua formatação, os algoritmos e os atributos estabelecidos.
+
+Os valores para o preenchimento dos atributos exigidos nessa especificação, mas não aplicáveis ao parceiro, deveriam ser definidos em comum acordo entre a instituição autorizada e o parceiro, o que não isenta da instituição autorizada a responsabilidade pelo preenchimento.
+
 # Reconhecimento {#Reconhecimento}
 
 Agradecemos a todos que estabeleceram as bases para o compartilhamento seguro e seguro de dados por meio da formação do Grupo de Trabalho FAPI da OpenID Foundation, o GT-Segurança do Open Banking Brasil e aos pioneiros que ficarão em seus ombros.
@@ -233,6 +241,7 @@ As seguintes pessoas contribuíram para este documento:
 * José Michael Dias (Grupo Pan)
 * Ralph Bragg (Raidiam)
 * Ediemerson Moreira Alves (Santander)
+* João Rodolfo Vieira (Itaú)
 
 # Informativo {#Informativo}
 
@@ -268,13 +277,13 @@ organizationalUnitName = <Código de Participante>
 UID = <Software Statement ID emitido pelo diretório>
 commonName = <FQDN|Wildcard>
 
-[ req_cert_extensions ] 
+[ req_cert_extensions ]
 basicConstraints = CA:FALSE
 subjectAltName = @alt_name
 keyUsage = critical,digitalSignature,keyEncipherment
 extendedKeyUsage = clientAuth
 
-[ alt_name ] 
+[ alt_name ]
 DNS = <FQDN|Wildcard>
 ```
 
@@ -299,14 +308,40 @@ organizationName = ICP-Brasil
 2.organizationalUnitName = <Tipo de validação>
 commonName = <Razão Social>
 
-[ req_cert_extensions ] 
+[ req_cert_extensions ]
 basicConstraints = CA:FALSE
 subjectAltName = @alt_name
 keyUsage = critical,digitalSignature,nonRepudiation
 
-[ alt_name ] 
+[ alt_name ]
 otherName.0 = 2.16.76.1.3.2;UTF8:<Nome da pessoal responsável pela entidade>#CNPJ
 otherName.1 = 2.16.76.1.3.3;UTF8:<CNPJ>
 otherName.2 = 2.16.76.1.3.4;UTF8:<CPF/PIS/RF da Pessoa responsável>
 otherName.3 = 2.16.76.1.3.7;UTF8:<Número de INSS>
 ```
+## Tabela com Endpoints vs Tipo de Certificado e mTLS
+Abaixo apresentamos quais endpoints podem ser publicados utilizando certificado EV como autenticação do consentimento e os endpoints de autenticação de APIs privadas/negócios que devem ser publicadas usando certificado ICP. Você também poderá verificar quais endpoints devem proteger suas conexões utilizando mTLS.
+
+Fase | Grupo | API | Certificado | mTLS
+-- | -- | -- | -- |  --
+NA | OIDC | .well-known/openid-configuration | EV ou ICP WEB SSL |  
+NA | OIDC | jwks_uri | EV ou ICP WEB SSL |  
+NA | OIDC | authorization_endpoint | EV |   |  
+NA | OIDC | token_endpoint | ICP WEB SSL | Obrigatório
+NA | OIDC | userinfo_endpoint | ICP WEB SSL | Obrigatório
+NA | OIDC | pushed_authorization_request_endpoint |  ICP WEB SSL | Obrigatório
+NA | DCR | registration_endpoint |  ICP WEB SSL | Obrigatório
+NA | OIDC | revocation_endpoint | ICP WEB SSL | Obrigatório
+NA | OIDC | introspection_endpoint (*) | ICP WEB SSL | Obrigatório
+2 | Consentimentos | /consents/* |  ICP WEB SSL | Obrigatório
+2 | Resources | /resources/* | ICP WEB SSL | Obrigatório
+2 | Dados | /customers/* | ICP WEB SSL | Obrigatório
+2 | Cartão | /credit-cards-accounts/* | ICP WEB SSL | Obrigatório
+2 | Contas | /accounts/* | ICP WEB SSL | Obrigatório
+2 | Empréstimos | /loans/* | ICP WEB SSL | Obrigatório
+2 | Financiamentos | /financings/* | ICP WEB SSL | Obrigatório
+2 | Adiantamento | /unarranged-accounts-overdraft/* | ICP WEB SSL | Obrigatório
+2 | Direitos   Creditórios | /invoice-financings/* | ICP WEB SSL | Obrigatório
+3 | Pagamentos | /payments/* | ICP WEB SSL | Obrigatório
+
+(*) caso seja necessário a publicação do endpoint, o que não é obrigatório.
