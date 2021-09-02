@@ -257,6 +257,7 @@ In terms of format, the Security WG have defined the examples in bellow:
 - Use RFC Strings (CN, L, ST, O, OU, C, Street, DC, UID) + OBB Certificate Specs (businessCategory, jurisdictionCountryName , serialNumber)
 
 Examples:
+
 | subject_dn | Issuer |
 | -- | -- |
 | UID=67c57882-043b-11ec-9a03-0242ac130003,jurisdictionCountryName=BR,businessCategory=Private      Organization,serialNumber=00038166000954,CN=mycn.bank.com.br,OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59,O=MY BANK SA,L=SAO PAULO,ST=SP,C=BR | issuer=CN=Open Banking SANDBOX Issuing CA   - G1,OU=Open Banking,O=Open   Banking Brasil,C=BR |
@@ -272,7 +273,7 @@ The following table describes the regulatory roles for Open Banking and the rela
 
 | Regulatory Role | Description | Allowed Scopes | Target Phase|
 | --- | --- | --- | --- |
-| DADOS | Instituição transmissora / receptora de dados (AISP) | openid accounts credit-cards-accounts consents customers invoice-financings financings loans unarranged-accounts-overdraft resources | Phase 2 |
+| DADOS | Instituição transmissora ou receptora de dados (AISP) | openid accounts credit-cards-accounts consents customers invoice-financings financings loans unarranged-accounts-overdraft resources | Phase 2 |
 | PAGTO | Instituição prestadora de serviço de iniciação de pagamentos (PISP) | openid payments consents resources | Phase 3 |
 | CONTA | Instituição detentora de conta (ASPSP) | openid | Phase 3 |
 | CCORR | Correspondente de crédito | openid | Phase 3* |
