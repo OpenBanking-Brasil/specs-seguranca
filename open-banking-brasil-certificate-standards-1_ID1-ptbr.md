@@ -223,7 +223,7 @@ As seguintes autoridades certificadoras realizaram o processo de onboard ao Open
 
 Os certificados para Front-End são utilizados para disponibilizar serviços, em geral páginas Web, com uso de TLS, que são acessados pelo usuário final. Dado a sua finalidade, e para garantir maior interoperabilidade, os certificados devem ser do tipo EV (Extended Validation) e devem ser ser gerados através de uma autoridade certificadora válida, seguindo as regras definidas na RFC 5280 e RFC 2818, em conformidade com os princípios e critérios WebTrust.
 
-### Sobre certificados para troca de informações entre instituições autorizadas e parceiros
+### Sobre certificados para troca de informações entre instituições autorizadas e parceiros {#sobre-certificados-troca-informacoes}
 
 De acordo com a seção IV da Resolução Conjunta nº 1 de 4 de maio de 2020, o  estabelecimento de parcerias bilaterais entre instituições autorizadas e parceiros é um arranjo previsto na regulação e que deve observar, no que couber, inclusive os mesmos padrões e certificados de segurança que são aplicáveis para a troca de informações entre as instituições participantes.
 
