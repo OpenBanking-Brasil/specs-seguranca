@@ -259,6 +259,7 @@ Segue na tabela abaixo alguns exemplos de decodificação:
 - Use as strings da RFC (CN, L, ST, O, OU, C, Street, DC, UID) + os nomes dos atributos definidos nesta especificação para uso no OBB (businessCategory, jurisdictionCountryName , serialNumber)
 
 Exemplos:
+
 | subject_dn | Issuer |
 | -- | -- |
 | UID=67c57882-043b-11ec-9a03-0242ac130003,jurisdictionCountryName=BR,businessCategory=Private      Organization,serialNumber=00038166000954,CN=mycn.bank.com.br,OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59,O=MY BANK SA,L=SAO PAULO,ST=SP,C=BR | issuer=CN=Open Banking SANDBOX Issuing CA   - G1,OU=Open Banking,O=Open   Banking Brasil,C=BR |
