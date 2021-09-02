@@ -1068,7 +1068,7 @@ tr:nth-child(2n+1) > td {
 <thead><tr>
 <td class="left"></td>
 <td class="center">OBB-FAPI-1-DCR-ID1</td>
-<td class="right">July 2021</td>
+<td class="right">September 2021</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Bragg & Security</td>
@@ -1085,7 +1085,7 @@ tr:nth-child(2n+1) > td {
 <dd class="internet-draft">open-banking-brasil-dynamic-client-registration-1_ID1-ptbr</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2021-07-08" class="published">8 July 2021</time>
+<time datetime="2021-09-02" class="published">2 September 2021</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
@@ -1475,7 +1475,47 @@ tr:nth-child(2n+1) > td {
 <a href="#section-7.1.2" class="section-number selfRef">7.1.2. </a><a href="#name-an225lise-do-distinguished-" class="section-name selfRef">An&#225;lise do Distinguished Name do Certificado</a>
           </h4>
 <p id="section-7.1.2-1">A cl&#225;usula 3 do <a href="https://www.rfc-editor.org/rfc/rfc4514">Lightweight Directory Access Protocol (LDAP): String Representation of Distinguished Names</a> define os OIDs obrigat&#243;rios cujas as <em>strings</em> do AttributeType (descritores) devem ser reconhecidos pelos implementadores. Esta lista obrigat&#243;ria n&#227;o inclui v&#225;rios dos OIDs definidos em <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html">Open Banking Brasil x.509 Certificate Standards</a>, nem existe um mecanismo definido para os Servidores de Autoriza&#231;&#227;o publicarem informa&#231;&#245;es sobre o formato que eles esperam de uma Solicita&#231;&#227;o Din&#226;mica de Registro do Cliente (<em>Dynamic Client Registrarion</em>) que inclui um <code>tls_client_auth_subject_dn</code>.<a href="#section-7.1.2-1" class="pilcrow">¶</a></p>
-<p id="section-7.1.2-2">Para resolver essa ambig&#252;idade, o Servidor de Autoriza&#231;&#227;o deve aceitar todas as strings de nome de AttributeType (descritores) definidas no &#250;ltimo par&#225;grafo da cl&#225;usula 3 [RFC4515], al&#233;m de todos os AttributeTypes definidos no Distinguished Name <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html">Open Banking Brasil x.509 Certificate Standards</a>.<a href="#section-7.1.2-2" class="pilcrow">¶</a></p>
+<p id="section-7.1.2-2">Para resolver essa ambig&#252;idade, o Servidor de Autoriza&#231;&#227;o deve aceitar todas as strings de nome de AttributeType (descritores) definidas no &#250;ltimo par&#225;grafo da cl&#225;usula 3 <a href="https://www.rfc-editor.org/rfc/rfc4514">RFC4514</a>, al&#233;m de todos os AttributeTypes definidos no Distinguished Name <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html">Open Banking Brasil x.509 Certificate Standards</a>.<a href="#section-7.1.2-2" class="pilcrow">¶</a></p>
+<p id="section-7.1.2-3">Segue na tabela abaixo alguns exemplos de decodifica&#231;&#227;o:<a href="#section-7.1.2-3" class="pilcrow">¶</a></p>
+<ul>
+<li id="section-7.1.2-4.1">
+              <p id="section-7.1.2-4.1.1">Obtenha na ordem reversa os atributos do certificado<a href="#section-7.1.2-4.1.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-7.1.2-4.2">
+              <p id="section-7.1.2-4.2.1">Concatene cada RDN (RelativeDistinguishedName) com uma virgula (',')<a href="#section-7.1.2-4.2.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-7.1.2-4.3">
+              <p id="section-7.1.2-4.3.1">Use as strings da RFC (CN, L, ST, O, OU, C, Street, DC, UID) + os nomes dos atributos definidos nesta especifica&#231;&#227;o para uso no OBB (businessCategory, jurisdictionCountryName , serialNumber)<a href="#section-7.1.2-4.3.1" class="pilcrow">¶</a></p>
+</li>
+</ul>
+<p id="section-7.1.2-5">Exemplos:<a href="#section-7.1.2-5" class="pilcrow">¶</a></p>
+<table class="center" id="table-1">
+            <caption><a href="#table-1" class="selfRef">Table 1</a></caption>
+<thead>
+              <tr>
+                <th class="text-left" rowspan="1" colspan="1">subject_dn</th>
+                <th class="text-left" rowspan="1" colspan="1">Issuer</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">UID=67c57882-043b-11ec-9a03-0242ac130003,jurisdictionCountryName=BR,businessCategory=Private      Organization,serialNumber=00038166000954,CN=mycn.bank.com.br,OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59,O=MY BANK SA,L=SAO PAULO,ST=SP,C=BR</td>
+                <td class="text-left" rowspan="1" colspan="1">issuer=CN=Open Banking SANDBOX Issuing CA   - G1,OU=Open Banking,O=Open   Banking Brasil,C=BR</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">UID=67c57882-043b-11ec-9a03-0242ac130003,   jurisdictionCountryName=BR,businessCategory=Business Entity,CN=mycn.bank.gov.br,serialNumber=00038166000954,OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59,O=My Public Bank,L=BRASILIA,ST=DF,C=BR</td>
+                <td class="text-left" rowspan="1" colspan="1">issuer=CN=Autoridade Certificadora do SERPRO SSLv1,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR,jurisdictionCountryName=BR,businessCategory=Private</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Organization,UID=67c57882-043b-11ec-9a03-0242ac130003,CN=openbanking.mybank.com.br,serialNumber=00038166000954,OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59,L=Goiania,ST=GO,O=MyBank SA,C=BR</td>
+                <td class="text-left" rowspan="1" colspan="1">issuer=CN=AC SOLUTI SSL EV,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">CN=mycn.bank.com.br,UID=67c57882-043b-11ec-9a03-0242ac130003,OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59,L=Sao   Paulo,ST=SP,O=MyBank SA,C=BR,serialNumber=00038166000954,   jurisdictionCountryName=BR,businessCategory=Private   Organization</td>
+                <td class="text-left" rowspan="1" colspan="1">issuer=CN=AC SERASA SSL EV,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR</td>
+              </tr>
+            </tbody>
+          </table>
 </section>
 </div>
 </section>
@@ -1487,8 +1527,8 @@ tr:nth-child(2n+1) > td {
         </h3>
 <p id="section-7.2-1">Para participar do ecossistema do Open Banking, as institui&#231;&#245;es credenciadas devem se cadastrar no Diret&#243;rio de Participantes de acordo com seus pap&#233;is regulat&#243;rios. Essas fun&#231;&#245;es refletem a autoriza&#231;&#227;o do Banco Central para as institui&#231;&#245;es e, consequentemente, as APIs que podem utilizar.<a href="#section-7.2-1" class="pilcrow">¶</a></p>
 <p id="section-7.2-2">A tabela a seguir descreve as fun&#231;&#245;es regulat&#243;rias do Open Banking e o mapeamento de escopos do OAuth 2.0 relacionado. Se os escopos forem omitidos durante o processo de DCR, o Servidor de Autoriza&#231;&#227;o deve conceder o conjunto completo de escopos potenciais com base nas fun&#231;&#245;es regulat&#243;rias registradas para o banco, conforme descrito na se&#231;&#227;o Server Defaults.<a href="#section-7.2-2" class="pilcrow">¶</a></p>
-<table class="center" id="table-1">
-          <caption><a href="#table-1" class="selfRef">Table 1</a></caption>
+<table class="center" id="table-2">
+          <caption><a href="#table-2" class="selfRef">Table 2</a></caption>
 <thead>
             <tr>
               <th class="text-left" rowspan="1" colspan="1">Papel Regulador</th>
@@ -1539,8 +1579,8 @@ tr:nth-child(2n+1) > td {
         <h3 id="name-fun231245es-regulat243rias-p">
 <a href="#section-7.3" class="section-number selfRef">7.3. </a><a href="#name-fun231245es-regulat243rias-p" class="section-name selfRef">Fun&#231;&#245;es regulat&#243;rias para mapeamentos de escopo OAuth 2.0 din&#226;micos</a>
         </h3>
-<table class="center" id="table-2">
-          <caption><a href="#table-2" class="selfRef">Table 2</a></caption>
+<table class="center" id="table-3">
+          <caption><a href="#table-3" class="selfRef">Table 3</a></caption>
 <thead>
             <tr>
               <th class="text-left" rowspan="1" colspan="1">Papel Regulador</th>
@@ -1660,7 +1700,7 @@ tr:nth-child(2n+1) > td {
       <h2 id="name-processamento-de-solicita23">
 <a href="#section-9" class="section-number selfRef">9. </a><a href="#name-processamento-de-solicita23" class="section-name selfRef">Processamento de solicita&#231;&#227;o de registro de cliente din&#226;mico</a>
       </h2>
-<p><img src="images/dynamic-client-registration.png" alt="Dynamic Client Registration Request Processing" /></p>
+	  <p><img src="images/dynamic-client-registration.png" alt="Dynamic Client Registration Request Processing" /></p>
 <div id="exampleDcr">
 <section id="section-9.1">
         <h3 id="name-enviar-uma-solicita231227o-">
