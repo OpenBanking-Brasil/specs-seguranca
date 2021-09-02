@@ -284,14 +284,10 @@ This profile defines "urn:brasil:openbanking:loa2" and "urn:brasil:openbanking:l
 * **LoA2:** Authentication performed using single factor;
 * **LoA3:** Authentication performed using multi factor (MFA)
 
-The following rules are applicable to **access control to Open Banking Brazil API´s:**
+The following rules are applicable:
 
-* In accordance to Art. 17 of [Joint Resolution nº 01 - Open Banking Brasil](https://www.in.gov.br/en/web/dou/-/resolucao-conjunta-n-1-de-4-de-maio-de-2020-255165055), institutions must adopt procedures and controls for client authentication **compatible with those applicable in their electronic service channels**.
-* So, in compliance with the regulation, it is suggested that:
-   * **For Read-Only APIs  (Phase 2)**: the _Authorization Servers_ **should** adopt, at least, an authentication method compatible with `LoA2`; and
-   * **For Read-Write API´s (subsequent phases)**: the _Authorization Servers_ **should** adopt an authentication method compatible with `LoA3` or higher.
-
-In all cases, the adoption of a more rigorous authentication mechanism (`LoA3` or higher) is at the discretion of the Bank (ASPSP), according to its risk assessment and in a manner compatible with the mechanisms usually used. So, the API client (TTP/PISP) **shall not** define any value to `acr` claim, but the method adopted by ASPSP **shall** be presented at `acr` claim returned by _Authorization Server_.
+* * **Read-only APIs :** shall require resource owner authentication to at least LoA2, elevating the requirement to authenticate resource owners to LoA3 is at the discretion of the Authorization Server;
+* **Read-and-Write APIs (Transactional):** shall require resource owner authentication to at least LoA3.
 
 **Authentication factors clarification**
 
