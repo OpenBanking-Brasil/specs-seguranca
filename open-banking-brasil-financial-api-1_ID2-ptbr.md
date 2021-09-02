@@ -274,9 +274,7 @@ Nome: cnpj, Tipo: Array of Strings, Array Element Regex: '^\d{14}$'
 
 A seguinte regra deve ser adotada para o mecanismo de autenticação:
 * **Para controle de acesso às API´s definidas na FASE 2 (leitura de dados)**: os `Authorization Servers` das instituições transmissoras de dados devem condicionar a autenticação do usuário proprietário do dado, no mínimo, a adoção de método compatível com `LoA2`. A adoção de mecanismo de autenticação mais rigoroso (`LoA3`) fica a critério da instituição transmissora de acordo com sua avaliação de riscos.
-* **Para acesso às API´s das fases subsequentes (em especial pagamento)**: o acesso deve ser condicionado à método de autenticação compatível com `LoA3` ou superior. 
-
-Em todos os casos, a adoção de mecanismo de autenticação mais rigoroso (`LoA3` ou superior) fica a critério da instituição transmissora ou detentora de conta, de acordo com sua avaliação de riscos e de forma compatível com os mecanismos habitualmente utilizados. Portanto, o cliente de API **não deve** estabelecer na claim `acr` qualquer método a ser exigido, mas o método adotado pelo ASPSP **deve** ser retornado pelo _Authorization Server_ na claim `acr` conforme estabelecido nesta definição.
+* **Para acesso às API´s das fases subsequentes (em especial pagamento)**: o acesso deve ser condicionado à método de autenticação compatível com `LoA3` ou superior.
 
 **Esclarecimentos adicionais sobre fatores de autenticação**
 
