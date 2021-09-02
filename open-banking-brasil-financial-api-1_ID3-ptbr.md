@@ -15,7 +15,7 @@
     [seriesInfo]
     name = "Internet-Draft"
     status = "standard"
-    value = "open-banking-brasil-financial-api-1_ID2-ptbr"
+    value = "open-banking-brasil-financial-api-1_ID3-ptbr"
 
     [[author]]
     initials = "R."
