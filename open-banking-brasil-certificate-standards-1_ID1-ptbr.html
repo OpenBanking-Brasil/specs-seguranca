@@ -1087,7 +1087,7 @@ tr:nth-child(2n+1) > td {
 <dd class="internet-draft">open-banking-brasil-certificate-standards-1_ID1-ptbr</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2021-09-02" class="published">2 September 2021</time>
+<time datetime="2021-09-03" class="published">3 September 2021</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
@@ -1572,6 +1572,9 @@ tr:nth-child(2n+1) > td {
 <li id="section-6-3.3">
           <p id="section-6-3.3.1">Ralph Bragg (Raidiam)<a href="#section-6-3.3.1" class="pilcrow">¶</a></p>
 </li>
+<li id="section-6-3.4">
+          <p id="section-6-3.4.1">Ediemerson Moreira Alves (Santander)<a href="#section-6-3.4.1" class="pilcrow">¶</a></p>
+</li>
 <li id="section-6-3.5">
           <p id="section-6-3.5.1">Jo&#227;o Rodolfo Vieira (Ita&#250;)<a href="#section-6-3.5.1" class="pilcrow">¶</a></p>
 </li>
@@ -1676,27 +1679,153 @@ otherName.3 = 2.16.76.1.3.7;UTF8:&lt;Número de INSS&gt;
 <a href="#section-8.3" class="section-number selfRef">8.3. </a><a href="#name-tabela-com-endpoints-vs-tip" class="section-name selfRef">Tabela com Endpoints vs Tipo de Certificado e mTLS</a>
         </h3>
 <p id="section-8.3-1">Abaixo apresentamos quais endpoints podem ser publicados utilizando certificado EV como autentica&#231;&#227;o do consentimento e os endpoints de autentica&#231;&#227;o de APIs privadas/neg&#243;cios que devem ser publicadas usando certificado ICP. Voc&#234; tamb&#233;m poder&#225; verificar quais endpoints devem proteger suas conex&#245;es utilizando mTLS.<a href="#section-8.3-1" class="pilcrow">¶</a></p>
-<p id="section-8.3-2">Fase | Grupo | API | Certificado | mTLS
--- | -- | -- | -- |  --
-NA | OIDC | .well-known/openid-configuration | EV ou ICP WEB SSL |<br>
-NA | OIDC | jwks<em>uri | EV ou ICP WEB SSL |<br>
-NA | OIDC | authorization</em>endpoint | EV |   |<br>
-NA | OIDC | token<em>endpoint | ICP WEB SSL | Obrigat&#243;rio
-NA | OIDC | userinfo</em>endpoint | ICP WEB SSL | Obrigat&#243;rio
-NA | OIDC | pushed<em>authorization</em>request<em>endpoint |  ICP WEB SSL | Obrigat&#243;rio
-NA | DCR | registration</em>endpoint |  ICP WEB SSL | Obrigat&#243;rio
-NA | OIDC | revocation<em>endpoint | ICP WEB SSL | Obrigat&#243;rio
-NA | OIDC | introspection</em>endpoint (<em>) | ICP WEB SSL | Obrigat&#243;rio
-2 | Consentimentos | /consents/</em> |  ICP WEB SSL | Obrigat&#243;rio
-2 | Resources | /resources/* | ICP WEB SSL | Obrigat&#243;rio
-2 | Dados | /customers/* | ICP WEB SSL | Obrigat&#243;rio
-2 | Cart&#227;o | /credit-cards-accounts/* | ICP WEB SSL | Obrigat&#243;rio
-2 | Contas | /accounts/* | ICP WEB SSL | Obrigat&#243;rio
-2 | Empr&#233;stimos | /loans/* | ICP WEB SSL | Obrigat&#243;rio
-2 | Financiamentos | /financings/* | ICP WEB SSL | Obrigat&#243;rio
-2 | Adiantamento | /unarranged-accounts-overdraft/* | ICP WEB SSL | Obrigat&#243;rio
-2 | Direitos   Credit&#243;rios | /invoice-financings/* | ICP WEB SSL | Obrigat&#243;rio
-3 | Pagamentos | /payments/* | ICP WEB SSL | Obrigat&#243;rio<a href="#section-8.3-2" class="pilcrow">¶</a></p>
+<table class="center" id="table-1">
+          <caption><a href="#table-1" class="selfRef">Table 1</a></caption>
+<thead>
+            <tr>
+              <th class="text-left" rowspan="1" colspan="1">Fase</th>
+              <th class="text-left" rowspan="1" colspan="1">Grupo</th>
+              <th class="text-left" rowspan="1" colspan="1">API</th>
+              <th class="text-left" rowspan="1" colspan="1">Certificado</th>
+              <th class="text-left" rowspan="1" colspan="1">mTLS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">NA</td>
+              <td class="text-left" rowspan="1" colspan="1">OIDC</td>
+              <td class="text-left" rowspan="1" colspan="1">.well-known/openid-configuration</td>
+              <td class="text-left" rowspan="1" colspan="1">EV ou ICP WEB SSL</td>
+              <td class="text-left" rowspan="1" colspan="1"></td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">NA</td>
+              <td class="text-left" rowspan="1" colspan="1">OIDC</td>
+              <td class="text-left" rowspan="1" colspan="1">jwks_uri</td>
+              <td class="text-left" rowspan="1" colspan="1">EV ou ICP WEB SSL</td>
+              <td class="text-left" rowspan="1" colspan="1"></td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">NA</td>
+              <td class="text-left" rowspan="1" colspan="1">OIDC</td>
+              <td class="text-left" rowspan="1" colspan="1">authorization_endpoint</td>
+              <td class="text-left" rowspan="1" colspan="1">EV</td>
+              <td class="text-left" rowspan="1" colspan="1"></td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">NA</td>
+              <td class="text-left" rowspan="1" colspan="1">OIDC</td>
+              <td class="text-left" rowspan="1" colspan="1">token_endpoint</td>
+              <td class="text-left" rowspan="1" colspan="1">ICP WEB SSL</td>
+              <td class="text-left" rowspan="1" colspan="1">Obrigat&#243;rio</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">NA</td>
+              <td class="text-left" rowspan="1" colspan="1">OIDC</td>
+              <td class="text-left" rowspan="1" colspan="1">userinfo_endpoint</td>
+              <td class="text-left" rowspan="1" colspan="1">ICP WEB SSL</td>
+              <td class="text-left" rowspan="1" colspan="1">Obrigat&#243;rio</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">NA</td>
+              <td class="text-left" rowspan="1" colspan="1">OIDC</td>
+              <td class="text-left" rowspan="1" colspan="1">pushed<em>authorization</em>request_endpoint</td>
+              <td class="text-left" rowspan="1" colspan="1">ICP WEB SSL</td>
+              <td class="text-left" rowspan="1" colspan="1">Obrigat&#243;rio</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">NA</td>
+              <td class="text-left" rowspan="1" colspan="1">DCR</td>
+              <td class="text-left" rowspan="1" colspan="1">registration_endpoint</td>
+              <td class="text-left" rowspan="1" colspan="1">ICP WEB SSL</td>
+              <td class="text-left" rowspan="1" colspan="1">Obrigat&#243;rio</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">NA</td>
+              <td class="text-left" rowspan="1" colspan="1">OIDC</td>
+              <td class="text-left" rowspan="1" colspan="1">revocation_endpoint</td>
+              <td class="text-left" rowspan="1" colspan="1">ICP WEB SSL</td>
+              <td class="text-left" rowspan="1" colspan="1">Obrigat&#243;rio</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">NA</td>
+              <td class="text-left" rowspan="1" colspan="1">OIDC</td>
+              <td class="text-left" rowspan="1" colspan="1">introspection_endpoint (*)</td>
+              <td class="text-left" rowspan="1" colspan="1">ICP WEB SSL</td>
+              <td class="text-left" rowspan="1" colspan="1">Obrigat&#243;rio</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">2</td>
+              <td class="text-left" rowspan="1" colspan="1">Consentimentos</td>
+              <td class="text-left" rowspan="1" colspan="1">/consents/*</td>
+              <td class="text-left" rowspan="1" colspan="1">ICP WEB SSL</td>
+              <td class="text-left" rowspan="1" colspan="1">Obrigat&#243;rio</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">2</td>
+              <td class="text-left" rowspan="1" colspan="1">Resources</td>
+              <td class="text-left" rowspan="1" colspan="1">/resources/*</td>
+              <td class="text-left" rowspan="1" colspan="1">ICP WEB SSL</td>
+              <td class="text-left" rowspan="1" colspan="1">Obrigat&#243;rio</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">2</td>
+              <td class="text-left" rowspan="1" colspan="1">Dados</td>
+              <td class="text-left" rowspan="1" colspan="1">/customers/*</td>
+              <td class="text-left" rowspan="1" colspan="1">ICP WEB SSL</td>
+              <td class="text-left" rowspan="1" colspan="1">Obrigat&#243;rio</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">2</td>
+              <td class="text-left" rowspan="1" colspan="1">Cart&#227;o</td>
+              <td class="text-left" rowspan="1" colspan="1">/credit-cards-accounts/*</td>
+              <td class="text-left" rowspan="1" colspan="1">ICP WEB SSL</td>
+              <td class="text-left" rowspan="1" colspan="1">Obrigat&#243;rio</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">2</td>
+              <td class="text-left" rowspan="1" colspan="1">Contas</td>
+              <td class="text-left" rowspan="1" colspan="1">/accounts/*</td>
+              <td class="text-left" rowspan="1" colspan="1">ICP WEB SSL</td>
+              <td class="text-left" rowspan="1" colspan="1">Obrigat&#243;rio</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">2</td>
+              <td class="text-left" rowspan="1" colspan="1">Empr&#233;stimos</td>
+              <td class="text-left" rowspan="1" colspan="1">/loans/*</td>
+              <td class="text-left" rowspan="1" colspan="1">ICP WEB SSL</td>
+              <td class="text-left" rowspan="1" colspan="1">Obrigat&#243;rio</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">2</td>
+              <td class="text-left" rowspan="1" colspan="1">Financiamentos</td>
+              <td class="text-left" rowspan="1" colspan="1">/financings/*</td>
+              <td class="text-left" rowspan="1" colspan="1">ICP WEB SSL</td>
+              <td class="text-left" rowspan="1" colspan="1">Obrigat&#243;rio</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">2</td>
+              <td class="text-left" rowspan="1" colspan="1">Adiantamento</td>
+              <td class="text-left" rowspan="1" colspan="1">/unarranged-accounts-overdraft/*</td>
+              <td class="text-left" rowspan="1" colspan="1">ICP WEB SSL</td>
+              <td class="text-left" rowspan="1" colspan="1">Obrigat&#243;rio</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">2</td>
+              <td class="text-left" rowspan="1" colspan="1">Direitos   Credit&#243;rios</td>
+              <td class="text-left" rowspan="1" colspan="1">/invoice-financings/*</td>
+              <td class="text-left" rowspan="1" colspan="1">ICP WEB SSL</td>
+              <td class="text-left" rowspan="1" colspan="1">Obrigat&#243;rio</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">3</td>
+              <td class="text-left" rowspan="1" colspan="1">Pagamentos</td>
+              <td class="text-left" rowspan="1" colspan="1">/payments/*</td>
+              <td class="text-left" rowspan="1" colspan="1">ICP WEB SSL</td>
+              <td class="text-left" rowspan="1" colspan="1">Obrigat&#243;rio</td>
+            </tr>
+          </tbody>
+        </table>
 <p id="section-8.3-3">(*) caso seja necess&#225;rio a publica&#231;&#227;o do endpoint, o que n&#227;o &#233; obrigat&#243;rio.<a href="#section-8.3-3" class="pilcrow">¶</a></p>
 </section>
 </div>
