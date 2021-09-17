@@ -319,6 +319,7 @@ In addition, the confidential client
 5. shall support refresh tokens
 6. shall not populate the `acr` claim with required values
 7. shall require the `acr` claim as an essential claim
+8. shall support all authentication methods specified in clause 5.2.2-14 of [Financial-grade API Security Profile 1.0 - Part 2: Advanced][FAPI-1-Advanced] including diferent combinations of the methods to send requests (using [PAR] or not - item 11) and response modes (using [JARM] or not - item 2).
 
 # Security considerations
 
