@@ -649,6 +649,7 @@ curl --cert transport.pem --key transport.key -H 'Authorization: Bearer 2Pjwts8m
 ### 4.3 Authorizing Consent - Redirect
 
 ### 4.3.1 Create OpenID Connect Request Object
+
 Different methods of authentication (_private_key_jwt_ and _tls_client_auth_), of sending Request Object (with and without *PAR*) and response modes (with and without _JARM_) can be supported by _Authorization Servers_ according to the [FAPI_2_0_Advanced_Profile] specification. Therefore, how does it reinforce the security profile for Open Banking Brasil (item 8 of section 5.2.3 of the [security requirements for the confidential client](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID3.html#section-5.2.3)), *all* methods shall be supported by the TTPs (API clients).
 
 The table below reflects the different security profiles and combinations that shall be supported by all API clients (as per the [OIDF certified profiles for Open Banking Brazil](https://openid.net/certification/#FAPI_OPs)) .
