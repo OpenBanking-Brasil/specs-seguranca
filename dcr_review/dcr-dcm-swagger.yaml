@@ -1,0 +1,584 @@
+openapi: 3.0.3
+info:
+  title: Open Banking Brasil - Dynamic Client Registration
+  description: Especificação dos serviços de registro dinâmico de cliente (DCR) e manutenção dinâmica de cliente (DCM), baseados nas especificações a seguir<br/> <ul><li>RFC 7591 - https://datatracker.ietf.org/doc/html/rfc7591</li><li>RFC 7592 - https://datatracker.ietf.org/doc/html/rfc7592<li>OpenID Connect Dynamic Client Registration -  https://openid.net/specs/openid-connect-registration-1_0.html</li></ul>
+  contact:
+    email: openbankingbrasil@openbankingbrasil.org.br
+  version: 1.0.0
+externalDocs:
+  description: Documentação do processo de DCR / DCM no portal do desenvolvedor do Open Banking Brasil
+  url: https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil-dynamic-client-registration-1_ID1.md
+tags:
+- name: DCR
+  description: Operações de registro dinâmico de cliente (DCR)
+  externalDocs:
+    description: RFC 7591
+    url: https://datatracker.ietf.org/doc/html/rfc7591
+- name: DCM
+  description: Operações de manutenção dinâmica de cliente (DCM)
+  externalDocs:
+    description: RFC 7592
+    url: https://datatracker.ietf.org/doc/html/rfc7592  
+paths:
+  /register:
+    post:
+      summary: Registro da aplicação cliente.
+      tags:
+        - DCR
+      security: 
+        - OAuth2Security: [register]
+      requestBody:
+        description: Objeto com os dados da aplicação cliente que será registrada, que também inclui o <i>Software Statement</i> emitido pelo Diretório de Participantes.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClientRegistrationRequest'
+      responses:
+        201:
+          description: Cliente registrado na instituição - inclui o <i>client_id</i> da aplicação para consumo das APIs da Instituição Financeira.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientRegistrationResponseSuccess'
+        400:
+          description: Erro ao registrar a aplicação cliente.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientRegistrationResponseError'
+        401:
+          description: Access Token inválido, ou outro erro relacionado às validações de acesso a recursos protegidos OAuth 2.0.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    enum: 
+                      - invalid_token
+                    description: códigos de erro de validação de access token OAuth 2.0, usados como descrito na seção 3.1 da RFC 6750
+                  error_description:
+                    type: string
+                    description: mensagem amigável com detalhes do erro ocorrido          
+        403: 
+          description: Escopo inválido
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    enum: 
+                      - insufficient_scope
+                    description: códigos de erro de validação de access token OAuth 2.0, usados como descrito na seção 3.1 da RFC 6750
+                  error_description:
+                    type: string
+                    description: mensagem amigável com detalhes do erro ocorrido
+    get: 
+      summary: Consulta de dados do registro da aplicação cliente. Uma das implementações possíveis, como descritas no Apêndice B da RFC 7592
+      tags:
+      - DCM
+      security:
+        - DCMSecurity: []
+      parameters:
+        - $ref: '#/components/parameters/clientIdQuerystring'
+      responses:
+        200:
+          description: Dados do cliente registrado na instituição - inclui o <i>client_id</i> da aplicação para consumo das APIs da Instituição Financeira.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientGetResponseSuccess'
+        400:
+          description: Erro ao consultar dados da aplicação cliente.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientRegistrationResponseError'
+        401:
+          description: Cliente ou Registration Access Token inválido, ou ainda outro erro relacionado às validações de acesso a recursos protegidos OAuth 2.0.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: códigos de erro de validação de access token OAuth 2.0, usados como descrito na seção 3.1 da RFC 6750
+                  error_description:
+                    type: string
+                    description: mensagem amigável com detalhes do erro ocorrido          
+        403: 
+          description: Sem permissão para atualizar o cliente informado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: códigos de erro de validação de access token OAuth 2.0, usados como descrito na seção 3.1 da RFC 6750
+                  error_description:
+                    type: string
+                    description: mensagem amigável com detalhes do erro ocorrido
+    put: 
+      summary: Alteração de dados do registro da aplicação cliente. Uma das implementações possíveis, como descritas no Apêndice B da RFC 7592
+      tags:
+      - DCM
+      security:
+        - DCMSecurity: []
+      parameters:
+        - $ref: '#/components/parameters/clientIdQuerystring'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClientRegistrationRequest'        
+      responses:
+        200:
+          description: Dados do cliente registrado na instituição - inclui o <i>client_id</i> da aplicação para consumo das APIs da Instituição Financeira.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientGetResponseSuccess'
+        400:
+          description: Erro ao atualizar dados da aplicação cliente.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientRegistrationResponseError'
+        401:
+          description: Cliente ou Registration Access Token inválido, ou ainda outro erro relacionado às validações de acesso a recursos protegidos OAuth 2.0.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: códigos de erro de validação de access token OAuth 2.0, usados como descrito na seção 3.1 da RFC 6750
+                  error_description:
+                    type: string
+                    description: mensagem amigável com detalhes do erro ocorrido          
+        403: 
+          description: Sem permissão para atualizar o cliente informado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: códigos de erro de validação de access token OAuth 2.0, usados como descrito na seção 3.1 da RFC 6750
+                  error_description:
+                    type: string
+                    description: mensagem amigável com detalhes do erro ocorrido    
+    delete: 
+      summary: Exclusão do registro da aplicação cliente. Uma das implementações possíveis, como descritas no Apêndice B da RFC 7592
+      tags:
+      - DCM
+      security:
+        - DCMSecurity: []
+      parameters:
+        - $ref: '#/components/parameters/clientIdQuerystring'
+      responses:
+        204:
+          description: Sem conteúdo
+        400:
+          description: Erro ao excluir o registro da aplicação cliente.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientRegistrationResponseError'
+        401:
+          description: Cliente ou Registration Access Token inválido, ou ainda outro erro relacionado às validações de acesso a recursos protegidos OAuth 2.0.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: códigos de erro de validação de access token OAuth 2.0, usados como descrito na seção 3.1 da RFC 6750
+                  error_description:
+                    type: string
+                    description: mensagem amigável com detalhes do erro ocorrido          
+        403: 
+          description: Sem permissão para atualizar o cliente informado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: códigos de erro de validação de access token OAuth 2.0, usados como descrito na seção 3.1 da RFC 6750
+                  error_description:
+                    type: string
+                    description: mensagem amigável com detalhes do erro ocorrido
+        405: 
+          description: Método não suportado    
+  /register/{clientId}:
+    get: 
+      summary: Consulta de dados do registro da aplicação cliente. Uma das implementações possíveis, como descritas no Apêndice B da RFC 7592
+      tags:
+      - DCM
+      security:
+        - DCMSecurity: []
+      parameters:
+        - $ref: '#/components/parameters/clientId'
+      responses:
+        200:
+          description: Dados do cliente registrado na instituição - inclui o <i>client_id</i> da aplicação para consumo das APIs da Instituição Financeira.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientGetResponseSuccess'
+        400:
+          description: Erro ao consultar dados da aplicação cliente.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientRegistrationResponseError'
+        401:
+          description: Cliente ou Registration Access Token inválido, ou ainda outro erro relacionado às validações de acesso a recursos protegidos OAuth 2.0.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: códigos de erro de validação de access token OAuth 2.0, usados como descrito na seção 3.1 da RFC 6750
+                  error_description:
+                    type: string
+                    description: mensagem amigável com detalhes do erro ocorrido          
+        403: 
+          description: Sem permissão para atualizar o cliente informado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: códigos de erro de validação de access token OAuth 2.0, usados como descrito na seção 3.1 da RFC 6750
+                  error_description:
+                    type: string
+                    description: mensagem amigável com detalhes do erro ocorrido                
+    put: 
+      summary: Alteração de dados do registro da aplicação cliente. Uma das implementações possíveis, como descritas no Apêndice B da RFC 7592
+      tags:
+      - DCM
+      security:
+        - DCMSecurity: []
+      parameters:
+        - $ref: '#/components/parameters/clientId'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClientRegistrationRequest'
+      responses:
+        200:
+          description: Dados do cliente registrado na instituição - inclui o <i>client_id</i> da aplicação para consumo das APIs da Instituição Financeira.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientGetResponseSuccess'
+        400:
+          description: Erro ao atualizar dados da aplicação cliente.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientRegistrationResponseError'
+        401:
+          description: Cliente ou Registration Access Token inválido, ou ainda outro erro relacionado às validações de acesso a recursos protegidos OAuth 2.0.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: códigos de erro de validação de access token OAuth 2.0, usados como descrito na seção 3.1 da RFC 6750
+                  error_description:
+                    type: string
+                    description: mensagem amigável com detalhes do erro ocorrido          
+        403: 
+          description: Sem permissão para atualizar o cliente informado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: códigos de erro de validação de access token OAuth 2.0, usados como descrito na seção 3.1 da RFC 6750
+                  error_description:
+                    type: string
+                    description: mensagem amigável com detalhes do erro ocorrido  
+    delete: 
+      summary: Exclusão do registro da aplicação cliente. Uma das implementações possíveis, como descritas no Apêndice B da RFC 7592
+      tags:
+      - DCM
+      security:
+        - DCMSecurity: []
+      parameters:
+        - $ref: '#/components/parameters/clientId'
+      responses:
+        204:
+          description: Sem conteúdo
+        400:
+          description: Erro ao excluir o registro da aplicação cliente.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientRegistrationResponseError'
+        401:
+          description: Cliente ou Registration Access Token inválido, ou ainda outro erro relacionado às validações de acesso a recursos protegidos OAuth 2.0.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: códigos de erro de validação de access token OAuth 2.0, usados como descrito na seção 3.1 da RFC 6750
+                  error_description:
+                    type: string
+                    description: mensagem amigável com detalhes do erro ocorrido          
+        403: 
+          description: Sem permissão para atualizar o cliente informado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: códigos de erro de validação de access token OAuth 2.0, usados como descrito na seção 3.1 da RFC 6750
+                  error_description:
+                    type: string
+                    description: mensagem amigável com detalhes do erro ocorrido
+        405: 
+          description: Método não suportado
+components:
+  parameters:
+    clientId:
+      name: clientId
+      description: client_id da aplicação cliente registrada na instituição financeira
+      in: path
+      required: true
+      schema:
+        type: string
+    clientIdQuerystring:
+      name: client_id
+      description: client_id da aplicação cliente registrada na instituição financeira      
+      in: query
+      required: true
+      schema:
+        type: string        
+  schemas: 
+    ClientGetResponseSuccess:
+      type: object
+      description: Os campos a seguir seguem a especificação descrita na seção 3.2.1 da RFC 7591 e seção 3 da RFC 7592 e, portanto, devem considerar também a inclusão dos campos adicionais ali descritos.
+      required:
+        - client_id
+        - registration_client_uri
+        - registration_access_token
+      properties:
+        client_id:
+          type: string
+          description: client_id da aplicação originalmente registrada
+        client_secret:
+          type: string
+          description: client_secret da aplicação registrada. Pode ser diferente do client_secret originalmente registrado (rotacionamento).
+        client_id_issued_at:
+          type: string
+          description: data/hora da emissão do registro, representado como timestamp, dos segundos desde 1 de janeiro de 1970 - Zulu time.
+        client_secret_expires_at: 
+          type: string
+          description: (somente obrigatório se um client_secret foi emitido) data/hora da expiração do client_secret, representado como timestame, dos segundos desde 1 de janeiro de 1970 - Zulu time.
+        registration_client_uri:
+          type: string
+          description: deve conter a URL pública do endpoint de configuração de registro deste cliente (endpoint para DCM). <br/>Esta URL deve apontar para o recurso específico do cliente registrado, seja através de query parameter ou como parte do path, segundo definido do Apêndice B da RFC 7592. <br/>Exemplo <br/>"https://server.example.com/register/s6BhdRkqt3" ou <br/>"https://server.example.com/register?client_id=s6BhdRkqt3"
+        registration_access_token:
+          type: string
+          description: token necessário para autorizar ajustes na configuração do registro deste cliente na instituição financeira (para DCM). Pode ser diferente do registration_access_token originalmente registrado (rotacionamento).
+    ClientRegistrationResponseError:
+      type: object
+      description: Os campos a seguir seguem a especificação descrita na seção 3.2.2 da RFC 7591, portanto, devem considerar também a inclusão dos campos adicionais ali descritos.
+      required:
+        - error
+      properties:
+        error:
+          type: string
+          enum: 
+            - invalid_redirect_uri
+            - invalid_client_metadata
+            - invalid_software_statement
+            - unapproved_software_statement
+          description: códigos de erro de registro de cliente, usados como descrito na seção 3.2.2 da RFC 7591
+        error_description:
+          type: string
+          description: mensagem amigável com detalhes do erro ocorrido
+    ClientRegistrationResponseSuccess:
+      type: object
+      description: Os campos a seguir seguem a especificação descrita na seção 3.2.1 da RFC 7591 e seção 3 da RFC 7592 e, portanto, devem considerar também a inclusão dos campos adicionais ali descritos.
+      required:
+        - client_id
+        - registration_client_uri
+        - registration_access_token
+      properties:
+        client_id:
+          type: string
+          description: client_id da aplicação registrada
+        client_secret:
+          type: string
+          description: client_secret da aplicação registrada
+        client_id_issued_at:
+          type: string
+          description: data/hora da emissão do registro, representado como timestamp, dos segundos desde 1 de janeiro de 1970 - Zulu time.
+        client_secret_expires_at: 
+          type: string
+          description: (somente obrigatório se um client_secret foi emitido) data/hora da expiração do client_secret, representado como timestame, dos segundos desde 1 de janeiro de 1970 - Zulu time.
+        registration_client_uri:
+          type: string
+          description: deve conter a URL pública do endpoint de configuração de registro deste cliente (endpoint para DCM). <br/>Esta URL deve apontar para o recurso específico do cliente registrado, seja através de query parameter ou como parte do path, segundo definido do Apêndice B da RFC 7592. <br/>Exemplo <br/>"https://server.example.com/register/s6BhdRkqt3" ou <br/>"https://server.example.com/register?client_id=s6BhdRkqt3"
+        registration_access_token:
+          type: string
+          description: token necessário para autorizar ajustes na configuração do registro deste cliente na instituição financeira (para DCM)
+    ClientRegistrationRequest:
+      description: Os campos a seguir seguem a especificação descrita na seção 3.2.1 da RFC 7591, seção 3 da RFC 7592 e seção 2 da especificação "OpenID Connect Dynamic Client Registration 1.0 incorporating errata set 1" e, portanto, devem considerar também a inclusão dos campos adicionais ali descritos.
+      type: object
+      required:
+        - software_statement
+        - redirect_uris
+      properties:
+        application_type:
+          description: tipo da aplicação
+          type: string
+          enum:
+            - web
+            - native
+          example: web
+        grant_types:
+          description: grant types suportados pela aplicação cliente
+          type: array
+          items:
+            type: string
+            enum:
+              - client_credentials
+              - authorization_code
+              - refresh_token
+            example:
+              - client_credentials
+              - authorization_code
+              - refresh_token
+        id_token_signed_response_alg: 
+          description: algorítmo de assinatura do id_token
+          type: string
+          example: "PS256"
+        required_auth_time:
+          description: indica se o claim auth_time é obrigatório no id_token
+          type: boolean
+          example: false
+        response_types: 
+          description: lista de response_type que a aplicação cliente se restringe a suportar
+          type: array
+          items:
+            type: string
+            enum: 
+              - code id_token
+              - code
+            example:
+              code id_token
+        software_statement:
+          description: declaração de software assinada pelo Diretório de Participantes do Open Banking Brasil, definida em xxxx
+          type: string
+          example: "eyJraWQiOiJzaWduZXIiLCJ0eXAiOiJKV1QiLCJhb......"
+        subject_type:
+          description: subject types suportados pela aplicação cliente
+          type: string
+          enum: 
+            - pairwise
+            - public
+        token_endpoint_auth_method: 
+          description: método de autenticação suportado pela aplicação cliente
+          type: string
+          enum: 
+            - private_key_jwt
+            - tls_client_auth
+        introspection_endpoint_auth_method:
+          description: método de autenticação suportado pela aplicação cliente        
+          type: string
+          enum: 
+            - private_key_jwt
+            - tls_client_auth
+        revocation_endpoint_auth_method:
+          description: método de autenticação suportado pela aplicação cliente        
+          type: string
+          enum: 
+            - private_key_jwt
+            - tls_client_auth
+        request_object_signing_alg:
+          description: algorítmo suportado para assinatura de request object
+          type: string
+          example: "PS256"
+        require_signed_request_object:
+          description: suporte a request objects assinados
+          type: boolean
+          example: true
+        require_pushed_authorization_request:
+          description: suporte ao PAR
+          type: boolean
+          example: false
+        tls_client_certificate_bound_access_tokens:
+          description: suporte a tokens vinculados ao certificado de cliente
+          type: boolean
+          example: true
+        client_id:
+          description: client_id da aplicação registrada, ou vazio se for o registro inicial.
+          type: string
+          example: "S38sDSf93jxakçsdf9"
+        client_name:
+          description: nome da aplicação cliente
+          type: string
+          example: "MyBank"
+        client_uri: 
+          description: URL que provê informações sobre a aplicação cliente.
+          type: string
+          example: "https://mybank.com.br"
+        request_object_encryption_alg:
+          description: algorítmo suportado para criptografia de request object
+          type: string
+          example: "RSA-OAEP"
+        request_object_encryption_enc:
+          description: encoding suportado para criptografia de request object
+          type: string
+          example: "A256GCM"
+        jwks_uri: 
+          description: URL para o JWKS contendo as chaves públicas da aplicação cliente.
+          type: string
+          example: "https://keystore.directory.openbankingbrasil.org.br/b961c4eb-509d-4edf-afeb-35642b38185d/25556d5a-b9dd-4e27-aa1a-cce732fe74de/application.jwks"
+        redirect_uris:
+          description: Array com as URLs de redirecionamento da aplicação cliente.
+          type: array
+          items:
+            type: string
+            example: "https://mybank.com.br/apis/callback"
+  securitySchemes:
+    OAuth2Security:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: 'https://mybank.com.br/token'
+          scopes:
+            openid: OpenID Connect
+    DCMSecurity:
+      type: http
+      description: Deve informar o registration_access_token obtido durante o processo de registro do cliente (DCR) para autorizar a operação
+      scheme: Bearer
