@@ -346,4 +346,4 @@ ASPSP may choose the certificate that should be adopted for Phase 1 endpoints, w
 | 2 | Direitos   Creditórios | /invoice-financings/* | ICP WEB SSL | Required |
 | 3 | Pagamentos | /payments/* | ICP WEB SSL | Required |
 
-_(**)_ if for some reason this endpoint should be public, which is not recommended.
+_(**)_ this endpoint shall not be published to TTPs, but if publishing this endpoint is required to deal with an special use case (**which is not mandatory nor recommended for security reasons**), it shall be made using ICP WEB SSL and  require MTLS authentication.

@@ -347,4 +347,4 @@ Fica a critério da instituição a escolha do certificado que deve ser adotado 
 | 2 | Direitos   Creditórios | /invoice-financings/* | ICP WEB SSL | Obrigatório |
 | 3 | Pagamentos | /payments/* | ICP WEB SSL | Obrigatório |
 
-_(**)_ caso seja necessário a publicação do endpoint, o que não é obrigatório.
+_(**)_ esse endpoint não deve ser acessível ao cliente de API, mas caso seja necessária a sua publicação para tratar caso de uso específico da instituição (**o que não é mandatório pela especificação nem recomendado sob o ponto de vista de segurança**) deve ser feita por meio do uso de certificados ICP WEB SSL e obrigatoriamente com uso de autenticação MTLS.
