@@ -334,7 +334,6 @@ ASPSP may choose the certificate that should be adopted for Phase 1 endpoints, w
 | NA | OIDC | pushed_authorization_request_endpoint |  ICP WEB SSL | Required |
 | NA | DCR | registration_endpoint |  ICP WEB SSL | Required |
 | NA | OIDC | revocation_endpoint | ICP WEB SSL | Required |
-| NA | OIDC | introspection_endpoint _(**)_ | ICP WEB SSL | Required |
 | 2 | Consentimentos | /consents/* |  ICP WEB SSL | Required |
 | 2 | Resources | /resources/* | ICP WEB SSL | Required |
 | 2 | Dados | /customers/* | ICP WEB SSL | Required |
@@ -345,5 +344,3 @@ ASPSP may choose the certificate that should be adopted for Phase 1 endpoints, w
 | 2 | Adiantamento | /unarranged-accounts-overdraft/* | ICP WEB SSL | Required |
 | 2 | Direitos   Creditórios | /invoice-financings/* | ICP WEB SSL | Required |
 | 3 | Pagamentos | /payments/* | ICP WEB SSL | Required |
-
-_(**)_ this endpoint shall not be published to TTPs, but if publishing this endpoint is required to deal with an special use case (**which is not mandatory nor recommended for security reasons**), it shall be made using ICP WEB SSL and  require MTLS authentication.

@@ -335,7 +335,6 @@ Fica a critério da instituição a escolha do certificado que deve ser adotado 
 | NA | OIDC | pushed_authorization_request_endpoint |  ICP WEB SSL | Obrigatório |
 | NA | DCR | registration_endpoint |  ICP WEB SSL | Obrigatório |
 | NA | OIDC | revocation_endpoint | ICP WEB SSL | Obrigatório |
-| NA | OIDC | introspection_endpoint _(**)_ | ICP WEB SSL | Obrigatório |
 | 2 | Consentimentos | /consents/* |  ICP WEB SSL | Obrigatório |
 | 2 | Resources | /resources/* | ICP WEB SSL | Obrigatório |
 | 2 | Dados | /customers/* | ICP WEB SSL | Obrigatório |
@@ -346,5 +345,3 @@ Fica a critério da instituição a escolha do certificado que deve ser adotado 
 | 2 | Adiantamento | /unarranged-accounts-overdraft/* | ICP WEB SSL | Obrigatório |
 | 2 | Direitos   Creditórios | /invoice-financings/* | ICP WEB SSL | Obrigatório |
 | 3 | Pagamentos | /payments/* | ICP WEB SSL | Obrigatório |
-
-_(**)_ esse endpoint não deve ser acessível ao cliente de API, mas caso seja necessária a sua publicação para tratar caso de uso específico da instituição (**o que não é mandatório pela especificação nem recomendado sob o ponto de vista de segurança**) deve ser feita por meio do uso de certificados ICP WEB SSL e obrigatoriamente com uso de autenticação MTLS.

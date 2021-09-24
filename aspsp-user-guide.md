@@ -137,6 +137,17 @@ The current Gold Standard for API Security, the [FAPI 1.0: Advanced profile](htt
 
 ![Hierachy of OAuth 2.0 Profiles](https://miro.medium.com/max/700/1*R8d0lkvVRlEMG9WBXCZsdQ.png)
 
+# About JARM {#JARM}
+
+Support [JARM](<https://bitbucket.org/openid/fapi/src/master/Financial_API_JWT_Secured_Authorization_Response_Mode.md) is optional for ASPSP. Institutions that choose to use the JARM shall, in the OIDF security certification process, also certify support for another profile that does not consider the use of the JARM standard, that is, it must also certify with one of the profiles listed in the table below.
+
+| OIDF Certification Profile |
+| -- |
+| BR-OB Adv. OP w/ MTLS	|
+| BR-OB Adv. OP w/ Private Key |
+| BR-OB Adv. OP w/ MTLS, PAR	|
+| BR-OB Adv. OP w/ Private Key, PAR	|
+
 # ASPSP End To End User Guide
 
 ## 1.0 Registering a Bank
