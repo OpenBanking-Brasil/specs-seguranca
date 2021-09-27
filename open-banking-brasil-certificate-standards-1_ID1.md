@@ -240,7 +240,7 @@ The following people contributed to this document:
 * Marcos Rodrigues (Itaú)
 * José Michael Dias (Grupo Pan)
 * Ralph Bragg (Raidiam)
-* Ediemerson Moreira Alves (Santander)
+* João Rodolfo Vieira (Itaú)
 
 # Notices
 
