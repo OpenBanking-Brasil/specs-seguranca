@@ -617,6 +617,19 @@ Resposta
 
 ### 4.3.1 Criar OpenID Connect Request Object  {#CriarOIDC}
 
+Diferentes métodos de autenticação (_private_key_jwt_ e _tls_client_auth_) e de encaminhamento do Request Object (com e sem uso de *PAR*) podem ser suportados pelos _Authorization Servers_ de acordo com a especificação  [FAPI-1.0 Part 2 - Advanced](https://openid.net/specs/openid-financial-api-part-2-1_0.html).
+
+Portanto, como reforça o perfil de segurança para o Open Banking Brasil (item 8 da seção 5.2.3 dos [requisitos de segurança para o cliente confidencial](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID3-ptbr.html#section-5.2.3)), *todas* as 4 combinações de métodos devem ser suportados pelos clientes de API.
+
+A tabela abaixo reflete os diferentes profiles de segurança e combinações que devem ser suportados por todos os clientes de API (conforme os [profiles certificados pela OIDF para o Open Banking Brasil](https://openid.net/certification/#FAPI_OPs)).
+
+| Perfil da certificação OIDF |
+| -- |
+| BR-OB Adv. OP w/ MTLS	|
+| BR-OB Adv. OP w/ Private Key |
+| BR-OB Adv. OP w/ MTLS, PAR	|
+| BR-OB Adv. OP w/ Private Key, PAR	|
+
 Todos os requisitos para o OpenID Request Object estão incluídos no [Perfil de Segurança do Open Banking Brasil](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID1-ptbr.html). Veja o exemplo com JWS a seguir:
 
 ```

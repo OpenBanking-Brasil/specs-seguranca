@@ -97,6 +97,7 @@ Os seguintes documentos referenciados são indispensáveis para a aplicação de
 * [RFC6749] - The OAuth 2.0 Authorization Framework [RFC6749]: <https://tools.ietf.org/html/rfc6749>
 * [BCB-IN134] - Manual de Segurança do Open Banking: <https://www.in.gov.br/web/dou/-/instrucao-normativa-bcb-n-134-de-22-de-julho-de-2021-3345585364>
 * [RFC2818] - HTTP Over TLS: <https://datatracker.ietf.org/doc/html/rfc2818>
+* [RFC5246] - The Transport Layer Security (TLS) Protocol Version 1.2 <https://www.rfc-editor.org/rfc/rfc5246.txt>
 
 # Termos e Definições {#TermosDefinicoes}
 
@@ -145,7 +146,7 @@ O padrão de certificado utilizado deve seguir as práticas de emissão de certi
 
 ### Certificado Cliente {#CertificadoCliente}
 
-Os Certificados de Aplicação Cliente (Transporte) são utilizados para autenticar o canal mTLS e para realizar a autenticação da aplicação cliente através de oAuth2.0 mTLS ou private_key_jwt, de acordo com o cadastro da aplicação realizado pelo processo de Dynamic Client Registration junto à entidade transmissora.
+Os Certificados de Aplicação Cliente (Transporte) são utilizados para autenticar o canal mTLS e para realizar a autenticação da aplicação cliente através de oAuth2.0 mTLS ou private_key_jwt, de acordo com o cadastro da aplicação realizado pelo processo de Dynamic Client Registration junto à entidade transmissora. Sobre o mTLS, o certificado cliente precisa ser enviado com a cadeia intermediária, conforme [RFC5246] (itens 7.4.2 e 7.4.6).
 
 Para emissão de Certificado Cliente é necessário que a instituição participante do Open Banking Brasil tenha realizado o cadastro da aplicação no Serviço de Diretório, através do processo de emissão de Software Statement Assertion, e com isso já tenha obtido o valor de Software Statement ID.
 
@@ -322,17 +323,18 @@ otherName.3 = 2.16.76.1.3.7;UTF8:<Número de INSS>
 ## Tabela com Endpoints vs Tipo de Certificado e mTLS
 Abaixo apresentamos quais endpoints podem ser publicados utilizando certificado EV como autenticação do consentimento e os endpoints de autenticação de APIs privadas/negócios que devem ser publicadas usando certificado ICP. Você também poderá verificar quais endpoints devem proteger suas conexões utilizando mTLS.
 
+Fica a critério da instituição a escolha do certificado que deve ser adotado para os _endpoints_ da Fase 1, os quais, por natureza, são de acesso público.
+
 | Fase | Grupo | API | Certificado | mTLS |
 | --- | --- | --- | --- | --- |
 | NA | OIDC | .well-known/openid-configuration | EV ou ICP WEB SSL |  
 | NA | OIDC | jwks_uri | EV ou ICP WEB SSL |  
 | NA | OIDC | authorization_endpoint | EV |   |  
-| NA | OIDC | token_endpoint | ICP WEB SSL | Obrigatório | 
+| NA | OIDC | token_endpoint | ICP WEB SSL | Obrigatório |
 | NA | OIDC | userinfo_endpoint | ICP WEB SSL | Obrigatório |
 | NA | OIDC | pushed_authorization_request_endpoint |  ICP WEB SSL | Obrigatório |
 | NA | DCR | registration_endpoint |  ICP WEB SSL | Obrigatório |
 | NA | OIDC | revocation_endpoint | ICP WEB SSL | Obrigatório |
-| NA | OIDC | introspection_endpoint (\*) | ICP WEB SSL | Obrigatório |
 | 2 | Consentimentos | /consents/* |  ICP WEB SSL | Obrigatório |
 | 2 | Resources | /resources/* | ICP WEB SSL | Obrigatório |
 | 2 | Dados | /customers/* | ICP WEB SSL | Obrigatório |
@@ -343,5 +345,3 @@ Abaixo apresentamos quais endpoints podem ser publicados utilizando certificado 
 | 2 | Adiantamento | /unarranged-accounts-overdraft/* | ICP WEB SSL | Obrigatório |
 | 2 | Direitos   Creditórios | /invoice-financings/* | ICP WEB SSL | Obrigatório |
 | 3 | Pagamentos | /payments/* | ICP WEB SSL | Obrigatório |
-
-(*) caso seja necessário a publicação do endpoint, o que não é obrigatório.

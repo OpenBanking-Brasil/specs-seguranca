@@ -119,6 +119,17 @@ O [FAPI 1.0: Advanced profile](https://openid.net/specs/openid-financial-api-par
 
 ![Hierachy of OAuth 2.0 Profiles](https://miro.medium.com/max/700/1*R8d0lkvVRlEMG9WBXCZsdQ.png)
 
+# Sobre o uso de JARM {#JARM}
+
+O suporte ao [JARM](<https://bitbucket.org/openid/fapi/src/master/Financial_API_JWT_Secured_Authorization_Response_Mode.md) é opcional aos transmissores e detentores de contas (ASPSP) e, portanto, as instituições que optarem pelo uso do JARM devem, no processo de certificação de segurança, atestar também o suporte a outro profile que não considere o uso do padrão JARM, ou seja, deve também se certificar com um dos profiles listados na tabela a seguir.
+
+| Perfil da certificação OIDF |
+| -- |
+| BR-OB Adv. OP w/ MTLS	|
+| BR-OB Adv. OP w/ Private Key |
+| BR-OB Adv. OP w/ MTLS, PAR	|
+| BR-OB Adv. OP w/ Private Key, PAR	|
+
 # Guia do Usuário para Entidades Transmissoras de Dados (ASPSP) {#Guia}
 
 ASPSP - *Account Servicing Payment Service Provider*
