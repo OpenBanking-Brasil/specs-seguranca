@@ -20,12 +20,11 @@ As especificações deste repositório ainda estão em versão *draft*. A princ�
 
 Esse repositório inclui o detalhamento técnico necessário para o entendimento sobre o funcionamento das principais etapas para:
 
-- [Registro e Cadastramento Dinâmico do Cliente de APIs - PTBR](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID1-ptbr.html)
-- [Dynamic Client Registration - ENG](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID1.html)
-- [Perfil de Segurança do Open Banking Brasil, que inclui requisitos para o Authorization Server, para o registro da intenção de consentimento, autenticação do usuário e efetivação do consentimento e emissão do `access_token`](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID1-ptbr.html)
-- [Open Banking Brasil OpenID FAPI Security Profile - ENG](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID1.html)
-- [Guia do usuário - ponto de vista da instituição transmissora (ASPSP)](https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/aspsp-user-guide.md)
-- [Guia do usuário - ponto de vista da instituição receptora de dados ou iniciadora de pagamentos (TTP)](https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/aspsp-user-guide.md)
+ - [Registro e Cadastramento Dinâmico do Cliente de APIs](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID1.html)
+ - [Perfil de Segurança do OpenBanking Brasil ID2, que inclui requisitos para o Authorization Server, para o registro da intenção de consentimento, autenticação do usuário e efetivação do consentimento e emissão do `access_token`](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID2.html)
+ - [Guia do usuário - ponto de vista da instituição transmissora (ASPSP)](https://openbanking-brasil.github.io/specs-seguranca/aspsp-user-guide.html)
+ - [Guia do usuário - ponto de vista da instituição receptora de dados ou iniciadora de pagamentos (TTP)](https://openbanking-brasil.github.io/specs-seguranca/tpp-user-guide.html)
+ - [Padrão de Certificados Open Banking Brasil](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html)
 
 ## Documentation Generation for Maintainers
 
