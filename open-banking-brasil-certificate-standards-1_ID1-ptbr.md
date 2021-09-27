@@ -241,7 +241,6 @@ As seguintes pessoas contribuíram para este documento:
 * Marcos Rodrigues (Itaú)
 * José Michael Dias (Grupo Pan)
 * Ralph Bragg (Raidiam)
-* Ediemerson Moreira Alves (Santander)
 * João Rodolfo Vieira (Itaú)
 
 # Informativo {#Informativo}
