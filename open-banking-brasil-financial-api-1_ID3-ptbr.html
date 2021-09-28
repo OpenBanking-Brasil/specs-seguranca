@@ -1085,7 +1085,7 @@ tr:nth-child(2n+1) > td {
 <dd class="internet-draft">open-banking-brasil-financial-api-1_ID3-ptbr</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2021-09-02" class="published">2 September 2021</time>
+<time datetime="2021-09-27" class="published">27 September 2021</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
@@ -1428,6 +1428,12 @@ tr:nth-child(2n+1) > td {
 <li id="section-5.2.2-3.14">
               <p id="section-5.2.2-3.14.1">deve sempre incluir a claim <code>acr</code> no id_token<a href="#section-5.2.2-3.14.1" class="pilcrow">¶</a></p>
 </li>
+<li id="section-5.2.2-3.15">
+              <p id="section-5.2.2-3.15.1">deve suportar os valores <code>code</code> e <code>id_token</code> para o atributo <code>response_type</code><a href="#section-5.2.2-3.15.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-5.2.2-3.16">
+              <p id="section-5.2.2-3.16.1">pode suportar o valor <code>code</code> para o atributo <code>response_type</code>em conjunto com o valor <code>jwt</code> para o atributo <code>response_mode</code><a href="#section-5.2.2-3.16.1" class="pilcrow">¶</a></p>
+</li>
 </ol>
 <div id="detached">
 <section id="section-5.2.2.1">
@@ -1536,6 +1542,9 @@ tr:nth-child(2n+1) > td {
 </li>
 <li id="section-5.2.3-3.7">
               <p id="section-5.2.3-3.7.1">deve definir a <em>claim</em> <code>acr</code>como <em>essential</em><a href="#section-5.2.3-3.7.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-5.2.3-3.8">
+              <p id="section-5.2.3-3.8.1">deve suportar todos os m&#233;todos de autentica&#231;&#227;o especificados no item 14 da se&#231;&#227;o 5.2.2 da <a href="https://openid.net/specs/openid-financial-api-part-2-1_0.html">Financial-grade API Security Profile 1.0 - Part 2: Advanced</a> incluindo as diferentes combina&#231;&#245;es de m&#233;todos de encaminhamento dos Requests Objects (usando ou n&#227;o <a href="https://tools.ietf.org/html/draft-ietf-oauth-par">PAR</a> - item 11).<a href="#section-5.2.3-3.8.1" class="pilcrow">¶</a></p>
 </li>
 </ol>
 </section>

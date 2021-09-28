@@ -228,6 +228,8 @@ In addition, the Authorization Server
 12. shall support refresh tokens
 13. shall issue access tokens with an expiry no greater than 900 seconds and no less than 300 seconds
 14. shall always include an acr claim in the `id_token`
+15. shall support the `response_type` value `code id_token`
+16. may support `response_type` value `code` in conjunction with the `response_mode` value `jwt`
 
 
 #### ID Token as detached signature
@@ -319,6 +321,7 @@ In addition, the confidential client
 5. shall support refresh tokens
 6. shall not populate the `acr` claim with required values
 7. shall require the `acr` claim as an essential claim
+8. shall support all authentication methods specified in clause 5.2.2-14 of [Financial-grade API Security Profile 1.0 - Part 2: Advanced][FAPI-1-Advanced] including diferent combinations of the methods to send requests (using [PAR] or not - item 11).
 
 # Security considerations
 

@@ -1087,7 +1087,7 @@ tr:nth-child(2n+1) > td {
 <dd class="internet-draft">open-banking-brasil-certificate-standards-1_ID1</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2021-09-03" class="published">3 September 2021</time>
+<time datetime="2021-09-27" class="published">27 September 2021</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
@@ -1272,6 +1272,9 @@ and are not to be interpreted with their natural language meanings.<a href="#sec
 <li id="section-2-2.13">
           <p id="section-2-2.13.1">[RFC2818] - HTTP Over TLS: <a href="https://datatracker.ietf.org/doc/html/rfc2818">https://datatracker.ietf.org/doc/html/rfc2818</a><a href="#section-2-2.13.1" class="pilcrow">¶</a></p>
 </li>
+<li id="section-2-2.14">
+          <p id="section-2-2.14.1">[RFC5246] - The Transport Layer Security (TLS) Protocol Version 1.2 <a href="https://www.rfc-editor.org/rfc/rfc5246.txt">https://www.rfc-editor.org/rfc/rfc5246.txt</a><a href="#section-2-2.14.1" class="pilcrow">¶</a></p>
+</li>
 </ul>
 </section>
 </div>
@@ -1365,7 +1368,7 @@ and are not to be interpreted with their natural language meanings.<a href="#sec
           <h4 id="name-client-certificate">
 <a href="#section-5.2.2" class="section-number selfRef">5.2.2. </a><a href="#name-client-certificate" class="section-name selfRef">Client Certificate</a>
           </h4>
-<p id="section-5.2.2-1">Client Application Certificates (Transport) are used to authenticate the mTLS channel and to authenticate the client application through oAuth2.0 mTLS or private<em>key</em>jwt, according to the application registration performed by the Dynamic Client Registration process with the transmitting organization.<a href="#section-5.2.2-1" class="pilcrow">¶</a></p>
+<p id="section-5.2.2-1">Client Application Certificates (Transport) are used to authenticate the mTLS channel and to authenticate the client application through oAuth2.0 mTLS or private<em>key</em>jwt, according to the application registration performed by the Dynamic Client Registration process with the transmitting organization. Regarding mTLS, the client certificate shall be sent with the intermediate chain, according to <a href="items%207.4.2%20and%207.4.6">RFC5246</a>.<a href="#section-5.2.2-1" class="pilcrow">¶</a></p>
 <p id="section-5.2.2-2">To issue a Client Certificate, the participating organization in Open Banking Brasil must register the application in the Directory Service through the Software Statement Assertion issue process, and thus have already obtained the Software Statement ID value.<a href="#section-5.2.2-2" class="pilcrow">¶</a></p>
 <div id="open-banking-brasil-attributes">
 <section id="section-5.2.2.1">
@@ -1666,6 +1669,7 @@ otherName.3 = 2.16.76.1.3.7;UTF8:&lt;INSS Number&gt;
         <h3 id="name-endpoints-vs-certificate-ty">
 <a href="#section-8.3" class="section-number selfRef">8.3. </a><a href="#name-endpoints-vs-certificate-ty" class="section-name selfRef">Endpoints vs Certificate type and mTLS requirements</a>
         </h3>
+<p id="section-8.3-1">ASPSP may choose the certificate that should be adopted for Phase 1 endpoints, which, by nature, are publicly accessible.<a href="#section-8.3-1" class="pilcrow">¶</a></p>
 <table class="center" id="table-1">
           <caption><a href="#table-1" class="selfRef">Table 1</a></caption>
 <thead>
@@ -1731,14 +1735,6 @@ otherName.3 = 2.16.76.1.3.7;UTF8:&lt;INSS Number&gt;
               <td class="text-left" rowspan="1" colspan="1">NA</td>
               <td class="text-left" rowspan="1" colspan="1">OIDC</td>
               <td class="text-left" rowspan="1" colspan="1">revocation_endpoint</td>
-              <td class="text-left" rowspan="1" colspan="1">ICP WEB SSL</td>
-              <td class="text-left" rowspan="1" colspan="1">Required</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">NA</td>
-              <td class="text-left" rowspan="1" colspan="1">OIDC</td>
-              <td class="text-left" rowspan="1" colspan="1">introspection_endpoint <em>(*)</em>
-</td>
               <td class="text-left" rowspan="1" colspan="1">ICP WEB SSL</td>
               <td class="text-left" rowspan="1" colspan="1">Required</td>
             </tr>
@@ -1814,7 +1810,6 @@ otherName.3 = 2.16.76.1.3.7;UTF8:&lt;INSS Number&gt;
             </tr>
           </tbody>
         </table>
-<p id="section-8.3-2"><em>(*)</em> if for some reason this endpoint should be public, which is not recommended.<a href="#section-8.3-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>

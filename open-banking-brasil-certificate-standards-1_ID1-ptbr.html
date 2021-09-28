@@ -1087,7 +1087,7 @@ tr:nth-child(2n+1) > td {
 <dd class="internet-draft">open-banking-brasil-certificate-standards-1_ID1-ptbr</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2021-09-03" class="published">3 September 2021</time>
+<time datetime="2021-09-27" class="published">27 September 2021</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
@@ -1281,6 +1281,9 @@ tr:nth-child(2n+1) > td {
 <li id="section-2-2.13">
           <p id="section-2-2.13.1">[RFC2818] - HTTP Over TLS: <a href="https://datatracker.ietf.org/doc/html/rfc2818">https://datatracker.ietf.org/doc/html/rfc2818</a><a href="#section-2-2.13.1" class="pilcrow">¶</a></p>
 </li>
+<li id="section-2-2.14">
+          <p id="section-2-2.14.1">[RFC5246] - The Transport Layer Security (TLS) Protocol Version 1.2 <a href="https://www.rfc-editor.org/rfc/rfc5246.txt">https://www.rfc-editor.org/rfc/rfc5246.txt</a><a href="#section-2-2.14.1" class="pilcrow">¶</a></p>
+</li>
 </ul>
 </section>
 </div>
@@ -1374,7 +1377,7 @@ tr:nth-child(2n+1) > td {
           <h4 id="name-certificado-cliente">
 <a href="#section-5.2.2" class="section-number selfRef">5.2.2. </a><a href="#name-certificado-cliente" class="section-name selfRef">Certificado Cliente</a>
           </h4>
-<p id="section-5.2.2-1">Os Certificados de Aplica&#231;&#227;o Cliente (Transporte) s&#227;o utilizados para autenticar o canal mTLS e para realizar a autentica&#231;&#227;o da aplica&#231;&#227;o cliente atrav&#233;s de oAuth2.0 mTLS ou private<em>key</em>jwt, de acordo com o cadastro da aplica&#231;&#227;o realizado pelo processo de Dynamic Client Registration junto &#224; entidade transmissora.<a href="#section-5.2.2-1" class="pilcrow">¶</a></p>
+<p id="section-5.2.2-1">Os Certificados de Aplica&#231;&#227;o Cliente (Transporte) s&#227;o utilizados para autenticar o canal mTLS e para realizar a autentica&#231;&#227;o da aplica&#231;&#227;o cliente atrav&#233;s de oAuth2.0 mTLS ou private<em>key</em>jwt, de acordo com o cadastro da aplica&#231;&#227;o realizado pelo processo de Dynamic Client Registration junto &#224; entidade transmissora. Sobre o mTLS, o certificado cliente precisa ser enviado com a cadeia intermedi&#225;ria, conforme <a href="itens%207.4.2%20e%207.4.6">RFC5246</a>.<a href="#section-5.2.2-1" class="pilcrow">¶</a></p>
 <p id="section-5.2.2-2">Para emiss&#227;o de Certificado Cliente &#233; necess&#225;rio que a institui&#231;&#227;o participante do Open Banking Brasil tenha realizado o cadastro da aplica&#231;&#227;o no Servi&#231;o de Diret&#243;rio, atrav&#233;s do processo de emiss&#227;o de Software Statement Assertion, e com isso j&#225; tenha obtido o valor de Software Statement ID.<a href="#section-5.2.2-2" class="pilcrow">¶</a></p>
 <div id="AtributosOpenBankingBrasil">
 <section id="section-5.2.2.1">
@@ -1679,6 +1682,7 @@ otherName.3 = 2.16.76.1.3.7;UTF8:&lt;Número de INSS&gt;
 <a href="#section-8.3" class="section-number selfRef">8.3. </a><a href="#name-tabela-com-endpoints-vs-tip" class="section-name selfRef">Tabela com Endpoints vs Tipo de Certificado e mTLS</a>
         </h3>
 <p id="section-8.3-1">Abaixo apresentamos quais endpoints podem ser publicados utilizando certificado EV como autentica&#231;&#227;o do consentimento e os endpoints de autentica&#231;&#227;o de APIs privadas/neg&#243;cios que devem ser publicadas usando certificado ICP. Voc&#234; tamb&#233;m poder&#225; verificar quais endpoints devem proteger suas conex&#245;es utilizando mTLS.<a href="#section-8.3-1" class="pilcrow">¶</a></p>
+<p id="section-8.3-2">Fica a crit&#233;rio da institui&#231;&#227;o a escolha do certificado que deve ser adotado para os <em>endpoints</em> da Fase 1, os quais, por natureza, s&#227;o de acesso p&#250;blico.<a href="#section-8.3-2" class="pilcrow">¶</a></p>
 <table class="center" id="table-1">
           <caption><a href="#table-1" class="selfRef">Table 1</a></caption>
 <thead>
@@ -1744,13 +1748,6 @@ otherName.3 = 2.16.76.1.3.7;UTF8:&lt;Número de INSS&gt;
               <td class="text-left" rowspan="1" colspan="1">NA</td>
               <td class="text-left" rowspan="1" colspan="1">OIDC</td>
               <td class="text-left" rowspan="1" colspan="1">revocation_endpoint</td>
-              <td class="text-left" rowspan="1" colspan="1">ICP WEB SSL</td>
-              <td class="text-left" rowspan="1" colspan="1">Obrigat&#243;rio</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">NA</td>
-              <td class="text-left" rowspan="1" colspan="1">OIDC</td>
-              <td class="text-left" rowspan="1" colspan="1">introspection_endpoint (*)</td>
               <td class="text-left" rowspan="1" colspan="1">ICP WEB SSL</td>
               <td class="text-left" rowspan="1" colspan="1">Obrigat&#243;rio</td>
             </tr>
@@ -1826,7 +1823,6 @@ otherName.3 = 2.16.76.1.3.7;UTF8:&lt;Número de INSS&gt;
             </tr>
           </tbody>
         </table>
-<p id="section-8.3-3">(*) caso seja necess&#225;rio a publica&#231;&#227;o do endpoint, o que n&#227;o &#233; obrigat&#243;rio.<a href="#section-8.3-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>

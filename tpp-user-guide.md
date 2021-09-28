@@ -650,6 +650,17 @@ curl --cert transport.pem --key transport.key -H 'Authorization: Bearer 2Pjwts8m
 
 ### 4.3.1 Create OpenID Connect Request Object
 
+Different methods of authentication (_private_key_jwt_ and _tls_client_auth_) and of sending Request Object (with and without *PAR*) can be supported by _Authorization Servers_ according to the [FAPI-1.0 Part 2 - Advanced](https://openid.net/specs/openid-financial-api-part-2-1_0.html) specification. Therefore, how does it reinforce the security profile for Open Banking Brasil (item 8 of section 5.2.3 of the [security requirements for the confidential client](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID3.html#section-5.2.3)), *all* combinations (table below) must be supported by API clients.
+
+The table below reflects the different security profiles and combinations that shall be supported by all API clients (as per the [OIDF certified profiles for Open Banking Brazil](https://openid.net/certification/#FAPI_OPs)) .
+
+| OIDF Certification Profile |
+| -- |
+| BR-OB Adv. OP w/ MTLS |
+| BR-OB Adv. OP w/ Private Key |
+| BR-OB Adv. OP w/ MTLS, PAR |
+| BR-OB Adv. OP w/ Private Key, PAR |
+
 All requirements for the OpenID Request Object are included in Brasil Open Banking Security Profile
 
 ```

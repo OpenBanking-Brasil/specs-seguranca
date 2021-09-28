@@ -229,6 +229,8 @@ Além disso, ele deve:
 12. deve suportar `refresh tokens`
 13. deve emitir `access tokens` com o tempo de expiração entre 300 (mínimo) e 900 (máximo) segundos
 14. deve sempre incluir a claim `acr` no id_token
+15. deve suportar os valores `code` e `id_token` para o atributo `response_type`
+16. pode suportar o valor `code` para o atributo `response_type`em conjunto com o valor `jwt` para o atributo `response_mode`
 
 #### Token de ID como assinatura separada  {#detached}
 
@@ -305,6 +307,7 @@ Além disso, o cliente confidencial
 5. deve suportar `refresh tokens`
 6. não deve incluir um valor específico na _claim_ `acr`
 7. deve definir a _claim_ `acr`como _essential_
+8. deve suportar todos os métodos de autenticação especificados no item 14 da seção 5.2.2 da [Financial-grade API Security Profile 1.0 - Part 2: Advanced][FAPI-1-Advanced] incluindo as diferentes combinações de métodos de encaminhamento dos Requests Objects (usando ou não [PAR] - item 11).
 
 # Considerações de segurança  {#authserver}
 

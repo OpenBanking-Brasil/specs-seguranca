@@ -96,6 +96,7 @@ The following referenced documents are indispensable for the application of this
 * [RFC6749] - The OAuth 2.0 Authorization Framework [RFC6749]: <https://tools.ietf.org/html/rfc6749>
 * [BCB-IN134] - Manual de Segurança do Open Banking: <https://www.in.gov.br/web/dou/-/instrucao-normativa-bcb-n-134-de-22-de-julho-de-2021-3345585364>
 * [RFC2818] - HTTP Over TLS: <https://datatracker.ietf.org/doc/html/rfc2818>
+* [RFC5246] - The Transport Layer Security (TLS) Protocol Version 1.2 <https://www.rfc-editor.org/rfc/rfc5246.txt>
 
 # Terms and definitions
 
@@ -144,7 +145,7 @@ The certificate standard used must follow the existing certificate issuing pract
 
 ### Client Certificate
 
-Client Application Certificates (Transport) are used to authenticate the mTLS channel and to authenticate the client application through oAuth2.0 mTLS or private_key_jwt, according to the application registration performed by the Dynamic Client Registration process with the transmitting organization.
+Client Application Certificates (Transport) are used to authenticate the mTLS channel and to authenticate the client application through oAuth2.0 mTLS or private_key_jwt, according to the application registration performed by the Dynamic Client Registration process with the transmitting organization. Regarding mTLS, the client certificate shall be sent with the intermediate chain, according to [RFC5246] (items 7.4.2 and 7.4.6).
 
 To issue a Client Certificate, the participating organization in Open Banking Brasil must register the application in the Directory Service through the Software Statement Assertion issue process, and thus have already obtained the Software Statement ID value.
 
@@ -239,7 +240,7 @@ The following people contributed to this document:
 * Marcos Rodrigues (Itaú)
 * José Michael Dias (Grupo Pan)
 * Ralph Bragg (Raidiam)
-* Ediemerson Moreira Alves (Santander)
+* João Rodolfo Vieira (Itaú)
 
 # Notices
 
@@ -321,6 +322,8 @@ otherName.3 = 2.16.76.1.3.7;UTF8:<INSS Number>
 
 ## Endpoints vs Certificate type and mTLS requirements
 
+ASPSP may choose the certificate that should be adopted for Phase 1 endpoints, which, by nature, are publicly accessible.
+
 | OBB phase | group | endpoint | certificate type | mTLS |
 | --- | --- | --- | --- | --- |
 | NA | OIDC | .well-known/openid-configuration | EV or ICP WEB SSL |  
@@ -331,7 +334,6 @@ otherName.3 = 2.16.76.1.3.7;UTF8:<INSS Number>
 | NA | OIDC | pushed_authorization_request_endpoint |  ICP WEB SSL | Required |
 | NA | DCR | registration_endpoint |  ICP WEB SSL | Required |
 | NA | OIDC | revocation_endpoint | ICP WEB SSL | Required |
-| NA | OIDC | introspection_endpoint _(*)_ | ICP WEB SSL | Required |
 | 2 | Consentimentos | /consents/* |  ICP WEB SSL | Required |
 | 2 | Resources | /resources/* | ICP WEB SSL | Required |
 | 2 | Dados | /customers/* | ICP WEB SSL | Required |
@@ -342,5 +344,3 @@ otherName.3 = 2.16.76.1.3.7;UTF8:<INSS Number>
 | 2 | Adiantamento | /unarranged-accounts-overdraft/* | ICP WEB SSL | Required |
 | 2 | Direitos   Creditórios | /invoice-financings/* | ICP WEB SSL | Required |
 | 3 | Pagamentos | /payments/* | ICP WEB SSL | Required |
-
-_(*)_ if for some reason this endpoint should be public, which is not recommended.
