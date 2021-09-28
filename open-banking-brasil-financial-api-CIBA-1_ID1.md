@@ -257,12 +257,25 @@ As described in [FAPI-CIBA], there are many mechanisms that can be used to conve
 }
 `
 
-##### Opaque - Login Hint Token
+##### Dynamic Opaque - Login Hint
+
+This `login hint` should be used when Client has requested a unique identifier be provided by the Resource Owner to the Consumption Device. It is recommended that this identifier be dynamic, time based, have sufficient entropy and short lived to prevent replay attacks.
 
 `
 {
     "format": "opaque",
     "id": "11112222333344445555"
+}
+`
+
+##### Static CPF - Login Hint
+
+This `login hint` should be used when Client has requested a unique identifier be provided by the Resource Owner to the Consumption Device. It is recommended that Banks
+
+`
+{
+    "format": "cpf",
+    "id": "12354678901"
 }
 `
 
