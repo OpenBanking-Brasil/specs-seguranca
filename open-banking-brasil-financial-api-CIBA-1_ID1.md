@@ -201,11 +201,11 @@ This profile describes security and features provisions for a server and client 
 * the requirement to convey the Authentication Context Request that was performed by an OpenID Provider to a Client to enable a appropriate client management of customer conduct risk.
 * the requirement for clients to assert a pre-existing customer relationship by asserting a customer identity claim as part of the CIBA flow.
 
-## Open Banking Brasil security provisions
+## Open Banking Brasil CIBA Security provisions
 
 ### Introduction
 
-Open Banking Brasil has a requirement to address privacy considerations that were identified but not addressed in the [FAPI-1-Advanced] final specification without imposing additional requirements on Authorisation Servers being proposed in [FAPI-2-Baseline].
+Open Banking Brasil has a requirement to adopt Client [Initiated Back Channel Authentication][CIBA] as a means of enabling decoupled authentication work flows.
 In addition this profile describes the specific scope, acr and client management requirements necessary to support the wider Open Banking Brasil ecosystem.
 
 As a profile of the OAuth 2.0 Authorization Framework, this document mandates the following for the Brasil Open Banking Security profile.
@@ -238,9 +238,37 @@ In addition, the confidential client
 3. shall not populate the `acr` claim with required values
 4. shall require the `acr` claim as an essential claim
 
+### Resource Owner identity hint mechanisms
+
+#### Introduction
+
+As described in [FAPI-CIBA], there are many mechanisms that can be used to convey a Resource Owners identity from the Consumption Device to the Authorization Server however in call cases this identity attestation must be treated as a `hint` only. There are naturally limitations on the types of id hints that can be captured by the consumption device based on the input and output contraints of the device being used. In addition to input and output challenges, there are several key privacy and security conerns that must be evaluated when defining id conveyance processes. This profile defines several `login hint` types that must be supported by authorisation servers.
+
+[FAPI-CIBA] requires requests to be signed, there is no requirement in Brazil to additionally sign these hints as they are all asserted by the Client.
+
+##### Credit Proposition - Login Hint
+
+`
+{
+  "format": "brazil_credit_proposition",
+  "cpf": "12354678901",
+  "total_hints": 6,
+  "hint_number": 1
+}
+`
+
+##### Opaque - Login Hint Token
+
+`
+{
+    "format": "opaque",
+    "id": "11112222333344445555"
+}
+`
+
 # Security considerations
 
-Participants shall support all security  considerations specified in clause x of [FAPI-BR] and [FAPI-CIBA]
+Participants shall support all security considerations specified in clause x and all sub clauses of [FAPI-BR] and [FAPI-CIBA]
 
 # Data Sharing Considerations
 
