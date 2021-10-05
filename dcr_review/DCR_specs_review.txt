@@ -18,8 +18,8 @@ Comentários:
 Comentários:
  - A descrição da seção deve ser mais clara, prá enfatizar que os bullets indicam a obrigatoriedade de declaração em dois lugares:
   - Na forma como o servidor é registrado no Diretório de Participantes (incluir o print do Auth Server) 
-  - Na exposição dos atributos no well-known de acordo com os mecanismos suportados pelo Auth Server
-   - JAR e atributos
+  - Na exposição dos atributos no well-known de acordo com os mecanismos certificados (inclusive explicitar que são só os certificados) pelo Auth Server
+   - JARM e atributos (opcional)
    - PAR e atributos
    - CIBA e atributos
    - mTLS aliases
@@ -31,6 +31,7 @@ Comentários:
  - A descrição da seção deve ser mais clara, prá enfatizar que os bullets indicam a obrigatoriedade das regras a serem seguidas pelo cliente 
   - o que está declarado no well-known das transmissoras
   - os serviços de listagem de instituições do Diretório de Participantes
+ - As instituições cliente devem suportar todos os mecanismos das instituições que eles desejem se registrar.
   
 7. Provisões de registro OpenID Connect do Open Banking Brasil
 
@@ -42,7 +43,7 @@ Comentários:
 Comentários:
  - Ajustar na documentação a grafia dos atributos "software_statement" e sua formação na versão em português
  - No ítem 4, deixar claro que a passagem do conteúdo do JWKS como valor no payload do registro de clientes não é permitido (somente a URL que aponta para o JWKS)
- - No ítem 5, deixar claro que a passagem do atributo jwks_uri não é obrigatória, e que se informada, deve ser igual ao valor correspondente no SSA
+ - No ítem 5, deixar claro que a passagem do atributo jwks_uri não é obrigatória, já que é parte do SSA, e que se informada, deve ser igual ao valor correspondente no SSA
  - No ítem 6, melhorar a descrição para reduzir ambiguidades: o conteúdo dos redirect_uris informados no payload é um subset do conteúdo de URLS do SSA.
  - O ítem 7 precisa ser reescrito. O mecanismo de autenticação das APIs de DCR e DCM são específicos e exigem validações próprias. De acordo com as RFCs:
   - utilizar o "registration_access_token" para autenticar a aplicação cliente durante o uso dos serviços DCM e
@@ -103,6 +104,7 @@ LACUNAS:
   - 7591 - Registro de novos clientes
   - 7592 - Atualização, consulta ou desativação de clientes existentes
  - deixar claras as validações de certificados feitas pelos endpoints DCR / DCM (cadeia de confiança)
+ -  7592 - recomendar a rotação do token - e lembrar as instituições cliente de guardar o token
  
  
 PROBLEMAS:
