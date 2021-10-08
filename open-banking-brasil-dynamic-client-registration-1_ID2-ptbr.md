@@ -185,17 +185,17 @@ Os serviços do Diretório incluem:
 * Registro e gerenciamento de credenciais de software usando certificados ICP
 * Geração de Software Statement Assertion (SSA)
 
-Os participantes do ecossistema devem aproveitar esses serviços para facilitar o registro de cliente OAuth orientado por API usando o processo descrito na cláusula 3.1.1 do [RFC7591] com metadados adicionais necessários para oferecer suporte ao OpenID Connect definido em [OpenID Connect Registration][OIDR].
+Os participantes do ecossistema devem aproveitar esses serviços para facilitar o registro de cliente OAuth orientado por API usando o processo descrito na cláusula 3.1.1 do [RFC7591] com metadados adicionais necessários para oferecer suporte ao OpenID Connect definido em [OpenID Connect Registration][OIDR]. 
 
-Sempre que possível, os servidores de autorização devem comparar os metadados do cliente declarados por um cliente, feito como parte do registro ou solicitação de gerenciamento, com as declarações de metadados contidas em uma declaração de software. Nem todos os metadados que um cliente deseja fornecer podem estar contidos em uma declaração de software *(software statement)*, por exemplo, alternativa [Metadata Languages and Script values](https://openid.net/specs/openid-connect-registration-1_0.html#LanguagesAndScripts).
+É importante reforçar que o payload de registro de clientes possui a maior parte de seus atributos não obrigatórios, e que os atributos cujos valores  conflitem com os presentes no software statement assertion *serão sobrepostos pelos valores do próprio software statement assertion emitido pelo diretório central*. Nem todos os metadados que um cliente deseja fornecer podem estar contidos em um *software statement*, por exemplo, alternativa [Metadata Languages and Script values](https://openid.net/specs/openid-connect-registration-1_0.html#LanguagesAndScripts). Há casos ainda de metadados de cliente que são um subconjunto dos valores existentes no SSA, como por exemplo os redirect_URIs.
 
 # Provisionamentos do OpenID Connect Discovery do Open Banking Brasil  {#Provisions}
 
 ## Servidor de Autorização  {#AuthServers}
 
-O servidor de autorização deve suportar [OpenID Connect Discovery][OIDD] conforme exigido pelo [Financial-grade API Security Profile 1.0 - Part 1: Baseline][FAPI-1-Baseline].
+O servidor de autorização deve suportar [OpenID Connect Discovery][OIDD] conforme exigido pelo [Financial-grade API Security Profile 1.0 - Part 1: Baseline][FAPI-1-Baseline]. Este suporte deve estar explicito tanto na forma como o Servidor de Autorização está registrado no Diretório de Participantes quanto na declaração dos seus atributos no arquivo de Discovery (well-known), respeitando os mecanismos de autenticação certificados pela institição através dos testes de conformidade do Open Banking Brasil. 
 
-Adicionalmente, o Servidor de Autorização
+Adicionalmente, o Servidor de Autorização:
 
 1. deve anunciar sua presença no ecossistema Open Banking Brasil, sendo listada no Diretório de Participantes;
 2. deve anunciar todos os recursos API REST do Open Banking Brasil protegidos pelo Provedor OpenID no Diretório de Participantes;
@@ -215,36 +215,36 @@ Além disso, o servidor de autorização
 2. deve derivar os metadados necessários do Authorization Server somente por meio do serviço OpenID Connect Discovery dos Authorization Servers;
 3. quando presente, deve usar endpoints anunciados em `mtls_endpoint_aliases` conforme a cláusula 5 [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication e Certificate-Bound Access Tokens][RFC8705];
 
-# Provisões de registro OpenID Connect do Open Banking Brasil  {#Registration}
+# Provisionamento de registro OpenID Connect do Open Banking Brasil  {#Registration}
 
 ## Servidor de Autorização  {#RegAuth}
 
-O servidor de autorização deve suportar o [RFC7591], [RFC7592] e [OpenID Registration][OIDR]
+O servidor de autorização deve suportar as RFCs de Dynamic Client Registration (DCR) [RFC7591], Dynamic Client Management (DCM) [RFC7592] e [OpenID Registration][OIDR]
 
 Além disso, o servidor de autorização
 
 1. deve rejeitar as solicitações de registro de cliente dinâmico não realizadas em uma conexão protegida com mTLS usando certificados emitidos pelo Brasil ICP (produção) ou o Diretório de Participantes (sandbox);
-2. deve validar que a solicitação contém _software_statement_ JWT assinado usando o algoritmo `PS256` emitido pelo Diretório de Participantes do Open Banking Brasil;
-3. deve validar que o _software_statement_ foi emitido (iat  - *issued at*) não mais de 5 minutos antes do pedido ser recebido;
-4. deve validar que um `jwks` (chave definida por valor) **não** foi incluído;
-5. deve exigir e validar que o `jwks_uri` corresponda ao `software_jwks_uri` fornecido na declaração do software;
-6. deve exigir e validar que o `redirect_uris` corresponde ou contém um subconjunto de `software_redirect_uris` fornecido na declaração do software;
-7. deve exigir e validar que todos os mecanismos de autenticação de cliente cumpram os requisitos definidos em [Financial-grade API Security Profile 1.0 - Part 2: Advanced](https://openid.net/specs/openid-financial-api-part-2-1_0.html);
-8. deve exigir requisições criptografadoas de objetos conforme exigido pelo Perfil de Segurança do Open Banking Brasil;
-9. deve validar se os escopos solicitados são adequados para as funções regulatórias autorizadas do software;
-10. deve, sempre que possível, validar os metadados declarados pelo cliente em relação aos metadados fornecidos no _software_statement_;
+2. deve validar que a solicitação contém _software\_statement_ JWT assinado usando o algoritmo `PS256` emitido pelo Diretório de Participantes do Open Banking Brasil;
+3. deve validar que o _software\_statement_ foi emitido (iat  - *issued at*) não mais de 5 minutos antes do pedido ser recebido;
+4. deve validar que um atributo `jwks` (definida por valor) **não** foi incluído, e sim declarado como referência no atributo `jwks_uri`;
+5. deve, quando informado, validar que o `jwks_uri` corresponda ao `software_jwks_uri` fornecido na declaração do software;
+6. deve exigir e validar que o `redirect_uris` corresponda ou contenha um subconjunto dos valores de `software_redirect_uris` fornecidos no _software\_statement_;
+7. deve exigir e validar que todos os mecanismos de autenticação de cliente cumpram os requisitos definidos nas [RFC7591] e [RFC7592], através da validação do `registration_access_token` e, como conexão segura, da cadeia de certificados confiáveis ICP-Brasil.
+8. _removido_;
+9. deve validar se os escopos solicitados são adequados para as permissões regulatórias autorizadas da instituição e contidas no _software\_statement\. A relação de permissões regulatórias e os escopos correspondentes está descrita nas seções a seguir.
+10. deve, sempre que possível, validar os metadados declarados pelo cliente em relação aos metadados fornecidos no _software\_statement_, adotando os valores presentes no SSA com precedência.
 11. deve aceitar todos os nomes x.500 AttributeType definidas no _Distinguished Name_ dos Perfis de Certificado x.509 definidos em [Open Banking Brasil x.509 Certificate Standards][OBB-Cert-Standards];
-12. se for compatível com o mecanismo de autenticação do cliente `tls_client_auth`, conforme definido em [RFC8705], somente deve aceitar `tls_client_auth_subject_dn` como uma indicação do valor do assunto do certificado, conforme definido na cláusula 2.1.2 [RFC8705];
+12. se for compatível com o mecanismo de autenticação do cliente `tls_client_auth`, conforme definido em [RFC8705], somente deve aceitar `tls_client_auth_subject_dn` como uma indicação do valor do atributo _subject_ do certificado, conforme definido na cláusula 2.1.2 [RFC8705];
 
 Estas disposições aplicam-se igualmente ao processamento de pedidos [RFC7591], [RFC7592] e [OpenID Registration][OIDR]
 
 ### Aplicando Server Defaults  {#Server}
 
-Quando as propriedades de uma solicitação DCR não estão incluídas e não são obrigatórias na especificação, o Authorization Server deve aplicar os padrões do cliente da seguinte maneira
+Quando as propriedades de uma solicitação DCR não estão incluídas e não são obrigatórias na especificação, o Authorization Server deve aplicar os padrões do cliente da seguinte maneira:
 
 1. deve selecionar e aplicar o algoritmo de criptografia e a escolha da cifra a partir dos conjuntos mais recomendados de cifra da IANA que são suportados pelo Servidor de Autorização;
-2. deve preencher *defaults* a partir de valores da afirmação de declaração de software (SSA), sempre que possível;
-3. deve conceder ao cliente permissão para o conjunto completo de escopos potenciais com base nas permissões regulatórias de softwares incluídas no _software_statement_;
+2. deve preencher *defaults* a partir de valores da afirmação de _software\_statement_, sempre que possível;
+3. deve conceder ao cliente permissão para o conjunto completo de escopos potenciais com base nas permissões regulatórias de softwares incluídas no _software\_statement_;
 
 ### Análise do Distinguished Name do Certificado  {#Certificate}
 
@@ -280,24 +280,13 @@ A tabela a seguir descreve as funções regulatórias do Open Banking e o mapeam
 | CONTA | Instituição detentora de conta (ASPSP) | openid | Phase 3 |
 | CCORR | Correspondente de crédito | openid | Phase 3* |
 
-### Nota dos Implementadores  {#ImplementorsNotes}
-
-Em linha com a orientação do IETF e com o conceito diretivo do gerenciamento de consentimento com menor granularidade. A obrigação recai sobre o Servidor de Autorização para garantir que haja escopo suficiente transmitido em um *access token* necessário para cumprir as Permissões transmitidas na Solicitação de Consentimento. Este princípio e requisito são refletidos na futura API de gerenciamento de consentimentos.
-
-## Funções regulatórias para mapeamentos de escopo OAuth 2.0 dinâmicos  {#Roles}
-
-| Papel Regulador | Escopos Permitidos |
-| --- | --- |
-| DADOS | consent:{ConsentId} |
-| PAGTO | consent:{ConsentId} |
-
 # Declaração de Software  {#SSA}
 
-Uma declaração de software é um JSON Web Token (JWT) [RFC7519] que afirma valores de metadados sobre o software cliente como um todo.
+Uma declaração de software (_software\_statement_) é um JSON Web Token (JWT) [RFC7519] que afirma valores de metadados sobre o software cliente como um todo. Na estrutura do Open Banking Brasil, esse _software\_statement_ é assinado pelo Diretório de Participantes, e sua assinatura DEVE ser validada pelos Servidores de Autorizacao usando as chaves públicas disponíveis na seção a seguir.
 
-## Reinvidicações da Declaração de Software (Claims)  {#Claims}
+## Atributos da Declaração de Software (Claims)  {#Claims}
 
-O exemplo a seguir contém todas as reivindicações atualmente incluídas em uma declaração de software
+O exemplo a seguir contém todos os atributos atualmente incluídos em um _software\_statement_:
 
 ```
 {
@@ -384,7 +373,8 @@ O exemplo a seguir contém todas as reivindicações atualmente incluídas em um
 
 ## Enviar uma solicitação com uma declaração de software  {#exampleDcr}
 
-Este exemplo inclui vários campos opcionais, alguns dos quais podem não ser aplicáveis a algumas implantações. A quebra de linha dentro dos valores são apenas para fins de exibição.
+Este exemplo inclui vários campos opcionais, alguns dos quais podem não ser aplicáveis a algumas implantações. Para um guia completo dos atributos e sua obrigatoriedade, consultar o Swagger DCR --link aqui--.
+A quebra de linha dentro dos valores são apenas para fins de exibição.
 
 ```
 POST /reg HTTP/1.1
@@ -427,6 +417,8 @@ Content-Type: application/json
 
 ## Open Banking Brasil SSA Key Store e detalhes do emissor  {#keystore}
 
+As links a seguir apontam para as chaves públicas do Diretório de Participantes, e devem ser usadas para verificar a validadade da assinatura dos _software\_statements_ apresentados durante o processo de registro de cliente. 
+
 **Producão**
 
 [https://keystore.directory.openbankingbrasil.org.br/openbanking.jwks](https://keystore.directory.openbankingbrasil.org.br/openbanking.jwks)
@@ -439,6 +431,24 @@ Emissor do Open Banking Open Banking Brasil SSA de produção
 
 Emissor do Open Banking Open Banking Brasil SSA de sandbox
 
+## Sobre os mecanismos de autenticação e autorização dos serviços de DCR e DCM
+
+Por serem serviços auxiliares ao fluxo principal do Open Banking Brasil, os serviços de registro e manutenção dinâmica de clientes não utilizam os mesmos mecanismos de controle de acesso. Por exemplo: não é possível exigir um _access\_token_ OAuth 2.0 de uma aplicação cliente que ainda não está registrada na instituição transmissora. 
+Para estender as [RFC7591] e [RFC7592], que recomendam mecanismos mínimos para autenticação dos seus serviços, as instituições que suportam os fluxos de registro e manutenção dinâmica de clientes devem implementar em seus Servidores de Autorização os controles a seguir:
+
+### Registro de cliente - POST /register
+
+1. validar que o certificado apresentado pela aplicação cliente é subordinado às cadeias do ICP-Brasil definidas no Padrão de Certificados do Open Banking Brasil;
+2. assegurar que a assinatura do _software\_statement_ apresentado pela aplicação cliente durante o registro tenha sido feita pelo Diretório de Participantes através das chaves públicas descritas na seção anterior;
+3. assegurar que o _software\_statement_ apresentado pela aplicação cliente durante o registro corresponda à mesma instituição do certificado de cliente apresentado, validando-o através dos atributos que trazem `organization_id` no certificado X.509.
+4. emitir, na resposta do registro, um `registration_access_token` para ser usado como token de autenticação nas operações de manutenção da aplicação cliente registrada, seguindo as especificações descritas na [RFC7592].
+
+### Manutenção de cliente - GET /register - PUT /register - DELETE /register
+1. validar que o certificado apresentado pela aplicação cliente é subordinado às cadeias do ICP-Brasil definidas no Padrão de Certificados do Open Banking Brasil;
+2. validar a presença e a correspondência do header Bearer `Authorization` contendo o valor do atributo `registration_access_token` retornado durante o registro do cliente correspondente.
+
+*Observação:* A [RFC7592] prevê a possibilidade de rotação do `registration_access_token` emitido pelo Servidor de Autorização a cada uso, tornando-o um token de uso único. As instituições devem considerar esse aspecto no registro de suas aplicações cliente para receber e atualizar o `registration_access_token` pelo novo valor recebido nas chamadas de manutenção de cliente.
+
 # Reconhecimento  {#acknowledgements}
 
 Agradecemos a todos que estabeleceram as bases para o compartilhamento seguro de dados por meio da formação do Grupo de Trabalho OpenID Foundation FAPI, o GT de Segurança do Open Banking Brasil e aos pioneiros que ficarão em seus ombros.
@@ -448,6 +458,10 @@ As seguintes pessoas contribuíram para este documento:
 * Ralph Bragg (Raidiam)
 * Alexandre Siqueira (Mercado Pago)
 * Bernardo Vale (Banco Inter)
+* André Borges (Banco Fibra)
+* Danilo Sasaki (Banco Itaú)
+* João Rodolfo Vieira da Silva (Banco Itaú)
+* Michelle Bandarra (Chicago)
 
 {backmatter}
 
