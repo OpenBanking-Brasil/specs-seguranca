@@ -195,7 +195,7 @@ Os participantes do ecossistema devem aproveitar esses serviços para facilitar 
 
 O servidor de autorização deve suportar [OpenID Connect Discovery][OIDD] conforme exigido pelo [Financial-grade API Security Profile 1.0 - Part 1: Baseline][FAPI-1-Baseline]. Este suporte deve estar explicito tanto na forma como o Servidor de Autorização está registrado no Diretório de Participantes quanto na declaração dos seus atributos no arquivo de Discovery (well-known), respeitando os mecanismos de autenticação certificados pela institição através dos testes de conformidade do Open Banking Brasil. 
 
-Adicionalmente, o Servidor de Autorização deve:
+Adicionalmente, o Servidor de Autorização:
 
 1. deve anunciar sua presença no ecossistema Open Banking Brasil, sendo listada no Diretório de Participantes;
 2. deve anunciar todos os recursos API REST do Open Banking Brasil protegidos pelo Provedor OpenID no Diretório de Participantes;
@@ -232,7 +232,7 @@ Além disso, o servidor de autorização
 7. deve exigir e validar que todos os mecanismos de autenticação de cliente cumpram os requisitos definidos nas [RFC7591] e [RFC7592], através da validação do `registration_access_token` e, como conexão segura, da cadeia de certificados confiáveis ICP-Brasil.
 8. _removido_;
 9. deve validar se os escopos solicitados são adequados para as permissões regulatórias autorizadas da instituição e contidas no _software\_statement\. A relação de permissões regulatórias e os escopos correspondentes está descrita nas seções a seguir.
-10. deve, sempre que possível, validar os metadados declarados pelo cliente em relação aos metadados fornecidos no _software\_statement_, adotando os valores presentes com precedência.
+10. deve, sempre que possível, validar os metadados declarados pelo cliente em relação aos metadados fornecidos no _software\_statement_, adotando os valores presentes no SSA com precedência.
 11. deve aceitar todos os nomes x.500 AttributeType definidas no _Distinguished Name_ dos Perfis de Certificado x.509 definidos em [Open Banking Brasil x.509 Certificate Standards][OBB-Cert-Standards];
 12. se for compatível com o mecanismo de autenticação do cliente `tls_client_auth`, conforme definido em [RFC8705], somente deve aceitar `tls_client_auth_subject_dn` como uma indicação do valor do atributo _subject_ do certificado, conforme definido na cláusula 2.1.2 [RFC8705];
 
@@ -280,22 +280,9 @@ A tabela a seguir descreve as funções regulatórias do Open Banking e o mapeam
 | CONTA | Instituição detentora de conta (ASPSP) | openid | Phase 3 |
 | CCORR | Correspondente de crédito | openid | Phase 3* |
 
-### Nota dos Implementadores  {#ImplementorsNotes}. ****PODEMOS APAGAR? NÃO PARECE ESTAR NO LUGAR CERTO!!!****
-
-Em linha com a orientação do IETF e com o conceito diretivo do gerenciamento de consentimento com menor granularidade. A obrigação recai sobre o Servidor de Autorização para garantir que haja escopo suficiente transmitido em um *access token* necessário para cumprir as Permissões transmitidas na Solicitação de Consentimento. Este princípio e requisito são refletidos na futura API de gerenciamento de consentimentos.
-
-## Funções regulatórias para mapeamentos de escopo OAuth 2.0 dinâmicos  {#Roles}
-
-| Papel Regulador | Escopos Permitidos |
-| --- | --- |
-| DADOS | consent:{ConsentId} |
-| PAGTO | consent:{ConsentId} |
-
-**** DEVEMOS UNIFICAR ESSAS TABELAS? INCLUIR OS SCOPES "NÃO REGULATÓRIOS" EM UMA SEÇÃO PRÓPRIA? ****
-
 # Declaração de Software  {#SSA}
 
-Uma declaração de software (_software\_statement_) é um JSON Web Token (JWT) [RFC7519] que afirma valores de metadados sobre o software cliente como um todo. Na estrutura do Open Banking Brasil, esse _software\_statement_ é assinado pelo Diretório de Participantes, e sua assinatura DEVE ser validada pelos Servidores de Autorizacao usando as chaves publicas disponives na secao a seguir.
+Uma declaração de software (_software\_statement_) é um JSON Web Token (JWT) [RFC7519] que afirma valores de metadados sobre o software cliente como um todo. Na estrutura do Open Banking Brasil, esse _software\_statement_ é assinado pelo Diretório de Participantes, e sua assinatura DEVE ser validada pelos Servidores de Autorizacao usando as chaves públicas disponíveis na seção a seguir.
 
 ## Atributos da Declaração de Software (Claims)  {#Claims}
 
@@ -386,7 +373,7 @@ O exemplo a seguir contém todos os atributos atualmente incluídos em um _softw
 
 ## Enviar uma solicitação com uma declaração de software  {#exampleDcr}
 
-Este exemplo inclui vários campos opcionais, alguns dos quais podem não ser aplicáveis a algumas implantações. Para um guia completo dos atributos e sua obrigatoriedade, consultar o Swagger DCR <link aqui>.
+Este exemplo inclui vários campos opcionais, alguns dos quais podem não ser aplicáveis a algumas implantações. Para um guia completo dos atributos e sua obrigatoriedade, consultar o Swagger DCR --link aqui--.
 A quebra de linha dentro dos valores são apenas para fins de exibição.
 
 ```
@@ -446,7 +433,7 @@ Emissor do Open Banking Open Banking Brasil SSA de sandbox
 
 ## Sobre os mecanismos de autenticação e autorização dos serviços de DCR e DCM
 
-Por serem serviços auxiliares ao fluxo principal do Open Banking Brasil, os serviços de registro e manutenção dinâmica de clientes não podem utilizar os mesmos mecanismos de controle de acesso. Por exemplo: não é possível exigir um _access\_token_ OAuth 2.0 de uma aplicação cliente que ainda não está registrada na instituição transmissora. 
+Por serem serviços auxiliares ao fluxo principal do Open Banking Brasil, os serviços de registro e manutenção dinâmica de clientes não utilizam os mesmos mecanismos de controle de acesso. Por exemplo: não é possível exigir um _access\_token_ OAuth 2.0 de uma aplicação cliente que ainda não está registrada na instituição transmissora. 
 Para estender as [RFC7591] e [RFC7592], que recomendam mecanismos mínimos para autenticação dos seus serviços, as instituições que suportam os fluxos de registro e manutenção dinâmica de clientes devem implementar os controles a seguir:
 
 ### Registro de cliente - POST /register
