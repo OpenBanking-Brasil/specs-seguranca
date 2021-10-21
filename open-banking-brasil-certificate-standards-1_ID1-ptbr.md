@@ -144,6 +144,8 @@ O Certificado Servidor deve ser emitido para proteger e autenticar o canal TLS u
 
 O padrão de certificado utilizado deve seguir as práticas de emissão de certificados existentes de "CERTIFICADO PARA SERVIDOR WEB – ICP-Brasil".
 
+O certificado de servidor precisa ser enviado com a cadeia intermediária, conforme [RFC5246] (itens 7.4.2).
+
 ### Certificado Cliente {#CertificadoCliente}
 
 Os Certificados de Aplicação Cliente (Transporte) são utilizados para autenticar o canal mTLS e para realizar a autenticação da aplicação cliente através de oAuth2.0 mTLS ou private_key_jwt, de acordo com o cadastro da aplicação realizado pelo processo de Dynamic Client Registration junto à entidade transmissora. Sobre o mTLS, o certificado cliente precisa ser enviado com a cadeia intermediária, conforme [RFC5246] (itens 7.4.2 e 7.4.6).
