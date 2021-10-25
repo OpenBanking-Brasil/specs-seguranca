@@ -32,9 +32,9 @@ Sempre que for publicado um novo ID de documentação, deve-se atentar a atualiz
 
 |Documento|Referências|
 |------------------------------------------|---------------------------------------------------------------------------------------------------|
-|Registro e Cadastramento Dinâmico do Cliente de APIs|Perfil de Segurança do OpenBanking Brasil<br>Padrão de Certificados Open Banking Brasil<br>Guia do usuário - ponto de vista da instituição receptora de dados ou iniciadora de pagamentos (TTP)<br>Áerea do Desenvolvedor do Portal do Open Banking Brasil|
-|Perfil de Segurança do OpenBanking Brasil|Registro e Cadastramento Dinâmico do Cliente de APIs<br>Padrão de Certificados Open Banking Brasil<br>Guia do usuário - ponto de vista da instituição receptora de dados ou iniciadora de pagamentos (TTP)<br>Áerea do Desenvolvedor do Portal do Open Banking Brasil|
-|Padrão de Certificados Open Banking Brasil|Perfil de Segurança do OpenBanking Brasil<br>Registro e Cadastramento Dinâmico do Cliente de APIs<br>Guia do usuário - ponto de vista da instituição receptora de dados ou iniciadora de pagamentos (TTP)<br>Áerea do Desenvolvedor do Portal do Open Banking Brasil|
+|Registro e Cadastramento Dinâmico do Cliente de APIs|<ul><li>Perfil de Segurança do OpenBanking Brasil</li><li>Padrão de Certificados Open Banking Brasil</li><li>Guia do usuário - ponto de vista da instituição receptora de dados ou iniciadora de pagamentos (TTP)</li><li>Áerea do Desenvolvedor do Portal do Open Banking Brasil</li></ul>|
+|Perfil de Segurança do OpenBanking Brasil|<ul><li>Registro e Cadastramento Dinâmico do Cliente de APIs</li><li>Padrão de Certificados Open Banking Brasil</li><li>Guia do usuário - ponto de vista da instituição receptora de dados ou iniciadora de pagamentos (TTP)</li><li>Áerea do Desenvolvedor do Portal do Open Banking Brasil</li></ul>|
+|Padrão de Certificados Open Banking Brasil|<ul><li>Perfil de Segurança do OpenBanking Brasil</li><li>Registro e Cadastramento Dinâmico do Cliente de APIs</li><li>Guia do usuário - ponto de vista da instituição receptora de dados ou iniciadora de pagamentos (TTP)</li><li>Áerea do Desenvolvedor do Portal do Open Banking Brasil</li></ul>|
 
 ## Documentation Generation for Maintainers
 
