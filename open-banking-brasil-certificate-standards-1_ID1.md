@@ -144,6 +144,8 @@ The Server Certificate must be issued to protect and authenticate the TLS channe
 
 The certificate standard used must follow the existing certificate issuing practices of "CERTIFICATE FOR WEB SERVER – ICP-Brasil".
 
+The server certificate shall be sent with the intermediate chain, according to [RFC5246] (items 7.4.2).
+
 ### Client Certificate
 
 Client Application Certificates (Transport) are used to authenticate the mTLS channel and to authenticate the client application through oAuth2.0 mTLS or private_key_jwt, according to the application registration performed by the Dynamic Client Registration process with the transmitting organization. Regarding mTLS, the client certificate shall be sent with the intermediate chain, according to [RFC5246] (items 7.4.2 and 7.4.6).
