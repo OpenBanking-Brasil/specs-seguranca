@@ -227,7 +227,8 @@ In addition, the Authorization Server
 9. shall support refresh tokens
 10. shall issue access tokens with an expiry no greater than 900 seconds and no less than 300 seconds
 11. shall always include an acr claim in the `id_token`
-12. shall require the Signed Authentication Request to contain nbf and exp claims that limit the lifetime of the request to no more than 10 minutes;
+12. shall require the Signed Authentication Request to contain nbf and exp claims that limit the lifetime of the request to no more than 10 minutes
+13. shall issue ciba auth request acknowledgements with a minimum expiry of 6 minutes;
 
 ### Confidential client
 
@@ -246,46 +247,101 @@ As described in [FAPI-CIBA], there are many mechanisms that can be used to conve
 
 [FAPI-CIBA] requires requests to be signed, there is no requirement in Brazil to additionally sign these hints as they are all asserted by the Client.
 
-##### Credit Proposition - Login Hint
+##### Credit Proposition - Login Hint Token
 
 `
 {
-  "format": "brazil_credit_proposition",
+  "format": "urn:brasil:openbanking:ciba:login-hint-token-type:credit-proposition",
   "cpf": "12354678901",
   "total_hints": 6,
   "hint_number": 1
 }
 `
 
-##### Dynamic Opaque - Login Hint
+The use of a `binding message` is *not* mandatory if this token type is to be leveraged.
+//TODO: How long should the request expiry be in this scenario???
 
-This `login hint` should be used when Client has requested a unique identifier be provided by the Resource Owner to the Consumption Device. It is recommended that this identifier be dynamic, time based, have sufficient entropy and short lived to prevent replay attacks.
+##### Authorisation Server Generated - Login Hint Token
+
+This `login hint` can be used where it is not possible for the Resource Owner to provide a Login Hint to the Consumption Device or where the Resource Owner wishes to claim the authentication request by independently reaching out to the Authorisation Server out of band to claim this authentication request.
 
 `
 {
-    "format": "opaque",
+    "format": "urn:brasil:openbanking:ciba:login-hint-token-type:as-generated"
+}
+`
+
+The use of a `binding message` is mandatory if this token type is to be leveraged.
+
+###### Authorisation Server Generated - Login Hint Presentation
+
+Presentation of the Authorisation Server Generated Token must be in the format of a JWE displayed as a QR Code with the following properties in the following way.
+
+JWS Creation
+
+1. The payload of signed messages (request _JWT_) shall include the following claims as defined at [RFC7519] (JWT):
+
+* **aud** the Authorization Servers advertised issuer as per [OIDD];
+* **iss** the receiver of the message shall validate if the value of the **iss** field matches the `clientId` of the sender;
+* **jti** the value of the **jti** field shall be filled with the UUID defined by the institution according to [RFC4122] version 4;
+* **iat** the **iat** field  shall be filled with the message generation time and according to the standard established in [RFC7519](https:// datatracker.ietf.org/doc/html/rfc7519#section-2) to the _NumericDate_ format.
+* ***exp** the **exp** field  shall be filled with the message expiry time and according to the standard established in [RFC7519](https:// datatracker.ietf.org/doc/html/rfc7519#section-2) to the _NumericDate_ format with an maximum value not greater than 5 minutes;
+* **auth_request_id** the authentication request id returned from the Authorisation Server CIBA requst.
+
+2. The JOSE header must contain the following attributes:
+   * **alg** - shall be filled with the value `PS256`";
+   * **kid** - shall be filled with the key identifier value used for the signature listed on the `software statement` keystore on the Open Banking Brasil Directory of Participants;
+   * **typ** - shall be filled with the value `JWT`.
+
+JWE Creation
+
+1. The JOSE header must contain the following attributes:
+   * **alg** - shall be filled with the value `RSA-OAEP`";
+   * **enc** - shall be filled with the value `A256GCM`";
+   * **kid** - shall be filled with the encryption key identifier `kid` value used to encrypt the JWE with the encryption key advertised on the authorisation servers jwks endpoint;
+   * **cty** - shall be filled with the value `JWT`.
+
+##### Authentication Device Generated - Login Hint Token
+
+This `login hint token` should be used when Client has requested a unique identifier be provided by the Resource Owner to the Consumption Device. It is recommended that this identifier be dynamic, time based, have sufficient entropy and short lived to prevent replay attacks.
+
+`
+{
+    "format": "urn:brasil:openbanking:ciba:login-hint-token-type:ad-generated",
     "id": "11112222333344445555"
 }
 `
 
-##### Static CPF - Login Hint
+The use of a `binding message` is mandatory if this token type is to be leveraged.
 
-This `login hint` should be used when Client has requested a unique identifier be provided by the Resource Owner to the Consumption Device. It is recommended that Banks
+##### Static CPF - Login Hint Token
+
+This `login hint token` could be used when Client has requested a static identifier be provided by the Resource Owner to the Consumption Device. It is not recommended that Banks support this mechanism due to the significant privacy and security concerns identified [FAPI-CIBA] and [CIBA]
 
 `
 {
-    "format": "cpf",
+    "format": "urn:brasil:openbanking:ciba:login-hint-token-type:cpf",
     "id": "12354678901"
 }
 `
 
+The use of a `binding message` is mandatory if this token type is to be leveraged.
+
 # Security considerations
 
-Participants shall support all security considerations specified in clause x and all sub clauses of [FAPI-BR] and [FAPI-CIBA]
+Participants shall support all security considerations specified in clause TODO and all sub clauses of [FAPI-BR] and [FAPI-CIBA]
 
 # Data Sharing Considerations
 
-Participants shall support all data sharing considerations specified in clause x of [FAPI-BR]
+Participants shall support all data sharing considerations specified in clause TODO of [FAPI-BR]
+
+# Registration and Discovery Metadata
+
+OpenID Provider Metadata
+
+The following authorization server metadata parameters are introduced by this specification for OPs publishing their support of the Brazil CIBA flow and details thereof.
+
+* backchannel_endpoint_login_hint_token_types_supported: OPTIONAL. JSON array containing one or more of the following values: urn:brasil:openbanking:ciba:login-hint-token-type:cpf, urn:brasil:openbanking:ciba:login-hint-token-type:opaque or urn:brasil:openbanking:ciba:login-hint-token-type:credit-proposition.
 
 # Acknowledgements
 
