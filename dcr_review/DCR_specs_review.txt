@@ -1,0 +1,114 @@
+5. Introdução:
+
+Sempre que possível, os servidores de autorização devem comparar os metadados do cliente declarados por um cliente, feito como parte do registro ou solicitação de gerenciamento, com as declarações de metadados contidas em uma declaração de software. Nem todos os metadados que um cliente deseja fornecer podem estar contidos em uma declaração de software (software statement), por exemplo, alternativa Metadata Languages and Script values.
+
+Comentários:
+ - A documentação deveria explicitar que a maior parte dos atributos do payload de registro não é obrigatória
+ - Explicitar quais campos do SSA e do payload de registro são equivalentes
+ - Detalhar qual o comportamento esperado das instituições que validarem os dados do SSA contra os atributos do payload do registro. Se a comparação não bater: 
+  - deve subir algum erro? 
+  - deve considerar os atributos do SSA como verdadeiros? - melhor opção
+  
+6. Provisionamentos do OpenID Connect Discovery do Open Banking Brasil
+Comentários:
+ - Deixar claro que estamos falando aqui dos requisitos para suporte ao OpenID Connect Discovery
+
+ 6.1 - Servidor de Autorização
+ 
+Comentários:
+ - A descrição da seção deve ser mais clara, prá enfatizar que os bullets indicam a obrigatoriedade de declaração em dois lugares:
+  - Na forma como o servidor é registrado no Diretório de Participantes (incluir o print do Auth Server) 
+  - Na exposição dos atributos no well-known de acordo com os mecanismos certificados (inclusive explicitar que são só os certificados) pelo Auth Server
+   - JARM e atributos (opcional)
+   - PAR e atributos
+   - CIBA e atributos
+   - mTLS aliases
+  - No detalhamento dos atributos do well-known? (ou um ponteiro para a RFC?)
+
+ 6.2 - Cliente
+ 
+Comentários:
+ - A descrição da seção deve ser mais clara, prá enfatizar que os bullets indicam a obrigatoriedade das regras a serem seguidas pelo cliente 
+  - o que está declarado no well-known das transmissoras
+  - os serviços de listagem de instituições do Diretório de Participantes
+ - As instituições cliente devem suportar todos os mecanismos das instituições que eles desejem se registrar.
+  
+7. Provisões de registro OpenID Connect do Open Banking Brasil
+
+Comentários: 
+ - Deixar claro que estamos falando aqui dos requisitos para suporte ao OpenID Connect Registration e o OAuth 2.0 DCR / DCM
+ 
+7.1. Servidor de Autorização
+
+Comentários:
+ - Ajustar na documentação a grafia dos atributos "software_statement" e sua formação na versão em português
+ - No ítem 4, deixar claro que a passagem do conteúdo do JWKS como valor no payload do registro de clientes não é permitido (somente a URL que aponta para o JWKS)
+ - No ítem 5, deixar claro que a passagem do atributo jwks_uri não é obrigatória, já que é parte do SSA, e que se informada, deve ser igual ao valor correspondente no SSA
+ - No ítem 6, melhorar a descrição para reduzir ambiguidades: o conteúdo dos redirect_uris informados no payload é um subset do conteúdo de URLS do SSA.
+ - O ítem 7 precisa ser reescrito. O mecanismo de autenticação das APIs de DCR e DCM são específicos e exigem validações próprias. De acordo com as RFCs:
+  - utilizar o "registration_access_token" para autenticar a aplicação cliente durante o uso dos serviços DCM e
+  - validar (complementar às RFCs) a cadeia de certificados ICP-Brasil
+ - No ítem 8, revisar (não parece fazer sentido exigir request objects criptografados)
+ - No ítem 9, explicitar a relação entre os scopes do registro e as roles regulatórias da instituição que está se registrando (de acordo com o software statement)
+ - No ítem 10, isso deveria estar repetido na introdução?
+ - No ítem 12, refrasear a sentença em português, deixando claro que o atributo informado deve ser o único usado no processo de autenticação via mtls_client_auth
+
+ - Para os atributos sector_uri, definir o conjunto de valores e sua relação com os demais atributos com URIs do SSA.
+
+Implementers Note:
+
+Comentários:
+ - Essa seção não está no lugar errado??
+
+Regulatory Roles to dynamic OAuth 2.0 scope Mappings
+
+Comentários:
+ - Revisar o scope dinâmico. Isso deveria estar nessa documentação?
+ - A tabela de escopos e roles regulatórias poderia servir para exemplificar isso melhor. Talvez separar os scopes que não são vinculados às roles regulatórias (openid ou consents, por exemplo) em uma linha separada e explicar melhor sua função.
+
+
+Software Statement:
+
+Comentários:
+ - falta contexto: aqui dá prá explicar prá que serve, como garantir sua integridade, por que isso é importante, etc.
+ - diferenças entre Software Statement (cadastro no diretório) e Software Statement Assertion (JWT assinado)
+
+Dynamic Client Registration Request Processing
+
+Comentários:
+ - falta contexto: esse diagrama está sendo apresentado na sequência correta da documentação?
+ 
+Dynamic Client Registration Request Processing
+
+Comentários:
+ - trazer exemplos de payloads para cada um dos mecanismos suportados:
+  - JAR
+  - PAR
+  - CIBA
+ - reduzir os atributos para o mínimo (prá diminuir a ambiguidade)
+ 
+Open Banking Brasil SSA Key Store and Issuer Details
+
+Comentários:
+ - falta contexto: o que são essas chaves? prá que servem? quando usar?
+
+Appendix A. Example Software Statement Assertion
+
+Comentários: 
+ - faz sentido manter?
+ - deveria fazer parte da seção "Software Statement"?
+ 
+LACUNAS:
+ - inclusão de uma seção somente para explicitar os mecanismos de autenticação dos endpoints do DCR / DCM
+ - explicitar as possibilidades dadas pelas RFCs. 
+  - 7591 - Registro de novos clientes
+  - 7592 - Atualização, consulta ou desativação de clientes existentes
+ - deixar claras as validações de certificados feitas pelos endpoints DCR / DCM (cadeia de confiança)
+ -  7592 - recomendar a rotação do token - e lembrar as instituições cliente de guardar o token
+ 
+ 
+PROBLEMAS:
+ - como tratar as instituições que não guardaram os "registration_access_token"?
+  - Possibilidade 1: permitir, durante uma janela de tempo, um novo POST no /register para obter um novo token
+  - Possibilidade 2: permitir, durante uma janela de tempo, um GET no /register não-autenticado para obter um novo token
+  - Possibilidade 3: disponibilidar "out of band" para as instituições o valor atual dos tokens de seus clientes.

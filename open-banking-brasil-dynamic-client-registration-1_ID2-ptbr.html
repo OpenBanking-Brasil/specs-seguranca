@@ -1,0 +1,1878 @@
+<!DOCTYPE html>
+<html lang="en" class="Internet-Draft">
+<head>
+<meta charset="utf-8">
+<meta content="Common,Latin" name="scripts">
+<meta content="initial-scale=1.0" name="viewport">
+<title>Open Banking Brasil Financial-grade API Dynamic Client Registration 1.0 Implementers Draft 2</title>
+<meta content="Ralph Bragg" name="author">
+<meta content="OBBIS GT Security" name="author">
+<meta content="xml2rfc 2.40.1" name="generator">
+<meta content="FAPI" name="keyword">
+<meta content="Open Banking Brasil GT Security" name="keyword">
+<meta content="open-banking-brasil-dynamic-client-registration-1_ID2-ptbr" name="ietf.draft">
+<link href="./open-banking-brasil-dynamic-client-registration-1_ID2-ptbr.xml" rel="alternate" type="application/rfc+xml">
+<link href="#copyright" rel="license">
+<style type="text/css">/*
+
+  NOTE: Changes at the bottom of this file overrides some earlier settings.
+
+  Once the style has stabilized and has been adopted as an official RFC style,
+  this can be consolidated so that style settings occur only in one place, but
+  for now the contents of this file consists first of the initial CSS work as
+  provided to the RFC Formatter (xml2rfc) work, followed by itemized and
+  commented changes found necssary during the development of the v3
+  formatters.
+
+*/
+
+/* fonts */
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans'); /* Sans-serif */
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif'); /* Serif (print) */
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono'); /* Monospace */
+
+@viewport {
+  zoom: 1.0;
+  width: extend-to-zoom;
+}
+@-ms-viewport {
+  width: extend-to-zoom;
+  zoom: 1.0;
+}
+/* general and mobile first */
+html {
+}
+body {
+  max-width: 90%;
+  margin: 1.5em auto;
+  color: #222;
+  background-color: #fff;
+  font-size: 14px;
+  font-family: 'Noto Sans', Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+.ears {
+  display: none;
+}
+
+/* headings */
+#title, h1, h2, h3, h4, h5, h6 {
+  margin: 1em 0 0.5em;
+  font-weight: bold;
+  line-height: 1.3;
+}
+#title {
+  clear: both;
+  border-bottom: 1px solid #ddd;
+  margin: 0 0 0.5em 0;
+  padding: 1em 0 0.5em;
+}
+.author {
+  padding-bottom: 4px;
+}
+h1 {
+  font-size: 26px;
+  margin: 1em 0;
+}
+h2 {
+  font-size: 22px;
+  margin-top: -20px;  /* provide offset for in-page anchors */
+  padding-top: 33px;
+}
+h3 {
+  font-size: 18px;
+  margin-top: -36px;  /* provide offset for in-page anchors */
+  padding-top: 42px;
+}
+h4 {
+  font-size: 16px;
+  margin-top: -36px;  /* provide offset for in-page anchors */
+  padding-top: 42px;
+}
+h5, h6 {
+  font-size: 14px;
+}
+#n-copyright-notice {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 1em;
+  margin-bottom: 1em;
+}
+/* general structure */
+p {
+  padding: 0;
+  margin: 0 0 1em 0;
+  text-align: left;
+}
+div, span {
+  position: relative;
+}
+div {
+  margin: 0;
+}
+.alignRight.art-text {
+  background-color: #f9f9f9;
+  border: 1px solid #eee;
+  border-radius: 3px;
+  padding: 1em 1em 0;
+  margin-bottom: 1.5em;
+}
+.alignRight.art-text pre {
+  padding: 0;
+}
+.alignRight {
+  margin: 1em 0;
+}
+.alignRight > *:first-child {
+  border: none;
+  margin: 0;
+  float: right;
+  clear: both;
+}
+.alignRight > *:nth-child(2) {
+  clear: both;
+  display: block;
+  border: none;
+}
+svg {
+  display: block;
+}
+.alignCenter.art-text {
+  background-color: #f9f9f9;
+  border: 1px solid #eee;
+  border-radius: 3px;
+  padding: 1em 1em 0;
+  margin-bottom: 1.5em;
+}
+.alignCenter.art-text pre {
+  padding: 0;
+}
+.alignCenter {
+  margin: 1em 0;
+}
+.alignCenter > *:first-child {
+  border: none;
+  /* this isn't optimal, but it's an existence proof.  PrinceXML doesn't
+     support flexbox yet.
+  */
+  display: table;
+  margin: 0 auto;
+}
+
+/* lists */
+ol, ul {
+  padding: 0;
+  margin: 0 0 1em 2em;
+}
+ol ol, ul ul, ol ul, ul ol {
+  margin-left: 1em;
+}
+li {
+  margin: 0 0 0.25em 0;
+}
+.ulCompact li {
+  margin: 0;
+}
+ul.empty, .ulEmpty {
+  list-style-type: none;
+}
+ul.empty li, .ulEmpty li {
+  margin-top: 0.5em;
+}
+ul.compact, .ulCompact,
+ol.compact, .olCompact {
+  line-height: 100%;
+  margin: 0 0 0 2em;
+}
+
+/* definition lists */
+dl {
+}
+dl > dt {
+  float: left;
+  margin-right: 1em;
+}
+/* 
+dl.nohang > dt {
+  float: none;
+}
+*/
+dl > dd {
+  margin-bottom: .8em;
+  min-height: 1.3em;
+}
+dl.compact > dd, .dlCompact > dd {
+  margin-bottom: 0em;
+}
+dl > dd > dl {
+  margin-top: 0.5em;
+  margin-bottom: 0em;
+}
+
+/* links */
+a {
+  text-decoration: none;
+}
+a[href] {
+  color: #22e; /* Arlen: WCAG 2019 */
+}
+a[href]:hover {
+  background-color: #f2f2f2;
+}
+figcaption a[href],
+a[href].selfRef {
+  color: #222;
+}
+/* XXX probably not this:
+a.selfRef:hover {
+  background-color: transparent;
+  cursor: default;
+} */
+
+/* Figures */
+tt, code, pre, code {
+  background-color: #f9f9f9;
+  font-family: 'Roboto Mono', monospace;
+}
+pre {
+  border: 1px solid #eee;
+  margin: 0;
+  padding: 1em;
+}
+img {
+  max-width: 100%;
+}
+figure {
+  margin: 0;
+}
+figure blockquote {
+  margin: 0.8em 0.4em 0.4em;
+}
+figcaption {
+  font-style: italic;
+  margin: 0 0 1em 0;
+}
+@media screen {
+  pre {
+    overflow-x: auto;
+    max-width: 100%;
+    max-width: calc(100% - 22px);
+  }
+}
+
+/* aside, blockquote */
+aside, blockquote {
+  margin-left: 0;
+  padding: 1.2em 2em;
+}
+blockquote {
+  background-color: #f9f9f9;
+  color: #111; /* Arlen: WCAG 2019 */
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  margin: 1em 0;
+}
+cite {
+  display: block;
+  text-align: right;
+  font-style: italic;
+}
+
+/* tables */
+table {
+  width: 100%;
+  margin: 0 0 1em;
+  border-collapse: collapse;
+  border: 1px solid #eee;
+}
+th, td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.5em 0.75em;
+}
+th {
+  text-align: left;
+  background-color: #e9e9e9;
+}
+tr:nth-child(2n+1) > td {
+  background-color: #f5f5f5;
+}
+table caption {
+  font-style: italic;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+table p {
+  /* XXX to avoid bottom margin on table row signifiers. If paragraphs should
+     be allowed within tables more generally, it would be far better to select on a class. */
+  margin: 0;
+}
+
+/* pilcrow */
+a.pilcrow {
+  color: #666; /* Arlen: AHDJ 2019 */
+  text-decoration: none;
+  visibility: hidden;
+  user-select: none;
+  -ms-user-select: none;
+  -o-user-select:none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+@media screen {
+  aside:hover > a.pilcrow,
+  p:hover > a.pilcrow,
+  blockquote:hover > a.pilcrow,
+  div:hover > a.pilcrow,
+  li:hover > a.pilcrow,
+  pre:hover > a.pilcrow {
+    visibility: visible;
+  }
+  a.pilcrow:hover {
+    background-color: transparent;
+  }
+}
+
+/* misc */
+hr {
+  border: 0;
+  border-top: 1px solid #eee;
+}
+.bcp14 {
+  font-variant: small-caps;
+}
+
+.role {
+  font-variant: all-small-caps;
+}
+
+/* info block */
+#identifiers {
+  margin: 0;
+  font-size: 0.9em;
+}
+#identifiers dt {
+  width: 3em;
+  clear: left;
+}
+#identifiers dd {
+  float: left;
+  margin-bottom: 0;
+}
+#identifiers .authors .author {
+  display: inline-block;
+  margin-right: 1.5em;
+}
+#identifiers .authors .org {
+  font-style: italic;
+}
+
+/* The prepared/rendered info at the very bottom of the page */
+.docInfo {
+  color: #666; /* Arlen: WCAG 2019 */
+  font-size: 0.9em;
+  font-style: italic;
+  margin-top: 2em;
+}
+.docInfo .prepared {
+  float: left;
+}
+.docInfo .prepared {
+  float: right;
+}
+
+/* table of contents */
+#toc  {
+  padding: 0.75em 0 2em 0;
+  margin-bottom: 1em;
+}
+nav.toc ul {
+  margin: 0 0.5em 0 0;
+  padding: 0;
+  list-style: none;
+}
+nav.toc li {
+  line-height: 1.3em;
+  margin: 0.75em 0;
+  padding-left: 1.2em;
+  text-indent: -1.2em;
+}
+/* references */
+.references dt {
+  text-align: right;
+  font-weight: bold;
+  min-width: 7em;
+}
+.references dd {
+  margin-left: 8em;
+  overflow: auto;
+}
+
+.refInstance {
+  margin-bottom: 1.25em;
+}
+
+.references .ascii {
+  margin-bottom: 0.25em;
+}
+
+/* index */
+.index ul {
+  margin: 0 0 0 1em;
+  padding: 0;
+  list-style: none;
+}
+.index ul ul {
+  margin: 0;
+}
+.index li {
+  margin: 0;
+  text-indent: -2em;
+  padding-left: 2em;
+  padding-bottom: 5px;
+}
+.indexIndex {
+  margin: 0.5em 0 1em;
+}
+.index a {
+  font-weight: 700;
+}
+/* make the index two-column on all but the smallest screens */
+@media (min-width: 600px) {
+  .index ul {
+    -moz-column-count: 2;
+    -moz-column-gap: 20px;
+  }
+  .index ul ul {
+    -moz-column-count: 1;
+    -moz-column-gap: 0;
+  }
+}
+
+/* authors */
+address.vcard {
+  font-style: normal;
+  margin: 1em 0;
+}
+
+address.vcard .nameRole {
+  font-weight: 700;
+  margin-left: 0;
+}
+address.vcard .label {
+  font-family: "Noto Sans",Arial,Helvetica,sans-serif;
+  margin: 0.5em 0;
+}
+address.vcard .type {
+  display: none;
+}
+.alternative-contact {
+  margin: 1.5em 0 1em;
+}
+hr.addr {
+  border-top: 1px dashed;
+  margin: 0;
+  color: #ddd;
+  max-width: calc(100% - 16px);
+}
+
+/* temporary notes */
+.rfcEditorRemove::before {
+  position: absolute;
+  top: 0.2em;
+  right: 0.2em;
+  padding: 0.2em;
+  content: "The RFC Editor will remove this note";
+  color: #9e2a00; /* Arlen: WCAG 2019 */
+  background-color: #ffd; /* Arlen: WCAG 2019 */
+}
+.rfcEditorRemove {
+  position: relative;
+  padding-top: 1.8em;
+  background-color: #ffd; /* Arlen: WCAG 2019 */
+  border-radius: 3px;
+}
+.cref {
+  background-color: #ffd; /* Arlen: WCAG 2019 */
+  padding: 2px 4px;
+}
+.crefSource {
+  font-style: italic;
+}
+/* alternative layout for smaller screens */
+@media screen and (max-width: 1023px) {
+  body {
+    padding-top: 2em;
+  }
+  #title {
+    padding: 1em 0;
+  }
+  h1 {
+    font-size: 24px;
+  }
+  h2 {
+    font-size: 20px;
+    margin-top: -18px;  /* provide offset for in-page anchors */
+    padding-top: 38px;
+  }
+  #identifiers dd {
+    max-width: 60%;
+  }
+  #toc {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    padding: 0;
+    margin: 0;
+    background-color: inherit;
+    border-bottom: 1px solid #ccc;
+  }
+  #toc h2 {
+    margin: -1px 0 0 0;
+    padding: 4px 0 4px 6px;
+    padding-right: 1em;
+    min-width: 190px;
+    font-size: 1.1em;
+    text-align: right;
+    background-color: #444;
+    color: white;
+    cursor: pointer;
+  }
+  #toc h2::before { /* css hamburger */
+    float: right;
+    position: relative;
+    width: 1em;
+    height: 1px;
+    left: -164px;
+    margin: 6px 0 0 0;
+    background: white none repeat scroll 0 0;
+    box-shadow: 0 4px 0 0 white, 0 8px 0 0 white;
+    content: "";
+  }
+  #toc nav {
+    display: none;
+    padding: 0.5em 1em 1em;
+    overflow: auto;
+    height: calc(100vh - 48px);
+    border-left: 1px solid #ddd;
+  }
+}
+
+/* alternative layout for wide screens */
+@media screen and (min-width: 1024px) {
+  body {
+    max-width: 724px;
+    margin: 42px auto;
+    padding-left: 1.5em;
+    padding-right: 29em;
+  }
+  #toc {
+    position: fixed;
+    top: 42px;
+    right: 42px;
+    width: 25%;
+    margin: 0;
+    padding: 0 1em;
+    z-index: 1;
+  }
+  #toc h2 {
+    border-top: none;
+    border-bottom: 1px solid #ddd;
+    font-size: 1em;
+    font-weight: normal;
+    margin: 0;
+    padding: 0.25em 1em 1em 0;
+  }
+  #toc nav {
+    display: block;
+    height: calc(90vh - 84px);
+    bottom: 0;
+    padding: 0.5em 0 0;
+    overflow: auto;
+  }
+  img { /* future proofing */
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* pagination */
+@media print {
+  body {
+
+    width: 100%;
+  }
+  p {
+    orphans: 3;
+    widows: 3;
+  }
+  #n-copyright-notice {
+    border-bottom: none;
+  }
+  #toc, #n-introduction {
+    page-break-before: always;
+  }
+  #toc {
+    border-top: none;
+    padding-top: 0;
+  }
+  figure, pre {
+    page-break-inside: avoid;
+  }
+  figure {
+    overflow: scroll;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+  }
+  h2+*, h3+*, h4+*, h5+*, h6+* {
+    page-break-before: avoid;
+  }
+  pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 10pt;
+  }
+  table {
+    border: 1px solid #ddd;
+  }
+  td {
+    border-top: 1px solid #ddd;
+  }
+}
+
+/* This is commented out here, as the string-set: doesn't
+   pass W3C validation currently */
+/*
+.ears thead .left {
+  string-set: ears-top-left content();
+}
+
+.ears thead .center {
+  string-set: ears-top-center content();
+}
+
+.ears thead .right {
+  string-set: ears-top-right content();
+}
+
+.ears tfoot .left {
+  string-set: ears-bottom-left content();
+}
+
+.ears tfoot .center {
+  string-set: ears-bottom-center content();
+}
+
+.ears tfoot .right {
+  string-set: ears-bottom-right content();
+}
+*/
+
+@page :first {
+  padding-top: 0;
+  @top-left {
+    content: normal;
+    border: none;
+  }
+  @top-center {
+    content: normal;
+    border: none;
+  }
+  @top-right {
+    content: normal;
+    border: none;
+  }
+}
+
+@page {
+  size: A4;
+  margin-bottom: 45mm;
+  padding-top: 20px;
+  /* The follwing is commented out here, but set appropriately by in code, as
+     the content depends on the document */
+  /*
+  @top-left {
+    content: 'Internet-Draft';
+    vertical-align: bottom;
+    border-bottom: solid 1px #ccc;
+  }
+  @top-left {
+    content: string(ears-top-left);
+    vertical-align: bottom;
+    border-bottom: solid 1px #ccc;
+  }
+  @top-center {
+    content: string(ears-top-center);
+    vertical-align: bottom;
+    border-bottom: solid 1px #ccc;
+  }
+  @top-right {
+    content: string(ears-top-right);
+    vertical-align: bottom;
+    border-bottom: solid 1px #ccc;
+  }
+  @bottom-left {
+    content: string(ears-bottom-left);
+    vertical-align: top;
+    border-top: solid 1px #ccc;
+  }
+  @bottom-center {
+    content: string(ears-bottom-center);
+    vertical-align: top;
+    border-top: solid 1px #ccc;
+  }
+  @bottom-right {
+      content: '[Page ' counter(page) ']';
+      vertical-align: top;
+      border-top: solid 1px #ccc;
+  }
+  */
+
+}
+
+/* Changes introduced to fix issues found during implementation */
+/* Make sure links are clickable even if overlapped by following H* */
+a {
+  z-index: 2;
+}
+/* Separate body from document info even without intervening H1 */
+section {
+  clear: both;
+}
+
+
+/* Top align author divs, to avoid names without organization dropping level with org names */
+.author {
+  vertical-align: top;
+}
+
+/* Leave room in document info to show Internet-Draft on one line */
+#identifiers dt {
+  width: 8em;
+}
+
+/* Don't waste quite as much whitespace between label and value in doc info */
+#identifiers dd {
+  margin-left: 1em;
+}
+
+/* Give floating toc a background color (needed when it's a div inside section */
+#toc {
+  background-color: white;
+}
+
+/* Make the collapsed ToC header render white on gray also when it's a link */
+@media screen and (max-width: 1023px) {
+  #toc h2 a,
+  #toc h2 a:link,
+  #toc h2 a:focus,
+  #toc h2 a:hover,
+  #toc a.toplink,
+  #toc a.toplink:hover {
+    color: white;
+    background-color: #444;
+    text-decoration: none;
+  }
+}
+
+/* Give the bottom of the ToC some whitespace */
+@media screen and (min-width: 1024px) {
+  #toc {
+    padding: 0 0 1em 1em;
+  }
+}
+
+/* Style section numbers with more space between number and title */
+.section-number {
+  padding-right: 0.5em;
+}
+
+/* prevent monospace from becoming overly large */
+tt, code, pre, code {
+  font-size: 95%;
+}
+
+/* Fix the height/width aspect for ascii art*/
+pre.sourcecode,
+.art-text pre {
+  line-height: 1.12;
+}
+
+
+/* Add styling for a link in the ToC that points to the top of the document */
+a.toplink {
+  float: right;
+  margin-right: 0.5em;
+}
+
+/* Fix the dl styling to match the RFC 7992 attributes */
+dl > dt,
+dl.dlParallel > dt {
+  float: left;
+  margin-right: 1em;
+}
+dl.dlNewline > dt {
+  float: none;
+}
+
+/* Provide styling for table cell text alignment */
+table td.text-left,
+table th.text-left {
+  text-align: left;
+}
+table td.text-center,
+table th.text-center {
+  text-align: center;
+}
+table td.text-right,
+table th.text-right {
+  text-align: right;
+}
+
+/* Make the alternative author contact informatio look less like just another
+   author, and group it closer with the primary author contact information */
+.alternative-contact {
+  margin: 0.5em 0 0.25em 0;
+}
+address .non-ascii {
+  margin: 0 0 0 2em;
+}
+
+/* With it being possible to set tables with alignment
+  left, center, and right, { width: 100%; } does not make sense */
+table {
+  width: auto;
+}
+
+/* Avoid reference text that sits in a block with very wide left margin,
+   because of a long floating dt label.*/
+.references dd {
+  overflow: visible;
+}
+
+/* Control caption placement */
+caption {
+  caption-side: bottom;
+}
+
+/* Limit the width of the author address vcard, so names in right-to-left
+   script don't end up on the other side of the page. */
+
+address.vcard {
+  max-width: 30em;
+  margin-right: auto;
+}
+
+/* For address alignment dependent on LTR or RTL scripts */
+address div.left {
+  text-align: left;
+}
+address div.right {
+  text-align: right;
+}
+
+/* Provide table alignment support.  We can't use the alignX classes above
+   since they do unwanted things with caption and other styling. */
+table.right {
+ margin-left: auto;
+ margin-right: 0;
+}
+table.center {
+ margin-left: auto;
+ margin-right: auto;
+}
+table.left {
+ margin-left: 0;
+ margin-right: auto;
+}
+
+/* Give the table caption label the same styling as the figcaption */
+caption a[href] {
+  color: #222;
+}
+
+@media print {
+  .toplink {
+    display: none;
+  }
+
+  /* avoid overwriting the top border line with the ToC header */
+  #toc {
+    padding-top: 1px;
+  }
+
+  /* Avoid page breaks inside dl and author address entries */
+  .vcard {
+    page-break-inside: avoid;
+  }
+
+}
+/* Avoid wrapping of URLs in references */
+@media screen {
+  .references a {
+    white-space: nowrap;
+  }
+}
+/* Tweak the bcp14 keyword presentation */
+.bcp14 {
+  font-variant: small-caps;
+  font-weight: bold;
+  font-size: 0.9em;
+}
+/* Tweak the invisible space above H* in order not to overlay links in text above */
+ h2 {
+  margin-top: -18px;  /* provide offset for in-page anchors */
+  padding-top: 31px;
+ }
+ h3 {
+  margin-top: -18px;  /* provide offset for in-page anchors */
+  padding-top: 24px;
+ }
+ h4 {
+  margin-top: -18px;  /* provide offset for in-page anchors */
+  padding-top: 24px;
+ }
+/* Float artwork pilcrow to the right */
+@media screen {
+  .artwork a.pilcrow {
+    display: block;
+    line-height: 0.7;
+    margin-top: 0.15em;
+  }
+}
+/* Make pilcrows on dd visible */
+@media screen {
+  dd:hover > a.pilcrow {
+    visibility: visible;
+  }
+}
+/* Make the placement of figcaption match that of a table's caption
+   by removing the figure's added bottom margin */
+.alignLeft.art-text,
+.alignCenter.art-text,
+.alignRight.art-text {
+   margin-bottom: 0;
+}
+.alignLeft,
+.alignCenter,
+.alignRight {
+  margin: 1em 0 0 0;
+}
+/* In print, the pilcrow won't show on hover, so prevent it from taking up space,
+   possibly even requiring a new line */
+@media print {
+  a.pilcrow {
+    display: none;
+  }
+}
+/* Styling for the external metadata */
+div#external-metadata {
+  background-color: #eee;
+  padding: 0.5em;
+  margin-bottom: 0.5em;
+  display: none;
+}
+div#internal-metadata {
+  padding: 0.5em;                       /* to match the external-metadata padding */
+}
+/* Styling for title RFC Number */
+h1#rfcnum {
+  clear: both;
+  margin: 0 0 -1em;
+  padding: 1em 0 0 0;
+}
+/* Make .olPercent look the same as <ol><li> */
+dl.olPercent > dd {
+  margin: 0 0 0.25em 0;
+  min-height: initial;
+}
+/* Give aside some styling to set it apart */
+aside {
+  border-left: 1px solid #ddd;
+  margin: 1em 0 1em 2em;
+  padding: 0.2em 2em;
+}
+aside > dl,
+aside > ol,
+aside > ul,
+aside > table,
+aside > p {
+  margin-bottom: 0.5em;
+}
+/* Additional page break settings */
+@media print {
+  figcaption, table caption {
+    page-break-before: avoid;
+  }
+}
+/* Font size adjustments for print */
+@media print {
+  body  { font-size: 10pt;      line-height: normal; max-width: 96%; }
+  h1    { font-size: 1.72em;    padding-top: 1.5em; } /* 1*1.2*1.2*1.2 */
+  h2    { font-size: 1.44em;    padding-top: 1.5em; } /* 1*1.2*1.2 */
+  h3    { font-size: 1.2em;     padding-top: 1.5em; } /* 1*1.2 */
+  h4    { font-size: 1em;       padding-top: 1.5em; }
+  h5, h6 { font-size: 1em;      margin: initial; padding: 0.5em 0 0.3em; }
+}
+/* Sourcecode margin in print, when there's no pilcrow */
+@media print {
+  .artwork,
+  .sourcecode {
+    margin-bottom: 1em;
+  }
+}
+/*
+  The margin-left: 0 on <dd> removes all distinction
+  between levels from nested <dl>s.  Undo that.
+*/
+dl.olPercent > dd,
+dd {
+  margin-left: revert;
+}
+/* Avoid narrow tables forcing too narrow table captions, which may render badly */
+table {
+  min-width: 20em;
+}
+/* ol type a */
+ol.type-a { list-style-type: lower-alpha; }
+ol.type-A { list-style-type: upper-alpha; }
+ol.type-i { list-style-type: lower-roman; }
+ol.type-I { list-style-type: lower-roman; }
+/* Apply the print table and row borders in general, on request from the RPC,
+and increase the contrast between border and odd row background sligthtly */
+table {
+  border: 1px solid #ddd;
+}
+td {
+  border-top: 1px solid #ddd;
+}
+tr:nth-child(2n+1) > td {
+  background-color: #f8f8f8;
+}
+/* Use style rules to govern display of the TOC. */
+@media screen and (max-width: 1023px) {
+  #toc nav { display: none; }
+  #toc.active nav { display: block; }
+}
+</style>
+<link href="rfc-local.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<script src="metadata.min.js"></script>
+<table class="ears">
+<thead><tr>
+<td class="left"></td>
+<td class="center">OBB-FAPI-1-DCR-ID2</td>
+<td class="right">October 2021</td>
+</tr></thead>
+<tfoot><tr>
+<td class="left">Bragg & Security</td>
+<td class="center">Standards Track</td>
+<td class="right">[Page]</td>
+</tr></tfoot>
+</table>
+<div id="external-metadata" class="document-information"></div>
+<div id="internal-metadata" class="document-information">
+<dl id="identifiers">
+<dt class="label-workgroup">Workgroup:</dt>
+<dd class="workgroup">Open Banking Brasil GT Security</dd>
+<dt class="label-internet-draft">Internet-Draft:</dt>
+<dd class="internet-draft">open-banking-brasil-dynamic-client-registration-1_ID2-ptbr</dd>
+<dt class="label-published">Published:</dt>
+<dd class="published">
+<time datetime="2021-10-08" class="published">8 October 2021</time>
+    </dd>
+<dt class="label-intended-status">Intended Status:</dt>
+<dd class="intended-status">Standards Track</dd>
+<dt class="label-authors">Authors:</dt>
+<dd class="authors">
+<div class="author">
+      <div class="author-name">R. Bragg</div>
+<div class="org">Raidiam</div>
+</div>
+<div class="author">
+      <div class="author-name">GT. Security</div>
+<div class="org">OBBIS</div>
+</div>
+</dd>
+</dl>
+</div>
+<h1 id="title">Open Banking Brasil Financial-grade API Dynamic Client Registration 1.0 Implementers Draft 2</h1>
+<section class="note" id="section-note.1">
+      <h2 id="name-pref225cio">
+<a href="#name-pref225cio" class="section-name selfRef">Pref&#225;cio</a>
+      </h2>
+<!--
+<p id="section-note.1-1">The normative version in <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID1.html">English</a><a href="#section-note.1-1" class="pilcrow">¶</a></p>
+-->
+<p id="section-note.1-2">A Estrutura Inicial do Open Banking Brasil (EIOBB) &#233; respons&#225;vel por criar os padr&#245;es e especifica&#231;&#245;es necess&#225;rios para atender aos requisitos e obriga&#231;&#245;es da Legisla&#231;&#227;o do Open Banking do Brasil, conforme originalmente delineado pelo <a href="https://www.bcb.gov.br/content/config/Documents/BCB_Open_Banking_Communique-April-2019.pdf">Banco Central do Brasil</a>. &#201; poss&#237;vel que alguns dos elementos deste documento estejam sujeitos a direitos de patente. O EIOBB n&#227;o se responsabiliza pela identifica&#231;&#227;o de qualquer ou todos os direitos de patente.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
+<p id="section-note.1-3">O Perfil de Seguran&#231;a Financial-grade API 1.0 do Open Banking Brasil consiste nas seguintes partes:<a href="#section-note.1-3" class="pilcrow">¶</a></p>
+<ul class="note">
+<li class="note" id="section-note.1-4.1">
+          <p id="section-note.1-4.1.1"><a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID1.html">Open Banking Brasil Financial-grade API Security Profile 1.0</a><a href="#section-note.1-4.1.1" class="pilcrow">¶</a></p>
+</li>
+<li class="note" id="section-note.1-4.2">
+          <p id="section-note.1-4.2.1">Open Banking Brasil Dynamic Client Registration Profile 1.0<a href="#section-note.1-4.2.1" class="pilcrow">¶</a></p>
+</li>
+</ul>
+<p id="section-note.1-5">Essas partes devem ser usadas com <a href="https://tools.ietf.org/html/rfc6749">RFC6749</a>, <a href="https://tools.ietf.org/html/rfc6750">RFC6750</a>, <a href="https://tools.ietf.org/html/rfc7636">RFC7636</a>, <a href="https://openid.net/specs/openid-connect-core-1_0.html">OIDC</a>, <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OIDR</a>, <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a>, <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a>, <a href="https://openid.net/specs/openid-financial-api-part-1-1_0.html">FAPI-1-Baseline</a> e <a href="https://openid.net/specs/openid-financial-api-part-2-1_0.html">FAPI-1-Advanced</a><a href="#section-note.1-5" class="pilcrow">¶</a></p>
+</section>
+<section class="note" id="section-note.2">
+      <h2 id="name-introdu231227o">
+<a href="#name-introdu231227o" class="section-name selfRef">Introdu&#231;&#227;o</a>
+      </h2>
+<p id="section-note.2-1">O Perfil de Registro de Cliente Din&#226;mico (DCR - <em>Dynamic Client Registration</em>) do Financal-grade API (FAPI) do Open Banking Brasil &#233; um perfil de <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a>, <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a> e <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OIDR</a> que visa fornecer diretrizes de implementa&#231;&#227;o espec&#237;ficas para seguran&#231;a e interoperabilidade que podem ser aplicadas &#224; identifica&#231;&#227;o, registro e gerenciamento de <em>Clients OAuth</em> operando no ecossistema Open Banking Brasil.<a href="#section-note.2-1" class="pilcrow">¶</a></p>
+<p id="section-note.2-2">Embora seja poss&#237;vel codificar um <em>OpenID Provider</em> e <em>Relying Party</em> desde o princ&#237;pio usando esta especifica&#231;&#227;o, o principal p&#250;blico para esta especifica&#231;&#227;o s&#227;o as partes que j&#225; possuem uma implementa&#231;&#227;o certificada do <a href="https://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect</a> e desejam obter a certifica&#231;&#227;o para o Open Banking Brasil.<a href="#section-note.2-2" class="pilcrow">¶</a></p>
+</section>
+<section class="note" id="section-note.3">
+      <h2 id="name-conven231245es-notacionais">
+<a href="#name-conven231245es-notacionais" class="section-name selfRef">Conven&#231;&#245;es Notacionais</a>
+      </h2>
+<p id="section-note.3-1">As palavras-chave "<em>deve</em>" (shall), "<em>n&#227;o deve</em>" (shall not), "<em>deveria</em>" (should), "<em>n&#227;o deveria</em>" (should not) e "<em>pode</em>" (may) presentes nesse documento devem ser interpretadas conforme as diretrizes descritas em <a href="https://www.iso.org/sites/directives/current/part2/index.xhtml">ISO Directive Part 2</a> observando  seguinte equival&#234;ncia:<a href="#section-note.3-1" class="pilcrow">¶</a></p>
+<ul class="note">
+<li class="note" id="section-note.3-2.1">
+          <p id="section-note.3-2.1.1">"deve" =&gt; equivalente ao termo "shall" e expressa um requerimento definido no documento (nas tradu&#231;&#245;es &#233; similar ao termo "must", que pode denotar um requerimento externo ao documento);<a href="#section-note.3-2.1.1" class="pilcrow">¶</a></p>
+</li>
+<li class="note" id="section-note.3-2.2">
+          <p id="section-note.3-2.2.1">"n&#227;o deve" =&gt; equivalente ao termo "shall not" e tamb&#233;m expressa um requerimento definido no documento;<a href="#section-note.3-2.2.1" class="pilcrow">¶</a></p>
+</li>
+<li class="note" id="section-note.3-2.3">
+          <p id="section-note.3-2.3.1">"deveria" e "n&#227;o deveria"=&gt; equivalente ao termo "should" e "should not" e expressa uma recomenda&#231;&#227;o<a href="#section-note.3-2.3.1" class="pilcrow">¶</a></p>
+</li>
+<li class="note" id="section-note.3-2.4">
+          <p id="section-note.3-2.4.1">"pode" =&gt; equivalente ao termo "may" indica uma permiss&#227;o<a href="#section-note.3-2.4.1" class="pilcrow">¶</a></p>
+</li>
+</ul>
+<p id="section-note.3-3">Estas palavras-chave n&#227;o s&#227;o usadas como termos de dicion&#225;rio, de modo que qualquer ocorr&#234;ncia deles deve ser interpretada como palavras-chave e n&#227;o devem ser interpretados com seus significados de linguagem natural.<a href="#section-note.3-3" class="pilcrow">¶</a></p>
+</section>
+<div id="toc">
+<section id="section-toc.1">
+        <a href="#" onclick="scroll(0,0)" class="toplink">▲</a><h2 id="name-table-of-contents">
+<a href="#name-table-of-contents" class="section-name selfRef">Table of Contents</a>
+        </h2>
+<nav class="toc"><ul class="toc ulEmpty">
+<li class="toc ulEmpty" id="section-toc.1-1.1">
+            <p id="section-toc.1-1.1.1"><a href="#section-1" class="xref">1</a>.  <a href="#name-escopo" class="xref">Escopo</a><a href="#section-toc.1-1.1.1" class="pilcrow">¶</a></p>
+</li>
+<li class="toc ulEmpty" id="section-toc.1-1.2">
+            <p id="section-toc.1-1.2.1"><a href="#section-2" class="xref">2</a>.  <a href="#name-refer234ncias-normativas" class="xref">Refer&#234;ncias normativas</a><a href="#section-toc.1-1.2.1" class="pilcrow">¶</a></p>
+</li>
+<li class="toc ulEmpty" id="section-toc.1-1.3">
+            <p id="section-toc.1-1.3.1"><a href="#section-3" class="xref">3</a>.  <a href="#name-termos-e-defini231245es" class="xref">Termos e defini&#231;&#245;es</a><a href="#section-toc.1-1.3.1" class="pilcrow">¶</a></p>
+</li>
+<li class="toc ulEmpty" id="section-toc.1-1.4">
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="xref">4</a>.  <a href="#name-s237mbolos-e-termos-abrevia" class="xref">S&#237;mbolos e Termos abreviados</a><a href="#section-toc.1-1.4.1" class="pilcrow">¶</a></p>
+</li>
+<li class="toc ulEmpty" id="section-toc.1-1.5">
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="xref">5</a>.  <a href="#name-introdu231227o-2" class="xref">Introdu&#231;&#227;o</a><a href="#section-toc.1-1.5.1" class="pilcrow">¶</a></p>
+</li>
+<li class="toc ulEmpty" id="section-toc.1-1.6">
+            <p id="section-toc.1-1.6.1"><a href="#section-6" class="xref">6</a>.  <a href="#name-provisionamentos-do-openid-" class="xref">Provisionamentos do OpenID Connect Discovery do Open Banking Brasil</a><a href="#section-toc.1-1.6.1" class="pilcrow">¶</a></p>
+<ul class="toc ulEmpty">
+<li class="toc ulEmpty" id="section-toc.1-1.6.2.1">
+                <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="xref">6.1</a>.  <a href="#name-servidor-de-autoriza231227o" class="xref">Servidor de Autoriza&#231;&#227;o</a><a href="#section-toc.1-1.6.2.1.1" class="pilcrow">¶</a></p>
+</li>
+<li class="toc ulEmpty" id="section-toc.1-1.6.2.2">
+                <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="xref">6.2</a>.  <a href="#name-cliente" class="xref">Cliente</a><a href="#section-toc.1-1.6.2.2.1" class="pilcrow">¶</a></p>
+</li>
+</ul>
+</li>
+<li class="toc ulEmpty" id="section-toc.1-1.7">
+            <p id="section-toc.1-1.7.1"><a href="#section-7" class="xref">7</a>.  <a href="#name-provisionamento-de-registro" class="xref">Provisionamento de registro OpenID Connect do Open Banking Brasil</a><a href="#section-toc.1-1.7.1" class="pilcrow">¶</a></p>
+<ul class="toc ulEmpty">
+<li class="toc ulEmpty" id="section-toc.1-1.7.2.1">
+                <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="xref">7.1</a>.  <a href="#name-servidor-de-autoriza231227o-2" class="xref">Servidor de Autoriza&#231;&#227;o</a><a href="#section-toc.1-1.7.2.1.1" class="pilcrow">¶</a></p>
+<ul class="toc ulEmpty">
+<li class="toc ulEmpty" id="section-toc.1-1.7.2.1.2.1">
+                    <p id="section-toc.1-1.7.2.1.2.1.1"><a href="#section-7.1.1" class="xref">7.1.1</a>.  <a href="#name-aplicando-server-defaults" class="xref">Aplicando Server Defaults</a><a href="#section-toc.1-1.7.2.1.2.1.1" class="pilcrow">¶</a></p>
+</li>
+<li class="toc ulEmpty" id="section-toc.1-1.7.2.1.2.2">
+                    <p id="section-toc.1-1.7.2.1.2.2.1"><a href="#section-7.1.2" class="xref">7.1.2</a>.  <a href="#name-an225lise-do-distinguished-" class="xref">An&#225;lise do Distinguished Name do Certificado</a><a href="#section-toc.1-1.7.2.1.2.2.1" class="pilcrow">¶</a></p>
+</li>
+</ul>
+</li>
+<li class="toc ulEmpty" id="section-toc.1-1.7.2.2">
+                <p id="section-toc.1-1.7.2.2.1"><a href="#section-7.2" class="xref">7.2</a>.  <a href="#name-fun231245es-regulat243rias-" class="xref">Fun&#231;&#245;es regulat&#243;rias para mapeamentos OpenID e OAuth 2.0</a><a href="#section-toc.1-1.7.2.2.1" class="pilcrow">¶</a></p>
+</li>
+</ul>
+</li>
+<li class="toc ulEmpty" id="section-toc.1-1.8">
+            <p id="section-toc.1-1.8.1"><a href="#section-8" class="xref">8</a>.  <a href="#name-declara231227o-de-software" class="xref">Declara&#231;&#227;o de Software</a><a href="#section-toc.1-1.8.1" class="pilcrow">¶</a></p>
+<ul class="toc ulEmpty">
+<li class="toc ulEmpty" id="section-toc.1-1.8.2.1">
+                <p id="section-toc.1-1.8.2.1.1"><a href="#section-8.1" class="xref">8.1</a>.  <a href="#name-atributos-da-declara231227o" class="xref">Atributos da Declara&#231;&#227;o de Software (Claims)</a><a href="#section-toc.1-1.8.2.1.1" class="pilcrow">¶</a></p>
+</li>
+</ul>
+</li>
+<li class="toc ulEmpty" id="section-toc.1-1.9">
+            <p id="section-toc.1-1.9.1"><a href="#section-9" class="xref">9</a>.  <a href="#name-processamento-de-solicita23" class="xref">Processamento de solicita&#231;&#227;o de registro de cliente din&#226;mico</a><a href="#section-toc.1-1.9.1" class="pilcrow">¶</a></p>
+<ul class="toc ulEmpty">
+<li class="toc ulEmpty" id="section-toc.1-1.9.2.1">
+                <p id="section-toc.1-1.9.2.1.1"><a href="#section-9.1" class="xref">9.1</a>.  <a href="#name-enviar-uma-solicita231227o-" class="xref">Enviar uma solicita&#231;&#227;o com uma declara&#231;&#227;o de software</a><a href="#section-toc.1-1.9.2.1.1" class="pilcrow">¶</a></p>
+</li>
+<li class="toc ulEmpty" id="section-toc.1-1.9.2.2">
+                <p id="section-toc.1-1.9.2.2.1"><a href="#section-9.2" class="xref">9.2</a>.  <a href="#name-open-banking-brasil-ssa-key" class="xref">Open Banking Brasil SSA Key Store e detalhes do emissor</a><a href="#section-toc.1-1.9.2.2.1" class="pilcrow">¶</a></p>
+</li>
+<li class="toc ulEmpty" id="section-toc.1-1.9.2.3">
+                <p id="section-toc.1-1.9.2.3.1"><a href="#section-9.3" class="xref">9.3</a>.  <a href="#name-sobre-os-mecanismos-de-aute" class="xref">Sobre os mecanismos de autentica&#231;&#227;o e autoriza&#231;&#227;o dos servi&#231;os de DCR e DCM</a><a href="#section-toc.1-1.9.2.3.1" class="pilcrow">¶</a></p>
+<ul class="toc ulEmpty">
+<li class="toc ulEmpty" id="section-toc.1-1.9.2.3.2.1">
+                    <p id="section-toc.1-1.9.2.3.2.1.1"><a href="#section-9.3.1" class="xref">9.3.1</a>.  <a href="#name-registro-de-cliente-post-re" class="xref">Registro de cliente - POST /register</a><a href="#section-toc.1-1.9.2.3.2.1.1" class="pilcrow">¶</a></p>
+</li>
+<li class="toc ulEmpty" id="section-toc.1-1.9.2.3.2.2">
+                    <p id="section-toc.1-1.9.2.3.2.2.1"><a href="#section-9.3.2" class="xref">9.3.2</a>.  <a href="#name-manuten231227o-de-cliente-g" class="xref">Manuten&#231;&#227;o de cliente - GET /register - PUT /register - DELETE /register</a><a href="#section-toc.1-1.9.2.3.2.2.1" class="pilcrow">¶</a></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc ulEmpty" id="section-toc.1-1.10">
+            <p id="section-toc.1-1.10.1"><a href="#section-10" class="xref">10</a>. <a href="#name-reconhecimento" class="xref">Reconhecimento</a><a href="#section-toc.1-1.10.1" class="pilcrow">¶</a></p>
+</li>
+<li class="toc ulEmpty" id="section-toc.1-1.11">
+            <p id="section-toc.1-1.11.1"><a href="#section-appendix.a" class="xref">Appendix A</a>.  <a href="#name-avisos" class="xref">Avisos</a><a href="#section-toc.1-1.11.1" class="pilcrow">¶</a></p>
+<ul class="toc ulEmpty">
+<li class="toc ulEmpty" id="section-toc.1-1.11.2.1">
+                <p id="section-toc.1-1.11.2.1.1"><a href="#section-a.1" class="xref">A.1</a>.  <a href="#name-ap234ndice-a-exemplo-de-afi" class="xref">Ap&#234;ndice A. Exemplo de afirma&#231;&#227;o de declara&#231;&#227;o de software</a><a href="#section-toc.1-1.11.2.1.1" class="pilcrow">¶</a></p>
+</li>
+</ul>
+</li>
+<li class="toc ulEmpty" id="section-toc.1-1.12">
+            <p id="section-toc.1-1.12.1"><a href="#section-appendix.b" class="xref"></a><a href="#name-authors-addresses" class="xref">Authors' Addresses</a><a href="#section-toc.1-1.12.1" class="pilcrow">¶</a></p>
+</li>
+</ul>
+</nav>
+</section>
+</div>
+<div id="Scope">
+<section id="section-1">
+      <h2 id="name-escopo">
+<a href="#section-1" class="section-number selfRef">1. </a><a href="#name-escopo" class="section-name selfRef">Escopo</a>
+      </h2>
+<p id="section-1-1">Este documento especifica o m&#233;todo de<a href="#section-1-1" class="pilcrow">¶</a></p>
+<ul>
+<li id="section-1-2.1">
+          <p id="section-1-2.1.1">aplicativos cadastrados no <a href="https://web.directory.openbankingbrasil.org.br">Diretorio de Participantes do Open Banking</a> para descobrir OpenID Providers que oferecem servi&#231;os no ecossistema Open Banking Brasil;<a href="#section-1-2.1.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-1-2.2">
+          <p id="section-1-2.2.1">aplicativos para usar o <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Connect Registration</a> para integrar seus aplicativos com OpenID Providers dos bancos; e<a href="#section-1-2.2.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-1-2.3">
+          <p id="section-1-2.3.1">aplicativos para usar <a href="https://tools.ietf.org/html/rfc7592">OAuth 2.0 Dynamic Client Registration Management Protocol</a> para gerenciar seus aplicativos com OpenID Providers;<a href="#section-1-2.3.1" class="pilcrow">¶</a></p>
+</li>
+</ul>
+<p id="section-1-3">Este documento &#233; aplic&#225;vel a todos os participantes do Open Banking no Brasil.<a href="#section-1-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="Normative">
+<section id="section-2">
+      <h2 id="name-refer234ncias-normativas">
+<a href="#section-2" class="section-number selfRef">2. </a><a href="#name-refer234ncias-normativas" class="section-name selfRef">Refer&#234;ncias normativas</a>
+      </h2>
+<p id="section-2-1">Os seguintes documentos referenciados s&#227;o indispens&#225;veis para a aplica&#231;&#227;o deste documento. Para refer&#234;ncias datadas, apenas a edi&#231;&#227;o citada se aplica. Para refer&#234;ncias n&#227;o datadas, a &#250;ltima edi&#231;&#227;o do documento referenciado (incluindo quaisquer emendas) se aplica.<a href="#section-2-1" class="pilcrow">¶</a></p>
+<p id="section-2-2"><a href="https://www.iso.org/sites/directives/current/part2/index.xhtml">ISODIR2</a> - ISO/IEC Directives Part 2<a href="#section-2-2" class="pilcrow">¶</a></p>
+<p id="section-2-3"><a href="https://tools.ietf.org/html/rfc6749">RFC6749</a> - The OAuth 2.0 Authorization Framework<a href="#section-2-3" class="pilcrow">¶</a></p>
+<p id="section-2-4"><a href="https://tools.ietf.org/html/rfc6750">RFC6750</a> - The OAuth 2.0 Authorization Framework: Bearer Token Usage<a href="#section-2-4" class="pilcrow">¶</a></p>
+<p id="section-2-5"><a href="https://tools.ietf.org/html/rfc7636">RFC7636</a> - Proof Key for Code Exchange by OAuth Public Clients<a href="#section-2-5" class="pilcrow">¶</a></p>
+<p id="section-2-6"><a href="https://tools.ietf.org/html/rfc6819">RFC6819</a> - OAuth 2.0 Threat Model and Security Considerations<a href="#section-2-6" class="pilcrow">¶</a></p>
+<p id="section-2-7"><a href="https://tools.ietf.org/html/rfc7519">RFC7519</a> - JSON Web Token (JWT)<a href="#section-2-7" class="pilcrow">¶</a></p>
+<p id="section-2-8"><a href="https://tools.ietf.org/html/rfc7591">RFC7591</a> - OAuth 2.0 Dynamic Client Registration Protocol<a href="#section-2-8" class="pilcrow">¶</a></p>
+<p id="section-2-9"><a href="https://tools.ietf.org/html/rfc7592">RFC7592</a> - OAuth 2.0 Dynamic Client Registration Management Protocol<a href="#section-2-9" class="pilcrow">¶</a></p>
+<p id="section-2-10"><a href="https://tools.ietf.org/html/bcp195">BCP195</a> - Recommendations for Secure Use of Transport Layer Security (TLS) and Datagram Transport Layer Security (DTLS)<a href="#section-2-10" class="pilcrow">¶</a></p>
+<p id="section-2-11"><a href="https://openid.net/specs/openid-connect-core-1_0.html">OIDC</a> - OpenID Connect Core 1.0 incorporating errata set 1<a href="#section-2-11" class="pilcrow">¶</a></p>
+<p id="section-2-12"><a href="https://bitbucket.org/openid/fapi/src/master/Financial_API_WD_CIBA.md">FAPI-CIBA</a> - Financial-grade API: Client Initiated Backchannel Authentication Profile<a href="#section-2-12" class="pilcrow">¶</a></p>
+<p id="section-2-13"><a href="https://www.rfc-editor.org/rfc/rfc4514">RFC4514</a> - Lightweight Directory Access Protocol (LDAP): String Representation of Distinguished Names<a href="#section-2-13" class="pilcrow">¶</a></p>
+<p id="section-2-14"><a href="https://openid.net/specs/openid-connect-discovery-1_0.html">OIDD</a> -  OpenID Connect Discovery 1.0 incorporating errata set 1<a href="#section-2-14" class="pilcrow">¶</a></p>
+<p id="section-2-15"><a href="https://openid.net/specs/openid-connect-registration-1_0.html">OIDR</a> -  OpenID Connect Registration 1.0 incorporating errata set 1<a href="#section-2-15" class="pilcrow">¶</a></p>
+<p id="section-2-16"><a href="https://tools.ietf.org/html/rfc8705">RFC8705</a> - OAuth 2.0 Mutual TLS Client Authentication and Certificate Bound Access Tokens<a href="#section-2-16" class="pilcrow">¶</a></p>
+<p id="section-2-17"><a href="https://bitbucket.org/openid/fapi/src/master/Financial_API_JWT_Secured_Authorization_Response_Mode.md">JARM</a> - Financial-grade API: JWT Secured Authorization Response Mode for OAuth 2.0 (JARM)<a href="#section-2-17" class="pilcrow">¶</a></p>
+<p id="section-2-18"><a href="https://tools.ietf.org/html/draft-ietf-oauth-par">PAR</a> - OAuth 2.0 Pushed Authorization Requests<a href="#section-2-18" class="pilcrow">¶</a></p>
+<p id="section-2-19"><a href="https://tools.ietf.org/html/draft-ietf-oauth-jwsreq">JAR</a> - OAuth 2.0 JWT Secured Authorization Request<a href="#section-2-19" class="pilcrow">¶</a></p>
+<p id="section-2-20"><a href="https://openid.net/specs/openid-financial-api-part-1-1_0.html">FAPI-1-Baseline</a> - Financial-grade API Security Profile 1.0 - Part 1: Baseline<a href="#section-2-20" class="pilcrow">¶</a></p>
+<p id="section-2-21"><a href="https://openid.net/specs/openid-financial-api-part-2-1_0.html">FAPI-1-Advanced</a> - Financial-grade API Security Profile 1.0 - Part 2: Advanced<a href="#section-2-21" class="pilcrow">¶</a></p>
+<p id="section-2-22"><a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID1.html">OBB-FAPI</a> - Open Banking Brasil Financial-grade API Security Profile 1.0<a href="#section-2-22" class="pilcrow">¶</a></p>
+<p id="section-2-23"><a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html">OBB-Cert-Standards</a> - Open Banking Brasil x.509 Certificate Standards<a href="#section-2-23" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="Definitions">
+<section id="section-3">
+      <h2 id="name-termos-e-defini231245es">
+<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-termos-e-defini231245es" class="section-name selfRef">Termos e defini&#231;&#245;es</a>
+      </h2>
+<p id="section-3-1">Para efeitos deste documento, aplicam-se os termos definidos em <a href="https://tools.ietf.org/html/rfc6749">RFC6749</a>, <a href="https://tools.ietf.org/html/rfc6750">RFC6750</a>, <a href="https://tools.ietf.org/html/rfc7636">RFC7636</a>, <a href="https://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect Core</a> e ISO29100.<a href="#section-3-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="Abreviations">
+<section id="section-4">
+      <h2 id="name-s237mbolos-e-termos-abrevia">
+<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-s237mbolos-e-termos-abrevia" class="section-name selfRef">S&#237;mbolos e Termos abreviados</a>
+      </h2>
+<p id="section-4-1"><strong>SSA</strong> - Software Statement Assertion (Afirma&#231;&#227;o de Declara&#231;&#227;o de Software)<a href="#section-4-1" class="pilcrow">¶</a></p>
+<p id="section-4-2"><strong>SS</strong> - Software Statement (Declara&#231;&#227;o de Software)<a href="#section-4-2" class="pilcrow">¶</a></p>
+<p id="section-4-3"><strong>DCR</strong> - Dynamic Client Registration (Registro de Cliente Din&#226;mico)<a href="#section-4-3" class="pilcrow">¶</a></p>
+<p id="section-4-4"><strong>API</strong> - Application Programming Interface (Interface de Programa&#231;&#227;o da Aplica&#231;&#227;o)<a href="#section-4-4" class="pilcrow">¶</a></p>
+<p id="section-4-5"><strong>FAPI</strong> - Financial-grade API<a href="#section-4-5" class="pilcrow">¶</a></p>
+<p id="section-4-6"><strong>HTTP</strong> - Hyper Text Transfer Protocol<a href="#section-4-6" class="pilcrow">¶</a></p>
+<p id="section-4-7"><strong>OIDF</strong> - OpenID Foundation<a href="#section-4-7" class="pilcrow">¶</a></p>
+<p id="section-4-8"><strong>REST</strong> - Representational State Transfer<a href="#section-4-8" class="pilcrow">¶</a></p>
+<p id="section-4-9"><strong>TLS</strong> - Transport Layer Security<a href="#section-4-9" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="Intro">
+<section id="section-5">
+      <h2 id="name-introdu231227o-2">
+<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-introdu231227o-2" class="section-name selfRef">Introdu&#231;&#227;o</a>
+      </h2>
+<p id="section-5-1">O ecossistema Open Banking Brasil apoia-se em um provedor de confian&#231;a ou <em>diret&#243;rio de participantes</em> como a fonte mais valiosa de informa&#231;&#245;es sobre participantes credenciados e softwares que est&#227;o autorizados a participar do ecossistema Open Banking Brasil.<a href="#section-5-1" class="pilcrow">¶</a></p>
+<p id="section-5-2">Os servi&#231;os do Diret&#243;rio incluem:<a href="#section-5-2" class="pilcrow">¶</a></p>
+<ul>
+<li id="section-5-3.1">
+          <p id="section-5-3.1.1">Registro e gerenciamento de software<a href="#section-5-3.1.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-5-3.2">
+          <p id="section-5-3.2.1">Registro e gerenciamento de credenciais de software usando certificados ICP<a href="#section-5-3.2.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-5-3.3">
+          <p id="section-5-3.3.1">Gera&#231;&#227;o de Software Statement Assertion (SSA)<a href="#section-5-3.3.1" class="pilcrow">¶</a></p>
+</li>
+</ul>
+<p id="section-5-4">Os participantes do ecossistema devem aproveitar esses servi&#231;os para facilitar o registro de cliente OAuth orientado por API usando o processo descrito na cl&#225;usula 3.1.1 do <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a> com metadados adicionais necess&#225;rios para oferecer suporte ao OpenID Connect definido em <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Connect Registration</a>.<a href="#section-5-4" class="pilcrow">¶</a></p>
+<p id="section-5-5">&#201; importante refor&#231;ar que o payload de registro de clientes possui a maior parte de seus atributos n&#227;o obrigat&#243;rios, e que os atributos cujos valores  conflitem com os presentes no software statement assertion <em>ser&#227;o sobrepostos pelos valores do pr&#243;prio software statement assertion emitido pelo diret&#243;rio central</em>. Nem todos os metadados que um cliente deseja fornecer podem estar contidos em um <em>software statement</em>, por exemplo, alternativa <a href="https://openid.net/specs/openid-connect-registration-1_0.html#LanguagesAndScripts">Metadata Languages and Script values</a>. H&#225; casos ainda de metadados de cliente que s&#227;o um subconjunto dos valores existentes no SSA, como por exemplo os redirect_URIs.<a href="#section-5-5" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="Provisions">
+<section id="section-6">
+      <h2 id="name-provisionamentos-do-openid-">
+<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-provisionamentos-do-openid-" class="section-name selfRef">Provisionamentos do OpenID Connect Discovery do Open Banking Brasil</a>
+      </h2>
+<div id="AuthServers">
+<section id="section-6.1">
+        <h3 id="name-servidor-de-autoriza231227o">
+<a href="#section-6.1" class="section-number selfRef">6.1. </a><a href="#name-servidor-de-autoriza231227o" class="section-name selfRef">Servidor de Autoriza&#231;&#227;o</a>
+        </h3>
+<p id="section-6.1-1">O servidor de autoriza&#231;&#227;o deve suportar <a href="https://openid.net/specs/openid-connect-discovery-1_0.html">OpenID Connect Discovery</a> conforme exigido pelo <a href="https://openid.net/specs/openid-financial-api-part-1-1_0.html">Financial-grade API Security Profile 1.0 - Part 1: Baseline</a>. Este suporte deve estar explicito tanto na forma como o Servidor de Autoriza&#231;&#227;o est&#225; registrado no Diret&#243;rio de Participantes quanto na declara&#231;&#227;o dos seus atributos no arquivo de Discovery (well-known), respeitando os mecanismos de autentica&#231;&#227;o certificados pela institi&#231;&#227;o atrav&#233;s dos testes de conformidade do Open Banking Brasil.<a href="#section-6.1-1" class="pilcrow">¶</a></p>
+<p id="section-6.1-2">Adicionalmente, o Servidor de Autoriza&#231;&#227;o:<a href="#section-6.1-2" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="normal type-1" id="section-6.1-3">
+          <li id="section-6.1-3.1">
+            <p id="section-6.1-3.1.1">deve anunciar sua presen&#231;a no ecossistema Open Banking Brasil, sendo listada no Diret&#243;rio de Participantes;<a href="#section-6.1-3.1.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-6.1-3.2">
+            <p id="section-6.1-3.2.1">deve anunciar todos os recursos API REST do Open Banking Brasil protegidos pelo Provedor OpenID no Diret&#243;rio de Participantes;<a href="#section-6.1-3.2.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-6.1-3.3">
+            <p id="section-6.1-3.3.1">deve anunciar suporte para todos os mecanismos de assinatura, criptografia, autentica&#231;&#227;o e padr&#245;es necess&#225;rios para suportar o <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID1.html">Open Banking Brasil Financial API</a>;<a href="#section-6.1-3.3.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-6.1-3.4">
+            <p id="section-6.1-3.4.1">deve anunciar suporte para <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Dynamic Client Registration</a>;<a href="#section-6.1-3.4.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-6.1-3.5">
+            <p id="section-6.1-3.5.1">deve anunciar <code>mtls_endpoint_aliases</code> de acordo com a cl&#225;usula 5 <a href="https://tools.ietf.org/html/rfc8705">RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication e Certificate-Bound Access Tokens</a> o <code>token_endpoint</code>, <code>registration_endpoint</code> e <code>userinfo_endpoint</code>;<a href="#section-6.1-3.5.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-6.1-3.6">
+            <p id="section-6.1-3.6.1">se suportar <a href="https://tools.ietf.org/html/draft-ietf-oauth-par">OAuth 2.0 Pushed Authorisation Requests</a>, deve anunciar por meio de <a href="https://openid.net/specs/openid-connect-discovery-1_0.html">OIDD</a> <code>mtls_endpoint_aliases</code> o <code>push_authorization_request_endpoint</code>;<a href="#section-6.1-3.6.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-6.1-3.7">
+            <p id="section-6.1-3.7.1">se suportar <a href="https://bitbucket.org/openid/fapi/src/master/Financial_API_WD_CIBA.md">Financial API - Client Initiated Back Channel Authentication</a>, deve anunciar atrav&#233;s de <a href="https://openid.net/specs/openid-connect-discovery-1_0.html">OIDD</a> <code>mtls_endpoint_aliases</code> o <code>backchannel_authentication_endpoint</code>;<a href="#section-6.1-3.7.1" class="pilcrow">¶</a></p>
+</li>
+</ol>
+</section>
+</div>
+<div id="Client">
+<section id="section-6.2">
+        <h3 id="name-cliente">
+<a href="#section-6.2" class="section-number selfRef">6.2. </a><a href="#name-cliente" class="section-name selfRef">Cliente</a>
+        </h3>
+<p id="section-6.2-1">O cliente deve suportar <a href="https://openid.net/specs/openid-connect-discovery-1_0.html">OpenID Connect Discovery</a> conforme exigido pelo <a href="https://openid.net/specs/openid-financial-api-part-1-1_0.html">Financial-grade API Security Profile 1.0 - Part 1: Baseline</a>.<a href="#section-6.2-1" class="pilcrow">¶</a></p>
+<p id="section-6.2-2">Al&#233;m disso, o servidor de autoriza&#231;&#227;o<a href="#section-6.2-2" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="normal type-1" id="section-6.2-3">
+          <li id="section-6.2-3.1">
+            <p id="section-6.2-3.1.1">deve contar com servi&#231;os de descoberta do ecossistemas fornecidos apenas pelo Diret&#243;rio de Participantes;<a href="#section-6.2-3.1.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-6.2-3.2">
+            <p id="section-6.2-3.2.1">deve derivar os metadados necess&#225;rios do Authorization Server somente por meio do servi&#231;o OpenID Connect Discovery dos Authorization Servers;<a href="#section-6.2-3.2.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-6.2-3.3">
+            <p id="section-6.2-3.3.1">quando presente, deve usar endpoints anunciados em <code>mtls_endpoint_aliases</code> conforme a cl&#225;usula 5 <a href="https://tools.ietf.org/html/rfc8705">RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication e Certificate-Bound Access Tokens</a>;<a href="#section-6.2-3.3.1" class="pilcrow">¶</a></p>
+</li>
+</ol>
+</section>
+</div>
+</section>
+</div>
+<div id="Registration">
+<section id="section-7">
+      <h2 id="name-provisionamento-de-registro">
+<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-provisionamento-de-registro" class="section-name selfRef">Provisionamento de registro OpenID Connect do Open Banking Brasil</a>
+      </h2>
+<div id="RegAuth">
+<section id="section-7.1">
+        <h3 id="name-servidor-de-autoriza231227o-2">
+<a href="#section-7.1" class="section-number selfRef">7.1. </a><a href="#name-servidor-de-autoriza231227o-2" class="section-name selfRef">Servidor de Autoriza&#231;&#227;o</a>
+        </h3>
+<p id="section-7.1-1">O servidor de autoriza&#231;&#227;o deve suportar as RFCs de Dynamic Client Registration (DCR) <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a>, Dynamic Client Management (DCM) <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a> e <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Registration</a><a href="#section-7.1-1" class="pilcrow">¶</a></p>
+<p id="section-7.1-2">Al&#233;m disso, o servidor de autoriza&#231;&#227;o<a href="#section-7.1-2" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="normal type-1" id="section-7.1-3">
+          <li id="section-7.1-3.1">
+            <p id="section-7.1-3.1.1">deve rejeitar as solicita&#231;&#245;es de registro de cliente din&#226;mico n&#227;o realizadas em uma conex&#227;o protegida com mTLS usando certificados emitidos pelo Brasil ICP (produ&#231;&#227;o) ou o Diret&#243;rio de Participantes (sandbox);<a href="#section-7.1-3.1.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-7.1-3.2">
+            <p id="section-7.1-3.2.1">deve validar que a solicita&#231;&#227;o cont&#233;m <em>software_statement</em> JWT assinado usando o algoritmo <code>PS256</code> emitido pelo Diret&#243;rio de Participantes do Open Banking Brasil;<a href="#section-7.1-3.2.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-7.1-3.3">
+            <p id="section-7.1-3.3.1">deve validar que o <em>software_statement</em> foi emitido (iat  - <em>issued at</em>) n&#227;o mais de 5 minutos antes do pedido ser recebido;<a href="#section-7.1-3.3.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-7.1-3.4">
+            <p id="section-7.1-3.4.1">deve validar que um atributo <code>jwks</code> (definida por valor) <strong>n&#227;o</strong> foi inclu&#237;do, e sim declarado como refer&#234;ncia no atributo <code>jwks_uri</code>;<a href="#section-7.1-3.4.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-7.1-3.5">
+            <p id="section-7.1-3.5.1">deve, quando informado, validar que o <code>jwks_uri</code> corresponda ao <code>software_jwks_uri</code> fornecido na declara&#231;&#227;o do software;<a href="#section-7.1-3.5.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-7.1-3.6">
+            <p id="section-7.1-3.6.1">deve exigir e validar que o <code>redirect_uris</code> corresponda ou contenha um subconjunto dos valores de <code>software_redirect_uris</code> fornecidos no <em>software_statement</em>;<a href="#section-7.1-3.6.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-7.1-3.7">
+            <p id="section-7.1-3.7.1">deve exigir e validar que todos os mecanismos de autentica&#231;&#227;o de cliente cumpram os requisitos definidos nas <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a> e <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a>, atrav&#233;s da valida&#231;&#227;o do <code>registration_access_token</code> e, como conex&#227;o segura, da cadeia de certificados confi&#225;veis ICP-Brasil.<a href="#section-7.1-3.7.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-7.1-3.8">
+            <p id="section-7.1-3.8.1"><em>removido</em>;<a href="#section-7.1-3.8.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-7.1-3.9">
+            <p id="section-7.1-3.9.1">deve validar se os escopos solicitados s&#227;o adequados para as permiss&#245;es regulat&#243;rias autorizadas da institui&#231;&#227;o e contidas no _software_statement. A rela&#231;&#227;o de permiss&#245;es regulat&#243;rias e os escopos correspondentes est&#225; descrita nas se&#231;&#245;es a seguir.<a href="#section-7.1-3.9.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-7.1-3.10">
+            <p id="section-7.1-3.10.1">deve, sempre que poss&#237;vel, validar os metadados declarados pelo cliente em rela&#231;&#227;o aos metadados fornecidos no <em>software_statement</em>, adotando os valores presentes no SSA com preced&#234;ncia.<a href="#section-7.1-3.10.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-7.1-3.11">
+            <p id="section-7.1-3.11.1">deve aceitar todos os nomes x.500 AttributeType definidas no <em>Distinguished Name</em> dos Perfis de Certificado x.509 definidos em <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html">Open Banking Brasil x.509 Certificate Standards</a>;<a href="#section-7.1-3.11.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-7.1-3.12">
+            <p id="section-7.1-3.12.1">se for compat&#237;vel com o mecanismo de autentica&#231;&#227;o do cliente <code>tls_client_auth</code>, conforme definido em <a href="https://tools.ietf.org/html/rfc8705">RFC8705</a>, somente deve aceitar <code>tls_client_auth_subject_dn</code> como uma indica&#231;&#227;o do valor do atributo <em>subject</em> do certificado, conforme definido na cl&#225;usula 2.1.2 <a href="https://tools.ietf.org/html/rfc8705">RFC8705</a>;<a href="#section-7.1-3.12.1" class="pilcrow">¶</a></p>
+</li>
+</ol>
+<p id="section-7.1-4">Estas disposi&#231;&#245;es aplicam-se igualmente ao processamento de pedidos <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a>, <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a> e <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Registration</a><a href="#section-7.1-4" class="pilcrow">¶</a></p>
+<div id="Server">
+<section id="section-7.1.1">
+          <h4 id="name-aplicando-server-defaults">
+<a href="#section-7.1.1" class="section-number selfRef">7.1.1. </a><a href="#name-aplicando-server-defaults" class="section-name selfRef">Aplicando Server Defaults</a>
+          </h4>
+<p id="section-7.1.1-1">Quando as propriedades de uma solicita&#231;&#227;o DCR n&#227;o est&#227;o inclu&#237;das e n&#227;o s&#227;o obrigat&#243;rias na especifica&#231;&#227;o, o Authorization Server deve aplicar os padr&#245;es do cliente da seguinte maneira:<a href="#section-7.1.1-1" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="normal type-1" id="section-7.1.1-2">
+            <li id="section-7.1.1-2.1">
+              <p id="section-7.1.1-2.1.1">deve selecionar e aplicar o algoritmo de criptografia e a escolha da cifra a partir dos conjuntos mais recomendados de cifra da IANA que s&#227;o suportados pelo Servidor de Autoriza&#231;&#227;o;<a href="#section-7.1.1-2.1.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-7.1.1-2.2">
+              <p id="section-7.1.1-2.2.1">deve preencher <em>defaults</em> a partir de valores da afirma&#231;&#227;o de <em>software_statement</em>, sempre que poss&#237;vel;<a href="#section-7.1.1-2.2.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-7.1.1-2.3">
+              <p id="section-7.1.1-2.3.1">deve conceder ao cliente permiss&#227;o para o conjunto completo de escopos potenciais com base nas permiss&#245;es regulat&#243;rias de softwares inclu&#237;das no <em>software_statement</em>;<a href="#section-7.1.1-2.3.1" class="pilcrow">¶</a></p>
+</li>
+</ol>
+</section>
+</div>
+<div id="Certificate">
+<section id="section-7.1.2">
+          <h4 id="name-an225lise-do-distinguished-">
+<a href="#section-7.1.2" class="section-number selfRef">7.1.2. </a><a href="#name-an225lise-do-distinguished-" class="section-name selfRef">An&#225;lise do Distinguished Name do Certificado</a>
+          </h4>
+<p id="section-7.1.2-1">A cl&#225;usula 3 do <a href="https://www.rfc-editor.org/rfc/rfc4514">Lightweight Directory Access Protocol (LDAP): String Representation of Distinguished Names</a> define os OIDs obrigat&#243;rios cujas as <em>strings</em> do AttributeType (descritores) devem ser reconhecidos pelos implementadores. Esta lista obrigat&#243;ria n&#227;o inclui v&#225;rios dos OIDs definidos em <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html">Open Banking Brasil x.509 Certificate Standards</a>, nem existe um mecanismo definido para os Servidores de Autoriza&#231;&#227;o publicarem informa&#231;&#245;es sobre o formato que eles esperam de uma Solicita&#231;&#227;o Din&#226;mica de Registro do Cliente (<em>Dynamic Client Registrarion</em>) que inclui um <code>tls_client_auth_subject_dn</code>.<a href="#section-7.1.2-1" class="pilcrow">¶</a></p>
+<p id="section-7.1.2-2">Para resolver essa ambig&#252;idade, o Servidor de Autoriza&#231;&#227;o deve aceitar todas as strings de nome de AttributeType (descritores) definidas no &#250;ltimo par&#225;grafo da cl&#225;usula 3 <a href="https://www.rfc-editor.org/rfc/rfc4514">RFC4514</a>, al&#233;m de todos os AttributeTypes definidos no Distinguished Name <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html">Open Banking Brasil x.509 Certificate Standards</a>.<a href="#section-7.1.2-2" class="pilcrow">¶</a></p>
+<p id="section-7.1.2-3">Segue na tabela abaixo alguns exemplos de decodifica&#231;&#227;o:<a href="#section-7.1.2-3" class="pilcrow">¶</a></p>
+<ul>
+<li id="section-7.1.2-4.1">
+              <p id="section-7.1.2-4.1.1">Obtenha na ordem reversa os atributos do certificado<a href="#section-7.1.2-4.1.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-7.1.2-4.2">
+              <p id="section-7.1.2-4.2.1">Concatene cada RDN (RelativeDistinguishedName) com uma virgula (',')<a href="#section-7.1.2-4.2.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-7.1.2-4.3">
+              <p id="section-7.1.2-4.3.1">Use as strings da RFC (CN, L, ST, O, OU, C, Street, DC, UID) + os nomes dos atributos definidos nesta especifica&#231;&#227;o para uso no OBB (businessCategory, jurisdictionCountryName , serialNumber)<a href="#section-7.1.2-4.3.1" class="pilcrow">¶</a></p>
+</li>
+</ul>
+<p id="section-7.1.2-5">Exemplos:<a href="#section-7.1.2-5" class="pilcrow">¶</a></p>
+<table class="center" id="table-1">
+            <caption><a href="#table-1" class="selfRef">Table 1</a></caption>
+<thead>
+              <tr>
+                <th class="text-left" rowspan="1" colspan="1">subject_dn</th>
+                <th class="text-left" rowspan="1" colspan="1">Issuer</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">UID=67c57882-043b-11ec-9a03-0242ac130003,jurisdictionCountryName=BR,businessCategory=Private      Organization,serialNumber=00038166000954,CN=mycn.bank.com.br,OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59,O=MY BANK SA,L=SAO PAULO,ST=SP,C=BR</td>
+                <td class="text-left" rowspan="1" colspan="1">issuer=CN=Open Banking SANDBOX Issuing CA   - G1,OU=Open Banking,O=Open   Banking Brasil,C=BR</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">UID=67c57882-043b-11ec-9a03-0242ac130003,   jurisdictionCountryName=BR,businessCategory=Business Entity,CN=mycn.bank.gov.br,serialNumber=00038166000954,OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59,O=My Public Bank,L=BRASILIA,ST=DF,C=BR</td>
+                <td class="text-left" rowspan="1" colspan="1">issuer=CN=Autoridade Certificadora do SERPRO SSLv1,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR,jurisdictionCountryName=BR,businessCategory=Private</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Organization,UID=67c57882-043b-11ec-9a03-0242ac130003,CN=openbanking.mybank.com.br,serialNumber=00038166000954,OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59,L=Goiania,ST=GO,O=MyBank SA,C=BR</td>
+                <td class="text-left" rowspan="1" colspan="1">issuer=CN=AC SOLUTI SSL EV,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">CN=mycn.bank.com.br,UID=67c57882-043b-11ec-9a03-0242ac130003,OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59,L=Sao   Paulo,ST=SP,O=MyBank SA,C=BR,serialNumber=00038166000954,   jurisdictionCountryName=BR,businessCategory=Private   Organization</td>
+                <td class="text-left" rowspan="1" colspan="1">issuer=CN=AC SERASA SSL EV,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR</td>
+              </tr>
+            </tbody>
+          </table>
+</section>
+</div>
+</section>
+</div>
+<div id="Regs">
+<section id="section-7.2">
+        <h3 id="name-fun231245es-regulat243rias-">
+<a href="#section-7.2" class="section-number selfRef">7.2. </a><a href="#name-fun231245es-regulat243rias-" class="section-name selfRef">Fun&#231;&#245;es regulat&#243;rias para mapeamentos OpenID e OAuth 2.0</a>
+        </h3>
+<p id="section-7.2-1">Para participar do ecossistema do Open Banking, as institui&#231;&#245;es credenciadas devem se cadastrar no Diret&#243;rio de Participantes de acordo com seus pap&#233;is regulat&#243;rios. Essas fun&#231;&#245;es refletem a autoriza&#231;&#227;o do Banco Central para as institui&#231;&#245;es e, consequentemente, as APIs que podem utilizar.<a href="#section-7.2-1" class="pilcrow">¶</a></p>
+<p id="section-7.2-2">A tabela a seguir descreve as fun&#231;&#245;es regulat&#243;rias do Open Banking e o mapeamento de escopos do OAuth 2.0 relacionado. Se os escopos forem omitidos durante o processo de DCR, o Servidor de Autoriza&#231;&#227;o deve conceder o conjunto completo de escopos potenciais com base nas fun&#231;&#245;es regulat&#243;rias registradas para o banco, conforme descrito na se&#231;&#227;o Server Defaults.<a href="#section-7.2-2" class="pilcrow">¶</a></p>
+<table class="center" id="table-2">
+          <caption><a href="#table-2" class="selfRef">Table 2</a></caption>
+<thead>
+            <tr>
+              <th class="text-left" rowspan="1" colspan="1">Papel Regulador</th>
+              <th class="text-left" rowspan="1" colspan="1">Descri&#231;&#227;o</th>
+              <th class="text-left" rowspan="1" colspan="1">Escopos Permitidos</th>
+              <th class="text-left" rowspan="1" colspan="1">Fase-alvo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">DADOS</td>
+              <td class="text-left" rowspan="1" colspan="1">Institui&#231;&#227;o transmissora / receptora de dados (AISP)</td>
+              <td class="text-left" rowspan="1" colspan="1">openid accounts credit-cards-accounts consents customers invoice-financings financings loans unarranged-accounts-overdraft resources</td>
+              <td class="text-left" rowspan="1" colspan="1">Phase 2</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">PAGTO</td>
+              <td class="text-left" rowspan="1" colspan="1">Institui&#231;&#227;o prestadora de servi&#231;o de inicia&#231;&#227;o de pagamentos (PISP)</td>
+              <td class="text-left" rowspan="1" colspan="1">openid payments consents resources</td>
+              <td class="text-left" rowspan="1" colspan="1">Phase 3</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">CONTA</td>
+              <td class="text-left" rowspan="1" colspan="1">Institui&#231;&#227;o detentora de conta (ASPSP)</td>
+              <td class="text-left" rowspan="1" colspan="1">openid</td>
+              <td class="text-left" rowspan="1" colspan="1">Phase 3</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">CCORR</td>
+              <td class="text-left" rowspan="1" colspan="1">Correspondente de cr&#233;dito</td>
+              <td class="text-left" rowspan="1" colspan="1">openid</td>
+              <td class="text-left" rowspan="1" colspan="1">Phase 3*</td>
+            </tr>
+          </tbody>
+        </table>
+</section>
+</div>
+</section>
+</div>
+<div id="SSA">
+<section id="section-8">
+      <h2 id="name-declara231227o-de-software">
+<a href="#section-8" class="section-number selfRef">8. </a><a href="#name-declara231227o-de-software" class="section-name selfRef">Declara&#231;&#227;o de Software</a>
+      </h2>
+<p id="section-8-1">Uma declara&#231;&#227;o de software (<em>software_statement</em>) &#233; um JSON Web Token (JWT) <a href="https://tools.ietf.org/html/rfc7519">RFC7519</a> que afirma valores de metadados sobre o software cliente como um todo. Na estrutura do Open Banking Brasil, esse <em>software_statement</em> &#233; assinado pelo Diret&#243;rio de Participantes, e sua assinatura DEVE ser validada pelos Servidores de Autorizacao usando as chaves p&#250;blicas dispon&#237;veis na se&#231;&#227;o a seguir.<a href="#section-8-1" class="pilcrow">¶</a></p>
+<div id="Claims">
+<section id="section-8.1">
+        <h3 id="name-atributos-da-declara231227o">
+<a href="#section-8.1" class="section-number selfRef">8.1. </a><a href="#name-atributos-da-declara231227o" class="section-name selfRef">Atributos da Declara&#231;&#227;o de Software (Claims)</a>
+        </h3>
+<p id="section-8.1-1">O exemplo a seguir cont&#233;m todos os atributos atualmente inclu&#237;dos em um <em>software_statement</em>:<a href="#section-8.1-1" class="pilcrow">¶</a></p>
+<div class="artwork art-text alignLeft" id="section-8.1-2">
+<pre>{
+  "software_mode": "Live",
+  "software_redirect_uris": [
+    "https://www.raidiam.com/accounting/cb"
+  ],
+  "software_statement_roles": [
+    {
+      "role": "DADOS",
+      "authorisation_domain": "Open Banking",
+      "status": "Active"
+    },
+    {
+      "role": "PAGTO",
+      "authorisation_domain": "Open Banking",
+      "status": "Active"
+    }
+  ],
+  "software_client_name": "Raidiam Accounting",
+  "org_status": "Active",
+  "software_client_id": "Cki1EbvjwyhPB12NGLlz2",
+  "iss": "Open Banking Open Banking Brasil prod SSA issuer",
+  "software_tos_uri": "https://www.raidiam.com/accounting/tos.html",
+  "software_client_description": "Raidiam Accounting leverage cutting edge open banking access to bring you real time up to date views of your finances",
+  "software_jwks_uri": "https://keystore.directory.openbankingbrasil.org.br/b961c4eb-509d-4edf-afeb-35642b38185d/25556d5a-b9dd-4e27-aa1a-cce732fe74de/application.jwks",
+  "software_policy_uri": "https://www.raidiam.com/accounting/policy.html",
+  "software_id": "25556d5a-b9dd-4e27-aa1a-cce732fe74de",
+  "software_client_uri": "https://www.raidiam.com/accounting.html",
+  "software_jwks_inactive_uri": "https://keystore.directory.openbankingbrasil.org.br/b961c4eb-509d-4edf-afeb-35642b38185d/25556d5a-b9dd-4e27-aa1a-cce732fe74de/inactive/application.jwks",
+  "software_jwks_transport_inactive_uri": "https://keystore.directory.openbankingbrasil.org.br/b961c4eb-509d-4edf-afeb-35642b38185d/25556d5a-b9dd-4e27-aa1a-cce732fe74de/inactive/transport.jwks",
+  "software_jwks_transport_uri": "https://keystore.directory.openbankingbrasil.org.br/b961c4eb-509d-4edf-afeb-35642b38185d/25556d5a-b9dd-4e27-aa1a-cce732fe74de/transport.jwks",
+  "software_logo_uri": "https://www.raidiam.com/accounting/logo.png",
+  "org_id": "b961c4eb-509d-4edf-afeb-35642b38185d",
+  "org_number": "112233445566",
+  "software_environment": "production",
+  "software_version": "1.1",
+  "software_roles": [
+    "DADOS",
+    "PAGTO"
+  ],
+  "org_name": "Open Banking Brasil",
+  "iat": 1620060821,
+  "organisation_competent_authority_claims": [
+    {
+      "authorisation_domain": "Open Banking",
+      "authorisations": [],
+      "registration_id": "13353236-OBB-CONTA",
+      "authority_id": "687a1c94-b360-4e04-9589-0fa5cb16451b",
+      "authority_name": "Banco Central",
+      "authorisation_role": "CONTA",
+      "authority_code": "BCB",
+      "status": "Active"
+    },
+    {
+      "authorisation_domain": "Open Banking",
+      "authorisations": [],
+      "registration_id": "13353236-OBB-DADOS",
+      "authority_id": "687a1c94-b360-4e04-9589-0fa5cb16451b",
+      "authority_name": "Banco Central",
+      "authorisation_role": "DADOS",
+      "authority_code": "BCB",
+      "status": "Active"
+    },
+    {
+      "authorisation_domain": "Open Banking",
+      "authorisations": [],
+      "registration_id": "13353236-OBB-PAGTO",
+      "authority_id": "687a1c94-b360-4e04-9589-0fa5cb16451b",
+      "authority_name": "Banco Central",
+      "authorisation_role": "PAGTO",
+      "authority_code": "BCB",
+      "status": "Active"
+    }
+  ]
+}
+</pre><a href="#section-8.1-2" class="pilcrow">¶</a>
+</div>
+</section>
+</div>
+</section>
+</div>
+<div id="dcr">
+<section id="section-9">
+      <h2 id="name-processamento-de-solicita23">
+<a href="#section-9" class="section-number selfRef">9. </a><a href="#name-processamento-de-solicita23" class="section-name selfRef">Processamento de solicita&#231;&#227;o de registro de cliente din&#226;mico</a>
+      </h2>
+	  	  <p><img src="images/dynamic-client-registration.png" alt="Dynamic Client Registration Request Processing" /></p>
+<div id="exampleDcr">
+<section id="section-9.1">
+        <h3 id="name-enviar-uma-solicita231227o-">
+<a href="#section-9.1" class="section-number selfRef">9.1. </a><a href="#name-enviar-uma-solicita231227o-" class="section-name selfRef">Enviar uma solicita&#231;&#227;o com uma declara&#231;&#227;o de software</a>
+        </h3>
+<p id="section-9.1-1">Este exemplo inclui v&#225;rios campos opcionais, alguns dos quais podem n&#227;o ser aplic&#225;veis a algumas implanta&#231;&#245;es. Para um guia completo dos atributos e sua obrigatoriedade, consultar o Swagger DCR --link aqui--.
+A quebra de linha dentro dos valores s&#227;o apenas para fins de exibi&#231;&#227;o.<a href="#section-9.1-1" class="pilcrow">¶</a></p>
+<div class="artwork art-text alignLeft" id="section-9.1-2">
+<pre>POST /reg HTTP/1.1
+Host: auth.raidiam.com
+Content-Type: application/json
+{
+"application_type": "web",
+"grant_types": [
+    "client_credentials",
+    "authorization_code",
+    "refresh_token",
+    "implicit"
+],
+"id_token_signed_response_alg": "PS256",
+"require_auth_time": false,
+"response_types": [
+    "code id_token",
+    "id_token"
+],
+"software_statement": "eyJraWQiOiJzaWduZXIiLCJ0eXAiOiJKV1QiLCJhbGciOiJQUzI1NiJ9.eyJzb2Z0d2FyZV9tb2RlIjoiTGl2ZSIsInNvZnR3YXJlX3JlZGlyZWN0X3VyaXMiOlsiaHR0cHM6XC9cL3d3dy5yYWlkaWFtLmNvbVwvYWNjb3VudGluZ1wvY2IiXSwic29mdHdhcmVfc3RhdGVtZW50X3JvbGVzIjpbeyJyb2xlIjoiREFET1MiLCJhdXRob3Jpc2F0aW9uX2RvbWFpbiI6Ik9wZW4gQmFua2luZyIsInN0YXR1cyI6IkFjdGl2ZSJ9LHsicm9sZSI6IlBBR1RPIiwiYXV0aG9yaXNhdGlvbl9kb21haW4iOiJPcGVuIEJhbmtpbmciLCJzdGF0dXMiOiJBY3RpdmUifV0sInNvZnR3YXJlX2NsaWVudF9uYW1lIjoiUmFpZGlhbSBBY2NvdW50aW5nIiwib3JnX3N0YXR1cyI6IkFjdGl2ZSIsInNvZnR3YXJlX2NsaWVudF9pZCI6IkNraTFFYnZqd3loUEIxMk5HTGx6MiIsImlzcyI6Ik9wZW4gQmFua2luZyBPcGVuIEJhbmtpbmcgQnJhc2lsIHByb2QgU1NBIGlzc3VlciIsInNvZnR3YXJlX3Rvc191cmkiOiJodHRwczpcL1wvd3d3LnJhaWRpYW0uY29tXC9hY2NvdW50aW5nXC90b3MuaHRtbCIsInNvZnR3YXJlX2NsaWVudF9kZXNjcmlwdGlvbiI6IlJhaWRpYW0gQWNjb3VudGluZyBsZXZlcmFnZSBjdXR0aW5nIGVkZ2Ugb3BlbiBiYW5raW5nIGFjY2VzcyB0byBicmluZyB5b3UgcmVhbCB0aW1lIHVwIHRvIGRhdGUgdmlld3Mgb2YgeW91ciBmaW5hbmNlcyIsInNvZnR3YXJlX2p3a3NfZW5kcG9pbnQiOiJodHRwczpcL1wva2V5c3RvcmUuZGlyZWN0b3J5Lm9wZW5iYW5raW5nYnJhc2lsLm9yZy5iclwvYjk2MWM0ZWItNTA5ZC00ZWRmLWFmZWItMzU2NDJiMzgxODVkXC8yNTU1NmQ1YS1iOWRkLTRlMjctYWExYS1jY2U3MzJmZTc0ZGVcL2FwcGxpY2F0aW9uLmp3a3MiLCJzb2Z0d2FyZV9wb2xpY3lfdXJpIjoiaHR0cHM6XC9cL3d3dy5yYWlkaWFtLmNvbVwvYWNjb3VudGluZ1wvcG9saWN5Lmh0bWwiLCJzb2Z0d2FyZV9pZCI6IjI1NTU2ZDVhLWI5ZGQtNGUyNy1hYTFhLWNjZTczMmZlNzRkZSIsInNvZnR3YXJlX2NsaWVudF91cmkiOiJodHRwczpcL1wvd3d3LnJhaWRpYW0uY29tXC9hY2NvdW50aW5nLmh0bWwiLCJzb2Z0d2FyZV9qd2tzX2luYWN0aXZlX2VuZHBvaW50IjoiaHR0cHM6XC9cL2tleXN0b3JlLmRpcmVjdG9yeS5vcGVuYmFua2luZ2JyYXNpbC5vcmcuYnJcL2I5NjFjNGViLTUwOWQtNGVkZi1hZmViLTM1NjQyYjM4MTg1ZFwvMjU1NTZkNWEtYjlkZC00ZTI3LWFhMWEtY2NlNzMyZmU3NGRlXC9pbmFjdGl2ZVwvYXBwbGljYXRpb24uandrcyIsInNvZnR3YXJlX2p3a3NfdHJhbnNwb3J0X2luYWN0aXZlX2VuZHBvaW50IjoiaHR0cHM6XC9cL2tleXN0b3JlLmRpcmVjdG9yeS5vcGVuYmFua2luZ2JyYXNpbC5vcmcuYnJcL2I5NjFjNGViLTUwOWQtNGVkZi1hZmViLTM1NjQyYjM4MTg1ZFwvMjU1NTZkNWEtYjlkZC00ZTI3LWFhMWEtY2NlNzMyZmU3NGRlXC9pbmFjdGl2ZVwvdHJhbnNwb3J0Lmp3a3MiLCJzb2Z0d2FyZV9qd2tzX3RyYW5zcG9ydF9lbmRwb2ludCI6Imh0dHBzOlwvXC9rZXlzdG9yZS5kaXJlY3Rvcnkub3BlbmJhbmtpbmdicmFzaWwub3JnLmJyXC9iOTYxYzRlYi01MDlkLTRlZGYtYWZlYi0zNTY0MmIzODE4NWRcLzI1NTU2ZDVhLWI5ZGQtNGUyNy1hYTFhLWNjZTczMmZlNzRkZVwvdHJhbnNwb3J0Lmp3a3MiLCJzb2Z0d2FyZV9sb2dvX3VyaSI6Imh0dHBzOlwvXC93d3cucmFpZGlhbS5jb21cL2FjY291bnRpbmdcL2xvZ28ucG5nIiwib3JnX2lkIjoiYjk2MWM0ZWItNTA5ZC00ZWRmLWFmZWItMzU2NDJiMzgxODVkIiwic29mdHdhcmVfZW52aXJvbm1lbnQiOiJwcm9kdWN0aW9uIiwic29mdHdhcmVfdmVyc2lvbiI6MS4xMCwic29mdHdhcmVfcm9sZXMiOlsiREFET1MiLCJQQUdUTyJdLCJvcmdfbmFtZSI6Ik9wZW4gQmFua2luZyBCcmFzaWwiLCJpYXQiOjE2MTgzMzYyNjIsIm9yZ2FuaXNhdGlvbl9jb21wZXRlbnRfYXV0aG9yaXR5X2NsYWltcyI6W3siYXV0aG9yaXNhdGlvbl9kb21haW4iOiJPcGVuIEJhbmtpbmciLCJhdXRob3Jpc2F0aW9ucyI6W10sInJlZ2lzdHJhdGlvbl9pZCI6IjEzMzUzMjM2LU9CQi1DT05UQSIsImF1dGhvcml0eV9pZCI6IjY4N2ExYzk0LWIzNjAtNGUwNC05NTg5LTBmYTVjYjE2NDUxYiIsImF1dGhvcmlzYXRpb25fcm9sZSI6IkNPTlRBIiwiYXV0aG9yaXR5X2NvZGUiOiJCQ0IiLCJzdGF0dXMiOiJBY3RpdmUifSx7ImF1dGhvcmlzYXRpb25fZG9tYWluIjoiT3BlbiBCYW5raW5nIiwiYXV0aG9yaXNhdGlvbnMiOltdLCJyZWdpc3RyYXRpb25faWQiOiIxMzM1MzIzNi1PQkItREFET1MiLCJhdXRob3JpdHlfaWQiOiI2ODdhMWM5NC1iMzYwLTRlMDQtOTU4OS0wZmE1Y2IxNjQ1MWIiLCJhdXRob3Jpc2F0aW9uX3JvbGUiOiJEQURPUyIsImF1dGhvcml0eV9jb2RlIjoiQkNCIiwic3RhdHVzIjoiQWN0aXZlIn0seyJhdXRob3Jpc2F0aW9uX2RvbWFpbiI6Ik9wZW4gQmFua2luZyIsImF1dGhvcmlzYXRpb25zIjpbXSwicmVnaXN0cmF0aW9uX2lkIjoiMTMzNTMyMzYtT0JCLVBBR1RPIiwiYXV0aG9yaXR5X2lkIjoiNjg3YTFjOTQtYjM2MC00ZTA0LTk1ODktMGZhNWNiMTY0NTFiIiwiYXV0aG9yaXNhdGlvbl9yb2xlIjoiUEFHVE8iLCJhdXRob3JpdHlfY29kZSI6IkJDQiIsInN0YXR1cyI6IkFjdGl2ZSJ9XX0.W6hUAYhjT6I61rxEIVMKYKre93LTbRdzKnk9dJvUdzVgAz5B9KxZNutf27oO3k0hrjYVWBdWq23o_e4Y_AaKdpS9-rtU84JiHtmqV0wcFYIM8nqcUVWqQ-Ux6Nq9L2G-s2YNd3PcJ1e3yGg9h8553Gr7iJusKEgApzXUpkM2rBELQuumktUE_JBiuIkXmWxoRnO1cW-Osbk3MT3bxG43SPcxii07Q5S8qXI6PjCPA3fYlnaUAygwZM3O0oa7jqmSr7d9UsHuDMJfYhIKdq2wyQQKORCN-D2UopmMX-lHMvAVkkrAO08T0-7odjr4PJk-PrwuoCxeAfa7440ZDOrlmQ",
+"subject_type": "public",
+"token_endpoint_auth_method": "private_key_jwt",
+"introspection_endpoint_auth_method": "private_key_jwt",
+"revocation_endpoint_auth_method": "private_key_jwt",
+"request_object_signing_alg": "PS256",
+"require_signed_request_object": true,
+"require_pushed_authorization_requests": false,
+"tls_client_certificate_bound_access_tokens": true,
+"client_id": "aCnBHjZBvD6ku3KVBaslL",
+"client_name": "Raidiam Accounting",
+"client_uri": "https://www.raidiam.com/accounting.html",
+"request_object_encryption_alg": "RSA-OAEP",
+"request_object_encryption_enc": "A256GCM"
+"jwks_uri": "https://keystore.directory.openbankingbrasil.org.br/b961c4eb-509d-4edf-afeb-35642b38185d/25556d5a-b9dd-4e27-aa1a-cce732fe74de/application.jwks",
+"redirect_uris": [
+    "https://www.raidiam.com/accounting/cb"
+]
+}
+</pre><a href="#section-9.1-2" class="pilcrow">¶</a>
+</div>
+</section>
+</div>
+<div id="keystore">
+<section id="section-9.2">
+        <h3 id="name-open-banking-brasil-ssa-key">
+<a href="#section-9.2" class="section-number selfRef">9.2. </a><a href="#name-open-banking-brasil-ssa-key" class="section-name selfRef">Open Banking Brasil SSA Key Store e detalhes do emissor</a>
+        </h3>
+<p id="section-9.2-1">As links a seguir apontam para as chaves p&#250;blicas do Diret&#243;rio de Participantes, e devem ser usadas para verificar a validadade da assinatura dos <em>software_statements</em> apresentados durante o processo de registro de cliente.<a href="#section-9.2-1" class="pilcrow">¶</a></p>
+<p id="section-9.2-2"><strong>Produc&#227;o</strong><a href="#section-9.2-2" class="pilcrow">¶</a></p>
+<p id="section-9.2-3"><a href="https://keystore.directory.openbankingbrasil.org.br/openbanking.jwks">https://keystore.directory.openbankingbrasil.org.br/openbanking.jwks</a><a href="#section-9.2-3" class="pilcrow">¶</a></p>
+<p id="section-9.2-4">Emissor do Open Banking Open Banking Brasil SSA de produ&#231;&#227;o<a href="#section-9.2-4" class="pilcrow">¶</a></p>
+<p id="section-9.2-5"><strong>Sandbox</strong><a href="#section-9.2-5" class="pilcrow">¶</a></p>
+<p id="section-9.2-6"><a href="https://keystore.sandbox.directory.openbankingbrasil.org.br/openbanking.jwks">https://keystore.sandbox.directory.openbankingbrasil.org.br/openbanking.jwks</a><a href="#section-9.2-6" class="pilcrow">¶</a></p>
+<p id="section-9.2-7">Emissor do Open Banking Open Banking Brasil SSA de sandbox<a href="#section-9.2-7" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="dcr-dcm">
+<section id="section-9.3">
+        <h3 id="name-sobre-os-mecanismos-de-aute">
+<a href="#section-9.3" class="section-number selfRef">9.3. </a><a href="#name-sobre-os-mecanismos-de-aute" class="section-name selfRef">Sobre os mecanismos de autentica&#231;&#227;o e autoriza&#231;&#227;o dos servi&#231;os de DCR e DCM</a>
+        </h3>
+<p id="section-9.3-1">Por serem servi&#231;os auxiliares ao fluxo principal do Open Banking Brasil, os servi&#231;os de registro e manuten&#231;&#227;o din&#226;mica de clientes n&#227;o utilizam os mesmos mecanismos de controle de acesso. Por exemplo: n&#227;o &#233; poss&#237;vel exigir um <em>access_token</em> OAuth 2.0 de uma aplica&#231;&#227;o cliente que ainda n&#227;o est&#225; registrada na institui&#231;&#227;o transmissora.
+Para estender as <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a> e <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a>, que recomendam mecanismos m&#237;nimos para autentica&#231;&#227;o dos seus servi&#231;os, as institui&#231;&#245;es que suportam os fluxos de registro e manuten&#231;&#227;o din&#226;mica de clientes devem implementar em seus Servidores de Autoriza&#231;&#227;o os controles a seguir:<a href="#section-9.3-1" class="pilcrow">¶</a></p>
+<div id="post-register">
+<section id="section-9.3.1">
+          <h4 id="name-registro-de-cliente-post-re">
+<a href="#section-9.3.1" class="section-number selfRef">9.3.1. </a><a href="#name-registro-de-cliente-post-re" class="section-name selfRef">Registro de cliente - POST /register</a>
+          </h4>
+<ol start="1" type="1" class="normal type-1" id="section-9.3.1-1">
+            <li id="section-9.3.1-1.1">
+              <p id="section-9.3.1-1.1.1">validar que o certificado apresentado pela aplica&#231;&#227;o cliente &#233; subordinado &#224;s cadeias do ICP-Brasil definidas no Padr&#227;o de Certificados do Open Banking Brasil;<a href="#section-9.3.1-1.1.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-9.3.1-1.2">
+              <p id="section-9.3.1-1.2.1">assegurar que a assinatura do <em>software_statement</em> apresentado pela aplica&#231;&#227;o cliente durante o registro tenha sido feita pelo Diret&#243;rio de Participantes atrav&#233;s das chaves p&#250;blicas descritas na se&#231;&#227;o anterior;<a href="#section-9.3.1-1.2.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-9.3.1-1.3">
+              <p id="section-9.3.1-1.3.1">assegurar que o <em>software_statement</em> apresentado pela aplica&#231;&#227;o cliente durante o registro corresponda &#224; mesma institui&#231;&#227;o do certificado de cliente apresentado, validando-o atrav&#233;s dos atributos que trazem <code>organization_id</code> no certificado X.509.<a href="#section-9.3.1-1.3.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-9.3.1-1.4">
+              <p id="section-9.3.1-1.4.1">emitir, na resposta do registro, um <code>registration_access_token</code> para ser usado como token de autentica&#231;&#227;o nas opera&#231;&#245;es de manuten&#231;&#227;o da aplica&#231;&#227;o cliente registrada, seguindo as especifica&#231;&#245;es descritas na <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a>.<a href="#section-9.3.1-1.4.1" class="pilcrow">¶</a></p>
+</li>
+</ol>
+</section>
+</div>
+<div id="get-put-delete">
+<section id="section-9.3.2">
+          <h4 id="name-manuten231227o-de-cliente-g">
+<a href="#section-9.3.2" class="section-number selfRef">9.3.2. </a><a href="#name-manuten231227o-de-cliente-g" class="section-name selfRef">Manuten&#231;&#227;o de cliente - GET /register - PUT /register - DELETE /register</a>
+          </h4>
+<ol start="1" type="1" class="normal type-1" id="section-9.3.2-1">
+            <li id="section-9.3.2-1.1">
+              <p id="section-9.3.2-1.1.1">validar que o certificado apresentado pela aplica&#231;&#227;o cliente &#233; subordinado &#224;s cadeias do ICP-Brasil definidas no Padr&#227;o de Certificados do Open Banking Brasil;<a href="#section-9.3.2-1.1.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-9.3.2-1.2">
+              <p id="section-9.3.2-1.2.1">validar a presen&#231;a e a correspond&#234;ncia do header Bearer <code>Authorization</code> contendo o valor do atributo <code>registration_access_token</code> retornado durante o registro do cliente correspondente.<a href="#section-9.3.2-1.2.1" class="pilcrow">¶</a></p>
+</li>
+</ol>
+<p id="section-9.3.2-2"><em>Observa&#231;&#227;o:</em> A <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a> prev&#234; a possibilidade de rota&#231;&#227;o do <code>registration_access_token</code> emitido pelo Servidor de Autoriza&#231;&#227;o a cada uso, tornando-o um token de uso &#250;nico. As institui&#231;&#245;es devem considerar esse aspecto no registro de suas aplica&#231;&#245;es cliente para receber e atualizar o <code>registration_access_token</code> pelo novo valor recebido nas chamadas de manuten&#231;&#227;o de cliente.<a href="#section-9.3.2-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+</section>
+</div>
+<div id="acknowledgements">
+<section id="section-10">
+      <h2 id="name-reconhecimento">
+<a href="#section-10" class="section-number selfRef">10. </a><a href="#name-reconhecimento" class="section-name selfRef">Reconhecimento</a>
+      </h2>
+<p id="section-10-1">Agradecemos a todos que estabeleceram as bases para o compartilhamento seguro de dados por meio da forma&#231;&#227;o do Grupo de Trabalho OpenID Foundation FAPI, o GT de Seguran&#231;a do Open Banking Brasil e aos pioneiros que ficar&#227;o em seus ombros.<a href="#section-10-1" class="pilcrow">¶</a></p>
+<p id="section-10-2">As seguintes pessoas contribu&#237;ram para este documento:<a href="#section-10-2" class="pilcrow">¶</a></p>
+<ul>
+<li id="section-10-3.1">
+          <p id="section-10-3.1.1">Ralph Bragg (Raidiam)<a href="#section-10-3.1.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-10-3.2">
+          <p id="section-10-3.2.1">Alexandre Siqueira (Mercado Pago)<a href="#section-10-3.2.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-10-3.3">
+          <p id="section-10-3.3.1">Bernardo Vale (Banco Inter)<a href="#section-10-3.3.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-10-3.4">
+          <p id="section-10-3.4.1">Andr&#233; Borges (Banco Fibra)<a href="#section-10-3.4.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-10-3.5">
+          <p id="section-10-3.5.1">Danilo Sasaki (Banco Ita&#250;)<a href="#section-10-3.5.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-10-3.6">
+          <p id="section-10-3.6.1">Jo&#227;o Rodolfo Vieira da Silva (Banco Ita&#250;)<a href="#section-10-3.6.1" class="pilcrow">¶</a></p>
+</li>
+<li id="section-10-3.7">
+          <p id="section-10-3.7.1">Michelle Bandarra (Chicago)<a href="#section-10-3.7.1" class="pilcrow">¶</a></p>
+</li>
+</ul>
+</section>
+</div>
+<div id="Notice">
+<section id="section-appendix.a">
+      <h2 id="name-avisos">
+<a href="#section-appendix.a" class="section-number selfRef">Appendix A. </a><a href="#name-avisos" class="section-name selfRef">Avisos</a>
+      </h2>
+<p id="section-appendix.a-1">Copyright (c) 2021 Estrutura Inicial do Open Banking Brasil<a href="#section-appendix.a-1" class="pilcrow">¶</a></p>
+<p id="section-appendix.a-2">A Estrutura Inicial do Open Banking Brasil (EIOBB) concede a qualquer Colaborador, desenvolvedor, implementador ou outra parte interessada uma licen&#231;a de direitos autorais mundial n&#227;o exclusiva, livre de royalties para reproduzir, preparar trabalhos derivados, distribuir, executar e exibir, estes Implementadores Rascunho ou Especifica&#231;&#227;o Final exclusivamente para fins de (i) desenvolver especifica&#231;&#245;es e (ii) implementar Rascunhos de Implementadores e Especifica&#231;&#245;es Finais com base em tais documentos, desde que a atribui&#231;&#227;o seja feita ao EIOBB como a fonte do material, mas que tal atribui&#231;&#227;o o fa&#231;a n&#227;o indica endosso do EIOBB.<a href="#section-appendix.a-2" class="pilcrow">¶</a></p>
+<p id="section-appendix.a-3">A tecnologia descrita nesta especifica&#231;&#227;o foi disponibilizada a partir de contribui&#231;&#245;es de v&#225;rias fontes, incluindo membros da OpenID Foundation, do Grupo de Trabalho de Seguran&#231;a do Open Banking Brasil e outros. Embora a Estrutura Inicial do Open Banking Brasil tenha tomado medidas para ajudar a garantir que a tecnologia esteja dispon&#237;vel para distribui&#231;&#227;o, ela n&#227;o toma posi&#231;&#227;o quanto &#224; validade ou escopo de qualquer propriedade intelectual ou outros direitos que possam ser reivindicados como pertencentes &#224; implementa&#231;&#227;o ou uso do tecnologia descrita nesta especifica&#231;&#227;o ou at&#233; que ponto qualquer licen&#231;a sob tais direitos pode ou n&#227;o estar dispon&#237;vel; nem representa que fez qualquer esfor&#231;o independente para identificar tais direitos. A Estrutura Inicial do Open Banking Brasil e os contribuidores desta especifica&#231;&#227;o n&#227;o oferecem (e por meio deste expressamente se isentam de quaisquer) garantias (expressas, impl&#237;citas ou de outra forma), incluindo garantias impl&#237;citas de comercializa&#231;&#227;o, n&#227;o viola&#231;&#227;o, adequa&#231;&#227;o a uma finalidade espec&#237;fica ou t&#237;tulo, relacionados a esta especifica&#231;&#227;o, e todo o risco quanto &#224; implementa&#231;&#227;o desta especifica&#231;&#227;o &#233; assumido pelo implementador. A pol&#237;tica de Direitos de Propriedade Intelectual do Open Banking Brasil exige que os contribuidores ofere&#231;am uma promessa de patente de n&#227;o fazer valer certas reivindica&#231;&#245;es de patentes contra outros contribuidores e implementadores. A Estrutura Inicial do Open Banking Brasil convida qualquer parte interessada a trazer &#224; sua aten&#231;&#227;o quaisquer direitos autorais, patentes, pedidos de patentes ou outros direitos de propriedade que possam abranger a tecnologia que possa ser necess&#225;ria para praticar esta especifica&#231;&#227;o.<a href="#section-appendix.a-3" class="pilcrow">¶</a></p>
+<div id="ExampleA">
+<section id="section-a.1">
+        <h2 id="name-ap234ndice-a-exemplo-de-afi">
+<a href="#section-a.1" class="section-number selfRef">A.1. </a><a href="#name-ap234ndice-a-exemplo-de-afi" class="section-name selfRef">Ap&#234;ndice A. Exemplo de afirma&#231;&#227;o de declara&#231;&#227;o de software</a>
+        </h2>
+<div class="artwork art-text alignLeft" id="section-a.1-1">
+<pre>eyJraWQiOiJzaWduZXIiLCJ0eXAiOiJKV1QiLCJhbGciOiJQUzI1NiJ9.eyJzb2Z0d2FyZV9tb2RlIjoiTGl2ZSIsInNvZnR3YXJlX3JlZGlyZWN0X3VyaXMiOlsiaHR0cHM6XC9cL3d3dy5yYWlkaWFtLmNvbVwvYWNjb3VudGluZ1wvY2IiXSwic29mdHdhcmVfc3RhdGVtZW50X3JvbGVzIjpbeyJyb2xlIjoiREFET1MiLCJhdXRob3Jpc2F0aW9uX2RvbWFpbiI6Ik9wZW4gQmFua2luZyIsInN0YXR1cyI6IkFjdGl2ZSJ9LHsicm9sZSI6IlBBR1RPIiwiYXV0aG9yaXNhdGlvbl9kb21haW4iOiJPcGVuIEJhbmtpbmciLCJzdGF0dXMiOiJBY3RpdmUifV0sInNvZnR3YXJlX2NsaWVudF9uYW1lIjoiUmFpZGlhbSBBY2NvdW50aW5nIiwib3JnX3N0YXR1cyI6IkFjdGl2ZSIsInNvZnR3YXJlX2NsaWVudF9pZCI6IkNraTFFYnZqd3loUEIxMk5HTGx6MiIsImlzcyI6Ik9wZW4gQmFua2luZyBPcGVuIEJhbmtpbmcgQnJhc2lsIHByb2QgU1NBIGlzc3VlciIsInNvZnR3YXJlX3Rvc191cmkiOiJodHRwczpcL1wvd3d3LnJhaWRpYW0uY29tXC9hY2NvdW50aW5nXC90b3MuaHRtbCIsInNvZnR3YXJlX2NsaWVudF9kZXNjcmlwdGlvbiI6IlJhaWRpYW0gQWNjb3VudGluZyBsZXZlcmFnZSBjdXR0aW5nIGVkZ2Ugb3BlbiBiYW5raW5nIGFjY2VzcyB0byBicmluZyB5b3UgcmVhbCB0aW1lIHVwIHRvIGRhdGUgdmlld3Mgb2YgeW91ciBmaW5hbmNlcyIsInNvZnR3YXJlX2p3a3NfZW5kcG9pbnQiOiJodHRwczpcL1wva2V5c3RvcmUuZGlyZWN0b3J5Lm9wZW5iYW5raW5nYnJhc2lsLm9yZy5iclwvYjk2MWM0ZWItNTA5ZC00ZWRmLWFmZWItMzU2NDJiMzgxODVkXC8yNTU1NmQ1YS1iOWRkLTRlMjctYWExYS1jY2U3MzJmZTc0ZGVcL2FwcGxpY2F0aW9uLmp3a3MiLCJzb2Z0d2FyZV9wb2xpY3lfdXJpIjoiaHR0cHM6XC9cL3d3dy5yYWlkaWFtLmNvbVwvYWNjb3VudGluZ1wvcG9saWN5Lmh0bWwiLCJzb2Z0d2FyZV9pZCI6IjI1NTU2ZDVhLWI5ZGQtNGUyNy1hYTFhLWNjZTczMmZlNzRkZSIsInNvZnR3YXJlX2NsaWVudF91cmkiOiJodHRwczpcL1wvd3d3LnJhaWRpYW0uY29tXC9hY2NvdW50aW5nLmh0bWwiLCJzb2Z0d2FyZV9qd2tzX2luYWN0aXZlX2VuZHBvaW50IjoiaHR0cHM6XC9cL2tleXN0b3JlLmRpcmVjdG9yeS5vcGVuYmFua2luZ2JyYXNpbC5vcmcuYnJcL2I5NjFjNGViLTUwOWQtNGVkZi1hZmViLTM1NjQyYjM4MTg1ZFwvMjU1NTZkNWEtYjlkZC00ZTI3LWFhMWEtY2NlNzMyZmU3NGRlXC9pbmFjdGl2ZVwvYXBwbGljYXRpb24uandrcyIsInNvZnR3YXJlX2p3a3NfdHJhbnNwb3J0X2luYWN0aXZlX2VuZHBvaW50IjoiaHR0cHM6XC9cL2tleXN0b3JlLmRpcmVjdG9yeS5vcGVuYmFua2luZ2JyYXNpbC5vcmcuYnJcL2I5NjFjNGViLTUwOWQtNGVkZi1hZmViLTM1NjQyYjM4MTg1ZFwvMjU1NTZkNWEtYjlkZC00ZTI3LWFhMWEtY2NlNzMyZmU3NGRlXC9pbmFjdGl2ZVwvdHJhbnNwb3J0Lmp3a3MiLCJzb2Z0d2FyZV9qd2tzX3RyYW5zcG9ydF9lbmRwb2ludCI6Imh0dHBzOlwvXC9rZXlzdG9yZS5kaXJlY3Rvcnkub3BlbmJhbmtpbmdicmFzaWwub3JnLmJyXC9iOTYxYzRlYi01MDlkLTRlZGYtYWZlYi0zNTY0MmIzODE4NWRcLzI1NTU2ZDVhLWI5ZGQtNGUyNy1hYTFhLWNjZTczMmZlNzRkZVwvdHJhbnNwb3J0Lmp3a3MiLCJzb2Z0d2FyZV9sb2dvX3VyaSI6Imh0dHBzOlwvXC93d3cucmFpZGlhbS5jb21cL2FjY291bnRpbmdcL2xvZ28ucG5nIiwib3JnX2lkIjoiYjk2MWM0ZWItNTA5ZC00ZWRmLWFmZWItMzU2NDJiMzgxODVkIiwic29mdHdhcmVfZW52aXJvbm1lbnQiOiJwcm9kdWN0aW9uIiwic29mdHdhcmVfdmVyc2lvbiI6MS4xMCwic29mdHdhcmVfcm9sZXMiOlsiREFET1MiLCJQQUdUTyJdLCJvcmdfbmFtZSI6Ik9wZW4gQmFua2luZyBCcmFzaWwiLCJpYXQiOjE2MTgzMzYyNjIsIm9yZ2FuaXNhdGlvbl9jb21wZXRlbnRfYXV0aG9yaXR5X2NsYWltcyI6W3siYXV0aG9yaXNhdGlvbl9kb21haW4iOiJPcGVuIEJhbmtpbmciLCJhdXRob3Jpc2F0aW9ucyI6W10sInJlZ2lzdHJhdGlvbl9pZCI6IjEzMzUzMjM2LU9CQi1DT05UQSIsImF1dGhvcml0eV9pZCI6IjY4N2ExYzk0LWIzNjAtNGUwNC05NTg5LTBmYTVjYjE2NDUxYiIsImF1dGhvcmlzYXRpb25fcm9sZSI6IkNPTlRBIiwiYXV0aG9yaXR5X2NvZGUiOiJCQ0IiLCJzdGF0dXMiOiJBY3RpdmUifSx7ImF1dGhvcmlzYXRpb25fZG9tYWluIjoiT3BlbiBCYW5raW5nIiwiYXV0aG9yaXNhdGlvbnMiOltdLCJyZWdpc3RyYXRpb25faWQiOiIxMzM1MzIzNi1PQkItREFET1MiLCJhdXRob3JpdHlfaWQiOiI2ODdhMWM5NC1iMzYwLTRlMDQtOTU4OS0wZmE1Y2IxNjQ1MWIiLCJhdXRob3Jpc2F0aW9uX3JvbGUiOiJEQURPUyIsImF1dGhvcml0eV9jb2RlIjoiQkNCIiwic3RhdHVzIjoiQWN0aXZlIn0seyJhdXRob3Jpc2F0aW9uX2RvbWFpbiI6Ik9wZW4gQmFua2luZyIsImF1dGhvcmlzYXRpb25zIjpbXSwicmVnaXN0cmF0aW9uX2lkIjoiMTMzNTMyMzYtT0JCLVBBR1RPIiwiYXV0aG9yaXR5X2lkIjoiNjg3YTFjOTQtYjM2MC00ZTA0LTk1ODktMGZhNWNiMTY0NTFiIiwiYXV0aG9yaXNhdGlvbl9yb2xlIjoiUEFHVE8iLCJhdXRob3JpdHlfY29kZSI6IkJDQiIsInN0YXR1cyI6IkFjdGl2ZSJ9XX0.W6hUAYhjT6I61rxEIVMKYKre93LTbRdzKnk9dJvUdzVgAz5B9KxZNutf27oO3k0hrjYVWBdWq23o_e4Y_AaKdpS9-rtU84JiHtmqV0wcFYIM8nqcUVWqQ-Ux6Nq9L2G-s2YNd3PcJ1e3yGg9h8553Gr7iJusKEgApzXUpkM2rBELQuumktUE_JBiuIkXmWxoRnO1cW-Osbk3MT3bxG43SPcxii07Q5S8qXI6PjCPA3fYlnaUAygwZM3O0oa7jqmSr7d9UsHuDMJfYhIKdq2wyQQKORCN-D2UopmMX-lHMvAVkkrAO08T0-7odjr4PJk-PrwuoCxeAfa7440ZDOrlmQ
+</pre><a href="#section-a.1-1" class="pilcrow">¶</a>
+</div>
+</section>
+</div>
+</section>
+</div>
+<div id="authors-addresses">
+<section id="section-appendix.b">
+      <h2 id="name-authors-addresses">
+<a href="#name-authors-addresses" class="section-name selfRef">Authors' Addresses</a>
+      </h2>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Ralph Bragg</span></div>
+<div dir="auto" class="left"><span class="org">Raidiam</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:ralph.bragg@raidiam.com" class="email">ralph.bragg@raidiam.com</a>
+</div>
+<div class="url">
+<span>URI:</span>
+<a href="https://www.raidiam.com/" class="url">https://www.raidiam.com/</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">OBBIS GT Security</span></div>
+<div dir="auto" class="left"><span class="org">Open Banking Brasil Initial Structure</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:gt-seguranca@openbankingbr.org" class="email">gt-seguranca@openbankingbr.org</a>
+</div>
+<div class="url">
+<span>URI:</span>
+<a href="https://openbankingbrasil.org.br/" class="url">https://openbankingbrasil.org.br/</a>
+</div>
+</address>
+</section>
+</div>
+<script>const toc = document.getElementById("toc");
+toc.querySelector("h2").addEventListener("click", e => {
+  toc.classList.toggle("active");
+});
+toc.querySelector("nav").addEventListener("click", e => {
+  toc.classList.remove("active");
+});
+</script>
+</body>
+</html>
