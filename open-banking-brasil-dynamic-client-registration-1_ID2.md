@@ -298,6 +298,10 @@ In line with guidance from the IETF and the direction of travel for fine-grained
 | DADOS | consent:{ConsentId} |
 | PAGTO | consent:{ConsentId} |
 
+## Client
+
+In the client registration process, using the authentication method *tls_client_auth*, the client must send the field *tls_client_auth_subject_dn* with the AttibuteTypes(Descriptors) in the format defined in item 7.1.2. In case of non-adherence to this standard, the registration will be rejected.
+
 # Software Statement
 
 > A software statement is a JSON Web Token (JWT) [RFC7519] that asserts metadata values about the client software as a bundle.
