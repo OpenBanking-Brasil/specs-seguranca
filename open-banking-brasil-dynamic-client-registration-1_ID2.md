@@ -237,6 +237,7 @@ In addition, the Authorization Server
 10. should where possible validate client asserted metadata against metadata provided in the software_statement;
 11. shall accept all x.500 AttributeType name strings defined in the Distinguished Name of the x.509 Certificate Profiles defined in [Open Banking Brasil x.509 Certificate Standards][OBB-Cert-Standards];
 12. if supporting `tls_client_auth` client authentication mechanism as defined in [RFC8705] shall only accept `tls_client_auth_subject_dn`  as an indication of the certificate subject value as defined in clause 2.1.2 [RFC8705];
+13. The values of the *UID* and *OU* fields of the certificate must match those sent in the SSA. The *OU* field must contain the value of the SSA *org_id* field and the *UID* field must contain the value of the SSA *software_id* field.
 
 These provisions apply equally to the processing of [RFC7591], [RFC7592] and [OpenID Registration][OIDR] requests
 
@@ -252,22 +253,26 @@ Where properties of a DCR request are not included and are not mandatory in the 
 
 Clause 3 of [Lightweight Directory Access Protocol (LDAP): String Representation of Distinguished Names][RFC4514] defines the mandatory OIDs whose AttributeType strings (descriptors) must be recognized by implementers. This mandatory list does not include several of the OIDs defined in [Open Banking Brasil x.509 Certificate Standards][OBB-Cert-Standards] nor is there a defined mechanism for Authorisation Servers to publish  information regarding the format that they would expect a Dynamic Client Registration request that includes a `tls_client_auth_subject_dn` to be presented in.
 
-To address this ambiguity, the Authorization Server must accept all AttributeType name strings (descriptors) defined in the last paragraph of clause 3 [RFC4514] in addition to all of the AttributeTypes defined in the Distinguished Name of the [Open Banking Brasil x.509 Certificate Standards][OBB-Cert-Standards].
+To address this ambiguity, the Authorization Server must only accept the AttributeTypes (descriptors) defined in the last paragraph of clause 3 [RFC4514] in string format, it must also accept in OID format, with their values in ASN.1, all the AttributeTypes defined in Distinguished Name [Open Banking Brasil x.509 Certificate Standards][OBB-Cert-Standards] or added by the Certificate Authority.
 
 In terms of format, the Security WG have defined the examples in bellow:
 
 - Start backwards, the order is reversed from what is entered.
 - Append each RDN (RelativeDistinguishedName) segment with a comma ‘,’
-- Use RFC Strings (CN, L, ST, O, OU, C, Street, DC, UID) + OBB Certificate Specs (businessCategory, jurisdictionCountryName , serialNumber)
+- Use the RFC strings (CN, L, ST, O, OR, C, Street, DC, UID) with the value of their attributes in "printable string", ie human readable + the OIDs of the attributes defined in this specification for use in Distinguished Name [Open Banking Brasil x.509 Certificate Standards][OBB-Cert-Standards] (businessCategory=OID 2.5.4.15,jurisdictionCountryName=OID: 1.3.6.1.4.1.311.60.2.1.3, serialNumber=2.5.4.5) with the value of your attributes in ASN.1 format
 
 Examples:
 
 | subject_dn | Issuer |
 | --- | --- |
-| UID=67c57882-043b-11ec-9a03-0242ac130003,jurisdictionCountryName=BR,businessCategory=Private      Organization,serialNumber=00038166000954,CN=mycn.bank.com.br,OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59,O=MY BANK SA,L=SAO PAULO,ST=SP,C=BR | issuer=CN=Open Banking SANDBOX Issuing CA   - G1,OU=Open Banking,O=Open   Banking Brasil,C=BR |
-| UID=67c57882-043b-11ec-9a03-0242ac130003,   jurisdictionCountryName=BR,businessCategory=Business Entity,CN=mycn.bank.gov.br,serialNumber=00038166000954,OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59,O=My Public Bank,L=BRASILIA,ST=DF,C=BR | issuer=CN=Autoridade Certificadora do SERPRO SSLv1,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR,jurisdictionCountryName=BR,businessCategory=Private |
-| Organization,UID=67c57882-043b-11ec-9a03-0242ac130003,CN=openbanking.mybank.com.br,serialNumber=00038166000954,OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59,L=Goiania,ST=GO,O=MyBank SA,C=BR | issuer=CN=AC SOLUTI SSL EV,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR |
-| CN=mycn.bank.com.br,UID=67c57882-043b-11ec-9a03-0242ac130003,OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59,L=Sao   Paulo,ST=SP,O=MyBank SA,C=BR,serialNumber=00038166000954,   jurisdictionCountryName=BR,businessCategory=Private   Organization | issuer=CN=AC SERASA SSL EV,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR |
+| UID=67c57882-043b-11ec-9a03-0242ac130003,1.3.6.1.4.1.311.60.2.1.3=#13024252, 2.5.4.15=#131450726976617465204f7267616e697a6174696f6e, 2.5.4.5=#130d31333335333233363030313839,CN= mycn.bank.gov.br,OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59,O=My Public Bank,L= BRASILIA,ST=DF,C=BR
+ | issuer=CN=Open Banking SANDBOX Issuing CA   - G1,OU=Open Banking,O=Open   Banking Brasil,C=BR |
+| UID=67c57882-043b-11ec-9a03-0242ac130003, 1.3.6.1.4.1.311.60.2.1.3=#13024252,2.5.4.15=#131450726976617465204f7267616e697a6174696f6e,CN=mycn.bank.gov.br,2.5.4.5=#130d31333335333233363030313839,OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59,O=My Public Bank,L=BRASILIA,ST=DF,C=BR
+ | issuer=CN=Autoridade Certificadora do SERPRO SSLv1,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR |
+| 1.3.6.1.4.1.311.60.2.1.3=#13024252,2.5.4.15=#131450726976617465204f7267616e697a6174696f6e,UID=67c57882-043b-11ec-9a03-0242ac130003,CN=openbanking.mybank.com.br,2.5.4.5=#130d31333335333233363030313839,OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59,L=Goiania,ST=GO,O=MyBank SA,C=BR
+ | issuer=CN=AC SOLUTI SSL EV,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR |
+| CN=mycn.bank.com.br,UID=67c57882-043b-11ec-9a03-0242ac130003,OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59,L=Sao Paulo,ST=SP,O=MyBank SA,C=BR,2.5.4.5=#130d31333335333233363030313839, 1.3.6.1.4.1.311.60.2.1.3=#13024252,2.5.4.15=#131450726976617465204f7267616e697a6174696f6e
+ | issuer=CN=AC SERASA SSL EV,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR |
 
 ## Regulatory Roles to OpenID and OAuth 2.0 Mappings
 
