@@ -41,7 +41,7 @@
 
 .# Prefácio  {#Forward}
 
-The normative version in [English](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID1.html)
+The normative version in [English](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID2.html)
 
 A Estrutura Inicial do Open Banking Brasil (EIOBB) é responsável por criar os padrões e especificações necessários para atender aos requisitos e obrigações da Legislação do Open Banking do Brasil, conforme originalmente delineado pelo [Banco Central do Brasil](https://www.bcb.gov.br/content/config/Documents/BCB_Open_Banking_Communique-April-2019.pdf). É possível que alguns dos elementos deste documento estejam sujeitos a direitos de patente. O EIOBB não se responsabiliza pela identificação de qualquer ou todos os direitos de patente.
 
@@ -235,7 +235,7 @@ Além disso, o servidor de autorização
 10. deve, sempre que possível, validar os metadados declarados pelo cliente em relação aos metadados fornecidos no _software\_statement_, adotando os valores presentes no SSA com precedência.
 11. deve aceitar todos os nomes x.500 AttributeType definidas no _Distinguished Name_ dos Perfis de Certificado x.509 definidos em [Open Banking Brasil x.509 Certificate Standards][OBB-Cert-Standards];
 12. se for compatível com o mecanismo de autenticação do cliente `tls_client_auth`, conforme definido em [RFC8705], somente deve aceitar `tls_client_auth_subject_dn` como uma indicação do valor do atributo _subject_ do certificado, conforme definido na cláusula 2.1.2 [RFC8705];
-13. Os valores dos campos UID e OU do certificado devem coincidir com os enviados no SSA. O campo OU deve conter o valor do campo org_id do SSA e campo UID deve conter o valor do campo software_id do SSA.
+13. Os valores dos campos *UID* e *OU* do certificado devem coincidir com os enviados no SSA. O campo *OU* deve conter o valor do campo *org_id* do SSA e campo *UID* deve conter o valor do campo *software_id* do SSA.
 
 
 Estas disposições aplicam-se igualmente ao processamento de pedidos [RFC7591], [RFC7592] e [OpenID Registration][OIDR]
