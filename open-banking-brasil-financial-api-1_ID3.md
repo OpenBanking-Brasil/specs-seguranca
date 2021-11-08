@@ -378,10 +378,6 @@ For TLS, Authorization Server endpoints and Resource Server endpoints used direc
 1. shall support `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`
 2. shall support `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
 
-## mTLS client validation considerations
-
-At the time of authentication, using the *tls_client_auth* method, it must be validated that the *UID* and *OU* fields present at the certificate matches the values in the *tls_client_auth_subject_dn* field.
-
 # Data Sharing Considerations
 
 ## Authorisation Mechanism

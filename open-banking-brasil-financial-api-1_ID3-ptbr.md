@@ -361,10 +361,6 @@ Para TLS, endpoints do Servidor de Autenticação e endpoints do Servidor de Rec
 1. devem suportar `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`
 2. devem suportar `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
 
-## Considerações sobre a validação do cliente mTLS
-
-No momento de autenticação, pelo método *tls_client_auth*, deve ser validado que os campos *UID* e *OU* apresentados no certificado coincidem com os valores informados no campo *tls_client_auth_subject_dn*.
-
 
 # Considerações sobre compartilhamento de dados  {#dados}
 
