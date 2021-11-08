@@ -285,9 +285,9 @@ A tabela a seguir descreve as funções regulatórias do Open Banking e o mapeam
 | CONTA | Instituição detentora de conta (ASPSP) | openid | Phase 3 |
 | CCORR | Correspondente de crédito | openid | Phase 3* |
 
-## Cliente
+## Registro do Cliente {#registro_tls_client_auth}
 
-No processo de registro do cliente, utilizando-se o método de autenticação *tls_client_auth*, o cliente deve encaminhar o campo *tls_client_auth_subject_dn* com os AttibuteTypes(Descritores) em formato definido no item 7.1.2. Em caso de não aderencia a este padrão o registro será rejeitado.
+No processo de registro do cliente, utilizando-se o método de autenticação _tls\_client\_auth_, o cliente deve encaminhar o campo _tls\_client\_auth\_subject\_dn_ com os AttibuteTypes(Descritores) em formato definido no item 7.1.2. Em caso de não aderencia a este padrão o registro será rejeitado.
 
 # Declaração de Software  {#SSA}
 
