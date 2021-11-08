@@ -32,7 +32,7 @@ Sempre que for publicado um novo ID de documentação, deve-se atentar a atualiz
 
 |Documento|Referências|
 |------------------------------------------|---------------------------------------------------------------------------------------------------|
-|Registro e Cadastramento Dinâmico do Cliente de APIs|<ul><li>Perfil de Segurança do OpenBanking Brasil</li><li>Padrão de Certificados Open Banking Brasil</li><li>Guia do usuário - ponto de vista da instituição receptora de dados ou iniciadora de pagamentos (TTP)</li><li>Áerea do Desenvolvedor do Portal do Open Banking Brasil</li></ul>|
+|Registro e Cadastramento Dinâmico do Cliente de APIs|<ul><li>Perfil de Segurança do OpenBanking Brasil</li><li>Padrão de Certificados Open Banking Brasil</li><li>Guia do usuário - ponto de vista da instituição receptora de dados ou iniciadora de pagamentos (TTP)</li><li>Áerea do Desenvolvedor do Portal do Open Banking Brasil</li><li>Swagger com a documentação do DCR</li></ul>|
 |Perfil de Segurança do OpenBanking Brasil|<ul><li>Registro e Cadastramento Dinâmico do Cliente de APIs</li><li>Padrão de Certificados Open Banking Brasil</li><li>Guia do usuário - ponto de vista da instituição receptora de dados ou iniciadora de pagamentos (TTP)</li><li>Áerea do Desenvolvedor do Portal do Open Banking Brasil</li></ul>|
 |Padrão de Certificados Open Banking Brasil|<ul><li>Perfil de Segurança do OpenBanking Brasil</li><li>Registro e Cadastramento Dinâmico do Cliente de APIs</li><li>Guia do usuário - ponto de vista da instituição receptora de dados ou iniciadora de pagamentos (TTP)</li><li>Áerea do Desenvolvedor do Portal do Open Banking Brasil</li></ul>|
 
