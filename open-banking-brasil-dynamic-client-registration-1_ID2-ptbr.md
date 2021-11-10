@@ -185,7 +185,7 @@ Os serviços do Diretório incluem:
 * Registro e gerenciamento de credenciais de software usando certificados ICP
 * Geração de Software Statement Assertion (SSA)
 
-Os participantes do ecossistema devem aproveitar esses serviços para facilitar o registro de cliente OAuth orientado por API usando o processo descrito na cláusula 3.1.1 do [RFC7591] com metadados adicionais necessários para oferecer suporte ao OpenID Connect definido em [OpenID Connect Registration][OIDR]. 
+Os participantes do ecossistema devem aproveitar esses serviços para facilitar o registro de cliente OAuth orientado por API usando o processo descrito na cláusula 3.1.1 do [RFC7591] com metadados adicionais necessários para oferecer suporte ao OpenID Connect definido em [OpenID Connect Registration][OIDR].
 
 É importante reforçar que o payload de registro de clientes possui a maior parte de seus atributos não obrigatórios, e que os atributos cujos valores  conflitem com os presentes no software statement assertion *serão sobrepostos pelos valores do próprio software statement assertion emitido pelo diretório central*. Nem todos os metadados que um cliente deseja fornecer podem estar contidos em um *software statement*, por exemplo, alternativa [Metadata Languages and Script values](https://openid.net/specs/openid-connect-registration-1_0.html#LanguagesAndScripts). Há casos ainda de metadados de cliente que são um subconjunto dos valores existentes no SSA, como por exemplo os redirect_URIs.
 
@@ -193,7 +193,7 @@ Os participantes do ecossistema devem aproveitar esses serviços para facilitar 
 
 ## Servidor de Autorização  {#AuthServers}
 
-O servidor de autorização deve suportar [OpenID Connect Discovery][OIDD] conforme exigido pelo [Financial-grade API Security Profile 1.0 - Part 1: Baseline][FAPI-1-Baseline]. Este suporte deve estar explicito tanto na forma como o Servidor de Autorização está registrado no Diretório de Participantes quanto na declaração dos seus atributos no arquivo de Discovery (well-known), respeitando os mecanismos de autenticação certificados pela institição através dos testes de conformidade do Open Banking Brasil. 
+O servidor de autorização deve suportar [OpenID Connect Discovery][OIDD] conforme exigido pelo [Financial-grade API Security Profile 1.0 - Part 1: Baseline][FAPI-1-Baseline]. Este suporte deve estar explicito tanto na forma como o Servidor de Autorização está registrado no Diretório de Participantes quanto na declaração dos seus atributos no arquivo de Discovery (well-known), respeitando os mecanismos de autenticação certificados pela institição através dos testes de conformidade do Open Banking Brasil.
 
 Adicionalmente, o Servidor de Autorização:
 
@@ -237,7 +237,6 @@ Além disso, o servidor de autorização
 12. se for compatível com o mecanismo de autenticação do cliente `tls_client_auth`, conforme definido em [RFC8705], somente deve aceitar `tls_client_auth_subject_dn` como uma indicação do valor do atributo _subject_ do certificado, conforme definido na cláusula 2.1.2 [RFC8705];
 13. Os valores dos campos *UID* e *OU* do certificado devem coincidir com os enviados no SSA. O campo *OU* deve conter o valor do campo *org_id* do SSA e campo *UID* deve conter o valor do campo *software_id* do SSA.
 
-
 Estas disposições aplicam-se igualmente ao processamento de pedidos [RFC7591], [RFC7592] e [OpenID Registration][OIDR]
 
 ### Aplicando Server Defaults  {#Server}
@@ -258,9 +257,9 @@ Em caso de não atendimento destes requisitos o Servidor de Autorização dever�
 
 Segue na tabela abaixo como deve ser feita a decodificação:
 
-- Obtenha na ordem reversa os atributos do certificado
-- Concatene cada RDN (RelativeDistinguishedName) com uma virgula (',')
-- Use as strings da RFC (CN, L, ST, O, OU, C, Street, DC, UID) com o valor dos seus atribudos em "printable string", ou seja legível para humanos + os OIDs dos atributos definidos nesta especificação para uso no OBB (businessCategory=OID 2.5.4.15,jurisdictionCountryName=OID: 1.3.6.1.4.1.311.60.2.1.3, serialNumber=2.5.4.5) com o valor dos seus atributos em formato ASN.1”
+* Obtenha na ordem reversa os atributos do certificado
+* Concatene cada RDN (RelativeDistinguishedName) com uma virgula (',')
+* Use as strings da RFC (CN, L, ST, O, OU, C, Street, DC, UID) com o valor dos seus atribudos em "printable string", ou seja legível para humanos + os OIDs dos atributos definidos nesta especificação para uso no OBB (businessCategory=OID 2.5.4.15,jurisdictionCountryName=OID: 1.3.6.1.4.1.311.60.2.1.3, serialNumber=2.5.4.5) com o valor dos seus atributos em formato ASN.1”
 
 Seguem abaixo exemplos para os atributos obrigatórios da CAs atualmente ativas:
 
@@ -271,7 +270,6 @@ Seguem abaixo exemplos para os atributos obrigatórios da CAs atualmente ativas:
 | 1.3.6.1.4.1.311.60.2.1.3=#13024252, 2.5.4.15=#131450726976617465204f7267616e697a6174696f6e, UID=67c57882-043b-11ec-9a03-0242ac130003, CN=openbanking.mybank.com.br, 2.5.4.5=#130d31333335333233363030313839, OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59, L=Goiania, ST=GO, O=MyBank SA, C=BR | issuer=CN=AC SOLUTI SSL EV,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR |
 | CN=mycn.bank.com.br, UID=67c57882-043b-11ec-9a03-0242ac130003, OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59, L=Sao Paulo, ST=SP, O=MyBank SA, C=BR,2.5.4.5=#130d31333335333233363030313839, 1.3.6.1.4.1.311.60.2.1.3=#13024252, 2.5.4.15=#131450726976617465204f7267616e697a6174696f6e | issuer=CN=AC SERASA SSL EV,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR |
 
-
 ## Funções regulatórias para mapeamentos OpenID e OAuth 2.0  {#Regs}
 
 Para participar do ecossistema do Open Banking, as instituições credenciadas devem se cadastrar no Diretório de Participantes de acordo com seus papéis regulatórios. Essas funções refletem a autorização do Banco Central para as instituições e, consequentemente, as APIs que podem utilizar.
@@ -281,7 +279,7 @@ A tabela a seguir descreve as funções regulatórias do Open Banking e o mapeam
 | Papel Regulador | Descrição | Escopos Permitidos | Fase-alvo |
 | --- | --- | --- | --- |
 | DADOS | Instituição transmissora / receptora de dados (AISP) | openid accounts credit-cards-accounts consents customers invoice-financings financings loans unarranged-accounts-overdraft resources | Phase 2 |
-| PAGTO | Instituição prestadora de serviço de iniciação de pagamentos (PISP) | openid payments consents resources | Phase 3 |
+| PAGTO | Instituição prestadora de serviço de iniciação de pagamentos (PISP) | openid payments | Phase 3 |
 | CONTA | Instituição detentora de conta (ASPSP) | openid | Phase 3 |
 | CCORR | Correspondente de crédito | openid | Phase 3* |
 
@@ -426,7 +424,7 @@ Content-Type: application/json
 
 ## Open Banking Brasil SSA Key Store e detalhes do emissor  {#keystore}
 
-As links a seguir apontam para as chaves públicas do Diretório de Participantes, e devem ser usadas para verificar a validadade da assinatura dos _software\_statements_ apresentados durante o processo de registro de cliente. 
+As links a seguir apontam para as chaves públicas do Diretório de Participantes, e devem ser usadas para verificar a validadade da assinatura dos _software\_statements_ apresentados durante o processo de registro de cliente.
 
 **Producão**
 
@@ -442,7 +440,7 @@ Emissor do Open Banking Open Banking Brasil SSA de sandbox
 
 ## Sobre os mecanismos de autenticação e autorização dos serviços de DCR e DCM {#dcr-dcm}
 
-Por serem serviços auxiliares ao fluxo principal do Open Banking Brasil, os serviços de registro e manutenção dinâmica de clientes não utilizam os mesmos mecanismos de controle de acesso. Por exemplo: não é possível exigir um _access\_token_ OAuth 2.0 de uma aplicação cliente que ainda não está registrada na instituição transmissora. 
+Por serem serviços auxiliares ao fluxo principal do Open Banking Brasil, os serviços de registro e manutenção dinâmica de clientes não utilizam os mesmos mecanismos de controle de acesso. Por exemplo: não é possível exigir um _access\_token_ OAuth 2.0 de uma aplicação cliente que ainda não está registrada na instituição transmissora.
 Para estender as [RFC7591] e [RFC7592], que recomendam mecanismos mínimos para autenticação dos seus serviços, as instituições que suportam os fluxos de registro e manutenção dinâmica de clientes devem implementar em seus Servidores de Autorização os controles a seguir:
 
 ### Registro de cliente - POST /register {#post-register}
@@ -453,6 +451,7 @@ Para estender as [RFC7591] e [RFC7592], que recomendam mecanismos mínimos para 
 4. emitir, na resposta do registro, um `registration_access_token` para ser usado como token de autenticação nas operações de manutenção da aplicação cliente registrada, seguindo as especificações descritas na [RFC7592].
 
 ### Manutenção de cliente - GET /register - PUT /register - DELETE /register {#get-put-delete}
+
 1. validar que o certificado apresentado pela aplicação cliente é subordinado às cadeias do ICP-Brasil definidas no Padrão de Certificados do Open Banking Brasil;
 2. validar a presença e a correspondência do header Bearer `Authorization` contendo o valor do atributo `registration_access_token` retornado durante o registro do cliente correspondente.
 

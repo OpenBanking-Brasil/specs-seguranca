@@ -40,6 +40,7 @@
 %%%
 
 # The English version of this document is Outdated
+
 Please refer to the portuguese version for up to date information:
 >[https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID2-ptbr.html](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID2-ptbr.html)
 
@@ -256,9 +257,9 @@ To address this ambiguity, the Authorization Server must accept all AttributeTyp
 
 In terms of format, the Security WG have defined the examples in bellow:
 
-- Start backwards, the order is reversed from what is entered.
-- Append each RDN (RelativeDistinguishedName) segment with a comma ‘,’
-- Use RFC Strings (CN, L, ST, O, OU, C, Street, DC, UID) + OBB Certificate Specs (businessCategory, jurisdictionCountryName , serialNumber)
+* Start backwards, the order is reversed from what is entered.
+* Append each RDN (RelativeDistinguishedName) segment with a comma ‘,’
+* Use RFC Strings (CN, L, ST, O, OU, C, Street, DC, UID) + OBB Certificate Specs (businessCategory, jurisdictionCountryName , serialNumber)
 
 Examples:
 
@@ -278,7 +279,7 @@ The following table describes the regulatory roles for Open Banking and the rela
 | Regulatory Role | Description | Allowed Scopes | Target Phase|
 | --- | --- | --- | --- |
 | DADOS | Instituição transmissora ou receptora de dados (AISP) | openid accounts credit-cards-accounts consents customers invoice-financings financings loans unarranged-accounts-overdraft resources | Phase 2 |
-| PAGTO | Instituição prestadora de serviço de iniciação de pagamentos (PISP) | openid payments consents resources | Phase 3 |
+| PAGTO | Instituição prestadora de serviço de iniciação de pagamentos (PISP) | openid payments | Phase 3 |
 | CONTA | Instituição detentora de conta (ASPSP) | openid | Phase 3 |
 | CCORR | Correspondente de crédito | openid | Phase 3* |
 
