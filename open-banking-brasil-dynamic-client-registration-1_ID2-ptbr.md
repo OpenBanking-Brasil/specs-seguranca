@@ -281,7 +281,7 @@ A tabela a seguir descreve as funções regulatórias do Open Banking e o mapeam
 | Papel Regulador | Descrição | Escopos Permitidos | Fase-alvo |
 | --- | --- | --- | --- |
 | DADOS | Instituição transmissora / receptora de dados (AISP) | openid accounts credit-cards-accounts consents customers invoice-financings financings loans unarranged-accounts-overdraft resources | Phase 2 |
-| PAGTO | Instituição prestadora de serviço de iniciação de pagamentos (PISP) | openid payments consents resources | Phase 3 |
+| PAGTO | Instituição prestadora de serviço de iniciação de pagamentos (PISP) | openid payments | Phase 3 |
 | CONTA | Instituição detentora de conta (ASPSP) | openid | Phase 3 |
 | CCORR | Correspondente de crédito | openid | Phase 3* |
 
