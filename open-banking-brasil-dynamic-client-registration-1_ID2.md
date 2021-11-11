@@ -24,8 +24,8 @@
     organization = "Raidiam"
     abbrev = "Raidiam"
       [author.address]
-      email = ralph.bragg@raidiam.com
-      uri = https://www.raidiam.com/
+      email = "ralph.bragg@raidiam.com"
+      uri = "https://www.raidiam.com/"
 
     [[author]]
     initials = "GT"
@@ -34,8 +34,8 @@
     organization = "Open Banking Brasil Initial Structure"
     abbrev = "OBBIS"
       [author.address]
-      email = gt-seguranca@openbankingbr.org
-      uri = https://openbankingbrasil.org.br/
+      email = "gt-seguranca@openbankingbr.org"
+      uri = "https://openbankingbrasil.org.br/"
 
 %%%
 
