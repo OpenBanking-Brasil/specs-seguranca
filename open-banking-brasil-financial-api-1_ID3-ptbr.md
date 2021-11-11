@@ -1,3 +1,4 @@
+
 %%%
 
     #
@@ -227,10 +228,11 @@ Além disso, ele deve:
 10. pode suportar [Financial-grade API: Client Initiated Backchannel Authentication Profile][FAPI-CIBA]
 11. (requisito temporariamente retirado)
 12. deve suportar `refresh tokens`
-13. deve emitir `access tokens` com o tempo de expiração entre 300 (mínimo) e 900 (máximo) segundos
-14. deve sempre incluir a claim `acr` no id_token
-15. deve suportar os valores `code` e `id_token` para o atributo `response_type`
-16. pode suportar o valor `code` para o atributo `response_type`em conjunto com o valor `jwt` para o atributo `response_mode`
+13. não deve permitir o recurso de rotação de `refresh tokens`
+14. deve emitir `access tokens` com o tempo de expiração entre 300 (mínimo) e 900 (máximo) segundos
+15. deve sempre incluir a claim `acr` no id_token
+16. deve suportar os valores `code` e `id_token` para o atributo `response_type`
+17. pode suportar o valor `code` para o atributo `response_type`em conjunto com o valor `jwt` para o atributo `response_mode`
 
 #### Token de ID como assinatura separada  {#detached}
 
@@ -305,9 +307,10 @@ Além disso, o cliente confidencial
 3. deve usar objetos de solicitação _encrypted_ se não usar [PAR]
 4. deve suportar o escopo de recurso OAuth 2.0 parametrizado _consent_ conforme definido na cláusula 6.3.1 [OIDF FAPI WG Lodging Intent Pattern][LIWP]
 5. deve suportar `refresh tokens`
-6. não deve incluir um valor específico na _claim_ `acr`
-7. deve definir a _claim_ `acr`como _essential_
-8. deve suportar todos os métodos de autenticação especificados no item 14 da seção 5.2.2 da [Financial-grade API Security Profile 1.0 - Part 2: Advanced][FAPI-1-Advanced] incluindo as diferentes combinações de métodos de encaminhamento dos Requests Objects (usando ou não [PAR] - item 11).
+6. não deve permitir o recurso de rotação de `refresh tokens`
+7. não deve incluir um valor específico na _claim_ `acr`
+8. deve definir a _claim_ `acr`como _essential_
+9. deve suportar todos os métodos de autenticação especificados no item 14 da seção 5.2.2 da [Financial-grade API Security Profile 1.0 - Part 2: Advanced][FAPI-1-Advanced] incluindo as diferentes combinações de métodos de encaminhamento dos Requests Objects (usando ou não [PAR] - item 11).
 
 # Considerações de segurança  {#authserver}
 
