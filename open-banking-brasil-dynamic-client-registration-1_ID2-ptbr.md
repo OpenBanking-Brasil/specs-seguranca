@@ -151,6 +151,9 @@ Os seguintes documentos referenciados são indispensáveis para a aplicação de
 [OBB-Cert-Standards] - Open Banking Brasil x.509 Certificate Standards
 [OBB-Cert-Standards]: <https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html
 
+[OBB-DCR/DCM-Swagger] - DCR & DCM Swagger 
+[OBB-DCR/DCM-Swagger]: <https://raw.githubusercontent.com/OpenBanking-Brasil/specs-seguranca/main/dcr_review/dcr-dcm-swagger.yaml
+
 # Termos e definições  {#Definitions}
 
 Para efeitos deste documento, aplicam-se os termos definidos em [RFC6749], [RFC6750], [RFC7636], [OpenID Connect Core][OIDC] e ISO29100.
@@ -382,7 +385,7 @@ O exemplo a seguir contém todos os atributos atualmente incluídos em um _softw
 
 ## Enviar uma solicitação com uma declaração de software  {#exampleDcr}
 
-Este exemplo inclui vários campos opcionais, alguns dos quais podem não ser aplicáveis a algumas implantações. Para um guia completo dos atributos e sua obrigatoriedade, consultar o Swagger DCR --link aqui--.
+Este exemplo inclui vários campos opcionais, alguns dos quais podem não ser aplicáveis a algumas implantações. Para um guia completo dos atributos e sua obrigatoriedade, consultar o Swagger DCR [OBB-DCR/DCM-Swagger].
 A quebra de linha dentro dos valores são apenas para fins de exibição.
 
 ```
