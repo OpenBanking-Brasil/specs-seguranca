@@ -424,7 +424,9 @@ In addition to the requirements outlined in Open Banking Brasil security provisi
 8. shall return authentication failure and return code _access_denied_ in the _error_ parameter (as specified in section 4.1.2.1 of [RFC6749]) if the CPF of the authenticated user is not the same as indicated in the _loggedUser_ element of the Consent Resource Object;
 9. shall return authentication failure and return code _access_denied_ in the _error_ parameter (as specified in section 4.1.2.1 of [RFC6749]) if the _businessEntity_ element has not been populated in the related Consent Resource Object and the user has selected or authenticated by using a credential related to a business account;
 10. an autenticated or selected business account´s CNPJ must match the value present in the _businessEntity_ element of the Consent Resource Object. In case of divergence authorization server shall return authentication failure and return code _access_denied_ in the _error_ parameter (as specified in section 4.1.2.1 of [RFC6749]);
-11. shall ensure _refresh_tokens_ expiration time is at least equal to the linked consent resource expiration time.
+11. shall ensure _refresh_tokens_ expiration time is at least equal to the linked consent resource expiration time;
+12. the _iat_ claim must be numeric in Unix Time format GMT+0 with a tolerance of +/- 60 seconds;
+13. The _jti_ claim must be unique for a _clientId_ within a time frame of 86,400 seconds (24h), and cannot be reused within this period. In case of reuse, the HTTP error code 403 shall be returned.
 
 ### Confidential Client
 
