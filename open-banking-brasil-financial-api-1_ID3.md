@@ -226,10 +226,11 @@ In addition, the Authorization Server
 10. may support [Financial-grade API: Client Initiated Backchannel Authentication Profile][FAPI-CIBA]
 11. (withdrawn)
 12. shall support refresh tokens
-13. shall issue access tokens with an expiry no greater than 900 seconds and no less than 300 seconds
-14. shall always include an acr claim in the `id_token`
-15. shall support the `response_type` value `code id_token`
-16. may support `response_type` value `code` in conjunction with the `response_mode` value `jwt`
+13. shall not allow `refresh tokens` rotation feature
+14. shall issue access tokens with an expiry no greater than 900 seconds and no less than 300 seconds
+15. shall always include an acr claim in the `id_token`
+16. shall support the `response_type` value `code id_token`
+17. may support `response_type` value `code` in conjunction with the `response_mode` value `jwt`
 
 
 #### ID Token as detached signature
@@ -319,9 +320,10 @@ In addition, the confidential client
 3. shall use _encrypted_ request objects if not using [PAR]
 4. shall support parameterized OAuth 2.0 resource scope _consent_ as defined in clause 6.3.1 [OIDF FAPI WG Lodging Intent Pattern][LIWP]
 5. shall support refresh tokens
-6. shall not populate the `acr` claim with required values
-7. shall require the `acr` claim as an essential claim
-8. shall support all authentication methods specified in clause 5.2.2-14 of [Financial-grade API Security Profile 1.0 - Part 2: Advanced][FAPI-1-Advanced] including diferent combinations of the methods to send requests (using [PAR] or not - item 11).
+6. shall not allow `refresh tokens` rotation feature
+7. shall not populate the `acr` claim with required values
+8. shall require the `acr` claim as an essential claim
+9. shall support all authentication methods specified in clause 5.2.2-14 of [Financial-grade API Security Profile 1.0 - Part 2: Advanced][FAPI-1-Advanced] including diferent combinations of the methods to send requests (using [PAR] or not - item 11).
 
 # Security considerations
 
