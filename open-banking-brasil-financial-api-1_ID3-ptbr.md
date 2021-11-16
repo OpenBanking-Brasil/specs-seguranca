@@ -215,23 +215,23 @@ O Servidor de Autorização **deve** suportar as disposições especificadas na 
 
 Além disso, ele deve:
 
-1. deve suportar Request Objects JWE assinados e criptografados passados por valor ou deve exigir requisições do tipo "pushed authorization requests" [PAR]
-2. deve publicar metadados de descoberta (incluindo a do endpoint de autorização) por meio do documento de metadado especificado em [OIDD] e [RFC8414] (".well-known")
-3. deve suportar os parâmetros `claims` como definido no item 5.5 do [OpenID Connect Core][OIDC]
-4. deve suportar o atributo `claim` padrão oidc "cpf" conforme definido no item 5.2.2.2 deste documento
-5. deve suportar o atributo `claim` padrão oidc "cnpj" conforme definido no item 5.2.2.3 deste documento, se a instituição for detentora de conta para pessoas jurídicas
-6. deve suportar o atributo `acr` "urn:brasil:openbanking:loa2" como definido no item 5.2.2.4 deste documento
-7. deveria suportar o atributo `acr` "urn:brasil:openbanking:loa3" como definido no item 5.2.2.4 deste documento
-8. deve implementar o endpoint "userinfo" como definido no item 5.3 do [OpenID Connect Core][OIDC]
-9. deve suportar o escopo parametrizável ("parameterized OAuth 2.0 resource scope") _consent_ como definido no item 6.3.1 de [OIDF FAPI WG Lodging Intent Pattern][LIWP]
-10. pode suportar [Financial-grade API: Client Initiated Backchannel Authentication Profile][FAPI-CIBA]
-11. (requisito temporariamente retirado)
-12. deve suportar `refresh tokens`
-13. não deve permitir o recurso de rotação de `refresh tokens`
-14. deve emitir `access tokens` com o tempo de expiração entre 300 (mínimo) e 900 (máximo) segundos
-15. deve sempre incluir a claim `acr` no id_token
-16. deve suportar os valores `code` e `id_token` para o atributo `response_type`
-17. pode suportar o valor `code` para o atributo `response_type`em conjunto com o valor `jwt` para o atributo `response_mode`
+1. deve suportar Request Objects JWE assinados e criptografados passados por valor ou deve exigir requisições do tipo "pushed authorization requests" [PAR];
+2. deve publicar metadados de descoberta (incluindo a do endpoint de autorização) por meio do documento de metadado especificado em [OIDD] e [RFC8414] (".well-known");
+3. deve suportar os parâmetros `claims` como definido no item 5.5 do [OpenID Connect Core][OIDC];
+4. deve suportar o atributo `claim` padrão oidc "cpf" conforme definido no item 5.2.2.2 deste documento;
+5. deve suportar o atributo `claim` padrão oidc "cnpj" conforme definido no item 5.2.2.3 deste documento, se a instituição for detentora de conta para pessoas jurídicas;
+6. deve suportar o atributo `acr` "urn:brasil:openbanking:loa2" como definido no item 5.2.2.4 deste documento;
+7. deveria suportar o atributo `acr` "urn:brasil:openbanking:loa3" como definido no item 5.2.2.4 deste documento;
+8. deve implementar o endpoint "userinfo" como definido no item 5.3 do [OpenID Connect Core][OIDC];
+9. deve suportar o escopo parametrizável ("parameterized OAuth 2.0 resource scope") _consent_ como definido no item 6.3.1 de [OIDF FAPI WG Lodging Intent Pattern][LIWP];
+10. pode suportar [Financial-grade API: Client Initiated Backchannel Authentication Profile][FAPI-CIBA];
+11. (requisito temporariamente retirado);
+12. deve suportar `refresh tokens`;
+13. deve emitir `access tokens` com o tempo de expiração entre 300 (mínimo) e 900 (máximo) segundos;
+14. deve sempre incluir a claim `acr` no id_token;
+15. deve suportar os valores `code` e `id_token` para o atributo `response_type`;
+16. pode suportar o valor `code` para o atributo `response_type`em conjunto com o valor `jwt` para o atributo `response_mode`;
+17. não deve permitir o recurso de rotação de `refresh tokens`.
 
 #### Token de ID como assinatura separada  {#detached}
 
@@ -301,15 +301,15 @@ Um cliente confidencial deve apoiar as disposições especificadas na cláusula 
 
 Além disso, o cliente confidencial
 
-1. deve suportar objetos de solicitação _encrypted_
-2. deve suportar solicitações de autorização push (pushed authorization requests) [PAR]
-3. deve usar objetos de solicitação _encrypted_ se não usar [PAR]
-4. deve suportar o escopo de recurso OAuth 2.0 parametrizado _consent_ conforme definido na cláusula 6.3.1 [OIDF FAPI WG Lodging Intent Pattern][LIWP]
-5. deve suportar `refresh tokens`
-6. não deve permitir o recurso de rotação de `refresh tokens`
-7. não deve incluir um valor específico na _claim_ `acr`
-8. deve definir a _claim_ `acr`como _essential_
-9. deve suportar todos os métodos de autenticação especificados no item 14 da seção 5.2.2 da [Financial-grade API Security Profile 1.0 - Part 2: Advanced][FAPI-1-Advanced] incluindo as diferentes combinações de métodos de encaminhamento dos Requests Objects (usando ou não [PAR] - item 11).
+1. deve suportar objetos de solicitação _encrypted_;
+2. deve suportar solicitações de autorização push (pushed authorization requests) [PAR];
+3. deve usar objetos de solicitação _encrypted_ se não usar [PAR];
+4. deve suportar o escopo de recurso OAuth 2.0 parametrizado _consent_ conforme definido na cláusula 6.3.1 [OIDF FAPI WG Lodging Intent Pattern][LIWP];
+5. deve suportar `refresh tokens`;
+6. não deve incluir um valor específico na _claim_ `acr`;
+7. deve definir a _claim_ `acr`como _essential_;
+8. deve suportar todos os métodos de autenticação especificados no item 14 da seção 5.2.2 da [Financial-grade API Security Profile 1.0 - Part 2: Advanced][FAPI-1-Advanced] incluindo as diferentes combinações de métodos de encaminhamento dos Requests Objects (usando ou não [PAR] - item 11);
+9. não deve permitir o recurso de rotação de `refresh tokens`.
 
 # Considerações de segurança  {#authserver}
 
