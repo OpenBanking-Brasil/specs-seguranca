@@ -458,6 +458,8 @@ To extend [RFC7591] and [RFC7592], which recommend minimum mechanisms for authen
 1. validate that the certificate presented by the client application is subordinate to the ICP-Brasil chains defined in the Open Banking Brasil Certificates Standard; 
 2. Validate the presence and matching of the Bearer header `Authorization` containing the value of the `registration_access_token` attribute returned during registration of the corresponding client. 
 
+Note: [RFC7592] provides the possibility of rotating the `registration_access_token` issued by the Authorization Server with each use, making it a single-use token. When registering their client applications, institutions should consider this aspect to receive and update the `registration_access_token` for the new value received in client maintenance (DCM) operations.
+
 # Acknowledgement
 
 With thanks to all who have set the foundations for secure and safe data sharing through the formation of the OpenID Foundation FAPI Working Group, the Open Banking Brasil GT Security and to the pioneers who will stand on their shoulders.
