@@ -358,7 +358,11 @@ Participants shall support all security considerations specified in clause 8
 
 6. The receiver shall validate the consistency of the JWS message's digital signature **exclusively based on the information obtained from the directory**, that is, based on the keys published in the institution's JWKS in the directory.
 
-7. Signatures must be performed using the digital signature certificate specified in the [Open Banking Brazil Certificates Standard](https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil -certificate-standards-1_ID1-ptbr.md#certificate-of-signing-certificatesignature).
+7. Signatures must be performed using the digital signature certificate specified in the [Open Banking Brazil Certificates Standard](https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil -certificate-standards-1_ID1-ptbr.md#certificate-of-signing-certificatesignature);
+
+8. the _iat_ claim must be numeric in Unix Time format GMT+0 with a tolerance of +/- 60 seconds;
+
+9. the _jti_ claim must be unique for a _clientId_ within a time frame of 86,400 seconds (24h), and cannot be reused within this period. In case of reuse, the HTTP error code 403 shall be return.
 
 ## Algorithm considerations
 
