@@ -417,9 +417,7 @@ Além dos requisitos descritos nas disposições de segurança do Open Banking B
 8. deve retornar falha na autenticação e o código de retorno _access_denied_ no parâmetro _erro_ (como especificado na seção 4.1.2.1 da [RFC6749]) caso o CPF do usuário autenticado não seja o mesmo indicado no elemento _loggedUser_ do Consentimento (Consent Resource Object);
 9. deve retornar falha na autenticação e o código de retorno _access_denied_ no parâmetro _erro_ (como especificado na seção 4.1.2.1 da [RFC6749]) caso o elemento _businessEntity_ não tenha sido preenchido no Consentimento (Consent Resource Object) relacionado e o usuário tenha selecionado ou se autenticado por meio de credencial relacionada à conta do tipo Pessoa Jurídica (PJ);
 10. deve condicionar a autenticação ou seleção de contas do tipo PJ à consistência entre o CNPJ relacionado à(s) conta(s) e o valor presente no elemento _businessEntity_ do Consentimento (Consent Resource Object). Em caso de divergência deve retornar falha na autenticação e o código de retorno _access_denied_ no parâmetro _erro_ (como especificado na seção 4.1.2.1 da [RFC6749]);
-11. deve emitir _refresh_token_ com validade não inferior à validade do consentimento ao qual está relacionado, respeitado os demais critérios acima;
-12. a claim _iat_ deve ser numérica no formato Unix Time GMT+0 com tolerância de +/- 60 segundos;
-13. A claim do _jti_ deve ser única para um _clientId_ dentro de um intervalo de tempo de 86.400 segundos (24h), não podendo ser reutilizada neste período. Em caso de reutilização, deverá ser retornado o código de erro HTTP 403.
+11. deve emitir _refresh_token_ com validade não inferior à validade do consentimento ao qual está relacionado, respeitado os demais critérios acima.
 
 ### Cliente confidencial  {#clientconfidential}
 
