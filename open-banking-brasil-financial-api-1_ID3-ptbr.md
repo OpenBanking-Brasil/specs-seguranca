@@ -346,7 +346,7 @@ Os participantes devem apoiar todas as considerações de segurança especificad
 
 8. A claim _iat_ deve ser numérica no formato Unix Time GMT+0 com tolerância de +/- 60 segundos;
 
-9. A claim do _jti_ deve ser única para um _clientId_ dentro de um intervalo de tempo de 86.400 segundos (24h), não podendo ser reutilizada neste período. Em caso de reutilização, deverá ser retornado o código de erro HTTP 40;
+9. A claim do _jti_ deve ser única para um _clientId_ dentro de um intervalo de tempo de 86.400 segundos (24h), não podendo ser reutilizada neste período. Em caso de reutilização, deverá ser retornado o código de erro HTTP 403;
 
 ### Considerações sobre algoritmos de assinatura {#alg}
 
