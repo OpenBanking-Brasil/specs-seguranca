@@ -175,6 +175,7 @@ A Bank may choose to have one Authorization Server or many provided that it can 
 
 * A customer can recognise the Authorization Server as a place that they would normally Bank with.
 * The Authorization Server can issue tokens for the resource and services that a customer or TPP is looking for.
+* For transmiting/account holder institutions whose *Authorization Server* supports more than one brand, it must accept more than one registry (client_ids creation) for the same *software statement*. If your *Authorization Server* implementation does not supports this behaviour, it must be suitable to support multiple brands and the registration of brands in the directory must be annotated according to each brand. 
 
 ### 1.3 Registering Resources
 

@@ -159,6 +159,7 @@ Um banco pode optar por ter um *Authorization Servers* ou muitos, desde que sati
 
 * Um cliente pode reconhecer o *Authorization Server* como um local com o qual normalmente faria interação com o seu banco.
 * O *Authorization Server* pode emitir tokens para os recursos e serviços que um cliente ou insituição receptora está procurando.
+* O *Authorization Server* das instituições transmissoras/detentoras de contas que atenda mais de uma marca deve aceitar mais de um cadastro (criação de client_ids) para um mesmo *software statement*. Caso a solução de *Authorization Server* não suporte este comportamento, deverá ser adequado para suportar múltiplas marcas e o cadastramento das marcas no diretório deverá sofrer apontamento de acordo com cada marca.
 
 ### 1.3 Registrando Recursos  {#Recursos}
 
