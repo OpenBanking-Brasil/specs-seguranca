@@ -382,6 +382,7 @@ For TLS, Authorization Server endpoints and Resource Server endpoints used direc
 
 1. shall support `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`
 2. shall support `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
+3. The "TLS Session Resumption" e "TLS Renegotiation" features shall be disabled
 
 # Data Sharing Considerations
 
