@@ -284,6 +284,8 @@ The following table describes the regulatory roles for Open Banking and the rela
 | CONTA | Instituição detentora de conta (ASPSP) | openid | Phase 3 |
 | CCORR | Correspondente de crédito | openid | Phase 3* |
 
+Validate the active roles in the application's _software\_statement_. The information validation, shall use the field _software\_statement\_roles, and shall verify if their roles are actives.
+
 ### Implementers Note
 
 In line with guidance from the IETF and the direction of travel for fine-grained consent management. The obligation falls to the Authorisation Server to ensure that there is sufficient scope conveyed in an access token necessary to fulfill the Permissions conveyed in the Consent Request. This principle and requirement is reflected in the forthcoming Grant Management API.

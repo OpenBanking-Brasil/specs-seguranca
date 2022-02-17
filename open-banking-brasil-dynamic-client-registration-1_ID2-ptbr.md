@@ -288,6 +288,8 @@ A tabela a seguir descreve as funções regulatórias do Open Banking e o mapeam
 | CONTA | Instituição detentora de conta (ASPSP) | openid | Phase 3 |
 | CCORR | Correspondente de crédito | openid | Phase 3* |
 
+É necessário validar as roles ativas no _software\_statement_ da aplicação. Na validação dessa informação deve ser utilizado o campo _software\_statement\_roles, e deve ser verificado se as roles listadas estão ativas.
+
 ## Registro do Cliente {#registro_tls_client_auth}
 
 No processo de registro do cliente, utilizando-se o método de autenticação _tls\_client\_auth_, o cliente deve encaminhar o campo _tls\_client\_auth\_subject\_dn_ com os AttibuteTypes(Descritores) em formato definido no item 7.1.2. Em caso de não aderencia a este padrão o registro será rejeitado.
@@ -295,6 +297,8 @@ No processo de registro do cliente, utilizando-se o método de autenticação _
 # Declaração de Software  {#SSA}
 
 Uma declaração de software (_software\_statement_) é um JSON Web Token (JWT) [RFC7519] que afirma valores de metadados sobre o software cliente como um todo. Na estrutura do Open Banking Brasil, esse _software\_statement_ é assinado pelo Diretório de Participantes, e sua assinatura DEVE ser validada pelos Servidores de Autorizacao usando as chaves públicas disponíveis na seção a seguir.
+
+
 
 ## Atributos da Declaração de Software (Claims)  {#Claims}
 
