@@ -317,10 +317,10 @@ subjectAltName = @alt_name
 keyUsage = critical,digitalSignature,nonRepudiation
 
 [ alt_name ]
-otherName.0 = 2.16.76.1.3.2;UTF8:<Nome da pessoal responsável pela entidade>#CNPJ
-otherName.1 = 2.16.76.1.3.3;UTF8:<CNPJ>
-otherName.2 = 2.16.76.1.3.4;UTF8:<CPF/PIS/RF da Pessoa responsável>
-otherName.3 = 2.16.76.1.3.7;UTF8:<Número de INSS>
+otherName.0 = 2.16.76.1.3.2;PRINTABLESTRING:<Nome da pessoal responsável pela entidade>#CNPJ
+otherName.1 = 2.16.76.1.3.3;PRINTABLESTRING:<CNPJ>
+otherName.2 = 2.16.76.1.3.4;PRINTABLESTRING:<CPF/PIS/RF da Pessoa responsável>
+otherName.3 = 2.16.76.1.3.7;PRINTABLESTRING:<Número de INSS>
 ```
 ## Tabela com Endpoints vs Tipo de Certificado e mTLS
 Abaixo apresentamos quais endpoints podem ser publicados utilizando certificado EV como autenticação do consentimento e os endpoints de autenticação de APIs privadas/negócios que devem ser publicadas usando certificado ICP. Você também poderá verificar quais endpoints devem proteger suas conexões utilizando mTLS.
