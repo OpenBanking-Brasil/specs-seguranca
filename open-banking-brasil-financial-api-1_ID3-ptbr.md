@@ -247,12 +247,12 @@ Além disso, se o valor `response_type` `code id_token` for usado, o servidor de
 
 1. **não deveria** retornar Informação de Identificação Pessoal (PII) confidenciais no token de ID na resposta de autorização, mas se for necessário, então ele **deve** criptografar o token de ID.
 2. Informação de Identificação Pessoal pode incluir, mas não está restrito a:
-  1. Claim `sub` caso use informação que possibilite a identificação da pessoa natural
-  2. As Claims padrões definidas na cláusula 5.1 [OIDC], que podem conter dados como data de nascimento, endereço ou telefone
-  3. A nova Claim CPF, definida na próxima seção
+    1. Claim `sub` caso use informação que possibilite a identificação da pessoa natural
+    2. As Claims padrões definidas na cláusula 5.1 [OIDC], que podem conter dados como data de nascimento, endereço ou telefone
+    3. A nova Claim CPF, definida na próxima seção
 3. Caso seja solicitada alguma Claim contendo Informação de Identificação Pessoal:
-  1. Se esta for marcada como essencial, em não se havendo chave de criptografia registrada para o Cliente, deverá falhar a requisição se for solicitada no Endpoint de Autorização. Não há impedimentos caso a solicitação seja feita pelo Cliente Confidencial através do Endpoint de Token
-  2. Se esta não for marcada como essencial, o Servidor de Autorização deverá omiti-la no Endpoint de Autorização, podendo ser respondida no Endpoint de Token chamado pelo Cliente Confidencial
+    1. Se esta for marcada como essencial, em não se havendo chave de criptografia registrada para o Cliente, deverá falhar a requisição se for solicitada no Endpoint de Autorização. Não há impedimentos caso a solicitação seja feita pelo Cliente Confidencial através do Endpoint de Token
+    2. Se esta não for marcada como essencial, o Servidor de Autorização deverá omiti-la no Endpoint de Autorização, podendo ser respondida no Endpoint de Token chamado pelo Cliente Confidencial
 4. Para a criptografia do id_token deve ser utilizada chave disponível no `JWKS` informado no parâmetro `jwks_uri` durante o registro do cliente, indicada através do cabeçalho `kid` do documento JWT
 5. O uso de outros cabeçalhos para indicação da chave utilizada, como `x5u`, `x5c`, `jku` ou `jkw` é vetado conforme definido na cláusula 2 [OIDC]
 
