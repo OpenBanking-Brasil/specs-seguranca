@@ -233,8 +233,8 @@ In addition, the Authorization Server
 17. shall not allow `refresh tokens` rotation feature.
 18. shall ensure that, in case of sharing the Authorization Server for other services, in addition to Open Banking, it does not disclose and/or allow the use of non-certified methods in the Open Banking environment
 19. shall ensure that the settings disclosed to other participants through `OpenID Discovery` (indicated by the `Well-Known` file registered in the Directory) are restricted to the operating modes to which the institution has certified
-   a. shall keep in your settings the methods for which there are still active clients
-   b. shall update the records that use non-certified methods, through bilateral treatment between the institutions involved
+    1. shall keep in your settings the methods for which there are still active clients
+    2. shall update the records that use non-certified methods, through bilateral treatment between the institutions involved
 20. shall refuse requests, for the Open Banking environment, that are outside the modes of operation to which the institution has certified its Authorization Server
 
 #### ID Token as detached signature
