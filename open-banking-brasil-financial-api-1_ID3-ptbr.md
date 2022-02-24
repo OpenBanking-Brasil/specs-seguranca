@@ -253,6 +253,7 @@ Além disso, se o valor `response_type` `code id_token` for usado, o servidor de
 3. Caso seja solicitada alguma Claim contendo Informação de Identificação Pessoal:
   1. Se esta for marcada como essencial, em não se havendo chave de criptografia registrada para o Cliente, deverá falhar a requisição se for solicitada no Endpoint de Autorização. Não há impedimentos caso a solicitação seja feita pelo Cliente Confidencial através do Endpoint de Token
   2. Se esta não for marcada como essencial, o Servidor de Autorização deverá omiti-la no Endpoint de Autorização, podendo ser respondida no Endpoint de Token chamado pelo Cliente Confidencial
+4. 
 
 #### Solicitando uma "claim" **cpf**  {#cpf}
 
