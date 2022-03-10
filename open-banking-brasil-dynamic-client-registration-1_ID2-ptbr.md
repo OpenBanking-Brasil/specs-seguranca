@@ -18,16 +18,6 @@
     value = "open-banking-brasil-dynamic-client-registration-1_ID2-ptbr"
 
     [[author]]
-    initials = "R."
-    surname = "Bragg"
-    fullname = "Ralph Bragg"
-    organization = "Raidiam"
-    abbrev = "Raidiam"
-      [author.address]
-      email = "ralph.bragg@raidiam.com"
-      uri = "https://www.raidiam.com/"
-
-    [[author]]
     initials = "GT"
     surname = "Security"
     fullname = "OBBIS GT Security"
@@ -160,23 +150,15 @@ Para efeitos deste documento, aplicam-se os termos definidos em [RFC6749], [RFC6
 
 # Símbolos e Termos abreviados  {#Abreviations}
 
-**SSA** – Software Statement Assertion (Afirmação de Declaração de Software)
-
-**SS** – Software Statement (Declaração de Software)
-
-**DCR** – Dynamic Client Registration (Registro de Cliente Dinâmico)
-
-**API** – Application Programming Interface (Interface de Programação da Aplicação)
-
-**FAPI** - Financial-grade API
-
-**HTTP** – Hyper Text Transfer Protocol
-
-**OIDF** - OpenID Foundation
-
-**REST** – Representational State Transfer
-
-**TLS** – Transport Layer Security
+* **API** – Application Programming Interface (Interface de Programação da Aplicação)
+* **DCR** – Dynamic Client Registration (Registro de Cliente Dinâmico)
+* **FAPI** - Financial-grade API
+* **HTTP** – Hyper Text Transfer Protocol
+* **OIDF** - OpenID Foundation
+* **REST** – Representational State Transfer
+* **SS** – Software Statement (Declaração de Software)
+* **SSA** – Software Statement Assertion (Afirmação de Declaração de Software)
+* **TLS** – Transport Layer Security
 
 # Introdução  {#Intro}
 
@@ -267,12 +249,12 @@ Segue na tabela abaixo como deve ser feita a decodificação:
 
 Seguem abaixo exemplos para os atributos obrigatórios da CAs atualmente ativas:
 
-| subject_dn | Issuer |
-| --- | --- |
-| UID=67c57882-043b-11ec-9a03-0242ac130003, 1.3.6.1.4.1.311.60.2.1.3=#13024252, 2.5.4.15=#131450726976617465204f7267616e697a6174696f6e, 2.5.4.5=#130d31333335333233363030313839, CN= mycn.bank.gov.br,OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59, O=My Public Bank, L= BRASILIA, ST=DF, C=BR | issuer=CN=Open Banking SANDBOX Issuing CA   - G1,OU=Open Banking,O=Open   Banking Brasil,C=BR |
-| UID=67c57882-043b-11ec-9a03-0242ac130003, 1.3.6.1.4.1.311.60.2.1.3=#13024252, 2.5.4.15=#131450726976617465204f7267616e697a6174696f6e, CN=mycn.bank.gov.br, 2.5.4.5=#130d31333335333233363030313839, OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59, O=My Public Bank, L=BRASILIA, ST=DF, C=BR | issuer=CN=Autoridade Certificadora do SERPRO SSLv1,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR |
-| 1.3.6.1.4.1.311.60.2.1.3=#13024252, 2.5.4.15=#131450726976617465204f7267616e697a6174696f6e, UID=67c57882-043b-11ec-9a03-0242ac130003, CN=openbanking.mybank.com.br, 2.5.4.5=#130d31333335333233363030313839, OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59, L=Goiania, ST=GO, O=MyBank SA, C=BR | issuer=CN=AC SOLUTI SSL EV,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR |
-| CN=mycn.bank.com.br, UID=67c57882-043b-11ec-9a03-0242ac130003, OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59, L=Sao Paulo, ST=SP, O=MyBank SA, C=BR,2.5.4.5=#130d31333335333233363030313839, 1.3.6.1.4.1.311.60.2.1.3=#13024252, 2.5.4.15=#131450726976617465204f7267616e697a6174696f6e | issuer=CN=AC SERASA SSL EV,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR |
+| subject_dn                                                                                                                                                                                                                                                                                | Issuer                                                                                                                 |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
+| UID=67c57882-043b-11ec-9a03-0242ac130003, 1.3.6.1.4.1.311.60.2.1.3=#13024252, 2.5.4.15=#131450726976617465204f7267616e697a6174696f6e, 2.5.4.5=#130d31333335333233363030313839, CN= mycn.bank.gov.br,OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59, O=My Public Bank, L= BRASILIA, ST=DF, C=BR   | issuer=CN=Open Banking SANDBOX Issuing CA   - G1,OU=Open Banking,O=Open   Banking Brasil,C=BR                          |
+| UID=67c57882-043b-11ec-9a03-0242ac130003, 1.3.6.1.4.1.311.60.2.1.3=#13024252, 2.5.4.15=#131450726976617465204f7267616e697a6174696f6e, CN=mycn.bank.gov.br, 2.5.4.5=#130d31333335333233363030313839, OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59, O=My Public Bank, L=BRASILIA, ST=DF, C=BR    | issuer=CN=Autoridade Certificadora do SERPRO SSLv1,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR |
+| 1.3.6.1.4.1.311.60.2.1.3=#13024252, 2.5.4.15=#131450726976617465204f7267616e697a6174696f6e, UID=67c57882-043b-11ec-9a03-0242ac130003, CN=openbanking.mybank.com.br, 2.5.4.5=#130d31333335333233363030313839, OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59, L=Goiania, ST=GO, O=MyBank SA, C=BR | issuer=CN=AC SOLUTI SSL EV,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR                         |
+| CN=mycn.bank.com.br, UID=67c57882-043b-11ec-9a03-0242ac130003, OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59, L=Sao Paulo, ST=SP, O=MyBank SA, C=BR,2.5.4.5=#130d31333335333233363030313839, 1.3.6.1.4.1.311.60.2.1.3=#13024252, 2.5.4.15=#131450726976617465204f7267616e697a6174696f6e         | issuer=CN=AC SERASA SSL EV,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR                         |
 
 
 ## Funções regulatórias para mapeamentos OpenID e OAuth 2.0  {#Regs}
@@ -281,12 +263,12 @@ Para participar do ecossistema do Open Banking, as instituições credenciadas d
 
 A tabela a seguir descreve as funções regulatórias do Open Banking e o mapeamento de escopos do OAuth 2.0 relacionado. Se os escopos forem omitidos durante o processo de DCR, o Servidor de Autorização deve conceder o conjunto completo de escopos potenciais com base nas funções regulatórias registradas para o banco, conforme descrito na seção Server Defaults.
 
-| Papel Regulador | Descrição | Escopos Permitidos | Fase-alvo |
-| --- | --- | --- | --- |
-| DADOS | Instituição transmissora / receptora de dados (AISP) | openid accounts credit-cards-accounts consents customers invoice-financings financings loans unarranged-accounts-overdraft resources | Phase 2 |
-| PAGTO | Instituição prestadora de serviço de iniciação de pagamentos (PISP) | openid payments | Phase 3 |
-| CONTA | Instituição detentora de conta (ASPSP) | openid | Phase 3 |
-| CCORR | Correspondente de crédito | openid | Phase 3* |
+| Papel Regulador | Descrição                                                           | Escopos Permitidos                                                                                                                   | Fase-alvo |
+|-----------------|---------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|-----------|
+| DADOS           | Instituição transmissora / receptora de dados (AISP)                | openid accounts credit-cards-accounts consents customers invoice-financings financings loans unarranged-accounts-overdraft resources | Phase 2   |
+| PAGTO           | Instituição prestadora de serviço de iniciação de pagamentos (PISP) | openid payments                                                                                                                      | Phase 3   |
+| CONTA           | Instituição detentora de conta (ASPSP)                              | openid                                                                                                                               | Phase 3   |
+| CCORR           | Correspondente de crédito                                           | openid                                                                                                                               | Phase 3*  |
 
 É necessário validar as roles ativas no _software\_statement_ da aplicação. Na validação dessa informação deve ser utilizado o campo _software\_statement\_roles, e deve ser verificado se as roles listadas estão ativas.
 
@@ -384,7 +366,7 @@ O exemplo a seguir contém todos os atributos atualmente incluídos em um _softw
 # Processamento de solicitação de registro de cliente dinâmico  {#dcr}
 
 !---
-![Dynamic Client Registration](images/dynamic-client-registration.png)
+![Dynamic Client Registration](images/dynamic-client-registration.svg)
 !---
 
 ## Enviar uma solicitação com uma declaração de software  {#exampleDcr}
@@ -471,19 +453,22 @@ Agradecemos a todos que estabeleceram as bases para o compartilhamento seguro de
 
 As seguintes pessoas contribuíram para este documento:
 
-* Ralph Bragg (Raidiam)
+* Alexandre Daniel Dalabrida (Cooperativa Central Ailos)
 * Alexandre Siqueira (Mercado Pago)
-* Bernardo Vale (Banco Inter)
 * André Borges (Banco Fibra)
+* Bernardo Vale (Banco Inter)
 * Danilo Sasaki (Banco Itaú)
 * João Rodolfo Vieira da Silva (Banco Itaú)
 * Michelle Bandarra (Chicago)
+* Nic Marcondes (Quanto)
+* Rafael Gonzalez Hashimoto (Banco C6)
+* Ralph Bragg (Raidiam)
 
 {backmatter}
 
 # Avisos  {#Notice}
 
-Copyright (c) 2021 Estrutura Inicial do Open Banking Brasil
+Copyright (c) 2022 Estrutura Inicial do Open Banking Brasil
 
 A Estrutura Inicial do Open Banking Brasil (EIOBB) concede a qualquer Colaborador, desenvolvedor, implementador ou outra parte interessada uma licença de direitos autorais mundial não exclusiva, livre de royalties para reproduzir, preparar trabalhos derivados, distribuir, executar e exibir, estes Implementadores Rascunho ou Especificação Final exclusivamente para fins de (i) desenvolver especificações e (ii) implementar Rascunhos de Implementadores e Especificações Finais com base em tais documentos, desde que a atribuição seja feita ao EIOBB como a fonte do material, mas que tal atribuição o faça não indica endosso do EIOBB.
 

@@ -18,16 +18,6 @@
     value = "open-banking-brasil-dynamic-client-registration-1_ID2"
 
     [[author]]
-    initials = "R."
-    surname = "Bragg"
-    fullname = "Ralph Bragg"
-    organization = "Raidiam"
-    abbrev = "Raidiam"
-      [author.address]
-      email = "ralph.bragg@raidiam.com"
-      uri = "https://www.raidiam.com/"
-
-    [[author]]
     initials = "GT"
     surname = "Security"
     fullname = "OBBIS GT Security"
@@ -158,23 +148,15 @@ For the purpose of this document, the terms defined in [RFC6749], [RFC6750], [RF
 
 # Symbols and Abbreviated terms
 
-**SSA** – Software Statement Assertion
-
-**SS** – Software Statement
-
-**DCR** – Dynamic Client Registration
-
-**API** – Application Programming Interface
-
-**FAPI** - Financial-grade API
-
-**HTTP** – Hyper Text Transfer Protocol
-
-**OIDF** - OpenID Foundation
-
-**REST** – Representational State Transfer
-
-**TLS** – Transport Layer Security
+* **API** – Application Programming Interface
+* **DCR** – Dynamic Client Registration
+* **FAPI** - Financial-grade API
+* **HTTP** – Hyper Text Transfer Protocol
+* **OIDF** - OpenID Foundation
+* **REST** – Representational State Transfer
+* **SS** – Software Statement
+* **SSA** – Software Statement Assertion
+* **TLS** – Transport Layer Security
 
 # Introduction
 
@@ -264,12 +246,12 @@ In terms of format, follow below how decoding should be done:
 
 Examples:
 
-| subject_dn | Issuer |
-| --- | --- |
-| UID=67c57882-043b-11ec-9a03-0242ac130003, 1.3.6.1.4.1.311.60.2.1.3=#13024252, 2.5.4.15=#131450726976617465204f7267616e697a6174696f6e, 2.5.4.5=#130d31333335333233363030313839, CN= mycn.bank.gov.br,OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59, O=My Public Bank, L= BRASILIA, ST=DF, C=BR | issuer=CN=Open Banking SANDBOX Issuing CA   - G1,OU=Open Banking,O=Open   Banking Brasil,C=BR |
-| UID=67c57882-043b-11ec-9a03-0242ac130003, 1.3.6.1.4.1.311.60.2.1.3=#13024252, 2.5.4.15=#131450726976617465204f7267616e697a6174696f6e, CN=mycn.bank.gov.br, 2.5.4.5=#130d31333335333233363030313839, OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59, O=My Public Bank, L=BRASILIA, ST=DF, C=BR | issuer=CN=Autoridade Certificadora do SERPRO SSLv1,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR |
-| 1.3.6.1.4.1.311.60.2.1.3=#13024252, 2.5.4.15=#131450726976617465204f7267616e697a6174696f6e, UID=67c57882-043b-11ec-9a03-0242ac130003, CN=openbanking.mybank.com.br, 2.5.4.5=#130d31333335333233363030313839, OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59, L=Goiania, ST=GO, O=MyBank SA, C=BR | issuer=CN=AC SOLUTI SSL EV,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR |
-| CN=mycn.bank.com.br, UID=67c57882-043b-11ec-9a03-0242ac130003, OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59, L=Sao Paulo, ST=SP, O=MyBank SA, C=BR,2.5.4.5=#130d31333335333233363030313839, 1.3.6.1.4.1.311.60.2.1.3=#13024252, 2.5.4.15=#131450726976617465204f7267616e697a6174696f6e | issuer=CN=AC SERASA SSL EV,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR |
+| subject_dn                                                                                                                                                                                                                                                                                | Issuer                                                                                                                 |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
+| UID=67c57882-043b-11ec-9a03-0242ac130003, 1.3.6.1.4.1.311.60.2.1.3=#13024252, 2.5.4.15=#131450726976617465204f7267616e697a6174696f6e, 2.5.4.5=#130d31333335333233363030313839, CN= mycn.bank.gov.br,OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59, O=My Public Bank, L= BRASILIA, ST=DF, C=BR   | issuer=CN=Open Banking SANDBOX Issuing CA   - G1,OU=Open Banking,O=Open   Banking Brasil,C=BR                          |
+| UID=67c57882-043b-11ec-9a03-0242ac130003, 1.3.6.1.4.1.311.60.2.1.3=#13024252, 2.5.4.15=#131450726976617465204f7267616e697a6174696f6e, CN=mycn.bank.gov.br, 2.5.4.5=#130d31333335333233363030313839, OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59, O=My Public Bank, L=BRASILIA, ST=DF, C=BR    | issuer=CN=Autoridade Certificadora do SERPRO SSLv1,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR |
+| 1.3.6.1.4.1.311.60.2.1.3=#13024252, 2.5.4.15=#131450726976617465204f7267616e697a6174696f6e, UID=67c57882-043b-11ec-9a03-0242ac130003, CN=openbanking.mybank.com.br, 2.5.4.5=#130d31333335333233363030313839, OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59, L=Goiania, ST=GO, O=MyBank SA, C=BR | issuer=CN=AC SOLUTI SSL EV,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR                         |
+| CN=mycn.bank.com.br, UID=67c57882-043b-11ec-9a03-0242ac130003, OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59, L=Sao Paulo, ST=SP, O=MyBank SA, C=BR,2.5.4.5=#130d31333335333233363030313839, 1.3.6.1.4.1.311.60.2.1.3=#13024252, 2.5.4.15=#131450726976617465204f7267616e697a6174696f6e         | issuer=CN=AC SERASA SSL EV,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR                         |
 
 ## Regulatory Roles to OpenID and OAuth 2.0 Mappings
 
@@ -277,12 +259,12 @@ To participate in the Open Banking ecosystem, accredited institutions must regis
 
 The following table describes the regulatory roles for Open Banking and the related OAuth 2.0 scopes mapping. If the scopes are omitted during the DCR process, the authorization server shall grant the complete set of potential scopes based on the registering bank's regulatory roles, as described in the Server Defaults section.
 
-| Regulatory Role | Description | Allowed Scopes | Target Phase|
-| --- | --- | --- | --- |
-| DADOS | Instituição transmissora ou receptora de dados (AISP) | openid accounts credit-cards-accounts consents customers invoice-financings financings loans unarranged-accounts-overdraft resources | Phase 2 |
-| PAGTO | Instituição prestadora de serviço de iniciação de pagamentos (PISP) | openid payments | Phase 3 |
-| CONTA | Instituição detentora de conta (ASPSP) | openid | Phase 3 |
-| CCORR | Correspondente de crédito | openid | Phase 3* |
+| Regulatory Role | Description                                                         | Allowed Scopes                                                                                                                       | Target Phase |
+|-----------------|---------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|--------------|
+| DADOS           | Instituição transmissora ou receptora de dados (AISP)               | openid accounts credit-cards-accounts consents customers invoice-financings financings loans unarranged-accounts-overdraft resources | Phase 2      |
+| PAGTO           | Instituição prestadora de serviço de iniciação de pagamentos (PISP) | openid payments                                                                                                                      | Phase 3      |
+| CONTA           | Instituição detentora de conta (ASPSP)                              | openid                                                                                                                               | Phase 3      |
+| CCORR           | Correspondente de crédito                                           | openid                                                                                                                               | Phase 3*     |
 
 Validate the active roles in the application's _software\_statement_. The information validation, shall use the field _software\_statement\_roles, and shall verify if their roles are actives.
 
@@ -292,10 +274,10 @@ In line with guidance from the IETF and the direction of travel for fine-grained
 
 ## Regulatory Roles to dynamic OAuth 2.0 scope Mappings
 
-| Regulatory Role | Allowed Scopes |
-| --- | --- |
-| DADOS | consent:{ConsentId} |
-| PAGTO | consent:{ConsentId} |
+| Regulatory Role | Allowed Scopes      |
+|-----------------|---------------------|
+| DADOS           | consent:{ConsentId} |
+| PAGTO           | consent:{ConsentId} |
 
 # Software Statement
 
@@ -385,7 +367,7 @@ The following example contains all of the claims currently included in a softwar
 # Dynamic Client Registration Request Processing
 
 !---
-![Dynamic Client Registration](images/dynamic-client-registration.png)
+![Dynamic Client Registration](images/dynamic-client-registration.svg)
 !---
 
 ## Posting a request with a software statement
@@ -468,21 +450,22 @@ With thanks to all who have set the foundations for secure and safe data sharing
 
 The following people contributed to this document:
 
-* Ralph Bragg (Raidiam)
+* Alexandre Daniel Dalabrida (Cooperativa Central Ailos)
 * Alexandre Siqueira (Mercado Pago)
-* Bernardo Vale (Banco Inter)
 * André Borges (Banco Fibra)
+* Bernardo Vale (Banco Inter)
 * Danilo Sasaki (Banco Itaú)
 * João Rodolfo Vieira da Silva (Banco Itaú)
 * Michelle Bandarra (Chicago)
-* Alexandre Daniel Dalabrida (Cooperativa Central Ailos)
-* Rafael Gonzalez Hashimoto - (Banco C6)
+* Nic Marcondes (Quanto)
+* Rafael Gonzalez Hashimoto (Banco C6)
+* Ralph Bragg (Raidiam)
 
 {backmatter}
 
 # Notices
 
-Copyright (c) 2021 Open Banking Brasil Initial Structure.
+Copyright (c) 2022 Open Banking Brasil Initial Structure.
 
 The Open Banking Brasil Initial Structure (OBBIS) grants to any Contributor, developer, implementer, or other interested party a non-exclusive, royalty-free, worldwide copyright license to reproduce, prepare derivative works from, distribute, perform and display, this Implementers Draft or Final Specification solely for the purposes of (i) developing specifications, and (ii) implementing Implementers Drafts and Final Specifications based on such documents, provided that attribution be made to the OBBIS as the source of the material, but that such attribution does not indicate an endorsement by the OBBIS.
 
