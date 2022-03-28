@@ -5,12 +5,29 @@
 <meta content="Common,Latin" name="scripts">
 <meta content="initial-scale=1.0" name="viewport">
 <title>Open Banking Brasil Financial-grade API Security Profile 1.0 Implementers Draft 3</title>
-<meta content="Ralph Bragg" name="author">
 <meta content="OBBIS GT Security" name="author">
-<meta content="xml2rfc 2.40.1" name="generator">
+<meta content="xml2rfc 3.12.2" name="generator">
 <meta content="FAPI" name="keyword">
 <meta content="Open Banking Brasil GT Security" name="keyword">
 <meta content="open-banking-brasil-financial-api-1_ID3" name="ietf.draft">
+<!-- Generator version information:
+  xml2rfc 3.12.2
+    Python 3.10.2
+    appdirs 1.4.4
+    ConfigArgParse 1.5.3
+    google-i18n-address 2.5.0
+    html5lib 1.1
+    intervaltree 3.1.0
+    Jinja2 2.11.3
+    kitchen 1.2.6
+    lxml 4.8.0
+    pycountry 22.1.10
+    pyflakes 2.4.0
+    PyYAML 6.0
+    requests 2.27.1
+    setuptools 58.1.0
+    six 1.16.0
+-->
 <link href="./open-banking-brasil-financial-api-1_ID3.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
 <style type="text/css">/*
@@ -178,6 +195,9 @@ ul.empty, .ulEmpty {
 }
 ul.empty li, .ulEmpty li {
   margin-top: 0.5em;
+}
+ul.ulBare, li.ulBare {
+  margin-left: 0em !important;
 }
 ul.compact, .ulCompact,
 ol.compact, .olCompact {
@@ -361,6 +381,12 @@ hr {
 #identifiers dd {
   float: left;
   margin-bottom: 0;
+}
+/* Fix PDF info block run off issue */
+@media print {
+  #identifiers dd {
+    float: none;
+  }
 }
 #identifiers .authors .author {
   display: inline-block;
@@ -912,12 +938,6 @@ caption a[href] {
   }
 
 }
-/* Avoid wrapping of URLs in references */
-@media screen {
-  .references a {
-    white-space: nowrap;
-  }
-}
 /* Tweak the bcp14 keyword presentation */
 .bcp14 {
   font-variant: small-caps;
@@ -988,7 +1008,7 @@ h1#rfcnum {
 }
 /* Make .olPercent look the same as <ol><li> */
 dl.olPercent > dd {
-  margin: 0 0 0.25em 0;
+  margin-bottom: 0.25em;
   min-height: initial;
 }
 /* Give aside some styling to set it apart */
@@ -1026,14 +1046,6 @@ aside > p {
     margin-bottom: 1em;
   }
 }
-/*
-  The margin-left: 0 on <dd> removes all distinction
-  between levels from nested <dl>s.  Undo that.
-*/
-dl.olPercent > dd,
-dd {
-  margin-left: revert;
-}
 /* Avoid narrow tables forcing too narrow table captions, which may render badly */
 table {
   min-width: 20em;
@@ -1059,6 +1071,108 @@ tr:nth-child(2n+1) > td {
   #toc nav { display: none; }
   #toc.active nav { display: block; }
 }
+/* Add support for keepWithNext */
+.keepWithNext {
+  break-after: avoid-page;
+  break-after: avoid-page;
+}
+/* Add support for keepWithPrevious */
+.keepWithPrevious {
+  break-before: avoid-page;
+}
+/* Change the approach to avoiding breaks inside artwork etc. */
+figure, pre, table, .artwork, .sourcecode  {
+  break-before: auto;
+  break-after: auto;
+}
+/* Avoid breaks between <dt> and <dd> */
+dl {
+  break-before: auto;
+  break-inside: auto;
+}
+dt {
+  break-before: auto;
+  break-after: avoid-page;
+}
+dd {
+  break-before: avoid-page;
+  break-after: auto;
+  orphans: 3;
+  widows: 3
+}
+span.break, dd.break {
+  margin-bottom: 0;
+  min-height: 0;
+  break-before: auto;
+  break-inside: auto;
+  break-after: auto;
+}
+/* Undo break-before ToC */
+@media print {
+  #toc {
+    break-before: auto;
+  }
+}
+/* Text in compact lists should not get extra bottim margin space,
+   since that would makes the list not compact */
+ul.compact p, .ulCompact p,
+ol.compact p, .olCompact p {
+ margin: 0;
+}
+/* But the list as a whole needs the extra space at the end */
+section ul.compact,
+section .ulCompact,
+section ol.compact,
+section .olCompact {
+  margin-bottom: 1em;                    /* same as p not within ul.compact etc. */
+}
+/* The tt and code background above interferes with for instance table cell
+   backgrounds.  Changed to something a bit more selective. */
+tt, code {
+  background-color: transparent;
+}
+p tt, p code, li tt, li code {
+  background-color: #f8f8f8;
+}
+/* Tweak the pre margin -- 0px doesn't come out well */
+pre {
+   margin-top: 0.5px;
+}
+/* Tweak the comact list text */
+ul.compact, .ulCompact,
+ol.compact, .olCompact,
+dl.compact, .dlCompact {
+  line-height: normal;
+}
+/* Don't add top margin for nested lists */
+li > ul, li > ol, li > dl,
+dd > ul, dd > ol, dd > dl,
+dl > dd > dl {
+  margin-top: initial;
+}
+/* Elements that should not be rendered on the same line as a <dt> */
+/* This should match the element list in writer.text.TextWriter.render_dl() */
+dd > div.artwork:first-child,
+dd > aside:first-child,
+dd > figure:first-child,
+dd > ol:first-child,
+dd > div:first-child > pre.sourcecode,
+dd > table:first-child,
+dd > ul:first-child {
+  clear: left;
+}
+/* fix for weird browser behaviour when <dd/> is empty */
+dt+dd:empty::before{
+  content: "\00a0";
+}
+/* Make paragraph spacing inside <li> smaller than in body text, to fit better within the list */
+li > p {
+  margin-bottom: 0.5em
+}
+/* Don't let p margin spill out from inside list items */
+li > p:last-of-type {
+  margin-bottom: 0;
+}
 </style>
 <link href="rfc-local.css" rel="stylesheet" type="text/css">
 </head>
@@ -1068,10 +1182,10 @@ tr:nth-child(2n+1) > td {
 <thead><tr>
 <td class="left"></td>
 <td class="center">OBB-FAPI-1-ID3</td>
-<td class="right">September 2021</td>
+<td class="right">February 2022</td>
 </tr></thead>
 <tfoot><tr>
-<td class="left">Bragg & Security</td>
+<td class="left">Security</td>
 <td class="center">Standards Track</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
@@ -1081,20 +1195,8 @@ tr:nth-child(2n+1) > td {
 <dl id="identifiers">
 <dt class="label-workgroup">Workgroup:</dt>
 <dd class="workgroup">Open Banking Brasil GT Security</dd>
-<dt class="label-internet-draft">Internet-Draft:</dt>
-<dd class="internet-draft">open-banking-brasil-financial-api-1_ID3</dd>
-<dt class="label-published">Published:</dt>
-<dd class="published">
-<time datetime="2021-09-27" class="published">27 September 2021</time>
-    </dd>
-<dt class="label-intended-status">Intended Status:</dt>
-<dd class="intended-status">Standards Track</dd>
-<dt class="label-authors">Authors:</dt>
+<dt class="label-authors">Author:</dt>
 <dd class="authors">
-<div class="author">
-      <div class="author-name">R. Bragg</div>
-<div class="org">Raidiam</div>
-</div>
 <div class="author">
       <div class="author-name">GT. Security</div>
 <div class="org">OBBIS</div>
@@ -1110,14 +1212,13 @@ tr:nth-child(2n+1) > td {
 <p id="section-note.1-1">Este documento tamb&#233;m est&#225; dispon&#237;vel em <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID3-ptbr.html">portugu&#234;s</a><a href="#section-note.1-1" class="pilcrow">¶</a></p>
 <p id="section-note.1-2">The Open Banking Brasil Initial Structure is responsible for creating standards and specifications necessary to meet the requirements and obligations of the Brasil Open Banking Legislation as originally outlined by the <a href="https://www.bcb.gov.br/content/config/Documents/BCB_Open_Banking_Communique-April-2019.pdf">Brasil Central Bank</a>. There is a possibility that some of the elements of this document may be the subject to patent rights. OBBIS shall not be held responsible for identifying any or all such patent rights.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
 <p id="section-note.1-3">Open Banking Brasil Financial-grade API Security Profile 1.0 consists of the following parts:<a href="#section-note.1-3" class="pilcrow">¶</a></p>
-<ul class="note">
-<li class="note" id="section-note.1-4.1">
-          <p id="section-note.1-4.1.1">Open Banking Brasil Financial-grade API Security Profile 1.0<a href="#section-note.1-4.1.1" class="pilcrow">¶</a></p>
+<ul class="compact note">
+<li class="compact note" id="section-note.1-4.1">Open Banking Brasil Financial-grade API Security Profile 1.0<a href="#section-note.1-4.1" class="pilcrow">¶</a>
 </li>
-<li class="note" id="section-note.1-4.2">
-          <p id="section-note.1-4.2.1"><a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID1.html">Open Banking Brasil Dynamic Client Registration Profile 1.0</a><a href="#section-note.1-4.2.1" class="pilcrow">¶</a></p>
+        <li class="compact note" id="section-note.1-4.2">
+          <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID2.html">Open Banking Brasil Dynamic Client Registration Profile 1.0</a><a href="#section-note.1-4.2" class="pilcrow">¶</a>
 </li>
-</ul>
+      </ul>
 <p id="section-note.1-5">These parts are intended to be used with <a href="https://tools.ietf.org/html/rfc6749">RFC6749</a>, <a href="https://tools.ietf.org/html/rfc6750">RFC6750</a>, <a href="https://tools.ietf.org/html/rfc7636">RFC7636</a>, <a href="https://openid.net/specs/openid-connect-core-1_0.html">OIDC</a>, <a href="https://openid.net/specs/openid-financial-api-part-1-1_0.html">FAPI-1-Baseline</a> and <a href="https://openid.net/specs/openid-financial-api-part-2-1_0.html">FAPI-1-Advanced</a><a href="#section-note.1-5" class="pilcrow">¶</a></p>
 </section>
 <section class="note" id="section-note.2">
@@ -1144,103 +1245,103 @@ and are not to be interpreted with their natural language meanings.<a href="#sec
         <a href="#" onclick="scroll(0,0)" class="toplink">▲</a><h2 id="name-table-of-contents">
 <a href="#name-table-of-contents" class="section-name selfRef">Table of Contents</a>
         </h2>
-<nav class="toc"><ul class="toc ulEmpty">
-<li class="toc ulEmpty" id="section-toc.1-1.1">
-            <p id="section-toc.1-1.1.1"><a href="#section-1" class="xref">1</a>.  <a href="#name-scope" class="xref">Scope</a><a href="#section-toc.1-1.1.1" class="pilcrow">¶</a></p>
+<nav class="toc"><ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1">
+            <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="xref">1</a>.  <a href="#name-scope" class="xref">Scope</a></p>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.2">
-            <p id="section-toc.1-1.2.1"><a href="#section-2" class="xref">2</a>.  <a href="#name-normative-references" class="xref">Normative references</a><a href="#section-toc.1-1.2.1" class="pilcrow">¶</a></p>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2">
+            <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="xref">2</a>.  <a href="#name-normative-references" class="xref">Normative references</a></p>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.3">
-            <p id="section-toc.1-1.3.1"><a href="#section-3" class="xref">3</a>.  <a href="#name-terms-and-definitions" class="xref">Terms and definitions</a><a href="#section-toc.1-1.3.1" class="pilcrow">¶</a></p>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
+            <p id="section-toc.1-1.3.1" class="keepWithNext"><a href="#section-3" class="xref">3</a>.  <a href="#name-terms-and-definitions" class="xref">Terms and definitions</a></p>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.4">
-            <p id="section-toc.1-1.4.1"><a href="#section-4" class="xref">4</a>.  <a href="#name-symbols-and-abbreviated-ter" class="xref">Symbols and Abbreviated terms</a><a href="#section-toc.1-1.4.1" class="pilcrow">¶</a></p>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="xref">4</a>.  <a href="#name-symbols-and-abbreviated-ter" class="xref">Symbols and Abbreviated terms</a></p>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.5">
-            <p id="section-toc.1-1.5.1"><a href="#section-5" class="xref">5</a>.  <a href="#name-brasil-open-banking-securit" class="xref">Brasil Open Banking Security Profile</a><a href="#section-toc.1-1.5.1" class="pilcrow">¶</a></p>
-<ul class="toc ulEmpty">
-<li class="toc ulEmpty" id="section-toc.1-1.5.2.1">
-                <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="xref">5.1</a>.  <a href="#name-introduction-2" class="xref">Introduction</a><a href="#section-toc.1-1.5.2.1.1" class="pilcrow">¶</a></p>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="xref">5</a>.  <a href="#name-brasil-open-banking-securit" class="xref">Brasil Open Banking Security Profile</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.1">
+                <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="xref">5.1</a>.  <a href="#name-introduction-2" class="xref">Introduction</a></p>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.5.2.2">
-                <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="xref">5.2</a>.  <a href="#name-open-banking-brasil-securit" class="xref">Open Banking Brasil security provisions</a><a href="#section-toc.1-1.5.2.2.1" class="pilcrow">¶</a></p>
-<ul class="toc ulEmpty">
-<li class="toc ulEmpty" id="section-toc.1-1.5.2.2.2.1">
-                    <p id="section-toc.1-1.5.2.2.2.1.1"><a href="#section-5.2.1" class="xref">5.2.1</a>.  <a href="#name-introduction-3" class="xref">Introduction</a><a href="#section-toc.1-1.5.2.2.2.1.1" class="pilcrow">¶</a></p>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2">
+                <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="xref">5.2</a>.  <a href="#name-open-banking-brasil-securit" class="xref">Open Banking Brasil security provisions</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2.2.1">
+                    <p id="section-toc.1-1.5.2.2.2.1.1"><a href="#section-5.2.1" class="xref">5.2.1</a>.  <a href="#name-introduction-3" class="xref">Introduction</a></p>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.5.2.2.2.2">
-                    <p id="section-toc.1-1.5.2.2.2.2.1"><a href="#section-5.2.2" class="xref">5.2.2</a>.  <a href="#name-authorization-server" class="xref">Authorization server</a><a href="#section-toc.1-1.5.2.2.2.2.1" class="pilcrow">¶</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2.2.2">
+                    <p id="section-toc.1-1.5.2.2.2.2.1"><a href="#section-5.2.2" class="xref">5.2.2</a>.  <a href="#name-authorization-server" class="xref">Authorization server</a></p>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.5.2.2.2.3">
-                    <p id="section-toc.1-1.5.2.2.2.3.1"><a href="#section-5.2.3" class="xref">5.2.3</a>.  <a href="#name-confidential-client" class="xref">Confidential client</a><a href="#section-toc.1-1.5.2.2.2.3.1" class="pilcrow">¶</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2.2.3">
+                    <p id="section-toc.1-1.5.2.2.2.3.1"><a href="#section-5.2.3" class="xref">5.2.3</a>.  <a href="#name-confidential-client" class="xref">Confidential client</a></p>
 </li>
-</ul>
+                </ul>
 </li>
-</ul>
+            </ul>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.6">
-            <p id="section-toc.1-1.6.1"><a href="#section-6" class="xref">6</a>.  <a href="#name-security-considerations" class="xref">Security considerations</a><a href="#section-toc.1-1.6.1" class="pilcrow">¶</a></p>
-<ul class="toc ulEmpty">
-<li class="toc ulEmpty" id="section-toc.1-1.6.2.1">
-                <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="xref">6.1</a>.  <a href="#name-message-content-signing-con" class="xref">Message Content Signing Considerations (JWS)</a><a href="#section-toc.1-1.6.2.1.1" class="pilcrow">¶</a></p>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
+            <p id="section-toc.1-1.6.1"><a href="#section-6" class="xref">6</a>.  <a href="#name-security-considerations" class="xref">Security considerations</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.1">
+                <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="xref">6.1</a>.  <a href="#name-message-content-signing-con" class="xref">Message Content Signing Considerations (JWS)</a></p>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.6.2.2">
-                <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="xref">6.2</a>.  <a href="#name-algorithm-considerations" class="xref">Algorithm considerations</a><a href="#section-toc.1-1.6.2.2.1" class="pilcrow">¶</a></p>
-<ul class="toc ulEmpty">
-<li class="toc ulEmpty" id="section-toc.1-1.6.2.2.2.1">
-                    <p id="section-toc.1-1.6.2.2.2.1.1"><a href="#section-6.2.1" class="xref">6.2.1</a>.  <a href="#name-encryption-algorithm-consid" class="xref">Encryption algorithm considerations</a><a href="#section-toc.1-1.6.2.2.2.1.1" class="pilcrow">¶</a></p>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.2">
+                <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="xref">6.2</a>.  <a href="#name-algorithm-considerations" class="xref">Algorithm considerations</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.2.2.1">
+                    <p id="section-toc.1-1.6.2.2.2.1.1"><a href="#section-6.2.1" class="xref">6.2.1</a>.  <a href="#name-encryption-algorithm-consid" class="xref">Encryption algorithm considerations</a></p>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.6.2.2.2.2">
-                    <p id="section-toc.1-1.6.2.2.2.2.1"><a href="#section-6.2.2" class="xref">6.2.2</a>.  <a href="#name-secure-use-of-transport-lay" class="xref">Secure Use of Transport Layer Security considerations</a><a href="#section-toc.1-1.6.2.2.2.2.1" class="pilcrow">¶</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.2.2.2">
+                    <p id="section-toc.1-1.6.2.2.2.2.1"><a href="#section-6.2.2" class="xref">6.2.2</a>.  <a href="#name-secure-use-of-transport-lay" class="xref">Secure Use of Transport Layer Security considerations</a></p>
 </li>
-</ul>
+                </ul>
 </li>
-</ul>
+            </ul>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.7">
-            <p id="section-toc.1-1.7.1"><a href="#section-7" class="xref">7</a>.  <a href="#name-data-sharing-considerations" class="xref">Data Sharing Considerations</a><a href="#section-toc.1-1.7.1" class="pilcrow">¶</a></p>
-<ul class="toc ulEmpty">
-<li class="toc ulEmpty" id="section-toc.1-1.7.2.1">
-                <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="xref">7.1</a>.  <a href="#name-authorisation-mechanism" class="xref">Authorisation Mechanism</a><a href="#section-toc.1-1.7.2.1.1" class="pilcrow">¶</a></p>
-<ul class="toc ulEmpty">
-<li class="toc ulEmpty" id="section-toc.1-1.7.2.1.2.1">
-                    <p id="section-toc.1-1.7.2.1.2.1.1"><a href="#section-7.1.1" class="xref">7.1.1</a>.  <a href="#name-introduction-4" class="xref">Introduction</a><a href="#section-toc.1-1.7.2.1.2.1.1" class="pilcrow">¶</a></p>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
+            <p id="section-toc.1-1.7.1"><a href="#section-7" class="xref">7</a>.  <a href="#name-data-sharing-considerations" class="xref">Data Sharing Considerations</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.1">
+                <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="xref">7.1</a>.  <a href="#name-authorisation-mechanism" class="xref">Authorisation Mechanism</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.1.2.1">
+                    <p id="section-toc.1-1.7.2.1.2.1.1"><a href="#section-7.1.1" class="xref">7.1.1</a>.  <a href="#name-introduction-4" class="xref">Introduction</a></p>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.7.2.1.2.2">
-                    <p id="section-toc.1-1.7.2.1.2.2.1"><a href="#section-7.1.2" class="xref">7.1.2</a>.  <a href="#name-dynamic-consent-scope-defin" class="xref">Dynamic Consent Scope Definition</a><a href="#section-toc.1-1.7.2.1.2.2.1" class="pilcrow">¶</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.1.2.2">
+                    <p id="section-toc.1-1.7.2.1.2.2.1"><a href="#section-7.1.2" class="xref">7.1.2</a>.  <a href="#name-dynamic-consent-scope-defin" class="xref">Dynamic Consent Scope Definition</a></p>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.7.2.1.2.3">
-                    <p id="section-toc.1-1.7.2.1.2.3.1"><a href="#section-7.1.3" class="xref">7.1.3</a>.  <a href="#name-dynamic-consent-scope-examp" class="xref">Dynamic Consent Scope Example</a><a href="#section-toc.1-1.7.2.1.2.3.1" class="pilcrow">¶</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.1.2.3">
+                    <p id="section-toc.1-1.7.2.1.2.3.1"><a href="#section-7.1.3" class="xref">7.1.3</a>.  <a href="#name-dynamic-consent-scope-examp" class="xref">Dynamic Consent Scope Example</a></p>
 </li>
-</ul>
+                </ul>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.7.2.2">
-                <p id="section-toc.1-1.7.2.2.1"><a href="#section-7.2" class="xref">7.2</a>.  <a href="#name-authorisation-life-cycle" class="xref">Authorisation Life Cycle</a><a href="#section-toc.1-1.7.2.2.1" class="pilcrow">¶</a></p>
-<ul class="toc ulEmpty">
-<li class="toc ulEmpty" id="section-toc.1-1.7.2.2.2.1">
-                    <p id="section-toc.1-1.7.2.2.2.1.1"><a href="#section-7.2.1" class="xref">7.2.1</a>.  <a href="#name-introduction-5" class="xref">Introduction</a><a href="#section-toc.1-1.7.2.2.2.1.1" class="pilcrow">¶</a></p>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.2">
+                <p id="section-toc.1-1.7.2.2.1"><a href="#section-7.2" class="xref">7.2</a>.  <a href="#name-authorisation-life-cycle" class="xref">Authorisation Life Cycle</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.2.2.1">
+                    <p id="section-toc.1-1.7.2.2.2.1.1"><a href="#section-7.2.1" class="xref">7.2.1</a>.  <a href="#name-introduction-5" class="xref">Introduction</a></p>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.7.2.2.2.2">
-                    <p id="section-toc.1-1.7.2.2.2.2.1"><a href="#section-7.2.2" class="xref">7.2.2</a>.  <a href="#name-authorization-server-2" class="xref">Authorization server</a><a href="#section-toc.1-1.7.2.2.2.2.1" class="pilcrow">¶</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.2.2.2">
+                    <p id="section-toc.1-1.7.2.2.2.2.1"><a href="#section-7.2.2" class="xref">7.2.2</a>.  <a href="#name-authorization-server-2" class="xref">Authorization server</a></p>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.7.2.2.2.3">
-                    <p id="section-toc.1-1.7.2.2.2.3.1"><a href="#section-7.2.3" class="xref">7.2.3</a>.  <a href="#name-confidential-client-2" class="xref">Confidential Client</a><a href="#section-toc.1-1.7.2.2.2.3.1" class="pilcrow">¶</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.2.2.3">
+                    <p id="section-toc.1-1.7.2.2.2.3.1"><a href="#section-7.2.3" class="xref">7.2.3</a>.  <a href="#name-confidential-client-2" class="xref">Confidential Client</a></p>
 </li>
-</ul>
+                </ul>
 </li>
-</ul>
+            </ul>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.8">
-            <p id="section-toc.1-1.8.1"><a href="#section-8" class="xref">8</a>.  <a href="#name-acknowledgements" class="xref">Acknowledgements</a><a href="#section-toc.1-1.8.1" class="pilcrow">¶</a></p>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
+            <p id="section-toc.1-1.8.1"><a href="#section-8" class="xref">8</a>.  <a href="#name-acknowledgements" class="xref">Acknowledgements</a></p>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.9">
-            <p id="section-toc.1-1.9.1"><a href="#section-appendix.a" class="xref">Appendix A</a>.  <a href="#name-notices" class="xref">Notices</a><a href="#section-toc.1-1.9.1" class="pilcrow">¶</a></p>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9">
+            <p id="section-toc.1-1.9.1"><a href="#appendix-A" class="xref">Appendix A</a>.  <a href="#name-notices" class="xref">Notices</a></p>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.10">
-            <p id="section-toc.1-1.10.1"><a href="#section-appendix.b" class="xref"></a><a href="#name-authors-addresses" class="xref">Authors' Addresses</a><a href="#section-toc.1-1.10.1" class="pilcrow">¶</a></p>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10">
+            <p id="section-toc.1-1.10.1"><a href="#appendix-B" class="xref"></a><a href="#name-authors-address" class="xref">Author's Address</a></p>
 </li>
-</ul>
+        </ul>
 </nav>
 </section>
 </div>
@@ -1250,17 +1351,14 @@ and are not to be interpreted with their natural language meanings.<a href="#sec
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-scope" class="section-name selfRef">Scope</a>
       </h2>
 <p id="section-1-1">This document specifies the method of<a href="#section-1-1" class="pilcrow">¶</a></p>
-<ul>
-<li id="section-1-2.1">
-          <p id="section-1-2.1.1">applications to obtain the OAuth tokens in an appropriately secure manner for higher risk access to data in a manner that meets the requirements of <a href="https://www.in.gov.br/en/web/dou/-/resolucao-conjunta-n-1-de-4-de-maio-de-2020-255165055">Open Banking Brasil</a>;<a href="#section-1-2.1.1" class="pilcrow">¶</a></p>
+<ul class="compact">
+<li class="compact" id="section-1-2.1">applications to obtain the OAuth tokens in an appropriately secure manner for higher risk access to data in a manner that meets the requirements of <a href="https://www.in.gov.br/en/web/dou/-/resolucao-conjunta-n-1-de-4-de-maio-de-2020-255165055">Open Banking Brasil</a>;<a href="#section-1-2.1" class="pilcrow">¶</a>
 </li>
-<li id="section-1-2.2">
-          <p id="section-1-2.2.1">applications to use OpenID Connect to identify the customer; and<a href="#section-1-2.2.1" class="pilcrow">¶</a></p>
+        <li class="compact" id="section-1-2.2">applications to use OpenID Connect to identify the customer; and<a href="#section-1-2.2" class="pilcrow">¶</a>
 </li>
-<li id="section-1-2.3">
-          <p id="section-1-2.3.1">applications to use OpenID Connect to assert identity of the customer;<a href="#section-1-2.3.1" class="pilcrow">¶</a></p>
+        <li class="compact" id="section-1-2.3">applications to use OpenID Connect to assert identity of the customer;<a href="#section-1-2.3" class="pilcrow">¶</a>
 </li>
-</ul>
+      </ul>
 <p id="section-1-3">This document is applicable to all participants engaging in Open Banking in Brasil.<a href="#section-1-3" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -1293,7 +1391,7 @@ and are not to be interpreted with their natural language meanings.<a href="#sec
 <p id="section-2-22"><a href="https://bitbucket.org/openid/fapi/src/master/FAPI_2_0_Baseline_Profile.md">FAPI-2-Baseline</a> - Financial-grade API Security Profile 2.0 - Part 1: Baseline<a href="#section-2-22" class="pilcrow">¶</a></p>
 <p id="section-2-23"><a href="https://bitbucket.org/openid/fapi/src/master/FAPI_2_0_Advanced_Profile.md">FAPI-2-Advanced</a> - Financial-grade API Security Profile 2.0 - Part 2: Advanced<a href="#section-2-23" class="pilcrow">¶</a></p>
 <p id="section-2-24"><a href="https://bitbucket.org/openid/fapi/src/master/Financial_API_Lodging_Intent.md">LIWP</a> - OIDF FAPI WG Lodging Intent Working Paper<a href="#section-2-24" class="pilcrow">¶</a></p>
-<p id="section-2-25"><a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID1.html">OBB-FAPI-DCR</a> - Open Banking Brasil Financial-grade API Dynamic Client Registration Profile 1.0<a href="#section-2-25" class="pilcrow">¶</a></p>
+<p id="section-2-25"><a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID2.html">OBB-FAPI-DCR</a> - Open Banking Brasil Financial-grade API Dynamic Client Registration Profile 1.0<a href="#section-2-25" class="pilcrow">¶</a></p>
 <p id="section-2-26"><a href="https://tools.ietf.org/html/rfc4648">RFC4648</a> - The Base16, Base32, and Base64 Data Encodings<a href="#section-2-26" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -1310,16 +1408,38 @@ and are not to be interpreted with their natural language meanings.<a href="#sec
       <h2 id="name-symbols-and-abbreviated-ter">
 <a href="#section-4" class="section-number selfRef">4. </a><a href="#name-symbols-and-abbreviated-ter" class="section-name selfRef">Symbols and Abbreviated terms</a>
       </h2>
-<p id="section-4-1"><strong>API</strong> - Application Programming Interface<a href="#section-4-1" class="pilcrow">¶</a></p>
-<p id="section-4-2"><strong>OBBIS</strong> - Open Banking Brasil Initial Structure<a href="#section-4-2" class="pilcrow">¶</a></p>
-<p id="section-4-3"><strong>CSRF</strong> - Cross Site Request Forgery<a href="#section-4-3" class="pilcrow">¶</a></p>
-<p id="section-4-4"><strong>DCR</strong> - Dynamic Client Registration<a href="#section-4-4" class="pilcrow">¶</a></p>
-<p id="section-4-5"><strong>FAPI</strong> - Financial-grade API<a href="#section-4-5" class="pilcrow">¶</a></p>
-<p id="section-4-6"><strong>HTTP</strong> - Hyper Text Transfer Protocol<a href="#section-4-6" class="pilcrow">¶</a></p>
-<p id="section-4-7"><strong>OIDF</strong> - OpenID Foundation<a href="#section-4-7" class="pilcrow">¶</a></p>
-<p id="section-4-8"><strong>REST</strong> - Representational State Transfer<a href="#section-4-8" class="pilcrow">¶</a></p>
-<p id="section-4-9"><strong>TLS</strong> - Transport Layer Security<a href="#section-4-9" class="pilcrow">¶</a></p>
-<p id="section-4-10"><strong>MFA</strong> - Multi-Factor Authentication<a href="#section-4-10" class="pilcrow">¶</a></p>
+<ul class="compact">
+<li class="compact" id="section-4-1.1">
+          <strong>API</strong> - Application Programming Interface<a href="#section-4-1.1" class="pilcrow">¶</a>
+</li>
+        <li class="compact" id="section-4-1.2">
+          <strong>CSRF</strong> - Cross Site Request Forgery<a href="#section-4-1.2" class="pilcrow">¶</a>
+</li>
+        <li class="compact" id="section-4-1.3">
+          <strong>DCR</strong> - Dynamic Client Registration<a href="#section-4-1.3" class="pilcrow">¶</a>
+</li>
+        <li class="compact" id="section-4-1.4">
+          <strong>FAPI</strong> - Financial-grade API<a href="#section-4-1.4" class="pilcrow">¶</a>
+</li>
+        <li class="compact" id="section-4-1.5">
+          <strong>HTTP</strong> - Hyper Text Transfer Protocol<a href="#section-4-1.5" class="pilcrow">¶</a>
+</li>
+        <li class="compact" id="section-4-1.6">
+          <strong>MFA</strong> - Multi-Factor Authentication<a href="#section-4-1.6" class="pilcrow">¶</a>
+</li>
+        <li class="compact" id="section-4-1.7">
+          <strong>OBBIS</strong> - Open Banking Brasil Initial Structure<a href="#section-4-1.7" class="pilcrow">¶</a>
+</li>
+        <li class="compact" id="section-4-1.8">
+          <strong>OIDF</strong> - OpenID Foundation<a href="#section-4-1.8" class="pilcrow">¶</a>
+</li>
+        <li class="compact" id="section-4-1.9">
+          <strong>REST</strong> - Representational State Transfer<a href="#section-4-1.9" class="pilcrow">¶</a>
+</li>
+        <li class="compact" id="section-4-1.10">
+          <strong>TLS</strong> - Transport Layer Security<a href="#section-4-1.10" class="pilcrow">¶</a>
+</li>
+      </ul>
 </section>
 </div>
 <div id="brasil-open-banking-security-profile">
@@ -1327,27 +1447,23 @@ and are not to be interpreted with their natural language meanings.<a href="#sec
       <h2 id="name-brasil-open-banking-securit">
 <a href="#section-5" class="section-number selfRef">5. </a><a href="#name-brasil-open-banking-securit" class="section-name selfRef">Brasil Open Banking Security Profile</a>
       </h2>
-<div id="introduction">
+<div id="introduction-1">
 <section id="section-5.1">
         <h3 id="name-introduction-2">
 <a href="#section-5.1" class="section-number selfRef">5.1. </a><a href="#name-introduction-2" class="section-name selfRef">Introduction</a>
         </h3>
 <p id="section-5.1-1">The Brasil Open Banking Security profile specifies additional security and identity requirements for high risk API resources protected by the OAuth 2.0 Authorization Framework that consists of <a href="https://tools.ietf.org/html/rfc6749">RFC6749</a>, <a href="https://tools.ietf.org/html/rfc6750">RFC6750</a>, <a href="https://tools.ietf.org/html/rfc7636">RFC7636</a>, <a href="https://openid.net/specs/openid-financial-api-part-1-1_0.html">FAPI-1-Baseline</a>, <a href="https://openid.net/specs/openid-financial-api-part-2-1_0.html">FAPI-1-Advanced</a> and other specifications.<a href="#section-5.1-1" class="pilcrow">¶</a></p>
 <p id="section-5.1-2">This profile describes security and features provisions for a server and client that are necessary for the Brasil Open Banking Programme by defining the measures to mitigate or address:<a href="#section-5.1-2" class="pilcrow">¶</a></p>
-<ul>
-<li id="section-5.1-3.1">
-            <p id="section-5.1-3.1.1">attacks that address privacy considerations identified in clause 9.1 of [FAPI1 Advanced]<a href="#section-5.1-3.1.1" class="pilcrow">¶</a></p>
+<ul class="compact">
+<li class="compact" id="section-5.1-3.1">attacks that address privacy considerations identified in clause 9.1 of [FAPI1 Advanced]<a href="#section-5.1-3.1" class="pilcrow">¶</a>
 </li>
-<li id="section-5.1-3.2">
-            <p id="section-5.1-3.2.1">the requirement to support fine-grained access to resources for data minimisation purposes<a href="#section-5.1-3.2.1" class="pilcrow">¶</a></p>
+          <li class="compact" id="section-5.1-3.2">the requirement to support fine-grained access to resources for data minimisation purposes<a href="#section-5.1-3.2" class="pilcrow">¶</a>
 </li>
-<li id="section-5.1-3.3">
-            <p id="section-5.1-3.3.1">the requirement to convey the Authentication Context Request that was performed by an OpenID Provider to a Client to enable a appropriate client management of customer conduct risk.<a href="#section-5.1-3.3.1" class="pilcrow">¶</a></p>
+          <li class="compact" id="section-5.1-3.3">the requirement to convey the Authentication Context Request that was performed by an OpenID Provider to a Client to enable a appropriate client management of customer conduct risk.<a href="#section-5.1-3.3" class="pilcrow">¶</a>
 </li>
-<li id="section-5.1-3.4">
-            <p id="section-5.1-3.4.1">the requirement for clients to assert a pre-existing customer relationship by asserting a customer identity claim as part of the authorization flow.<a href="#section-5.1-3.4.1" class="pilcrow">¶</a></p>
+          <li class="compact" id="section-5.1-3.4">the requirement for clients to assert a pre-existing customer relationship by asserting a customer identity claim as part of the authorization flow.<a href="#section-5.1-3.4" class="pilcrow">¶</a>
 </li>
-</ul>
+        </ul>
 </section>
 </div>
 <div id="open-banking-brasil-security-provisions">
@@ -1355,7 +1471,7 @@ and are not to be interpreted with their natural language meanings.<a href="#sec
         <h3 id="name-open-banking-brasil-securit">
 <a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-open-banking-brasil-securit" class="section-name selfRef">Open Banking Brasil security provisions</a>
         </h3>
-<div id="introduction-1">
+<div id="introduction-2">
 <section id="section-5.2.1">
           <h4 id="name-introduction-3">
 <a href="#section-5.2.1" class="section-number selfRef">5.2.1. </a><a href="#name-introduction-3" class="section-name selfRef">Introduction</a>
@@ -1374,56 +1490,42 @@ In addition this profile describes the specific scope, acr and client management
           </h4>
 <p id="section-5.2.2-1">The Authorization Server shall support the provisions specified in clause 5.2.2 of <a href="https://openid.net/specs/openid-financial-api-part-2-1_0.html">Financial-grade API Security Profile 1.0 - Part 2: Advanced</a><a href="#section-5.2.2-1" class="pilcrow">¶</a></p>
 <p id="section-5.2.2-2">In addition, the Authorization Server<a href="#section-5.2.2-2" class="pilcrow">¶</a></p>
-<ol start="1" type="1" class="normal type-1" id="section-5.2.2-3">
-            <li id="section-5.2.2-3.1">
-              <p id="section-5.2.2-3.1.1">shall support a signed and encrypted JWE request object passed by value or shall require pushed authorization requests <a href="https://tools.ietf.org/html/draft-ietf-oauth-par">PAR</a>;<a href="#section-5.2.2-3.1.1" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="compact type-1" id="section-5.2.2-3">
+<li id="section-5.2.2-3.1">shall support a signed and encrypted JWE request object passed by value or shall require pushed authorization requests <a href="https://tools.ietf.org/html/draft-ietf-oauth-par">PAR</a>;<a href="#section-5.2.2-3.1" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.2-3.2">
-              <p id="section-5.2.2-3.2.1">shall distribute discovery metadata (such as the authorization endpoint) via the metadata document as specified in <a href="https://openid.net/specs/openid-connect-discovery-1_0.html">OIDD</a> and [RFC8414]<a href="#section-5.2.2-3.2.1" class="pilcrow">¶</a></p>
+            <li id="section-5.2.2-3.2">shall distribute discovery metadata (such as the authorization endpoint) via the metadata document as specified in <a href="https://openid.net/specs/openid-connect-discovery-1_0.html">OIDD</a> and [RFC8414];<a href="#section-5.2.2-3.2" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.2-3.3">
-              <p id="section-5.2.2-3.3.1">shall support the claims parameter as defined in clause 5.5 <a href="https://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect Core</a><a href="#section-5.2.2-3.3.1" class="pilcrow">¶</a></p>
+            <li id="section-5.2.2-3.3">shall support the claims parameter as defined in clause 5.5 <a href="https://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect Core</a>;<a href="#section-5.2.2-3.3" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.2-3.4">
-              <p id="section-5.2.2-3.4.1">shall support the oidc standard claim "cpf" as defined in clause 5.2.2.2 of this document<a href="#section-5.2.2-3.4.1" class="pilcrow">¶</a></p>
+            <li id="section-5.2.2-3.4">shall support the oidc standard claim "cpf" as defined in clause 5.2.2.2 of this document;<a href="#section-5.2.2-3.4" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.2-3.5">
-              <p id="section-5.2.2-3.5.1">shall support the oidc standard claim "cnpj" as defined in clause 5.2.2.3 of this document if providing access to resources where the resource owner is not a <code>natural person</code><a href="#section-5.2.2-3.5.1" class="pilcrow">¶</a></p>
+            <li id="section-5.2.2-3.5">shall support the oidc standard claim "cnpj" as defined in clause 5.2.2.3 of this document if providing access to resources where the resource owner is not a <code>natural person</code>;<a href="#section-5.2.2-3.5" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.2-3.6">
-              <p id="section-5.2.2-3.6.1">shall support the acr "urn:brasil:openbanking:loa2" as defined in clause 5.2.2.4 of this document<a href="#section-5.2.2-3.6.1" class="pilcrow">¶</a></p>
+            <li id="section-5.2.2-3.6">shall support the acr "urn:brasil:openbanking:loa2" as defined in clause 5.2.2.4 of this document;<a href="#section-5.2.2-3.6" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.2-3.7">
-              <p id="section-5.2.2-3.7.1">should support the acr "urn:brasil:openbanking:loa3" as defined in clause 5.2.2.4 of this document<a href="#section-5.2.2-3.7.1" class="pilcrow">¶</a></p>
+            <li id="section-5.2.2-3.7">should support the acr "urn:brasil:openbanking:loa3" as defined in clause 5.2.2.4 of this document;<a href="#section-5.2.2-3.7" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.2-3.8">
-              <p id="section-5.2.2-3.8.1">shall implement the userinfo endpoint as defined in clause 5.3 <a href="https://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect Core</a><a href="#section-5.2.2-3.8.1" class="pilcrow">¶</a></p>
+            <li id="section-5.2.2-3.8">shall implement the userinfo endpoint as defined in clause 5.3 <a href="https://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect Core</a>;<a href="#section-5.2.2-3.8" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.2-3.9">
-              <p id="section-5.2.2-3.9.1">shall support parameterized OAuth 2.0 resource scope <em>consent</em> as defined in clause 6.3.1 <a href="https://bitbucket.org/openid/fapi/src/master/Financial_API_Lodging_Intent.md">OIDF FAPI WG Lodging Intent Pattern</a><a href="#section-5.2.2-3.9.1" class="pilcrow">¶</a></p>
+            <li id="section-5.2.2-3.9">shall support parameterized OAuth 2.0 resource scope <em>consent</em> as defined in clause 6.3.1 <a href="https://bitbucket.org/openid/fapi/src/master/Financial_API_Lodging_Intent.md">OIDF FAPI WG Lodging Intent Pattern</a>;<a href="#section-5.2.2-3.9" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.2-3.10">
-              <p id="section-5.2.2-3.10.1">may support <a href="https://bitbucket.org/openid/fapi/src/master/Financial_API_WD_CIBA.md">Financial-grade API: Client Initiated Backchannel Authentication Profile</a><a href="#section-5.2.2-3.10.1" class="pilcrow">¶</a></p>
+            <li id="section-5.2.2-3.10">may support <a href="https://bitbucket.org/openid/fapi/src/master/Financial_API_WD_CIBA.md">Financial-grade API: Client Initiated Backchannel Authentication Profile</a>;<a href="#section-5.2.2-3.10" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.2-3.11">
-              <p id="section-5.2.2-3.11.1">(withdrawn)<a href="#section-5.2.2-3.11.1" class="pilcrow">¶</a></p>
+            <li id="section-5.2.2-3.11">(withdrawn);<a href="#section-5.2.2-3.11" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.2-3.12">
-              <p id="section-5.2.2-3.12.1">shall support refresh tokens<a href="#section-5.2.2-3.12.1" class="pilcrow">¶</a></p>
+            <li id="section-5.2.2-3.12">shall support refresh tokens;<a href="#section-5.2.2-3.12" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.2-3.13">
-              <p id="section-5.2.2-3.13.1">shall issue access tokens with an expiry no greater than 900 seconds and no less than 300 seconds<a href="#section-5.2.2-3.13.1" class="pilcrow">¶</a></p>
+            <li id="section-5.2.2-3.13">shall issue access tokens with an expiry no greater than 900 seconds and no less than 300 seconds;<a href="#section-5.2.2-3.13" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.2-3.14">
-              <p id="section-5.2.2-3.14.1">shall always include an acr claim in the <code>id_token</code><a href="#section-5.2.2-3.14.1" class="pilcrow">¶</a></p>
+            <li id="section-5.2.2-3.14">shall always include an acr claim in the <code>id_token</code>;<a href="#section-5.2.2-3.14" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.2-3.15">
-              <p id="section-5.2.2-3.15.1">shall support the <code>response_type</code> value <code>code id_token</code><a href="#section-5.2.2-3.15.1" class="pilcrow">¶</a></p>
+            <li id="section-5.2.2-3.15">shall support the <code>response_type</code> value <code>code id_token</code>;<a href="#section-5.2.2-3.15" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.2-3.16">
-              <p id="section-5.2.2-3.16.1">may support <code>response_type</code> value <code>code</code> in conjunction with the <code>response_mode</code> value <code>jwt</code><a href="#section-5.2.2-3.16.1" class="pilcrow">¶</a></p>
+            <li id="section-5.2.2-3.16">may support <code>response_type</code> value <code>code</code> in conjunction with the <code>response_mode</code> value <code>jwt</code>;<a href="#section-5.2.2-3.16" class="pilcrow">¶</a>
 </li>
-</ol>
+            <li id="section-5.2.2-3.17">shall not allow <code>refresh tokens</code> rotation feature.<a href="#section-5.2.2-3.17" class="pilcrow">¶</a>
+</li>
+          </ol>
 <div id="id-token-as-detached-signature">
 <section id="section-5.2.2.1">
             <h5 id="name-id-token-as-detached-signat">
@@ -1431,12 +1533,11 @@ In addition this profile describes the specific scope, acr and client management
             </h5>
 <p id="section-5.2.2.1-1">The Authorization Server shall support the provisions specified in clause 5.2.2.1 of <a href="https://openid.net/specs/openid-financial-api-part-2-1_0.html">Financial-grade API Security Profile 1.0 - Part 2: Advanced</a><a href="#section-5.2.2.1-1" class="pilcrow">¶</a></p>
 <p id="section-5.2.2.1-2">In addition, if the <code>response_type</code> value <code>code id_token</code> is used, the Authorization Server<a href="#section-5.2.2.1-2" class="pilcrow">¶</a></p>
-<ol start="1" type="1" class="normal type-1" id="section-5.2.2.1-3">
-              <li id="section-5.2.2.1-3.1">
-                <p id="section-5.2.2.1-3.1.1">should not return sensitive PII in the ID Token in the authorization response, but if it needs to,
-then it shall encrypt the ID Token.<a href="#section-5.2.2.1-3.1.1" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="compact type-1" id="section-5.2.2.1-3">
+<li id="section-5.2.2.1-3.1">should not return sensitive PII in the ID Token in the authorization response, but if it needs to,
+then it shall encrypt the ID Token.<a href="#section-5.2.2.1-3.1" class="pilcrow">¶</a>
 </li>
-</ol>
+            </ol>
 </section>
 </div>
 <div id="requesting-the-cpf-claim">
@@ -1488,45 +1589,41 @@ Claim Value that contains a <strong>set</strong> of CNPJs one of which must matc
             </h5>
 <p id="section-5.2.2.4-1">This profile defines "urn:brasil:openbanking:loa2" and "urn:brasil:openbanking:loa3" as
  new Authentication Context Request classes.<a href="#section-5.2.2.4-1" class="pilcrow">¶</a></p>
-<ul>
-<li id="section-5.2.2.4-2.1">
-                <p id="section-5.2.2.4-2.1.1"><strong>LoA2:</strong> Authentication performed using single factor;<a href="#section-5.2.2.4-2.1.1" class="pilcrow">¶</a></p>
+<ul class="compact">
+<li class="compact" id="section-5.2.2.4-2.1">
+                <strong>LoA2:</strong> Authentication performed using single factor;<a href="#section-5.2.2.4-2.1" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.2.4-2.2">
-                <p id="section-5.2.2.4-2.2.1"><strong>LoA3:</strong> Authentication performed using multi factor (MFA)<a href="#section-5.2.2.4-2.2.1" class="pilcrow">¶</a></p>
+              <li class="compact" id="section-5.2.2.4-2.2">
+                <strong>LoA3:</strong> Authentication performed using multi factor (MFA)<a href="#section-5.2.2.4-2.2" class="pilcrow">¶</a>
 </li>
-</ul>
+            </ul>
 <p id="section-5.2.2.4-3">The following rules are applicable to <strong>access control to Open Banking Brazil API's:</strong><a href="#section-5.2.2.4-3" class="pilcrow">¶</a></p>
-<ul>
-<li id="section-5.2.2.4-4.1">
-                <p id="section-5.2.2.4-4.1.1">In accordance to Art. 17 of <a href="https://www.in.gov.br/en/web/dou/-/resolucao-conjunta-n-1-de-4-de-maio-de-2020-255165055">Joint Resolution n&#186; 01 - Open Banking Brasil</a>, institutions must adopt procedures and controls for client authentication <strong>compatible with those applicable in their electronic service channels</strong>.<a href="#section-5.2.2.4-4.1.1" class="pilcrow">¶</a></p>
+<ul class="compact">
+<li class="compact" id="section-5.2.2.4-4.1">In accordance to Art. 17 of <a href="https://www.in.gov.br/en/web/dou/-/resolucao-conjunta-n-1-de-4-de-maio-de-2020-255165055">Joint Resolution n&#186; 01 - Open Banking Brasil</a>, institutions must adopt procedures and controls for client authentication <strong>compatible with those applicable in their electronic service channels</strong>.<a href="#section-5.2.2.4-4.1" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.2.4-4.2">
+              <li class="compact" id="section-5.2.2.4-4.2">
                 <p id="section-5.2.2.4-4.2.1">So, in compliance with the regulation, it is suggested that:<a href="#section-5.2.2.4-4.2.1" class="pilcrow">¶</a></p>
-<ul>
-<li id="section-5.2.2.4-4.2.2.1">
-                    <p id="section-5.2.2.4-4.2.2.1.1"><strong>For Read-Only APIs  (Phase 2)</strong>: the <em>Authorization Servers</em> <strong>should</strong> adopt, at least, an authentication method compatible with <code>LoA2</code>; and<a href="#section-5.2.2.4-4.2.2.1.1" class="pilcrow">¶</a></p>
+<ul class="compact">
+<li class="compact" id="section-5.2.2.4-4.2.2.1">
+                    <strong>For Read-Only APIs  (Phase 2)</strong>: the <em>Authorization Servers</em> <strong>should</strong> adopt, at least, an authentication method compatible with <code>LoA2</code>; and<a href="#section-5.2.2.4-4.2.2.1" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.2.4-4.2.2.2">
-                    <p id="section-5.2.2.4-4.2.2.2.1"><strong>For Read-Write API's (subsequent phases)</strong>: the <em>Authorization Servers</em> <strong>should</strong> adopt an authentication method compatible with <code>LoA3</code> or higher.<a href="#section-5.2.2.4-4.2.2.2.1" class="pilcrow">¶</a></p>
+                  <li class="compact" id="section-5.2.2.4-4.2.2.2">
+                    <strong>For Read-Write API's (subsequent phases)</strong>: the <em>Authorization Servers</em> <strong>should</strong> adopt an authentication method compatible with <code>LoA3</code> or higher.<a href="#section-5.2.2.4-4.2.2.2" class="pilcrow">¶</a>
 </li>
-</ul>
+                </ul>
 </li>
-</ul>
+            </ul>
 <p id="section-5.2.2.4-5">In all cases, the adoption of a more rigorous authentication mechanism (<code>LoA3</code> or higher) is at the discretion of the Bank (ASPSP), according to its risk assessment and in a manner compatible with the mechanisms usually used.<a href="#section-5.2.2.4-5" class="pilcrow">¶</a></p>
 <p id="section-5.2.2.4-6"><strong>Authentication factors clarification</strong><a href="#section-5.2.2.4-6" class="pilcrow">¶</a></p>
 <p id="section-5.2.2.4-7">The authentication methods are:<a href="#section-5.2.2.4-7" class="pilcrow">¶</a></p>
-<ul>
-<li id="section-5.2.2.4-8.1">
-                <p id="section-5.2.2.4-8.1.1">Something you know, such as password or phrase<a href="#section-5.2.2.4-8.1.1" class="pilcrow">¶</a></p>
+<ul class="compact">
+<li class="compact" id="section-5.2.2.4-8.1">Something you know, such as password or phrase<a href="#section-5.2.2.4-8.1" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.2.4-8.2">
-                <p id="section-5.2.2.4-8.2.1">Something you have, such as token or smartcard;<a href="#section-5.2.2.4-8.2.1" class="pilcrow">¶</a></p>
+              <li class="compact" id="section-5.2.2.4-8.2">Something you have, such as token or smartcard;<a href="#section-5.2.2.4-8.2" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.2.4-8.3">
-                <p id="section-5.2.2.4-8.3.1">Something you are, such as biometric validation.<a href="#section-5.2.2.4-8.3.1" class="pilcrow">¶</a></p>
+              <li class="compact" id="section-5.2.2.4-8.3">Something you are, such as biometric validation.<a href="#section-5.2.2.4-8.3" class="pilcrow">¶</a>
 </li>
-</ul>
+            </ul>
 <p id="section-5.2.2.4-9">To performe a MFA authentication is necessary the end user to present at least two different methods as listed above. A unique method used more than once is not accepted as MFA.<a href="#section-5.2.2.4-9" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -1540,32 +1637,26 @@ Claim Value that contains a <strong>set</strong> of CNPJs one of which must matc
 <p id="section-5.2.3-1">A confidential client shall support the provisions specified in clause 5.2.3 of
 <a href="https://openid.net/specs/openid-financial-api-part-2-1_0.html">Financial-grade API Security Profile 1.0 - Part 2: Advanced</a>,<a href="#section-5.2.3-1" class="pilcrow">¶</a></p>
 <p id="section-5.2.3-2">In addition, the confidential client<a href="#section-5.2.3-2" class="pilcrow">¶</a></p>
-<ol start="1" type="1" class="normal type-1" id="section-5.2.3-3">
-            <li id="section-5.2.3-3.1">
-              <p id="section-5.2.3-3.1.1">shall support <em>encrypted</em> request objects<a href="#section-5.2.3-3.1.1" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="compact type-1" id="section-5.2.3-3">
+<li id="section-5.2.3-3.1">shall support <em>encrypted</em> request objects;<a href="#section-5.2.3-3.1" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.3-3.2">
-              <p id="section-5.2.3-3.2.1">shall support Pushed Authorisation Requests <a href="https://tools.ietf.org/html/draft-ietf-oauth-par">PAR</a><a href="#section-5.2.3-3.2.1" class="pilcrow">¶</a></p>
+            <li id="section-5.2.3-3.2">shall support Pushed Authorisation Requests <a href="https://tools.ietf.org/html/draft-ietf-oauth-par">PAR</a>;<a href="#section-5.2.3-3.2" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.3-3.3">
-              <p id="section-5.2.3-3.3.1">shall use <em>encrypted</em> request objects if not using <a href="https://tools.ietf.org/html/draft-ietf-oauth-par">PAR</a><a href="#section-5.2.3-3.3.1" class="pilcrow">¶</a></p>
+            <li id="section-5.2.3-3.3">shall use <em>encrypted</em> request objects if not using <a href="https://tools.ietf.org/html/draft-ietf-oauth-par">PAR</a>;<a href="#section-5.2.3-3.3" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.3-3.4">
-              <p id="section-5.2.3-3.4.1">shall support parameterized OAuth 2.0 resource scope <em>consent</em> as defined in clause 6.3.1 <a href="https://bitbucket.org/openid/fapi/src/master/Financial_API_Lodging_Intent.md">OIDF FAPI WG Lodging Intent Pattern</a><a href="#section-5.2.3-3.4.1" class="pilcrow">¶</a></p>
+            <li id="section-5.2.3-3.4">shall support parameterized OAuth 2.0 resource scope <em>consent</em> as defined in clause 6.3.1 <a href="https://bitbucket.org/openid/fapi/src/master/Financial_API_Lodging_Intent.md">OIDF FAPI WG Lodging Intent Pattern</a>;<a href="#section-5.2.3-3.4" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.3-3.5">
-              <p id="section-5.2.3-3.5.1">shall support refresh tokens<a href="#section-5.2.3-3.5.1" class="pilcrow">¶</a></p>
+            <li id="section-5.2.3-3.5">shall support refresh tokens;<a href="#section-5.2.3-3.5" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.3-3.6">
-              <p id="section-5.2.3-3.6.1">shall not populate the <code>acr</code> claim with required values<a href="#section-5.2.3-3.6.1" class="pilcrow">¶</a></p>
+            <li id="section-5.2.3-3.6">shall not populate the <code>acr</code> claim with required values;<a href="#section-5.2.3-3.6" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.3-3.7">
-              <p id="section-5.2.3-3.7.1">shall require the <code>acr</code> claim as an essential claim<a href="#section-5.2.3-3.7.1" class="pilcrow">¶</a></p>
+            <li id="section-5.2.3-3.7">shall require the <code>acr</code> claim as an essential claim;<a href="#section-5.2.3-3.7" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.3-3.8">
-              <p id="section-5.2.3-3.8.1">shall support all authentication methods specified in clause 5.2.2-14 of <a href="https://openid.net/specs/openid-financial-api-part-2-1_0.html">Financial-grade API Security Profile 1.0 - Part 2: Advanced</a> including diferent combinations of the methods to send requests (using <a href="https://tools.ietf.org/html/draft-ietf-oauth-par">PAR</a> or not - item 11).<a href="#section-5.2.3-3.8.1" class="pilcrow">¶</a></p>
+            <li id="section-5.2.3-3.8">shall support all authentication methods specified in clause 5.2.2-14 of <a href="https://openid.net/specs/openid-financial-api-part-2-1_0.html">Financial-grade API Security Profile 1.0 - Part 2: Advanced</a> including diferent combinations of the methods to send requests (using <a href="https://tools.ietf.org/html/draft-ietf-oauth-par">PAR</a> or not - item 11);<a href="#section-5.2.3-3.8" class="pilcrow">¶</a>
 </li>
-</ol>
+            <li id="section-5.2.3-3.9">shall not allow <code>refresh tokens</code> rotation feature.<a href="#section-5.2.3-3.9" class="pilcrow">¶</a>
+</li>
+          </ol>
 </section>
 </div>
 </section>
@@ -1587,77 +1678,78 @@ Claim Value that contains a <strong>set</strong> of CNPJs one of which must matc
 <a href="#section-6.1" class="section-number selfRef">6.1. </a><a href="#name-message-content-signing-con" class="section-name selfRef">Message Content Signing Considerations (JWS)</a>
         </h3>
 <ol start="1" type="1" class="normal type-1" id="section-6.1-1">
-          <li id="section-6.1-1.1">
+<li id="section-6.1-1.1">
             <p id="section-6.1-1.1.1">JWS standad defined in <a href="https://tools.ietf.org/html/rfc7515">RFC7515</a> shall be adopted to ensure integrity and non-repudiation of information processed in sensitive <strong>API's (message sign requirement is indicated at API's documentation/swagger)</strong>, which includes:<a href="#section-6.1-1.1.1" class="pilcrow">¶</a></p>
-<ul>
-<li id="section-6.1-1.1.2.1">
-                <p id="section-6.1-1.1.2.1.1">Header (<em>JSON Object Signing and Encryption - JOSE Header</em>), which defines the algorithm used and includes information about the public key or certificate that can be used to validate the signature;<a href="#section-6.1-1.1.2.1.1" class="pilcrow">¶</a></p>
+<ul class="compact">
+<li class="compact" id="section-6.1-1.1.2.1">Header (<em>JSON Object Signing and Encryption - JOSE Header</em>), which defines the algorithm used and includes information about the public key or certificate that can be used to validate the signature;<a href="#section-6.1-1.1.2.1" class="pilcrow">¶</a>
 </li>
-<li id="section-6.1-1.1.2.2">
-                <p id="section-6.1-1.1.2.2.1">Payload (<em>JWS Payload</em>): content itself as detailed in the API specification;<a href="#section-6.1-1.1.2.2.1" class="pilcrow">¶</a></p>
+              <li class="compact" id="section-6.1-1.1.2.2">Payload (<em>JWS Payload</em>): content itself as detailed in the API specification;<a href="#section-6.1-1.1.2.2" class="pilcrow">¶</a>
 </li>
-<li id="section-6.1-1.1.2.3">
-                <p id="section-6.1-1.1.2.3.1">Digital signature (<em>JWS Signature</em>): digital signature, performed according to header parameters.<a href="#section-6.1-1.1.2.3.1" class="pilcrow">¶</a></p>
+              <li class="compact" id="section-6.1-1.1.2.3">Digital signature (<em>JWS Signature</em>): digital signature, performed according to header parameters.<a href="#section-6.1-1.1.2.3" class="pilcrow">¶</a>
 </li>
-</ul>
+            </ul>
 </li>
-<li id="section-6.1-1.2">
+          <li id="section-6.1-1.2">
             <p id="section-6.1-1.2.1">Each of elements above must be encoded using the Base64url pattern <a href="https://tools.ietf.org/html/rfc4648#section-5">RFC4648</a> and the elements must be concatenated with "." (JWS Compact Serialization method as defined in <a href="https://tools.ietf.org/html/rfc7515">RFC7515</a>).<a href="#section-6.1-1.2.1" class="pilcrow">¶</a></p>
 </li>
-<li id="section-6.1-1.3">
+          <li id="section-6.1-1.3">
             <p id="section-6.1-1.3.1">The payload of signed messages (request <em>JWT</em> and response <em>JWT</em>) shall include the following claims as defined at <a href="JWT">RFC7519</a>:<a href="#section-6.1-1.3.1" class="pilcrow">¶</a></p>
-<ul>
-<li id="section-6.1-1.3.2.1">
-                <p id="section-6.1-1.3.2.1.1"><strong>aud</strong> (in the <em>JWT</em> request): the Resource Provider (eg the institution holding the account) must validate if the value of the <strong>aud</strong> field matches the endpoint being triggered;<a href="#section-6.1-1.3.2.1.1" class="pilcrow">¶</a></p>
+<ul class="compact">
+<li class="compact" id="section-6.1-1.3.2.1">
+                <strong>aud</strong> (in the <em>JWT</em> request): the Resource Provider (eg the institution holding the account) must validate if the value of the <strong>aud</strong> field matches the endpoint being triggered;<a href="#section-6.1-1.3.2.1" class="pilcrow">¶</a>
 </li>
-<li id="section-6.1-1.3.2.2">
-                <p id="section-6.1-1.3.2.2.1"><strong>aud</strong> (in <em>JWT</em> response): the API client (eg initiating institution) shall validate if the value of the <strong>aud</strong> field matches its own <code>organisationId</code> listed in the directory;<a href="#section-6.1-1.3.2.2.1" class="pilcrow">¶</a></p>
+              <li class="compact" id="section-6.1-1.3.2.2">
+                <strong>aud</strong> (in <em>JWT</em> response): the API client (eg initiating institution) shall validate if the value of the <strong>aud</strong> field matches its own <code>organisationId</code> listed in the directory;<a href="#section-6.1-1.3.2.2" class="pilcrow">¶</a>
 </li>
-<li id="section-6.1-1.3.2.3">
-                <p id="section-6.1-1.3.2.3.1"><strong>iss</strong> (in the <em>JWT</em> request and in the <em>JWT</em> response): the receiver of the message shall validate if the value of the <strong>iss</strong> field matches the <code>organisationId</code> of the sender;<a href="#section-6.1-1.3.2.3.1" class="pilcrow">¶</a></p>
+              <li class="compact" id="section-6.1-1.3.2.3">
+                <strong>iss</strong> (in the <em>JWT</em> request and in the <em>JWT</em> response): the receiver of the message shall validate if the value of the <strong>iss</strong> field matches the <code>organisationId</code> of the sender;<a href="#section-6.1-1.3.2.3" class="pilcrow">¶</a>
 </li>
-<li id="section-6.1-1.3.2.4">
-                <p id="section-6.1-1.3.2.4.1"><strong>jti</strong> (in the <em>JWT</em> request and in the <em>JWT</em> response): the value of the <strong>jti</strong> field shall be filled with the UUID defined by the institution according to [RFC4122] version 4;<a href="#section-6.1-1.3.2.4.1" class="pilcrow">¶</a></p>
+              <li class="compact" id="section-6.1-1.3.2.4">
+                <strong>jti</strong> (in the <em>JWT</em> request and in the <em>JWT</em> response): the value of the <strong>jti</strong> field shall be filled with the UUID defined by the institution according to [RFC4122] version 4;<a href="#section-6.1-1.3.2.4" class="pilcrow">¶</a>
 </li>
-<li id="section-6.1-1.3.2.5">
-                <p id="section-6.1-1.3.2.5.1"><strong>iat</strong> (in the <em>JWT</em> request and in the <em>JWT</em> response): the <strong>iat</strong> field  shall be filled with the message generation time and according to the standard established in <a href="https://%20datatracker.ietf.org/doc/html/rfc7519#section-2">RFC7519</a> to the <em>NumericDate</em> format.<a href="#section-6.1-1.3.2.5.1" class="pilcrow">¶</a></p>
+              <li class="compact" id="section-6.1-1.3.2.5">
+                <strong>iat</strong> (in the <em>JWT</em> request and in the <em>JWT</em> response): the <strong>iat</strong> field  shall be filled with the message generation time and according to the standard established in <a href="https://%20datatracker.ietf.org/doc/html/rfc7519#section-2">RFC7519</a> to the <em>NumericDate</em> format.<a href="#section-6.1-1.3.2.5" class="pilcrow">¶</a>
 </li>
-</ul>
+            </ul>
 </li>
-<li id="section-6.1-1.4">
+          <li id="section-6.1-1.4">
             <p id="section-6.1-1.4.1">The HTTP content-type of requests and responses with JWS messages shall be defined as: "application/jwt".<a href="#section-6.1-1.4.1" class="pilcrow">¶</a></p>
 </li>
-<li id="section-6.1-1.5">
+          <li id="section-6.1-1.5">
             <p id="section-6.1-1.5.1">The JOSE header must contain the following attributes:<a href="#section-6.1-1.5.1" class="pilcrow">¶</a></p>
-<ul>
-<li id="section-6.1-1.5.2.1">
-                <p id="section-6.1-1.5.2.1.1"><strong>alg</strong> - shall be filled with the value <code>PS256</code>";<a href="#section-6.1-1.5.2.1.1" class="pilcrow">¶</a></p>
+<ul class="compact">
+<li class="compact" id="section-6.1-1.5.2.1">
+                <strong>alg</strong> - shall be filled with the value <code>PS256</code>";<a href="#section-6.1-1.5.2.1" class="pilcrow">¶</a>
 </li>
-<li id="section-6.1-1.5.2.2">
-                <p id="section-6.1-1.5.2.2.1"><strong>kid</strong> - shall be filled with the key identifier value used for the signature;<a href="#section-6.1-1.5.2.2.1" class="pilcrow">¶</a></p>
+              <li class="compact" id="section-6.1-1.5.2.2">
+                <strong>kid</strong> - shall be filled with the key identifier value used for the signature;<a href="#section-6.1-1.5.2.2" class="pilcrow">¶</a>
 </li>
-<li id="section-6.1-1.5.2.3">
-                <p id="section-6.1-1.5.2.3.1"><strong>typ</strong> - shall be filled with the value <code>JWT</code>.<a href="#section-6.1-1.5.2.3.1" class="pilcrow">¶</a></p>
+              <li class="compact" id="section-6.1-1.5.2.3">
+                <strong>typ</strong> - shall be filled with the value <code>JWT</code>.<a href="#section-6.1-1.5.2.3" class="pilcrow">¶</a>
 </li>
-</ul>
+            </ul>
 </li>
-</ol>
-<ul>
-<li id="section-6.1-2.1">
-            <p id="section-6.1-2.1.1">In case of error in signature validation by <code>Resource Provider</code> the API provider shall return HTTP error message with <code>status code</code> <strong>400</strong> and the <code>ResponseError</code> content shall include, in the <code>code</code> property, the content <code>BAD_SIGNATURE</code>.<a href="#section-6.1-2.1.1" class="pilcrow">¶</a></p>
+        </ol>
+<ul class="compact">
+<li class="compact" id="section-6.1-2.1">In case of error in signature validation by <code>Resource Provider</code> the API provider shall return HTTP error message with <code>status code</code> <strong>400</strong> and the <code>ResponseError</code> content shall include, in the <code>code</code> property, the content <code>BAD_SIGNATURE</code>.<a href="#section-6.1-2.1" class="pilcrow">¶</a>
 </li>
-<li id="section-6.1-2.2">
-            <p id="section-6.1-2.2.1">Errors in validating the signed messages received by the client application (eg payment initiator) must be logged and the <code>Resource Provider</code> (eg account holding institution) must be notified.<a href="#section-6.1-2.2.1" class="pilcrow">¶</a></p>
+          <li class="compact" id="section-6.1-2.2">Errors in validating the signed messages received by the client application (eg payment initiator) must be logged and the <code>Resource Provider</code> (eg account holding institution) must be notified.<a href="#section-6.1-2.2" class="pilcrow">¶</a>
 </li>
-</ul>
+        </ul>
 <ol start="6" type="1" class="normal type-1" id="section-6.1-3">
-          <li id="section-6.1-3.1">
+<li id="section-6.1-3.1">
             <p id="section-6.1-3.1.1">The receiver shall validate the consistency of the JWS message's digital signature <strong>exclusively based on the information obtained from the directory</strong>, that is, based on the keys published in the institution's JWKS in the directory.<a href="#section-6.1-3.1.1" class="pilcrow">¶</a></p>
 </li>
-<li id="section-6.1-3.2">
-            <p id="section-6.1-3.2.1">Signatures must be performed using the digital signature certificate specified in the <a href="https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil%20-certificate-standards-1_ID1-ptbr.md#certificate-of-signing-certificatesignature">Open Banking Brazil Certificates Standard</a>.<a href="#section-6.1-3.2.1" class="pilcrow">¶</a></p>
+          <li id="section-6.1-3.2">
+            <p id="section-6.1-3.2.1">Signatures must be performed using the digital signature certificate specified in the <a href="https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil%20-certificate-standards-1_ID1-ptbr.md#certificate-of-signing-certificatesignature">Open Banking Brazil Certificates Standard</a>;<a href="#section-6.1-3.2.1" class="pilcrow">¶</a></p>
 </li>
-</ol>
+          <li id="section-6.1-3.3">
+            <p id="section-6.1-3.3.1">the <em>iat</em> claim must be numeric in Unix Time format GMT+0 with a tolerance of +/- 60 seconds;<a href="#section-6.1-3.3.1" class="pilcrow">¶</a></p>
+</li>
+          <li id="section-6.1-3.4">
+            <p id="section-6.1-3.4.1">the <em>jti</em> claim must be unique for a <em>clientId</em> within a time frame of 86,400 seconds (24h), and cannot be reused within this period. In case of reuse, the HTTP error code 403 shall be return.<a href="#section-6.1-3.4.1" class="pilcrow">¶</a></p>
+</li>
+        </ol>
 </section>
 </div>
 <div id="algorithm-considerations">
@@ -1666,22 +1758,20 @@ Claim Value that contains a <strong>set</strong> of CNPJs one of which must matc
 <a href="#section-6.2" class="section-number selfRef">6.2. </a><a href="#name-algorithm-considerations" class="section-name selfRef">Algorithm considerations</a>
         </h3>
 <p id="section-6.2-1">For JWS, both clients and Authorization Servers<a href="#section-6.2-1" class="pilcrow">¶</a></p>
-<ol start="1" type="1" class="normal type-1" id="section-6.2-2">
-          <li id="section-6.2-2.1">
-            <p id="section-6.2-2.1.1">shall use PS256 algorithm;<a href="#section-6.2-2.1.1" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="compact type-1" id="section-6.2-2">
+<li id="section-6.2-2.1">shall use PS256 algorithm;<a href="#section-6.2-2.1" class="pilcrow">¶</a>
 </li>
-</ol>
+        </ol>
 <div id="encryption-algorithm-considerations">
 <section id="section-6.2.1">
           <h4 id="name-encryption-algorithm-consid">
 <a href="#section-6.2.1" class="section-number selfRef">6.2.1. </a><a href="#name-encryption-algorithm-consid" class="section-name selfRef">Encryption algorithm considerations</a>
           </h4>
 <p id="section-6.2.1-1">For JWE, both clients and Authorization Servers<a href="#section-6.2.1-1" class="pilcrow">¶</a></p>
-<ol start="1" type="1" class="normal type-1" id="section-6.2.1-2">
-            <li id="section-6.2.1-2.1">
-              <p id="section-6.2.1-2.1.1">shall use RSA-OAEP with A256GCM<a href="#section-6.2.1-2.1.1" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="compact type-1" id="section-6.2.1-2">
+<li id="section-6.2.1-2.1">shall use RSA-OAEP with A256GCM<a href="#section-6.2.1-2.1" class="pilcrow">¶</a>
 </li>
-</ol>
+          </ol>
 </section>
 </div>
 <div id="secure-use-of-transport-layer-security-considerations">
@@ -1690,14 +1780,14 @@ Claim Value that contains a <strong>set</strong> of CNPJs one of which must matc
 <a href="#section-6.2.2" class="section-number selfRef">6.2.2. </a><a href="#name-secure-use-of-transport-lay" class="section-name selfRef">Secure Use of Transport Layer Security considerations</a>
           </h4>
 <p id="section-6.2.2-1">For TLS, Authorization Server endpoints and Resource Server endpoints used directly by the Client<a href="#section-6.2.2-1" class="pilcrow">¶</a></p>
-<ol start="1" type="1" class="normal type-1" id="section-6.2.2-2">
-            <li id="section-6.2.2-2.1">
-              <p id="section-6.2.2-2.1.1">shall support <code>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256</code><a href="#section-6.2.2-2.1.1" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="compact type-1" id="section-6.2.2-2">
+<li id="section-6.2.2-2.1">shall support <code>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256</code><a href="#section-6.2.2-2.1" class="pilcrow">¶</a>
 </li>
-<li id="section-6.2.2-2.2">
-              <p id="section-6.2.2-2.2.1">shall support <code>TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384</code><a href="#section-6.2.2-2.2.1" class="pilcrow">¶</a></p>
+            <li id="section-6.2.2-2.2">shall support <code>TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384</code><a href="#section-6.2.2-2.2" class="pilcrow">¶</a>
 </li>
-</ol>
+            <li id="section-6.2.2-2.3">The "TLS Session Resumption" e "TLS Renegotiation" features shall be disabled<a href="#section-6.2.2-2.3" class="pilcrow">¶</a>
+</li>
+          </ol>
 </section>
 </div>
 </section>
@@ -1714,7 +1804,7 @@ Claim Value that contains a <strong>set</strong> of CNPJs one of which must matc
         <h3 id="name-authorisation-mechanism">
 <a href="#section-7.1" class="section-number selfRef">7.1. </a><a href="#name-authorisation-mechanism" class="section-name selfRef">Authorisation Mechanism</a>
         </h3>
-<div id="introduction-2">
+<div id="introduction-3">
 <section id="section-7.1.1">
           <h4 id="name-introduction-4">
 <a href="#section-7.1.1" class="section-number selfRef">7.1.1. </a><a href="#name-introduction-4" class="section-name selfRef">Introduction</a>
@@ -1728,29 +1818,23 @@ Claim Value that contains a <strong>set</strong> of CNPJs one of which must matc
 <a href="#section-7.1.2" class="section-number selfRef">7.1.2. </a><a href="#name-dynamic-consent-scope-defin" class="section-name selfRef">Dynamic Consent Scope Definition</a>
           </h4>
 <p id="section-7.1.2-1">This profile defines OAuth 2.0 dynamic scope "consent" as follows:<a href="#section-7.1.2-1" class="pilcrow">¶</a></p>
-<ul>
-<li id="section-7.1.2-2.1">
-              <p id="section-7.1.2-2.1.1">string 'consent'; and<a href="#section-7.1.2-2.1.1" class="pilcrow">¶</a></p>
+<ul class="compact">
+<li class="compact" id="section-7.1.2-2.1">string 'consent'; and<a href="#section-7.1.2-2.1" class="pilcrow">¶</a>
 </li>
-<li id="section-7.1.2-2.2">
-              <p id="section-7.1.2-2.2.1">delimiter of a colon ":"; and<a href="#section-7.1.2-2.2.1" class="pilcrow">¶</a></p>
+            <li class="compact" id="section-7.1.2-2.2">delimiter of a colon ":"; and<a href="#section-7.1.2-2.2" class="pilcrow">¶</a>
 </li>
-<li id="section-7.1.2-2.3">
-              <p id="section-7.1.2-2.3.1">Consent API REST Resource Id as returned by a successful creation of <a href="https://openbanking-brasil.github.io/areadesenvolvedor/#fase-2-apis-do-open-banking-brasil-api-consentimento">Open Banking Consent Resource</a>;<a href="#section-7.1.2-2.3.1" class="pilcrow">¶</a></p>
+            <li class="compact" id="section-7.1.2-2.3">Consent API REST Resource Id as returned by a successful creation of <a href="https://openbanking-brasil.github.io/areadesenvolvedor/#fase-2-apis-do-open-banking-brasil-api-consentimento">Open Banking Consent Resource</a>;<a href="#section-7.1.2-2.3" class="pilcrow">¶</a>
 </li>
-</ul>
+          </ul>
 <p id="section-7.1.2-3">In addition:<a href="#section-7.1.2-3" class="pilcrow">¶</a></p>
-<ul>
-<li id="section-7.1.2-4.1">
-              <p id="section-7.1.2-4.1.1">the Consent Resource Id must include url safe characters only;<a href="#section-7.1.2-4.1.1" class="pilcrow">¶</a></p>
+<ul class="compact">
+<li class="compact" id="section-7.1.2-4.1">the Consent Resource Id must include url safe characters only;<a href="#section-7.1.2-4.1" class="pilcrow">¶</a>
 </li>
-<li id="section-7.1.2-4.2">
-              <p id="section-7.1.2-4.2.1">the Consent Resource Id must be namespaced;<a href="#section-7.1.2-4.2.1" class="pilcrow">¶</a></p>
+            <li class="compact" id="section-7.1.2-4.2">the Consent Resource Id must be namespaced;<a href="#section-7.1.2-4.2" class="pilcrow">¶</a>
 </li>
-<li id="section-7.1.2-4.3">
-              <p id="section-7.1.2-4.3.1">the Consent Resource Id must have the properties of a nonce;<a href="#section-7.1.2-4.3.1" class="pilcrow">¶</a></p>
+            <li class="compact" id="section-7.1.2-4.3">the Consent Resource Id must have the properties of a nonce;<a href="#section-7.1.2-4.3" class="pilcrow">¶</a>
 </li>
-</ul>
+          </ul>
 </section>
 </div>
 <div id="dynamic-consent-scope-example">
@@ -1768,7 +1852,7 @@ Claim Value that contains a <strong>set</strong> of CNPJs one of which must matc
         <h3 id="name-authorisation-life-cycle">
 <a href="#section-7.2" class="section-number selfRef">7.2. </a><a href="#name-authorisation-life-cycle" class="section-name selfRef">Authorisation Life Cycle</a>
         </h3>
-<div id="introduction-3">
+<div id="introduction-4">
 <section id="section-7.2.1">
           <h4 id="name-introduction-5">
 <a href="#section-7.2.1" class="section-number selfRef">7.2.1. </a><a href="#name-introduction-5" class="section-name selfRef">Introduction</a>
@@ -1782,41 +1866,30 @@ Claim Value that contains a <strong>set</strong> of CNPJs one of which must matc
 <a href="#section-7.2.2" class="section-number selfRef">7.2.2. </a><a href="#name-authorization-server-2" class="section-name selfRef">Authorization server</a>
           </h4>
 <p id="section-7.2.2-1">In addition to the requirements outlined in Open Banking Brasil security provisions the Authorization Server<a href="#section-7.2.2-1" class="pilcrow">¶</a></p>
-<ol start="1" type="1" class="normal type-1" id="section-7.2.2-2">
-            <li id="section-7.2.2-2.1">
-              <p id="section-7.2.2-2.1.1">shall only issue tokens on presentation of a refresh token when the consent resource the refresh token is bound to is active and valid;<a href="#section-7.2.2-2.1.1" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="compact type-1" id="section-7.2.2-2">
+<li id="section-7.2.2-2.1">shall only issue tokens on presentation of a refresh token when the consent resource the refresh token is bound to is active and valid;<a href="#section-7.2.2-2.1" class="pilcrow">¶</a>
 </li>
-<li id="section-7.2.2-2.2">
-              <p id="section-7.2.2-2.2.1">shall only share access to resources when presented with an access token linked to an active and valid consent;<a href="#section-7.2.2-2.2.1" class="pilcrow">¶</a></p>
+            <li id="section-7.2.2-2.2">shall only share access to resources when presented with an access token linked to an active and valid consent;<a href="#section-7.2.2-2.2" class="pilcrow">¶</a>
 </li>
-<li id="section-7.2.2-2.3">
-              <p id="section-7.2.2-2.3.1">shall revoke refresh tokens and where practicable access tokens when the linked Consent Resource is deleted;<a href="#section-7.2.2-2.3.1" class="pilcrow">¶</a></p>
+            <li id="section-7.2.2-2.3">shall revoke refresh tokens and where practicable access tokens when the linked Consent Resource is deleted;<a href="#section-7.2.2-2.3" class="pilcrow">¶</a>
 </li>
-<li id="section-7.2.2-2.4">
-              <p id="section-7.2.2-2.4.1">shall ensure Access Tokens are issued with sufficient scope necessary for access to data specified in the Permissions element of a linked Consent Resource object;<a href="#section-7.2.2-2.4.1" class="pilcrow">¶</a></p>
+            <li id="section-7.2.2-2.4">shall ensure Access Tokens are issued with sufficient scope necessary for access to data specified in the Permissions element of a linked Consent Resource object;<a href="#section-7.2.2-2.4" class="pilcrow">¶</a>
 </li>
-<li id="section-7.2.2-2.5">
-              <p id="section-7.2.2-2.5.1">shall not reject an authorisation request requesting more scope than is necessary to access data specified in the Permissions element of a linked Consent Resource object;<a href="#section-7.2.2-2.5.1" class="pilcrow">¶</a></p>
+            <li id="section-7.2.2-2.5">shall not reject an authorisation request requesting more scope than is necessary to access data specified in the Permissions element of a linked Consent Resource object;<a href="#section-7.2.2-2.5" class="pilcrow">¶</a>
 </li>
-<li id="section-7.2.2-2.6">
-              <p id="section-7.2.2-2.6.1">may reduce requested scope to a level sufficient to enable access to data resources specified in the Permissions element of a linked Consent Resource object;<a href="#section-7.2.2-2.6.1" class="pilcrow">¶</a></p>
+            <li id="section-7.2.2-2.6">may reduce requested scope to a level sufficient to enable access to data resources specified in the Permissions element of a linked Consent Resource object;<a href="#section-7.2.2-2.6" class="pilcrow">¶</a>
 </li>
-<li id="section-7.2.2-2.7">
-              <p id="section-7.2.2-2.7.1">shall retain a complete audit history of the consent resource in accordance with current Central Bank brazilian regulation;<a href="#section-7.2.2-2.7.1" class="pilcrow">¶</a></p>
+            <li id="section-7.2.2-2.7">shall retain a complete audit history of the consent resource in accordance with current Central Bank brazilian regulation;<a href="#section-7.2.2-2.7" class="pilcrow">¶</a>
 </li>
-<li id="section-7.2.2-2.8">
-              <p id="section-7.2.2-2.8.1">shall return authentication failure and return code <em>access</em>denied_ in the <em>error</em> parameter (as specified in section 4.1.2.1 of <a href="https://tools.ietf.org/html/rfc6749">RFC6749</a>) if the CPF of the authenticated user is not the same as indicated in the <em>loggedUser</em> element of the Consent Resource Object;<a href="#section-7.2.2-2.8.1" class="pilcrow">¶</a></p>
+            <li id="section-7.2.2-2.8">shall return authentication failure and return code _access<em>denied</em> in the <em>error</em> parameter (as specified in section 4.1.2.1 of <a href="https://tools.ietf.org/html/rfc6749">RFC6749</a>) if the CPF of the authenticated user is not the same as indicated in the <em>loggedUser</em> element of the Consent Resource Object;<a href="#section-7.2.2-2.8" class="pilcrow">¶</a>
 </li>
-<li id="section-7.2.2-2.9">
-              <p id="section-7.2.2-2.9.1">shall return authentication failure and return code <em>access</em>denied_ in the <em>error</em> parameter (as specified in section 4.1.2.1 of <a href="https://tools.ietf.org/html/rfc6749">RFC6749</a>) if the <em>businessEntity</em> element has not been populated in the related Consent Resource Object and the user has selected or authenticated by using a credential related to a business account;<a href="#section-7.2.2-2.9.1" class="pilcrow">¶</a></p>
+            <li id="section-7.2.2-2.9">shall return authentication failure and return code _access<em>denied</em> in the <em>error</em> parameter (as specified in section 4.1.2.1 of <a href="https://tools.ietf.org/html/rfc6749">RFC6749</a>) if the <em>businessEntity</em> element has not been populated in the related Consent Resource Object and the user has selected or authenticated by using a credential related to a business account;<a href="#section-7.2.2-2.9" class="pilcrow">¶</a>
 </li>
-<li id="section-7.2.2-2.10">
-              <p id="section-7.2.2-2.10.1">an autenticated or selected business account's CNPJ must match the value present in the <em>businessEntity</em> element of the Consent Resource Object. In case of divergence authorization server shall return authentication failure and return code <em>access</em>denied_ in the <em>error</em> parameter (as specified in section 4.1.2.1 of <a href="https://tools.ietf.org/html/rfc6749">RFC6749</a>);<a href="#section-7.2.2-2.10.1" class="pilcrow">¶</a></p>
+            <li id="section-7.2.2-2.10">an autenticated or selected business account's CNPJ must match the value present in the <em>businessEntity</em> element of the Consent Resource Object. In case of divergence authorization server shall return authentication failure and return code _access<em>denied</em> in the <em>error</em> parameter (as specified in section 4.1.2.1 of <a href="https://tools.ietf.org/html/rfc6749">RFC6749</a>);<a href="#section-7.2.2-2.10" class="pilcrow">¶</a>
 </li>
-<li id="section-7.2.2-2.11">
-              <p id="section-7.2.2-2.11.1">shall ensure <em>refresh</em>tokens_ expiration time is at least equal to the linked consent resource expiration time.<a href="#section-7.2.2-2.11.1" class="pilcrow">¶</a></p>
+            <li id="section-7.2.2-2.11">shall ensure _refresh<em>tokens</em> expiration time is at least equal to the linked consent resource expiration time.<a href="#section-7.2.2-2.11" class="pilcrow">¶</a>
 </li>
-</ol>
+          </ol>
 </section>
 </div>
 <div id="confidential-client-1">
@@ -1825,14 +1898,12 @@ Claim Value that contains a <strong>set</strong> of CNPJs one of which must matc
 <a href="#section-7.2.3" class="section-number selfRef">7.2.3. </a><a href="#name-confidential-client-2" class="section-name selfRef">Confidential Client</a>
           </h4>
 <p id="section-7.2.3-1">In addition to the requirements outlined in Open Banking Brasil security provisions the Confidential Client<a href="#section-7.2.3-1" class="pilcrow">¶</a></p>
-<ol start="1" type="1" class="normal type-1" id="section-7.2.3-2">
-            <li id="section-7.2.3-2.1">
-              <p id="section-7.2.3-2.1.1">shall revoke where possible and cease usage of refresh and access tokens that are bound to a Consent Resource that has been deleted;<a href="#section-7.2.3-2.1.1" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="compact type-1" id="section-7.2.3-2">
+<li id="section-7.2.3-2.1">shall revoke where possible and cease usage of refresh and access tokens that are bound to a Consent Resource that has been deleted;<a href="#section-7.2.3-2.1" class="pilcrow">¶</a>
 </li>
-<li id="section-7.2.3-2.2">
-              <p id="section-7.2.3-2.2.1">shall delete Consent Resource that are expired;<a href="#section-7.2.3-2.2.1" class="pilcrow">¶</a></p>
+            <li id="section-7.2.3-2.2">shall delete Consent Resource that are expired;<a href="#section-7.2.3-2.2" class="pilcrow">¶</a>
 </li>
-</ol>
+          </ol>
 </section>
 </div>
 </section>
@@ -1846,52 +1917,37 @@ Claim Value that contains a <strong>set</strong> of CNPJs one of which must matc
       </h2>
 <p id="section-8-1">With thanks to all who have set the foundations for secure and safe data sharing through the formation of the OpenID Foundation FAPI Working Group, the Open Banking Brasil GT Security and to the pioneers who will stand on their shoulders.<a href="#section-8-1" class="pilcrow">¶</a></p>
 <p id="section-8-2">The following people contributed to this document:<a href="#section-8-2" class="pilcrow">¶</a></p>
-<ul>
-<li id="section-8-3.1">
-          <p id="section-8-3.1.1">Ralph Bragg (Raidiam)<a href="#section-8-3.1.1" class="pilcrow">¶</a></p>
+<ul class="compact">
+<li class="compact" id="section-8-3.1">Alexandre Siqueira (Mercado Pago)<a href="#section-8-3.1" class="pilcrow">¶</a>
 </li>
-<li id="section-8-3.2">
-          <p id="section-8-3.2.1">Joseph Heenan (Authlete)<a href="#section-8-3.2.1" class="pilcrow">¶</a></p>
+        <li class="compact" id="section-8-3.2">Joseph Heenan (Authlete)<a href="#section-8-3.2" class="pilcrow">¶</a>
 </li>
-<li id="section-8-3.3">
-          <p id="section-8-3.3.1">Alexandre Siqueira (Mercado Pago)<a href="#section-8-3.3.1" class="pilcrow">¶</a></p>
+        <li class="compact" id="section-8-3.3">Marcos Rodrigues (Ita&#250;)<a href="#section-8-3.3" class="pilcrow">¶</a>
 </li>
-<li id="section-8-3.4">
-          <p id="section-8-3.4.1">Marcos Rodrigues (Ita&#250;)<a href="#section-8-3.4.1" class="pilcrow">¶</a></p>
+        <li class="compact" id="section-8-3.4">M&#225;rio Ginglass (BNDES)<a href="#section-8-3.4" class="pilcrow">¶</a>
 </li>
-<li id="section-8-3.5">
-          <p id="section-8-3.5.1">M&#225;rio Ginglass (BNDES)<a href="#section-8-3.5.1" class="pilcrow">¶</a></p>
+        <li class="compact" id="section-8-3.5">Nic Marcondes (Quanto)<a href="#section-8-3.5" class="pilcrow">¶</a>
 </li>
-</ul>
+        <li class="compact" id="section-8-3.6">Ralph Bragg (Raidiam)<a href="#section-8-3.6" class="pilcrow">¶</a>
+</li>
+      </ul>
 </section>
 </div>
 <div id="notices">
-<section id="section-appendix.a">
+<section id="appendix-A">
       <h2 id="name-notices">
-<a href="#section-appendix.a" class="section-number selfRef">Appendix A. </a><a href="#name-notices" class="section-name selfRef">Notices</a>
+<a href="#appendix-A" class="section-number selfRef">Appendix A. </a><a href="#name-notices" class="section-name selfRef">Notices</a>
       </h2>
-<p id="section-appendix.a-1">Copyright (c) 2021 Open Banking Brasil Initial Structure.<a href="#section-appendix.a-1" class="pilcrow">¶</a></p>
-<p id="section-appendix.a-2">The Open Banking Brasil Initial Structure (OBBIS) grants to any Contributor, developer, implementer, or other interested party a non-exclusive, royalty-free, worldwide copyright license to reproduce, prepare derivative works from, distribute, perform and display, this Implementers Draft or Final Specification solely for the purposes of (i) developing specifications, and (ii) implementing Implementers Drafts and Final Specifications based on such documents, provided that attribution be made to the OBBIS as the source of the material, but that such attribution does not indicate an endorsement by the OBBIS.<a href="#section-appendix.a-2" class="pilcrow">¶</a></p>
-<p id="section-appendix.a-3">The technology described in this specification was made available from contributions from various sources, including members of the OpenID Foundation, the Open Banking Brasil GT Security Working Group and others. Although the Open Banking Brasil Initial Structure has taken steps to help ensure that the technology is available for distribution, it takes no position regarding the validity or scope of any intellectual property or other rights that might be claimed to pertain to the implementation or use of the technology described in this specification or the extent to which any license under such rights might or might not be available; neither does it represent that it has made any independent effort to identify any such rights. The Open Banking Brasil Initial Structure and the contributors to this specification make no (and hereby expressly disclaim any) warranties (express, implied, or otherwise), including implied warranties of merchantability, non-infringement, fitness for a particular purpose, or title, related to this specification, and the entire risk as to implementing this specification is assumed by the implementer. The Open Banking Brasil Intellectual Property Rights policy requires contributors to offer a patent promise not to assert certain patent claims against other contributors and against implementers. The Open Banking Brasil Initial Structure invites any interested party to bring to its attention any copyrights, patents, patent applications, or other proprietary rights that may cover technology that may be required to practice this specification.<a href="#section-appendix.a-3" class="pilcrow">¶</a></p>
+<p id="appendix-A-1">Copyright (c) 2022 Open Banking Brasil Initial Structure.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
+<p id="appendix-A-2">The Open Banking Brasil Initial Structure (OBBIS) grants to any Contributor, developer, implementer, or other interested party a non-exclusive, royalty-free, worldwide copyright license to reproduce, prepare derivative works from, distribute, perform and display, this Implementers Draft or Final Specification solely for the purposes of (i) developing specifications, and (ii) implementing Implementers Drafts and Final Specifications based on such documents, provided that attribution be made to the OBBIS as the source of the material, but that such attribution does not indicate an endorsement by the OBBIS.<a href="#appendix-A-2" class="pilcrow">¶</a></p>
+<p id="appendix-A-3">The technology described in this specification was made available from contributions from various sources, including members of the OpenID Foundation, the Open Banking Brasil GT Security Working Group and others. Although the Open Banking Brasil Initial Structure has taken steps to help ensure that the technology is available for distribution, it takes no position regarding the validity or scope of any intellectual property or other rights that might be claimed to pertain to the implementation or use of the technology described in this specification or the extent to which any license under such rights might or might not be available; neither does it represent that it has made any independent effort to identify any such rights. The Open Banking Brasil Initial Structure and the contributors to this specification make no (and hereby expressly disclaim any) warranties (express, implied, or otherwise), including implied warranties of merchantability, non-infringement, fitness for a particular purpose, or title, related to this specification, and the entire risk as to implementing this specification is assumed by the implementer. The Open Banking Brasil Intellectual Property Rights policy requires contributors to offer a patent promise not to assert certain patent claims against other contributors and against implementers. The Open Banking Brasil Initial Structure invites any interested party to bring to its attention any copyrights, patents, patent applications, or other proprietary rights that may cover technology that may be required to practice this specification.<a href="#appendix-A-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="authors-addresses">
-<section id="section-appendix.b">
-      <h2 id="name-authors-addresses">
-<a href="#name-authors-addresses" class="section-name selfRef">Authors' Addresses</a>
+<section id="appendix-B">
+      <h2 id="name-authors-address">
+<a href="#name-authors-address" class="section-name selfRef">Author's Address</a>
       </h2>
-<address class="vcard">
-        <div dir="auto" class="left"><span class="fn nameRole">Ralph Bragg</span></div>
-<div dir="auto" class="left"><span class="org">Raidiam</span></div>
-<div class="email">
-<span>Email:</span>
-<a href="mailto:ralph.bragg@raidiam.com" class="email">ralph.bragg@raidiam.com</a>
-</div>
-<div class="url">
-<span>URI:</span>
-<a href="https://www.raidiam.com/" class="url">https://www.raidiam.com/</a>
-</div>
-</address>
 <address class="vcard">
         <div dir="auto" class="left"><span class="fn nameRole">OBBIS GT Security</span></div>
 <div dir="auto" class="left"><span class="org">Open Banking Brasil Initial Structure</span></div>

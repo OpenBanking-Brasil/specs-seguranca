@@ -259,7 +259,7 @@ As described in [FAPI-CIBA], there are many mechanisms that can be used to conve
 `
 
 The use of a `binding message` is *not* mandatory if this token type is to be leveraged.
-//TODO: How long should the request expiry be in this scenario???
+The requested_expiry shall be greater than 3600 seconds and less than 43200 seconds
 
 ##### Authorisation Server Generated - Login Hint Token
 

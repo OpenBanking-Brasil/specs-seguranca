@@ -18,16 +18,6 @@
     value = "open-banking-brasil-financial-api-1_ID3-ptbr"
 
     [[author]]
-    initials = "R."
-    surname = "Bragg"
-    fullname = "Ralph Bragg"
-    organization = "Raidiam"
-    abbrev = "Raidiam"
-      [author.address]
-      email = "ralph.bragg@raidiam.com"
-      uri = "https://www.raidiam.com/"
-
-    [[author]]
     initials = "GT"
     surname = "Security"
     fullname = "OBBIS GT Security"
@@ -162,25 +152,16 @@ Para efeitos deste documento, os termos definidos em [RFC6749], [RFC6750], [RFC7
 
 # Símbolos e termos abreviados  {#terms}
 
-**API** - Application Programming Interface (Interface de programação de aplicativo)
-
-**EIOBB** - Estrutura Inicial do Open Banking Brasil
-
-**CSRF** - Cross Site Request Forgery
-
-**DCR** - Registro de cliente dinâmico
-
-**FAPI** - Financial-grade API
-
-**HTTP** - Protocolo de transferência de hipertexto
-
-**OIDF** - OpenID Foundation
-
-**REST** - Representational State Transfer (Transferência de Estado Representacional)
-
-**TLS** - Transport Layer Security (Segurança da Camada de Transporte)
-
-**MFA** - Multi-Factor Authentication (Autenticação por Múltiplos Fatores)
+* **API** - Application Programming Interface (Interface de programação de aplicativo)
+* **CSRF** - Cross Site Request Forgery
+* **DCR** - Registro de cliente dinâmico
+* **EIOBB** - Estrutura Inicial do Open Banking Brasil
+* **FAPI** - Financial-grade API
+* **HTTP** - Protocolo de transferência de hipertexto
+* **MFA** - Multi-Factor Authentication (Autenticação por Múltiplos Fatores)
+* **OIDF** - OpenID Foundation
+* **REST** - Representational State Transfer (Transferência de Estado Representacional)
+* **TLS** - Transport Layer Security (Segurança da Camada de Transporte)
 
 # Profile de Segurança para o Open Banking Brasil {#securityprofile}
 
@@ -215,22 +196,23 @@ O Servidor de Autorização **deve** suportar as disposições especificadas na 
 
 Além disso, ele deve:
 
-1. deve suportar Request Objects JWE assinados e criptografados passados por valor ou deve exigir requisições do tipo "pushed authorization requests" [PAR]
-2. deve publicar metadados de descoberta (incluindo a do endpoint de autorização) por meio do documento de metadado especificado em [OIDD] e [RFC8414] (".well-known")
-3. deve suportar os parâmetros `claims` como definido no item 5.5 do [OpenID Connect Core][OIDC]
-4. deve suportar o atributo `claim` padrão oidc "cpf" conforme definido no item 5.2.2.2 deste documento
-5. deve suportar o atributo `claim` padrão oidc "cnpj" conforme definido no item 5.2.2.3 deste documento, se a instituição for detentora de conta para pessoas jurídicas
-6. deve suportar o atributo `acr` "urn:brasil:openbanking:loa2" como definido no item 5.2.2.4 deste documento
-7. deveria suportar o atributo `acr` "urn:brasil:openbanking:loa3" como definido no item 5.2.2.4 deste documento
-8. deve implementar o endpoint "userinfo" como definido no item 5.3 do [OpenID Connect Core][OIDC]
-9. deve suportar o escopo parametrizável ("parameterized OAuth 2.0 resource scope") _consent_ como definido no item 6.3.1 de [OIDF FAPI WG Lodging Intent Pattern][LIWP]
-10. pode suportar [Financial-grade API: Client Initiated Backchannel Authentication Profile][FAPI-CIBA]
-11. (requisito temporariamente retirado)
-12. deve suportar `refresh tokens`
-13. deve emitir `access tokens` com o tempo de expiração entre 300 (mínimo) e 900 (máximo) segundos
-14. deve sempre incluir a claim `acr` no id_token
-15. deve suportar os valores `code` e `id_token` para o atributo `response_type`
-16. pode suportar o valor `code` para o atributo `response_type`em conjunto com o valor `jwt` para o atributo `response_mode`
+1. deve suportar Request Objects JWE assinados e criptografados passados por valor ou deve exigir requisições do tipo "pushed authorization requests" [PAR];
+2. deve publicar metadados de descoberta (incluindo a do endpoint de autorização) por meio do documento de metadado especificado em [OIDD] e [RFC8414] (".well-known");
+3. deve suportar os parâmetros `claims` como definido no item 5.5 do [OpenID Connect Core][OIDC];
+4. deve suportar o atributo `claim` padrão oidc "cpf" conforme definido no item 5.2.2.2 deste documento;
+5. deve suportar o atributo `claim` padrão oidc "cnpj" conforme definido no item 5.2.2.3 deste documento, se a instituição for detentora de conta para pessoas jurídicas;
+6. deve suportar o atributo `acr` "urn:brasil:openbanking:loa2" como definido no item 5.2.2.4 deste documento;
+7. deveria suportar o atributo `acr` "urn:brasil:openbanking:loa3" como definido no item 5.2.2.4 deste documento;
+8. deve implementar o endpoint "userinfo" como definido no item 5.3 do [OpenID Connect Core][OIDC];
+9. deve suportar o escopo parametrizável ("parameterized OAuth 2.0 resource scope") _consent_ como definido no item 6.3.1 de [OIDF FAPI WG Lodging Intent Pattern][LIWP];
+10. pode suportar [Financial-grade API: Client Initiated Backchannel Authentication Profile][FAPI-CIBA];
+11. (requisito temporariamente retirado);
+12. deve suportar `refresh tokens`;
+13. deve emitir `access tokens` com o tempo de expiração entre 300 (mínimo) e 900 (máximo) segundos;
+14. deve sempre incluir a claim `acr` no id_token;
+15. deve suportar os valores `code` e `id_token` para o atributo `response_type`;
+16. pode suportar o valor `code` para o atributo `response_type`em conjunto com o valor `jwt` para o atributo `response_mode`;
+17. não deve permitir o recurso de rotação de `refresh tokens`.
 
 #### Token de ID como assinatura separada  {#detached}
 
@@ -300,14 +282,15 @@ Um cliente confidencial deve apoiar as disposições especificadas na cláusula 
 
 Além disso, o cliente confidencial
 
-1. deve suportar objetos de solicitação _encrypted_
-2. deve suportar solicitações de autorização push (pushed authorization requests) [PAR]
-3. deve usar objetos de solicitação _encrypted_ se não usar [PAR]
-4. deve suportar o escopo de recurso OAuth 2.0 parametrizado _consent_ conforme definido na cláusula 6.3.1 [OIDF FAPI WG Lodging Intent Pattern][LIWP]
-5. deve suportar `refresh tokens`
-6. não deve incluir um valor específico na _claim_ `acr`
-7. deve definir a _claim_ `acr`como _essential_
-8. deve suportar todos os métodos de autenticação especificados no item 14 da seção 5.2.2 da [Financial-grade API Security Profile 1.0 - Part 2: Advanced][FAPI-1-Advanced] incluindo as diferentes combinações de métodos de encaminhamento dos Requests Objects (usando ou não [PAR] - item 11).
+1. deve suportar objetos de solicitação _encrypted_;
+2. deve suportar solicitações de autorização push (pushed authorization requests) [PAR];
+3. deve usar objetos de solicitação _encrypted_ se não usar [PAR];
+4. deve suportar o escopo de recurso OAuth 2.0 parametrizado _consent_ conforme definido na cláusula 6.3.1 [OIDF FAPI WG Lodging Intent Pattern][LIWP];
+5. deve suportar `refresh tokens`;
+6. não deve incluir um valor específico na _claim_ `acr`;
+7. deve definir a _claim_ `acr`como _essential_;
+8. deve suportar todos os métodos de autenticação especificados no item 14 da seção 5.2.2 da [Financial-grade API Security Profile 1.0 - Part 2: Advanced][FAPI-1-Advanced] incluindo as diferentes combinações de métodos de encaminhamento dos Requests Objects (usando ou não [PAR] - item 11);
+9. não deve permitir o recurso de rotação de `refresh tokens`.
 
 # Considerações de segurança  {#authserver}
 
@@ -340,7 +323,11 @@ Os participantes devem apoiar todas as considerações de segurança especificad
 
 6. O receptor  deve validar a consistência da assinatura digital da mensagem JWS **exclusivamente com base nas informações obtidas do diretório**, ou seja, com base nas chaves publicadas no JWKS da instituição no diretório.
 
-7. As assinaturas devem ser realizadas com uso do certificado digital de assinatura especificado no [Padrão de Certificados Open Banking Brasil](https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil-certificate-standards-1_ID1-ptbr.md#certificado-de-assinatura-certificadoassinatura).
+7. As assinaturas devem ser realizadas com uso do certificado digital de assinatura especificado no [Padrão de Certificados Open Banking Brasil](https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil-certificate-standards-1_ID1-ptbr.md#certificado-de-assinatura-certificadoassinatura);
+
+8. A claim _iat_ deve ser numérica no formato Unix Time GMT+0 com tolerância de +/- 60 segundos;
+
+9. A claim do _jti_ deve ser única para um _clientId_ dentro de um intervalo de tempo de 86.400 segundos (24h), não podendo ser reutilizada neste período. Em caso de reutilização, deverá ser retornado o código de erro HTTP 403;
 
 ### Considerações sobre algoritmos de assinatura {#alg}
 
@@ -360,6 +347,7 @@ Para TLS, endpoints do Servidor de Autenticação e endpoints do Servidor de Rec
 
 1. devem suportar `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`
 2. devem suportar `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
+3. As funcionalidades "TLS Session Resumption" e "TLS Renegotiation" devem ser desabilitadas
 
 # Considerações sobre compartilhamento de dados  {#dados}
 
@@ -426,17 +414,18 @@ Agradecemos a todos que estabeleceram as bases para o compartilhamento seguro e 
 
 As seguintes pessoas contribuíram para este documento:
 
-* Ralph Bragg (Raidiam)
-* Joseph Heenan (Authlete)
 * Alexandre Siqueira (Mercado Pago)
+* Joseph Heenan (Authlete)
 * Marcos Rodrigues (Itaú)
 * Mário Ginglass (BNDES)
+* Nic Marcondes (Quanto)
+* Ralph Bragg (Raidiam)
 
 {backmatter}
 
 # Avisos  {#disclaimer}
 
-Copyright (c) 2021 Estrutura Inicial do Open Banking Brasil
+Copyright (c) 2022 Estrutura Inicial do Open Banking Brasil
 
 A Estrutura Inicial do Open Banking Brasil (EIOBB) concede a qualquer Colaborador, desenvolvedor, implementador ou outra parte interessada uma licença de direitos autorais mundial não exclusiva, livre de royalties para reproduzir, preparar trabalhos derivados, distribuir, executar e exibir, estes Implementadores Rascunho ou Especificação Final exclusivamente para fins de (i) desenvolver especificações e (ii) implementar Rascunhos de Implementadores e Especificações Finais com base em tais documentos, desde que a atribuição seja feita ao EIOBB como a fonte do material, mas que tal atribuição o faça não indica endosso do EIOBB.
 
