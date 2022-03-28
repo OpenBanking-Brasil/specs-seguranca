@@ -9,7 +9,7 @@
 <meta content="xml2rfc 3.12.2" name="generator">
 <meta content="FAPI" name="keyword">
 <meta content="Open Banking Brasil GT Security" name="keyword">
-<meta content="open-banking-brasil-dynamic-client-registration-1_ID2-ptbr" name="ietf.draft">
+<meta content="open-banking-brasil-dynamic-client-registration-1_ID2" name="ietf.draft">
 <!-- Generator version information:
   xml2rfc 3.12.2
     Python 3.10.2
@@ -28,7 +28,7 @@
     setuptools 58.1.0
     six 1.16.0
 -->
-<link href="./open-banking-brasil-dynamic-client-registration-1_ID2-ptbr.xml" rel="alternate" type="application/rfc+xml">
+<link href="./open-banking-brasil-dynamic-client-registration-1_ID2.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
 <style type="text/css">/*
 
@@ -1206,12 +1206,12 @@ li > p:last-of-type {
 </div>
 <h1 id="title">Open Banking Brasil Financial-grade API Dynamic Client Registration 1.0 Implementers Draft 2</h1>
 <section class="note" id="section-note.1">
-      <h2 id="name-pref225cio">
-<a href="#name-pref225cio" class="section-name selfRef">Pref&#225;cio</a>
+      <h2 id="name-foreword">
+<a href="#name-foreword" class="section-name selfRef">Foreword</a>
       </h2>
-<p id="section-note.1-1">The normative version in <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID2.html">English</a><a href="#section-note.1-1" class="pilcrow">¶</a></p>
-<p id="section-note.1-2">A Estrutura Inicial do Open Banking Brasil (EIOBB) &#233; respons&#225;vel por criar os padr&#245;es e especifica&#231;&#245;es necess&#225;rios para atender aos requisitos e obriga&#231;&#245;es da Legisla&#231;&#227;o do Open Banking do Brasil, conforme originalmente delineado pelo <a href="https://www.bcb.gov.br/content/config/Documents/BCB_Open_Banking_Communique-April-2019.pdf">Banco Central do Brasil</a>. &#201; poss&#237;vel que alguns dos elementos deste documento estejam sujeitos a direitos de patente. O EIOBB n&#227;o se responsabiliza pela identifica&#231;&#227;o de qualquer ou todos os direitos de patente.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
-<p id="section-note.1-3">O Perfil de Seguran&#231;a Financial-grade API 1.0 do Open Banking Brasil consiste nas seguintes partes:<a href="#section-note.1-3" class="pilcrow">¶</a></p>
+<p id="section-note.1-1">Este documento tamb&#233;m est&#225; dispon&#237;vel em <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID1-ptbr.html">portugu&#234;s</a><a href="#section-note.1-1" class="pilcrow">¶</a></p>
+<p id="section-note.1-2">The Open Banking Brasil Initial Structure is responsible for creating standards and specifications necessary to meet the requirements and obligations of the Brasil Open Banking Legislation as originally outlined by the <a href="https://www.bcb.gov.br/content/config/Documents/BCB_Open_Banking_Communique-April-2019.pdf">Brasil Central Bank</a>. There is a possibility that some of the elements of this document may be the subject to patent rights. OBBIS shall not be held responsible for identifying any or all such patent rights.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
+<p id="section-note.1-3">Open Banking Brasil Financial-grade API Security Profile 1.0 consists of the following parts:<a href="#section-note.1-3" class="pilcrow">¶</a></p>
 <ul class="compact note">
 <li class="compact note" id="section-note.1-4.1">
           <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID3.html">Open Banking Brasil Financial-grade API Security Profile 1.0</a><a href="#section-note.1-4.1" class="pilcrow">¶</a>
@@ -1219,31 +1219,26 @@ li > p:last-of-type {
         <li class="compact note" id="section-note.1-4.2">Open Banking Brasil Dynamic Client Registration Profile 1.0<a href="#section-note.1-4.2" class="pilcrow">¶</a>
 </li>
       </ul>
-<p id="section-note.1-5">Essas partes devem ser usadas com <a href="https://tools.ietf.org/html/rfc6749">RFC6749</a>, <a href="https://tools.ietf.org/html/rfc6750">RFC6750</a>, <a href="https://tools.ietf.org/html/rfc7636">RFC7636</a>, <a href="https://openid.net/specs/openid-connect-core-1_0.html">OIDC</a>, <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OIDR</a>, <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a>, <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a>, <a href="https://openid.net/specs/openid-financial-api-part-1-1_0.html">FAPI-1-Baseline</a> e <a href="https://openid.net/specs/openid-financial-api-part-2-1_0.html">FAPI-1-Advanced</a><a href="#section-note.1-5" class="pilcrow">¶</a></p>
+<p id="section-note.1-5">These parts are intended to be used with <a href="https://tools.ietf.org/html/rfc6749">RFC6749</a>, <a href="https://tools.ietf.org/html/rfc6750">RFC6750</a>, <a href="https://tools.ietf.org/html/rfc7636">RFC7636</a>, <a href="https://openid.net/specs/openid-connect-core-1_0.html">OIDC</a>, <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OIDR</a>, <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a>, <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a>, <a href="https://openid.net/specs/openid-financial-api-part-1-1_0.html">FAPI-1-Baseline</a> and <a href="https://openid.net/specs/openid-financial-api-part-2-1_0.html">FAPI-1-Advanced</a><a href="#section-note.1-5" class="pilcrow">¶</a></p>
 </section>
 <section class="note" id="section-note.2">
-      <h2 id="name-introdu231227o">
-<a href="#name-introdu231227o" class="section-name selfRef">Introdu&#231;&#227;o</a>
+      <h2 id="name-introduction">
+<a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
-<p id="section-note.2-1">O Perfil de Registro de Cliente Din&#226;mico (DCR - <em>Dynamic Client Registration</em>) do Financal-grade API (FAPI) do Open Banking Brasil &#233; um perfil de <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a>, <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a> e <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OIDR</a> que visa fornecer diretrizes de implementa&#231;&#227;o espec&#237;ficas para seguran&#231;a e interoperabilidade que podem ser aplicadas &#224; identifica&#231;&#227;o, registro e gerenciamento de <em>Clients OAuth</em> operando no ecossistema Open Banking Brasil.<a href="#section-note.2-1" class="pilcrow">¶</a></p>
-<p id="section-note.2-2">Embora seja poss&#237;vel codificar um <em>OpenID Provider</em> e <em>Relying Party</em> desde o princ&#237;pio usando esta especifica&#231;&#227;o, o principal p&#250;blico para esta especifica&#231;&#227;o s&#227;o as partes que j&#225; possuem uma implementa&#231;&#227;o certificada do <a href="https://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect</a> e desejam obter a certifica&#231;&#227;o para o Open Banking Brasil.<a href="#section-note.2-2" class="pilcrow">¶</a></p>
+<p id="section-note.2-1">The Open Banking Brasil Financial-grade API Dynamic Client Registration Profile is a profile of <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a>, <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a> and <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OIDR</a> that aims to provide specific implementation guidelines for security and interoperability which can be applied to the identification, registration and management of OAuth Clients operating in the Brasil Open Banking ecosystem.
+Although it is possible to code an OpenID Provider and Relying Party from first principles using this specification, the main audience for this specification is parties who already have a certified implementation of <a href="https://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect</a> and want to achieve certification for the Brasil Open Banking programme.<a href="#section-note.2-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note" id="section-note.3">
-      <h2 id="name-conven231245es-notacionais">
-<a href="#name-conven231245es-notacionais" class="section-name selfRef">Conven&#231;&#245;es Notacionais</a>
+      <h2 id="name-notational-conventions">
+<a href="#name-notational-conventions" class="section-name selfRef">Notational Conventions</a>
       </h2>
-<p id="section-note.3-1">As palavras-chave "<em>deve</em>" (shall), "<em>n&#227;o deve</em>" (shall not), "<em>deveria</em>" (should), "<em>n&#227;o deveria</em>" (should not) e "<em>pode</em>" (may) presentes nesse documento devem ser interpretadas conforme as diretrizes descritas em <a href="https://www.iso.org/sites/directives/current/part2/index.xhtml">ISO Directive Part 2</a> observando  seguinte equival&#234;ncia:<a href="#section-note.3-1" class="pilcrow">¶</a></p>
-<ul class="compact note">
-<li class="compact note" id="section-note.3-2.1">"deve" =&gt; equivalente ao termo "shall" e expressa um requerimento definido no documento (nas tradu&#231;&#245;es &#233; similar ao termo "must", que pode denotar um requerimento externo ao documento);<a href="#section-note.3-2.1" class="pilcrow">¶</a>
-</li>
-        <li class="compact note" id="section-note.3-2.2">"n&#227;o deve" =&gt; equivalente ao termo "shall not" e tamb&#233;m expressa um requerimento definido no documento;<a href="#section-note.3-2.2" class="pilcrow">¶</a>
-</li>
-        <li class="compact note" id="section-note.3-2.3">"deveria" e "n&#227;o deveria"=&gt; equivalente ao termo "should" e "should not" e expressa uma recomenda&#231;&#227;o<a href="#section-note.3-2.3" class="pilcrow">¶</a>
-</li>
-        <li class="compact note" id="section-note.3-2.4">"pode" =&gt; equivalente ao termo "may" indica uma permiss&#227;o<a href="#section-note.3-2.4" class="pilcrow">¶</a>
-</li>
-      </ul>
-<p id="section-note.3-3">Estas palavras-chave n&#227;o s&#227;o usadas como termos de dicion&#225;rio, de modo que qualquer ocorr&#234;ncia deles deve ser interpretada como palavras-chave e n&#227;o devem ser interpretados com seus significados de linguagem natural.<a href="#section-note.3-3" class="pilcrow">¶</a></p>
+<p id="section-note.3-1">The key words "shall", "shall not",
+"should", "should not", "may", and
+"can" in this document are to be interpreted as described in
+<a href="https://www.iso.org/sites/directives/current/part2/index.xhtml">ISO Directive Part 2</a>.
+These key words are not used as dictionary terms such that
+any occurrence of them shall be interpreted as key words
+and are not to be interpreted with their natural language meanings.<a href="#section-note.3-1" class="pilcrow">¶</a></p>
 </section>
 <div id="toc">
 <section id="section-toc.1">
@@ -1252,91 +1247,96 @@ li > p:last-of-type {
         </h2>
 <nav class="toc"><ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1">
-            <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="xref">1</a>.  <a href="#name-escopo" class="xref">Escopo</a></p>
+            <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="xref">1</a>.  <a href="#name-scope" class="xref">Scope</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2">
-            <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="xref">2</a>.  <a href="#name-refer234ncias-normativas" class="xref">Refer&#234;ncias normativas</a></p>
+            <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="xref">2</a>.  <a href="#name-normative-references" class="xref">Normative references</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
-            <p id="section-toc.1-1.3.1" class="keepWithNext"><a href="#section-3" class="xref">3</a>.  <a href="#name-termos-e-defini231245es" class="xref">Termos e defini&#231;&#245;es</a></p>
+            <p id="section-toc.1-1.3.1" class="keepWithNext"><a href="#section-3" class="xref">3</a>.  <a href="#name-terms-and-definitions" class="xref">Terms and definitions</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
-            <p id="section-toc.1-1.4.1"><a href="#section-4" class="xref">4</a>.  <a href="#name-s237mbolos-e-termos-abrevia" class="xref">S&#237;mbolos e Termos abreviados</a></p>
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="xref">4</a>.  <a href="#name-symbols-and-abbreviated-ter" class="xref">Symbols and Abbreviated terms</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
-            <p id="section-toc.1-1.5.1"><a href="#section-5" class="xref">5</a>.  <a href="#name-introdu231227o-2" class="xref">Introdu&#231;&#227;o</a></p>
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="xref">5</a>.  <a href="#name-introduction-2" class="xref">Introduction</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
-            <p id="section-toc.1-1.6.1"><a href="#section-6" class="xref">6</a>.  <a href="#name-provisionamentos-do-openid-" class="xref">Provisionamentos do OpenID Connect Discovery do Open Banking Brasil</a></p>
+            <p id="section-toc.1-1.6.1"><a href="#section-6" class="xref">6</a>.  <a href="#name-open-banking-brasil-openid-" class="xref">Open Banking Brasil OpenID Connect Discovery provisions</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.1">
-                <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="xref">6.1</a>.  <a href="#name-servidor-de-autoriza231227o" class="xref">Servidor de Autoriza&#231;&#227;o</a></p>
+                <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="xref">6.1</a>.  <a href="#name-authorization-server" class="xref">Authorization server</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.2">
-                <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="xref">6.2</a>.  <a href="#name-cliente" class="xref">Cliente</a></p>
+                <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="xref">6.2</a>.  <a href="#name-client" class="xref">Client</a></p>
 </li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
-            <p id="section-toc.1-1.7.1"><a href="#section-7" class="xref">7</a>.  <a href="#name-provisionamento-de-registro" class="xref">Provisionamento de registro OpenID Connect do Open Banking Brasil</a></p>
+            <p id="section-toc.1-1.7.1"><a href="#section-7" class="xref">7</a>.  <a href="#name-open-banking-brasil-openid-c" class="xref">Open Banking Brasil OpenID Connect Registration Provisions</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.1">
-                <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="xref">7.1</a>.  <a href="#name-servidor-de-autoriza231227o-2" class="xref">Servidor de Autoriza&#231;&#227;o</a></p>
+                <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="xref">7.1</a>.  <a href="#name-authorization-server-2" class="xref">Authorization server</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.1.2.1">
-                    <p id="section-toc.1-1.7.2.1.2.1.1"><a href="#section-7.1.1" class="xref">7.1.1</a>.  <a href="#name-aplicando-server-defaults" class="xref">Aplicando Server Defaults</a></p>
+                    <p id="section-toc.1-1.7.2.1.2.1.1"><a href="#section-7.1.1" class="xref">7.1.1</a>.  <a href="#name-applying-server-defaults" class="xref">Applying Server Defaults</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.1.2.2">
-                    <p id="section-toc.1-1.7.2.1.2.2.1"><a href="#section-7.1.2" class="xref">7.1.2</a>.  <a href="#name-an225lise-do-distinguished-" class="xref">An&#225;lise do Distinguished Name do Certificado</a></p>
+                    <p id="section-toc.1-1.7.2.1.2.2.1"><a href="#section-7.1.2" class="xref">7.1.2</a>.  <a href="#name-certificate-distinguished-n" class="xref">Certificate Distinguished Name Parsing</a></p>
 </li>
                 </ul>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.2">
-                <p id="section-toc.1-1.7.2.2.1"><a href="#section-7.2" class="xref">7.2</a>.  <a href="#name-fun231245es-regulat243rias-" class="xref">Fun&#231;&#245;es regulat&#243;rias para mapeamentos OpenID e OAuth 2.0</a></p>
+                <p id="section-toc.1-1.7.2.2.1"><a href="#section-7.2" class="xref">7.2</a>.  <a href="#name-regulatory-roles-to-openid-" class="xref">Regulatory Roles to OpenID and OAuth 2.0 Mappings</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.2.2.1">
+                    <p id="section-toc.1-1.7.2.2.2.1.1"><a href="#section-7.2.1" class="xref">7.2.1</a>.  <a href="#name-implementers-note" class="xref">Implementers Note</a></p>
+</li>
+                </ul>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.3">
-                <p id="section-toc.1-1.7.2.3.1"><a href="#section-7.3" class="xref">7.3</a>.  <a href="#name-registro-do-cliente" class="xref">Registro do Cliente</a></p>
+                <p id="section-toc.1-1.7.2.3.1"><a href="#section-7.3" class="xref">7.3</a>.  <a href="#name-regulatory-roles-to-dynamic" class="xref">Regulatory Roles to dynamic OAuth 2.0 scope Mappings</a></p>
 </li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
-            <p id="section-toc.1-1.8.1"><a href="#section-8" class="xref">8</a>.  <a href="#name-declara231227o-de-software" class="xref">Declara&#231;&#227;o de Software</a></p>
+            <p id="section-toc.1-1.8.1"><a href="#section-8" class="xref">8</a>.  <a href="#name-software-statement" class="xref">Software Statement</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.1">
-                <p id="section-toc.1-1.8.2.1.1"><a href="#section-8.1" class="xref">8.1</a>.  <a href="#name-atributos-da-declara231227o" class="xref">Atributos da Declara&#231;&#227;o de Software (Claims)</a></p>
+                <p id="section-toc.1-1.8.2.1.1"><a href="#section-8.1" class="xref">8.1</a>.  <a href="#name-software-statement-claims" class="xref">Software Statement Claims</a></p>
 </li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9">
-            <p id="section-toc.1-1.9.1"><a href="#section-9" class="xref">9</a>.  <a href="#name-processamento-de-solicita23" class="xref">Processamento de solicita&#231;&#227;o de registro de cliente din&#226;mico</a></p>
+            <p id="section-toc.1-1.9.1"><a href="#section-9" class="xref">9</a>.  <a href="#name-dynamic-client-registration" class="xref">Dynamic Client Registration Request Processing</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.1">
-                <p id="section-toc.1-1.9.2.1.1"><a href="#section-9.1" class="xref">9.1</a>.  <a href="#name-enviar-uma-solicita231227o-" class="xref">Enviar uma solicita&#231;&#227;o com uma declara&#231;&#227;o de software</a></p>
+                <p id="section-toc.1-1.9.2.1.1"><a href="#section-9.1" class="xref">9.1</a>.  <a href="#name-posting-a-request-with-a-so" class="xref">Posting a request with a software statement</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.2">
-                <p id="section-toc.1-1.9.2.2.1"><a href="#section-9.2" class="xref">9.2</a>.  <a href="#name-open-banking-brasil-ssa-key" class="xref">Open Banking Brasil SSA Key Store e detalhes do emissor</a></p>
+                <p id="section-toc.1-1.9.2.2.1"><a href="#section-9.2" class="xref">9.2</a>.  <a href="#name-open-banking-brasil-ssa-key" class="xref">Open Banking Brasil SSA Key Store and Issuer Details</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.3">
-                <p id="section-toc.1-1.9.2.3.1"><a href="#section-9.3" class="xref">9.3</a>.  <a href="#name-sobre-os-mecanismos-de-aute" class="xref">Sobre os mecanismos de autentica&#231;&#227;o e autoriza&#231;&#227;o dos servi&#231;os de DCR e DCM</a></p>
+                <p id="section-toc.1-1.9.2.3.1"><a href="#section-9.3" class="xref">9.3</a>.  <a href="#name-about-authentication-and-au" class="xref">About authentication and authorization mechanisms for DCR and DCM services</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.3.2.1">
-                    <p id="section-toc.1-1.9.2.3.2.1.1"><a href="#section-9.3.1" class="xref">9.3.1</a>.  <a href="#name-registro-de-cliente-post-re" class="xref">Registro de cliente - POST /register</a></p>
+                    <p id="section-toc.1-1.9.2.3.2.1.1"><a href="#section-9.3.1" class="xref">9.3.1</a>.  <a href="#name-client-registration-post-re" class="xref">Client registration - POST /register</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.3.2.2">
-                    <p id="section-toc.1-1.9.2.3.2.2.1"><a href="#section-9.3.2" class="xref">9.3.2</a>.  <a href="#name-manuten231227o-de-cliente-g" class="xref">Manuten&#231;&#227;o de cliente - GET /register - PUT /register - DELETE /register</a></p>
+                    <p id="section-toc.1-1.9.2.3.2.2.1"><a href="#section-9.3.2" class="xref">9.3.2</a>.  <a href="#name-client-maintenance-get-regi" class="xref">Client Maintenance - GET /register - PUT /register - DELETE /register</a></p>
 </li>
                 </ul>
 </li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10">
-            <p id="section-toc.1-1.10.1"><a href="#section-10" class="xref">10</a>. <a href="#name-reconhecimento" class="xref">Reconhecimento</a></p>
+            <p id="section-toc.1-1.10.1"><a href="#section-10" class="xref">10</a>. <a href="#name-acknowledgement" class="xref">Acknowledgement</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11">
-            <p id="section-toc.1-1.11.1"><a href="#appendix-A" class="xref">Appendix A</a>.  <a href="#name-avisos" class="xref">Avisos</a></p>
+            <p id="section-toc.1-1.11.1"><a href="#appendix-A" class="xref">Appendix A</a>.  <a href="#name-notices" class="xref">Notices</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11.2.1">
-                <p id="section-toc.1-1.11.2.1.1"><a href="#appendix-A.1" class="xref">A.1</a>.  <a href="#name-ap234ndice-a-exemplo-de-afi" class="xref">Ap&#234;ndice A. Exemplo de afirma&#231;&#227;o de declara&#231;&#227;o de software</a></p>
+                <p id="section-toc.1-1.11.2.1.1"><a href="#appendix-A.1" class="xref">A.1</a>.  <a href="#name-appendix-a-example-software" class="xref">Appendix A. Example Software Statement Assertion</a></p>
 </li>
             </ul>
 </li>
@@ -1347,29 +1347,29 @@ li > p:last-of-type {
 </nav>
 </section>
 </div>
-<div id="Scope">
+<div id="scope">
 <section id="section-1">
-      <h2 id="name-escopo">
-<a href="#section-1" class="section-number selfRef">1. </a><a href="#name-escopo" class="section-name selfRef">Escopo</a>
+      <h2 id="name-scope">
+<a href="#section-1" class="section-number selfRef">1. </a><a href="#name-scope" class="section-name selfRef">Scope</a>
       </h2>
-<p id="section-1-1">Este documento especifica o m&#233;todo de<a href="#section-1-1" class="pilcrow">¶</a></p>
+<p id="section-1-1">This document specifies the method of<a href="#section-1-1" class="pilcrow">¶</a></p>
 <ul class="compact">
-<li class="compact" id="section-1-2.1">aplicativos cadastrados no <a href="https://web.directory.openbankingbrasil.org.br">Diretorio de Participantes do Open Banking</a> para descobrir OpenID Providers que oferecem servi&#231;os no ecossistema Open Banking Brasil;<a href="#section-1-2.1" class="pilcrow">¶</a>
+<li class="compact" id="section-1-2.1">applications registered in the <a href="https://web.directory.openbankingbrasil.org.br">Open Banking Directory of Participants</a> to discover OpenID Providers offering services in the Open Banking Brasil ecosystem;<a href="#section-1-2.1" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-1-2.2">aplicativos para usar o <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Connect Registration</a> para integrar seus aplicativos com OpenID Providers dos bancos; e<a href="#section-1-2.2" class="pilcrow">¶</a>
+        <li class="compact" id="section-1-2.2">applications to use <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Connect Registration</a> to onboard their applications with Bank OpenID Providers; and<a href="#section-1-2.2" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-1-2.3">aplicativos para usar <a href="https://tools.ietf.org/html/rfc7592">OAuth 2.0 Dynamic Client Registration Management Protocol</a> para gerenciar seus aplicativos com OpenID Providers;<a href="#section-1-2.3" class="pilcrow">¶</a>
+        <li class="compact" id="section-1-2.3">applications to use <a href="https://tools.ietf.org/html/rfc7592">OAuth 2.0 Dynamic Client Registration Management Protocol</a> to manage their applications with OpenID Providers;<a href="#section-1-2.3" class="pilcrow">¶</a>
 </li>
       </ul>
-<p id="section-1-3">Este documento &#233; aplic&#225;vel a todos os participantes do Open Banking no Brasil.<a href="#section-1-3" class="pilcrow">¶</a></p>
+<p id="section-1-3">This document is applicable to all participants engaging in Open Banking in Brasil.<a href="#section-1-3" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="Normative">
+<div id="normative-references">
 <section id="section-2">
-      <h2 id="name-refer234ncias-normativas">
-<a href="#section-2" class="section-number selfRef">2. </a><a href="#name-refer234ncias-normativas" class="section-name selfRef">Refer&#234;ncias normativas</a>
+      <h2 id="name-normative-references">
+<a href="#section-2" class="section-number selfRef">2. </a><a href="#name-normative-references" class="section-name selfRef">Normative references</a>
       </h2>
-<p id="section-2-1">Os seguintes documentos referenciados s&#227;o indispens&#225;veis para a aplica&#231;&#227;o deste documento. Para refer&#234;ncias datadas, apenas a edi&#231;&#227;o citada se aplica. Para refer&#234;ncias n&#227;o datadas, a &#250;ltima edi&#231;&#227;o do documento referenciado (incluindo quaisquer emendas) se aplica.<a href="#section-2-1" class="pilcrow">¶</a></p>
+<p id="section-2-1">The following referenced documents are indispensable for the application of this document. For dated references, only the edition cited applied. For undated references, the latest edition of the referenced document (including any amendments) applies.<a href="#section-2-1" class="pilcrow">¶</a></p>
 <p id="section-2-2"><a href="https://www.iso.org/sites/directives/current/part2/index.xhtml">ISODIR2</a> - ISO/IEC Directives Part 2<a href="#section-2-2" class="pilcrow">¶</a></p>
 <p id="section-2-3"><a href="https://tools.ietf.org/html/rfc6749">RFC6749</a> - The OAuth 2.0 Authorization Framework<a href="#section-2-3" class="pilcrow">¶</a></p>
 <p id="section-2-4"><a href="https://tools.ietf.org/html/rfc6750">RFC6750</a> - The OAuth 2.0 Authorization Framework: Bearer Token Usage<a href="#section-2-4" class="pilcrow">¶</a></p>
@@ -1395,25 +1395,25 @@ li > p:last-of-type {
 <p id="section-2-24"><a href="https://raw.githubusercontent.com/OpenBanking-Brasil/specs-seguranca/main/dcr_review/dcr-dcm-swagger.yaml">OBB-DCR/DCM-Swagger</a> - DCR & DCM Swagger<a href="#section-2-24" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="Definitions">
+<div id="terms-and-definitions">
 <section id="section-3">
-      <h2 id="name-termos-e-defini231245es">
-<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-termos-e-defini231245es" class="section-name selfRef">Termos e defini&#231;&#245;es</a>
+      <h2 id="name-terms-and-definitions">
+<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-terms-and-definitions" class="section-name selfRef">Terms and definitions</a>
       </h2>
-<p id="section-3-1">Para efeitos deste documento, aplicam-se os termos definidos em <a href="https://tools.ietf.org/html/rfc6749">RFC6749</a>, <a href="https://tools.ietf.org/html/rfc6750">RFC6750</a>, <a href="https://tools.ietf.org/html/rfc7636">RFC7636</a>, <a href="https://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect Core</a> e ISO29100.<a href="#section-3-1" class="pilcrow">¶</a></p>
+<p id="section-3-1">For the purpose of this document, the terms defined in <a href="https://tools.ietf.org/html/rfc6749">RFC6749</a>, <a href="https://tools.ietf.org/html/rfc6750">RFC6750</a>, <a href="https://tools.ietf.org/html/rfc7636">RFC7636</a>, <a href="https://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect Core</a> and ISO29100 apply.<a href="#section-3-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="Abreviations">
+<div id="symbols-and-abbreviated-terms">
 <section id="section-4">
-      <h2 id="name-s237mbolos-e-termos-abrevia">
-<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-s237mbolos-e-termos-abrevia" class="section-name selfRef">S&#237;mbolos e Termos abreviados</a>
+      <h2 id="name-symbols-and-abbreviated-ter">
+<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-symbols-and-abbreviated-ter" class="section-name selfRef">Symbols and Abbreviated terms</a>
       </h2>
 <ul class="compact">
 <li class="compact" id="section-4-1.1">
-          <strong>API</strong> - Application Programming Interface (Interface de Programa&#231;&#227;o da Aplica&#231;&#227;o)<a href="#section-4-1.1" class="pilcrow">¶</a>
+          <strong>API</strong> - Application Programming Interface<a href="#section-4-1.1" class="pilcrow">¶</a>
 </li>
         <li class="compact" id="section-4-1.2">
-          <strong>DCR</strong> - Dynamic Client Registration (Registro de Cliente Din&#226;mico)<a href="#section-4-1.2" class="pilcrow">¶</a>
+          <strong>DCR</strong> - Dynamic Client Registration<a href="#section-4-1.2" class="pilcrow">¶</a>
 </li>
         <li class="compact" id="section-4-1.3">
           <strong>FAPI</strong> - Financial-grade API<a href="#section-4-1.3" class="pilcrow">¶</a>
@@ -1428,10 +1428,10 @@ li > p:last-of-type {
           <strong>REST</strong> - Representational State Transfer<a href="#section-4-1.6" class="pilcrow">¶</a>
 </li>
         <li class="compact" id="section-4-1.7">
-          <strong>SS</strong> - Software Statement (Declara&#231;&#227;o de Software)<a href="#section-4-1.7" class="pilcrow">¶</a>
+          <strong>SS</strong> - Software Statement<a href="#section-4-1.7" class="pilcrow">¶</a>
 </li>
         <li class="compact" id="section-4-1.8">
-          <strong>SSA</strong> - Software Statement Assertion (Afirma&#231;&#227;o de Declara&#231;&#227;o de Software)<a href="#section-4-1.8" class="pilcrow">¶</a>
+          <strong>SSA</strong> - Software Statement Assertion<a href="#section-4-1.8" class="pilcrow">¶</a>
 </li>
         <li class="compact" id="section-4-1.9">
           <strong>TLS</strong> - Transport Layer Security<a href="#section-4-1.9" class="pilcrow">¶</a>
@@ -1439,150 +1439,149 @@ li > p:last-of-type {
       </ul>
 </section>
 </div>
-<div id="Intro">
+<div id="introduction-1">
 <section id="section-5">
-      <h2 id="name-introdu231227o-2">
-<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-introdu231227o-2" class="section-name selfRef">Introdu&#231;&#227;o</a>
+      <h2 id="name-introduction-2">
+<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-introduction-2" class="section-name selfRef">Introduction</a>
       </h2>
-<p id="section-5-1">O ecossistema Open Banking Brasil apoia-se em um provedor de confian&#231;a ou <em>diret&#243;rio de participantes</em> como a fonte mais valiosa de informa&#231;&#245;es sobre participantes credenciados e softwares que est&#227;o autorizados a participar do ecossistema Open Banking Brasil.<a href="#section-5-1" class="pilcrow">¶</a></p>
-<p id="section-5-2">Os servi&#231;os do Diret&#243;rio incluem:<a href="#section-5-2" class="pilcrow">¶</a></p>
+<p id="section-5-1">Brasil Open Bankings ecosystem leverages a federation trust provider or <em>directory of participants</em> as the golden source of information on accredited participants and software that are authorized to partake in the Open Banking Brasil ecosystem.<a href="#section-5-1" class="pilcrow">¶</a></p>
+<p id="section-5-2">The services by the Directory include<a href="#section-5-2" class="pilcrow">¶</a></p>
 <ul class="compact">
-<li class="compact" id="section-5-3.1">Registro e gerenciamento de software<a href="#section-5-3.1" class="pilcrow">¶</a>
+<li class="compact" id="section-5-3.1">Software registration and management.<a href="#section-5-3.1" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-5-3.2">Registro e gerenciamento de credenciais de software usando certificados ICP<a href="#section-5-3.2" class="pilcrow">¶</a>
+        <li class="compact" id="section-5-3.2">Software credential registration and management using ICP Certificates.<a href="#section-5-3.2" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-5-3.3">Gera&#231;&#227;o de Software Statement Assertion (SSA)<a href="#section-5-3.3" class="pilcrow">¶</a>
+        <li class="compact" id="section-5-3.3">Software Statement Assertion (SSA) generation<a href="#section-5-3.3" class="pilcrow">¶</a>
 </li>
       </ul>
-<p id="section-5-4">Os participantes do ecossistema devem aproveitar esses servi&#231;os para facilitar o registro de cliente OAuth orientado por API usando o processo descrito na cl&#225;usula 3.1.1 do <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a> com metadados adicionais necess&#225;rios para oferecer suporte ao OpenID Connect definido em <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Connect Registration</a>.<a href="#section-5-4" class="pilcrow">¶</a></p>
-<p id="section-5-5">&#201; importante refor&#231;ar que o payload de registro de clientes possui a maior parte de seus atributos n&#227;o obrigat&#243;rios, e que os atributos cujos valores  conflitem com os presentes no software statement assertion <em>ser&#227;o sobrepostos pelos valores do pr&#243;prio software statement assertion emitido pelo diret&#243;rio central</em>. Nem todos os metadados que um cliente deseja fornecer podem estar contidos em um <em>software statement</em>, por exemplo, alternativa <a href="https://openid.net/specs/openid-connect-registration-1_0.html#LanguagesAndScripts">Metadata Languages and Script values</a>. H&#225; casos ainda de metadados de cliente que s&#227;o um subconjunto dos valores existentes no SSA, como por exemplo os redirect_URIs.<a href="#section-5-5" class="pilcrow">¶</a></p>
+<p id="section-5-4">Participants within the ecosystem must leverage these services to facilitate API driven OAuth client registration using the process outlined in clause 3.1.1 of <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a> with additional metadata necessary to support OpenID Connect defined in <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Connect Registration</a>.<a href="#section-5-4" class="pilcrow">¶</a></p>
+<p id="section-5-5">It's important to remember that the client registration payload has most of its non-mandatory attributes, and that assigned values; that conflict with the present in the assertion software declaration <em>will be overridden by the values of the software statement assertion issued by the Directory of Participants</em>. Not all metadata that a client wishes to provide may be contained in a software statement, e.g alternative <a href="https://openid.net/specs/openid-connect-registration-1_0.html#LanguagesAndScripts">Metadata Languages and Script values</a>. There are some cases when the client metadata are subset os the existing values in the SSA, such as redirect_URIs.<a href="#section-5-5" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="Provisions">
+<div id="open-banking-brasil-openid-connect-discovery-provisions">
 <section id="section-6">
-      <h2 id="name-provisionamentos-do-openid-">
-<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-provisionamentos-do-openid-" class="section-name selfRef">Provisionamentos do OpenID Connect Discovery do Open Banking Brasil</a>
+      <h2 id="name-open-banking-brasil-openid-">
+<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-open-banking-brasil-openid-" class="section-name selfRef">Open Banking Brasil OpenID Connect Discovery provisions</a>
       </h2>
-<div id="AuthServers">
+<div id="authorization-server">
 <section id="section-6.1">
-        <h3 id="name-servidor-de-autoriza231227o">
-<a href="#section-6.1" class="section-number selfRef">6.1. </a><a href="#name-servidor-de-autoriza231227o" class="section-name selfRef">Servidor de Autoriza&#231;&#227;o</a>
+        <h3 id="name-authorization-server">
+<a href="#section-6.1" class="section-number selfRef">6.1. </a><a href="#name-authorization-server" class="section-name selfRef">Authorization server</a>
         </h3>
-<p id="section-6.1-1">O servidor de autoriza&#231;&#227;o deve suportar <a href="https://openid.net/specs/openid-connect-discovery-1_0.html">OpenID Connect Discovery</a> conforme exigido pelo <a href="https://openid.net/specs/openid-financial-api-part-1-1_0.html">Financial-grade API Security Profile 1.0 - Part 1: Baseline</a>. Este suporte deve estar explicito tanto na forma como o Servidor de Autoriza&#231;&#227;o est&#225; registrado no Diret&#243;rio de Participantes quanto na declara&#231;&#227;o dos seus atributos no arquivo de Discovery (well-known), respeitando os mecanismos de autentica&#231;&#227;o certificados pela institi&#231;&#227;o atrav&#233;s dos testes de conformidade do Open Banking Brasil.<a href="#section-6.1-1" class="pilcrow">¶</a></p>
-<p id="section-6.1-2">Adicionalmente, o Servidor de Autoriza&#231;&#227;o:<a href="#section-6.1-2" class="pilcrow">¶</a></p>
+<p id="section-6.1-1">The Authorization Server shall support <a href="https://openid.net/specs/openid-connect-discovery-1_0.html">OpenID Connect Discovery</a> as required by <a href="https://openid.net/specs/openid-financial-api-part-1-1_0.html">Financial-grade API Security Profile 1.0 - Part 1: Baseline</a>.
+This support shall be explicit in Participant Directory configurations, and in the declaration of its attributes in the Discovery file (well-known), respecting the authentication mechanisms certified by the institution through the Open Banking Brazil compliance tests.<a href="#section-6.1-1" class="pilcrow">¶</a></p>
+<p id="section-6.1-2">In addition, the Authorization Server<a href="#section-6.1-2" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="compact type-1" id="section-6.1-3">
-<li id="section-6.1-3.1">deve anunciar sua presen&#231;a no ecossistema Open Banking Brasil, sendo listada no Diret&#243;rio de Participantes;<a href="#section-6.1-3.1" class="pilcrow">¶</a>
+<li id="section-6.1-3.1">shall advertise its presence in the Open Banking Brasil ecosystem by being listed on the Directory of Participants;<a href="#section-6.1-3.1" class="pilcrow">¶</a>
 </li>
-          <li id="section-6.1-3.2">deve anunciar todos os recursos API REST do Open Banking Brasil protegidos pelo Provedor OpenID no Diret&#243;rio de Participantes;<a href="#section-6.1-3.2" class="pilcrow">¶</a>
+          <li id="section-6.1-3.2">shall advertise all Open Banking Brasil REST API resources protected by the OpenID Provider on the Directory of Participants;<a href="#section-6.1-3.2" class="pilcrow">¶</a>
 </li>
-          <li id="section-6.1-3.3">deve anunciar suporte para todos os mecanismos de assinatura, criptografia, autentica&#231;&#227;o e padr&#245;es necess&#225;rios para suportar o <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID3.html">Open Banking Brasil Financial API</a>;<a href="#section-6.1-3.3" class="pilcrow">¶</a>
+          <li id="section-6.1-3.3">shall advertise support for all signing, encryption, authentication mechanisms and standards required to support <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID3.html">Open Banking Brasil Financial API</a>;<a href="#section-6.1-3.3" class="pilcrow">¶</a>
 </li>
-          <li id="section-6.1-3.4">deve anunciar suporte para <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Dynamic Client Registration</a>;<a href="#section-6.1-3.4" class="pilcrow">¶</a>
+          <li id="section-6.1-3.4">shall advertise support for <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Dynamic Client Registration</a>;<a href="#section-6.1-3.4" class="pilcrow">¶</a>
 </li>
-          <li id="section-6.1-3.5">deve anunciar <code>mtls_endpoint_aliases</code> de acordo com a cl&#225;usula 5 <a href="https://tools.ietf.org/html/rfc8705">RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication e Certificate-Bound Access Tokens</a> o <code>token_endpoint</code>, <code>registration_endpoint</code> e <code>userinfo_endpoint</code>;<a href="#section-6.1-3.5" class="pilcrow">¶</a>
+          <li id="section-6.1-3.5">shall advertise <code>mtls_endpoint_aliases</code> as per clause 5 <a href="https://tools.ietf.org/html/rfc8705">RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens</a> the <code>token_endpoint</code>, <code>registration_endpoint</code> and <code>userinfo_endpoint</code>;<a href="#section-6.1-3.5" class="pilcrow">¶</a>
 </li>
-          <li id="section-6.1-3.6">se suportar <a href="https://tools.ietf.org/html/draft-ietf-oauth-par">OAuth 2.0 Pushed Authorisation Requests</a>, deve anunciar por meio de <a href="https://openid.net/specs/openid-connect-discovery-1_0.html">OIDD</a> <code>mtls_endpoint_aliases</code> o <code>push_authorization_request_endpoint</code>;<a href="#section-6.1-3.6" class="pilcrow">¶</a>
+          <li id="section-6.1-3.6">if supporting <a href="https://tools.ietf.org/html/draft-ietf-oauth-par">OAuth 2.0 Pushed Authorization Requests</a> shall advertise through <a href="https://openid.net/specs/openid-connect-discovery-1_0.html">OIDD</a> <code>mtls_endpoint_aliases</code> the <code>pushed_authorization_request_endpoint</code>;<a href="#section-6.1-3.6" class="pilcrow">¶</a>
 </li>
-          <li id="section-6.1-3.7">se suportar <a href="https://bitbucket.org/openid/fapi/src/master/Financial_API_WD_CIBA.md">Financial API - Client Initiated Back Channel Authentication</a>, deve anunciar atrav&#233;s de <a href="https://openid.net/specs/openid-connect-discovery-1_0.html">OIDD</a> <code>mtls_endpoint_aliases</code> o <code>backchannel_authentication_endpoint</code>;<a href="#section-6.1-3.7" class="pilcrow">¶</a>
+          <li id="section-6.1-3.7">if supporting <a href="https://bitbucket.org/openid/fapi/src/master/Financial_API_WD_CIBA.md">Financial API - Client Initiated Back Channel Authentication</a> shall advertise through <a href="https://openid.net/specs/openid-connect-discovery-1_0.html">OIDD</a> <code>mtls_endpoint_aliases</code> the <code>backchannel_authentication_endpoint</code>;<a href="#section-6.1-3.7" class="pilcrow">¶</a>
 </li>
         </ol>
 </section>
 </div>
-<div id="Client">
+<div id="client">
 <section id="section-6.2">
-        <h3 id="name-cliente">
-<a href="#section-6.2" class="section-number selfRef">6.2. </a><a href="#name-cliente" class="section-name selfRef">Cliente</a>
+        <h3 id="name-client">
+<a href="#section-6.2" class="section-number selfRef">6.2. </a><a href="#name-client" class="section-name selfRef">Client</a>
         </h3>
-<p id="section-6.2-1">O cliente deve suportar <a href="https://openid.net/specs/openid-connect-discovery-1_0.html">OpenID Connect Discovery</a> conforme exigido pelo <a href="https://openid.net/specs/openid-financial-api-part-1-1_0.html">Financial-grade API Security Profile 1.0 - Part 1: Baseline</a>.<a href="#section-6.2-1" class="pilcrow">¶</a></p>
-<p id="section-6.2-2">Al&#233;m disso, o servidor de autoriza&#231;&#227;o<a href="#section-6.2-2" class="pilcrow">¶</a></p>
+<p id="section-6.2-1">The Client shall support <a href="https://openid.net/specs/openid-connect-discovery-1_0.html">OpenID Connect Discovery</a> as required by <a href="https://openid.net/specs/openid-financial-api-part-1-1_0.html">Financial-grade API Security Profile 1.0 - Part 1: Baseline</a><a href="#section-6.2-1" class="pilcrow">¶</a></p>
+<p id="section-6.2-2">In addition, the Client<a href="#section-6.2-2" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="compact type-1" id="section-6.2-3">
-<li id="section-6.2-3.1">deve contar com servi&#231;os de descoberta do ecossistemas fornecidos apenas pelo Diret&#243;rio de Participantes;<a href="#section-6.2-3.1" class="pilcrow">¶</a>
+<li id="section-6.2-3.1">shall rely on ecosystem discovery services provided by Directory of Participants only;<a href="#section-6.2-3.1" class="pilcrow">¶</a>
 </li>
-          <li id="section-6.2-3.2">deve derivar os metadados necess&#225;rios do Authorization Server somente por meio do servi&#231;o OpenID Connect Discovery dos Authorization Servers;<a href="#section-6.2-3.2" class="pilcrow">¶</a>
+          <li id="section-6.2-3.2">shall derive necessary Authorisation Server metadata by relying on an Authorization Servers OpenID Connect Discovery services only;<a href="#section-6.2-3.2" class="pilcrow">¶</a>
 </li>
-          <li id="section-6.2-3.3">quando presente, deve usar endpoints anunciados em <code>mtls_endpoint_aliases</code> conforme a cl&#225;usula 5 <a href="https://tools.ietf.org/html/rfc8705">RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication e Certificate-Bound Access Tokens</a>;<a href="#section-6.2-3.3" class="pilcrow">¶</a>
+          <li id="section-6.2-3.3">where present, shall use endpoints advertised in <code>mtls_endpoint_aliases</code> as per clause 5 <a href="https://tools.ietf.org/html/rfc8705">RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens</a>;<a href="#section-6.2-3.3" class="pilcrow">¶</a>
 </li>
         </ol>
 </section>
 </div>
 </section>
 </div>
-<div id="Registration">
+<div id="open-banking-brasil-openid-connect-registration-provisions">
 <section id="section-7">
-      <h2 id="name-provisionamento-de-registro">
-<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-provisionamento-de-registro" class="section-name selfRef">Provisionamento de registro OpenID Connect do Open Banking Brasil</a>
+      <h2 id="name-open-banking-brasil-openid-c">
+<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-open-banking-brasil-openid-c" class="section-name selfRef">Open Banking Brasil OpenID Connect Registration Provisions</a>
       </h2>
-<div id="RegAuth">
+<div id="authorization-server-1">
 <section id="section-7.1">
-        <h3 id="name-servidor-de-autoriza231227o-2">
-<a href="#section-7.1" class="section-number selfRef">7.1. </a><a href="#name-servidor-de-autoriza231227o-2" class="section-name selfRef">Servidor de Autoriza&#231;&#227;o</a>
+        <h3 id="name-authorization-server-2">
+<a href="#section-7.1" class="section-number selfRef">7.1. </a><a href="#name-authorization-server-2" class="section-name selfRef">Authorization server</a>
         </h3>
-<p id="section-7.1-1">O servidor de autoriza&#231;&#227;o deve suportar as RFCs de Dynamic Client Registration (DCR) <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a>, Dynamic Client Management (DCM) <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a> e <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Registration</a><a href="#section-7.1-1" class="pilcrow">¶</a></p>
-<p id="section-7.1-2">Al&#233;m disso, o servidor de autoriza&#231;&#227;o<a href="#section-7.1-2" class="pilcrow">¶</a></p>
+<p id="section-7.1-1">The Authorization Server shall support the RFC RFCs Dynamic Client Registration (DCR) <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a>,  Dynamic Client Management (DCM) <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a> and <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Registration</a><a href="#section-7.1-1" class="pilcrow">¶</a></p>
+<p id="section-7.1-2">In addition, the Authorization Server<a href="#section-7.1-2" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="compact type-1" id="section-7.1-3">
-<li id="section-7.1-3.1">deve rejeitar as solicita&#231;&#245;es de registro de cliente din&#226;mico n&#227;o realizadas em uma conex&#227;o protegida com mTLS usando certificados emitidos pelo Brasil ICP (produ&#231;&#227;o) ou o Diret&#243;rio de Participantes (sandbox);<a href="#section-7.1-3.1" class="pilcrow">¶</a>
+<li id="section-7.1-3.1">shall reject dynamic client registration requests not performed over a connection secured with mutual tls using certificates issued by Brazil ICP (production) or the Directory of Participants (sandbox);<a href="#section-7.1-3.1" class="pilcrow">¶</a>
 </li>
-          <li id="section-7.1-3.2">deve validar que a solicita&#231;&#227;o cont&#233;m <em>software_statement</em> JWT assinado usando o algoritmo <code>PS256</code> emitido pelo Diret&#243;rio de Participantes do Open Banking Brasil;<a href="#section-7.1-3.2" class="pilcrow">¶</a>
+          <li id="section-7.1-3.2">shall validate that the request contains software_statement JWT signed using the <code>PS256</code> algorithim issued by the Open Banking Brasil directory of participants;<a href="#section-7.1-3.2" class="pilcrow">¶</a>
 </li>
-          <li id="section-7.1-3.3">deve validar que o <em>software_statement</em> foi emitido (iat  - <em>issued at</em>) n&#227;o mais de 5 minutos antes do pedido ser recebido;<a href="#section-7.1-3.3" class="pilcrow">¶</a>
+          <li id="section-7.1-3.3">shall validate that the <code>software_statement</code> was issued (iat) not more than 5 minutes prior to the request being received;<a href="#section-7.1-3.3" class="pilcrow">¶</a>
 </li>
-          <li id="section-7.1-3.4">deve validar que um atributo <code>jwks</code> (definida por valor) <strong>n&#227;o</strong> foi inclu&#237;do, e sim declarado como refer&#234;ncia no atributo <code>jwks_uri</code>;<a href="#section-7.1-3.4" class="pilcrow">¶</a>
+          <li id="section-7.1-3.4">shall validate that the attribute <code>jwks</code> (key set by value) was <strong>not</strong> included; but declared as a reference in the <code>jwks_uri</code> attribute;<a href="#section-7.1-3.4" class="pilcrow">¶</a>
 </li>
-          <li id="section-7.1-3.5">deve, quando informado, validar que o <code>jwks_uri</code> corresponda ao <code>software_jwks_uri</code> fornecido na declara&#231;&#227;o do software;<a href="#section-7.1-3.5" class="pilcrow">¶</a>
+          <li id="section-7.1-3.5">when the <code>jwks_uri</code> was informed, shall validate that matches the <code>software_jwks_uri</code> provided in the <code>software_statement</code>;<a href="#section-7.1-3.5" class="pilcrow">¶</a>
 </li>
-          <li id="section-7.1-3.6">deve exigir e validar que o <code>redirect_uris</code> corresponda ou contenha um subconjunto dos valores de <code>software_redirect_uris</code> fornecidos no <em>software_statement</em>;<a href="#section-7.1-3.6" class="pilcrow">¶</a>
+          <li id="section-7.1-3.6">shall require and validate that <code>redirect_uris</code> match or contain a sub set of software_redirect_uris provided in the <code>software_statement</code>;<a href="#section-7.1-3.6" class="pilcrow">¶</a>
 </li>
-          <li id="section-7.1-3.7">deve exigir e validar que todos os mecanismos de autentica&#231;&#227;o de cliente cumpram os requisitos definidos nas <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a> e <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a>, atrav&#233;s da valida&#231;&#227;o do <code>registration_access_token</code> e, como conex&#227;o segura, da cadeia de certificados confi&#225;veis ICP-Brasil.<a href="#section-7.1-3.7" class="pilcrow">¶</a>
+          <li id="section-7.1-3.7">shall require and validate that all client authentication mechanism adhere to the requirements defined in <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a> and <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a>, validating the <code>registration_access_token</code> and using a secure connection, protected by certificate Issued from chain of certificates linked to ICP-Brasil;<a href="#section-7.1-3.7" class="pilcrow">¶</a>
 </li>
           <li id="section-7.1-3.8">
-            <em>removido</em>;<a href="#section-7.1-3.8" class="pilcrow">¶</a>
+            <em>removed</em>;<a href="#section-7.1-3.8" class="pilcrow">¶</a>
 </li>
-          <li id="section-7.1-3.9">deve validar se os escopos solicitados s&#227;o adequados para as permiss&#245;es regulat&#243;rias autorizadas da institui&#231;&#227;o e contidas no _software_statement. A rela&#231;&#227;o de permiss&#245;es regulat&#243;rias e os escopos correspondentes est&#225; descrita nas se&#231;&#245;es a seguir.<a href="#section-7.1-3.9" class="pilcrow">¶</a>
+          <li id="section-7.1-3.9">shall validate that the requested scopes are adequate for accredited institutions and their regulatory roles and contained in the <code>software_statement</code>. The list of regulatory permissions and the corresponding scopes are described in the following sections;<a href="#section-7.1-3.9" class="pilcrow">¶</a>
 </li>
-          <li id="section-7.1-3.10">deve, sempre que poss&#237;vel, validar os metadados declarados pelo cliente em rela&#231;&#227;o aos metadados fornecidos no <em>software_statement</em>, adotando os valores presentes no SSA com preced&#234;ncia.<a href="#section-7.1-3.10" class="pilcrow">¶</a>
+          <li id="section-7.1-3.10">where possible, shall compare client metadata asserted by a client toward the metadata provided into  <code>software_statement</code>, choosing the values present in the SSA with precedence;<a href="#section-7.1-3.10" class="pilcrow">¶</a>
 </li>
-          <li id="section-7.1-3.11">deve aceitar todos os nomes x.500 AttributeType definidas no <em>Distinguished Name</em> dos Perfis de Certificado x.509 definidos em <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html">Open Banking Brasil x.509 Certificate Standards</a>;<a href="#section-7.1-3.11" class="pilcrow">¶</a>
+          <li id="section-7.1-3.11">shall accept all x.500 AttributeType name strings defined in the Distinguished Name of the x.509 Certificate Profiles defined in <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html">Open Banking Brasil x.509 Certificate Standards</a>;<a href="#section-7.1-3.11" class="pilcrow">¶</a>
 </li>
-          <li id="section-7.1-3.12">se for compat&#237;vel com o mecanismo de autentica&#231;&#227;o do cliente <code>tls_client_auth</code>, conforme definido em <a href="https://tools.ietf.org/html/rfc8705">RFC8705</a>, somente deve aceitar <code>tls_client_auth_subject_dn</code> como uma indica&#231;&#227;o do valor do atributo <em>subject</em> do certificado, conforme definido na cl&#225;usula 2.1.2 <a href="https://tools.ietf.org/html/rfc8705">RFC8705</a>;<a href="#section-7.1-3.12" class="pilcrow">¶</a>
-</li>
-          <li id="section-7.1-3.13">Os valores dos campos <em>UID</em> e <em>OU</em> do certificado devem coincidir com os enviados no SSA. O campo <em>OU</em> deve conter o valor do campo <em>org_id</em> do SSA e campo <em>UID</em> deve conter o valor do campo <em>software_id</em> do SSA.<a href="#section-7.1-3.13" class="pilcrow">¶</a>
+          <li id="section-7.1-3.12">if supporting <code>tls_client_auth</code> client authentication mechanism as defined in <a href="https://tools.ietf.org/html/rfc8705">RFC8705</a> shall only accept <code>tls_client_auth_subject_dn</code>  as an indication of the certificate subject value as defined in clause 2.1.2 <a href="https://tools.ietf.org/html/rfc8705">RFC8705</a>;<a href="#section-7.1-3.12" class="pilcrow">¶</a>
 </li>
         </ol>
-<p id="section-7.1-4">Estas disposi&#231;&#245;es aplicam-se igualmente ao processamento de pedidos <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a>, <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a> e <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Registration</a><a href="#section-7.1-4" class="pilcrow">¶</a></p>
-<div id="Server">
+<p id="section-7.1-4">These provisions apply equally to the processing of <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a>, <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a> and <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Registration</a> requests<a href="#section-7.1-4" class="pilcrow">¶</a></p>
+<div id="applying-server-defaults">
 <section id="section-7.1.1">
-          <h4 id="name-aplicando-server-defaults">
-<a href="#section-7.1.1" class="section-number selfRef">7.1.1. </a><a href="#name-aplicando-server-defaults" class="section-name selfRef">Aplicando Server Defaults</a>
+          <h4 id="name-applying-server-defaults">
+<a href="#section-7.1.1" class="section-number selfRef">7.1.1. </a><a href="#name-applying-server-defaults" class="section-name selfRef">Applying Server Defaults</a>
           </h4>
-<p id="section-7.1.1-1">Quando as propriedades de uma solicita&#231;&#227;o DCR n&#227;o est&#227;o inclu&#237;das e n&#227;o s&#227;o obrigat&#243;rias na especifica&#231;&#227;o, o Authorization Server deve aplicar os padr&#245;es do cliente da seguinte maneira:<a href="#section-7.1.1-1" class="pilcrow">¶</a></p>
+<p id="section-7.1.1-1">Where properties of a DCR request are not included and are not mandatory in the specification the Authorisation Server shall apply client defaults in the following manner<a href="#section-7.1.1-1" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="compact type-1" id="section-7.1.1-2">
-<li id="section-7.1.1-2.1">deve selecionar e aplicar o algoritmo de criptografia e a escolha da cifra a partir dos conjuntos mais recomendados de cifra da IANA que s&#227;o suportados pelo Servidor de Autoriza&#231;&#227;o;<a href="#section-7.1.1-2.1" class="pilcrow">¶</a>
+<li id="section-7.1.1-2.1">shall select and apply the encryption algorithm and cipher choice from the most recommended of the IANA cipher suites that is supported by the Authorisation Server;<a href="#section-7.1.1-2.1" class="pilcrow">¶</a>
 </li>
-            <li id="section-7.1.1-2.2">deve preencher <em>defaults</em> a partir de valores da afirma&#231;&#227;o de <em>software_statement</em>, sempre que poss&#237;vel;<a href="#section-7.1.1-2.2" class="pilcrow">¶</a>
+            <li id="section-7.1.1-2.2">shall populate defaults from values within the <code>software_statement</code> assertion where possible;<a href="#section-7.1.1-2.2" class="pilcrow">¶</a>
 </li>
-            <li id="section-7.1.1-2.3">deve conceder ao cliente permiss&#227;o para o conjunto completo de escopos potenciais com base nas permiss&#245;es regulat&#243;rias de softwares inclu&#237;das no <em>software_statement</em>;<a href="#section-7.1.1-2.3" class="pilcrow">¶</a>
+            <li id="section-7.1.1-2.3">shall grant the client permission to the complete set of potential scopes based on the softwares regulatory permissions included in the <code>software_statement</code>;<a href="#section-7.1.1-2.3" class="pilcrow">¶</a>
 </li>
           </ol>
 </section>
 </div>
-<div id="Certificate">
+<div id="certificate-distinguished-name-parsing">
 <section id="section-7.1.2">
-          <h4 id="name-an225lise-do-distinguished-">
-<a href="#section-7.1.2" class="section-number selfRef">7.1.2. </a><a href="#name-an225lise-do-distinguished-" class="section-name selfRef">An&#225;lise do Distinguished Name do Certificado</a>
+          <h4 id="name-certificate-distinguished-n">
+<a href="#section-7.1.2" class="section-number selfRef">7.1.2. </a><a href="#name-certificate-distinguished-n" class="section-name selfRef">Certificate Distinguished Name Parsing</a>
           </h4>
-<p id="section-7.1.2-1">A cl&#225;usula 3 do <a href="https://www.rfc-editor.org/rfc/rfc4514">Lightweight Directory Access Protocol (LDAP): String Representation of Distinguished Names</a> define os OIDs obrigat&#243;rios cujas as <em>strings</em> do AttributeType (descritores) devem ser reconhecidos pelos implementadores. Esta lista obrigat&#243;ria n&#227;o inclui v&#225;rios dos OIDs definidos em <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html">Open Banking Brasil x.509 Certificate Standards</a>, nem existe um mecanismo definido para os Servidores de Autoriza&#231;&#227;o publicarem informa&#231;&#245;es sobre o formato que eles esperam de uma Solicita&#231;&#227;o Din&#226;mica de Registro do Cliente (<em>Dynamic Client Registrarion</em>) que inclui um <code>tls_client_auth_subject_dn</code>.<a href="#section-7.1.2-1" class="pilcrow">¶</a></p>
-<p id="section-7.1.2-2">Para resolver essa ambiguidade, o Servidor de Autoriza&#231;&#227;o deve aceitar exclusivamente os AttributeType (descritores) definidas no &#250;ltimo par&#225;grafo da cl&#225;usula 3 <a href="https://www.rfc-editor.org/rfc/rfc4514">RFC4514</a> em formato string,  tamb&#233;m deve aceitar em formato OID, com seus valores em ASN.1, todos os AttributeTypes definidos no Distinguished Name <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html">Open Banking Brasil x.509 Certificate Standards</a> ou adicionados pela Autoridade Certificadora.<a href="#section-7.1.2-2" class="pilcrow">¶</a></p>
-<p id="section-7.1.2-3">Em caso de n&#227;o atendimento destes requisitos o Servidor de Autoriza&#231;&#227;o dever&#225; rejeitar o registro.<a href="#section-7.1.2-3" class="pilcrow">¶</a></p>
-<p id="section-7.1.2-4">Segue na tabela abaixo como deve ser feita a decodifica&#231;&#227;o:<a href="#section-7.1.2-4" class="pilcrow">¶</a></p>
+<p id="section-7.1.2-1">Clause 3 of <a href="https://www.rfc-editor.org/rfc/rfc4514">Lightweight Directory Access Protocol (LDAP): String Representation of Distinguished Names</a> defines the mandatory OIDs whose AttributeType strings (descriptors) must be recognized by implementers. This mandatory list does not include several of the OIDs defined in <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html">Open Banking Brasil x.509 Certificate Standards</a> nor is there a defined mechanism for Authorisation Servers to publish  information regarding the format that they would expect a Dynamic Client Registration request that includes a <code>tls_client_auth_subject_dn</code> to be presented in.<a href="#section-7.1.2-1" class="pilcrow">¶</a></p>
+<p id="section-7.1.2-2">To address this ambiguity, the Authorization Server must accept only the AttributeTypes name strings (descriptors) defined in the last paragraph of clause 3 <a href="https://www.rfc-editor.org/rfc/rfc4514">RFC4514</a> in string format, it shall also accept in OID format, with their values in ASN.1, all the AttributeTypes defined in Distinguished Name <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html">Open Banking Brasil x.509 Certificate Standards</a> or added by the Certificate Authority.<a href="#section-7.1.2-2" class="pilcrow">¶</a></p>
+<p id="section-7.1.2-3">In case of non-compliance with these requirements, the Authorization Server shall reject the registration.<a href="#section-7.1.2-3" class="pilcrow">¶</a></p>
+<p id="section-7.1.2-4">In terms of format, follow below how decoding should be done:<a href="#section-7.1.2-4" class="pilcrow">¶</a></p>
 <ul class="compact">
-<li class="compact" id="section-7.1.2-5.1">Obtenha na ordem reversa os atributos do certificado<a href="#section-7.1.2-5.1" class="pilcrow">¶</a>
+<li class="compact" id="section-7.1.2-5.1">Start backwards, the order is reversed from what is entered.<a href="#section-7.1.2-5.1" class="pilcrow">¶</a>
 </li>
-            <li class="compact" id="section-7.1.2-5.2">Concatene cada RDN (RelativeDistinguishedName) com uma virgula (',')<a href="#section-7.1.2-5.2" class="pilcrow">¶</a>
+            <li class="compact" id="section-7.1.2-5.2">Append each RDN (RelativeDistinguishedName) segment with a comma ','.<a href="#section-7.1.2-5.2" class="pilcrow">¶</a>
 </li>
-            <li class="compact" id="section-7.1.2-5.3">Use as strings da RFC (CN, L, ST, O, OU, C, Street, DC, UID) com o valor dos seus atribudos em "printable string", ou seja leg&#237;vel para humanos + os OIDs dos atributos definidos nesta especifica&#231;&#227;o para uso no OBB (businessCategory=OID 2.5.4.15,jurisdictionCountryName=OID: 1.3.6.1.4.1.311.60.2.1.3, serialNumber=2.5.4.5) com o valor dos seus atributos em formato ASN.1"<a href="#section-7.1.2-5.3" class="pilcrow">¶</a>
+            <li class="compact" id="section-7.1.2-5.3">Use the RFC strings (CN, L, ST, O, OR, C, Street, DC, UID) with the value of their attributes in "printable string", ie human-readable + the OIDs of the attributes defined in this specification for use in Distinguished Name <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html">Open Banking Brasil x.509 Certificate Standards</a> (businessCategory=OID 2.5.4.15,jurisdictionCountryName=OID: 1.3.6.1.4.1.311.60.2.1.3, serialNumber=OID:2.5.4.5) with the value of your attributes in ASN.1 format.<a href="#section-7.1.2-5.3" class="pilcrow">¶</a>
 </li>
           </ul>
-<p id="section-7.1.2-6">Seguem abaixo exemplos para os atributos obrigat&#243;rios da CAs atualmente ativas:<a href="#section-7.1.2-6" class="pilcrow">¶</a></p>
+<p id="section-7.1.2-6">Examples:<a href="#section-7.1.2-6" class="pilcrow">¶</a></p>
 <table class="center" id="table-1">
             <caption><a href="#table-1" class="selfRef">Table 1</a></caption>
 <thead>
@@ -1614,39 +1613,39 @@ li > p:last-of-type {
 </div>
 </section>
 </div>
-<div id="Regs">
+<div id="regulatory-roles-to-openid-and-oauth-2-0-mappings">
 <section id="section-7.2">
-        <h3 id="name-fun231245es-regulat243rias-">
-<a href="#section-7.2" class="section-number selfRef">7.2. </a><a href="#name-fun231245es-regulat243rias-" class="section-name selfRef">Fun&#231;&#245;es regulat&#243;rias para mapeamentos OpenID e OAuth 2.0</a>
+        <h3 id="name-regulatory-roles-to-openid-">
+<a href="#section-7.2" class="section-number selfRef">7.2. </a><a href="#name-regulatory-roles-to-openid-" class="section-name selfRef">Regulatory Roles to OpenID and OAuth 2.0 Mappings</a>
         </h3>
-<p id="section-7.2-1">Para participar do ecossistema do Open Banking, as institui&#231;&#245;es credenciadas devem se cadastrar no Diret&#243;rio de Participantes de acordo com seus pap&#233;is regulat&#243;rios. Essas fun&#231;&#245;es refletem a autoriza&#231;&#227;o do Banco Central para as institui&#231;&#245;es e, consequentemente, as APIs que podem utilizar.<a href="#section-7.2-1" class="pilcrow">¶</a></p>
-<p id="section-7.2-2">A tabela a seguir descreve as fun&#231;&#245;es regulat&#243;rias do Open Banking e o mapeamento de escopos do OAuth 2.0 relacionado. Se os escopos forem omitidos durante o processo de DCR, o Servidor de Autoriza&#231;&#227;o deve conceder o conjunto completo de escopos potenciais com base nas fun&#231;&#245;es regulat&#243;rias registradas para o banco, conforme descrito na se&#231;&#227;o Server Defaults.<a href="#section-7.2-2" class="pilcrow">¶</a></p>
+<p id="section-7.2-1">To participate in the Open Banking ecosystem, accredited institutions must register themselves in the directory of participants according to their regulatory roles. Those roles reflect the institutions' authorization from the Central Bank and, consequently, the APIs they are allowed to use.<a href="#section-7.2-1" class="pilcrow">¶</a></p>
+<p id="section-7.2-2">The following table describes the regulatory roles for Open Banking and the related OAuth 2.0 scopes mapping. If the scopes are omitted during the DCR process, the authorization server shall grant the complete set of potential scopes based on the registering bank's regulatory roles, as described in the Server Defaults section.<a href="#section-7.2-2" class="pilcrow">¶</a></p>
 <table class="center" id="table-2">
           <caption><a href="#table-2" class="selfRef">Table 2</a></caption>
 <thead>
             <tr>
-              <th class="text-left" rowspan="1" colspan="1">Papel Regulador</th>
-              <th class="text-left" rowspan="1" colspan="1">Descri&#231;&#227;o</th>
-              <th class="text-left" rowspan="1" colspan="1">Escopos Permitidos</th>
-              <th class="text-left" rowspan="1" colspan="1">Fase-alvo</th>
+              <th class="text-left" rowspan="1" colspan="1">Regulatory Role</th>
+              <th class="text-left" rowspan="1" colspan="1">Description</th>
+              <th class="text-left" rowspan="1" colspan="1">Allowed Scopes</th>
+              <th class="text-left" rowspan="1" colspan="1">Target Phase</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">DADOS</td>
-              <td class="text-left" rowspan="1" colspan="1">Institui&#231;&#227;o transmissora / receptora de dados (AISP)</td>
+              <td class="text-left" rowspan="1" colspan="1">Institui<span class="unicode">çã (U+00E7 U+00E3)</span>o transmissora ou receptora de dados (AISP)</td>
               <td class="text-left" rowspan="1" colspan="1">openid accounts credit-cards-accounts consents customers invoice-financings financings loans unarranged-accounts-overdraft resources</td>
               <td class="text-left" rowspan="1" colspan="1">Phase 2</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">PAGTO</td>
-              <td class="text-left" rowspan="1" colspan="1">Institui&#231;&#227;o prestadora de servi&#231;o de inicia&#231;&#227;o de pagamentos (PISP)</td>
+              <td class="text-left" rowspan="1" colspan="1">Institui<span class="unicode">çã (U+00E7 U+00E3)</span>o prestadora de servi&#231;o de inicia<span class="unicode">çã (U+00E7 U+00E3)</span>o de pagamentos (PISP)</td>
               <td class="text-left" rowspan="1" colspan="1">openid payments</td>
               <td class="text-left" rowspan="1" colspan="1">Phase 3</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">CONTA</td>
-              <td class="text-left" rowspan="1" colspan="1">Institui&#231;&#227;o detentora de conta (ASPSP)</td>
+              <td class="text-left" rowspan="1" colspan="1">Institui<span class="unicode">çã (U+00E7 U+00E3)</span>o detentora de conta (ASPSP)</td>
               <td class="text-left" rowspan="1" colspan="1">openid</td>
               <td class="text-left" rowspan="1" colspan="1">Phase 3</td>
             </tr>
@@ -1658,31 +1657,59 @@ li > p:last-of-type {
             </tr>
           </tbody>
         </table>
-<p id="section-7.2-4">&#201; necess&#225;rio validar as roles ativas no <em>software_statement</em> da aplica&#231;&#227;o. Na valida&#231;&#227;o dessa informa&#231;&#227;o deve ser utilizado o campo _software_statement_roles, e deve ser verificado se as roles listadas est&#227;o ativas.<a href="#section-7.2-4" class="pilcrow">¶</a></p>
+<p id="section-7.2-4">Validate the active roles in the application's <em>software_statement</em>. The information validation, shall use the field _software_statement_roles, and shall verify if their roles are actives.<a href="#section-7.2-4" class="pilcrow">¶</a></p>
+<div id="implementers-note">
+<section id="section-7.2.1">
+          <h4 id="name-implementers-note">
+<a href="#section-7.2.1" class="section-number selfRef">7.2.1. </a><a href="#name-implementers-note" class="section-name selfRef">Implementers Note</a>
+          </h4>
+<p id="section-7.2.1-1">In line with guidance from the IETF and the direction of travel for fine-grained consent management. The obligation falls to the Authorisation Server to ensure that there is sufficient scope conveyed in an access token necessary to fulfill the Permissions conveyed in the Consent Request. This principle and requirement is reflected in the forthcoming Grant Management API.<a href="#section-7.2.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="registro_tls_client_auth">
+</section>
+</div>
+<div id="regulatory-roles-to-dynamic-oauth-2-0-scope-mappings">
 <section id="section-7.3">
-        <h3 id="name-registro-do-cliente">
-<a href="#section-7.3" class="section-number selfRef">7.3. </a><a href="#name-registro-do-cliente" class="section-name selfRef">Registro do Cliente</a>
+        <h3 id="name-regulatory-roles-to-dynamic">
+<a href="#section-7.3" class="section-number selfRef">7.3. </a><a href="#name-regulatory-roles-to-dynamic" class="section-name selfRef">Regulatory Roles to dynamic OAuth 2.0 scope Mappings</a>
         </h3>
-<p id="section-7.3-1">No processo de registro do cliente, utilizando-se o m&#233;todo de autentica&#231;&#227;o <em>tls_client_auth</em>, o cliente deve encaminhar o campo _tls_client_auth_subject_dn_ com os AttibuteTypes(Descritores) em formato definido no item 7.1.2. Em caso de n&#227;o aderencia a este padr&#227;o o registro ser&#225; rejeitado.<a href="#section-7.3-1" class="pilcrow">¶</a></p>
+<table class="center" id="table-3">
+          <caption><a href="#table-3" class="selfRef">Table 3</a></caption>
+<thead>
+            <tr>
+              <th class="text-left" rowspan="1" colspan="1">Regulatory Role</th>
+              <th class="text-left" rowspan="1" colspan="1">Allowed Scopes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">DADOS</td>
+              <td class="text-left" rowspan="1" colspan="1">consent:{ConsentId}</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">PAGTO</td>
+              <td class="text-left" rowspan="1" colspan="1">consent:{ConsentId}</td>
+            </tr>
+          </tbody>
+        </table>
 </section>
 </div>
 </section>
 </div>
-<div id="SSA">
+<div id="software-statement">
 <section id="section-8">
-      <h2 id="name-declara231227o-de-software">
-<a href="#section-8" class="section-number selfRef">8. </a><a href="#name-declara231227o-de-software" class="section-name selfRef">Declara&#231;&#227;o de Software</a>
+      <h2 id="name-software-statement">
+<a href="#section-8" class="section-number selfRef">8. </a><a href="#name-software-statement" class="section-name selfRef">Software Statement</a>
       </h2>
-<p id="section-8-1">Uma declara&#231;&#227;o de software (<em>software_statement</em>) &#233; um JSON Web Token (JWT) <a href="https://tools.ietf.org/html/rfc7519">RFC7519</a> que afirma valores de metadados sobre o software cliente como um todo. Na estrutura do Open Banking Brasil, esse <em>software_statement</em> &#233; assinado pelo Diret&#243;rio de Participantes, e sua assinatura DEVE ser validada pelos Servidores de Autorizacao usando as chaves p&#250;blicas dispon&#237;veis na se&#231;&#227;o a seguir.<a href="#section-8-1" class="pilcrow">¶</a></p>
-<div id="Claims">
+<blockquote id="section-8-1">
+        <p id="section-8-1.1">A software statement is a JSON Web Token (JWT) <a href="https://tools.ietf.org/html/rfc7519">RFC7519</a> that asserts metadata values about the client software as a bundle.<a href="#section-8-1.1" class="pilcrow">¶</a></p>
+</blockquote>
+<div id="software-statement-claims">
 <section id="section-8.1">
-        <h3 id="name-atributos-da-declara231227o">
-<a href="#section-8.1" class="section-number selfRef">8.1. </a><a href="#name-atributos-da-declara231227o" class="section-name selfRef">Atributos da Declara&#231;&#227;o de Software (Claims)</a>
+        <h3 id="name-software-statement-claims">
+<a href="#section-8.1" class="section-number selfRef">8.1. </a><a href="#name-software-statement-claims" class="section-name selfRef">Software Statement Claims</a>
         </h3>
-<p id="section-8.1-1">O exemplo a seguir cont&#233;m todos os atributos atualmente inclu&#237;dos em um <em>software_statement</em>:<a href="#section-8.1-1" class="pilcrow">¶</a></p>
+<p id="section-8.1-1">The following example contains all of the claims currently included in a software statement<a href="#section-8.1-1" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-8.1-2">
 <pre>{
   "software_mode": "Live",
@@ -1764,10 +1791,10 @@ li > p:last-of-type {
 </div>
 </section>
 </div>
-<div id="dcr">
+<div id="dynamic-client-registration-request-processing">
 <section id="section-9">
-      <h2 id="name-processamento-de-solicita23">
-<a href="#section-9" class="section-number selfRef">9. </a><a href="#name-processamento-de-solicita23" class="section-name selfRef">Processamento de solicita&#231;&#227;o de registro de cliente din&#226;mico</a>
+      <h2 id="name-dynamic-client-registration">
+<a href="#section-9" class="section-number selfRef">9. </a><a href="#name-dynamic-client-registration" class="section-name selfRef">Dynamic Client Registration Request Processing</a>
       </h2>
 <figure id="figure-1">
         <div class="alignLeft art-svg artwork" id="section-9-1.1">
@@ -1891,13 +1918,13 @@ li > p:last-of-type {
           </svg>
         </div>
 <figcaption><a href="#figure-1" class="selfRef">Figure 1</a></figcaption></figure>
-<div id="exampleDcr">
+<div id="posting-a-request-with-a-software-statement">
 <section id="section-9.1">
-        <h3 id="name-enviar-uma-solicita231227o-">
-<a href="#section-9.1" class="section-number selfRef">9.1. </a><a href="#name-enviar-uma-solicita231227o-" class="section-name selfRef">Enviar uma solicita&#231;&#227;o com uma declara&#231;&#227;o de software</a>
+        <h3 id="name-posting-a-request-with-a-so">
+<a href="#section-9.1" class="section-number selfRef">9.1. </a><a href="#name-posting-a-request-with-a-so" class="section-name selfRef">Posting a request with a software statement</a>
         </h3>
-<p id="section-9.1-1">Este exemplo inclui v&#225;rios campos opcionais, alguns dos quais podem n&#227;o ser aplic&#225;veis a algumas implanta&#231;&#245;es. Para um guia completo dos atributos e sua obrigatoriedade, consultar o Swagger DCR <a href="https://raw.githubusercontent.com/OpenBanking-Brasil/specs-seguranca/main/dcr_review/dcr-dcm-swagger.yaml">OBB-DCR/DCM-Swagger</a>.
-A quebra de linha dentro dos valores s&#227;o apenas para fins de exibi&#231;&#227;o.<a href="#section-9.1-1" class="pilcrow">¶</a></p>
+<p id="section-9.1-1">This example includes various optional fields, some of which may not be applicable to some deployments. For a complete guide to the attributes and their requirements, consult the Swagger DCR/DCM link: <a href="https://raw.githubusercontent.com/OpenBanking-Brasil/specs-seguranca/main/dcr_review/dcr-dcm-swagger.yaml">OBB-DCR/DCM-Swagger</a> .
+Line wraps within values are for display purposes only.<a href="#section-9.1-1" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-9.1-2">
 <pre>POST /reg HTTP/1.1
 Host: auth.raidiam.com
@@ -1939,69 +1966,66 @@ Content-Type: application/json
 </div>
 </section>
 </div>
-<div id="keystore">
+<div id="open-banking-brasil-ssa-key-store-and-issuer-details">
 <section id="section-9.2">
         <h3 id="name-open-banking-brasil-ssa-key">
-<a href="#section-9.2" class="section-number selfRef">9.2. </a><a href="#name-open-banking-brasil-ssa-key" class="section-name selfRef">Open Banking Brasil SSA Key Store e detalhes do emissor</a>
+<a href="#section-9.2" class="section-number selfRef">9.2. </a><a href="#name-open-banking-brasil-ssa-key" class="section-name selfRef">Open Banking Brasil SSA Key Store and Issuer Details</a>
         </h3>
-<p id="section-9.2-1">As links a seguir apontam para as chaves p&#250;blicas do Diret&#243;rio de Participantes, e devem ser usadas para verificar a validadade da assinatura dos <em>software_statements</em> apresentados durante o processo de registro de cliente.<a href="#section-9.2-1" class="pilcrow">¶</a></p>
-<p id="section-9.2-2"><strong>Produc&#227;o</strong><a href="#section-9.2-2" class="pilcrow">¶</a></p>
-<p id="section-9.2-3"><a href="https://keystore.directory.openbankingbrasil.org.br/openbanking.jwks">https://keystore.directory.openbankingbrasil.org.br/openbanking.jwks</a><a href="#section-9.2-3" class="pilcrow">¶</a></p>
-<p id="section-9.2-4">Emissor do Open Banking Open Banking Brasil SSA de produ&#231;&#227;o<a href="#section-9.2-4" class="pilcrow">¶</a></p>
-<p id="section-9.2-5"><strong>Sandbox</strong><a href="#section-9.2-5" class="pilcrow">¶</a></p>
-<p id="section-9.2-6"><a href="https://keystore.sandbox.directory.openbankingbrasil.org.br/openbanking.jwks">https://keystore.sandbox.directory.openbankingbrasil.org.br/openbanking.jwks</a><a href="#section-9.2-6" class="pilcrow">¶</a></p>
-<p id="section-9.2-7">Emissor do Open Banking Open Banking Brasil SSA de sandbox<a href="#section-9.2-7" class="pilcrow">¶</a></p>
+<p id="section-9.2-1"><strong>Production</strong><a href="#section-9.2-1" class="pilcrow">¶</a></p>
+<p id="section-9.2-2"><a href="https://keystore.directory.openbankingbrasil.org.br/openbanking.jwks">https://keystore.directory.openbankingbrasil.org.br/openbanking.jwks</a><a href="#section-9.2-2" class="pilcrow">¶</a></p>
+<p id="section-9.2-3">Open Banking Open Banking Brasil production SSA issuer<a href="#section-9.2-3" class="pilcrow">¶</a></p>
+<p id="section-9.2-4"><strong>Sandbox</strong><a href="#section-9.2-4" class="pilcrow">¶</a></p>
+<p id="section-9.2-5"><a href="https://keystore.sandbox.directory.openbankingbrasil.org.br/openbanking.jwks">https://keystore.sandbox.directory.openbankingbrasil.org.br/openbanking.jwks</a><a href="#section-9.2-5" class="pilcrow">¶</a></p>
+<p id="section-9.2-6">Open Banking Open Banking Brasil sandbox SSA issuer<a href="#section-9.2-6" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="dcr-dcm">
+<div id="about-authentication-and-authorization-mechanisms-for-dcr-and-dcm-services">
 <section id="section-9.3">
-        <h3 id="name-sobre-os-mecanismos-de-aute">
-<a href="#section-9.3" class="section-number selfRef">9.3. </a><a href="#name-sobre-os-mecanismos-de-aute" class="section-name selfRef">Sobre os mecanismos de autentica&#231;&#227;o e autoriza&#231;&#227;o dos servi&#231;os de DCR e DCM</a>
+        <h3 id="name-about-authentication-and-au">
+<a href="#section-9.3" class="section-number selfRef">9.3. </a><a href="#name-about-authentication-and-au" class="section-name selfRef">About authentication and authorization mechanisms for DCR and DCM services</a>
         </h3>
-<p id="section-9.3-1">Por serem servi&#231;os auxiliares ao fluxo principal do Open Banking Brasil, os servi&#231;os de registro e manuten&#231;&#227;o din&#226;mica de clientes n&#227;o utilizam os mesmos mecanismos de controle de acesso. Por exemplo: n&#227;o &#233; poss&#237;vel exigir um <em>access_token</em> OAuth 2.0 de uma aplica&#231;&#227;o cliente que ainda n&#227;o est&#225; registrada na institui&#231;&#227;o transmissora.
-Para estender as <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a> e <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a>, que recomendam mecanismos m&#237;nimos para autentica&#231;&#227;o dos seus servi&#231;os, as institui&#231;&#245;es que suportam os fluxos de registro e manuten&#231;&#227;o din&#226;mica de clientes devem implementar em seus Servidores de Autoriza&#231;&#227;o os controles a seguir:<a href="#section-9.3-1" class="pilcrow">¶</a></p>
-<div id="post-register">
+<p id="section-9.3-1">As they are auxiliary services to the main flow of Open Banking Brasil, the dynamic registration and maintenance services for clients cannot use the exact access control mechanisms.  For example, it is not possible to require an OAuth 2.0 <em>access_token</em> from a client application that isn't registered yet with the transmitting institution.<a href="#section-9.3-1" class="pilcrow">¶</a></p>
+<p id="section-9.3-2">To extend <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a> and <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a>, which recommend minimum mechanisms for authentication of their services, institutions that support the registration flows and dynamic maintenance of clients must implement the following controls:<a href="#section-9.3-2" class="pilcrow">¶</a></p>
+<div id="client-registration-post-register">
 <section id="section-9.3.1">
-          <h4 id="name-registro-de-cliente-post-re">
-<a href="#section-9.3.1" class="section-number selfRef">9.3.1. </a><a href="#name-registro-de-cliente-post-re" class="section-name selfRef">Registro de cliente - POST /register</a>
+          <h4 id="name-client-registration-post-re">
+<a href="#section-9.3.1" class="section-number selfRef">9.3.1. </a><a href="#name-client-registration-post-re" class="section-name selfRef">Client registration - POST /register</a>
           </h4>
 <ol start="1" type="1" class="compact type-1" id="section-9.3.1-1">
-<li id="section-9.3.1-1.1">validar que o certificado apresentado pela aplica&#231;&#227;o cliente &#233; subordinado &#224;s cadeias do ICP-Brasil definidas no Padr&#227;o de Certificados do Open Banking Brasil;<a href="#section-9.3.1-1.1" class="pilcrow">¶</a>
+<li id="section-9.3.1-1.1">validate that the certificate presented by the client application is subordinate to the ICP-Brasil chains defined in the Open Banking Brasil Certificates Standard;<a href="#section-9.3.1-1.1" class="pilcrow">¶</a>
 </li>
-            <li id="section-9.3.1-1.2">assegurar que a assinatura do <em>software_statement</em> apresentado pela aplica&#231;&#227;o cliente durante o registro tenha sido feita pelo Diret&#243;rio de Participantes atrav&#233;s das chaves p&#250;blicas descritas na se&#231;&#227;o anterior;<a href="#section-9.3.1-1.2" class="pilcrow">¶</a>
+            <li id="section-9.3.1-1.2">ensure that the signature of the <code>software_statement</code>_ presented by the client application during registration has been made by the Directory of Participants using the public keys described in the previous section;<a href="#section-9.3.1-1.2" class="pilcrow">¶</a>
 </li>
-            <li id="section-9.3.1-1.3">assegurar que o <em>software_statement</em> apresentado pela aplica&#231;&#227;o cliente durante o registro corresponda &#224; mesma institui&#231;&#227;o do certificado de cliente apresentado, validando-o atrav&#233;s dos atributos que trazem <code>organization_id</code> no certificado X.509.<a href="#section-9.3.1-1.3" class="pilcrow">¶</a>
-</li>
-            <li id="section-9.3.1-1.4">emitir, na resposta do registro, um <code>registration_access_token</code> para ser usado como token de autentica&#231;&#227;o nas opera&#231;&#245;es de manuten&#231;&#227;o da aplica&#231;&#227;o cliente registrada, seguindo as especifica&#231;&#245;es descritas na <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a>.<a href="#section-9.3.1-1.4" class="pilcrow">¶</a>
+            <li id="section-9.3.1-1.3">ensure that the <code>software_statement</code> presented by the client application during registration corresponds to the same institution as the client certificate presented, validating it through the attributes that bring <code>organization_id</code> in the X.509 certificate.<a href="#section-9.3.1-1.3" class="pilcrow">¶</a>
 </li>
           </ol>
 </section>
 </div>
-<div id="get-put-delete">
+<div id="client-maintenance-get-register-put-register-delete-register">
 <section id="section-9.3.2">
-          <h4 id="name-manuten231227o-de-cliente-g">
-<a href="#section-9.3.2" class="section-number selfRef">9.3.2. </a><a href="#name-manuten231227o-de-cliente-g" class="section-name selfRef">Manuten&#231;&#227;o de cliente - GET /register - PUT /register - DELETE /register</a>
+          <h4 id="name-client-maintenance-get-regi">
+<a href="#section-9.3.2" class="section-number selfRef">9.3.2. </a><a href="#name-client-maintenance-get-regi" class="section-name selfRef">Client Maintenance - GET /register - PUT /register - DELETE /register</a>
           </h4>
 <ol start="1" type="1" class="compact type-1" id="section-9.3.2-1">
-<li id="section-9.3.2-1.1">validar que o certificado apresentado pela aplica&#231;&#227;o cliente &#233; subordinado &#224;s cadeias do ICP-Brasil definidas no Padr&#227;o de Certificados do Open Banking Brasil;<a href="#section-9.3.2-1.1" class="pilcrow">¶</a>
+<li id="section-9.3.2-1.1">validate that the certificate presented by the client application is subordinate to the ICP-Brasil chains defined in the Open Banking Brasil Certificates Standard;<a href="#section-9.3.2-1.1" class="pilcrow">¶</a>
 </li>
-            <li id="section-9.3.2-1.2">validar a presen&#231;a e a correspond&#234;ncia do header Bearer <code>Authorization</code> contendo o valor do atributo <code>registration_access_token</code> retornado durante o registro do cliente correspondente.<a href="#section-9.3.2-1.2" class="pilcrow">¶</a>
+            <li id="section-9.3.2-1.2">Validate the presence and matching of the Bearer header <code>Authorization</code> containing the value of the <code>registration_access_token</code> attribute returned during registration of the corresponding client.<a href="#section-9.3.2-1.2" class="pilcrow">¶</a>
 </li>
           </ol>
-<p id="section-9.3.2-2"><em>Observa&#231;&#227;o:</em> A <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a> prev&#234; a possibilidade de rota&#231;&#227;o do <code>registration_access_token</code> emitido pelo Servidor de Autoriza&#231;&#227;o a cada uso, tornando-o um token de uso &#250;nico. As institui&#231;&#245;es devem considerar esse aspecto no registro de suas aplica&#231;&#245;es cliente para receber e atualizar o <code>registration_access_token</code> pelo novo valor recebido nas chamadas de manuten&#231;&#227;o de cliente.<a href="#section-9.3.2-2" class="pilcrow">¶</a></p>
+<p id="section-9.3.2-2">Note: <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a> provides the possibility of rotating the <code>registration_access_token</code> issued by the Authorization Server with each use, making it a single-use token. When registering their client applications, institutions should consider this aspect to receive and update the <code>registration_access_token</code> for the new value received in client maintenance (DCM) operations.<a href="#section-9.3.2-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
 </div>
 </section>
 </div>
-<div id="acknowledgements">
+<div id="acknowledgement">
 <section id="section-10">
-      <h2 id="name-reconhecimento">
-<a href="#section-10" class="section-number selfRef">10. </a><a href="#name-reconhecimento" class="section-name selfRef">Reconhecimento</a>
+      <h2 id="name-acknowledgement">
+<a href="#section-10" class="section-number selfRef">10. </a><a href="#name-acknowledgement" class="section-name selfRef">Acknowledgement</a>
       </h2>
-<p id="section-10-1">Agradecemos a todos que estabeleceram as bases para o compartilhamento seguro de dados por meio da forma&#231;&#227;o do Grupo de Trabalho OpenID Foundation FAPI, o GT de Seguran&#231;a do Open Banking Brasil e aos pioneiros que ficar&#227;o em seus ombros.<a href="#section-10-1" class="pilcrow">¶</a></p>
-<p id="section-10-2">As seguintes pessoas contribu&#237;ram para este documento:<a href="#section-10-2" class="pilcrow">¶</a></p>
+<p id="section-10-1">With thanks to all who have set the foundations for secure and safe data sharing through the formation of the OpenID Foundation FAPI Working Group, the Open Banking Brasil GT Security and to the pioneers who will stand on their shoulders.<a href="#section-10-1" class="pilcrow">¶</a></p>
+<p id="section-10-2">The following people contributed to this document:<a href="#section-10-2" class="pilcrow">¶</a></p>
 <ul class="compact">
 <li class="compact" id="section-10-3.1">Alexandre Daniel Dalabrida (Cooperativa Central Ailos)<a href="#section-10-3.1" class="pilcrow">¶</a>
 </li>
@@ -2026,18 +2050,18 @@ Para estender as <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a> e <a 
       </ul>
 </section>
 </div>
-<div id="Notice">
+<div id="notices">
 <section id="appendix-A">
-      <h2 id="name-avisos">
-<a href="#appendix-A" class="section-number selfRef">Appendix A. </a><a href="#name-avisos" class="section-name selfRef">Avisos</a>
+      <h2 id="name-notices">
+<a href="#appendix-A" class="section-number selfRef">Appendix A. </a><a href="#name-notices" class="section-name selfRef">Notices</a>
       </h2>
-<p id="appendix-A-1">Copyright (c) 2022 Estrutura Inicial do Open Banking Brasil<a href="#appendix-A-1" class="pilcrow">¶</a></p>
-<p id="appendix-A-2">A Estrutura Inicial do Open Banking Brasil (EIOBB) concede a qualquer Colaborador, desenvolvedor, implementador ou outra parte interessada uma licen&#231;a de direitos autorais mundial n&#227;o exclusiva, livre de royalties para reproduzir, preparar trabalhos derivados, distribuir, executar e exibir, estes Implementadores Rascunho ou Especifica&#231;&#227;o Final exclusivamente para fins de (i) desenvolver especifica&#231;&#245;es e (ii) implementar Rascunhos de Implementadores e Especifica&#231;&#245;es Finais com base em tais documentos, desde que a atribui&#231;&#227;o seja feita ao EIOBB como a fonte do material, mas que tal atribui&#231;&#227;o o fa&#231;a n&#227;o indica endosso do EIOBB.<a href="#appendix-A-2" class="pilcrow">¶</a></p>
-<p id="appendix-A-3">A tecnologia descrita nesta especifica&#231;&#227;o foi disponibilizada a partir de contribui&#231;&#245;es de v&#225;rias fontes, incluindo membros da OpenID Foundation, do Grupo de Trabalho de Seguran&#231;a do Open Banking Brasil e outros. Embora a Estrutura Inicial do Open Banking Brasil tenha tomado medidas para ajudar a garantir que a tecnologia esteja dispon&#237;vel para distribui&#231;&#227;o, ela n&#227;o toma posi&#231;&#227;o quanto &#224; validade ou escopo de qualquer propriedade intelectual ou outros direitos que possam ser reivindicados como pertencentes &#224; implementa&#231;&#227;o ou uso do tecnologia descrita nesta especifica&#231;&#227;o ou at&#233; que ponto qualquer licen&#231;a sob tais direitos pode ou n&#227;o estar dispon&#237;vel; nem representa que fez qualquer esfor&#231;o independente para identificar tais direitos. A Estrutura Inicial do Open Banking Brasil e os contribuidores desta especifica&#231;&#227;o n&#227;o oferecem (e por meio deste expressamente se isentam de quaisquer) garantias (expressas, impl&#237;citas ou de outra forma), incluindo garantias impl&#237;citas de comercializa&#231;&#227;o, n&#227;o viola&#231;&#227;o, adequa&#231;&#227;o a uma finalidade espec&#237;fica ou t&#237;tulo, relacionados a esta especifica&#231;&#227;o, e todo o risco quanto &#224; implementa&#231;&#227;o desta especifica&#231;&#227;o &#233; assumido pelo implementador. A pol&#237;tica de Direitos de Propriedade Intelectual do Open Banking Brasil exige que os contribuidores ofere&#231;am uma promessa de patente de n&#227;o fazer valer certas reivindica&#231;&#245;es de patentes contra outros contribuidores e implementadores. A Estrutura Inicial do Open Banking Brasil convida qualquer parte interessada a trazer &#224; sua aten&#231;&#227;o quaisquer direitos autorais, patentes, pedidos de patentes ou outros direitos de propriedade que possam abranger a tecnologia que possa ser necess&#225;ria para praticar esta especifica&#231;&#227;o.<a href="#appendix-A-3" class="pilcrow">¶</a></p>
-<div id="ExampleA">
+<p id="appendix-A-1">Copyright (c) 2022 Open Banking Brasil Initial Structure.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
+<p id="appendix-A-2">The Open Banking Brasil Initial Structure (OBBIS) grants to any Contributor, developer, implementer, or other interested party a non-exclusive, royalty-free, worldwide copyright license to reproduce, prepare derivative works from, distribute, perform and display, this Implementers Draft or Final Specification solely for the purposes of (i) developing specifications, and (ii) implementing Implementers Drafts and Final Specifications based on such documents, provided that attribution be made to the OBBIS as the source of the material, but that such attribution does not indicate an endorsement by the OBBIS.<a href="#appendix-A-2" class="pilcrow">¶</a></p>
+<p id="appendix-A-3">The technology described in this specification was made available from contributions from various sources, including members of the OpenID Foundation, the Open Banking Brasil GT Security Working Group and others. Although the Open Banking Brasil Initial Structure has taken steps to help ensure that the technology is available for distribution, it takes no position regarding the validity or scope of any intellectual property or other rights that might be claimed to pertain to the implementation or use of the technology described in this specification or the extent to which any license under such rights might or might not be available; neither does it represent that it has made any independent effort to identify any such rights. The Open Banking Brasil Initial Structure and the contributors to this specification make no (and hereby expressly disclaim any) warranties (express, implied, or otherwise), including implied warranties of merchantability, non-infringement, fitness for a particular purpose, or title, related to this specification, and the entire risk as to implementing this specification is assumed by the implementer. The Open Banking Brasil Intellectual Property Rights policy requires contributors to offer a patent promise not to assert certain patent claims against other contributors and against implementers. The Open Banking Brasil Initial Structure invites any interested party to bring to its attention any copyrights, patents, patent applications, or other proprietary rights that may cover technology that may be required to practice this specification.<a href="#appendix-A-3" class="pilcrow">¶</a></p>
+<div id="appendix-a-example-software-statement-assertion">
 <section id="appendix-A.1">
-        <h3 id="name-ap234ndice-a-exemplo-de-afi">
-<a href="#appendix-A.1" class="section-number selfRef">A.1. </a><a href="#name-ap234ndice-a-exemplo-de-afi" class="section-name selfRef">Ap&#234;ndice A. Exemplo de afirma&#231;&#227;o de declara&#231;&#227;o de software</a>
+        <h3 id="name-appendix-a-example-software">
+<a href="#appendix-A.1" class="section-number selfRef">A.1. </a><a href="#name-appendix-a-example-software" class="section-name selfRef">Appendix A. Example Software Statement Assertion</a>
         </h3>
 <div class="alignLeft art-text artwork" id="appendix-A.1-1">
 <pre>eyJraWQiOiJzaWduZXIiLCJ0eXAiOiJKV1QiLCJhbGciOiJQUzI1NiJ9.eyJzb2Z0d2FyZV9tb2RlIjoiTGl2ZSIsInNvZnR3YXJlX3JlZGlyZWN0X3VyaXMiOlsiaHR0cHM6XC9cL3d3dy5yYWlkaWFtLmNvbVwvYWNjb3VudGluZ1wvY2IiXSwic29mdHdhcmVfc3RhdGVtZW50X3JvbGVzIjpbeyJyb2xlIjoiREFET1MiLCJhdXRob3Jpc2F0aW9uX2RvbWFpbiI6Ik9wZW4gQmFua2luZyIsInN0YXR1cyI6IkFjdGl2ZSJ9LHsicm9sZSI6IlBBR1RPIiwiYXV0aG9yaXNhdGlvbl9kb21haW4iOiJPcGVuIEJhbmtpbmciLCJzdGF0dXMiOiJBY3RpdmUifV0sInNvZnR3YXJlX2NsaWVudF9uYW1lIjoiUmFpZGlhbSBBY2NvdW50aW5nIiwib3JnX3N0YXR1cyI6IkFjdGl2ZSIsInNvZnR3YXJlX2NsaWVudF9pZCI6IkNraTFFYnZqd3loUEIxMk5HTGx6MiIsImlzcyI6Ik9wZW4gQmFua2luZyBPcGVuIEJhbmtpbmcgQnJhc2lsIHByb2QgU1NBIGlzc3VlciIsInNvZnR3YXJlX3Rvc191cmkiOiJodHRwczpcL1wvd3d3LnJhaWRpYW0uY29tXC9hY2NvdW50aW5nXC90b3MuaHRtbCIsInNvZnR3YXJlX2NsaWVudF9kZXNjcmlwdGlvbiI6IlJhaWRpYW0gQWNjb3VudGluZyBsZXZlcmFnZSBjdXR0aW5nIGVkZ2Ugb3BlbiBiYW5raW5nIGFjY2VzcyB0byBicmluZyB5b3UgcmVhbCB0aW1lIHVwIHRvIGRhdGUgdmlld3Mgb2YgeW91ciBmaW5hbmNlcyIsInNvZnR3YXJlX2p3a3NfZW5kcG9pbnQiOiJodHRwczpcL1wva2V5c3RvcmUuZGlyZWN0b3J5Lm9wZW5iYW5raW5nYnJhc2lsLm9yZy5iclwvYjk2MWM0ZWItNTA5ZC00ZWRmLWFmZWItMzU2NDJiMzgxODVkXC8yNTU1NmQ1YS1iOWRkLTRlMjctYWExYS1jY2U3MzJmZTc0ZGVcL2FwcGxpY2F0aW9uLmp3a3MiLCJzb2Z0d2FyZV9wb2xpY3lfdXJpIjoiaHR0cHM6XC9cL3d3dy5yYWlkaWFtLmNvbVwvYWNjb3VudGluZ1wvcG9saWN5Lmh0bWwiLCJzb2Z0d2FyZV9pZCI6IjI1NTU2ZDVhLWI5ZGQtNGUyNy1hYTFhLWNjZTczMmZlNzRkZSIsInNvZnR3YXJlX2NsaWVudF91cmkiOiJodHRwczpcL1wvd3d3LnJhaWRpYW0uY29tXC9hY2NvdW50aW5nLmh0bWwiLCJzb2Z0d2FyZV9qd2tzX2luYWN0aXZlX2VuZHBvaW50IjoiaHR0cHM6XC9cL2tleXN0b3JlLmRpcmVjdG9yeS5vcGVuYmFua2luZ2JyYXNpbC5vcmcuYnJcL2I5NjFjNGViLTUwOWQtNGVkZi1hZmViLTM1NjQyYjM4MTg1ZFwvMjU1NTZkNWEtYjlkZC00ZTI3LWFhMWEtY2NlNzMyZmU3NGRlXC9pbmFjdGl2ZVwvYXBwbGljYXRpb24uandrcyIsInNvZnR3YXJlX2p3a3NfdHJhbnNwb3J0X2luYWN0aXZlX2VuZHBvaW50IjoiaHR0cHM6XC9cL2tleXN0b3JlLmRpcmVjdG9yeS5vcGVuYmFua2luZ2JyYXNpbC5vcmcuYnJcL2I5NjFjNGViLTUwOWQtNGVkZi1hZmViLTM1NjQyYjM4MTg1ZFwvMjU1NTZkNWEtYjlkZC00ZTI3LWFhMWEtY2NlNzMyZmU3NGRlXC9pbmFjdGl2ZVwvdHJhbnNwb3J0Lmp3a3MiLCJzb2Z0d2FyZV9qd2tzX3RyYW5zcG9ydF9lbmRwb2ludCI6Imh0dHBzOlwvXC9rZXlzdG9yZS5kaXJlY3Rvcnkub3BlbmJhbmtpbmdicmFzaWwub3JnLmJyXC9iOTYxYzRlYi01MDlkLTRlZGYtYWZlYi0zNTY0MmIzODE4NWRcLzI1NTU2ZDVhLWI5ZGQtNGUyNy1hYTFhLWNjZTczMmZlNzRkZVwvdHJhbnNwb3J0Lmp3a3MiLCJzb2Z0d2FyZV9sb2dvX3VyaSI6Imh0dHBzOlwvXC93d3cucmFpZGlhbS5jb21cL2FjY291bnRpbmdcL2xvZ28ucG5nIiwib3JnX2lkIjoiYjk2MWM0ZWItNTA5ZC00ZWRmLWFmZWItMzU2NDJiMzgxODVkIiwic29mdHdhcmVfZW52aXJvbm1lbnQiOiJwcm9kdWN0aW9uIiwic29mdHdhcmVfdmVyc2lvbiI6MS4xMCwic29mdHdhcmVfcm9sZXMiOlsiREFET1MiLCJQQUdUTyJdLCJvcmdfbmFtZSI6Ik9wZW4gQmFua2luZyBCcmFzaWwiLCJpYXQiOjE2MTgzMzYyNjIsIm9yZ2FuaXNhdGlvbl9jb21wZXRlbnRfYXV0aG9yaXR5X2NsYWltcyI6W3siYXV0aG9yaXNhdGlvbl9kb21haW4iOiJPcGVuIEJhbmtpbmciLCJhdXRob3Jpc2F0aW9ucyI6W10sInJlZ2lzdHJhdGlvbl9pZCI6IjEzMzUzMjM2LU9CQi1DT05UQSIsImF1dGhvcml0eV9pZCI6IjY4N2ExYzk0LWIzNjAtNGUwNC05NTg5LTBmYTVjYjE2NDUxYiIsImF1dGhvcmlzYXRpb25fcm9sZSI6IkNPTlRBIiwiYXV0aG9yaXR5X2NvZGUiOiJCQ0IiLCJzdGF0dXMiOiJBY3RpdmUifSx7ImF1dGhvcmlzYXRpb25fZG9tYWluIjoiT3BlbiBCYW5raW5nIiwiYXV0aG9yaXNhdGlvbnMiOltdLCJyZWdpc3RyYXRpb25faWQiOiIxMzM1MzIzNi1PQkItREFET1MiLCJhdXRob3JpdHlfaWQiOiI2ODdhMWM5NC1iMzYwLTRlMDQtOTU4OS0wZmE1Y2IxNjQ1MWIiLCJhdXRob3Jpc2F0aW9uX3JvbGUiOiJEQURPUyIsImF1dGhvcml0eV9jb2RlIjoiQkNCIiwic3RhdHVzIjoiQWN0aXZlIn0seyJhdXRob3Jpc2F0aW9uX2RvbWFpbiI6Ik9wZW4gQmFua2luZyIsImF1dGhvcmlzYXRpb25zIjpbXSwicmVnaXN0cmF0aW9uX2lkIjoiMTMzNTMyMzYtT0JCLVBBR1RPIiwiYXV0aG9yaXR5X2lkIjoiNjg3YTFjOTQtYjM2MC00ZTA0LTk1ODktMGZhNWNiMTY0NTFiIiwiYXV0aG9yaXNhdGlvbl9yb2xlIjoiUEFHVE8iLCJhdXRob3JpdHlfY29kZSI6IkJDQiIsInN0YXR1cyI6IkFjdGl2ZSJ9XX0.W6hUAYhjT6I61rxEIVMKYKre93LTbRdzKnk9dJvUdzVgAz5B9KxZNutf27oO3k0hrjYVWBdWq23o_e4Y_AaKdpS9-rtU84JiHtmqV0wcFYIM8nqcUVWqQ-Ux6Nq9L2G-s2YNd3PcJ1e3yGg9h8553Gr7iJusKEgApzXUpkM2rBELQuumktUE_JBiuIkXmWxoRnO1cW-Osbk3MT3bxG43SPcxii07Q5S8qXI6PjCPA3fYlnaUAygwZM3O0oa7jqmSr7d9UsHuDMJfYhIKdq2wyQQKORCN-D2UopmMX-lHMvAVkkrAO08T0-7odjr4PJk-PrwuoCxeAfa7440ZDOrlmQ

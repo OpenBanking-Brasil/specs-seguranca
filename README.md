@@ -26,13 +26,23 @@ Esse repositório inclui o detalhamento técnico necessário para o entendimento
  - [Guia do usuário - ponto de vista da instituição receptora de dados ou iniciadora de pagamentos (TTP)](https://openbanking-brasil.github.io/specs-seguranca/tpp-user-guide-ptbr.html)
  - [Padrão de Certificados Open Banking Brasil](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1-ptbr.html)
 
-## Documentation Generation for Maintainers
+## Manutenção dos links
 
-The formal specifications are created using guidelines, processes and tools created by the IETF and the OIDF which ensures consistency and familiarity for implementers. All references to the specifications should be to the normative version of the published specification published in HTML version. Linking to actively developed versions of MarkDown files directly should be avoided.
+Sempre que for publicado um novo ID de documentação, deve-se atentar a atualização dos links nos seguintes locais:
 
-The following steps can be used to generate the html version of the markdown files
+|Documento|Referências|
+|------------------------------------------|---------------------------------------------------------------------------------------------------|
+|Registro e Cadastramento Dinâmico do Cliente de APIs|<ul><li>Perfil de Segurança do OpenBanking Brasil</li><li>Padrão de Certificados Open Banking Brasil</li><li>Guia do usuário - ponto de vista da instituição receptora de dados ou iniciadora de pagamentos (TTP)</li><li>Áerea do Desenvolvedor do Portal do Open Banking Brasil</li><li>Swagger com a documentação do DCR</li></ul>|
+|Perfil de Segurança do OpenBanking Brasil|<ul><li>Registro e Cadastramento Dinâmico do Cliente de APIs</li><li>Padrão de Certificados Open Banking Brasil</li><li>Guia do usuário - ponto de vista da instituição receptora de dados ou iniciadora de pagamentos (TTP)</li><li>Áerea do Desenvolvedor do Portal do Open Banking Brasil</li></ul>|
+|Padrão de Certificados Open Banking Brasil|<ul><li>Perfil de Segurança do OpenBanking Brasil</li><li>Registro e Cadastramento Dinâmico do Cliente de APIs</li><li>Guia do usuário - ponto de vista da instituição receptora de dados ou iniciadora de pagamentos (TTP)</li><li>Áerea do Desenvolvedor do Portal do Open Banking Brasil</li></ul>|
 
-1. docker run -v `pwd`:/data danielfett/markdown2rfc open-banking-brasil-dynamic-client-registration-1_ID1.md
-2. find and replace '&amp;' with '&' in all html files
-3. find and replace '&lt;' with '<' in all html files
-4. find and replace '&gt;' with '>' in all html files
+## Geração de documentação para manutenção
+
+As especificações formais são criadas usando diretrizes, processos e ferramentas criadas pela IETF e pela OIDF, o que garante consistência e familiaridade para os implementadores. Todas as referências às especificações devem ser para a versão normativa da especificação publicada publicada na versão HTML. A vinculação direta a versões de arquivos MarkDown desenvolvidas ativamente deve ser evitada.
+
+Siga os seguintes passos para gerar a versão HTML à partir dos arquivos markdown
+```shell
+makerfc='docker run -v `pwd`:/data upnic/makerfc'
+
+makerfc open-banking-brasil-dynamic-client-registration-1_ID1.md
+```
