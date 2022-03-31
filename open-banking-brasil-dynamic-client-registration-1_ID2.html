@@ -5,12 +5,29 @@
 <meta content="Common,Latin" name="scripts">
 <meta content="initial-scale=1.0" name="viewport">
 <title>Open Banking Brasil Financial-grade API Dynamic Client Registration 1.0 Implementers Draft 2</title>
-<meta content="Ralph Bragg" name="author">
 <meta content="OBBIS GT Security" name="author">
-<meta content="xml2rfc 2.40.1" name="generator">
+<meta content="xml2rfc 3.12.2" name="generator">
 <meta content="FAPI" name="keyword">
 <meta content="Open Banking Brasil GT Security" name="keyword">
 <meta content="open-banking-brasil-dynamic-client-registration-1_ID2" name="ietf.draft">
+<!-- Generator version information:
+  xml2rfc 3.12.2
+    Python 3.10.2
+    appdirs 1.4.4
+    ConfigArgParse 1.5.3
+    google-i18n-address 2.5.0
+    html5lib 1.1
+    intervaltree 3.1.0
+    Jinja2 2.11.3
+    kitchen 1.2.6
+    lxml 4.8.0
+    pycountry 22.1.10
+    pyflakes 2.4.0
+    PyYAML 6.0
+    requests 2.27.1
+    setuptools 58.1.0
+    six 1.16.0
+-->
 <link href="./open-banking-brasil-dynamic-client-registration-1_ID2.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
 <style type="text/css">/*
@@ -178,6 +195,9 @@ ul.empty, .ulEmpty {
 }
 ul.empty li, .ulEmpty li {
   margin-top: 0.5em;
+}
+ul.ulBare, li.ulBare {
+  margin-left: 0em !important;
 }
 ul.compact, .ulCompact,
 ol.compact, .olCompact {
@@ -361,6 +381,12 @@ hr {
 #identifiers dd {
   float: left;
   margin-bottom: 0;
+}
+/* Fix PDF info block run off issue */
+@media print {
+  #identifiers dd {
+    float: none;
+  }
 }
 #identifiers .authors .author {
   display: inline-block;
@@ -912,12 +938,6 @@ caption a[href] {
   }
 
 }
-/* Avoid wrapping of URLs in references */
-@media screen {
-  .references a {
-    white-space: nowrap;
-  }
-}
 /* Tweak the bcp14 keyword presentation */
 .bcp14 {
   font-variant: small-caps;
@@ -988,7 +1008,7 @@ h1#rfcnum {
 }
 /* Make .olPercent look the same as <ol><li> */
 dl.olPercent > dd {
-  margin: 0 0 0.25em 0;
+  margin-bottom: 0.25em;
   min-height: initial;
 }
 /* Give aside some styling to set it apart */
@@ -1026,14 +1046,6 @@ aside > p {
     margin-bottom: 1em;
   }
 }
-/*
-  The margin-left: 0 on <dd> removes all distinction
-  between levels from nested <dl>s.  Undo that.
-*/
-dl.olPercent > dd,
-dd {
-  margin-left: revert;
-}
 /* Avoid narrow tables forcing too narrow table captions, which may render badly */
 table {
   min-width: 20em;
@@ -1059,6 +1071,108 @@ tr:nth-child(2n+1) > td {
   #toc nav { display: none; }
   #toc.active nav { display: block; }
 }
+/* Add support for keepWithNext */
+.keepWithNext {
+  break-after: avoid-page;
+  break-after: avoid-page;
+}
+/* Add support for keepWithPrevious */
+.keepWithPrevious {
+  break-before: avoid-page;
+}
+/* Change the approach to avoiding breaks inside artwork etc. */
+figure, pre, table, .artwork, .sourcecode  {
+  break-before: auto;
+  break-after: auto;
+}
+/* Avoid breaks between <dt> and <dd> */
+dl {
+  break-before: auto;
+  break-inside: auto;
+}
+dt {
+  break-before: auto;
+  break-after: avoid-page;
+}
+dd {
+  break-before: avoid-page;
+  break-after: auto;
+  orphans: 3;
+  widows: 3
+}
+span.break, dd.break {
+  margin-bottom: 0;
+  min-height: 0;
+  break-before: auto;
+  break-inside: auto;
+  break-after: auto;
+}
+/* Undo break-before ToC */
+@media print {
+  #toc {
+    break-before: auto;
+  }
+}
+/* Text in compact lists should not get extra bottim margin space,
+   since that would makes the list not compact */
+ul.compact p, .ulCompact p,
+ol.compact p, .olCompact p {
+ margin: 0;
+}
+/* But the list as a whole needs the extra space at the end */
+section ul.compact,
+section .ulCompact,
+section ol.compact,
+section .olCompact {
+  margin-bottom: 1em;                    /* same as p not within ul.compact etc. */
+}
+/* The tt and code background above interferes with for instance table cell
+   backgrounds.  Changed to something a bit more selective. */
+tt, code {
+  background-color: transparent;
+}
+p tt, p code, li tt, li code {
+  background-color: #f8f8f8;
+}
+/* Tweak the pre margin -- 0px doesn't come out well */
+pre {
+   margin-top: 0.5px;
+}
+/* Tweak the comact list text */
+ul.compact, .ulCompact,
+ol.compact, .olCompact,
+dl.compact, .dlCompact {
+  line-height: normal;
+}
+/* Don't add top margin for nested lists */
+li > ul, li > ol, li > dl,
+dd > ul, dd > ol, dd > dl,
+dl > dd > dl {
+  margin-top: initial;
+}
+/* Elements that should not be rendered on the same line as a <dt> */
+/* This should match the element list in writer.text.TextWriter.render_dl() */
+dd > div.artwork:first-child,
+dd > aside:first-child,
+dd > figure:first-child,
+dd > ol:first-child,
+dd > div:first-child > pre.sourcecode,
+dd > table:first-child,
+dd > ul:first-child {
+  clear: left;
+}
+/* fix for weird browser behaviour when <dd/> is empty */
+dt+dd:empty::before{
+  content: "\00a0";
+}
+/* Make paragraph spacing inside <li> smaller than in body text, to fit better within the list */
+li > p {
+  margin-bottom: 0.5em
+}
+/* Don't let p margin spill out from inside list items */
+li > p:last-of-type {
+  margin-bottom: 0;
+}
 </style>
 <link href="rfc-local.css" rel="stylesheet" type="text/css">
 </head>
@@ -1068,10 +1182,10 @@ tr:nth-child(2n+1) > td {
 <thead><tr>
 <td class="left"></td>
 <td class="center">OBB-FAPI-1-DCR-ID2</td>
-<td class="right">November 2021</td>
+<td class="right">February 2022</td>
 </tr></thead>
 <tfoot><tr>
-<td class="left">Bragg & Security</td>
+<td class="left">Security</td>
 <td class="center">Standards Track</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
@@ -1081,20 +1195,8 @@ tr:nth-child(2n+1) > td {
 <dl id="identifiers">
 <dt class="label-workgroup">Workgroup:</dt>
 <dd class="workgroup">Open Banking Brasil GT Security</dd>
-<dt class="label-internet-draft">Internet-Draft:</dt>
-<dd class="internet-draft">open-banking-brasil-dynamic-client-registration-1_ID2</dd>
-<dt class="label-published">Published:</dt>
-<dd class="published">
-<time datetime="2021-11-11" class="published">11 November 2021</time>
-    </dd>
-<dt class="label-intended-status">Intended Status:</dt>
-<dd class="intended-status">Standards Track</dd>
-<dt class="label-authors">Authors:</dt>
+<dt class="label-authors">Author:</dt>
 <dd class="authors">
-<div class="author">
-      <div class="author-name">R. Bragg</div>
-<div class="org">Raidiam</div>
-</div>
 <div class="author">
       <div class="author-name">GT. Security</div>
 <div class="org">OBBIS</div>
@@ -1110,14 +1212,13 @@ tr:nth-child(2n+1) > td {
 <p id="section-note.1-1">Este documento tamb&#233;m est&#225; dispon&#237;vel em <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID1-ptbr.html">portugu&#234;s</a><a href="#section-note.1-1" class="pilcrow">¶</a></p>
 <p id="section-note.1-2">The Open Banking Brasil Initial Structure is responsible for creating standards and specifications necessary to meet the requirements and obligations of the Brasil Open Banking Legislation as originally outlined by the <a href="https://www.bcb.gov.br/content/config/Documents/BCB_Open_Banking_Communique-April-2019.pdf">Brasil Central Bank</a>. There is a possibility that some of the elements of this document may be the subject to patent rights. OBBIS shall not be held responsible for identifying any or all such patent rights.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
 <p id="section-note.1-3">Open Banking Brasil Financial-grade API Security Profile 1.0 consists of the following parts:<a href="#section-note.1-3" class="pilcrow">¶</a></p>
-<ul class="note">
-<li class="note" id="section-note.1-4.1">
-          <p id="section-note.1-4.1.1"><a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID3.html">Open Banking Brasil Financial-grade API Security Profile 1.0</a><a href="#section-note.1-4.1.1" class="pilcrow">¶</a></p>
+<ul class="compact note">
+<li class="compact note" id="section-note.1-4.1">
+          <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID3.html">Open Banking Brasil Financial-grade API Security Profile 1.0</a><a href="#section-note.1-4.1" class="pilcrow">¶</a>
 </li>
-<li class="note" id="section-note.1-4.2">
-          <p id="section-note.1-4.2.1">Open Banking Brasil Dynamic Client Registration Profile 1.0<a href="#section-note.1-4.2.1" class="pilcrow">¶</a></p>
+        <li class="compact note" id="section-note.1-4.2">Open Banking Brasil Dynamic Client Registration Profile 1.0<a href="#section-note.1-4.2" class="pilcrow">¶</a>
 </li>
-</ul>
+      </ul>
 <p id="section-note.1-5">These parts are intended to be used with <a href="https://tools.ietf.org/html/rfc6749">RFC6749</a>, <a href="https://tools.ietf.org/html/rfc6750">RFC6750</a>, <a href="https://tools.ietf.org/html/rfc7636">RFC7636</a>, <a href="https://openid.net/specs/openid-connect-core-1_0.html">OIDC</a>, <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OIDR</a>, <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a>, <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a>, <a href="https://openid.net/specs/openid-financial-api-part-1-1_0.html">FAPI-1-Baseline</a> and <a href="https://openid.net/specs/openid-financial-api-part-2-1_0.html">FAPI-1-Advanced</a><a href="#section-note.1-5" class="pilcrow">¶</a></p>
 </section>
 <section class="note" id="section-note.2">
@@ -1144,105 +1245,105 @@ and are not to be interpreted with their natural language meanings.<a href="#sec
         <a href="#" onclick="scroll(0,0)" class="toplink">▲</a><h2 id="name-table-of-contents">
 <a href="#name-table-of-contents" class="section-name selfRef">Table of Contents</a>
         </h2>
-<nav class="toc"><ul class="toc ulEmpty">
-<li class="toc ulEmpty" id="section-toc.1-1.1">
-            <p id="section-toc.1-1.1.1"><a href="#section-1" class="xref">1</a>.  <a href="#name-scope" class="xref">Scope</a><a href="#section-toc.1-1.1.1" class="pilcrow">¶</a></p>
+<nav class="toc"><ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1">
+            <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="xref">1</a>.  <a href="#name-scope" class="xref">Scope</a></p>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.2">
-            <p id="section-toc.1-1.2.1"><a href="#section-2" class="xref">2</a>.  <a href="#name-normative-references" class="xref">Normative references</a><a href="#section-toc.1-1.2.1" class="pilcrow">¶</a></p>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2">
+            <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="xref">2</a>.  <a href="#name-normative-references" class="xref">Normative references</a></p>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.3">
-            <p id="section-toc.1-1.3.1"><a href="#section-3" class="xref">3</a>.  <a href="#name-terms-and-definitions" class="xref">Terms and definitions</a><a href="#section-toc.1-1.3.1" class="pilcrow">¶</a></p>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
+            <p id="section-toc.1-1.3.1" class="keepWithNext"><a href="#section-3" class="xref">3</a>.  <a href="#name-terms-and-definitions" class="xref">Terms and definitions</a></p>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.4">
-            <p id="section-toc.1-1.4.1"><a href="#section-4" class="xref">4</a>.  <a href="#name-symbols-and-abbreviated-ter" class="xref">Symbols and Abbreviated terms</a><a href="#section-toc.1-1.4.1" class="pilcrow">¶</a></p>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="xref">4</a>.  <a href="#name-symbols-and-abbreviated-ter" class="xref">Symbols and Abbreviated terms</a></p>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.5">
-            <p id="section-toc.1-1.5.1"><a href="#section-5" class="xref">5</a>.  <a href="#name-introduction-2" class="xref">Introduction</a><a href="#section-toc.1-1.5.1" class="pilcrow">¶</a></p>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="xref">5</a>.  <a href="#name-introduction-2" class="xref">Introduction</a></p>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.6">
-            <p id="section-toc.1-1.6.1"><a href="#section-6" class="xref">6</a>.  <a href="#name-open-banking-brasil-openid-" class="xref">Open Banking Brasil OpenID Connect Discovery provisions</a><a href="#section-toc.1-1.6.1" class="pilcrow">¶</a></p>
-<ul class="toc ulEmpty">
-<li class="toc ulEmpty" id="section-toc.1-1.6.2.1">
-                <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="xref">6.1</a>.  <a href="#name-authorization-server" class="xref">Authorization server</a><a href="#section-toc.1-1.6.2.1.1" class="pilcrow">¶</a></p>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
+            <p id="section-toc.1-1.6.1"><a href="#section-6" class="xref">6</a>.  <a href="#name-open-banking-brasil-openid-" class="xref">Open Banking Brasil OpenID Connect Discovery provisions</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.1">
+                <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="xref">6.1</a>.  <a href="#name-authorization-server" class="xref">Authorization server</a></p>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.6.2.2">
-                <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="xref">6.2</a>.  <a href="#name-client" class="xref">Client</a><a href="#section-toc.1-1.6.2.2.1" class="pilcrow">¶</a></p>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.2">
+                <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="xref">6.2</a>.  <a href="#name-client" class="xref">Client</a></p>
 </li>
-</ul>
+            </ul>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.7">
-            <p id="section-toc.1-1.7.1"><a href="#section-7" class="xref">7</a>.  <a href="#name-open-banking-brasil-openid-c" class="xref">Open Banking Brasil OpenID Connect Registration Provisions</a><a href="#section-toc.1-1.7.1" class="pilcrow">¶</a></p>
-<ul class="toc ulEmpty">
-<li class="toc ulEmpty" id="section-toc.1-1.7.2.1">
-                <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="xref">7.1</a>.  <a href="#name-authorization-server-2" class="xref">Authorization server</a><a href="#section-toc.1-1.7.2.1.1" class="pilcrow">¶</a></p>
-<ul class="toc ulEmpty">
-<li class="toc ulEmpty" id="section-toc.1-1.7.2.1.2.1">
-                    <p id="section-toc.1-1.7.2.1.2.1.1"><a href="#section-7.1.1" class="xref">7.1.1</a>.  <a href="#name-applying-server-defaults" class="xref">Applying Server Defaults</a><a href="#section-toc.1-1.7.2.1.2.1.1" class="pilcrow">¶</a></p>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
+            <p id="section-toc.1-1.7.1"><a href="#section-7" class="xref">7</a>.  <a href="#name-open-banking-brasil-openid-c" class="xref">Open Banking Brasil OpenID Connect Registration Provisions</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.1">
+                <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="xref">7.1</a>.  <a href="#name-authorization-server-2" class="xref">Authorization server</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.1.2.1">
+                    <p id="section-toc.1-1.7.2.1.2.1.1"><a href="#section-7.1.1" class="xref">7.1.1</a>.  <a href="#name-applying-server-defaults" class="xref">Applying Server Defaults</a></p>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.7.2.1.2.2">
-                    <p id="section-toc.1-1.7.2.1.2.2.1"><a href="#section-7.1.2" class="xref">7.1.2</a>.  <a href="#name-certificate-distinguished-n" class="xref">Certificate Distinguished Name Parsing</a><a href="#section-toc.1-1.7.2.1.2.2.1" class="pilcrow">¶</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.1.2.2">
+                    <p id="section-toc.1-1.7.2.1.2.2.1"><a href="#section-7.1.2" class="xref">7.1.2</a>.  <a href="#name-certificate-distinguished-n" class="xref">Certificate Distinguished Name Parsing</a></p>
 </li>
-</ul>
+                </ul>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.7.2.2">
-                <p id="section-toc.1-1.7.2.2.1"><a href="#section-7.2" class="xref">7.2</a>.  <a href="#name-regulatory-roles-to-openid-" class="xref">Regulatory Roles to OpenID and OAuth 2.0 Mappings</a><a href="#section-toc.1-1.7.2.2.1" class="pilcrow">¶</a></p>
-<ul class="toc ulEmpty">
-<li class="toc ulEmpty" id="section-toc.1-1.7.2.2.2.1">
-                    <p id="section-toc.1-1.7.2.2.2.1.1"><a href="#section-7.2.1" class="xref">7.2.1</a>.  <a href="#name-implementers-note" class="xref">Implementers Note</a><a href="#section-toc.1-1.7.2.2.2.1.1" class="pilcrow">¶</a></p>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.2">
+                <p id="section-toc.1-1.7.2.2.1"><a href="#section-7.2" class="xref">7.2</a>.  <a href="#name-regulatory-roles-to-openid-" class="xref">Regulatory Roles to OpenID and OAuth 2.0 Mappings</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.2.2.1">
+                    <p id="section-toc.1-1.7.2.2.2.1.1"><a href="#section-7.2.1" class="xref">7.2.1</a>.  <a href="#name-implementers-note" class="xref">Implementers Note</a></p>
 </li>
-</ul>
+                </ul>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.7.2.3">
-                <p id="section-toc.1-1.7.2.3.1"><a href="#section-7.3" class="xref">7.3</a>.  <a href="#name-regulatory-roles-to-dynamic" class="xref">Regulatory Roles to dynamic OAuth 2.0 scope Mappings</a><a href="#section-toc.1-1.7.2.3.1" class="pilcrow">¶</a></p>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.3">
+                <p id="section-toc.1-1.7.2.3.1"><a href="#section-7.3" class="xref">7.3</a>.  <a href="#name-regulatory-roles-to-dynamic" class="xref">Regulatory Roles to dynamic OAuth 2.0 scope Mappings</a></p>
 </li>
-</ul>
+            </ul>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.8">
-            <p id="section-toc.1-1.8.1"><a href="#section-8" class="xref">8</a>.  <a href="#name-software-statement" class="xref">Software Statement</a><a href="#section-toc.1-1.8.1" class="pilcrow">¶</a></p>
-<ul class="toc ulEmpty">
-<li class="toc ulEmpty" id="section-toc.1-1.8.2.1">
-                <p id="section-toc.1-1.8.2.1.1"><a href="#section-8.1" class="xref">8.1</a>.  <a href="#name-software-statement-claims" class="xref">Software Statement Claims</a><a href="#section-toc.1-1.8.2.1.1" class="pilcrow">¶</a></p>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
+            <p id="section-toc.1-1.8.1"><a href="#section-8" class="xref">8</a>.  <a href="#name-software-statement" class="xref">Software Statement</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.1">
+                <p id="section-toc.1-1.8.2.1.1"><a href="#section-8.1" class="xref">8.1</a>.  <a href="#name-software-statement-claims" class="xref">Software Statement Claims</a></p>
 </li>
-</ul>
+            </ul>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.9">
-            <p id="section-toc.1-1.9.1"><a href="#section-9" class="xref">9</a>.  <a href="#name-dynamic-client-registration" class="xref">Dynamic Client Registration Request Processing</a><a href="#section-toc.1-1.9.1" class="pilcrow">¶</a></p>
-<ul class="toc ulEmpty">
-<li class="toc ulEmpty" id="section-toc.1-1.9.2.1">
-                <p id="section-toc.1-1.9.2.1.1"><a href="#section-9.1" class="xref">9.1</a>.  <a href="#name-posting-a-request-with-a-so" class="xref">Posting a request with a software statement</a><a href="#section-toc.1-1.9.2.1.1" class="pilcrow">¶</a></p>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9">
+            <p id="section-toc.1-1.9.1"><a href="#section-9" class="xref">9</a>.  <a href="#name-dynamic-client-registration" class="xref">Dynamic Client Registration Request Processing</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.1">
+                <p id="section-toc.1-1.9.2.1.1"><a href="#section-9.1" class="xref">9.1</a>.  <a href="#name-posting-a-request-with-a-so" class="xref">Posting a request with a software statement</a></p>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.9.2.2">
-                <p id="section-toc.1-1.9.2.2.1"><a href="#section-9.2" class="xref">9.2</a>.  <a href="#name-open-banking-brasil-ssa-key" class="xref">Open Banking Brasil SSA Key Store and Issuer Details</a><a href="#section-toc.1-1.9.2.2.1" class="pilcrow">¶</a></p>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.2">
+                <p id="section-toc.1-1.9.2.2.1"><a href="#section-9.2" class="xref">9.2</a>.  <a href="#name-open-banking-brasil-ssa-key" class="xref">Open Banking Brasil SSA Key Store and Issuer Details</a></p>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.9.2.3">
-                <p id="section-toc.1-1.9.2.3.1"><a href="#section-9.3" class="xref">9.3</a>.  <a href="#name-about-authentication-and-au" class="xref">About authentication and authorization mechanisms for DCR and DCM services</a><a href="#section-toc.1-1.9.2.3.1" class="pilcrow">¶</a></p>
-<ul class="toc ulEmpty">
-<li class="toc ulEmpty" id="section-toc.1-1.9.2.3.2.1">
-                    <p id="section-toc.1-1.9.2.3.2.1.1"><a href="#section-9.3.1" class="xref">9.3.1</a>.  <a href="#name-client-registration-post-re" class="xref">Client registration - POST /register</a><a href="#section-toc.1-1.9.2.3.2.1.1" class="pilcrow">¶</a></p>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.3">
+                <p id="section-toc.1-1.9.2.3.1"><a href="#section-9.3" class="xref">9.3</a>.  <a href="#name-about-authentication-and-au" class="xref">About authentication and authorization mechanisms for DCR and DCM services</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.3.2.1">
+                    <p id="section-toc.1-1.9.2.3.2.1.1"><a href="#section-9.3.1" class="xref">9.3.1</a>.  <a href="#name-client-registration-post-re" class="xref">Client registration - POST /register</a></p>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.9.2.3.2.2">
-                    <p id="section-toc.1-1.9.2.3.2.2.1"><a href="#section-9.3.2" class="xref">9.3.2</a>.  <a href="#name-client-maintenance-get-regi" class="xref">Client Maintenance - GET /register - PUT /register - DELETE /register</a><a href="#section-toc.1-1.9.2.3.2.2.1" class="pilcrow">¶</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.3.2.2">
+                    <p id="section-toc.1-1.9.2.3.2.2.1"><a href="#section-9.3.2" class="xref">9.3.2</a>.  <a href="#name-client-maintenance-get-regi" class="xref">Client Maintenance - GET /register - PUT /register - DELETE /register</a></p>
 </li>
-</ul>
+                </ul>
 </li>
-</ul>
+            </ul>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.10">
-            <p id="section-toc.1-1.10.1"><a href="#section-10" class="xref">10</a>. <a href="#name-acknowledgement" class="xref">Acknowledgement</a><a href="#section-toc.1-1.10.1" class="pilcrow">¶</a></p>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10">
+            <p id="section-toc.1-1.10.1"><a href="#section-10" class="xref">10</a>. <a href="#name-acknowledgement" class="xref">Acknowledgement</a></p>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.11">
-            <p id="section-toc.1-1.11.1"><a href="#section-appendix.a" class="xref">Appendix A</a>.  <a href="#name-notices" class="xref">Notices</a><a href="#section-toc.1-1.11.1" class="pilcrow">¶</a></p>
-<ul class="toc ulEmpty">
-<li class="toc ulEmpty" id="section-toc.1-1.11.2.1">
-                <p id="section-toc.1-1.11.2.1.1"><a href="#section-a.1" class="xref">A.1</a>.  <a href="#name-appendix-a-example-software" class="xref">Appendix A. Example Software Statement Assertion</a><a href="#section-toc.1-1.11.2.1.1" class="pilcrow">¶</a></p>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11">
+            <p id="section-toc.1-1.11.1"><a href="#appendix-A" class="xref">Appendix A</a>.  <a href="#name-notices" class="xref">Notices</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11.2.1">
+                <p id="section-toc.1-1.11.2.1.1"><a href="#appendix-A.1" class="xref">A.1</a>.  <a href="#name-appendix-a-example-software" class="xref">Appendix A. Example Software Statement Assertion</a></p>
 </li>
-</ul>
+            </ul>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.12">
-            <p id="section-toc.1-1.12.1"><a href="#section-appendix.b" class="xref"></a><a href="#name-authors-addresses" class="xref">Authors' Addresses</a><a href="#section-toc.1-1.12.1" class="pilcrow">¶</a></p>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12">
+            <p id="section-toc.1-1.12.1"><a href="#appendix-B" class="xref"></a><a href="#name-authors-address" class="xref">Author's Address</a></p>
 </li>
-</ul>
+        </ul>
 </nav>
 </section>
 </div>
@@ -1252,17 +1353,14 @@ and are not to be interpreted with their natural language meanings.<a href="#sec
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-scope" class="section-name selfRef">Scope</a>
       </h2>
 <p id="section-1-1">This document specifies the method of<a href="#section-1-1" class="pilcrow">¶</a></p>
-<ul>
-<li id="section-1-2.1">
-          <p id="section-1-2.1.1">applications registered in the <a href="https://web.directory.openbankingbrasil.org.br">Open Banking Directory of Participants</a> to discover OpenID Providers offering services in the Open Banking Brasil ecosystem;<a href="#section-1-2.1.1" class="pilcrow">¶</a></p>
+<ul class="compact">
+<li class="compact" id="section-1-2.1">applications registered in the <a href="https://web.directory.openbankingbrasil.org.br">Open Banking Directory of Participants</a> to discover OpenID Providers offering services in the Open Banking Brasil ecosystem;<a href="#section-1-2.1" class="pilcrow">¶</a>
 </li>
-<li id="section-1-2.2">
-          <p id="section-1-2.2.1">applications to use <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Connect Registration</a> to onboard their applications with Bank OpenID Providers; and<a href="#section-1-2.2.1" class="pilcrow">¶</a></p>
+        <li class="compact" id="section-1-2.2">applications to use <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Connect Registration</a> to onboard their applications with Bank OpenID Providers; and<a href="#section-1-2.2" class="pilcrow">¶</a>
 </li>
-<li id="section-1-2.3">
-          <p id="section-1-2.3.1">applications to use <a href="https://tools.ietf.org/html/rfc7592">OAuth 2.0 Dynamic Client Registration Management Protocol</a> to manage their applications with OpenID Providers;<a href="#section-1-2.3.1" class="pilcrow">¶</a></p>
+        <li class="compact" id="section-1-2.3">applications to use <a href="https://tools.ietf.org/html/rfc7592">OAuth 2.0 Dynamic Client Registration Management Protocol</a> to manage their applications with OpenID Providers;<a href="#section-1-2.3" class="pilcrow">¶</a>
 </li>
-</ul>
+      </ul>
 <p id="section-1-3">This document is applicable to all participants engaging in Open Banking in Brasil.<a href="#section-1-3" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -1310,35 +1408,52 @@ and are not to be interpreted with their natural language meanings.<a href="#sec
       <h2 id="name-symbols-and-abbreviated-ter">
 <a href="#section-4" class="section-number selfRef">4. </a><a href="#name-symbols-and-abbreviated-ter" class="section-name selfRef">Symbols and Abbreviated terms</a>
       </h2>
-<p id="section-4-1"><strong>SSA</strong> - Software Statement Assertion<a href="#section-4-1" class="pilcrow">¶</a></p>
-<p id="section-4-2"><strong>SS</strong> - Software Statement<a href="#section-4-2" class="pilcrow">¶</a></p>
-<p id="section-4-3"><strong>DCR</strong> - Dynamic Client Registration<a href="#section-4-3" class="pilcrow">¶</a></p>
-<p id="section-4-4"><strong>API</strong> - Application Programming Interface<a href="#section-4-4" class="pilcrow">¶</a></p>
-<p id="section-4-5"><strong>FAPI</strong> - Financial-grade API<a href="#section-4-5" class="pilcrow">¶</a></p>
-<p id="section-4-6"><strong>HTTP</strong> - Hyper Text Transfer Protocol<a href="#section-4-6" class="pilcrow">¶</a></p>
-<p id="section-4-7"><strong>OIDF</strong> - OpenID Foundation<a href="#section-4-7" class="pilcrow">¶</a></p>
-<p id="section-4-8"><strong>REST</strong> - Representational State Transfer<a href="#section-4-8" class="pilcrow">¶</a></p>
-<p id="section-4-9"><strong>TLS</strong> - Transport Layer Security<a href="#section-4-9" class="pilcrow">¶</a></p>
+<ul class="compact">
+<li class="compact" id="section-4-1.1">
+          <strong>API</strong> - Application Programming Interface<a href="#section-4-1.1" class="pilcrow">¶</a>
+</li>
+        <li class="compact" id="section-4-1.2">
+          <strong>DCR</strong> - Dynamic Client Registration<a href="#section-4-1.2" class="pilcrow">¶</a>
+</li>
+        <li class="compact" id="section-4-1.3">
+          <strong>FAPI</strong> - Financial-grade API<a href="#section-4-1.3" class="pilcrow">¶</a>
+</li>
+        <li class="compact" id="section-4-1.4">
+          <strong>HTTP</strong> - Hyper Text Transfer Protocol<a href="#section-4-1.4" class="pilcrow">¶</a>
+</li>
+        <li class="compact" id="section-4-1.5">
+          <strong>OIDF</strong> - OpenID Foundation<a href="#section-4-1.5" class="pilcrow">¶</a>
+</li>
+        <li class="compact" id="section-4-1.6">
+          <strong>REST</strong> - Representational State Transfer<a href="#section-4-1.6" class="pilcrow">¶</a>
+</li>
+        <li class="compact" id="section-4-1.7">
+          <strong>SS</strong> - Software Statement<a href="#section-4-1.7" class="pilcrow">¶</a>
+</li>
+        <li class="compact" id="section-4-1.8">
+          <strong>SSA</strong> - Software Statement Assertion<a href="#section-4-1.8" class="pilcrow">¶</a>
+</li>
+        <li class="compact" id="section-4-1.9">
+          <strong>TLS</strong> - Transport Layer Security<a href="#section-4-1.9" class="pilcrow">¶</a>
+</li>
+      </ul>
 </section>
 </div>
-<div id="introduction">
+<div id="introduction-1">
 <section id="section-5">
       <h2 id="name-introduction-2">
 <a href="#section-5" class="section-number selfRef">5. </a><a href="#name-introduction-2" class="section-name selfRef">Introduction</a>
       </h2>
 <p id="section-5-1">Brasil Open Bankings ecosystem leverages a federation trust provider or <em>directory of participants</em> as the golden source of information on accredited participants and software that are authorized to partake in the Open Banking Brasil ecosystem.<a href="#section-5-1" class="pilcrow">¶</a></p>
 <p id="section-5-2">The services by the Directory include<a href="#section-5-2" class="pilcrow">¶</a></p>
-<ul>
-<li id="section-5-3.1">
-          <p id="section-5-3.1.1">Software registration and management.<a href="#section-5-3.1.1" class="pilcrow">¶</a></p>
+<ul class="compact">
+<li class="compact" id="section-5-3.1">Software registration and management.<a href="#section-5-3.1" class="pilcrow">¶</a>
 </li>
-<li id="section-5-3.2">
-          <p id="section-5-3.2.1">Software credential registration and management using ICP Certificates.<a href="#section-5-3.2.1" class="pilcrow">¶</a></p>
+        <li class="compact" id="section-5-3.2">Software credential registration and management using ICP Certificates.<a href="#section-5-3.2" class="pilcrow">¶</a>
 </li>
-<li id="section-5-3.3">
-          <p id="section-5-3.3.1">Software Statement Assertion (SSA) generation<a href="#section-5-3.3.1" class="pilcrow">¶</a></p>
+        <li class="compact" id="section-5-3.3">Software Statement Assertion (SSA) generation<a href="#section-5-3.3" class="pilcrow">¶</a>
 </li>
-</ul>
+      </ul>
 <p id="section-5-4">Participants within the ecosystem must leverage these services to facilitate API driven OAuth client registration using the process outlined in clause 3.1.1 of <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a> with additional metadata necessary to support OpenID Connect defined in <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Connect Registration</a>.<a href="#section-5-4" class="pilcrow">¶</a></p>
 <p id="section-5-5">It's important to remember that the client registration payload has most of its non-mandatory attributes, and that assigned values; that conflict with the present in the assertion software declaration <em>will be overridden by the values of the software statement assertion issued by the Directory of Participants</em>. Not all metadata that a client wishes to provide may be contained in a software statement, e.g alternative <a href="https://openid.net/specs/openid-connect-registration-1_0.html#LanguagesAndScripts">Metadata Languages and Script values</a>. There are some cases when the client metadata are subset os the existing values in the SSA, such as redirect_URIs.<a href="#section-5-5" class="pilcrow">¶</a></p>
 </section>
@@ -1356,29 +1471,22 @@ and are not to be interpreted with their natural language meanings.<a href="#sec
 <p id="section-6.1-1">The Authorization Server shall support <a href="https://openid.net/specs/openid-connect-discovery-1_0.html">OpenID Connect Discovery</a> as required by <a href="https://openid.net/specs/openid-financial-api-part-1-1_0.html">Financial-grade API Security Profile 1.0 - Part 1: Baseline</a>.
 This support shall be explicit in Participant Directory configurations, and in the declaration of its attributes in the Discovery file (well-known), respecting the authentication mechanisms certified by the institution through the Open Banking Brazil compliance tests.<a href="#section-6.1-1" class="pilcrow">¶</a></p>
 <p id="section-6.1-2">In addition, the Authorization Server<a href="#section-6.1-2" class="pilcrow">¶</a></p>
-<ol start="1" type="1" class="normal type-1" id="section-6.1-3">
-          <li id="section-6.1-3.1">
-            <p id="section-6.1-3.1.1">shall advertise its presence in the Open Banking Brasil ecosystem by being listed on the Directory of Participants;<a href="#section-6.1-3.1.1" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="compact type-1" id="section-6.1-3">
+<li id="section-6.1-3.1">shall advertise its presence in the Open Banking Brasil ecosystem by being listed on the Directory of Participants;<a href="#section-6.1-3.1" class="pilcrow">¶</a>
 </li>
-<li id="section-6.1-3.2">
-            <p id="section-6.1-3.2.1">shall advertise all Open Banking Brasil REST API resources protected by the OpenID Provider on the Directory of Participants;<a href="#section-6.1-3.2.1" class="pilcrow">¶</a></p>
+          <li id="section-6.1-3.2">shall advertise all Open Banking Brasil REST API resources protected by the OpenID Provider on the Directory of Participants;<a href="#section-6.1-3.2" class="pilcrow">¶</a>
 </li>
-<li id="section-6.1-3.3">
-            <p id="section-6.1-3.3.1">shall advertise support for all signing, encryption, authentication mechanisms and standards required to support <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID3.html">Open Banking Brasil Financial API</a>;<a href="#section-6.1-3.3.1" class="pilcrow">¶</a></p>
+          <li id="section-6.1-3.3">shall advertise support for all signing, encryption, authentication mechanisms and standards required to support <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID3.html">Open Banking Brasil Financial API</a>;<a href="#section-6.1-3.3" class="pilcrow">¶</a>
 </li>
-<li id="section-6.1-3.4">
-            <p id="section-6.1-3.4.1">shall advertise support for <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Dynamic Client Registration</a>;<a href="#section-6.1-3.4.1" class="pilcrow">¶</a></p>
+          <li id="section-6.1-3.4">shall advertise support for <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Dynamic Client Registration</a>;<a href="#section-6.1-3.4" class="pilcrow">¶</a>
 </li>
-<li id="section-6.1-3.5">
-            <p id="section-6.1-3.5.1">shall advertise <code>mtls_endpoint_aliases</code> as per clause 5 <a href="https://tools.ietf.org/html/rfc8705">RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens</a> the <code>token_endpoint</code>, <code>registration_endpoint</code> and <code>userinfo_endpoint</code>;<a href="#section-6.1-3.5.1" class="pilcrow">¶</a></p>
+          <li id="section-6.1-3.5">shall advertise <code>mtls_endpoint_aliases</code> as per clause 5 <a href="https://tools.ietf.org/html/rfc8705">RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens</a> the <code>token_endpoint</code>, <code>registration_endpoint</code> and <code>userinfo_endpoint</code>;<a href="#section-6.1-3.5" class="pilcrow">¶</a>
 </li>
-<li id="section-6.1-3.6">
-            <p id="section-6.1-3.6.1">if supporting <a href="https://tools.ietf.org/html/draft-ietf-oauth-par">OAuth 2.0 Pushed Authorization Requests</a> shall advertise through <a href="https://openid.net/specs/openid-connect-discovery-1_0.html">OIDD</a> <code>mtls_endpoint_aliases</code> the <code>pushed_authorization_request_endpoint</code>;<a href="#section-6.1-3.6.1" class="pilcrow">¶</a></p>
+          <li id="section-6.1-3.6">if supporting <a href="https://tools.ietf.org/html/draft-ietf-oauth-par">OAuth 2.0 Pushed Authorization Requests</a> shall advertise through <a href="https://openid.net/specs/openid-connect-discovery-1_0.html">OIDD</a> <code>mtls_endpoint_aliases</code> the <code>pushed_authorization_request_endpoint</code>;<a href="#section-6.1-3.6" class="pilcrow">¶</a>
 </li>
-<li id="section-6.1-3.7">
-            <p id="section-6.1-3.7.1">if supporting <a href="https://bitbucket.org/openid/fapi/src/master/Financial_API_WD_CIBA.md">Financial API - Client Initiated Back Channel Authentication</a> shall advertise through <a href="https://openid.net/specs/openid-connect-discovery-1_0.html">OIDD</a> <code>mtls_endpoint_aliases</code> the <code>backchannel_authentication_endpoint</code>;<a href="#section-6.1-3.7.1" class="pilcrow">¶</a></p>
+          <li id="section-6.1-3.7">if supporting <a href="https://bitbucket.org/openid/fapi/src/master/Financial_API_WD_CIBA.md">Financial API - Client Initiated Back Channel Authentication</a> shall advertise through <a href="https://openid.net/specs/openid-connect-discovery-1_0.html">OIDD</a> <code>mtls_endpoint_aliases</code> the <code>backchannel_authentication_endpoint</code>;<a href="#section-6.1-3.7" class="pilcrow">¶</a>
 </li>
-</ol>
+        </ol>
 </section>
 </div>
 <div id="client">
@@ -1388,17 +1496,14 @@ This support shall be explicit in Participant Directory configurations, and in t
         </h3>
 <p id="section-6.2-1">The Client shall support <a href="https://openid.net/specs/openid-connect-discovery-1_0.html">OpenID Connect Discovery</a> as required by <a href="https://openid.net/specs/openid-financial-api-part-1-1_0.html">Financial-grade API Security Profile 1.0 - Part 1: Baseline</a><a href="#section-6.2-1" class="pilcrow">¶</a></p>
 <p id="section-6.2-2">In addition, the Client<a href="#section-6.2-2" class="pilcrow">¶</a></p>
-<ol start="1" type="1" class="normal type-1" id="section-6.2-3">
-          <li id="section-6.2-3.1">
-            <p id="section-6.2-3.1.1">shall rely on ecosystem discovery services provided by Directory of Participants only;<a href="#section-6.2-3.1.1" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="compact type-1" id="section-6.2-3">
+<li id="section-6.2-3.1">shall rely on ecosystem discovery services provided by Directory of Participants only;<a href="#section-6.2-3.1" class="pilcrow">¶</a>
 </li>
-<li id="section-6.2-3.2">
-            <p id="section-6.2-3.2.1">shall derive necessary Authorisation Server metadata by relying on an Authorization Servers OpenID Connect Discovery services only;<a href="#section-6.2-3.2.1" class="pilcrow">¶</a></p>
+          <li id="section-6.2-3.2">shall derive necessary Authorisation Server metadata by relying on an Authorization Servers OpenID Connect Discovery services only;<a href="#section-6.2-3.2" class="pilcrow">¶</a>
 </li>
-<li id="section-6.2-3.3">
-            <p id="section-6.2-3.3.1">where present, shall use endpoints advertised in <code>mtls_endpoint_aliases</code> as per clause 5 <a href="https://tools.ietf.org/html/rfc8705">RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens</a>;<a href="#section-6.2-3.3.1" class="pilcrow">¶</a></p>
+          <li id="section-6.2-3.3">where present, shall use endpoints advertised in <code>mtls_endpoint_aliases</code> as per clause 5 <a href="https://tools.ietf.org/html/rfc8705">RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens</a>;<a href="#section-6.2-3.3" class="pilcrow">¶</a>
 </li>
-</ol>
+        </ol>
 </section>
 </div>
 </section>
@@ -1415,44 +1520,33 @@ This support shall be explicit in Participant Directory configurations, and in t
         </h3>
 <p id="section-7.1-1">The Authorization Server shall support the RFC RFCs Dynamic Client Registration (DCR) <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a>,  Dynamic Client Management (DCM) <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a> and <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Registration</a><a href="#section-7.1-1" class="pilcrow">¶</a></p>
 <p id="section-7.1-2">In addition, the Authorization Server<a href="#section-7.1-2" class="pilcrow">¶</a></p>
-<ol start="1" type="1" class="normal type-1" id="section-7.1-3">
-          <li id="section-7.1-3.1">
-            <p id="section-7.1-3.1.1">shall reject dynamic client registration requests not performed over a connection secured with mutual tls using certificates issued by Brazil ICP (production) or the Directory of Participants (sandbox);<a href="#section-7.1-3.1.1" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="compact type-1" id="section-7.1-3">
+<li id="section-7.1-3.1">shall reject dynamic client registration requests not performed over a connection secured with mutual tls using certificates issued by Brazil ICP (production) or the Directory of Participants (sandbox);<a href="#section-7.1-3.1" class="pilcrow">¶</a>
 </li>
-<li id="section-7.1-3.2">
-            <p id="section-7.1-3.2.1">shall validate that the request contains software_statement JWT signed using the <code>PS256</code> algorithim issued by the Open Banking Brasil directory of participants;<a href="#section-7.1-3.2.1" class="pilcrow">¶</a></p>
+          <li id="section-7.1-3.2">shall validate that the request contains software_statement JWT signed using the <code>PS256</code> algorithim issued by the Open Banking Brasil directory of participants;<a href="#section-7.1-3.2" class="pilcrow">¶</a>
 </li>
-<li id="section-7.1-3.3">
-            <p id="section-7.1-3.3.1">shall validate that the <code>software_statement</code> was issued (iat) not more than 5 minutes prior to the request being received;<a href="#section-7.1-3.3.1" class="pilcrow">¶</a></p>
+          <li id="section-7.1-3.3">shall validate that the <code>software_statement</code> was issued (iat) not more than 5 minutes prior to the request being received;<a href="#section-7.1-3.3" class="pilcrow">¶</a>
 </li>
-<li id="section-7.1-3.4">
-            <p id="section-7.1-3.4.1">shall validate that the attribute <code>jwks</code> (key set by value) was <strong>not</strong> included; but declared as a reference in the <code>jwks_uri</code> attribute;<a href="#section-7.1-3.4.1" class="pilcrow">¶</a></p>
+          <li id="section-7.1-3.4">shall validate that the attribute <code>jwks</code> (key set by value) was <strong>not</strong> included; but declared as a reference in the <code>jwks_uri</code> attribute;<a href="#section-7.1-3.4" class="pilcrow">¶</a>
 </li>
-<li id="section-7.1-3.5">
-            <p id="section-7.1-3.5.1">when the <code>jwks_uri</code> was informed, shall validate that matches the <code>software_jwks_uri</code> provided in the <code>software_statement</code>;<a href="#section-7.1-3.5.1" class="pilcrow">¶</a></p>
+          <li id="section-7.1-3.5">when the <code>jwks_uri</code> was informed, shall validate that matches the <code>software_jwks_uri</code> provided in the <code>software_statement</code>;<a href="#section-7.1-3.5" class="pilcrow">¶</a>
 </li>
-<li id="section-7.1-3.6">
-            <p id="section-7.1-3.6.1">shall require and validate that <code>redirect_uris</code> match or contain a sub set of software<em>redirect</em>uris provided in the <code>software_statement</code>;<a href="#section-7.1-3.6.1" class="pilcrow">¶</a></p>
+          <li id="section-7.1-3.6">shall require and validate that <code>redirect_uris</code> match or contain a sub set of software_redirect_uris provided in the <code>software_statement</code>;<a href="#section-7.1-3.6" class="pilcrow">¶</a>
 </li>
-<li id="section-7.1-3.7">
-            <p id="section-7.1-3.7.1">shall require and validate that all client authentication mechanism adhere to the requirements defined in <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a> and <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a>, validating the <code>registration_access_token</code> and using a secure connection, protected by certificate Issued from chain of certificates linked to ICP-Brasil;<a href="#section-7.1-3.7.1" class="pilcrow">¶</a></p>
+          <li id="section-7.1-3.7">shall require and validate that all client authentication mechanism adhere to the requirements defined in <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a> and <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a>, validating the <code>registration_access_token</code> and using a secure connection, protected by certificate Issued from chain of certificates linked to ICP-Brasil;<a href="#section-7.1-3.7" class="pilcrow">¶</a>
 </li>
-<li id="section-7.1-3.8">
-            <p id="section-7.1-3.8.1"><em>removed</em>;<a href="#section-7.1-3.8.1" class="pilcrow">¶</a></p>
+          <li id="section-7.1-3.8">
+            <em>removed</em>;<a href="#section-7.1-3.8" class="pilcrow">¶</a>
 </li>
-<li id="section-7.1-3.9">
-            <p id="section-7.1-3.9.1">shall validate that the requested scopes are adequate for accredited institutions and their regulatory roles and contained in the <code>software_statement</code>. The list of regulatory permissions and the corresponding scopes are described in the following sections;<a href="#section-7.1-3.9.1" class="pilcrow">¶</a></p>
+          <li id="section-7.1-3.9">shall validate that the requested scopes are adequate for accredited institutions and their regulatory roles and contained in the <code>software_statement</code>. The list of regulatory permissions and the corresponding scopes are described in the following sections;<a href="#section-7.1-3.9" class="pilcrow">¶</a>
 </li>
-<li id="section-7.1-3.10">
-            <p id="section-7.1-3.10.1">where possible, shall compare client metadata asserted by a client toward the metadata provided into  <code>software_statement</code>, choosing the values present in the SSA with precedence;<a href="#section-7.1-3.10.1" class="pilcrow">¶</a></p>
+          <li id="section-7.1-3.10">where possible, shall compare client metadata asserted by a client toward the metadata provided into  <code>software_statement</code>, choosing the values present in the SSA with precedence;<a href="#section-7.1-3.10" class="pilcrow">¶</a>
 </li>
-<li id="section-7.1-3.11">
-            <p id="section-7.1-3.11.1">shall accept all x.500 AttributeType name strings defined in the Distinguished Name of the x.509 Certificate Profiles defined in <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html">Open Banking Brasil x.509 Certificate Standards</a>;<a href="#section-7.1-3.11.1" class="pilcrow">¶</a></p>
+          <li id="section-7.1-3.11">shall accept all x.500 AttributeType name strings defined in the Distinguished Name of the x.509 Certificate Profiles defined in <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html">Open Banking Brasil x.509 Certificate Standards</a>;<a href="#section-7.1-3.11" class="pilcrow">¶</a>
 </li>
-<li id="section-7.1-3.12">
-            <p id="section-7.1-3.12.1">if supporting <code>tls_client_auth</code> client authentication mechanism as defined in <a href="https://tools.ietf.org/html/rfc8705">RFC8705</a> shall only accept <code>tls_client_auth_subject_dn</code>  as an indication of the certificate subject value as defined in clause 2.1.2 <a href="https://tools.ietf.org/html/rfc8705">RFC8705</a>;<a href="#section-7.1-3.12.1" class="pilcrow">¶</a></p>
+          <li id="section-7.1-3.12">if supporting <code>tls_client_auth</code> client authentication mechanism as defined in <a href="https://tools.ietf.org/html/rfc8705">RFC8705</a> shall only accept <code>tls_client_auth_subject_dn</code>  as an indication of the certificate subject value as defined in clause 2.1.2 <a href="https://tools.ietf.org/html/rfc8705">RFC8705</a>;<a href="#section-7.1-3.12" class="pilcrow">¶</a>
 </li>
-</ol>
+        </ol>
 <p id="section-7.1-4">These provisions apply equally to the processing of <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a>, <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a> and <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Registration</a> requests<a href="#section-7.1-4" class="pilcrow">¶</a></p>
 <div id="applying-server-defaults">
 <section id="section-7.1.1">
@@ -1460,17 +1554,14 @@ This support shall be explicit in Participant Directory configurations, and in t
 <a href="#section-7.1.1" class="section-number selfRef">7.1.1. </a><a href="#name-applying-server-defaults" class="section-name selfRef">Applying Server Defaults</a>
           </h4>
 <p id="section-7.1.1-1">Where properties of a DCR request are not included and are not mandatory in the specification the Authorisation Server shall apply client defaults in the following manner<a href="#section-7.1.1-1" class="pilcrow">¶</a></p>
-<ol start="1" type="1" class="normal type-1" id="section-7.1.1-2">
-            <li id="section-7.1.1-2.1">
-              <p id="section-7.1.1-2.1.1">shall select and apply the encryption algorithm and cipher choice from the most recommended of the IANA cipher suites that is supported by the Authorisation Server;<a href="#section-7.1.1-2.1.1" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="compact type-1" id="section-7.1.1-2">
+<li id="section-7.1.1-2.1">shall select and apply the encryption algorithm and cipher choice from the most recommended of the IANA cipher suites that is supported by the Authorisation Server;<a href="#section-7.1.1-2.1" class="pilcrow">¶</a>
 </li>
-<li id="section-7.1.1-2.2">
-              <p id="section-7.1.1-2.2.1">shall populate defaults from values within the <code>software_statement</code> assertion where possible;<a href="#section-7.1.1-2.2.1" class="pilcrow">¶</a></p>
+            <li id="section-7.1.1-2.2">shall populate defaults from values within the <code>software_statement</code> assertion where possible;<a href="#section-7.1.1-2.2" class="pilcrow">¶</a>
 </li>
-<li id="section-7.1.1-2.3">
-              <p id="section-7.1.1-2.3.1">shall grant the client permission to the complete set of potential scopes based on the softwares regulatory permissions included in the <code>software_statement</code>;<a href="#section-7.1.1-2.3.1" class="pilcrow">¶</a></p>
+            <li id="section-7.1.1-2.3">shall grant the client permission to the complete set of potential scopes based on the softwares regulatory permissions included in the <code>software_statement</code>;<a href="#section-7.1.1-2.3" class="pilcrow">¶</a>
 </li>
-</ol>
+          </ol>
 </section>
 </div>
 <div id="certificate-distinguished-name-parsing">
@@ -1482,17 +1573,14 @@ This support shall be explicit in Participant Directory configurations, and in t
 <p id="section-7.1.2-2">To address this ambiguity, the Authorization Server must accept only the AttributeTypes name strings (descriptors) defined in the last paragraph of clause 3 <a href="https://www.rfc-editor.org/rfc/rfc4514">RFC4514</a> in string format, it shall also accept in OID format, with their values in ASN.1, all the AttributeTypes defined in Distinguished Name <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html">Open Banking Brasil x.509 Certificate Standards</a> or added by the Certificate Authority.<a href="#section-7.1.2-2" class="pilcrow">¶</a></p>
 <p id="section-7.1.2-3">In case of non-compliance with these requirements, the Authorization Server shall reject the registration.<a href="#section-7.1.2-3" class="pilcrow">¶</a></p>
 <p id="section-7.1.2-4">In terms of format, follow below how decoding should be done:<a href="#section-7.1.2-4" class="pilcrow">¶</a></p>
-<ul>
-<li id="section-7.1.2-5.1">
-              <p id="section-7.1.2-5.1.1">Start backwards, the order is reversed from what is entered.<a href="#section-7.1.2-5.1.1" class="pilcrow">¶</a></p>
+<ul class="compact">
+<li class="compact" id="section-7.1.2-5.1">Start backwards, the order is reversed from what is entered.<a href="#section-7.1.2-5.1" class="pilcrow">¶</a>
 </li>
-<li id="section-7.1.2-5.2">
-              <p id="section-7.1.2-5.2.1">Append each RDN (RelativeDistinguishedName) segment with a comma ','.<a href="#section-7.1.2-5.2.1" class="pilcrow">¶</a></p>
+            <li class="compact" id="section-7.1.2-5.2">Append each RDN (RelativeDistinguishedName) segment with a comma ','.<a href="#section-7.1.2-5.2" class="pilcrow">¶</a>
 </li>
-<li id="section-7.1.2-5.3">
-              <p id="section-7.1.2-5.3.1">Use the RFC strings (CN, L, ST, O, OR, C, Street, DC, UID) with the value of their attributes in "printable string", ie human-readable + the OIDs of the attributes defined in this specification for use in Distinguished Name <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html">Open Banking Brasil x.509 Certificate Standards</a> (businessCategory=OID 2.5.4.15,jurisdictionCountryName=OID: 1.3.6.1.4.1.311.60.2.1.3, serialNumber=OID:2.5.4.5) with the value of your attributes in ASN.1 format.<a href="#section-7.1.2-5.3.1" class="pilcrow">¶</a></p>
+            <li class="compact" id="section-7.1.2-5.3">Use the RFC strings (CN, L, ST, O, OR, C, Street, DC, UID) with the value of their attributes in "printable string", ie human-readable + the OIDs of the attributes defined in this specification for use in Distinguished Name <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html">Open Banking Brasil x.509 Certificate Standards</a> (businessCategory=OID 2.5.4.15,jurisdictionCountryName=OID: 1.3.6.1.4.1.311.60.2.1.3, serialNumber=OID:2.5.4.5) with the value of your attributes in ASN.1 format.<a href="#section-7.1.2-5.3" class="pilcrow">¶</a>
 </li>
-</ul>
+          </ul>
 <p id="section-7.1.2-6">Examples:<a href="#section-7.1.2-6" class="pilcrow">¶</a></p>
 <table class="center" id="table-1">
             <caption><a href="#table-1" class="selfRef">Table 1</a></caption>
@@ -1545,19 +1633,19 @@ This support shall be explicit in Participant Directory configurations, and in t
           <tbody>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">DADOS</td>
-              <td class="text-left" rowspan="1" colspan="1">Institui&#231;&#227;o transmissora ou receptora de dados (AISP)</td>
+              <td class="text-left" rowspan="1" colspan="1">Institui<span class="unicode">çã (U+00E7 U+00E3)</span>o transmissora ou receptora de dados (AISP)</td>
               <td class="text-left" rowspan="1" colspan="1">openid accounts credit-cards-accounts consents customers invoice-financings financings loans unarranged-accounts-overdraft resources</td>
               <td class="text-left" rowspan="1" colspan="1">Phase 2</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">PAGTO</td>
-              <td class="text-left" rowspan="1" colspan="1">Institui&#231;&#227;o prestadora de servi&#231;o de inicia&#231;&#227;o de pagamentos (PISP)</td>
-              <td class="text-left" rowspan="1" colspan="1">openid payments </td>
+              <td class="text-left" rowspan="1" colspan="1">Institui<span class="unicode">çã (U+00E7 U+00E3)</span>o prestadora de servi&#231;o de inicia<span class="unicode">çã (U+00E7 U+00E3)</span>o de pagamentos (PISP)</td>
+              <td class="text-left" rowspan="1" colspan="1">openid payments</td>
               <td class="text-left" rowspan="1" colspan="1">Phase 3</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">CONTA</td>
-              <td class="text-left" rowspan="1" colspan="1">Institui&#231;&#227;o detentora de conta (ASPSP)</td>
+              <td class="text-left" rowspan="1" colspan="1">Institui<span class="unicode">çã (U+00E7 U+00E3)</span>o detentora de conta (ASPSP)</td>
               <td class="text-left" rowspan="1" colspan="1">openid</td>
               <td class="text-left" rowspan="1" colspan="1">Phase 3</td>
             </tr>
@@ -1569,6 +1657,7 @@ This support shall be explicit in Participant Directory configurations, and in t
             </tr>
           </tbody>
         </table>
+<p id="section-7.2-4">Validate the active roles in the application's <em>software_statement</em>. The information validation, shall use the field _software_statement_roles, and shall verify if their roles are actives.<a href="#section-7.2-4" class="pilcrow">¶</a></p>
 <div id="implementers-note">
 <section id="section-7.2.1">
           <h4 id="name-implementers-note">
@@ -1621,7 +1710,7 @@ This support shall be explicit in Participant Directory configurations, and in t
 <a href="#section-8.1" class="section-number selfRef">8.1. </a><a href="#name-software-statement-claims" class="section-name selfRef">Software Statement Claims</a>
         </h3>
 <p id="section-8.1-1">The following example contains all of the claims currently included in a software statement<a href="#section-8.1-1" class="pilcrow">¶</a></p>
-<div class="artwork art-text alignLeft" id="section-8.1-2">
+<div class="alignLeft art-text artwork" id="section-8.1-2">
 <pre>{
   "software_mode": "Live",
   "software_redirect_uris": [
@@ -1707,7 +1796,128 @@ This support shall be explicit in Participant Directory configurations, and in t
       <h2 id="name-dynamic-client-registration">
 <a href="#section-9" class="section-number selfRef">9. </a><a href="#name-dynamic-client-registration" class="section-name selfRef">Dynamic Client Registration Request Processing</a>
       </h2>
-	  	  	  <p><img src="images/dynamic-client-registration.png" alt="Dynamic Client Registration Request Processing" /></p>
+<figure id="figure-1">
+        <div class="alignLeft art-svg artwork" id="section-9-1.1">
+<svg xmlns="http://www.w3.org/2000/svg" contentstyletype="text/css" height="auto" preserveAspectRatio="none" style="width:100%;height:auto;background:#FFFFFF;" version="1.1" viewBox="0 0 1153 906" width="100%" zoomAndPan="magnify">
+            <desc>Dynamic Client Registration</desc>
+            <g>
+              <rect height="26.2969" style="stroke:#00000000;stroke-width:1.0;fill:none;" width="238" x="456.75" y="10"></rect>
+              <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="228" x="461.75" y="27.9951" style="white-space: pre;">Dynamic Client Registration</text>
+              <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="298" x2="298" y1="73.5938" y2="870.9141"></line>
+              <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="482" x2="482" y1="73.5938" y2="870.9141"></line>
+              <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="624" x2="624" y1="73.5938" y2="870.9141"></line>
+              <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="746" x2="746" y1="73.5938" y2="870.9141"></line>
+              <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="877" x2="877" y1="73.5938" y2="870.9141"></line>
+              <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="1109.5" x2="1109.5" y1="73.5938" y2="870.9141"></line>
+              <rect fill="#E2E2F0" height="30.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="41" x="278" y="42.2969"></rect>
+              <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="27" x="285" y="62.292" style="white-space: pre;">TPP</text>
+              <rect fill="#E2E2F0" height="30.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="41" x="278" y="869.9141"></rect>
+              <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="27" x="285" y="889.9092" style="white-space: pre;">TPP</text>
+              <rect fill="#E2E2F0" height="30.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="101" x="432" y="42.2969"></rect>
+              <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="87" x="439" y="62.292" style="white-space: pre;">DirectoryAS</text>
+              <rect fill="#E2E2F0" height="30.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="101" x="432" y="869.9141"></rect>
+              <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="87" x="439" y="889.9092" style="white-space: pre;">DirectoryAS</text>
+              <rect fill="#E2E2F0" height="30.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="105" x="572" y="42.2969"></rect>
+              <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="91" x="579" y="62.292" style="white-space: pre;">DirectoryAPI</text>
+              <rect fill="#E2E2F0" height="30.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="105" x="572" y="869.9141"></rect>
+              <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="91" x="579" y="889.9092" style="white-space: pre;">DirectoryAPI</text>
+              <rect fill="#E2E2F0" height="30.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="119" x="687" y="42.2969"></rect>
+              <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="105" x="694" y="62.292" style="white-space: pre;">DirectoryJWKS</text>
+              <rect fill="#E2E2F0" height="30.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="119" x="687" y="869.9141"></rect>
+              <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="105" x="694" y="889.9092" style="white-space: pre;">DirectoryJWKS</text>
+              <rect fill="#E2E2F0" height="30.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="69" x="843" y="42.2969"></rect>
+              <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="55" x="850" y="62.292" style="white-space: pre;">BankAS</text>
+              <rect fill="#E2E2F0" height="30.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="69" x="843" y="869.9141"></rect>
+              <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="55" x="850" y="889.9092" style="white-space: pre;">BankAS</text>
+              <rect fill="#E2E2F0" height="30.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="76" x="1071.5" y="42.2969"></rect>
+              <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="62" x="1078.5" y="62.292" style="white-space: pre;">ICPBrasil</text>
+              <rect fill="#E2E2F0" height="30.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="76" x="1071.5" y="869.9141"></rect>
+              <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="62" x="1078.5" y="889.9092" style="white-space: pre;">ICPBrasil</text>
+              <polygon fill="#181818" points="470.5,100.7266,480.5,104.7266,470.5,108.7266,474.5,104.7266" style="stroke:#181818;stroke-width:1.0;"></polygon>
+              <line style="stroke:#181818;stroke-width:1.0;" x1="298.5" x2="476.5" y1="104.7266" y2="104.7266"></line>
+              <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="160" x="305.5" y="99.6606" style="white-space: pre;">OAuth 2.0 tls_client_auth</text>
+              <path d="M110,117.7266 L110,157.7266 L293,157.7266 L293,127.7266 L283,117.7266 L110,117.7266 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"></path>
+              <path d="M283,117.7266 L283,127.7266 L293,127.7266 L283,117.7266 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"></path>
+              <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="152" x="116" y="134.7935" style="white-space: pre;">Client Credentials Grant</text>
+              <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="162" x="116" y="149.9263" style="white-space: pre;">Scope directory:software</text>
+              <line style="stroke:#181818;stroke-width:1.0;" x1="482.5" x2="524.5" y1="184.125" y2="184.125"></line>
+              <line style="stroke:#181818;stroke-width:1.0;" x1="524.5" x2="524.5" y1="184.125" y2="197.125"></line>
+              <line style="stroke:#181818;stroke-width:1.0;" x1="483.5" x2="524.5" y1="197.125" y2="197.125"></line>
+              <polygon fill="#181818" points="493.5,193.125,483.5,197.125,493.5,201.125,489.5,197.125" style="stroke:#181818;stroke-width:1.0;"></polygon>
+              <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="122" x="489.5" y="179.0591" style="white-space: pre;">Validate Certificate</text>
+              <polygon fill="#181818" points="1097.5,222.2578,1107.5,226.2578,1097.5,230.2578,1101.5,226.2578" style="stroke:#181818;stroke-width:1.0;"></polygon>
+              <line style="stroke:#181818;stroke-width:1.0;" x1="482.5" x2="1103.5" y1="226.2578" y2="226.2578"></line>
+              <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="160" x="489.5" y="221.1919" style="white-space: pre;">Check Revocation Status</text>
+              <polygon fill="#181818" points="493.5,251.3906,483.5,255.3906,493.5,259.3906,489.5,255.3906" style="stroke:#181818;stroke-width:1.0;"></polygon>
+              <line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="487.5" x2="1108.5" y1="255.3906" y2="255.3906"></line>
+              <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="88" x="499.5" y="250.3247" style="white-space: pre;">Certificate OK</text>
+              <polygon fill="#181818" points="309.5,280.5234,299.5,284.5234,309.5,288.5234,305.5,284.5234" style="stroke:#181818;stroke-width:1.0;"></polygon>
+              <line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="303.5" x2="481.5" y1="284.5234" y2="284.5234"></line>
+              <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="88" x="315.5" y="279.4575" style="white-space: pre;">Access Token</text>
+              <polygon fill="#181818" points="612.5,309.6563,622.5,313.6563,612.5,317.6563,616.5,313.6563" style="stroke:#181818;stroke-width:1.0;"></polygon>
+              <line style="stroke:#181818;stroke-width:1.0;" x1="298.5" x2="618.5" y1="313.6563" y2="313.6563"></line>
+              <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="302" x="305.5" y="308.5903" style="white-space: pre;">Retrieve Authorisation Servers + Access Token</text>
+              <polygon fill="#181818" points="309.5,338.7891,299.5,342.7891,309.5,346.7891,305.5,342.7891" style="stroke:#181818;stroke-width:1.0;"></polygon>
+              <line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="303.5" x2="623.5" y1="342.7891" y2="342.7891"></line>
+              <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="138" x="315.5" y="337.7231" style="white-space: pre;">Authorisation Servers</text>
+              <polygon fill="#181818" points="865.5,367.9219,875.5,371.9219,865.5,375.9219,869.5,371.9219" style="stroke:#181818;stroke-width:1.0;"></polygon>
+              <line style="stroke:#181818;stroke-width:1.0;" x1="298.5" x2="871.5" y1="371.9219" y2="371.9219"></line>
+              <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="195" x="305.5" y="366.856" style="white-space: pre;">Retrieve OpenID Configuration</text>
+              <polygon fill="#181818" points="309.5,397.0547,299.5,401.0547,309.5,405.0547,305.5,401.0547" style="stroke:#181818;stroke-width:1.0;"></polygon>
+              <line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="303.5" x2="876.5" y1="401.0547" y2="401.0547"></line>
+              <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="221" x="315.5" y="395.9888" style="white-space: pre;">JSON OpenID Discovery Clause 4.2</text>
+              <line style="stroke:#181818;stroke-width:1.0;" x1="298.5" x2="340.5" y1="430.1875" y2="430.1875"></line>
+              <line style="stroke:#181818;stroke-width:1.0;" x1="340.5" x2="340.5" y1="430.1875" y2="443.1875"></line>
+              <line style="stroke:#181818;stroke-width:1.0;" x1="299.5" x2="340.5" y1="443.1875" y2="443.1875"></line>
+              <polygon fill="#181818" points="309.5,439.1875,299.5,443.1875,309.5,447.1875,305.5,443.1875" style="stroke:#181818;stroke-width:1.0;"></polygon>
+              <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="165" x="305.5" y="425.1216" style="white-space: pre;">Extract Desired MetaData</text>
+              <polygon fill="#181818" points="612.5,468.3203,622.5,472.3203,612.5,476.3203,616.5,472.3203" style="stroke:#181818;stroke-width:1.0;"></polygon>
+              <line style="stroke:#181818;stroke-width:1.0;" x1="298.5" x2="618.5" y1="472.3203" y2="472.3203"></line>
+              <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="83" x="305.5" y="467.2544" style="white-space: pre;">Retrieve SSA</text>
+              <polygon fill="#181818" points="309.5,497.4531,299.5,501.4531,309.5,505.4531,305.5,501.4531" style="stroke:#181818;stroke-width:1.0;"></polygon>
+              <line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="303.5" x2="623.5" y1="501.4531" y2="501.4531"></line>
+              <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="54" x="315.5" y="496.3872" style="white-space: pre;">SSA JWT</text>
+              <polygon fill="#181818" points="865.5,526.5859,875.5,530.5859,865.5,534.5859,869.5,530.5859" style="stroke:#181818;stroke-width:1.0;"></polygon>
+              <line style="stroke:#181818;stroke-width:1.0;" x1="298.5" x2="871.5" y1="530.5859" y2="530.5859"></line>
+              <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="332" x="305.5" y="525.52" style="white-space: pre;">Post RFC7591 with SSA JWT as software_statement</text>
+              <polygon fill="#181818" points="1097.5,555.7188,1107.5,559.7188,1097.5,563.7188,1101.5,559.7188" style="stroke:#181818;stroke-width:1.0;"></polygon>
+              <line style="stroke:#181818;stroke-width:1.0;" x1="877.5" x2="1103.5" y1="559.7188" y2="559.7188"></line>
+              <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="160" x="884.5" y="554.6528" style="white-space: pre;">Check Revocation Status</text>
+              <polygon fill="#181818" points="888.5,584.8516,878.5,588.8516,888.5,592.8516,884.5,588.8516" style="stroke:#181818;stroke-width:1.0;"></polygon>
+              <line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="882.5" x2="1108.5" y1="588.8516" y2="588.8516"></line>
+              <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="88" x="894.5" y="583.7856" style="white-space: pre;">Certificate OK</text>
+              <polygon fill="#181818" points="757.5,613.9844,747.5,617.9844,757.5,621.9844,753.5,617.9844" style="stroke:#181818;stroke-width:1.0;"></polygon>
+              <line style="stroke:#181818;stroke-width:1.0;" x1="751.5" x2="876.5" y1="617.9844" y2="617.9844"></line>
+              <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="107" x="763.5" y="612.9185" style="white-space: pre;">Retrieve Key Set</text>
+              <polygon fill="#181818" points="865.5,643.1172,875.5,647.1172,865.5,651.1172,869.5,647.1172" style="stroke:#181818;stroke-width:1.0;"></polygon>
+              <line style="stroke:#181818;stroke-width:1.0;" x1="746.5" x2="871.5" y1="647.1172" y2="647.1172"></line>
+              <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="96" x="753.5" y="642.0513" style="white-space: pre;">Return Key Set</text>
+              <line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="877.5" x2="919.5" y1="676.25" y2="676.25"></line>
+              <line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="919.5" x2="919.5" y1="676.25" y2="689.25"></line>
+              <line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="878.5" x2="919.5" y1="689.25" y2="689.25"></line>
+              <polygon fill="#181818" points="888.5,685.25,878.5,689.25,888.5,693.25,884.5,689.25" style="stroke:#181818;stroke-width:1.0;"></polygon>
+              <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="218" x="884.5" y="671.1841" style="white-space: pre;">Validate SSA in RFC 7591 Request</text>
+              <line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="877.5" x2="919.5" y1="718.3828" y2="718.3828"></line>
+              <line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="919.5" x2="919.5" y1="718.3828" y2="731.3828"></line>
+              <line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="878.5" x2="919.5" y1="731.3828" y2="731.3828"></line>
+              <polygon fill="#181818" points="888.5,727.3828,878.5,731.3828,888.5,735.3828,884.5,731.3828" style="stroke:#181818;stroke-width:1.0;"></polygon>
+              <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="170" x="884.5" y="713.3169" style="white-space: pre;">Validate RFC7591 Request</text>
+              <path d="M5,744.3828 L5,784.3828 L294,784.3828 L294,754.3828 L284,744.3828 L5,744.3828 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"></path>
+              <path d="M284,744.3828 L284,754.3828 L294,754.3828 L284,744.3828 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"></path>
+              <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="268" x="11" y="761.4497" style="white-space: pre;">Request must be made to token endpoint</text>
+              <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="154" x="11" y="776.5825" style="white-space: pre;">secured with mutual tls.</text>
+              <polygon fill="#181818" points="309.5,806.7813,299.5,810.7813,309.5,814.7813,305.5,810.7813" style="stroke:#181818;stroke-width:1.0;"></polygon>
+              <line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="303.5" x2="876.5" y1="810.7813" y2="810.7813"></line>
+              <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="448" x="315.5" y="805.7153" style="white-space: pre;">Return RFC7591 Client Configuration +   RFC7592 Management Token</text>
+              <line style="stroke:#181818;stroke-width:1.0;" x1="298.5" x2="340.5" y1="839.9141" y2="839.9141"></line>
+              <line style="stroke:#181818;stroke-width:1.0;" x1="340.5" x2="340.5" y1="839.9141" y2="852.9141"></line>
+              <line style="stroke:#181818;stroke-width:1.0;" x1="299.5" x2="340.5" y1="852.9141" y2="852.9141"></line>
+              <polygon fill="#181818" points="309.5,848.9141,299.5,852.9141,309.5,856.9141,305.5,852.9141" style="stroke:#181818;stroke-width:1.0;"></polygon>
+              <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="163" x="305.5" y="834.8481" style="white-space: pre;">Save Management Token</text>
+            </g>
+          </svg>
+        </div>
+<figcaption><a href="#figure-1" class="selfRef">Figure 1</a></figcaption></figure>
 <div id="posting-a-request-with-a-software-statement">
 <section id="section-9.1">
         <h3 id="name-posting-a-request-with-a-so">
@@ -1715,7 +1925,7 @@ This support shall be explicit in Participant Directory configurations, and in t
         </h3>
 <p id="section-9.1-1">This example includes various optional fields, some of which may not be applicable to some deployments. For a complete guide to the attributes and their requirements, consult the Swagger DCR/DCM link: <a href="https://raw.githubusercontent.com/OpenBanking-Brasil/specs-seguranca/main/dcr_review/dcr-dcm-swagger.yaml">OBB-DCR/DCM-Swagger</a> .
 Line wraps within values are for display purposes only.<a href="#section-9.1-1" class="pilcrow">¶</a></p>
-<div class="artwork art-text alignLeft" id="section-9.1-2">
+<div class="alignLeft art-text artwork" id="section-9.1-2">
 <pre>POST /reg HTTP/1.1
 Host: auth.raidiam.com
 Content-Type: application/json
@@ -1736,8 +1946,6 @@ Content-Type: application/json
 "software_statement": "eyJraWQiOiJzaWduZXIiLCJ0eXAiOiJKV1QiLCJhbGciOiJQUzI1NiJ9.eyJzb2Z0d2FyZV9tb2RlIjoiTGl2ZSIsInNvZnR3YXJlX3JlZGlyZWN0X3VyaXMiOlsiaHR0cHM6XC9cL3d3dy5yYWlkaWFtLmNvbVwvYWNjb3VudGluZ1wvY2IiXSwic29mdHdhcmVfc3RhdGVtZW50X3JvbGVzIjpbeyJyb2xlIjoiREFET1MiLCJhdXRob3Jpc2F0aW9uX2RvbWFpbiI6Ik9wZW4gQmFua2luZyIsInN0YXR1cyI6IkFjdGl2ZSJ9LHsicm9sZSI6IlBBR1RPIiwiYXV0aG9yaXNhdGlvbl9kb21haW4iOiJPcGVuIEJhbmtpbmciLCJzdGF0dXMiOiJBY3RpdmUifV0sInNvZnR3YXJlX2NsaWVudF9uYW1lIjoiUmFpZGlhbSBBY2NvdW50aW5nIiwib3JnX3N0YXR1cyI6IkFjdGl2ZSIsInNvZnR3YXJlX2NsaWVudF9pZCI6IkNraTFFYnZqd3loUEIxMk5HTGx6MiIsImlzcyI6Ik9wZW4gQmFua2luZyBPcGVuIEJhbmtpbmcgQnJhc2lsIHByb2QgU1NBIGlzc3VlciIsInNvZnR3YXJlX3Rvc191cmkiOiJodHRwczpcL1wvd3d3LnJhaWRpYW0uY29tXC9hY2NvdW50aW5nXC90b3MuaHRtbCIsInNvZnR3YXJlX2NsaWVudF9kZXNjcmlwdGlvbiI6IlJhaWRpYW0gQWNjb3VudGluZyBsZXZlcmFnZSBjdXR0aW5nIGVkZ2Ugb3BlbiBiYW5raW5nIGFjY2VzcyB0byBicmluZyB5b3UgcmVhbCB0aW1lIHVwIHRvIGRhdGUgdmlld3Mgb2YgeW91ciBmaW5hbmNlcyIsInNvZnR3YXJlX2p3a3NfZW5kcG9pbnQiOiJodHRwczpcL1wva2V5c3RvcmUuZGlyZWN0b3J5Lm9wZW5iYW5raW5nYnJhc2lsLm9yZy5iclwvYjk2MWM0ZWItNTA5ZC00ZWRmLWFmZWItMzU2NDJiMzgxODVkXC8yNTU1NmQ1YS1iOWRkLTRlMjctYWExYS1jY2U3MzJmZTc0ZGVcL2FwcGxpY2F0aW9uLmp3a3MiLCJzb2Z0d2FyZV9wb2xpY3lfdXJpIjoiaHR0cHM6XC9cL3d3dy5yYWlkaWFtLmNvbVwvYWNjb3VudGluZ1wvcG9saWN5Lmh0bWwiLCJzb2Z0d2FyZV9pZCI6IjI1NTU2ZDVhLWI5ZGQtNGUyNy1hYTFhLWNjZTczMmZlNzRkZSIsInNvZnR3YXJlX2NsaWVudF91cmkiOiJodHRwczpcL1wvd3d3LnJhaWRpYW0uY29tXC9hY2NvdW50aW5nLmh0bWwiLCJzb2Z0d2FyZV9qd2tzX2luYWN0aXZlX2VuZHBvaW50IjoiaHR0cHM6XC9cL2tleXN0b3JlLmRpcmVjdG9yeS5vcGVuYmFua2luZ2JyYXNpbC5vcmcuYnJcL2I5NjFjNGViLTUwOWQtNGVkZi1hZmViLTM1NjQyYjM4MTg1ZFwvMjU1NTZkNWEtYjlkZC00ZTI3LWFhMWEtY2NlNzMyZmU3NGRlXC9pbmFjdGl2ZVwvYXBwbGljYXRpb24uandrcyIsInNvZnR3YXJlX2p3a3NfdHJhbnNwb3J0X2luYWN0aXZlX2VuZHBvaW50IjoiaHR0cHM6XC9cL2tleXN0b3JlLmRpcmVjdG9yeS5vcGVuYmFua2luZ2JyYXNpbC5vcmcuYnJcL2I5NjFjNGViLTUwOWQtNGVkZi1hZmViLTM1NjQyYjM4MTg1ZFwvMjU1NTZkNWEtYjlkZC00ZTI3LWFhMWEtY2NlNzMyZmU3NGRlXC9pbmFjdGl2ZVwvdHJhbnNwb3J0Lmp3a3MiLCJzb2Z0d2FyZV9qd2tzX3RyYW5zcG9ydF9lbmRwb2ludCI6Imh0dHBzOlwvXC9rZXlzdG9yZS5kaXJlY3Rvcnkub3BlbmJhbmtpbmdicmFzaWwub3JnLmJyXC9iOTYxYzRlYi01MDlkLTRlZGYtYWZlYi0zNTY0MmIzODE4NWRcLzI1NTU2ZDVhLWI5ZGQtNGUyNy1hYTFhLWNjZTczMmZlNzRkZVwvdHJhbnNwb3J0Lmp3a3MiLCJzb2Z0d2FyZV9sb2dvX3VyaSI6Imh0dHBzOlwvXC93d3cucmFpZGlhbS5jb21cL2FjY291bnRpbmdcL2xvZ28ucG5nIiwib3JnX2lkIjoiYjk2MWM0ZWItNTA5ZC00ZWRmLWFmZWItMzU2NDJiMzgxODVkIiwic29mdHdhcmVfZW52aXJvbm1lbnQiOiJwcm9kdWN0aW9uIiwic29mdHdhcmVfdmVyc2lvbiI6MS4xMCwic29mdHdhcmVfcm9sZXMiOlsiREFET1MiLCJQQUdUTyJdLCJvcmdfbmFtZSI6Ik9wZW4gQmFua2luZyBCcmFzaWwiLCJpYXQiOjE2MTgzMzYyNjIsIm9yZ2FuaXNhdGlvbl9jb21wZXRlbnRfYXV0aG9yaXR5X2NsYWltcyI6W3siYXV0aG9yaXNhdGlvbl9kb21haW4iOiJPcGVuIEJhbmtpbmciLCJhdXRob3Jpc2F0aW9ucyI6W10sInJlZ2lzdHJhdGlvbl9pZCI6IjEzMzUzMjM2LU9CQi1DT05UQSIsImF1dGhvcml0eV9pZCI6IjY4N2ExYzk0LWIzNjAtNGUwNC05NTg5LTBmYTVjYjE2NDUxYiIsImF1dGhvcmlzYXRpb25fcm9sZSI6IkNPTlRBIiwiYXV0aG9yaXR5X2NvZGUiOiJCQ0IiLCJzdGF0dXMiOiJBY3RpdmUifSx7ImF1dGhvcmlzYXRpb25fZG9tYWluIjoiT3BlbiBCYW5raW5nIiwiYXV0aG9yaXNhdGlvbnMiOltdLCJyZWdpc3RyYXRpb25faWQiOiIxMzM1MzIzNi1PQkItREFET1MiLCJhdXRob3JpdHlfaWQiOiI2ODdhMWM5NC1iMzYwLTRlMDQtOTU4OS0wZmE1Y2IxNjQ1MWIiLCJhdXRob3Jpc2F0aW9uX3JvbGUiOiJEQURPUyIsImF1dGhvcml0eV9jb2RlIjoiQkNCIiwic3RhdHVzIjoiQWN0aXZlIn0seyJhdXRob3Jpc2F0aW9uX2RvbWFpbiI6Ik9wZW4gQmFua2luZyIsImF1dGhvcmlzYXRpb25zIjpbXSwicmVnaXN0cmF0aW9uX2lkIjoiMTMzNTMyMzYtT0JCLVBBR1RPIiwiYXV0aG9yaXR5X2lkIjoiNjg3YTFjOTQtYjM2MC00ZTA0LTk1ODktMGZhNWNiMTY0NTFiIiwiYXV0aG9yaXNhdGlvbl9yb2xlIjoiUEFHVE8iLCJhdXRob3JpdHlfY29kZSI6IkJDQiIsInN0YXR1cyI6IkFjdGl2ZSJ9XX0.W6hUAYhjT6I61rxEIVMKYKre93LTbRdzKnk9dJvUdzVgAz5B9KxZNutf27oO3k0hrjYVWBdWq23o_e4Y_AaKdpS9-rtU84JiHtmqV0wcFYIM8nqcUVWqQ-Ux6Nq9L2G-s2YNd3PcJ1e3yGg9h8553Gr7iJusKEgApzXUpkM2rBELQuumktUE_JBiuIkXmWxoRnO1cW-Osbk3MT3bxG43SPcxii07Q5S8qXI6PjCPA3fYlnaUAygwZM3O0oa7jqmSr7d9UsHuDMJfYhIKdq2wyQQKORCN-D2UopmMX-lHMvAVkkrAO08T0-7odjr4PJk-PrwuoCxeAfa7440ZDOrlmQ",
 "subject_type": "public",
 "token_endpoint_auth_method": "private_key_jwt",
-"introspection_endpoint_auth_method": "private_key_jwt",
-"revocation_endpoint_auth_method": "private_key_jwt",
 "request_object_signing_alg": "PS256",
 "require_signed_request_object": true,
 "require_pushed_authorization_requests": false,
@@ -1781,17 +1989,14 @@ Content-Type: application/json
           <h4 id="name-client-registration-post-re">
 <a href="#section-9.3.1" class="section-number selfRef">9.3.1. </a><a href="#name-client-registration-post-re" class="section-name selfRef">Client registration - POST /register</a>
           </h4>
-<ol start="1" type="1" class="normal type-1" id="section-9.3.1-1">
-            <li id="section-9.3.1-1.1">
-              <p id="section-9.3.1-1.1.1">validate that the certificate presented by the client application is subordinate to the ICP-Brasil chains defined in the Open Banking Brasil Certificates Standard;<a href="#section-9.3.1-1.1.1" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="compact type-1" id="section-9.3.1-1">
+<li id="section-9.3.1-1.1">validate that the certificate presented by the client application is subordinate to the ICP-Brasil chains defined in the Open Banking Brasil Certificates Standard;<a href="#section-9.3.1-1.1" class="pilcrow">¶</a>
 </li>
-<li id="section-9.3.1-1.2">
-              <p id="section-9.3.1-1.2.1">ensure that the signature of the <code>software_statement</code>_ presented by the client application during registration has been made by the Directory of Participants using the public keys described in the previous section;<a href="#section-9.3.1-1.2.1" class="pilcrow">¶</a></p>
+            <li id="section-9.3.1-1.2">ensure that the signature of the <code>software_statement</code>_ presented by the client application during registration has been made by the Directory of Participants using the public keys described in the previous section;<a href="#section-9.3.1-1.2" class="pilcrow">¶</a>
 </li>
-<li id="section-9.3.1-1.3">
-              <p id="section-9.3.1-1.3.1">ensure that the <code>software_statement</code> presented by the client application during registration corresponds to the same institution as the client certificate presented, validating it through the attributes that bring <code>organization_id</code> in the X.509 certificate.<a href="#section-9.3.1-1.3.1" class="pilcrow">¶</a></p>
+            <li id="section-9.3.1-1.3">ensure that the <code>software_statement</code> presented by the client application during registration corresponds to the same institution as the client certificate presented, validating it through the attributes that bring <code>organization_id</code> in the X.509 certificate.<a href="#section-9.3.1-1.3" class="pilcrow">¶</a>
 </li>
-</ol>
+          </ol>
 </section>
 </div>
 <div id="client-maintenance-get-register-put-register-delete-register">
@@ -1799,14 +2004,13 @@ Content-Type: application/json
           <h4 id="name-client-maintenance-get-regi">
 <a href="#section-9.3.2" class="section-number selfRef">9.3.2. </a><a href="#name-client-maintenance-get-regi" class="section-name selfRef">Client Maintenance - GET /register - PUT /register - DELETE /register</a>
           </h4>
-<ol start="1" type="1" class="normal type-1" id="section-9.3.2-1">
-            <li id="section-9.3.2-1.1">
-              <p id="section-9.3.2-1.1.1">validate that the certificate presented by the client application is subordinate to the ICP-Brasil chains defined in the Open Banking Brasil Certificates Standard;<a href="#section-9.3.2-1.1.1" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="compact type-1" id="section-9.3.2-1">
+<li id="section-9.3.2-1.1">validate that the certificate presented by the client application is subordinate to the ICP-Brasil chains defined in the Open Banking Brasil Certificates Standard;<a href="#section-9.3.2-1.1" class="pilcrow">¶</a>
 </li>
-<li id="section-9.3.2-1.2">
-              <p id="section-9.3.2-1.2.1">Validate the presence and matching of the Bearer header <code>Authorization</code> containing the value of the <code>registration_access_token</code> attribute returned during registration of the corresponding client.<a href="#section-9.3.2-1.2.1" class="pilcrow">¶</a></p>
+            <li id="section-9.3.2-1.2">Validate the presence and matching of the Bearer header <code>Authorization</code> containing the value of the <code>registration_access_token</code> attribute returned during registration of the corresponding client.<a href="#section-9.3.2-1.2" class="pilcrow">¶</a>
 </li>
-</ol>
+          </ol>
+<p id="section-9.3.2-2">Note: <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a> provides the possibility of rotating the <code>registration_access_token</code> issued by the Authorization Server with each use, making it a single-use token. When registering their client applications, institutions should consider this aspect to receive and update the <code>registration_access_token</code> for the new value received in client maintenance (DCM) operations.<a href="#section-9.3.2-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1820,75 +2024,56 @@ Content-Type: application/json
       </h2>
 <p id="section-10-1">With thanks to all who have set the foundations for secure and safe data sharing through the formation of the OpenID Foundation FAPI Working Group, the Open Banking Brasil GT Security and to the pioneers who will stand on their shoulders.<a href="#section-10-1" class="pilcrow">¶</a></p>
 <p id="section-10-2">The following people contributed to this document:<a href="#section-10-2" class="pilcrow">¶</a></p>
-<ul>
-<li id="section-10-3.1">
-          <p id="section-10-3.1.1">Ralph Bragg (Raidiam)<a href="#section-10-3.1.1" class="pilcrow">¶</a></p>
+<ul class="compact">
+<li class="compact" id="section-10-3.1">Alexandre Daniel Dalabrida (Cooperativa Central Ailos)<a href="#section-10-3.1" class="pilcrow">¶</a>
 </li>
-<li id="section-10-3.2">
-          <p id="section-10-3.2.1">Alexandre Siqueira (Mercado Pago)<a href="#section-10-3.2.1" class="pilcrow">¶</a></p>
+        <li class="compact" id="section-10-3.2">Alexandre Siqueira (Mercado Pago)<a href="#section-10-3.2" class="pilcrow">¶</a>
 </li>
-<li id="section-10-3.3">
-          <p id="section-10-3.3.1">Bernardo Vale (Banco Inter)<a href="#section-10-3.3.1" class="pilcrow">¶</a></p>
+        <li class="compact" id="section-10-3.3">Andr&#233; Borges (Banco Fibra)<a href="#section-10-3.3" class="pilcrow">¶</a>
 </li>
-<li id="section-10-3.4">
-          <p id="section-10-3.4.1">Andr&#233; Borges (Banco Fibra)<a href="#section-10-3.4.1" class="pilcrow">¶</a></p>
+        <li class="compact" id="section-10-3.4">Bernardo Vale (Banco Inter)<a href="#section-10-3.4" class="pilcrow">¶</a>
 </li>
-<li id="section-10-3.5">
-          <p id="section-10-3.5.1">Danilo Sasaki (Banco Ita&#250;)<a href="#section-10-3.5.1" class="pilcrow">¶</a></p>
+        <li class="compact" id="section-10-3.5">Danilo Sasaki (Banco Ita&#250;)<a href="#section-10-3.5" class="pilcrow">¶</a>
 </li>
-<li id="section-10-3.6">
-          <p id="section-10-3.6.1">Jo&#227;o Rodolfo Vieira da Silva (Banco Ita&#250;)<a href="#section-10-3.6.1" class="pilcrow">¶</a></p>
+        <li class="compact" id="section-10-3.6">Jo&#227;o Rodolfo Vieira da Silva (Banco Ita&#250;)<a href="#section-10-3.6" class="pilcrow">¶</a>
 </li>
-<li id="section-10-3.7">
-          <p id="section-10-3.7.1">Michelle Bandarra (Chicago)<a href="#section-10-3.7.1" class="pilcrow">¶</a></p>
+        <li class="compact" id="section-10-3.7">Michelle Bandarra (Chicago)<a href="#section-10-3.7" class="pilcrow">¶</a>
 </li>
-<li id="section-10-3.8">
-          <p id="section-10-3.8.1">Alexandre Daniel Dalabrida (Cooperativa Central Ailos)<a href="#section-10-3.8.1" class="pilcrow">¶</a></p>
+        <li class="compact" id="section-10-3.8">Nic Marcondes (Quanto)<a href="#section-10-3.8" class="pilcrow">¶</a>
 </li>
-<li id="section-10-3.9">
-          <p id="section-10-3.9.1">Rafael Gonzalez Hashimoto - (Banco C6)<a href="#section-10-3.9.1" class="pilcrow">¶</a></p>
+        <li class="compact" id="section-10-3.9">Rafael Gonzalez Hashimoto (Banco C6)<a href="#section-10-3.9" class="pilcrow">¶</a>
 </li>
-</ul>
+        <li class="compact" id="section-10-3.10">Ralph Bragg (Raidiam)<a href="#section-10-3.10" class="pilcrow">¶</a>
+</li>
+      </ul>
 </section>
 </div>
 <div id="notices">
-<section id="section-appendix.a">
+<section id="appendix-A">
       <h2 id="name-notices">
-<a href="#section-appendix.a" class="section-number selfRef">Appendix A. </a><a href="#name-notices" class="section-name selfRef">Notices</a>
+<a href="#appendix-A" class="section-number selfRef">Appendix A. </a><a href="#name-notices" class="section-name selfRef">Notices</a>
       </h2>
-<p id="section-appendix.a-1">Copyright (c) 2021 Open Banking Brasil Initial Structure.<a href="#section-appendix.a-1" class="pilcrow">¶</a></p>
-<p id="section-appendix.a-2">The Open Banking Brasil Initial Structure (OBBIS) grants to any Contributor, developer, implementer, or other interested party a non-exclusive, royalty-free, worldwide copyright license to reproduce, prepare derivative works from, distribute, perform and display, this Implementers Draft or Final Specification solely for the purposes of (i) developing specifications, and (ii) implementing Implementers Drafts and Final Specifications based on such documents, provided that attribution be made to the OBBIS as the source of the material, but that such attribution does not indicate an endorsement by the OBBIS.<a href="#section-appendix.a-2" class="pilcrow">¶</a></p>
-<p id="section-appendix.a-3">The technology described in this specification was made available from contributions from various sources, including members of the OpenID Foundation, the Open Banking Brasil GT Security Working Group and others. Although the Open Banking Brasil Initial Structure has taken steps to help ensure that the technology is available for distribution, it takes no position regarding the validity or scope of any intellectual property or other rights that might be claimed to pertain to the implementation or use of the technology described in this specification or the extent to which any license under such rights might or might not be available; neither does it represent that it has made any independent effort to identify any such rights. The Open Banking Brasil Initial Structure and the contributors to this specification make no (and hereby expressly disclaim any) warranties (express, implied, or otherwise), including implied warranties of merchantability, non-infringement, fitness for a particular purpose, or title, related to this specification, and the entire risk as to implementing this specification is assumed by the implementer. The Open Banking Brasil Intellectual Property Rights policy requires contributors to offer a patent promise not to assert certain patent claims against other contributors and against implementers. The Open Banking Brasil Initial Structure invites any interested party to bring to its attention any copyrights, patents, patent applications, or other proprietary rights that may cover technology that may be required to practice this specification.<a href="#section-appendix.a-3" class="pilcrow">¶</a></p>
+<p id="appendix-A-1">Copyright (c) 2022 Open Banking Brasil Initial Structure.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
+<p id="appendix-A-2">The Open Banking Brasil Initial Structure (OBBIS) grants to any Contributor, developer, implementer, or other interested party a non-exclusive, royalty-free, worldwide copyright license to reproduce, prepare derivative works from, distribute, perform and display, this Implementers Draft or Final Specification solely for the purposes of (i) developing specifications, and (ii) implementing Implementers Drafts and Final Specifications based on such documents, provided that attribution be made to the OBBIS as the source of the material, but that such attribution does not indicate an endorsement by the OBBIS.<a href="#appendix-A-2" class="pilcrow">¶</a></p>
+<p id="appendix-A-3">The technology described in this specification was made available from contributions from various sources, including members of the OpenID Foundation, the Open Banking Brasil GT Security Working Group and others. Although the Open Banking Brasil Initial Structure has taken steps to help ensure that the technology is available for distribution, it takes no position regarding the validity or scope of any intellectual property or other rights that might be claimed to pertain to the implementation or use of the technology described in this specification or the extent to which any license under such rights might or might not be available; neither does it represent that it has made any independent effort to identify any such rights. The Open Banking Brasil Initial Structure and the contributors to this specification make no (and hereby expressly disclaim any) warranties (express, implied, or otherwise), including implied warranties of merchantability, non-infringement, fitness for a particular purpose, or title, related to this specification, and the entire risk as to implementing this specification is assumed by the implementer. The Open Banking Brasil Intellectual Property Rights policy requires contributors to offer a patent promise not to assert certain patent claims against other contributors and against implementers. The Open Banking Brasil Initial Structure invites any interested party to bring to its attention any copyrights, patents, patent applications, or other proprietary rights that may cover technology that may be required to practice this specification.<a href="#appendix-A-3" class="pilcrow">¶</a></p>
 <div id="appendix-a-example-software-statement-assertion">
-<section id="section-a.1">
-        <h2 id="name-appendix-a-example-software">
-<a href="#section-a.1" class="section-number selfRef">A.1. </a><a href="#name-appendix-a-example-software" class="section-name selfRef">Appendix A. Example Software Statement Assertion</a>
-        </h2>
-<div class="artwork art-text alignLeft" id="section-a.1-1">
+<section id="appendix-A.1">
+        <h3 id="name-appendix-a-example-software">
+<a href="#appendix-A.1" class="section-number selfRef">A.1. </a><a href="#name-appendix-a-example-software" class="section-name selfRef">Appendix A. Example Software Statement Assertion</a>
+        </h3>
+<div class="alignLeft art-text artwork" id="appendix-A.1-1">
 <pre>eyJraWQiOiJzaWduZXIiLCJ0eXAiOiJKV1QiLCJhbGciOiJQUzI1NiJ9.eyJzb2Z0d2FyZV9tb2RlIjoiTGl2ZSIsInNvZnR3YXJlX3JlZGlyZWN0X3VyaXMiOlsiaHR0cHM6XC9cL3d3dy5yYWlkaWFtLmNvbVwvYWNjb3VudGluZ1wvY2IiXSwic29mdHdhcmVfc3RhdGVtZW50X3JvbGVzIjpbeyJyb2xlIjoiREFET1MiLCJhdXRob3Jpc2F0aW9uX2RvbWFpbiI6Ik9wZW4gQmFua2luZyIsInN0YXR1cyI6IkFjdGl2ZSJ9LHsicm9sZSI6IlBBR1RPIiwiYXV0aG9yaXNhdGlvbl9kb21haW4iOiJPcGVuIEJhbmtpbmciLCJzdGF0dXMiOiJBY3RpdmUifV0sInNvZnR3YXJlX2NsaWVudF9uYW1lIjoiUmFpZGlhbSBBY2NvdW50aW5nIiwib3JnX3N0YXR1cyI6IkFjdGl2ZSIsInNvZnR3YXJlX2NsaWVudF9pZCI6IkNraTFFYnZqd3loUEIxMk5HTGx6MiIsImlzcyI6Ik9wZW4gQmFua2luZyBPcGVuIEJhbmtpbmcgQnJhc2lsIHByb2QgU1NBIGlzc3VlciIsInNvZnR3YXJlX3Rvc191cmkiOiJodHRwczpcL1wvd3d3LnJhaWRpYW0uY29tXC9hY2NvdW50aW5nXC90b3MuaHRtbCIsInNvZnR3YXJlX2NsaWVudF9kZXNjcmlwdGlvbiI6IlJhaWRpYW0gQWNjb3VudGluZyBsZXZlcmFnZSBjdXR0aW5nIGVkZ2Ugb3BlbiBiYW5raW5nIGFjY2VzcyB0byBicmluZyB5b3UgcmVhbCB0aW1lIHVwIHRvIGRhdGUgdmlld3Mgb2YgeW91ciBmaW5hbmNlcyIsInNvZnR3YXJlX2p3a3NfZW5kcG9pbnQiOiJodHRwczpcL1wva2V5c3RvcmUuZGlyZWN0b3J5Lm9wZW5iYW5raW5nYnJhc2lsLm9yZy5iclwvYjk2MWM0ZWItNTA5ZC00ZWRmLWFmZWItMzU2NDJiMzgxODVkXC8yNTU1NmQ1YS1iOWRkLTRlMjctYWExYS1jY2U3MzJmZTc0ZGVcL2FwcGxpY2F0aW9uLmp3a3MiLCJzb2Z0d2FyZV9wb2xpY3lfdXJpIjoiaHR0cHM6XC9cL3d3dy5yYWlkaWFtLmNvbVwvYWNjb3VudGluZ1wvcG9saWN5Lmh0bWwiLCJzb2Z0d2FyZV9pZCI6IjI1NTU2ZDVhLWI5ZGQtNGUyNy1hYTFhLWNjZTczMmZlNzRkZSIsInNvZnR3YXJlX2NsaWVudF91cmkiOiJodHRwczpcL1wvd3d3LnJhaWRpYW0uY29tXC9hY2NvdW50aW5nLmh0bWwiLCJzb2Z0d2FyZV9qd2tzX2luYWN0aXZlX2VuZHBvaW50IjoiaHR0cHM6XC9cL2tleXN0b3JlLmRpcmVjdG9yeS5vcGVuYmFua2luZ2JyYXNpbC5vcmcuYnJcL2I5NjFjNGViLTUwOWQtNGVkZi1hZmViLTM1NjQyYjM4MTg1ZFwvMjU1NTZkNWEtYjlkZC00ZTI3LWFhMWEtY2NlNzMyZmU3NGRlXC9pbmFjdGl2ZVwvYXBwbGljYXRpb24uandrcyIsInNvZnR3YXJlX2p3a3NfdHJhbnNwb3J0X2luYWN0aXZlX2VuZHBvaW50IjoiaHR0cHM6XC9cL2tleXN0b3JlLmRpcmVjdG9yeS5vcGVuYmFua2luZ2JyYXNpbC5vcmcuYnJcL2I5NjFjNGViLTUwOWQtNGVkZi1hZmViLTM1NjQyYjM4MTg1ZFwvMjU1NTZkNWEtYjlkZC00ZTI3LWFhMWEtY2NlNzMyZmU3NGRlXC9pbmFjdGl2ZVwvdHJhbnNwb3J0Lmp3a3MiLCJzb2Z0d2FyZV9qd2tzX3RyYW5zcG9ydF9lbmRwb2ludCI6Imh0dHBzOlwvXC9rZXlzdG9yZS5kaXJlY3Rvcnkub3BlbmJhbmtpbmdicmFzaWwub3JnLmJyXC9iOTYxYzRlYi01MDlkLTRlZGYtYWZlYi0zNTY0MmIzODE4NWRcLzI1NTU2ZDVhLWI5ZGQtNGUyNy1hYTFhLWNjZTczMmZlNzRkZVwvdHJhbnNwb3J0Lmp3a3MiLCJzb2Z0d2FyZV9sb2dvX3VyaSI6Imh0dHBzOlwvXC93d3cucmFpZGlhbS5jb21cL2FjY291bnRpbmdcL2xvZ28ucG5nIiwib3JnX2lkIjoiYjk2MWM0ZWItNTA5ZC00ZWRmLWFmZWItMzU2NDJiMzgxODVkIiwic29mdHdhcmVfZW52aXJvbm1lbnQiOiJwcm9kdWN0aW9uIiwic29mdHdhcmVfdmVyc2lvbiI6MS4xMCwic29mdHdhcmVfcm9sZXMiOlsiREFET1MiLCJQQUdUTyJdLCJvcmdfbmFtZSI6Ik9wZW4gQmFua2luZyBCcmFzaWwiLCJpYXQiOjE2MTgzMzYyNjIsIm9yZ2FuaXNhdGlvbl9jb21wZXRlbnRfYXV0aG9yaXR5X2NsYWltcyI6W3siYXV0aG9yaXNhdGlvbl9kb21haW4iOiJPcGVuIEJhbmtpbmciLCJhdXRob3Jpc2F0aW9ucyI6W10sInJlZ2lzdHJhdGlvbl9pZCI6IjEzMzUzMjM2LU9CQi1DT05UQSIsImF1dGhvcml0eV9pZCI6IjY4N2ExYzk0LWIzNjAtNGUwNC05NTg5LTBmYTVjYjE2NDUxYiIsImF1dGhvcmlzYXRpb25fcm9sZSI6IkNPTlRBIiwiYXV0aG9yaXR5X2NvZGUiOiJCQ0IiLCJzdGF0dXMiOiJBY3RpdmUifSx7ImF1dGhvcmlzYXRpb25fZG9tYWluIjoiT3BlbiBCYW5raW5nIiwiYXV0aG9yaXNhdGlvbnMiOltdLCJyZWdpc3RyYXRpb25faWQiOiIxMzM1MzIzNi1PQkItREFET1MiLCJhdXRob3JpdHlfaWQiOiI2ODdhMWM5NC1iMzYwLTRlMDQtOTU4OS0wZmE1Y2IxNjQ1MWIiLCJhdXRob3Jpc2F0aW9uX3JvbGUiOiJEQURPUyIsImF1dGhvcml0eV9jb2RlIjoiQkNCIiwic3RhdHVzIjoiQWN0aXZlIn0seyJhdXRob3Jpc2F0aW9uX2RvbWFpbiI6Ik9wZW4gQmFua2luZyIsImF1dGhvcmlzYXRpb25zIjpbXSwicmVnaXN0cmF0aW9uX2lkIjoiMTMzNTMyMzYtT0JCLVBBR1RPIiwiYXV0aG9yaXR5X2lkIjoiNjg3YTFjOTQtYjM2MC00ZTA0LTk1ODktMGZhNWNiMTY0NTFiIiwiYXV0aG9yaXNhdGlvbl9yb2xlIjoiUEFHVE8iLCJhdXRob3JpdHlfY29kZSI6IkJDQiIsInN0YXR1cyI6IkFjdGl2ZSJ9XX0.W6hUAYhjT6I61rxEIVMKYKre93LTbRdzKnk9dJvUdzVgAz5B9KxZNutf27oO3k0hrjYVWBdWq23o_e4Y_AaKdpS9-rtU84JiHtmqV0wcFYIM8nqcUVWqQ-Ux6Nq9L2G-s2YNd3PcJ1e3yGg9h8553Gr7iJusKEgApzXUpkM2rBELQuumktUE_JBiuIkXmWxoRnO1cW-Osbk3MT3bxG43SPcxii07Q5S8qXI6PjCPA3fYlnaUAygwZM3O0oa7jqmSr7d9UsHuDMJfYhIKdq2wyQQKORCN-D2UopmMX-lHMvAVkkrAO08T0-7odjr4PJk-PrwuoCxeAfa7440ZDOrlmQ
-</pre><a href="#section-a.1-1" class="pilcrow">¶</a>
+</pre><a href="#appendix-A.1-1" class="pilcrow">¶</a>
 </div>
 </section>
 </div>
 </section>
 </div>
 <div id="authors-addresses">
-<section id="section-appendix.b">
-      <h2 id="name-authors-addresses">
-<a href="#name-authors-addresses" class="section-name selfRef">Authors' Addresses</a>
+<section id="appendix-B">
+      <h2 id="name-authors-address">
+<a href="#name-authors-address" class="section-name selfRef">Author's Address</a>
       </h2>
-<address class="vcard">
-        <div dir="auto" class="left"><span class="fn nameRole">Ralph Bragg</span></div>
-<div dir="auto" class="left"><span class="org">Raidiam</span></div>
-<div class="email">
-<span>Email:</span>
-<a href="mailto:ralph.bragg@raidiam.com" class="email">ralph.bragg@raidiam.com</a>
-</div>
-<div class="url">
-<span>URI:</span>
-<a href="https://www.raidiam.com/" class="url">https://www.raidiam.com/</a>
-</div>
-</address>
 <address class="vcard">
         <div dir="auto" class="left"><span class="fn nameRole">OBBIS GT Security</span></div>
 <div dir="auto" class="left"><span class="org">Open Banking Brasil Initial Structure</span></div>

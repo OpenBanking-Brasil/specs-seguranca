@@ -18,16 +18,6 @@
     value = "open-banking-brasil-financial-api-1_ID3-ptbr"
 
     [[author]]
-    initials = "R."
-    surname = "Bragg"
-    fullname = "Ralph Bragg"
-    organization = "Raidiam"
-    abbrev = "Raidiam"
-      [author.address]
-      email = "ralph.bragg@raidiam.com"
-      uri = "https://www.raidiam.com/"
-
-    [[author]]
     initials = "GT"
     surname = "Security"
     fullname = "OBBIS GT Security"
@@ -162,25 +152,16 @@ Para efeitos deste documento, os termos definidos em [RFC6749], [RFC6750], [RFC7
 
 # Símbolos e termos abreviados  {#terms}
 
-**API** - Application Programming Interface (Interface de programação de aplicativo)
-
-**EIOBB** - Estrutura Inicial do Open Banking Brasil
-
-**CSRF** - Cross Site Request Forgery
-
-**DCR** - Registro de cliente dinâmico
-
-**FAPI** - Financial-grade API
-
-**HTTP** - Protocolo de transferência de hipertexto
-
-**OIDF** - OpenID Foundation
-
-**REST** - Representational State Transfer (Transferência de Estado Representacional)
-
-**TLS** - Transport Layer Security (Segurança da Camada de Transporte)
-
-**MFA** - Multi-Factor Authentication (Autenticação por Múltiplos Fatores)
+* **API** - Application Programming Interface (Interface de programação de aplicativo)
+* **CSRF** - Cross Site Request Forgery
+* **DCR** - Registro de cliente dinâmico
+* **EIOBB** - Estrutura Inicial do Open Banking Brasil
+* **FAPI** - Financial-grade API
+* **HTTP** - Protocolo de transferência de hipertexto
+* **MFA** - Multi-Factor Authentication (Autenticação por Múltiplos Fatores)
+* **OIDF** - OpenID Foundation
+* **REST** - Representational State Transfer (Transferência de Estado Representacional)
+* **TLS** - Transport Layer Security (Segurança da Camada de Transporte)
 
 # Profile de Segurança para o Open Banking Brasil {#securityprofile}
 
@@ -233,7 +214,7 @@ Além disso, ele deve:
 16. pode suportar o valor `code` para o atributo `response_type`em conjunto com o valor `jwt` para o atributo `response_mode`;
 17. não deve permitir o recurso de rotação de `refresh tokens`;
 18. deve garantir que em caso de compartilhamento do Servidor de Autorização para outros serviços, além do Open Banking, não divulgue e/ou possibilite o uso de métodos não certificados no ambiente do Open Banking;
-19. deve garantir que as configurações divulgadas aos demais participantes através do `OpenID Discovery` (indicado pelo arquivo de `Well-Known` cadastrado no Diretório) sejam restritos aos modos de operação aos quais a instituição se certificou
+19. deve garantir que as configurações divulgadas aos demais participantes através do `OpenID Discovery` (indicado pelo arquivo de `Well-Known` cadastrado no Diretório) sejam restritos aos modos de operação aos quais a instituição se certificou;
     1. deve manter em suas configurações os métodos para os quais ainda hajam clientes ativos;
     2. deve atualizar os cadastros que utilizem métodos não certificados, através de tratamento bilateral entre as instituições envolvidas.
 20. deve recusar requisições, para o ambiente do Open Banking, que estejam fora dos modos de operação ao qual a instituição certificou seu Servidor de Autorização;
@@ -451,17 +432,18 @@ Agradecemos a todos que estabeleceram as bases para o compartilhamento seguro e 
 
 As seguintes pessoas contribuíram para este documento:
 
-* Ralph Bragg (Raidiam)
-* Joseph Heenan (Authlete)
 * Alexandre Siqueira (Mercado Pago)
+* Joseph Heenan (Authlete)
 * Marcos Rodrigues (Itaú)
 * Mário Ginglass (BNDES)
+* Nic Marcondes (Quanto)
+* Ralph Bragg (Raidiam)
 
 {backmatter}
 
 # Avisos  {#disclaimer}
 
-Copyright (c) 2021 Estrutura Inicial do Open Banking Brasil
+Copyright (c) 2022 Estrutura Inicial do Open Banking Brasil
 
 A Estrutura Inicial do Open Banking Brasil (EIOBB) concede a qualquer Colaborador, desenvolvedor, implementador ou outra parte interessada uma licença de direitos autorais mundial não exclusiva, livre de royalties para reproduzir, preparar trabalhos derivados, distribuir, executar e exibir, estes Implementadores Rascunho ou Especificação Final exclusivamente para fins de (i) desenvolver especificações e (ii) implementar Rascunhos de Implementadores e Especificações Finais com base em tais documentos, desde que a atribuição seja feita ao EIOBB como a fonte do material, mas que tal atribuição o faça não indica endosso do EIOBB.
 

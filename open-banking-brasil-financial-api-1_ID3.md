@@ -18,16 +18,6 @@
     value = "open-banking-brasil-financial-api-1_ID3"
 
     [[author]]
-    initials = "R."
-    surname = "Bragg"
-    fullname = "Ralph Bragg"
-    organization = "Raidiam"
-    abbrev = "Raidiam"
-      [author.address]
-      email = "ralph.bragg@raidiam.com"
-      uri = "https://www.raidiam.com/"
-
-    [[author]]
     initials = "GT"
     surname = "Security"
     fullname = "OBBIS GT Security"
@@ -164,25 +154,16 @@ For the purpose of this document, the terms defined in [RFC6749], [RFC6750], [RF
 
 # Symbols and Abbreviated terms
 
-**API** – Application Programming Interface
-
-**OBBIS** – Open Banking Brasil Initial Structure
-
-**CSRF** - Cross Site Request Forgery
-
-**DCR** – Dynamic Client Registration
-
-**FAPI** - Financial-grade API
-
-**HTTP** – Hyper Text Transfer Protocol
-
-**OIDF** - OpenID Foundation
-
-**REST** – Representational State Transfer
-
-**TLS** – Transport Layer Security
-
-**MFA** - Multi-Factor Authentication
+* **API** – Application Programming Interface
+* **CSRF** - Cross Site Request Forgery
+* **DCR** – Dynamic Client Registration
+* **FAPI** - Financial-grade API
+* **HTTP** – Hyper Text Transfer Protocol
+* **MFA** - Multi-Factor Authentication
+* **OBBIS** – Open Banking Brasil Initial Structure
+* **OIDF** - OpenID Foundation
+* **REST** – Representational State Transfer
+* **TLS** – Transport Layer Security
 
 # Brasil Open Banking Security Profile
 
@@ -232,9 +213,9 @@ In addition, the Authorization Server
 16. may support `response_type` value `code` in conjunction with the `response_mode` value `jwt`;
 17. shall not allow `refresh tokens` rotation feature;
 18. shall ensure that, in case of sharing the Authorization Server for other services, in addition to Open Banking, it does not disclose and/or allow the use of non-certified methods in the Open Banking environment;
-19. shall ensure that the settings disclosed to other participants through `OpenID Discovery` (indicated by the `Well-Known` file registered in the Directory) are restricted to the operating modes to which the institution has certified
+19. shall ensure that the settings disclosed to other participants through `OpenID Discovery` (indicated by the `Well-Known` file registered in the Directory) are restricted to the operating modes to which the institution has certified;
     1. shall keep in your settings the methods for which there are still active clients;
-    2. shall update the records that use non-certified methods, through bilateral treatment between the institutions involved;
+    2. shall update the records that use non-certified methods, through bilateral treatment between the institutions involved.
 20. shall refuse requests, for the Open Banking environment, that are outside the modes of operation to which the institution has certified its Authorization Server;
 21. must refuse authentication requests that include an id_token_hint, as the id_token held by the requester may contain Personally Identifiable Information, which could be sent unencrypted by the public client.
 
@@ -461,17 +442,18 @@ With thanks to all who have set the foundations for secure and safe data sharing
 
 The following people contributed to this document:
 
-* Ralph Bragg (Raidiam)
-* Joseph Heenan (Authlete)
 * Alexandre Siqueira (Mercado Pago)
+* Joseph Heenan (Authlete)
 * Marcos Rodrigues (Itaú)
 * Mário Ginglass (BNDES)
+* Nic Marcondes (Quanto)
+* Ralph Bragg (Raidiam)
 
 {backmatter}
 
 # Notices
 
-Copyright (c) 2021 Open Banking Brasil Initial Structure.
+Copyright (c) 2022 Open Banking Brasil Initial Structure.
 
 The Open Banking Brasil Initial Structure (OBBIS) grants to any Contributor, developer, implementer, or other interested party a non-exclusive, royalty-free, worldwide copyright license to reproduce, prepare derivative works from, distribute, perform and display, this Implementers Draft or Final Specification solely for the purposes of (i) developing specifications, and (ii) implementing Implementers Drafts and Final Specifications based on such documents, provided that attribution be made to the OBBIS as the source of the material, but that such attribution does not indicate an endorsement by the OBBIS.
 
