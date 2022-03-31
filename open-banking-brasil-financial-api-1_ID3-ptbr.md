@@ -231,13 +231,13 @@ Além disso, ele deve:
 14. deve sempre incluir a claim `acr` no id_token;
 15. deve suportar os valores `code` e `id_token` para o atributo `response_type`;
 16. pode suportar o valor `code` para o atributo `response_type`em conjunto com o valor `jwt` para o atributo `response_mode`;
-17. não deve permitir o recurso de rotação de `refresh tokens`.
-18. deve garantir que em caso de compartilhamento do Servidor de Autorização para outros serviços, além do Open Banking, não divulgue e/ou possibilite o uso de métodos não certificados no ambiente do Open Banking
+17. não deve permitir o recurso de rotação de `refresh tokens`;
+18. deve garantir que em caso de compartilhamento do Servidor de Autorização para outros serviços, além do Open Banking, não divulgue e/ou possibilite o uso de métodos não certificados no ambiente do Open Banking;
 19. deve garantir que as configurações divulgadas aos demais participantes através do `OpenID Discovery` (indicado pelo arquivo de `Well-Known` cadastrado no Diretório) sejam restritos aos modos de operação aos quais a instituição se certificou
-    1. deve manter em suas configurações os métodos para os quais ainda hajam clientes ativos
-    2. deve atualizar os cadastros que utilizem métodos não certificados, através de tratamento bilateral entre as instituições envolvidas
-20. deve recusar requisições, para o ambiente do Open Banking, que estejam fora dos modos de operação ao qual a instituição certificou seu Servidor de Autorização
-21. deve recusar requisições de autenticação que incluam um id_token_hint, visto que o id_token em posse do requisitante pode conter Informação de Identificação Pessoal, que poderia ser enviada descriptografada pelo cliente público
+    1. deve manter em suas configurações os métodos para os quais ainda hajam clientes ativos;
+    2. deve atualizar os cadastros que utilizem métodos não certificados, através de tratamento bilateral entre as instituições envolvidas.
+20. deve recusar requisições, para o ambiente do Open Banking, que estejam fora dos modos de operação ao qual a instituição certificou seu Servidor de Autorização;
+21. deve recusar requisições de autenticação que incluam um id_token_hint, visto que o id_token em posse do requisitante pode conter Informação de Identificação Pessoal, que poderia ser enviada descriptografada pelo cliente público.
 
 #### Token de ID como assinatura separada  {#detached}
 
