@@ -230,12 +230,13 @@ In addition, the Authorization Server
 14. shall always include an acr claim in the `id_token`;
 15. shall support the `response_type` value `code id_token`;
 16. may support `response_type` value `code` in conjunction with the `response_mode` value `jwt`;
-17. shall not allow `refresh tokens` rotation feature.
-18. shall ensure that, in case of sharing the Authorization Server for other services, in addition to Open Banking, it does not disclose and/or allow the use of non-certified methods in the Open Banking environment
+17. shall not allow `refresh tokens` rotation feature;
+18. shall ensure that, in case of sharing the Authorization Server for other services, in addition to Open Banking, it does not disclose and/or allow the use of non-certified methods in the Open Banking environment;
 19. shall ensure that the settings disclosed to other participants through `OpenID Discovery` (indicated by the `Well-Known` file registered in the Directory) are restricted to the operating modes to which the institution has certified
-    1. shall keep in your settings the methods for which there are still active clients
-    2. shall update the records that use non-certified methods, through bilateral treatment between the institutions involved
-20. shall refuse requests, for the Open Banking environment, that are outside the modes of operation to which the institution has certified its Authorization Server
+    1. shall keep in your settings the methods for which there are still active clients;
+    2. shall update the records that use non-certified methods, through bilateral treatment between the institutions involved;
+20. shall refuse requests, for the Open Banking environment, that are outside the modes of operation to which the institution has certified its Authorization Server;
+21. must refuse authentication requests that include an id_token_hint, as the id_token held by the requester may contain Personally Identifiable Information, which could be sent unencrypted by the public client.
 
 #### ID Token as detached signature
 
@@ -244,7 +245,16 @@ The Authorization Server shall support the provisions specified in clause 5.2.2.
 In addition, if the `response_type` value `code id_token` is used, the Authorization Server
 
 1. should not return sensitive PII in the ID Token in the authorization response, but if it needs to,
-then it shall encrypt the ID Token.
+then it shall encrypt the ID Token;
+2. Personally Identifiable Information may include, but is not limited to,:
+    1. Claim `sub` if you use information that makes it possible to identify the natural person;
+    2. The default Claims defined in clause 5.1 [OIDC], which may contain data such as date of birth, address or telephone;
+    3. The new Claim CPF, defined in the next section.
+3. If a Claim containing Personally Identifiable Information is requested:
+    1. If this is marked as essential, if there is no encryption key registered for the Customer, the request must fail if requested at the Authorization Endpoint. There are no impediments if the request is made by the Confidential Client through the Token Endpoint;
+    2. If this is not marked as essential, the Authorization Server must omit it on the Authorization Endpoint, and it can be answered on the Token Endpoint called by the Confidential Client.
+4. For the encryption of the id_token, a key available in the `JWKS` informed in the `jwks_uri` parameter during the client registration must be used, indicated through the `kid` header of the JWT document;
+5. The use of other headers to indicate the key used, such as `x5u`, `x5c`, `jku` or `jkw` is prohibited as defined in clause 2 [OIDC].
 
 #### Requesting the "cpf" Claim
 
@@ -327,7 +337,8 @@ In addition, the confidential client
 6. shall not populate the `acr` claim with required values;
 7. shall require the `acr` claim as an essential claim;
 8. shall support all authentication methods specified in clause 5.2.2-14 of [Financial-grade API Security Profile 1.0 - Part 2: Advanced][FAPI-1-Advanced] including diferent combinations of the methods to send requests (using [PAR] or not - item 11);
-9. shall not allow `refresh tokens` rotation feature.
+9. shall not allow `refresh tokens` rotation feature;
+10. should not request authentication requests that include an id_token_hint, as the id_token to be used may contain Personally Identifiable Information, which could be sent unencrypted through the public client.
 
 # Security considerations
 
