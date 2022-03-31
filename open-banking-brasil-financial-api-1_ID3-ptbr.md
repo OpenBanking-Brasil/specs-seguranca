@@ -326,8 +326,8 @@ Além disso, o cliente confidencial
 6. não deve incluir um valor específico na _claim_ `acr`;
 7. deve definir a _claim_ `acr`como _essential_;
 8. deve suportar todos os métodos de autenticação especificados no item 14 da seção 5.2.2 da [Financial-grade API Security Profile 1.0 - Part 2: Advanced][FAPI-1-Advanced] incluindo as diferentes combinações de métodos de encaminhamento dos Requests Objects (usando ou não [PAR] - item 11);
-9. não deve permitir o recurso de rotação de `refresh tokens`.
-10. não deve solicitar requisições de autenticação que incluam um id_token_hint, visto que o id_token a ser utilizado pode conter Informação de Identificação Pessoal, que poderia ser enviada descriptografada através do cliente público
+9. não deve permitir o recurso de rotação de `refresh tokens`;
+10. não deve solicitar requisições de autenticação que incluam um id_token_hint, visto que o id_token a ser utilizado pode conter Informação de Identificação Pessoal, que poderia ser enviada descriptografada através do cliente público.
 
 # Considerações de segurança  {#authserver}
 
