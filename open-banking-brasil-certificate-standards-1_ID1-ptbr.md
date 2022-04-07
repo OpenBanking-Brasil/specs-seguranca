@@ -202,6 +202,7 @@ As seguintes autoridades certificadoras realizaram o processo de onboard ao Open
 * Serasa
 * Serpro
 * Soluti
+* CertiSign
 
 ### Certificado para Front-End {#CertificadoFrontEnd}
 
