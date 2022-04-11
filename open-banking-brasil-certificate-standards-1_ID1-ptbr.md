@@ -197,12 +197,25 @@ O Certificado de Assinatura deve ser emitido através de cadeia V5, e deve obrig
 
 #### Autoridades Certificadoras Participantes {#AutoridadesCertificadorasParticipantes}
 
-As seguintes autoridades certificadoras realizaram o processo de onboard ao Open Banking Brasil e estão habilitadas para realizar a emissão de certificados do Open Banking Brasil.
+As seguintes autoridades certificadoras realizaram o processo de onboard ao Open Banking Brasil e estão habilitadas para realizar a emissão de certificados do Open Banking Brasil utilizando para tal os certificados nível 1 aqui listados:
 
-* Serasa
-* Serpro
-* Soluti
 * CertiSign
+  * Cadeia ICP [V5](http://acraiz.icpbrasil.gov.br/credenciadas/RAIZ/ICP-Brasilv5.crt), Impressão Digital SHA256: [94:EB:D7:63:DC:D3:9A:85:87:48:D1:43:38:54:F7:D4:72:B1:DD:47:DD:D2:70:43:23:6F:83:80:2F:AA:F1:AB](http://acraiz.icpbrasil.gov.br/credenciadas/CERTISIGN/v5/p/AC_Certisign_G7.crt)
+  * Cadeia ICP [V10](http://acraiz.icpbrasil.gov.br/credenciadas/RAIZ/ICP-Brasilv10.crt), Impressão Digital SHA256: [59:6D:25:3B:A2:BE:B7:F1:66:C4:F5:8D:08:78:FB:28:2E:30:8A:28:2C:41:62:69:40:18:BE:5A:17:49:74:19](http://acraiz.icpbrasil.gov.br/credenciadas/CERTISIGN/v10/p/AC-CERTISIGN-ICP-BRASIL-SSL.crt)
+  * Cadeia ICP [V10](http://acraiz.icpbrasil.gov.br/credenciadas/RAIZ/ICP-Brasilv10.crt), Impressão Digital SHA256: [55:A4:89:F6:0F:78:5B:EB:E0:42:E9:9A:69:AC:8E:C3:3C:9F:17:37:4C:C4:B7:66:F6:04:CF:70:79:EA:09:BA](http://acraiz.icpbrasil.gov.br/credenciadas/CERTISIGN/v10/p/AC-CERTISIGN-ICP-BRASIL-SSL-G2.crt)
+  * Cadeia ICP [V11](http://acraiz.icpbrasil.gov.br/credenciadas/RAIZ/ICP-Brasilv11.crt), Impressão Digital SHA256: [EE:A1:8A:57:C0:91:AD:61:E1:A2:4C:1C:27:3C:47:74:C2:5A:51:DF:67:00:AD:CB:36:10:41:73:FB:9D:A4:D8](http://acraiz.icpbrasil.gov.br/credenciadas/CERTISIGN/v11/p/AC-CERTISIGN-ICP-BRASIL-CODE.crt)
+* Serasa
+  * Cadeia ICP [V5](http://acraiz.icpbrasil.gov.br/credenciadas/RAIZ/ICP-Brasilv5.crt), Impressão Digital SHA256: [48:E3:35:02:C1:11:39:41:03:20:0A:6F:BB:7D:91:7B:C0:2B:9B:24:41:54:5A:23:0F:B0:B7:FD:37:85:DF:5E](http://acraiz.icpbrasil.gov.br/credenciadas/SERASA_ACP/v10/p/Serasa_Autoridade_Certificadora_Principal_v5.crt) 
+  * Cadeia ICP [V10](http://acraiz.icpbrasil.gov.br/credenciadas/RAIZ/ICP-Brasilv10.crt), Impressão Digital SHA256: [50:D0:E2:8B:7B:1A:13:CB:2D:E7:BF:F8:12:A9:3B:74:BE:D4:C5:07:FD:4A:06:20:E6:B6:D8:8E:F6:76:10:53](http://acraiz.icpbrasil.gov.br/credenciadas/SERASA_ACP/v10/p/AC-SERASA-SSL-EV.crt)
+  * Cadeia ICP [V10](http://acraiz.icpbrasil.gov.br/credenciadas/RAIZ/ICP-Brasilv10.crt), Impressão Digital SHA256: [95:E0:F8:9A:8E:0E:12:E3:E4:1D:6D:5A:AB:44:72:D7:32:1C:2E:BC:D9:29:0E:78:D6:16:97:CD:F5:D4:3D:66](http://acraiz.icpbrasil.gov.br/credenciadas/SERASA_ACP/v10/p/AC-SERASA-SSL-EV-V2.crt)
+* Serpro
+  * Cadeia ICP [V5](http://acraiz.icpbrasil.gov.br/credenciadas/RAIZ/ICP-Brasilv5.crt), Impressão Digital SHA256: [35:33:05:81:E9:22:4B:72:CB:34:0F:A4:4B:8F:57:DA:79:AC:0A:3C:95:16:0C:BD:45:19:EC:C1:1B:AB:5C:12](http://acraiz.icpbrasil.gov.br/credenciadas/SERPRO/v5/p/Autoridade_Certificadora_Serpro_v4.crt)
+  * Cadeia ICP [V10](http://acraiz.icpbrasil.gov.br/credenciadas/RAIZ/ICP-Brasilv10.crt), Impressão Digital SHA256: [08:FC:94:2D:51:76:E5:68:AC:BE:F9:C5:95:F3:6A:20:DE:6A:CF:9E:A3:0C:6F:5F:CE:DD:48:21:6E:D5:B0:70](http://acraiz.icpbrasil.gov.br/credenciadas/SERPRO/v10/p/AC-SERPRO-SSLv1-v10.crt)
+* Soluti
+  * Cadeia ICP [V2](http://acraiz.icpbrasil.gov.br/credenciadas/RAIZ/ICP-Brasilv2.crt), Impressão Digital SHA256: [56:30:5E:CE:76:E0:A9:E1:23:54:2F:1A:BA:11:82:9F:C7:53:59:D9:36:8F:AD:24:65:3D:AE:30:B5:2F:72:ED](http://acraiz.icpbrasil.gov.br/credenciadas/SOLUTI/v2/p/AC_Soluti.crt)
+  * Cadeia ICP [V5](http://acraiz.icpbrasil.gov.br/credenciadas/RAIZ/ICP-Brasilv5.crt), Impressão Digital SHA256: [86:D4:58:36:5C:FA:BF:FA:E4:54:2A:B9:8B:99:39:0F:51:9E:C9:D8:31:81:2B:53:00:45:C4:12:AE:6E:B5:B6](http://acraiz.icpbrasil.gov.br/credenciadas/SOLUTI/v5/p/AC_Soluti_v5.crt)
+  * Cadeia ICP [V10](http://acraiz.icpbrasil.gov.br/credenciadas/RAIZ/ICP-Brasilv10.crt), Impressão Digital SHA256: [16:9C:BF:05:47:F3:DF:C4:E6:3E:4A:F9:E0:25:5A:76:03:77:78:FF:5B:8F:4A:53:6A:BD:FF:3A:91:DF:C3:C5](http://acraiz.icpbrasil.gov.br/credenciadas/SOLUTI/v10/p/AC-SOLUTI-SSL-EV.crt)
+  * Cadeia ICP [V11](http://acraiz.icpbrasil.gov.br/credenciadas/RAIZ/ICP-Brasilv11.crt), Impressão Digital SHA256: [05:7C:D2:C0:18:F6:65:9D:20:D3:40:20:BC:48:86:7C:B1:96:9A:59:4D:B9:62:F9:36:79:0F:02:2D:A4:79:E2](http://acraiz.icpbrasil.gov.br/credenciadas/SOLUTI/v11/p/AC-SOLUTI-CS-EV.crt)
 
 ### Certificado para Front-End {#CertificadoFrontEnd}
 
