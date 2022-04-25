@@ -140,6 +140,9 @@ Os seguintes documentos referenciados são indispensáveis para a adoção das e
 [LIWP] - OIDF FAPI WG Lodging Intent Working Paper
 [LIWP]: <https://bitbucket.org/openid/fapi/src/master/Financial_API_Lodging_Intent.md
 
+[LIWP] - OIDF FAPI WG Lodging Intent Working Paper
+[LIWP]: <https://bitbucket.org/openid/fapi/src/master/Financial_API_Lodging_Intent.md
+
 [OBB-FAPI-DCR] - Open Banking Brasil Financial-grade API Dynamic Client Registration Profile 1.0
 [OBB-FAPI-DCR]: <https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID2.html
 
@@ -225,44 +228,71 @@ O Servidor de Autorização *deve* suportar as disposições especificadas na cl
 
 Além disso, se o valor `response_type` `code id_token` for usado, o servidor de autorização:
 
-1. **não deveria** retornar Informação de Identificação Pessoal (PII) confidenciais no token de ID na resposta de autorização, mas se for necessário, então ele **deve** criptografar o token de ID.
+1. **não deveria** retornar Informação de Identificação Pessoal (PII) confidenciais no token de ID na resposta de autorização,
+mas se for necessário, então ele **deve** criptografar o token de ID.
 
 #### Solicitando uma "claim" **cpf**  {#cpf}
 
-Este perfil define "cpf" como uma nova `claim` padrão de acordo com cláusula 5.1 [OIDC]
+Este perfil define "cpf" como uma nova `claim` padrão de acordo com
+ cláusula 5.1 [OIDC]
 
-O número do **CPF** (Cadastro de Pessoas Físicas, [sepeˈɛfi]; português para "Registro de Pessoas Físicas") é o cadastro de pessoa física **brasileira**. Este número é atribuído pela Receita Federal **Brasileira** para brasileiros e estrangeiros residentes que, direta ou indiretamente, pagar impostos no **Brasil**.
+O número do **CPF** (Cadastro de Pessoas Físicas, [sepeˈɛfi]; português para "Registro de Pessoas Físicas")
+ é o cadastro de pessoa física **brasileira**. Este número é atribuído pela Receita Federal
+ **Brasileira** para brasileiros e estrangeiros residentes que, direta ou indiretamente,
+ pagar impostos no **Brasil**.
 
-No modelo de identidade do Open Banking Brasil, o cpf é uma string composta por números 11 caracteres de comprimento e podem começar com 0.
+No modelo de identidade do Open Banking Brasil, o cpf é uma string composta por números 11
+ caracteres de comprimento e podem começar com 0.
 
-Se a Claim **cpf** for solicitada como essencial para constar no ID token ou na resposta ao endpoint de UserInfo e na solicitação constar no parâmetro `value` com determinado **CPF** exigido, o Authorization Server **DEVE** retornar no atributo **cpf** o valor que corresponda ao da solicitação.
+Se a Claim **cpf** for solicitada como essencial para constar no ID token ou na resposta ao endpoint de UserInfo
+ e na solicitação constar no parâmetro `value` com determinado **CPF** exigido, o Authorization Server **DEVE** retornar no atributo **cpf**
+  o valor que corresponda ao da solicitação.
 
-Se a Claim **cpf** for solicitada como essencial para constar no ID Token ou na resposta no endpoint de UserInfo, o Authorization Server deve retornar no atributo **cpf** o valor com o **CPF** do usuário autenticado.
+Se a Claim **cpf** for solicitada como essencial para constar no ID Token ou na resposta no endpoint de UserInfo,
+ o Authorization Server deve retornar no atributo **cpf** o valor com o **CPF** do usuário autenticado.
 
-Se a Claim **cpf** indicada como essencial não puder ser preenchida ou não for compatível com o requisito, o Authorization Server deve tratar a solicitação como uma tentativa de autenticação com falha.
+Se a Claim **cpf** indicada como essencial não puder ser preenchida ou não for compatível com o requisito,
+ o Authorization Server deve tratar a solicitação como uma tentativa de autenticação com falha.
 
 Nome: cpf, Tipo: String, Regex: '^\d{11}$'
 
 #### Solicitando a "claim" **cnpj**  {#cnpj}
 
-Este perfil define "cnpj" como uma nova reivindicação padrão de acordo com cláusula 5.1 [OIDC]
+Este perfil define "cnpj" como uma nova reivindicação padrão de acordo
+ com cláusula 5.1 [OIDC]
 
-**CNPJ**, abreviação de Cadastro Nacional de Pessoas Jurídicas, é um número de identificação de empresas **brasileiras** emitidas pelo Ministério da Fazenda **brasileira**, **na** "Secretaria da Receita Federal" ou "Ministério da Fazenda" do Brasil. No modelo de identidade do Open Banking Brasil, pessoas físicas podem se associar a 0 ou mais CNPJs. Um CNPJ é uma string que consiste em números de 14 dígitos e pode começar com 0, os primeiros oito dígitos identificam a empresa, os quatro dígitos após a barra identificam a filial ou subsidiária ("0001" padrão para a sede), e os dois últimos são dígitos de soma de verificação. Para este perfil, o pedido de cnpj deve ser solicitado e fornecido como o número de 14 dígitos.
+**CNPJ**, abreviação de Cadastro Nacional de Pessoas Jurídicas, é um número de identificação
+ de empresas **brasileiras** emitidas pelo Ministério da Fazenda **brasileira**, **na**
+ "Secretaria da Receita Federal" ou "Ministério da Fazenda" do Brasil. No modelo de identidade do Open Banking Brasil,
+ pessoas físicas podem se associar a 0 ou mais CNPJs. Um CNPJ é uma string que consiste em números de 14 dígitos e pode começar com 0,
+ os primeiros oito dígitos identificam a empresa, os quatro dígitos após a barra identificam a filial
+ ou subsidiária ("0001" padrão para a sede), e os dois últimos são dígitos de soma de verificação.
+ Para este perfil, o pedido de cnpj deve ser solicitado e fornecido como o número de 14 dígitos.
 
-Se a Claim **cnpj** for solicitada como essencial para constar no ID Token ou na resposta ao endpoint UserInfo e na solicitação constar, no parâmetro `value`, determinado **CNPJ** exigido, o Authorization Server **DEVE** retornar no atributo **cnpj** um **conjunto** de **CNPJs** relacionado com o usuário, um dos quais deve incluir valor que corresponda ao da solicitação.
+Se a Claim **cnpj** for solicitada como essencial para constar no ID Token ou na resposta ao endpoint UserInfo e na solicitação constar,
+ no parâmetro `value`, determinado **CNPJ** exigido, o Authorization Server **DEVE** retornar no atributo **cnpj**
+ um **conjunto** de **CNPJs** relacionado com o usuário, um dos quais deve incluir valor que corresponda ao da solicitação.
 
-Se a Claim **cnpj** for solicitada como essencial para constar no ID Token ou na resposta ao endpoint UserInfo, o Authorization Server deve incluir no ID Token ou na resposta ao endpoint UserInfo um **conjunto** que inclua um elemento com o número do **CNPJ** relacionado à conta utilizada na autenticação do usuário.
+Se a Claim **cnpj** for solicitada como essencial para constar no ID Token ou na resposta ao endpoint UserInfo,
+ o Authorization Server deve incluir no ID Token ou na resposta ao endpoint UserInfo um **conjunto** que inclua um elemento
+ com o número do **CNPJ** relacionado à conta utilizada na autenticação do usuário.
 
-Se a Claim **cnpj** indicada como essencial não puder ser preenchida ou validada, o Authorization Server deve tratar a solicitação como uma tentativa de autenticação com falha.
+Se a Claim **cnpj** indicada como essencial não puder ser preenchida
+ ou validada, o Authorization Server deve tratar a solicitação como
+ uma tentativa de autenticação com falha.
 
 Nome: cnpj, Tipo: Array of Strings, Array Element Regex: '^\d{14}$'
 
 #### Solicitando o "urn:brasil:openbanking:loa2" ou "urn:brasil:openbanking:loa3" Solicitação de contexto de autenticação  {#loa}
 
+Esse perfil define "urn:brasil:openbanking:loa2" e "urn:brasil:openbanking:loa3" como
+ novas classes de "Authentication Context Request" (ACR)
+
 * **LoA2**: mecanismo de autenticação com a adoção de um único fator
 * **LoA3**: mecanismo de autenticação com múltiplos fatores de autenticação
 
-A seguinte orientação deve ser observada para o mecanismo de autenticação:
+A seguinte orientação deve ser observada para o mecanismo de autenticação das APIs do Open Banking Brasil:
+
 * De acordo com o Art. 17 da Resolução Conjunta nº 01, as instituições devem adotar  procedimentos e controles para autenticação de cliente **compatíveis com os aplicáveis ao acesso a seus canais de atendimento eletrônicos**.
 * Em observância à regulação em vigor, sugere-se que:
   * **Para a autenticação do usuário em autorizações de acessos às APIs de compartilhamento de dados (Fase 2)**, os _Authorization Servers_ **deveriam** adotar, no mínimo, método compatível com `LoA2`; e
@@ -299,7 +329,10 @@ Além disso, o cliente confidencial
 
 # Considerações de segurança  {#authserver}
 
-Os participantes devem apoiar todas as considerações de segurança especificadas na cláusula 8 [Financial-grade API Security Profile 1.0 - Parte 2: Advanced] [FAPI-1-Advanced] e o [Manual de Segurança de Banco Central do Brasil] (https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Instru%C3%A7%C3%A3o%20Normativa%20BCB&numero=134). O ICP brasileiro emite certificados RSA x509 somente, portanto, para simplificar, a seção remove o suporte para algoritmos EC e exige que apenas algoritmos de criptografia recomendados pela IANA sejam usados.
+Os participantes devem apoiar todas as considerações de segurança especificadas na cláusula 8
+ [Financial-grade API Security Profile 1.0 - Parte 2: Advanced] [FAPI-1-Advanced] e o [Manual de Segurança de Banco Central do Brasil] (https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Instru%C3%A7%C3%A3o%20Normativa%20BCB&numero=134).
+ O ICP Brasil emite certificados RSA x509 somente, portanto, para simplificar, a seção remove o suporte para algoritmos EC
+ e exige que apenas algoritmos de criptografia recomendados pela IANA sejam usados.
 
 ## Considerações sobre assinatura do conteúdo de mensagens (JWS) {#jws}
 
@@ -375,10 +408,6 @@ Adicionalmente:
 * Consent Resource Id deve incluir caracteres seguros para url;
 * Consent Resource Id deve ser "namespaced";
 * Consent Resource Id deve ter propriedades de um `nonce` [Nonce](https://openid.net/specs/openid-connect-core-1_0.html#NonceNotes);
-
-### Dynamic Consent Scope Example  {#consentexample}
-
-consent:urn:bancoex:C1DD33123
 
 ### Exemplo de escopo de consentimento dinâmico  {#consentid}
 

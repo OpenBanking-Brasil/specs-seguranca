@@ -53,6 +53,7 @@ The key words "shall", "shall not",
 "should", "should not", "may", and
 "can" in this document are to be interpreted as described in
 [ISO Directive Part 2][ISODIR2].
+
 These key words are not used as dictionary terms such that
 any occurrence of them shall be interpreted as key words
 and are not to be interpreted with their natural language meanings.
@@ -183,8 +184,11 @@ This profile describes security and features provisions for a server and client 
 ### Introduction
 
 Open Banking Brasil has a requirement to address privacy considerations that were identified but not addressed in the [FAPI-1-Advanced] final specification without imposing additional requirements on Authorisation Servers being proposed in [FAPI-2-Baseline].
+
 Participants in this ecosystem have a need for clients to request an openid provider to confirm values of identity claims as part of an authorization request using the mechanism defined in clause 5.5.1 of [OIDC].
+
 The use of the claims parameter to request explicit claims values requires clients to ensure that they encrypt the request object to avoid information leakage. This risk is identified in clause 7.4.1 of [FAPI-1-Baseline].
+
 In addition this profile describes the specific scope, acr and client management requirements necessary to support the wider Open Banking Brasil ecosystem.
 
 As a profile of the OAuth 2.0 Authorization Framework, this document mandates the following for the Brasil Open Banking Security profile.
@@ -236,11 +240,18 @@ The **CPF** number (Cadastro de Pessoas Físicas, [sepeˈɛfi]; Portuguese for "
  is the **Brazilian** individual taxpayer registry identification. This number is attributed by
  the **Brazilian** Federal Revenue to Brazilians and resident aliens who, directly or indirectly,
   pay taxes in **Brazil**.
+
 In the Brasil Open Banking identity model, the cpf is a string consisting of numbers that is 11
 characters long and may start with a 0.
+
 If the cpf Claim is requested as an Essential Claim for the ID Token or UserInfo response with a
-values parameter requesting a specific cpf value, the Authorization Server MUST return a cpf Claim Value
-that matches the requested value. If this is an Essential Claim and the requirement cannot be met,
+ values parameter requesting a specific cpf value, the Authorization Server MUST return a cpf Claim Value
+that matches the requested value.
+
+If the cpf Claim is requested as an Essential Claim for the ID Token or UserInfo response,
+ the Authorization Server MUST return a cpf Claim Value with the authenticated user cpf value.
+
+If this is an Essential Claim and the requirement cannot be met or is not compatible with the one requested,
  then the Authorization Server MUST treat that outcome as a failed authentication attempt.
 
 Name: cpf, Type: String, Regex: '^\d{11}$'
@@ -255,13 +266,19 @@ This profile defines "cnpj" as a new standard claim as per
  Portuguese "Secretaria da Receita Federal" or "Ministério da Fazenda". In the Brasil Open Banking identity model,
  individuals can associated with 0 or more CNPJs. A CNPJ is a string consisting of numbers that is 14 digits long and may start with a 0,
  the first eight digits identify the company, the four digits after the slash identify the branch or
-  subsidiary ("0001" defaults to the headquarters), and the last two are checksum digits.
-   For this profile, the cnpj claim must be requested and supplied as the 14 digit number.
+ subsidiary ("0001" defaults to the headquarters), and the last two are checksum digits.
+ For this profile, the cnpj claim must be requested and supplied as the 14 digit number.
 
 If the cnpj Claim is requested as an Essential Claim for the ID Token or UserInfo response with a
 values parameter requesting a specific cnpj value, the Authorization Server MUST return a cnpj
-Claim Value that contains a **set** of CNPJs one of which must match the requested value. If this
- is an Essential Claim and the requirement cannot be met, then the Authorization Server MUST treat
+Claim Value that contains a **set** of CNPJs one of which must match the requested value.
+
+If the cnpj Claim is requested as an Essential Claim for the ID Token or UserInfo
+ the Authorization Server MUST return a cnpj Claim Value that contains a **set** of CNPJs one of which must
+ match a CNPJ belonging to the authenticated user's account.
+
+If this is an Essential Claim and the requirement cannot be met,
+ then the Authorization Server MUST treat
  that outcome as a failed authentication attempt.
 
 Name: cnpj, Type: Array of Strings, Array Element Regex: '^\d{14}$'
@@ -269,7 +286,7 @@ Name: cnpj, Type: Array of Strings, Array Element Regex: '^\d{14}$'
 #### Requesting the "urn:brasil:openbanking:loa2" or "urn:brasil:openbanking:loa3" Authentication Context Request
 
 This profile defines "urn:brasil:openbanking:loa2" and "urn:brasil:openbanking:loa3" as
- new Authentication Context Request classes.
+ new Authentication Context Request (ACR) classes.
 
 * **LoA2:** Authentication performed using single factor;
 * **LoA3:** Authentication performed using multi factor (MFA)
