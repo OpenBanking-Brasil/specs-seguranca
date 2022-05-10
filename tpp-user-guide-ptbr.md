@@ -61,7 +61,7 @@ O Diretório suporta vários certificados, tipos de chave e um comando e configu
 
 #### 1.4.2 Produção  {#Producao}
 
-Os certificados para acesso e assinatura em ambiente de produção devem ser fornecidos pelo ICP Brasil. Os detalhes sobre os certificados e os requisitos para os certificados estão detalhados no [Padrão de Certificados Open Banking Brasil](https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil-certificate-standards-1_ID1.md).
+Os certificados para acesso e assinatura em ambiente de produção devem ser fornecidos pelo ICP Brasil. Os detalhes sobre os certificados e os requisitos para os certificados estão detalhados no [Padrão de Certificados Open Finance Brasil](https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil-certificate-standards-1_ID1.md).
 
 #### 1.4.3 O que é um JWT, JWE, JWS e JWK  {#JWT_JWE_JWS_JWK)
 
@@ -348,7 +348,7 @@ curl --cert transport.pem --key transport.key https://matls-auth.directory.openb
 
 ### 2.3 Como se Comunicar com as APIs do Diretório {#ComunicarAPIs}
 
-As APIs do Diretório são recursos RESTful protegidos usando o Perfil de Segurança do Open Banking Brasil. Isso significa que eles têm a mesma postura de segurança das APIs publicadas pelos Bancos. Todas as APIs de Diretório requerem o escopo do recurso OAuth 2.0 de `directory:software` e são protegidos usando Mutual TLS (mTLS).
+As APIs do Diretório são recursos RESTful protegidos usando o Perfil de Segurança do Open Finance Brasil. Isso significa que eles têm a mesma postura de segurança das APIs publicadas pelos Bancos. Todas as APIs de Diretório requerem o escopo do recurso OAuth 2.0 de `directory:software` e são protegidos usando Mutual TLS (mTLS).
 
 Consulte a especificação do Diretório OpenAPI v3 para o conjunto completo de endpoints disponíveis.
 
@@ -522,15 +522,15 @@ eyJraWQiOiJzaWduZXIiLCJ0eXAiOiJKV1QiLCJhbGciOiJQUzI1NiJ9.eyJzb2Z0d2FyZV9tb2RlIjo
 
 ## 3.3 Enviando uma Solicitação de Dynamic Client Registration (RFC7591)  {#RFC7591}
 
-Consulte o [Dynamic Client Registration do Open Banking Brasil](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID2-ptbr.html)
+Consulte o [Dynamic Client Registration do Open Finance Brasil](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID2-ptbr.html)
 
 ## 3.4 Salvando o Token de Dynamic Registration Management (RFC7592)  {#RFC7592}
 
-Consulte o [Dynamic Client Registration do Open Banking Brasil](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID2-ptbr.html)
+Consulte o [Dynamic Client Registration do Open Finance Brasil](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID2-ptbr.html)
 
 ## 3.5 Modificando um cliente usando Dynamic Client Management Token (RFC7592) {#RFC7592Token}
 
-Consulte o [Dynamic Client Registration do Open Banking Brasil](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID2-ptbr.html)
+Consulte o [Dynamic Client Registration do Open Finance Brasil](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID2-ptbr.html)
 
 ## 4.0 Obtendo Acesso aos Recursos dos Clientes  {#AcessoClientes}
 
@@ -619,9 +619,9 @@ Resposta
 
 Diferentes métodos de autenticação (_private_key_jwt_ e _tls_client_auth_) e de encaminhamento do Request Object (com e sem uso de *PAR*) podem ser suportados pelos _Authorization Servers_ de acordo com a especificação  [FAPI-1.0 Part 2 - Advanced](https://openid.net/specs/openid-financial-api-part-2-1_0.html).
 
-Portanto, como reforça o perfil de segurança para o Open Banking Brasil (item 8 da seção 5.2.3 dos [requisitos de segurança para o cliente confidencial](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID3-ptbr.html#section-5.2.3)), *todas* as 4 combinações de métodos devem ser suportados pelos clientes de API.
+Portanto, como reforça o perfil de segurança para o Open Finance Brasil (item 8 da seção 5.2.3 dos [requisitos de segurança para o cliente confidencial](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID3-ptbr.html#section-5.2.3)), *todas* as 4 combinações de métodos devem ser suportados pelos clientes de API.
 
-A tabela abaixo reflete os diferentes profiles de segurança e combinações que devem ser suportados por todos os clientes de API (conforme os [profiles certificados pela OIDF para o Open Banking Brasil](https://openid.net/certification/#FAPI_OPs)).
+A tabela abaixo reflete os diferentes profiles de segurança e combinações que devem ser suportados por todos os clientes de API (conforme os [profiles certificados pela OIDF para o Open Finance Brasil](https://openid.net/certification/#FAPI_OPs)).
 
 | Perfil da certificação OIDF |
 | -- |
@@ -630,7 +630,7 @@ A tabela abaixo reflete os diferentes profiles de segurança e combinações que
 | BR-OB Adv. OP w/ MTLS, PAR	|
 | BR-OB Adv. OP w/ Private Key, PAR	|
 
-Todos os requisitos para o OpenID Request Object estão incluídos no [Perfil de Segurança do Open Banking Brasil](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID3-ptbr.html). Veja o exemplo com JWS a seguir:
+Todos os requisitos para o OpenID Request Object estão incluídos no [Perfil de Segurança do Open Finance Brasil](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID3-ptbr.html). Veja o exemplo com JWS a seguir:
 
 ```
 {
@@ -680,7 +680,7 @@ Assinatura omitida por questões de brevidade
 
 ### 4.3.1.1 Solicitação de Claims Específicas  {#SolicitacaoClaims}
 
-Também é opcional para TPPs solicitar `claims` de identidade ('Identity Claims') adicionais, incluindo CPF e CNPJ. Essas `claims` são definidas no Perfil de Segurança do Open Banking Brasil. Também é possível para um TPP solicitar que uma `claim` corresponda a um determinado valor, baseando-se em [OpenID Connect Core Clause 5.5.1](https://openid.net/specs/openid-connect-core-1_0.html#IndividualClaimsRequests) para solicitar `claims` individuais.
+Também é opcional para TPPs solicitar `claims` de identidade ('Identity Claims') adicionais, incluindo CPF e CNPJ. Essas `claims` são definidas no Perfil de Segurança do Open Finance Brasil. Também é possível para um TPP solicitar que uma `claim` corresponda a um determinado valor, baseando-se em [OpenID Connect Core Clause 5.5.1](https://openid.net/specs/openid-connect-core-1_0.html#IndividualClaimsRequests) para solicitar `claims` individuais.
 
 Por exemplo:
 
@@ -841,7 +841,7 @@ BODY {
 
 ### A.3 Exemplo de Decodificação do Corpo de uma Solicitação com Valores de Reivindicação Específicos Sendo Solicitados  {#A3}
 
-Neste exemplo, um cliente está solicitando que o Authorization Server autentique o cliente apenas se a declaração cpf corresponder ao valor fornecido. Os requisitos de processamento para solicitações com um valor 'cpf' específico são definidos no Perfil de Segurança do Open Banking Brasil.
+Neste exemplo, um cliente está solicitando que o Authorization Server autentique o cliente apenas se a declaração cpf corresponder ao valor fornecido. Os requisitos de processamento para solicitações com um valor 'cpf' específico são definidos no Perfil de Segurança do Open Finance Brasil.
 
 ```
 {
