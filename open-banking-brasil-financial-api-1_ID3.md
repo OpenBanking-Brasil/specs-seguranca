@@ -7,7 +7,7 @@
     #
 
     title = "Open Finance Brasil Financial-grade API Security Profile 1.0 Implementers Draft 3"
-    abbrev = "OBB-FAPI-1-ID3"
+    abbrev = "OFB-FAPI-1-ID3"
     ipr = "none"
     workgroup = "Open Finance Brasil GT Security"
     keyword = ["FAPI", "Open Finance Brasil GT Security"]
@@ -37,7 +37,7 @@ The Open Finance Brasil Initial Structure is responsible for creating standards 
 Open Finance Brasil Financial-grade API Security Profile 1.0 consists of the following parts:
 
 * Open Finance Brasil Financial-grade API Security Profile 1.0
-* [Open Banking Brasil Dynamic Client Registration Profile 1.0][OBB-FAPI-DCR]
+* [Open Banking Brasil Dynamic Client Registration Profile 1.0][OFB-FAPI-DCR]
 
 These parts are intended to be used with [RFC6749], [RFC6750], [RFC7636], [OIDC], [FAPI-1-Baseline] and [FAPI-1-Advanced]
 
@@ -143,8 +143,8 @@ The following referenced documents are indispensable for the application of this
 [LIWP] - OIDF FAPI WG Lodging Intent Working Paper
 [LIWP]: <https://bitbucket.org/openid/fapi/src/master/Financial_API_Lodging_Intent.md
 
-[OBB-FAPI-DCR] - Open Banking Brasil Financial-grade API Dynamic Client Registration Profile 1.0
-[OBB-FAPI-DCR]: <https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID2.html
+[OFB-FAPI-DCR] - Open Banking Brasil Financial-grade API Dynamic Client Registration Profile 1.0
+[OFB-FAPI-DCR]: <https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID2.html
 
 [RFC4648] - The Base16, Base32, and Base64 Data Encodings
 [RFC4648]: <https://tools.ietf.org/html/rfc4648
