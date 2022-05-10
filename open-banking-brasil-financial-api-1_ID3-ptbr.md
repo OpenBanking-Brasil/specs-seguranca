@@ -7,7 +7,7 @@
     #
 
     title = "Open Finance Brasil Financial-grade API Security Profile 1.0 Implementers Draft 3"
-    abbrev = "OBB-FAPI-1-ID3"
+    abbrev = "OFB-FAPI-1-ID3"
     ipr = "none"
     workgroup = "Open Finance Brasil GT Security"
     keyword = ["FAPI", "Open Banking Brasil GT Security"]
@@ -20,9 +20,9 @@
     [[author]]
     initials = "GT"
     surname = "Security"
-    fullname = "OBBIS GT Security"
+    fullname = "OFBIS GT Security"
     organization = "Open Finance Brasil Initial Structure"
-    abbrev = "OBBIS"
+    abbrev = "OFBIS"
       [author.address]
       email = "gt-seguranca@openbankingbr.org"
       uri = "https://openbankingbrasil.org.br/"
@@ -37,7 +37,7 @@ A Estrutura Inicial do Open Finance Brasil (EIOFB) é responsável por criar pad
 O Financial-grade API 1.0 do Open Finance Brasil consiste nas seguintes partes:
 
 * Open Finance Brasil Financial-grade API Security Profile 1.0
-* [Open Finance Brasil Dynamic Client Registration Profile 1.0][OBB-FAPI-DCR]
+* [Open Finance Brasil Dynamic Client Registration Profile 1.0][OFB-FAPI-DCR]
 
 Estas partes são destinados a serem usados com [RFC6749], [RFC6750], [RFC7636], [OIDC], [FAPI-1-Baseline] e [FAPI-1-Advanced]
 
@@ -143,8 +143,8 @@ Os seguintes documentos referenciados são indispensáveis para a adoção das e
 [LIWP] - OIDF FAPI WG Lodging Intent Working Paper
 [LIWP]: <https://bitbucket.org/openid/fapi/src/master/Financial_API_Lodging_Intent.md
 
-[OBB-FAPI-DCR] - Open Finance Brasil Financial-grade API Dynamic Client Registration Profile 1.0
-[OBB-FAPI-DCR]: <https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID2.html
+[OFB-FAPI-DCR] - Open Finance Brasil Financial-grade API Dynamic Client Registration Profile 1.0
+[OFB-FAPI-DCR]: <https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID2.html
 
 [RFC4648] - The Base16, Base32, and Base64 Data Encodings
 [RFC4648]: <https://tools.ietf.org/html/rfc4648
