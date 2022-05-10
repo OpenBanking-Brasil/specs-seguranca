@@ -183,7 +183,7 @@ In addition, the Authorization Server
 
 1. shall advertise its presence in the Open Finance Brasil ecosystem by being listed on the Directory of Participants;
 2. shall advertise all Open Finance Brasil REST API resources protected by the OpenID Provider on the Directory of Participants;
-3. shall advertise support for all signing, encryption, authentication mechanisms and standards required to support [Open Finance Brasil Financial API][OBB-FAPI];
+3. shall advertise support for all signing, encryption, authentication mechanisms and standards required to support [Open Finance Brasil Financial API][OFB-FAPI];
 4. shall advertise support for [OpenID Dynamic Client Registration][OIDR];
 5. shall advertise `mtls_endpoint_aliases` as per clause 5 [RFC 8705 OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens][RFC8705] the `token_endpoint`, `registration_endpoint` and `userinfo_endpoint`;
 6. if supporting [OAuth 2.0 Pushed Authorization Requests][PAR] shall advertise through [OIDD] `mtls_endpoint_aliases` the `pushed_authorization_request_endpoint`;
