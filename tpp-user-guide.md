@@ -18,7 +18,7 @@ At a high level the following major steps are required in order to onboard a new
 ### 1.1 Directory Overview
 
 The trust framework services provided by Open Finance Brasil provide all of the discovery services necessary
-for a TPPs and ASPSPs to interact with each other without being required to validate
+for TPPs and ASPSPs to interact with each other without being required to validate
 the authenticity of each others' Identity, Authorizations, Consumer Offerings (Apps),
 APIs or Credentials for the Applications. In addition it provides a single registry of all
 consumer propositions being offered in the market and a single control plane for the
