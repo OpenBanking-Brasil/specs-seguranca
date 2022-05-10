@@ -32,9 +32,9 @@ Sempre que for publicado um novo ID de documentação, deve-se atentar a atualiz
 
 |Documento|Referências|
 |------------------------------------------|---------------------------------------------------------------------------------------------------|
-|Registro e Cadastramento Dinâmico do Cliente de APIs|<ul><li>Perfil de Segurança do Open Finance Brasil</li><li>Padrão de Certificados Open Finance Brasil</li><li>Guia do usuário - ponto de vista da instituição receptora de dados ou iniciadora de pagamentos (TPP)</li><li>Áerea do Desenvolvedor do Portal do Open Finance Brasil</li><li>Swagger com a documentação do DCR</li></ul>|
-|Perfil de Segurança do Open Finance Brasil|<ul><li>Registro e Cadastramento Dinâmico do Cliente de APIs</li><li>Padrão de Certificados Open Finance Brasil</li><li>Guia do usuário - ponto de vista da instituição receptora de dados ou iniciadora de pagamentos (TPP)</li><li>Áerea do Desenvolvedor do Portal do Open Finance Brasil</li></ul>|
-|Padrão de Certificados Open Finance Brasil|<ul><li>Perfil de Segurança do Open Finance Brasil</li><li>Registro e Cadastramento Dinâmico do Cliente de APIs</li><li>Guia do usuário - ponto de vista da instituição receptora de dados ou iniciadora de pagamentos (TPP)</li><li>Áerea do Desenvolvedor do Portal do Open Finance Brasil</li></ul>|
+|Registro e Cadastramento Dinâmico do Cliente de APIs|<ul><li>Perfil de Segurança do Open Finance Brasil</li><li>Padrão de Certificados Open Finance Brasil</li><li>Guia do usuário - ponto de vista da instituição receptora de dados ou iniciadora de pagamentos (TPP)</li><li>Área do Desenvolvedor do Portal do Open Finance Brasil</li><li>Swagger com a documentação do DCR</li></ul>|
+|Perfil de Segurança do Open Finance Brasil|<ul><li>Registro e Cadastramento Dinâmico do Cliente de APIs</li><li>Padrão de Certificados Open Finance Brasil</li><li>Guia do usuário - ponto de vista da instituição receptora de dados ou iniciadora de pagamentos (TPP)</li><li>Área do Desenvolvedor do Portal do Open Finance Brasil</li></ul>|
+|Padrão de Certificados Open Finance Brasil|<ul><li>Perfil de Segurança do Open Finance Brasil</li><li>Registro e Cadastramento Dinâmico do Cliente de APIs</li><li>Guia do usuário - ponto de vista da instituição receptora de dados ou iniciadora de pagamentos (TPP)</li><li>Área do Desenvolvedor do Portal do Open Finance Brasil</li></ul>|
 
 ## Geração de documentação para manutenção
 
