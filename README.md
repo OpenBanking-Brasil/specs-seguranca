@@ -14,7 +14,7 @@ Este respositório e seu conteúdo foram criados e são mantidos pelo **GT de Se
 
 ## Como contribuir?
 
-As especificações deste repositório ainda estão em versão *draft*. A princípio, as alterações e manutenção nesse repositório é responsabilidade do [Governança do Open Finance Brasil - GT Segurança](mailto:gt-seguranca@openbankingbr.org).
+As especificações deste repositório ainda estão em versão *draft*. A princípio, as alterações e manutenção nesse repositório são responsabilidades da [Governança do Open Finance Brasil - GT Segurança](mailto:gt-seguranca@openbankingbr.org).
 
 ## O que eu vou encontrar nesse repositório?
 
