@@ -23,7 +23,7 @@ Esse repositório inclui o detalhamento técnico necessário para o entendimento
  - [Registro e Cadastramento Dinâmico do Cliente de APIs ID2](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID2-ptbr.html)
  - [Perfil de Segurança do Open Finance Brasil ID3, que inclui requisitos para o Authorization Server, para o registro da intenção de consentimento, autenticação do usuário e efetivação do consentimento e emissão do `access_token`](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID3-ptbr.html)
  - [Guia do usuário - ponto de vista da instituição transmissora (ASPSP)](https://openbanking-brasil.github.io/specs-seguranca/aspsp-user-guide-ptbr.html)
- - [Guia do usuário - ponto de vista da instituição receptora de dados ou iniciadora de pagamentos (TTP)](https://openbanking-brasil.github.io/specs-seguranca/tpp-user-guide-ptbr.html)
+ - [Guia do usuário - ponto de vista da instituição receptora de dados ou iniciadora de pagamentos (TPP)](https://openbanking-brasil.github.io/specs-seguranca/tpp-user-guide-ptbr.html)
  - [Padrão de Certificados Open Finance Brasil](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1-ptbr.html)
 
 ## Manutenção dos links
@@ -32,9 +32,9 @@ Sempre que for publicado um novo ID de documentação, deve-se atentar a atualiz
 
 |Documento|Referências|
 |------------------------------------------|---------------------------------------------------------------------------------------------------|
-|Registro e Cadastramento Dinâmico do Cliente de APIs|<ul><li>Perfil de Segurança do Open Finance Brasil</li><li>Padrão de Certificados Open Finance Brasil</li><li>Guia do usuário - ponto de vista da instituição receptora de dados ou iniciadora de pagamentos (TTP)</li><li>Áerea do Desenvolvedor do Portal do Open Finance Brasil</li><li>Swagger com a documentação do DCR</li></ul>|
-|Perfil de Segurança do Open Finance Brasil|<ul><li>Registro e Cadastramento Dinâmico do Cliente de APIs</li><li>Padrão de Certificados Open Finance Brasil</li><li>Guia do usuário - ponto de vista da instituição receptora de dados ou iniciadora de pagamentos (TTP)</li><li>Áerea do Desenvolvedor do Portal do Open Finance Brasil</li></ul>|
-|Padrão de Certificados Open Finance Brasil|<ul><li>Perfil de Segurança do Open Finance Brasil</li><li>Registro e Cadastramento Dinâmico do Cliente de APIs</li><li>Guia do usuário - ponto de vista da instituição receptora de dados ou iniciadora de pagamentos (TTP)</li><li>Áerea do Desenvolvedor do Portal do Open Finance Brasil</li></ul>|
+|Registro e Cadastramento Dinâmico do Cliente de APIs|<ul><li>Perfil de Segurança do Open Finance Brasil</li><li>Padrão de Certificados Open Finance Brasil</li><li>Guia do usuário - ponto de vista da instituição receptora de dados ou iniciadora de pagamentos (TPP)</li><li>Áerea do Desenvolvedor do Portal do Open Finance Brasil</li><li>Swagger com a documentação do DCR</li></ul>|
+|Perfil de Segurança do Open Finance Brasil|<ul><li>Registro e Cadastramento Dinâmico do Cliente de APIs</li><li>Padrão de Certificados Open Finance Brasil</li><li>Guia do usuário - ponto de vista da instituição receptora de dados ou iniciadora de pagamentos (TPP)</li><li>Áerea do Desenvolvedor do Portal do Open Finance Brasil</li></ul>|
+|Padrão de Certificados Open Finance Brasil|<ul><li>Perfil de Segurança do Open Finance Brasil</li><li>Registro e Cadastramento Dinâmico do Cliente de APIs</li><li>Guia do usuário - ponto de vista da instituição receptora de dados ou iniciadora de pagamentos (TPP)</li><li>Áerea do Desenvolvedor do Portal do Open Finance Brasil</li></ul>|
 
 ## Geração de documentação para manutenção
 
