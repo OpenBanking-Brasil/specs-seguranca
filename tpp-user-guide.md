@@ -96,7 +96,7 @@ When certificates are uploaded to the directory, the trust framework advertises 
  the algorithm and cipher suites that they support also advertise their 'use' which can either
   be of type 'enc' for encryption or 'sig' for signing.
 
-These 'sig' keys and 'enc' key pairs are used in many places within the open banking ecosystem to
+These 'sig' keys and 'enc' key pairs are used in many places within the Open Finance ecosystem to
  encrypt or to sign data using the standards defined in [RFC 7519 JSON Web Token](https://tools.ietf.org/html/rfc7519)
  which should be read in detail by developers.
 
