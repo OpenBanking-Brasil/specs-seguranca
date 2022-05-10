@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta content="Common,Latin" name="scripts">
 <meta content="initial-scale=1.0" name="viewport">
-<title>Open Banking Brasil Financial-grade API Dynamic Client Registration 1.0 Implementers Draft 2</title>
-<meta content="OBBIS GT Security" name="author">
+<title>Open Finance Brasil Financial-grade API Dynamic Client Registration 1.0 Implementers Draft 2</title>
+<meta content="OFBIS GT Security" name="author">
 <meta content="xml2rfc 3.12.2" name="generator">
 <meta content="FAPI" name="keyword">
-<meta content="Open Banking Brasil GT Security" name="keyword">
+<meta content="Open Finance Brasil GT Security" name="keyword">
 <meta content="open-banking-brasil-dynamic-client-registration-1_ID2" name="ietf.draft">
 <!-- Generator version information:
   xml2rfc 3.12.2
@@ -1181,7 +1181,7 @@ li > p:last-of-type {
 <table class="ears">
 <thead><tr>
 <td class="left"></td>
-<td class="center">OBB-FAPI-1-DCR-ID2</td>
+<td class="center">OFB-FAPI-1-DCR-ID2</td>
 <td class="right">February 2022</td>
 </tr></thead>
 <tfoot><tr>
@@ -1194,29 +1194,29 @@ li > p:last-of-type {
 <div id="internal-metadata" class="document-information">
 <dl id="identifiers">
 <dt class="label-workgroup">Workgroup:</dt>
-<dd class="workgroup">Open Banking Brasil GT Security</dd>
+<dd class="workgroup">Open Finance Brasil GT Security</dd>
 <dt class="label-authors">Author:</dt>
 <dd class="authors">
 <div class="author">
       <div class="author-name">GT. Security</div>
-<div class="org">OBBIS</div>
+<div class="org">OFBIS</div>
 </div>
 </dd>
 </dl>
 </div>
-<h1 id="title">Open Banking Brasil Financial-grade API Dynamic Client Registration 1.0 Implementers Draft 2</h1>
+<h1 id="title">Open Finance Brasil Financial-grade API Dynamic Client Registration 1.0 Implementers Draft 2</h1>
 <section class="note" id="section-note.1">
       <h2 id="name-foreword">
 <a href="#name-foreword" class="section-name selfRef">Foreword</a>
       </h2>
 <p id="section-note.1-1">Este documento tamb&#233;m est&#225; dispon&#237;vel em <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID1-ptbr.html">portugu&#234;s</a><a href="#section-note.1-1" class="pilcrow">¶</a></p>
-<p id="section-note.1-2">The Open Banking Brasil Initial Structure is responsible for creating standards and specifications necessary to meet the requirements and obligations of the Brasil Open Banking Legislation as originally outlined by the <a href="https://www.bcb.gov.br/content/config/Documents/BCB_Open_Banking_Communique-April-2019.pdf">Brasil Central Bank</a>. There is a possibility that some of the elements of this document may be the subject to patent rights. OBBIS shall not be held responsible for identifying any or all such patent rights.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
-<p id="section-note.1-3">Open Banking Brasil Financial-grade API Security Profile 1.0 consists of the following parts:<a href="#section-note.1-3" class="pilcrow">¶</a></p>
+<p id="section-note.1-2">The Open Finance Brasil Initial Structure is responsible for creating standards and specifications necessary to meet the requirements and obligations of the Brasil Open Finance Legislation as originally outlined by the <a href="https://www.bcb.gov.br/content/config/Documents/BCB_Open_Banking_Communique-April-2019.pdf">Brasil Central Bank</a>. There is a possibility that some of the elements of this document may be the subject to patent rights. OFBIS shall not be held responsible for identifying any or all such patent rights.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
+<p id="section-note.1-3">Open Finance Brasil Financial-grade API Security Profile 1.0 consists of the following parts:<a href="#section-note.1-3" class="pilcrow">¶</a></p>
 <ul class="compact note">
 <li class="compact note" id="section-note.1-4.1">
-          <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID3.html">Open Banking Brasil Financial-grade API Security Profile 1.0</a><a href="#section-note.1-4.1" class="pilcrow">¶</a>
+          <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID3.html">Open Finance Brasil Financial-grade API Security Profile 1.0</a><a href="#section-note.1-4.1" class="pilcrow">¶</a>
 </li>
-        <li class="compact note" id="section-note.1-4.2">Open Banking Brasil Dynamic Client Registration Profile 1.0<a href="#section-note.1-4.2" class="pilcrow">¶</a>
+        <li class="compact note" id="section-note.1-4.2">Open Finance Brasil Dynamic Client Registration Profile 1.0<a href="#section-note.1-4.2" class="pilcrow">¶</a>
 </li>
       </ul>
 <p id="section-note.1-5">These parts are intended to be used with <a href="https://tools.ietf.org/html/rfc6749">RFC6749</a>, <a href="https://tools.ietf.org/html/rfc6750">RFC6750</a>, <a href="https://tools.ietf.org/html/rfc7636">RFC7636</a>, <a href="https://openid.net/specs/openid-connect-core-1_0.html">OIDC</a>, <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OIDR</a>, <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a>, <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a>, <a href="https://openid.net/specs/openid-financial-api-part-1-1_0.html">FAPI-1-Baseline</a> and <a href="https://openid.net/specs/openid-financial-api-part-2-1_0.html">FAPI-1-Advanced</a><a href="#section-note.1-5" class="pilcrow">¶</a></p>
@@ -1225,8 +1225,8 @@ li > p:last-of-type {
       <h2 id="name-introduction">
 <a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
-<p id="section-note.2-1">The Open Banking Brasil Financial-grade API Dynamic Client Registration Profile is a profile of <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a>, <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a> and <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OIDR</a> that aims to provide specific implementation guidelines for security and interoperability which can be applied to the identification, registration and management of OAuth Clients operating in the Brasil Open Banking ecosystem.
-Although it is possible to code an OpenID Provider and Relying Party from first principles using this specification, the main audience for this specification is parties who already have a certified implementation of <a href="https://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect</a> and want to achieve certification for the Brasil Open Banking programme.<a href="#section-note.2-1" class="pilcrow">¶</a></p>
+<p id="section-note.2-1">The Open Finance Brasil Financial-grade API Dynamic Client Registration Profile is a profile of <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a>, <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a> and <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OIDR</a> that aims to provide specific implementation guidelines for security and interoperability which can be applied to the identification, registration and management of OAuth Clients operating in the Brasil Open Finance ecosystem.
+Although it is possible to code an OpenID Provider and Relying Party from first principles using this specification, the main audience for this specification is parties who already have a certified implementation of <a href="https://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect</a> and want to achieve certification for the Brasil Open Finance programme.<a href="#section-note.2-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note" id="section-note.3">
       <h2 id="name-notational-conventions">
@@ -1262,7 +1262,7 @@ and are not to be interpreted with their natural language meanings.<a href="#sec
             <p id="section-toc.1-1.5.1"><a href="#section-5" class="xref">5</a>.  <a href="#name-introduction-2" class="xref">Introduction</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
-            <p id="section-toc.1-1.6.1"><a href="#section-6" class="xref">6</a>.  <a href="#name-open-banking-brasil-openid-" class="xref">Open Banking Brasil OpenID Connect Discovery provisions</a></p>
+            <p id="section-toc.1-1.6.1"><a href="#section-6" class="xref">6</a>.  <a href="#name-open-banking-brasil-openid-" class="xref">Open Finance Brasil OpenID Connect Discovery provisions</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.1">
                 <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="xref">6.1</a>.  <a href="#name-authorization-server" class="xref">Authorization server</a></p>
@@ -1273,7 +1273,7 @@ and are not to be interpreted with their natural language meanings.<a href="#sec
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
-            <p id="section-toc.1-1.7.1"><a href="#section-7" class="xref">7</a>.  <a href="#name-open-banking-brasil-openid-c" class="xref">Open Banking Brasil OpenID Connect Registration Provisions</a></p>
+            <p id="section-toc.1-1.7.1"><a href="#section-7" class="xref">7</a>.  <a href="#name-open-banking-brasil-openid-c" class="xref">Open Finance Brasil OpenID Connect Registration Provisions</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.1">
                 <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="xref">7.1</a>.  <a href="#name-authorization-server-2" class="xref">Authorization server</a></p>
@@ -1314,7 +1314,7 @@ and are not to be interpreted with their natural language meanings.<a href="#sec
                 <p id="section-toc.1-1.9.2.1.1"><a href="#section-9.1" class="xref">9.1</a>.  <a href="#name-posting-a-request-with-a-so" class="xref">Posting a request with a software statement</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.2">
-                <p id="section-toc.1-1.9.2.2.1"><a href="#section-9.2" class="xref">9.2</a>.  <a href="#name-open-banking-brasil-ssa-key" class="xref">Open Banking Brasil SSA Key Store and Issuer Details</a></p>
+                <p id="section-toc.1-1.9.2.2.1"><a href="#section-9.2" class="xref">9.2</a>.  <a href="#name-open-banking-brasil-ssa-key" class="xref">Open Finance Brasil SSA Key Store and Issuer Details</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.3">
                 <p id="section-toc.1-1.9.2.3.1"><a href="#section-9.3" class="xref">9.3</a>.  <a href="#name-about-authentication-and-au" class="xref">About authentication and authorization mechanisms for DCR and DCM services</a></p>
@@ -1354,14 +1354,14 @@ and are not to be interpreted with their natural language meanings.<a href="#sec
       </h2>
 <p id="section-1-1">This document specifies the method of<a href="#section-1-1" class="pilcrow">¶</a></p>
 <ul class="compact">
-<li class="compact" id="section-1-2.1">applications registered in the <a href="https://web.directory.openbankingbrasil.org.br">Open Banking Directory of Participants</a> to discover OpenID Providers offering services in the Open Banking Brasil ecosystem;<a href="#section-1-2.1" class="pilcrow">¶</a>
+<li class="compact" id="section-1-2.1">applications registered in the <a href="https://web.directory.openbankingbrasil.org.br">Open Finance Directory of Participants</a> to discover OpenID Providers offering services in the Open Finance Brasil ecosystem;<a href="#section-1-2.1" class="pilcrow">¶</a>
 </li>
         <li class="compact" id="section-1-2.2">applications to use <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Connect Registration</a> to onboard their applications with Bank OpenID Providers; and<a href="#section-1-2.2" class="pilcrow">¶</a>
 </li>
         <li class="compact" id="section-1-2.3">applications to use <a href="https://tools.ietf.org/html/rfc7592">OAuth 2.0 Dynamic Client Registration Management Protocol</a> to manage their applications with OpenID Providers;<a href="#section-1-2.3" class="pilcrow">¶</a>
 </li>
       </ul>
-<p id="section-1-3">This document is applicable to all participants engaging in Open Banking in Brasil.<a href="#section-1-3" class="pilcrow">¶</a></p>
+<p id="section-1-3">This document is applicable to all participants engaging in Open Finance in Brasil.<a href="#section-1-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="normative-references">
@@ -1390,9 +1390,9 @@ and are not to be interpreted with their natural language meanings.<a href="#sec
 <p id="section-2-19"><a href="https://tools.ietf.org/html/draft-ietf-oauth-jwsreq">JAR</a> - OAuth 2.0 JWT Secured Authorization Request<a href="#section-2-19" class="pilcrow">¶</a></p>
 <p id="section-2-20"><a href="https://openid.net/specs/openid-financial-api-part-1-1_0.html">FAPI-1-Baseline</a> - Financial-grade API Security Profile 1.0 - Part 1: Baseline<a href="#section-2-20" class="pilcrow">¶</a></p>
 <p id="section-2-21"><a href="https://openid.net/specs/openid-financial-api-part-2-1_0.html">FAPI-1-Advanced</a> - Financial-grade API Security Profile 1.0 - Part 2: Advanced<a href="#section-2-21" class="pilcrow">¶</a></p>
-<p id="section-2-22"><a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID3.html">OBB-FAPI</a> - Open Banking Brasil Financial-grade API Security Profile 1.0<a href="#section-2-22" class="pilcrow">¶</a></p>
-<p id="section-2-23"><a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html">OBB-Cert-Standards</a> - Open Banking Brasil x.509 Certificate Standards<a href="#section-2-23" class="pilcrow">¶</a></p>
-<p id="section-2-24"><a href="https://raw.githubusercontent.com/OpenBanking-Brasil/specs-seguranca/main/dcr_review/dcr-dcm-swagger.yaml">OBB-DCR/DCM-Swagger</a> - DCR & DCM Swagger<a href="#section-2-24" class="pilcrow">¶</a></p>
+<p id="section-2-22"><a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID3.html">OFB-FAPI</a> - Open Finance Brasil Financial-grade API Security Profile 1.0<a href="#section-2-22" class="pilcrow">¶</a></p>
+<p id="section-2-23"><a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html">OFB-Cert-Standards</a> - Open Finance Brasil x.509 Certificate Standards<a href="#section-2-23" class="pilcrow">¶</a></p>
+<p id="section-2-24"><a href="https://raw.githubusercontent.com/OpenBanking-Brasil/specs-seguranca/main/dcr_review/dcr-dcm-swagger.yaml">OFB-DCR/DCM-Swagger</a> - DCR & DCM Swagger<a href="#section-2-24" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="terms-and-definitions">
@@ -1444,7 +1444,7 @@ and are not to be interpreted with their natural language meanings.<a href="#sec
       <h2 id="name-introduction-2">
 <a href="#section-5" class="section-number selfRef">5. </a><a href="#name-introduction-2" class="section-name selfRef">Introduction</a>
       </h2>
-<p id="section-5-1">Brasil Open Bankings ecosystem leverages a federation trust provider or <em>directory of participants</em> as the golden source of information on accredited participants and software that are authorized to partake in the Open Banking Brasil ecosystem.<a href="#section-5-1" class="pilcrow">¶</a></p>
+<p id="section-5-1">Brasil Open Finance ecosystem leverages a federation trust provider or <em>directory of participants</em> as the golden source of information on accredited participants and software that are authorized to partake in the Open Finance Brasil ecosystem.<a href="#section-5-1" class="pilcrow">¶</a></p>
 <p id="section-5-2">The services by the Directory include<a href="#section-5-2" class="pilcrow">¶</a></p>
 <ul class="compact">
 <li class="compact" id="section-5-3.1">Software registration and management.<a href="#section-5-3.1" class="pilcrow">¶</a>
@@ -1461,7 +1461,7 @@ and are not to be interpreted with their natural language meanings.<a href="#sec
 <div id="open-banking-brasil-openid-connect-discovery-provisions">
 <section id="section-6">
       <h2 id="name-open-banking-brasil-openid-">
-<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-open-banking-brasil-openid-" class="section-name selfRef">Open Banking Brasil OpenID Connect Discovery provisions</a>
+<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-open-banking-brasil-openid-" class="section-name selfRef">Open Finance Brasil OpenID Connect Discovery provisions</a>
       </h2>
 <div id="authorization-server">
 <section id="section-6.1">
@@ -1469,14 +1469,14 @@ and are not to be interpreted with their natural language meanings.<a href="#sec
 <a href="#section-6.1" class="section-number selfRef">6.1. </a><a href="#name-authorization-server" class="section-name selfRef">Authorization server</a>
         </h3>
 <p id="section-6.1-1">The Authorization Server shall support <a href="https://openid.net/specs/openid-connect-discovery-1_0.html">OpenID Connect Discovery</a> as required by <a href="https://openid.net/specs/openid-financial-api-part-1-1_0.html">Financial-grade API Security Profile 1.0 - Part 1: Baseline</a>.
-This support shall be explicit in Participant Directory configurations, and in the declaration of its attributes in the Discovery file (well-known), respecting the authentication mechanisms certified by the institution through the Open Banking Brazil compliance tests.<a href="#section-6.1-1" class="pilcrow">¶</a></p>
+This support shall be explicit in Participant Directory configurations, and in the declaration of its attributes in the Discovery file (well-known), respecting the authentication mechanisms certified by the institution through the Open Finance Brazil compliance tests.<a href="#section-6.1-1" class="pilcrow">¶</a></p>
 <p id="section-6.1-2">In addition, the Authorization Server<a href="#section-6.1-2" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="compact type-1" id="section-6.1-3">
-<li id="section-6.1-3.1">shall advertise its presence in the Open Banking Brasil ecosystem by being listed on the Directory of Participants;<a href="#section-6.1-3.1" class="pilcrow">¶</a>
+<li id="section-6.1-3.1">shall advertise its presence in the Open Finance Brasil ecosystem by being listed on the Directory of Participants;<a href="#section-6.1-3.1" class="pilcrow">¶</a>
 </li>
-          <li id="section-6.1-3.2">shall advertise all Open Banking Brasil REST API resources protected by the OpenID Provider on the Directory of Participants;<a href="#section-6.1-3.2" class="pilcrow">¶</a>
+          <li id="section-6.1-3.2">shall advertise all Open Finance Brasil REST API resources protected by the OpenID Provider on the Directory of Participants;<a href="#section-6.1-3.2" class="pilcrow">¶</a>
 </li>
-          <li id="section-6.1-3.3">shall advertise support for all signing, encryption, authentication mechanisms and standards required to support <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID3.html">Open Banking Brasil Financial API</a>;<a href="#section-6.1-3.3" class="pilcrow">¶</a>
+          <li id="section-6.1-3.3">shall advertise support for all signing, encryption, authentication mechanisms and standards required to support <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID3.html">Open Finance Brasil Financial API</a>;<a href="#section-6.1-3.3" class="pilcrow">¶</a>
 </li>
           <li id="section-6.1-3.4">shall advertise support for <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Dynamic Client Registration</a>;<a href="#section-6.1-3.4" class="pilcrow">¶</a>
 </li>
@@ -1511,7 +1511,7 @@ This support shall be explicit in Participant Directory configurations, and in t
 <div id="open-banking-brasil-openid-connect-registration-provisions">
 <section id="section-7">
       <h2 id="name-open-banking-brasil-openid-c">
-<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-open-banking-brasil-openid-c" class="section-name selfRef">Open Banking Brasil OpenID Connect Registration Provisions</a>
+<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-open-banking-brasil-openid-c" class="section-name selfRef">Open Finance Brasil OpenID Connect Registration Provisions</a>
       </h2>
 <div id="authorization-server-1">
 <section id="section-7.1">
@@ -1523,7 +1523,7 @@ This support shall be explicit in Participant Directory configurations, and in t
 <ol start="1" type="1" class="compact type-1" id="section-7.1-3">
 <li id="section-7.1-3.1">shall reject dynamic client registration requests not performed over a connection secured with mutual tls using certificates issued by Brazil ICP (production) or the Directory of Participants (sandbox);<a href="#section-7.1-3.1" class="pilcrow">¶</a>
 </li>
-          <li id="section-7.1-3.2">shall validate that the request contains software_statement JWT signed using the <code>PS256</code> algorithim issued by the Open Banking Brasil directory of participants;<a href="#section-7.1-3.2" class="pilcrow">¶</a>
+          <li id="section-7.1-3.2">shall validate that the request contains software_statement JWT signed using the <code>PS256</code> algorithim issued by the Open Finance Brasil directory of participants;<a href="#section-7.1-3.2" class="pilcrow">¶</a>
 </li>
           <li id="section-7.1-3.3">shall validate that the <code>software_statement</code> was issued (iat) not more than 5 minutes prior to the request being received;<a href="#section-7.1-3.3" class="pilcrow">¶</a>
 </li>
@@ -1542,7 +1542,7 @@ This support shall be explicit in Participant Directory configurations, and in t
 </li>
           <li id="section-7.1-3.10">where possible, shall compare client metadata asserted by a client toward the metadata provided into  <code>software_statement</code>, choosing the values present in the SSA with precedence;<a href="#section-7.1-3.10" class="pilcrow">¶</a>
 </li>
-          <li id="section-7.1-3.11">shall accept all x.500 AttributeType name strings defined in the Distinguished Name of the x.509 Certificate Profiles defined in <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html">Open Banking Brasil x.509 Certificate Standards</a>;<a href="#section-7.1-3.11" class="pilcrow">¶</a>
+          <li id="section-7.1-3.11">shall accept all x.500 AttributeType name strings defined in the Distinguished Name of the x.509 Certificate Profiles defined in <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html">Open Finance Brasil x.509 Certificate Standards</a>;<a href="#section-7.1-3.11" class="pilcrow">¶</a>
 </li>
           <li id="section-7.1-3.12">if supporting <code>tls_client_auth</code> client authentication mechanism as defined in <a href="https://tools.ietf.org/html/rfc8705">RFC8705</a> shall only accept <code>tls_client_auth_subject_dn</code>  as an indication of the certificate subject value as defined in clause 2.1.2 <a href="https://tools.ietf.org/html/rfc8705">RFC8705</a>;<a href="#section-7.1-3.12" class="pilcrow">¶</a>
 </li>
@@ -1569,8 +1569,8 @@ This support shall be explicit in Participant Directory configurations, and in t
           <h4 id="name-certificate-distinguished-n">
 <a href="#section-7.1.2" class="section-number selfRef">7.1.2. </a><a href="#name-certificate-distinguished-n" class="section-name selfRef">Certificate Distinguished Name Parsing</a>
           </h4>
-<p id="section-7.1.2-1">Clause 3 of <a href="https://www.rfc-editor.org/rfc/rfc4514">Lightweight Directory Access Protocol (LDAP): String Representation of Distinguished Names</a> defines the mandatory OIDs whose AttributeType strings (descriptors) must be recognized by implementers. This mandatory list does not include several of the OIDs defined in <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html">Open Banking Brasil x.509 Certificate Standards</a> nor is there a defined mechanism for Authorisation Servers to publish  information regarding the format that they would expect a Dynamic Client Registration request that includes a <code>tls_client_auth_subject_dn</code> to be presented in.<a href="#section-7.1.2-1" class="pilcrow">¶</a></p>
-<p id="section-7.1.2-2">To address this ambiguity, the Authorization Server must accept only the AttributeTypes name strings (descriptors) defined in the last paragraph of clause 3 <a href="https://www.rfc-editor.org/rfc/rfc4514">RFC4514</a> in string format, it shall also accept in OID format, with their values in ASN.1, all the AttributeTypes defined in Distinguished Name <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html">Open Banking Brasil x.509 Certificate Standards</a> or added by the Certificate Authority.<a href="#section-7.1.2-2" class="pilcrow">¶</a></p>
+<p id="section-7.1.2-1">Clause 3 of <a href="https://www.rfc-editor.org/rfc/rfc4514">Lightweight Directory Access Protocol (LDAP): String Representation of Distinguished Names</a> defines the mandatory OIDs whose AttributeType strings (descriptors) must be recognized by implementers. This mandatory list does not include several of the OIDs defined in <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html">Open Finance Brasil x.509 Certificate Standards</a> nor is there a defined mechanism for Authorisation Servers to publish  information regarding the format that they would expect a Dynamic Client Registration request that includes a <code>tls_client_auth_subject_dn</code> to be presented in.<a href="#section-7.1.2-1" class="pilcrow">¶</a></p>
+<p id="section-7.1.2-2">To address this ambiguity, the Authorization Server must accept only the AttributeTypes name strings (descriptors) defined in the last paragraph of clause 3 <a href="https://www.rfc-editor.org/rfc/rfc4514">RFC4514</a> in string format, it shall also accept in OID format, with their values in ASN.1, all the AttributeTypes defined in Distinguished Name <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html">Open Finance Brasil x.509 Certificate Standards</a> or added by the Certificate Authority.<a href="#section-7.1.2-2" class="pilcrow">¶</a></p>
 <p id="section-7.1.2-3">In case of non-compliance with these requirements, the Authorization Server shall reject the registration.<a href="#section-7.1.2-3" class="pilcrow">¶</a></p>
 <p id="section-7.1.2-4">In terms of format, follow below how decoding should be done:<a href="#section-7.1.2-4" class="pilcrow">¶</a></p>
 <ul class="compact">
@@ -1578,7 +1578,7 @@ This support shall be explicit in Participant Directory configurations, and in t
 </li>
             <li class="compact" id="section-7.1.2-5.2">Append each RDN (RelativeDistinguishedName) segment with a comma ','.<a href="#section-7.1.2-5.2" class="pilcrow">¶</a>
 </li>
-            <li class="compact" id="section-7.1.2-5.3">Use the RFC strings (CN, L, ST, O, OR, C, Street, DC, UID) with the value of their attributes in "printable string", ie human-readable + the OIDs of the attributes defined in this specification for use in Distinguished Name <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html">Open Banking Brasil x.509 Certificate Standards</a> (businessCategory=OID 2.5.4.15,jurisdictionCountryName=OID: 1.3.6.1.4.1.311.60.2.1.3, serialNumber=OID:2.5.4.5) with the value of your attributes in ASN.1 format.<a href="#section-7.1.2-5.3" class="pilcrow">¶</a>
+            <li class="compact" id="section-7.1.2-5.3">Use the RFC strings (CN, L, ST, O, OR, C, Street, DC, UID) with the value of their attributes in "printable string", ie human-readable + the OIDs of the attributes defined in this specification for use in Distinguished Name <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html">Open Finance Brasil x.509 Certificate Standards</a> (businessCategory=OID 2.5.4.15,jurisdictionCountryName=OID: 1.3.6.1.4.1.311.60.2.1.3, serialNumber=OID:2.5.4.5) with the value of your attributes in ASN.1 format.<a href="#section-7.1.2-5.3" class="pilcrow">¶</a>
 </li>
           </ul>
 <p id="section-7.1.2-6">Examples:<a href="#section-7.1.2-6" class="pilcrow">¶</a></p>
@@ -1618,8 +1618,8 @@ This support shall be explicit in Participant Directory configurations, and in t
         <h3 id="name-regulatory-roles-to-openid-">
 <a href="#section-7.2" class="section-number selfRef">7.2. </a><a href="#name-regulatory-roles-to-openid-" class="section-name selfRef">Regulatory Roles to OpenID and OAuth 2.0 Mappings</a>
         </h3>
-<p id="section-7.2-1">To participate in the Open Banking ecosystem, accredited institutions must register themselves in the directory of participants according to their regulatory roles. Those roles reflect the institutions' authorization from the Central Bank and, consequently, the APIs they are allowed to use.<a href="#section-7.2-1" class="pilcrow">¶</a></p>
-<p id="section-7.2-2">The following table describes the regulatory roles for Open Banking and the related OAuth 2.0 scopes mapping. If the scopes are omitted during the DCR process, the authorization server shall grant the complete set of potential scopes based on the registering bank's regulatory roles, as described in the Server Defaults section.<a href="#section-7.2-2" class="pilcrow">¶</a></p>
+<p id="section-7.2-1">To participate in the Open Finance ecosystem, accredited institutions must register themselves in the directory of participants according to their regulatory roles. Those roles reflect the institutions' authorization from the Central Bank and, consequently, the APIs they are allowed to use.<a href="#section-7.2-1" class="pilcrow">¶</a></p>
+<p id="section-7.2-2">The following table describes the regulatory roles for Open Finance and the related OAuth 2.0 scopes mapping. If the scopes are omitted during the DCR process, the authorization server shall grant the complete set of potential scopes based on the registering bank's regulatory roles, as described in the Server Defaults section.<a href="#section-7.2-2" class="pilcrow">¶</a></p>
 <table class="center" id="table-2">
           <caption><a href="#table-2" class="selfRef">Table 2</a></caption>
 <thead>
@@ -1923,7 +1923,7 @@ This support shall be explicit in Participant Directory configurations, and in t
         <h3 id="name-posting-a-request-with-a-so">
 <a href="#section-9.1" class="section-number selfRef">9.1. </a><a href="#name-posting-a-request-with-a-so" class="section-name selfRef">Posting a request with a software statement</a>
         </h3>
-<p id="section-9.1-1">This example includes various optional fields, some of which may not be applicable to some deployments. For a complete guide to the attributes and their requirements, consult the Swagger DCR/DCM link: <a href="https://raw.githubusercontent.com/OpenBanking-Brasil/specs-seguranca/main/dcr_review/dcr-dcm-swagger.yaml">OBB-DCR/DCM-Swagger</a> .
+<p id="section-9.1-1">This example includes various optional fields, some of which may not be applicable to some deployments. For a complete guide to the attributes and their requirements, consult the Swagger DCR/DCM link: <a href="https://raw.githubusercontent.com/OpenBanking-Brasil/specs-seguranca/main/dcr_review/dcr-dcm-swagger.yaml">OFB-DCR/DCM-Swagger</a> .
 Line wraps within values are for display purposes only.<a href="#section-9.1-1" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-9.1-2">
 <pre>POST /reg HTTP/1.1
@@ -1967,14 +1967,14 @@ Content-Type: application/json
 <div id="open-banking-brasil-ssa-key-store-and-issuer-details">
 <section id="section-9.2">
         <h3 id="name-open-banking-brasil-ssa-key">
-<a href="#section-9.2" class="section-number selfRef">9.2. </a><a href="#name-open-banking-brasil-ssa-key" class="section-name selfRef">Open Banking Brasil SSA Key Store and Issuer Details</a>
+<a href="#section-9.2" class="section-number selfRef">9.2. </a><a href="#name-open-banking-brasil-ssa-key" class="section-name selfRef">Open Finance Brasil SSA Key Store and Issuer Details</a>
         </h3>
 <p id="section-9.2-1"><strong>Production</strong><a href="#section-9.2-1" class="pilcrow">¶</a></p>
 <p id="section-9.2-2"><a href="https://keystore.directory.openbankingbrasil.org.br/openbanking.jwks">https://keystore.directory.openbankingbrasil.org.br/openbanking.jwks</a><a href="#section-9.2-2" class="pilcrow">¶</a></p>
-<p id="section-9.2-3">Open Banking Open Banking Brasil production SSA issuer<a href="#section-9.2-3" class="pilcrow">¶</a></p>
+<p id="section-9.2-3">Open Finance Open Finance Brasil production SSA issuer<a href="#section-9.2-3" class="pilcrow">¶</a></p>
 <p id="section-9.2-4"><strong>Sandbox</strong><a href="#section-9.2-4" class="pilcrow">¶</a></p>
 <p id="section-9.2-5"><a href="https://keystore.sandbox.directory.openbankingbrasil.org.br/openbanking.jwks">https://keystore.sandbox.directory.openbankingbrasil.org.br/openbanking.jwks</a><a href="#section-9.2-5" class="pilcrow">¶</a></p>
-<p id="section-9.2-6">Open Banking Open Banking Brasil sandbox SSA issuer<a href="#section-9.2-6" class="pilcrow">¶</a></p>
+<p id="section-9.2-6">Open Finance Open FInance Brasil sandbox SSA issuer<a href="#section-9.2-6" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="about-authentication-and-authorization-mechanisms-for-dcr-and-dcm-services">
@@ -1982,7 +1982,7 @@ Content-Type: application/json
         <h3 id="name-about-authentication-and-au">
 <a href="#section-9.3" class="section-number selfRef">9.3. </a><a href="#name-about-authentication-and-au" class="section-name selfRef">About authentication and authorization mechanisms for DCR and DCM services</a>
         </h3>
-<p id="section-9.3-1">As they are auxiliary services to the main flow of Open Banking Brasil, the dynamic registration and maintenance services for clients cannot use the exact access control mechanisms.  For example, it is not possible to require an OAuth 2.0 <em>access_token</em> from a client application that isn't registered yet with the transmitting institution.<a href="#section-9.3-1" class="pilcrow">¶</a></p>
+<p id="section-9.3-1">As they are auxiliary services to the main flow of Open Finance Brasil, the dynamic registration and maintenance services for clients cannot use the exact access control mechanisms.  For example, it is not possible to require an OAuth 2.0 <em>access_token</em> from a client application that isn't registered yet with the transmitting institution.<a href="#section-9.3-1" class="pilcrow">¶</a></p>
 <p id="section-9.3-2">To extend <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a> and <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a>, which recommend minimum mechanisms for authentication of their services, institutions that support the registration flows and dynamic maintenance of clients must implement the following controls:<a href="#section-9.3-2" class="pilcrow">¶</a></p>
 <div id="client-registration-post-register">
 <section id="section-9.3.1">
@@ -1990,7 +1990,7 @@ Content-Type: application/json
 <a href="#section-9.3.1" class="section-number selfRef">9.3.1. </a><a href="#name-client-registration-post-re" class="section-name selfRef">Client registration - POST /register</a>
           </h4>
 <ol start="1" type="1" class="compact type-1" id="section-9.3.1-1">
-<li id="section-9.3.1-1.1">validate that the certificate presented by the client application is subordinate to the ICP-Brasil chains defined in the Open Banking Brasil Certificates Standard;<a href="#section-9.3.1-1.1" class="pilcrow">¶</a>
+<li id="section-9.3.1-1.1">validate that the certificate presented by the client application is subordinate to the ICP-Brasil chains defined in the Open Finance Brasil Certificates Standard;<a href="#section-9.3.1-1.1" class="pilcrow">¶</a>
 </li>
             <li id="section-9.3.1-1.2">ensure that the signature of the <code>software_statement</code>_ presented by the client application during registration has been made by the Directory of Participants using the public keys described in the previous section;<a href="#section-9.3.1-1.2" class="pilcrow">¶</a>
 </li>
@@ -2005,7 +2005,7 @@ Content-Type: application/json
 <a href="#section-9.3.2" class="section-number selfRef">9.3.2. </a><a href="#name-client-maintenance-get-regi" class="section-name selfRef">Client Maintenance - GET /register - PUT /register - DELETE /register</a>
           </h4>
 <ol start="1" type="1" class="compact type-1" id="section-9.3.2-1">
-<li id="section-9.3.2-1.1">validate that the certificate presented by the client application is subordinate to the ICP-Brasil chains defined in the Open Banking Brasil Certificates Standard;<a href="#section-9.3.2-1.1" class="pilcrow">¶</a>
+<li id="section-9.3.2-1.1">validate that the certificate presented by the client application is subordinate to the ICP-Brasil chains defined in the Open Finance Brasil Certificates Standard;<a href="#section-9.3.2-1.1" class="pilcrow">¶</a>
 </li>
             <li id="section-9.3.2-1.2">Validate the presence and matching of the Bearer header <code>Authorization</code> containing the value of the <code>registration_access_token</code> attribute returned during registration of the corresponding client.<a href="#section-9.3.2-1.2" class="pilcrow">¶</a>
 </li>
@@ -2022,7 +2022,7 @@ Content-Type: application/json
       <h2 id="name-acknowledgement">
 <a href="#section-10" class="section-number selfRef">10. </a><a href="#name-acknowledgement" class="section-name selfRef">Acknowledgement</a>
       </h2>
-<p id="section-10-1">With thanks to all who have set the foundations for secure and safe data sharing through the formation of the OpenID Foundation FAPI Working Group, the Open Banking Brasil GT Security and to the pioneers who will stand on their shoulders.<a href="#section-10-1" class="pilcrow">¶</a></p>
+<p id="section-10-1">With thanks to all who have set the foundations for secure and safe data sharing through the formation of the OpenID Foundation FAPI Working Group, the Open Finance Brasil GT Security and to the pioneers who will stand on their shoulders.<a href="#section-10-1" class="pilcrow">¶</a></p>
 <p id="section-10-2">The following people contributed to this document:<a href="#section-10-2" class="pilcrow">¶</a></p>
 <ul class="compact">
 <li class="compact" id="section-10-3.1">Alexandre Daniel Dalabrida (Cooperativa Central Ailos)<a href="#section-10-3.1" class="pilcrow">¶</a>
@@ -2053,9 +2053,9 @@ Content-Type: application/json
       <h2 id="name-notices">
 <a href="#appendix-A" class="section-number selfRef">Appendix A. </a><a href="#name-notices" class="section-name selfRef">Notices</a>
       </h2>
-<p id="appendix-A-1">Copyright (c) 2022 Open Banking Brasil Initial Structure.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
-<p id="appendix-A-2">The Open Banking Brasil Initial Structure (OBBIS) grants to any Contributor, developer, implementer, or other interested party a non-exclusive, royalty-free, worldwide copyright license to reproduce, prepare derivative works from, distribute, perform and display, this Implementers Draft or Final Specification solely for the purposes of (i) developing specifications, and (ii) implementing Implementers Drafts and Final Specifications based on such documents, provided that attribution be made to the OBBIS as the source of the material, but that such attribution does not indicate an endorsement by the OBBIS.<a href="#appendix-A-2" class="pilcrow">¶</a></p>
-<p id="appendix-A-3">The technology described in this specification was made available from contributions from various sources, including members of the OpenID Foundation, the Open Banking Brasil GT Security Working Group and others. Although the Open Banking Brasil Initial Structure has taken steps to help ensure that the technology is available for distribution, it takes no position regarding the validity or scope of any intellectual property or other rights that might be claimed to pertain to the implementation or use of the technology described in this specification or the extent to which any license under such rights might or might not be available; neither does it represent that it has made any independent effort to identify any such rights. The Open Banking Brasil Initial Structure and the contributors to this specification make no (and hereby expressly disclaim any) warranties (express, implied, or otherwise), including implied warranties of merchantability, non-infringement, fitness for a particular purpose, or title, related to this specification, and the entire risk as to implementing this specification is assumed by the implementer. The Open Banking Brasil Intellectual Property Rights policy requires contributors to offer a patent promise not to assert certain patent claims against other contributors and against implementers. The Open Banking Brasil Initial Structure invites any interested party to bring to its attention any copyrights, patents, patent applications, or other proprietary rights that may cover technology that may be required to practice this specification.<a href="#appendix-A-3" class="pilcrow">¶</a></p>
+<p id="appendix-A-1">Copyright (c) 2022 Open Finance Brasil Initial Structure.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
+<p id="appendix-A-2">The Open Finance Brasil Initial Structure (OFBIS) grants to any Contributor, developer, implementer, or other interested party a non-exclusive, royalty-free, worldwide copyright license to reproduce, prepare derivative works from, distribute, perform and display, this Implementers Draft or Final Specification solely for the purposes of (i) developing specifications, and (ii) implementing Implementers Drafts and Final Specifications based on such documents, provided that attribution be made to the OFBIS as the source of the material, but that such attribution does not indicate an endorsement by the OFBIS.<a href="#appendix-A-2" class="pilcrow">¶</a></p>
+<p id="appendix-A-3">The technology described in this specification was made available from contributions from various sources, including members of the OpenID Foundation, the Open Finance Brasil GT Security Working Group and others. Although the Open Finance Brasil Initial Structure has taken steps to help ensure that the technology is available for distribution, it takes no position regarding the validity or scope of any intellectual property or other rights that might be claimed to pertain to the implementation or use of the technology described in this specification or the extent to which any license under such rights might or might not be available; neither does it represent that it has made any independent effort to identify any such rights. The Open Finance Brasil Initial Structure and the contributors to this specification make no (and hereby expressly disclaim any) warranties (express, implied, or otherwise), including implied warranties of merchantability, non-infringement, fitness for a particular purpose, or title, related to this specification, and the entire risk as to implementing this specification is assumed by the implementer. The Open Finance Brasil Intellectual Property Rights policy requires contributors to offer a patent promise not to assert certain patent claims against other contributors and against implementers. The Open Finance Brasil Initial Structure invites any interested party to bring to its attention any copyrights, patents, patent applications, or other proprietary rights that may cover technology that may be required to practice this specification.<a href="#appendix-A-3" class="pilcrow">¶</a></p>
 <div id="appendix-a-example-software-statement-assertion">
 <section id="appendix-A.1">
         <h3 id="name-appendix-a-example-software">
@@ -2075,8 +2075,8 @@ Content-Type: application/json
 <a href="#name-authors-address" class="section-name selfRef">Author's Address</a>
       </h2>
 <address class="vcard">
-        <div dir="auto" class="left"><span class="fn nameRole">OBBIS GT Security</span></div>
-<div dir="auto" class="left"><span class="org">Open Banking Brasil Initial Structure</span></div>
+        <div dir="auto" class="left"><span class="fn nameRole">OFBIS GT Security</span></div>
+<div dir="auto" class="left"><span class="org">Open Finance Brasil Initial Structure</span></div>
 <div class="email">
 <span>Email:</span>
 <a href="mailto:gt-seguranca@openbankingbr.org" class="email">gt-seguranca@openbankingbr.org</a>
