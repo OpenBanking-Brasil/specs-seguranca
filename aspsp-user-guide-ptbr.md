@@ -1,28 +1,28 @@
-# Open Banking Brasil  {#OpenBankingBrasil}
+# Open Finance Brasil  {#OpenFinanceBrasil}
 
 ## Visão Geral do Ecossistema  {#VisaoGeral}
 
-Em sua essência, o Open Banking Brasil é um ecossistema de compartilhamento de dados onde os clientes de bancos e outras instituições financeiras desejam compartilhar suas informações de conta ou dar permissão para que os pagamentos sejam executados em seu nome com serviços de terceiros.
+Em sua essência, o Open Finance Brasil é um ecossistema de compartilhamento de dados onde os clientes de bancos e outras instituições financeiras desejam compartilhar suas informações de conta ou dar permissão para que os pagamentos sejam executados em seu nome com serviços de terceiros.
 
 Há uma série de funções necessárias para vincular qualquer sistema de identificação, autenticação e autorização, independentemente do setor. Todas essas funções são necessárias, mas várias funções podem ser desempenhadas por cada participante. Em geral, o usuário final ("Subject"), está dando a um sistema ("Client") uma autorização ("Access Token") para acessar um recurso protegido mantido pelo provedor ("Resource Server"). Isso exige que o *Subject* e o *Client* sejam identificados e autenticados e que a autorização seja confirmada.
 
 As regras exatas e os requisitos legais para cada função em um setor específico formam um framework de confiança ('Trust Framework'). Cada ecossistema requer um conjunto padronizado de regras e requisitos legais que abrangem todas as funções e obrigações das interações acima. A combinação de quem fornece qual(is) função(ões), os níveis aos quais eles devem desempenhar essas funções e os padrões pelos quais essas operações devem ser definidas por um framework de confiança específico do setor.
 
-Diferentes frameworks de confiança terão diferentes opções de implementação, mas um framework de confiança comum é um pré-requisito para transformar um 'setor' em um 'ecossistema'. Um framework de confiança comum reduz significativamente a complexidade e custos, aumenta a escalabilidade e a interoperabilidade dentro do setor, bem como abre opções para o tipo de padronização intersetorial que o Open Banking Brasil está buscando.
+Diferentes frameworks de confiança terão diferentes opções de implementação, mas um framework de confiança comum é um pré-requisito para transformar um 'setor' em um 'ecossistema'. Um framework de confiança comum reduz significativamente a complexidade e custos, aumenta a escalabilidade e a interoperabilidade dentro do setor, bem como abre opções para o tipo de padronização intersetorial que o Open Finance Brasil está buscando.
 
 Diferentes implementações podem ser definidas para setores, com diferentes prós / contras e custos associados para diferentes participantes. Cada uma das implementações propostas pode ser usada para qualquer setor se os pré-requisitos corretos estiverem em vigor. A solução certa dependerá do apetite e alinhamento de cada conjunto de participantes.
 
-A implementação de um mecanismo comum para o Open Banking Brasil exigirá um compromisso com a simetria entre os setores para incluir detalhes específicos do setor nos princípios do framework de confiança.
+A implementação de um mecanismo comum para o Open Finance Brasil exigirá um compromisso com a simetria entre os setores para incluir detalhes específicos do setor nos princípios do framework de confiança.
 
 É necessário fazer escolhas técnicas para garantir que qualquer implementação forneça uma base estrita e consistente para ter credibilidade, mas mantenha a flexibilidade para se adaptar às necessidades futuras. Isso implica padrões de código-fonte aberto amplamente disponíveis, amplamente compreendidos e que foram experimentados e testados. Além de habilitar um gama de parceiros e fornecedores que podem apoiar qualquer construção técnica, o que significa que continuará havendo espaço para desenvolvimento comercial de soluções.
 
 ### Participantes de um Ecossistema de Compartilhamento de Dados  {#Participantes}
 
-Nos ecossistemas de Open Banking voltados para o consumidor que estamos considerando, temos três participantes principais:
+Nos ecossistemas de Open Finance voltados para o consumidor que estamos considerando, temos três participantes principais:
 
 * o cliente (*user*)
 * a instituição transmissora de dados (*provider*), que oferece serviços bancários
-* a instituição receptora de dados (*TPP - Third Party Provider*), que oferece uma proposta de Open Banking para o cliente:
+* a instituição receptora de dados (*TPP - Third Party Provider*), que oferece uma proposta de Open Finance para o cliente:
 
 Em todos os casos a seguir, assumimos:
 
@@ -43,7 +43,7 @@ Os **serviços** técnicos necessários para suportar um ecossistema devem habil
 
 ### Princípios de Especificação e Requisitos de Alto Nível  {#Principios}
 
-O Open Banking Brasil adotou os seguintes princípios e requisitos de alto nível no que diz respeito às normas técnicas.
+O Open Finance Brasil adotou os seguintes princípios e requisitos de alto nível no que diz respeito às normas técnicas.
 
 * Consentimento
   * Os clientes devem estar sempre no controle de quem tem acesso aos seus dados e para quais fins eles estão sendo usados.
@@ -65,7 +65,7 @@ Além dos requisitos de alto nível, os seguintes princípios também foram adot
 * Envolver-se com outros órgãos de normalização para aprender com experiências anteriores sobre o que funcionou, o que não funcionou, e o que pode ser feito melhor.
 * Assegurar o amplo suporte da indústria para garantir o máximo de chances de sucesso e, mais importante, a segurança do cliente.
 * Solicitar feedback com antecedência e com frequência, reconhecer que serão necessárias várias iterações para desenvolver um padrão.
-* O framework de confiança que sustenta o ecossistema de compartilhamento de dados, que é o Open Banking Brasil, é um framework técnico que precisa ser flexível o suficiente para permitir que os participantes e o ecossistema inovem, cresçam e se desenvolvam, enquanto permanecem interoperáveis.
+* O framework de confiança que sustenta o ecossistema de compartilhamento de dados, que é o Open Finance Brasil, é um framework técnico que precisa ser flexível o suficiente para permitir que os participantes e o ecossistema inovem, cresçam e se desenvolvam, enquanto permanecem interoperáveis.
 
 Todos os participantes devem ter certeza de que todos os atores do ecossistema estão lidando com seus dados com segurança tempo todo. Isso requer que todos os participantes testem publicamente seus sistemas quanto à conformidade com as especificações e disponibilizem os resultados de seus testes de conformidade para exame público de outros participantes.
 
@@ -79,7 +79,7 @@ O ecossistema de compartilhamento de dados definido pelo Brasil consiste em muit
 
 > A estrutura de autorização OAuth 2.0 permite uma aplicação de terceiros (*third-party application*) obter acesso limitado a um serviço HTTP, seja em nome do proprietário de recurso (*resource owner*) por meio da orquestração de uma interação de aprovação entre o proprietário do recurso e o serviço HTTP, ou permitindo a aplicação de terceiros obter acesso em seu próprio nome.
 
-A especificação base OAuth 2.0 não fornece, por si só, informações suficientes para atender a todas as necessidades definidas pelo framework de confiança do Open Banking Basil. Mais notavelmente, não possui uma maneira de transmitir informações de identidade do cliente em um formato padronizado de uma instituição transmissora para uma receptora, e os mecanismos de autenticação que foram definidos na especificação original não são seguros o suficiente para atender aos requisitos de uma indústria altamente regulamentada.
+A especificação base OAuth 2.0 não fornece, por si só, informações suficientes para atender a todas as necessidades definidas pelo framework de confiança do Open Finance Basil. Mais notavelmente, não possui uma maneira de transmitir informações de identidade do cliente em um formato padronizado de uma instituição transmissora para uma receptora, e os mecanismos de autenticação que foram definidos na especificação original não são seguros o suficiente para atender aos requisitos de uma indústria altamente regulamentada.
 
 ### OpenID Connect - A Camada de Identidade para a Internet  {#OIDC}
 
@@ -99,7 +99,7 @@ O grupo de trabalho OpenID Foundations Connect tem sido o guardião do Padrão d
 
 [RFC7592:](https://tools.ietf.org/html/rfc7592) Esta especificação define métodos de gerenciamento de *dynamic client registration* (registros de cliente dinâmico) do OAuth 2.0 para casos de uso em que as propriedades de um *client* registrado necessitam ser alteradas durante a vida do *client*.
 
-As especificações acima são especificações básicas cuja leitura obrigatória sustenta o framework de confiança do Open Banking Brasil. Entretanto, eles ainda são insuficientes para atender a todos os requisitos e princípios descritos anteriormente.
+As especificações acima são especificações básicas cuja leitura obrigatória sustenta o framework de confiança do Open Finance Brasil. Entretanto, eles ainda são insuficientes para atender a todos os requisitos e princípios descritos anteriormente.
 
 ### OpenID Financial Grade 1.0: Baseline  {#FAPI1Baseline}
 
@@ -113,7 +113,7 @@ O perfil Baseline foi originalmente planejado para ser mais facilmente implement
 
 **_Este perfil herda todas as obrigações do OpenID FAPI 1.0: Baseline_**
 
-O [FAPI 1.0: Advanced profile](https://openid.net/specs/openid-financial-api-part-2-1_0.html) é atual padrão ouro para API Security, fornecendo um **framework de especificação** que foi usado como ponto de partida para a criação de uma especificação para o Open Banking Brasil.
+O [FAPI 1.0: Advanced profile](https://openid.net/specs/openid-financial-api-part-2-1_0.html) é atual padrão ouro para API Security, fornecendo um **framework de especificação** que foi usado como ponto de partida para a criação de uma especificação para o Open Finance Brasil.
 
 > Este padrão especifica um perfil de segurança avançado do OAuth que é adequado para ser usado para proteger APIs com alto risco inerente. Os exemplos incluem APIs que dão acesso a dados altamente confidenciais ou que podem ser usados para acionar transações financeiras (por exemplo, início de pagamento). Este padrão especifica os controles contra ataques, como: violação de solicitação de autorização, violação de resposta de autorização, incluindo injeção de código, injeção de estado e phishing de solicitação de token.
 
@@ -138,9 +138,9 @@ ASPSP - *Account Servicing Payment Service Provider*
 
 ### 1.1 Visão Geral do Diretório  {#Diretorio}
 
-Os serviços do framework de confiança providos pelo Open Banking Brasil fornecem todos os serviços de descoberta necessários para que instituiçoes transmissores e receptoras interajam entre si, sem que seja preciso validar individualmente a autenticidade de cada participante.
+Os serviços do framework de confiança providos pelo Open Finance Brasil fornecem todos os serviços de descoberta necessários para que instituiçoes transmissores e receptoras interajam entre si, sem que seja preciso validar individualmente a autenticidade de cada participante.
 
-Um *Authorization Server* ou AS, conforme definido por [RFC 6749 - The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749), executa várias funções em um ecossistema de compartilhamento de dados como o Open Banking Brasil. Antes de prosseguir, certifique-se de que os conceitos de funções e responsabilidades definidos na RFC original sejam bem compreendidos. Além disso, certifique-se de que os conceitos, funções e responsabilidades definidos no [OpenID Connect Core](https://openid.net/specs/openid-connect-core-1_0.html) e como eles estendem os conceitos definidos no RFC 6749 são igualmente bem compreendidos.
+Um *Authorization Server* ou AS, conforme definido por [RFC 6749 - The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749), executa várias funções em um ecossistema de compartilhamento de dados como o Open Finance Brasil. Antes de prosseguir, certifique-se de que os conceitos de funções e responsabilidades definidos na RFC original sejam bem compreendidos. Além disso, certifique-se de que os conceitos, funções e responsabilidades definidos no [OpenID Connect Core](https://openid.net/specs/openid-connect-core-1_0.html) e como eles estendem os conceitos definidos no RFC 6749 são igualmente bem compreendidos.
 
 ### 1.2 Registrando um Authorization Server e OpenID Provider {#AuthorizationServer}
 
@@ -182,20 +182,20 @@ No exemplo acima, o Amazing Banking está anunciando dois serviços que devem se
 
 Além disso, o banco anuncia quais recursos cada um dos servidores de autorização está protegendo ou oferecendo. No exemplo acima, o Amazing Banking é compatível com a versão 1 e a versão 2 da API de informações da conta, e o "Amazing Banking" tem dois sistemas separados de autenticação e autorização para Pagamentos e Informações da conta.
 
-Anunciar corretamente quais recursos são oferecidos por cada servidor é importante para atingir a escala prevista pelo Open Banking Brasil, além de ser fundamental para garantir que os clientes possam identificar seu serviço bancário facilmente e que as instituições receptoras possam encaminhar os clientes para o *Authorization Server* correto com base nos recursos protegidos por cada serviço.
+Anunciar corretamente quais recursos são oferecidos por cada servidor é importante para atingir a escala prevista pelo Open Finance Brasil, além de ser fundamental para garantir que os clientes possam identificar seu serviço bancário facilmente e que as instituições receptoras possam encaminhar os clientes para o *Authorization Server* correto com base nos recursos protegidos por cada serviço.
 
 ## 2.0 Validando uma Solicitação de Registro de Cliente  {#Validando}
 
-Usando o OpenID Connect Discovery e a especificação de Dynamic Client Registration (DCR) do Open Banking Brasil. Uma instituição receptora pode registrar seu aplicativo em cada um dos *Authorization Servers* disponíveis no ecossistema.
+Usando o OpenID Connect Discovery e a especificação de Dynamic Client Registration (DCR) do Open Finance Brasil. Uma instituição receptora pode registrar seu aplicativo em cada um dos *Authorization Servers* disponíveis no ecossistema.
 
 ### 2.1 Registro OpenID Connect e OAuth 2.0 Dynamic Client Registration  {#DCR}
 
-Consulte a Cláusula 7 da Especificação de Dynamic Client Registration (DCR) do Open Banking Brasil para obter detalhes.
+Consulte a Cláusula 7 da Especificação de Dynamic Client Registration (DCR) do Open Finance Brasil para obter detalhes.
 
 ### 2.2 Processamento de declaração de software (Software Statement Assertion) {#SSA}
 
-Consulte a Cláusula 8 da Especificação de Dynamic Client Registration (DCR) do Open Banking Brasil para obter detalhes.
+Consulte a Cláusula 8 da Especificação de Dynamic Client Registration (DCR) do Open Finance Brasil para obter detalhes.
 
 ## 3.0 Validando um Pedido de Autorização  {#PedidoAuthz}
 
-Consulte a Cláusula 5 do Perfil de Segurança do Open Banking Brasil (Financial-grade API Security Profile) para obter detalhes.
+Consulte a Cláusula 5 do Perfil de Segurança do Open Finance Brasil (Financial-grade API Security Profile) para obter detalhes.
