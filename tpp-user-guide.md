@@ -2,7 +2,7 @@
 
 ## 1.0 Registering an Application
 
-At a high level the following major steps are required in order to onboard a new application into the Open Banking Brasil ecosystem.
+At a high level the following major steps are required in order to onboard a new application into the Open Finance Brasil ecosystem.
 
 1. Register your organisation on the directory of participants (User Interface)
 2. Register your application on the directory of participants (User Interface)
@@ -17,7 +17,7 @@ At a high level the following major steps are required in order to onboard a new
 
 ### 1.1 Directory Overview
 
-The trust framework services provided by Open Banking Brasil provide all of the discovery services necessary
+The trust framework services provided by Open Finance Brasil provide all of the discovery services necessary
 for a TPPs and ASPSPs to interact with each other without being required to validate
 the authenticity of each others' Identity, Authorizations, Consumer Offerings (Apps),
 APIs or Credentials for the Applications. In addition it provides a single registry of all
@@ -36,14 +36,14 @@ The trust framework does not have visibility or view of interactions that occur 
 ### 1.2 Accessing the Directory
 
 This user guide assumes that participating organisations have already been through the onboarding
- process with the Open Banking Brasil Initial Structure and have completed all of the necessary onboarding,
+ process with the Open Finance Brasil Initial Structure and have completed all of the necessary onboarding,
   contract signing and individual administrator onboarding processes.
 
 ![Login Image](images/directory_logon.png)
 
 ### 1.3 Creating a new Software Statement
 
-A software statement is an 'App' on what can be thought of as the Open Banking Brasil App Store.
+A software statement is an 'App' on what can be thought of as the Open Finance Brasil App Store.
  This App record contains all of the information necessary for a Bank to Technically Identity
   and Interact with it as well as containing all of the information that assist consumers
   using the application with confirming its legitimacy.
