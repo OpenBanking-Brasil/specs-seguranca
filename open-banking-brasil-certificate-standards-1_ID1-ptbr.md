@@ -256,7 +256,7 @@ default_bits = 2048
 default_md = sha256
 encrypt_key = yes
 prompt = no
-string_mask = utf8only
+string_mask = nombstr
 distinguished_name = client_distinguished_name
 req_extensions = req_cert_extensions
 
@@ -290,7 +290,7 @@ default_bits = 2048
 default_md = sha256
 encrypt_key = yes
 prompt = no
-string_mask = utf8only
+string_mask = nombstr
 distinguished_name = client_distinguished_name
 req_extensions = req_cert_extensions
 
