@@ -5,7 +5,7 @@ PISP - Payment Initiation Service Provider
 
 ## 1.0 Registrando um Aplicativo  {#RegistrantoApp}
 
-Em um alto nível, as seguintes etapas principais são necessárias para integrar um novo aplicativo no ecossistema Open Banking Brasil.
+Em um alto nível, as seguintes etapas principais são necessárias para integrar um novo aplicativo no ecossistema Open Finance Brasil.
 
 1. Cadastre sua organização no Diretório de Participantes (Interface do Usuário)
 2. Cadastre seu aplicativo no Diretório de Participantes (Interface do Usuário)
@@ -20,19 +20,19 @@ Em um alto nível, as seguintes etapas principais são necessárias para integra
 
 ### 1.1 Visão Geral do Diretório {#VisaoDir}
 
-O framework de confiança do Open Banking Brasil fornece todos os serviços de descoberta necessários para que instituições participantes (receptoras e transmissoras de dados, iniciadoras de pagamento ou detentoras de contas) interajam entre si sem serem obrigadas a validarem a autenticidade de identidades, autorizações, Apps, APIs ou credenciais para acessos por aplicativos uns dos outros. Além disso, fornece um único registro de todas propostas ao consumidor sendo oferecidas no mercado e um único ambiente de controle para as autoridades regulatórias que concedem permissões para gerenciar participantes dentro do ecossistema.
+O framework de confiança do Open Finance Brasil fornece todos os serviços de descoberta necessários para que instituições participantes (receptoras e transmissoras de dados, iniciadoras de pagamento ou detentoras de contas) interajam entre si sem serem obrigadas a validarem a autenticidade de identidades, autorizações, Apps, APIs ou credenciais para acessos por aplicativos uns dos outros. Além disso, fornece um único registro de todas propostas ao consumidor sendo oferecidas no mercado e um único ambiente de controle para as autoridades regulatórias que concedem permissões para gerenciar participantes dentro do ecossistema.
 
 O framework de confiança não tem visibilidade ou visão das interações que ocorrem entre instituições participantes receptoras (TTP) ou transmissoras (ASPSP) de dados. Ele é projetado para fornecer confiança e garantia de identidade e autorização apenas. Ele não se enquadra no fluxo de comunicação entre um consumidor e um provedor e não tem conhecimento ou visibilidade de quaisquer dados do cliente. Este modelo de framework de confiança é conhecido como confiança transitiva onde duas partes, um TPP e um ASPSP, concordam em confiar nas declarações e atestados de legitimidade uns dos outros emitidos por um provedor de confiança comum e, em seguida, prossigam comunicando o que quiserem, sem qualquer validação adicional onerosa ou outro tipo de verificação.
 
 ### 1.2 Acessando o Diretório  {#AcessandoDir}
 
-Este guia do usuário assume que as organizações participantes já passaram pelo processo de iniciação com a Estrutura Inicial do Open Banking Brasil e já concluíram todas as integrações necessárias, processos de assinatura de contrato e inclusão de administrador individual.
+Este guia do usuário assume que as organizações participantes já passaram pelo processo de iniciação com a Estrutura Inicial do Open Finance Brasil e já concluíram todas as integrações necessárias, processos de assinatura de contrato e inclusão de administrador individual.
 
 ![Login Image](images/directory_logon.png)
 
 ### 1.3 Criação de uma Nova Declaração de Software (SSA) {#CriacaoSSA}
 
-Uma declaração de software descreve um aplicativo inserido naquilo que pode ser considerado a 'App Store' do Open Banking Brasil. Este registro de aplicativo contém todas as informações necessárias para que um banco identifique tecnicamente e interaja com o aplicativo, além de conter todas as informações que auxiliam os clientes que estejam utilizando-o a confirmar sua legitimidade.
+Uma declaração de software descreve um aplicativo inserido naquilo que pode ser considerado a 'App Store' do Open Finance Brasil. Este registro de aplicativo contém todas as informações necessárias para que um banco identifique tecnicamente e interaja com o aplicativo, além de conter todas as informações que auxiliam os clientes que estejam utilizando-o a confirmar sua legitimidade.
 
 Um novo aplicativo ou declaração de software pode ser registrado fazendo logon no Diretório, navegando até 'Software Statements', clicando em 'Criar Novo' e preenchendo o formulário. O texto de ajuda é fornecido para cada campo da tela. Lembre-se de que a maioria dessas informações será exibida aos clientes pelos Bancos como parte do processo de redirecionamento ou autorização. Como tal, é importante que todas as URIs e descrições sejam relevantes para o público.
 
@@ -44,7 +44,7 @@ Em um ecossistema de compartilhamento de dados complexo e diversificado, as fun�
 
 > Se uma organização perder uma função regulatória, todo software com essa função regulatória será revogado do ecossistema, portanto, é muito importante que um aplicativo receba apenas as funções de que realmente precisa para funcionar.
 
-Um exemplo do mundo real disso poderia ser a Amazon. Ela possui dois aplicativos, 'Amazon Accounting' e 'Amazon Prime'. A Amazon como organização é um DADOS e PISP autorizados e tem permissão para lidar com dados de clientes bem como fazer pagamentos via Open Banking. A 'Amazon Accounting' dever receber a função de domínio de DADOS e a 'Amazon Prime' deve receber uma função de domínio de PISP.
+Um exemplo do mundo real disso poderia ser a Amazon. Ela possui dois aplicativos, 'Amazon Accounting' e 'Amazon Prime'. A Amazon como organização é um DADOS e PISP autorizados e tem permissão para lidar com dados de clientes bem como fazer pagamentos via Open Finance Brasil. A 'Amazon Accounting' dever receber a função de domínio de DADOS e a 'Amazon Prime' deve receber uma função de domínio de PISP.
 
 No futuro, se a Amazon perder a permissão regulatória para ser um iniciador de pagamento, apenas a aplicação 'Amazon Prime' seria removida do ecossistema. O App 'Amazon Accounting' do exemplo continuaria a funcionar sem problemas.
 
@@ -53,7 +53,7 @@ No futuro, se a Amazon perder a permissão regulatória para ser um iniciador de
 
 #### 1.4.1 Sandbox  {#Sandbox}
 
-O serviço de Diretório do Open Banking inclui uma infraestrutura de chave pública que pode ser usada para criar certificados para os aplicativos sendo registrados no ambiente Sandbox. Basta selecionar certificados no menu e seguir as instruções.
+O serviço de Diretório do Open Finance Brasil inclui uma infraestrutura de chave pública que pode ser usada para criar certificados para os aplicativos sendo registrados no ambiente Sandbox. Basta selecionar certificados no menu e seguir as instruções.
 
 O Diretório suporta vários certificados, tipos de chave e um comando e configuração openssl será disponibilizado como um exemplo. Depois de criar a solicitação de assinatura de certificado (Certificate Signing Request - CSR) para um certificado de "Transporte" e "Assinatura", você pode enviá-los ao diretório para serem validados e transformados em certificados.
 
@@ -67,7 +67,7 @@ Os certificados para acesso e assinatura em ambiente de produção devem ser for
 
 Quando os certificados são carregados para o Diretório, o framework de confiança os anuncia em [JSON Web Key Sets](https://tools.ietf.org/html/rfc7517) com cada JSON Web Key (JWK) tendo um 'KID' ou um Key ID. Os JWKs, além de ter propriedades específicas que descrevem o algoritmo e os conjuntos de criptografia que eles suportam, também anunciam seu "uso", que pode ser do tipo 'enc' para criptografia ou 'sig' para assinatura.
 
-Essas chaves 'sig' e pares de chaves 'enc' são usadas em muitos lugares dentro do ecossistema do Open Banking para criptografar ou assinar dados usando os padrões definidos em [RFC 7519 JSON Web Token](https://tools.ietf.org/html/rfc7519), que deve ser lido em detalhes pelos desenvolvedores.
+Essas chaves 'sig' e pares de chaves 'enc' são usadas em muitos lugares dentro do ecossistema do Open Finance Brasil para criptografar ou assinar dados usando os padrões definidos em [RFC 7519 JSON Web Token](https://tools.ietf.org/html/rfc7519), que deve ser lido em detalhes pelos desenvolvedores.
 
 Tipos de JWT incluem
 
