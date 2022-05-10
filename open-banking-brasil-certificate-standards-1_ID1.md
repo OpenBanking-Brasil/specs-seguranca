@@ -1,16 +1,16 @@
 %%%
 
     #
-    # Open Banking Brasil Certificate Standards 1.0
+    # Open Finance Brasil Certificate Standards 1.0
     # (open-banking-brasil-certificate-standards-1_ID1)
     #
     #
 
-    title = "Open Banking Brasil Certificate Standards 1.0"
-    abbrev = "OBB-CERT-1-ID1"
+    title = "Open Finance Brasil Certificate Standards 1.0"
+    abbrev = "OFB-CERT-1-ID1"
     ipr = "none"
-    workgroup = "Open Banking Brasil GT Security"
-    keyword = ["FAPI", "CERTIFICATES", "Open Banking Brasil GT Security"]
+    workgroup = "Open Finance Brasil GT Security"
+    keyword = ["FAPI", "CERTIFICATES", "Open Finance Brasil GT Security"]
 
     [seriesInfo]
     name = "Internet-Draft"
@@ -21,8 +21,8 @@
     initials = "GT"
     surname = "Segurança"
     fullname = "GT Segurança"
-    organization = "Estrutura Inicial do Open Banking Brasil"
-    abbrev = "EIOBB"
+    organization = "Estrutura Inicial do Open Finance Brasil"
+    abbrev = "EIOFB"
       [author.address]
       email = "gt-seguranca@openbankingbr.org"
       uri = "https://openbankingbrasil.org.br/"
@@ -35,11 +35,11 @@ Please refer to the [Portuguese version](https://openbanking-brasil.github.io/sp
 
 Este documento também está disponível em [português](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1-ptbr.html).
 
-The Open Banking Brasil Initial Structure is responsible for creating standards and specifications necessary to meet the requirements and obligations of the Brasil Open Banking Legislation as originally outlined by the [Brasil Central Bank](https://www.bcb.gov.br/content/config/Documents/BCB_Open_Banking_Communique-April-2019.pdf). There is a possibility that some of the elements of this document may be the subject to patent rights. OBBIS shall not be held responsible for identifying any or all such patent rights.
+The Open Finance Brasil Initial Structure is responsible for creating standards and specifications necessary to meet the requirements and obligations of the Brasil Open Finance Legislation as originally outlined by the [Brasil Central Bank](https://www.bcb.gov.br/content/config/Documents/BCB_Open_Banking_Communique-April-2019.pdf). There is a possibility that some of the elements of this document may be the subject to patent rights. OFBIS shall not be held responsible for identifying any or all such patent rights.
 
 .# Objective
 
-Specify the set of necessary certificates that must be used by participating organizations in Open Banking Brasil to ensure interoperability for validation, confidentiality, integrity and non-repudiation among participants, as well as for users and consumers of these entities. The public in this class are entities participating in Open Banking Brasil that issue certificates to authenticate themselves with other entities, as well as offer their customers a secure authentication channel.
+Specify the set of necessary certificates that must be used by participating organizations in Open Finance Brasil to ensure interoperability for validation, confidentiality, integrity and non-repudiation among participants, as well as for users and consumers of these entities. The public in this class are entities participating in Open Finance Brasil that issue certificates to authenticate themselves with other entities, as well as offer their customers a secure authentication channel.
 
 .# Notational Conventions
 
@@ -59,8 +59,8 @@ This document specifies the types of certificates required for:
 
 * Mutually authenticate (MTLS - Mutual TLS) participants' applications;
 * Message Signature (JWS - JSON Web Signature) applications to ensure authenticity and non-repudiation of messages between participants;
-* Provide a safe and reliable channel for Open Banking Brasil customers;
-* Authenticate participants in the Open Banking Brasil Participant Directory.
+* Provide a safe and reliable channel for Open Finance Brasil customers;
+* Authenticate participants in the Open Finance Brasil Participant Directory.
 
 # Normative refences
 
@@ -74,11 +74,11 @@ The following referenced documents are indispensable for the application of this
 * [RFC7592] - OAuth 2.0 Dynamic Client Registration Management Protocol [RFC7592]:<https://tools.ietf.org/html/rfc7592>
 * [BCP195] - Recommendations for Secure Use of Transport Layer Security (TLS) and Datagram Transport Layer Security (DTLS) [BCP195]: <https://tools.ietf.org/html/bcp195>
 * [RFC8705] - OAuth 2.0 Mutual TLS Client Authentication and Certificate Bound Access Tokens [RFC8705]: <https://tools.ietf.org/html/rfc8705>
-* [OBB-FAPI] - Open Banking Brasil Financial-grade API Security Profile 1.0 [OBB-FAPI]: <https://github.com/OpenBanking-Brasil/specs-seguranca/open-banking-brasil-financial-api-1_ID3.html>
-* [OBB-FAPI-DCR] - Open Banking Brasil Financial-grade API Dynamic Client Registration Profile 1.0 [OBB-FAPI-DCR]: <https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID2.html
+* [OFB-FAPI] - Open Finance Brasil Financial-grade API Security Profile 1.0 [OFB-FAPI]: <https://github.com/OpenBanking-Brasil/specs-seguranca/open-banking-brasil-financial-api-1_ID3.html>
+* [OFB-FAPI-DCR] - Open Finance Brasil Financial-grade API Dynamic Client Registration Profile 1.0 [OFB-FAPI-DCR]: <https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID2.html
 * [DOC-ICP-01] - DECLARAÇÃO DE PRÁTICAS DE CERTIFICAÇÃO DA AUTORIDADE CERTIFICADORA RAIZ DA ICP-BRASIL: <https://www.gov.br/iti/pt-br/centrais-de-conteudo/doc-icp-01-v-5-2-dpc-da-ac-raiz-da-icp-brasil-pdf>
 * [RFC6749] - The OAuth 2.0 Authorization Framework [RFC6749]: <https://tools.ietf.org/html/rfc6749>
-* [BCB-IN134] - Manual de Segurança do Open Banking: <https://www.in.gov.br/web/dou/-/instrucao-normativa-bcb-n-134-de-22-de-julho-de-2021-3345585364>
+* [BCB-IN134] - Manual de Segurança do Open Finance: <https://www.in.gov.br/web/dou/-/instrucao-normativa-bcb-n-134-de-22-de-julho-de-2021-3345585364>
 * [RFC2818] - HTTP Over TLS: <https://datatracker.ietf.org/doc/html/rfc2818>
 * [RFC5246] - The Transport Layer Security (TLS) Protocol Version 1.2 <https://www.rfc-editor.org/rfc/rfc5246.txt>
 
@@ -97,21 +97,21 @@ For the purpose of this document, the terms defined in [RFC5280], [BCP195], [RFC
 * **TLS** – Transport Layer Security
 * **mTLS** – Mutual Transport Layer Security
 
-# Open Banking Brasil Standard
+# Open Finance Brasil Standard
 
 ## Introduction
 
-The Open Banking Brazil ecosystem makes use of chains of certificates and TLS protocol to guarantee the confidentiality, authentication and integrity of the communication channel used by the APIs of the participating organizations, as well as the customers of each of the participants.
+The Open Finance Brazil ecosystem makes use of chains of certificates and TLS protocol to guarantee the confidentiality, authentication and integrity of the communication channel used by the APIs of the participating organizations, as well as the customers of each of the participants.
 
-The certificates used by Open Banking Brasil are also required to authenticate applications through oAuth 2.0 mTLS or private_key_jwt, in addition to being used to perform the payload signature using JWS. Another important attribution of certificates is to authenticate and present a secure channel to the end user in the act of authentication and use of services provided by the participating organizations.
+The certificates used by Open Finance Brasil are also required to authenticate applications through oAuth 2.0 mTLS or private_key_jwt, in addition to being used to perform the payload signature using JWS. Another important attribution of certificates is to authenticate and present a secure channel to the end user in the act of authentication and use of services provided by the participating organizations.
 
 ## ICP-Brasil Certificates
 
-Certificates issued by Certifying Authorities authorized by ICP-Brasil are only used for communication between entities participating in the Open Banking Brasil ecosystem.
+Certificates issued by Certifying Authorities authorized by ICP-Brasil are only used for communication between entities participating in the Open Finance Brasil ecosystem.
 
 The certificate issuing and revocation processes are responsibility of the Certifate Authorities themselves, being regulated by Certification Practice Statements, and supervised by the Management Committee of the Brazilian Public Key Infrastructure (Comitê Gestor da Infraestrutura de Chaves Públicas Brasileira).
 
-The practices, processes, availability and values practiced by the Certification Authorities are not responsibility of the Initial Structure of Open Banking Brasil.
+The practices, processes, availability and values practiced by the Certification Authorities are not responsibility of the Initial Structure of Open Finance Brasil.
 
 **Algorithms**
 
@@ -123,7 +123,7 @@ All certificates issued by ICP-Brasil must have the following characteristics:
 
 ### Server Certificate
 
-The Server Certificate must be issued to protect and authenticate the TLS channel used by the APIs that will be consumed by client applications of organizations participating in Open Banking.
+The Server Certificate must be issued to protect and authenticate the TLS channel used by the APIs that will be consumed by client applications of organizations participating in Open Finance.
 
 The certificate standard used must follow the existing certificate issuing practices of "CERTIFICATE FOR WEB SERVER – ICP-Brasil".
 
@@ -133,13 +133,13 @@ The server certificate shall be sent with the intermediate chain, according to [
 
 Client Application Certificates (Transport) are used to authenticate the mTLS channel and to authenticate the client application through oAuth2.0 mTLS or private_key_jwt, according to the application registration performed by the Dynamic Client Registration process with the transmitting organization. Regarding mTLS, the client certificate shall be sent with the intermediate chain, according to [RFC5246] (items 7.4.2 and 7.4.6).
 
-To issue a Client Certificate, the participating organization in Open Banking Brasil must register the application in the Directory Service through the Software Statement Assertion issue process, and thus have already obtained the Software Statement ID value.
+To issue a Client Certificate, the participating organization in Open Finance Brasil must register the application in the Directory Service through the Software Statement Assertion issue process, and thus have already obtained the Software Statement ID value.
 
-#### Open Banking Brasil Attributes
+#### Open Finance Brasil Attributes
 
-* **serialNumber:** National Register of Legal Personnel (CNPJ) of the legal entity holding the certificate and associated with the UID attribute and Software Statement ID, during validation with the Directory Service of Open Banking Brasil;
-* **organizationalUnitName:** Participant Code associated with the CNPJ listed in the Directory Service of Open Banking Brasil;
-* **UID:** Software Statement ID registered in the Directory Service of Open Banking Brasil and belonging to the CNPJ and Participant Code.
+* **serialNumber:** National Register of Legal Personnel (CNPJ) of the legal entity holding the certificate and associated with the UID attribute and Software Statement ID, during validation with the Directory Service of Open Finance Brasil;
+* **organizationalUnitName:** Participant Code associated with the CNPJ listed in the Directory Service of Open Finance Brasil;
+* **UID:** Software Statement ID registered in the Directory Service of Open Finance Brasil and belonging to the CNPJ and Participant Code.
 
 The Client Certificate must be issued through the V10 chain, and must contain the following attributes:
 
@@ -152,8 +152,8 @@ The Client Certificate must be issued through the V10 chain, and must contain th
 * **organizationName (OID 2.5.4.10):** Company Name
 * **stateOrProvinceName (OID 2.5.4.8):** Federation unit of the certificate holder's physical address
 * **localityName (OID 2.5.4.7):** City of the holder's physical address
-* **organizationalUnitName (OID 2.5.4.11):** Participant Code associated with the CNPJ listed in the Directory Service of Open Banking Brasil
-* **UID (OID 0.9.2342.19200300.100.1.1):** Software Statement ID generated by Open Banking Brasil Directory
+* **organizationalUnitName (OID 2.5.4.11):** Participant Code associated with the CNPJ listed in the Directory Service of Open Finance Brasil
+* **UID (OID 0.9.2342.19200300.100.1.1):** Software Statement ID generated by Open Finance Brasil Directory
 * **commonName (OID 2.5.4.3):** FQDN or Wildcard
 
 **Certificate Extensions**
@@ -169,16 +169,16 @@ The Client Certificate must be issued through the V10 chain, and must contain th
 
 Signature Certificates are used to perform payload signature through the use of JWS (JSON Web Signature).
 
-#### Open Banking Brasil Attributes Present in the Certificate
+#### Open Finance Brasil Attributes Present in the Certificate
 
-* **UID:** Participant Code associated with the CNPJ listed in the Directory Service of Open Banking Brasil;
-* **commonName:** Company Name registered in the Directory Service of Open Banking Brasil and belonging to the CNPJ and Participant Code.
+* **UID:** Participant Code associated with the CNPJ listed in the Directory Service of Open Finance Brasil;
+* **commonName:** Company Name registered in the Directory Service of Open Finance Brasil and belonging to the CNPJ and Participant Code.
 
 The Signature Certificate must be issued through the V5 chain, and must contain the following attributes:
 
 **Distinguished Name**
 
-* **UID (OID 0.9.2342.19200300.100.1.1):** Participant Code associated with the CNPJ listed in the Directory Service of Open Banking Brazil
+* **UID (OID 0.9.2342.19200300.100.1.1):** Participant Code associated with the CNPJ listed in the Directory Service of Open Finance Brazil
 * **countryName (OID 2.5.4.6):** BR
 * **organizationName (OID 2.5.4.10):** ICP-Brasil
 * **organizationalUnitName (OID 2.5.4.11):** Certificate Authority Name
@@ -199,7 +199,7 @@ The Signature Certificate must be issued through the V5 chain, and must contain 
 
 #### Participating Certificate Authorities
 
-The following certifying authorities carried out the onboard process for Open Banking Brasil and are authorized to issue Open Banking Brasil certificates using the level 1 certificates listed here:
+The following certifying authorities carried out the onboard process for Open Finance Brasil and are authorized to issue Open Finance Brasil certificates using the level 1 certificates listed here:
 
 * CertiSign
     * Root ICP [V5](http://acraiz.icpbrasil.gov.br/credenciadas/RAIZ/ICP-Brasilv5.crt), Fingerprint SHA256: [94:EB:D7:63:DC:D3:9A:85:87:48:D1:43:38:54:F7:D4:72:B1:DD:47:DD:D2:70:43:23:6F:83:80:2F:AA:F1:AB](http://acraiz.icpbrasil.gov.br/credenciadas/CERTISIGN/v5/p/AC_Certisign_G7.crt)
@@ -230,7 +230,7 @@ The values for filling in the attributes required in this specification, but not
 
 # Acknowledgements
 
-With thanks to all who have set the foundations for secure and safe data sharing through the formation of the OpenID Foundation FAPI Working Group, the Open Banking Brasil GT Security and to the pioneers who will stand on their shoulders.
+With thanks to all who have set the foundations for secure and safe data sharing through the formation of the OpenID Foundation FAPI Working Group, the Open Finance Brasil GT Security and to the pioneers who will stand on their shoulders.
 
 The following people contributed to this document:
 
@@ -242,11 +242,11 @@ The following people contributed to this document:
 
 # Notices
 
-Copyright (c) 2022 Open Banking Brasil Initial Structure.
+Copyright (c) 2022 Open Finance Brasil Initial Structure.
 
-The Open Banking Brasil Initial Structure (OBBIS) grants to any Contributor, developer, implementer, or other interested party a non-exclusive, royalty-free, worldwide copyright license to reproduce, prepare derivative works from, distribute, perform and display, this Implementers Draft or Final Specification solely for the purposes of (i) developing specifications, and (ii) implementing Implementers Drafts and Final Specifications based on such documents, provided that attribution be made to the OBBIS as the source of the material, but that such attribution does not indicate an endorsement by the OBBIS.
+The Open Finance Brasil Initial Structure (OFBIS) grants to any Contributor, developer, implementer, or other interested party a non-exclusive, royalty-free, worldwide copyright license to reproduce, prepare derivative works from, distribute, perform and display, this Implementers Draft or Final Specification solely for the purposes of (i) developing specifications, and (ii) implementing Implementers Drafts and Final Specifications based on such documents, provided that attribution be made to the OFBIS as the source of the material, but that such attribution does not indicate an endorsement by the OFBIS.
 
-The technology described in this specification was made available from contributions from various sources, including members of the OpenID Foundation, the Open Banking Brasil GT Security Working Group and others. Although the Open Banking Brasil Initial Structure has taken steps to help ensure that the technology is available for distribution, it takes no position regarding the validity or scope of any intellectual property or other rights that might be claimed to pertain to the implementation or use of the technology described in this specification or the extent to which any license under such rights might or might not be available; neither does it represent that it has made any independent effort to identify any such rights. The Open Banking Brasil Initial Structure and the contributors to this specification make no (and hereby expressly disclaim any) warranties (express, implied, or otherwise), including implied warranties of merchantability, non-infringement, fitness for a particular purpose, or title, related to this specification, and the entire risk as to implementing this specification is assumed by the implementer. The Open Banking Brasil Intellectual Property Rights policy requires contributors to offer a patent promise not to assert certain patent claims against other contributors and against implementers. The Open Banking Brasil Initial Structure invites any interested party to bring to its attention any copyrights, patents, patent applications, or other proprietary rights that may cover technology that may be required to practice this specification.
+The technology described in this specification was made available from contributions from various sources, including members of the OpenID Foundation, the Open Finance Brasil GT Security Working Group and others. Although the Open Finance Brasil Initial Structure has taken steps to help ensure that the technology is available for distribution, it takes no position regarding the validity or scope of any intellectual property or other rights that might be claimed to pertain to the implementation or use of the technology described in this specification or the extent to which any license under such rights might or might not be available; neither does it represent that it has made any independent effort to identify any such rights. The Open Finance Brasil Initial Structure and the contributors to this specification make no (and hereby expressly disclaim any) warranties (express, implied, or otherwise), including implied warranties of merchantability, non-infringement, fitness for a particular purpose, or title, related to this specification, and the entire risk as to implementing this specification is assumed by the implementer. The Open Finance Brasil Intellectual Property Rights policy requires contributors to offer a patent promise not to assert certain patent claims against other contributors and against implementers. The Open Finance Brasil Initial Structure invites any interested party to bring to its attention any copyrights, patents, patent applications, or other proprietary rights that may cover technology that may be required to practice this specification.
 
 
 # Appendix
@@ -322,7 +322,7 @@ otherName.3 = 2.16.76.1.3.7;PRINTABLESTRING:<INSS Number>
 
 ASPSP may choose the certificate that should be adopted for Phase 1 endpoints, which, by nature, are publicly accessible.
 
-| OBB phase | group                  | endpoint                              | certificate type  | mTLS     |
+| OFB phase | group                  | endpoint                              | certificate type  | mTLS     |
 |-----------|------------------------|---------------------------------------|-------------------|----------|
 | NA        | OIDC                   | .well-known/openid-configuration      | EV or ICP WEB SSL |          |
 | NA        | OIDC                   | jwks_uri                              | EV or ICP WEB SSL |          |
