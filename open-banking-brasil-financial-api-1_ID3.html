@@ -1182,7 +1182,7 @@ li > p:last-of-type {
 <thead><tr>
 <td class="left"></td>
 <td class="center">OFB-FAPI-1-ID3</td>
-<td class="right">February 2022</td>
+<td class="right">June 2022</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Security</td>
@@ -1869,7 +1869,12 @@ Claim Value that contains a <strong>set</strong> of CNPJs one of which must matc
 <ol start="1" type="1" class="compact type-1" id="section-7.2.2-2">
 <li id="section-7.2.2-2.1">shall only issue tokens on presentation of a refresh token when the consent resource the refresh token is bound to is active and valid;<a href="#section-7.2.2-2.1" class="pilcrow">¶</a>
 </li>
-            <li id="section-7.2.2-2.2">shall only share access to resources when presented with an access token linked to an active and valid consent;<a href="#section-7.2.2-2.2" class="pilcrow">¶</a>
+            <li id="section-7.2.2-2.2">
+              <p id="section-7.2.2-2.2.1">shall only share access to resources when presented with an access token linked to an active and valid consent;<a href="#section-7.2.2-2.2.1" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="compact type-1" id="section-7.2.2-2.2.2">
+<li id="section-7.2.2-2.2.2.1">In the Invalid Token Receive scenario, status code 401 should be returned.<a href="#section-7.2.2-2.2.2.1" class="pilcrow">¶</a>
+</li>
+              </ol>
 </li>
             <li id="section-7.2.2-2.3">shall revoke refresh tokens and where practicable access tokens when the linked Consent Resource is deleted;<a href="#section-7.2.2-2.3" class="pilcrow">¶</a>
 </li>
