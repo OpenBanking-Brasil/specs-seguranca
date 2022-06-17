@@ -44,7 +44,7 @@ The key words "shall", "shall not",
 "should", "should not", "may", and
 "can" in this document are to be interpreted as described in
 [ISO Directive Part 2][ISODIR2].
-These key words are not to be used as dictionary terms such that any occurrence of them shall be interpreted as key words and are not to be interpreted with their natural language meanings.
+These key words are not to be used as lexicon terms such that any occurrence of them shall be interpreted as key words and are not to be interpreted with their natural language meanings.
 
 {mainmatter}
 

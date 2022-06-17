@@ -54,9 +54,7 @@ The key words "shall", "shall not",
 "can" in this document are to be interpreted as described in
 [ISO Directive Part 2][ISODIR2].
 
-These key words are not used as dictionary terms such that
-any occurrence of them shall be interpreted as key words
-and are not to be interpreted with their natural language meanings.
+These key words are not to be used as lexicon terms such that any occurrence of them shall be interpreted as key words and are not to be interpreted with their natural language meanings.
 
 {mainmatter}
 
@@ -200,16 +198,16 @@ The Authorization Server shall support the provisions specified in clause 5.2.2 
 In addition, the Authorization Server
 
 1. shall support a signed and encrypted JWE request object passed by value or shall require pushed authorization requests [PAR];
-2. shall distribute discovery metadata (such as the authorization endpoint) via the metadata document as specified in [OIDD] and [RFC8414];
+2. shall distribute discovery metadata (such as the authorization endpoint) via the metadata document as specified in [OIDD] and [RFC8414] (".well-known");
 3. shall support the claims parameter as defined in clause 5.5 [OpenID Connect Core][OIDC];
 4. shall support the oidc standard claim "cpf" as defined in clause 5.2.2.2 of this document;
-5. shall support the oidc standard claim "cnpj" as defined in clause 5.2.2.3 of this document if providing access to resources where the resource owner is not a `natural person`;
+5. shall support the oidc standard claim "cnpj" as defined in clause 5.2.2.3 of this document if the institution provides accounts for legal person;
 6. shall support the acr "urn:brasil:openbanking:loa2" as defined in clause 5.2.2.4 of this document;
 7. should support the acr "urn:brasil:openbanking:loa3" as defined in clause 5.2.2.4 of this document;
 8. shall implement the userinfo endpoint as defined in clause 5.3 [OpenID Connect Core][OIDC];
 9. shall support parameterized OAuth 2.0 resource scope _consent_ as defined in clause 6.3.1 [OIDF FAPI WG Lodging Intent Pattern][LIWP];
 10. may support [Financial-grade API: Client Initiated Backchannel Authentication Profile][FAPI-CIBA];
-11. (withdrawn);
+11. (withdrawn temporarily);
 12. shall support refresh tokens;
 13. shall issue access tokens with an expiry no greater than 900 seconds and no less than 300 seconds;
 14. shall always include an acr claim in the `id_token`;
@@ -226,33 +224,25 @@ In addition, the Authorization Server
 
 The Authorization Server shall support the provisions specified in clause 5.2.2.1 of [Financial-grade API Security Profile 1.0 - Part 2: Advanced][FAPI-1-Advanced]
 
-In addition, if the `response_type` value `code id_token` is used, the Authorization Server
+In addition, if the `response_type` value `code id_token` is used, the Authorization Server:
 
-1. should not return sensitive PII in the ID Token in the authorization response, but if it needs to,
-then it shall encrypt the ID Token.
+1. **should not** return sensitive PII in the ID Token in the authorization response, but if it needs to, then it **shall** encrypt the ID Token.
 
 #### Requesting the "cpf" Claim
 
 This profile defines "cpf" as a new standard claim as per
  clause 5.1 [OIDC]
 
-The **CPF** number (Cadastro de Pessoas Físicas, [sepeˈɛfi]; Portuguese for "Natural Persons Register")
- is the **Brazilian** individual taxpayer registry identification. This number is attributed by
- the **Brazilian** Federal Revenue to Brazilians and resident aliens who, directly or indirectly,
-  pay taxes in **Brazil**.
+The **CPF** number (Cadastro de Pessoas Físicas, [sepeˈɛfi]; Portuguese for "Natural Persons Register") is the **Brazilian** individual taxpayer registry identification. This number is attributed by the **Brazilian** Federal Revenue to Brazilians and resident aliens who, directly or indirectly, pay taxes in **Brazil**.
 
-In the Brasil Open Finance identity model, the cpf is a string consisting of numbers that is 11
-characters long and may start with a 0.
+In the Brasil Open Finance identity model, the cpf is a string consisting of numbers that is 11 characters long and may start with a 0.
 
-If the cpf Claim is requested as an Essential Claim for the ID Token or UserInfo response with a
- values parameter requesting a specific cpf value, the Authorization Server MUST return a cpf Claim Value
-that matches the requested value.
+If the cpf Claim is requested as an Essential Claim for the ID Token or UserInfo response with a values parameter requesting a specific cpf value, the Authorization Server MUST return a cpf Claim Value that matches the requested value.
 
 If the cpf Claim is requested as an Essential Claim for the ID Token or UserInfo response,
- the Authorization Server MUST return a cpf Claim Value with the authenticated user cpf value.
+ the Authorization Server shall return a cpf Claim Value with the authenticated user cpf value.
 
-If this is an Essential Claim and the requirement cannot be met or is not compatible with the one requested,
- then the Authorization Server MUST treat that outcome as a failed authentication attempt.
+If this is an Essential Claim and the requirement cannot be met or is not compatible with the one requested, then the Authorization Server shall treat that outcome as a failed authentication attempt.
 
 Name: cpf, Type: String, Regex: '^\d{11}$'
 
@@ -263,23 +253,16 @@ This profile defines "cnpj" as a new standard claim as per
 
 **CNPJ**, short for Cadastro Nacional de Pessoas Jurídicas, is an identification number
  of **Brazilian** companies issued by the **Brazilian** Ministry of Revenue, **in**
- Portuguese "Secretaria da Receita Federal" or "Ministério da Fazenda". In the Brasil Open Finance identity model,
- individuals can associated with 0 or more CNPJs. A CNPJ is a string consisting of numbers that is 14 digits long and may start with a 0,
- the first eight digits identify the company, the four digits after the slash identify the branch or
+ Portuguese "Secretaria da Receita Federal" or "Ministério da Fazenda". In the Brasil Open Finance identity model, individuals can associated with 0 or more CNPJs. A CNPJ is a string consisting of numbers that is 14 digits long and may start with a 0, the first eight digits identify the company, the four digits after the slash identify the branch or
  subsidiary ("0001" defaults to the headquarters), and the last two are checksum digits.
  For this profile, the cnpj claim must be requested and supplied as the 14 digit number.
 
-If the cnpj Claim is requested as an Essential Claim for the ID Token or UserInfo response with a
-values parameter requesting a specific cnpj value, the Authorization Server MUST return a cnpj
-Claim Value that contains a **set** of CNPJs one of which must match the requested value.
+If the **cnpj** Claim is requested as an Essential Claim for the ID Token or UserInfo response with a values parameter requesting a specific **cnpj** value, the Authorization Server **SHALL** return a **cnpj** Claim Value that contains a **set** of CNPJs one of which must match the requested value.
 
-If the cnpj Claim is requested as an Essential Claim for the ID Token or UserInfo
- the Authorization Server MUST return a cnpj Claim Value that contains a **set** of CNPJs one of which must
- match a CNPJ belonging to the authenticated user's account.
+If the **cnpj** Claim is requested as an Essential Claim for the ID Token or UserInfo
+ the Authorization Server MUST return a cnpj Claim Value that contains a **set** of CNPJs one of which must match a CNPJ belonging to the authenticated user's account.
 
-If this is an Essential Claim and the requirement cannot be met,
- then the Authorization Server MUST treat
- that outcome as a failed authentication attempt.
+If this is an Essential Claim and the requirement cannot be met, then the Authorization Server shall treat that outcome as a failed authentication attempt.
 
 Name: cnpj, Type: Array of Strings, Array Element Regex: '^\d{14}$'
 
@@ -291,24 +274,24 @@ This profile defines "urn:brasil:openbanking:loa2" and "urn:brasil:openbanking:l
 * **LoA2:** Authentication performed using single factor;
 * **LoA3:** Authentication performed using multi factor (MFA)
 
-The following rules are applicable to **access control to Open Finance Brazil API´s:**
+The following rules are applicable to the authentication mechanism of Open Finance Brazil API´s:
 
 * In accordance to Art. 17 of [Joint Resolution nº 01 - Open Banking Brasil](https://www.in.gov.br/en/web/dou/-/resolucao-conjunta-n-1-de-4-de-maio-de-2020-255165055), institutions must adopt procedures and controls for client authentication **compatible with those applicable in their electronic service channels**.
-* So, in compliance with the regulation, it is suggested that:
+* In accorcdance with the regulation, it is suggested that:
    * **For Read-Only APIs  (Phase 2)**: the _Authorization Servers_ **should** adopt, at least, an authentication method compatible with `LoA2`; and
    * **For Read-Write API´s (subsequent phases)**: the _Authorization Servers_ **should** adopt an authentication method compatible with `LoA3` or higher.
 
-In all cases, the adoption of a more rigorous authentication mechanism (`LoA3` or higher) is at the discretion of the Bank (ASPSP), according to its risk assessment and in a manner compatible with the mechanisms usually used.
+In all cases, the adoption of a more rigorous authentication mechanism (`LoA3` or higher) is at the discretion of the Bank (ASPSP), according to its risk assessment and in a manner compatible with the mechanisms usually employed.
 
 **Authentication factors clarification**
 
 The authentication methods are:
 
-* Something you know, such as password or phrase
-* Something you have, such as token or smartcard;
-* Something you are, such as biometric validation.
+* Something **you know**, such as password or phrase
+* Something **you have**, such as token, smartcard or device
+* Something **you are**, meaning an authentication that makes use of physical characteristics, such as biometric validation.
 
-To performe a MFA authentication is necessary the end user to present at least two different methods as listed above. A unique method used more than once is not accepted as MFA.
+To performe a MFA authentication is necessary that the end user presents at least two different methods as listed above. A unique method used more than once - ie. presenting passwords - is not accepted as MFA.
 
 ### Confidential client
 
@@ -367,7 +350,7 @@ Participants shall support all security considerations specified in clause 8
 
 9. the _jti_ claim must be unique for a _clientId_ within a time frame of 86,400 seconds (24h), and cannot be reused within this period. In case of reuse, the HTTP error code 403 shall be return.
 
-## Algorithm considerations
+## Signing algorithm considerations
 
 For JWS, both clients and Authorization Servers
 
@@ -407,7 +390,7 @@ In addition:
 
 * the Consent Resource Id must include url safe characters only;
 * the Consent Resource Id must be namespaced;
-* the Consent Resource Id must have the properties of a nonce;
+* the Consent Resource Id must have the properties of a nonce [Nonce](https://openid.net/specs/openid-connect-core-1_0.html#NonceNotes);
 
 ### Dynamic Consent Scope Example
 
@@ -423,11 +406,11 @@ The Consent Resource has a life cycle that is managed seperately and distinctly 
 
 In addition to the requirements outlined in Open Finance Brasil security provisions the Authorization Server
 
-1. shall only issue tokens on presentation of a refresh token when the consent resource the refresh token is bound to is active and valid;
-2. shall only share access to resources when presented with an access token linked to an active and valid consent;
-3. shall revoke refresh tokens and where practicable access tokens when the linked Consent Resource is deleted;
-4. shall ensure Access Tokens are issued with sufficient scope necessary for access to data specified in the Permissions element of a linked Consent Resource object;
-5. shall not reject an authorisation request requesting more scope than is necessary to access data specified in the Permissions element of a linked Consent Resource object;
+1. shall only issue _ refresh_tokens_ when bound to an active and valid consent;
+2. shall only share access to resources when presented with an _access_token_ linked to an active and valid consent;
+3. shall revoke _refresh tokens_ and where aplicable _access tokens_ when the linked Consent Resource is deleted;
+4. shall ensure _access tokens_ are issued with sufficient scope necessary for access to data specified in the _Permission_ element of a linked Consent Resource object;
+5. shall not reject an authorisation request requesting _scopes_ broader than those necessary to access data specified in the Permissions element of a linked Consent Resource object;
 6. may reduce requested scope to a level sufficient to enable access to data resources specified in the Permissions element of a linked Consent Resource object;
 7. shall retain a complete audit history of the consent resource in accordance with current Central Bank brazilian regulation;
 8. shall return authentication failure and return code _access_denied_ in the _error_ parameter (as specified in section 4.1.2.1 of [RFC6749]) if the CPF of the authenticated user is not the same as indicated in the _loggedUser_ element of the Consent Resource Object;
@@ -439,7 +422,7 @@ In addition to the requirements outlined in Open Finance Brasil security provisi
 
 In addition to the requirements outlined in Open Finance Brasil security provisions the Confidential Client
 
-1. shall revoke where possible and cease usage of refresh and access tokens that are bound to a Consent Resource that has been deleted;
+1. shall revoke where possible and cease usage of _refresh_ and _access tokens_ that are bound to a Consent Resource that has been deleted;
 1. shall delete Consent Resource that are expired;
 
 # Acknowledgements
