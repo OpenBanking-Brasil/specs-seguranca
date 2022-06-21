@@ -29,7 +29,7 @@
 
 %%%
 
-.# Prefácio  {#Forward}
+.# Prefácio  {#Foreword}
 
 The normative version in [English](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID2.html)
 
@@ -194,7 +194,7 @@ Adicionalmente, o Servidor de Autorização:
 
 O cliente deve suportar [OpenID Connect Discovery][OIDD] conforme exigido pelo [Financial-grade API Security Profile 1.0 - Part 1: Baseline][FAPI-1-Baseline].
 
-Além disso, o servidor de autorização
+Além disso, o Cliente
 
 1. deve contar com serviços de descoberta do ecossistemas fornecidos apenas pelo Diretório de Participantes;
 2. deve derivar os metadados necessários do Authorization Server somente por meio do serviço OpenID Connect Discovery dos Authorization Servers;
