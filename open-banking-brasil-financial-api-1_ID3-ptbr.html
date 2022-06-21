@@ -1182,7 +1182,7 @@ li > p:last-of-type {
 <thead><tr>
 <td class="left"></td>
 <td class="center">OFB-FAPI-1-ID3</td>
-<td class="right">February 2022</td>
+<td class="right">June 2022</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Security</td>
@@ -1853,7 +1853,12 @@ li > p:last-of-type {
 <ol start="1" type="1" class="compact type-1" id="section-7.2.2-2">
 <li id="section-7.2.2-2.1">deve apenas emitir _refresh<em>tokens</em> quando vinculados a um consentimento ativo e v&#225;lido;<a href="#section-7.2.2-2.1" class="pilcrow">¶</a>
 </li>
-            <li id="section-7.2.2-2.2">s&#243; deve compartilhar o acesso aos recursos quando apresentado _access<em>token</em> vinculado a um consentimento ativo e v&#225;lido;<a href="#section-7.2.2-2.2" class="pilcrow">¶</a>
+            <li id="section-7.2.2-2.2">
+              <p id="section-7.2.2-2.2.1">s&#243; deve compartilhar o acesso aos recursos quando apresentado _access<em>token</em> vinculado a um consentimento ativo e v&#225;lido;<a href="#section-7.2.2-2.2.1" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="compact type-1" id="section-7.2.2-2.2.2">
+<li id="section-7.2.2-2.2.2.1">No cen&#225;rio de recebimento de token inv&#225;lido, deve ser retornado status code 401.<a href="#section-7.2.2-2.2.2.1" class="pilcrow">¶</a>
+</li>
+              </ol>
 </li>
             <li id="section-7.2.2-2.3">deve revogar os <em>refresh tokens</em> e, quando aplic&#225;vel, os <em>access tokens</em> quando o Consentimento (Consent Resource) relacionado for apagado;<a href="#section-7.2.2-2.3" class="pilcrow">¶</a>
 </li>
