@@ -213,7 +213,7 @@ In addition, the Authorization Server
 14. shall always include an acr claim in the `id_token`;
 15. shall support the `response_type` value `code id_token`;
 16. may support `response_type` value `code` in conjunction with the `response_mode` value `jwt`;
-17. shall not allow `refresh tokens` rotation feature;
+17. should offer the possibility to disable the rotation of `refresh token`;
 18. shall ensure that, in case of sharing the Authorization Server for other services, in addition to Open Finance, it does not disclose and/or allow the use of non-certified methods in the Open Finance environment;
 19. shall ensure that the settings disclosed to other participants through `OpenID Discovery` (indicated by the `Well-Known` file registered in the Directory) are restricted to the operating modes to which the institution has certified;
     1. shall keep in your settings the methods for which there are still active clients;
