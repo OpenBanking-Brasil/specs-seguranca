@@ -307,7 +307,7 @@ subjectAltName = @alt_name
 keyUsage = critical,digitalSignature,nonRepudiation
 
 [ alt_name ]
-otherName.0 = 2.16.76.1.3.2;PRINTABLESTRING:<Name of the person responsible for the organization>#CNPJ
+otherName.0 = 2.16.76.1.3.2;PRINTABLESTRING:<Name of the person responsible for the organization>
 otherName.1 = 2.16.76.1.3.3;PRINTABLESTRING:<CNPJ>
 otherName.2 = 2.16.76.1.3.4;PRINTABLESTRING:<CPF/PIS/RF of the responsible person>
 otherName.3 = 2.16.76.1.3.7;PRINTABLESTRING:<INSS Number>
@@ -318,7 +318,7 @@ Below we present which endpoints can be published utilizing the EV certificate a
 
 ASPSP may choose the certificate that should be adopted for Phase 1 endpoints, which, by nature, are publicly accessible.
 
-| OFB Phase | Group                  | API                                   | Certificate       | mTLS     |
+| OFB Phase | group                  | endpoint                                   | certificate type       | mTLS     |
 |-----------|------------------------|---------------------------------------|-------------------|----------|
 | NA        | OIDC                   | .well-known/openid-configuration      | EV or ICP WEB SSL |          |
 | NA        | OIDC                   | jwks_uri                              | EV or ICP WEB SSL |          |
