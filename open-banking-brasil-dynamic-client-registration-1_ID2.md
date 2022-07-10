@@ -277,7 +277,7 @@ Upon registering using the _tls\_client\_auth_ authentication method, the client
 
 # Software Statement Assertion
 
-A Software Statement Assertion (_software\_statement_) is a JSON Wen Token (JWT) [RFC7519] that asserts the metadata values of the client software as a whole. On the Open Finance Brasil structure, this _software\_statement_ is signed by the Participants Directory and it's signature MUST be validated by the Authorization Servers using the public keys available on the following session.
+A Software Statement Assertion (_software\_statement_) is a JSON Web Token (JWT) [RFC7519] that asserts the metadata values of the client software as a whole. On the Open Finance Brasil structure, this _software\_statement_ is signed by the Participants Directory and it's signature MUST be validated by the Authorization Servers using the public keys available on the following session.
 
 ## Attributes of the Software Statement Assertion (Claims)
 
