@@ -5,7 +5,7 @@ PISP - Payment Initiation Service Provider
 
 ## 1.0 Registrando um Aplicativo  {#RegistrantoApp}
 
-Em um alto nível, as seguintes etapas principais são necessárias para integrar um novo aplicativo no ecossistema Open Banking Brasil.
+Em um alto nível, as seguintes etapas principais são necessárias para integrar um novo aplicativo no ecossistema Open Finance Brasil.
 
 1. Cadastre sua organização no Diretório de Participantes (Interface do Usuário)
 2. Cadastre seu aplicativo no Diretório de Participantes (Interface do Usuário)
@@ -20,19 +20,19 @@ Em um alto nível, as seguintes etapas principais são necessárias para integra
 
 ### 1.1 Visão Geral do Diretório {#VisaoDir}
 
-O framework de confiança do Open Banking Brasil fornece todos os serviços de descoberta necessários para que instituições participantes (receptoras e transmissoras de dados, iniciadoras de pagamento ou detentoras de contas) interajam entre si sem serem obrigadas a validarem a autenticidade de identidades, autorizações, Apps, APIs ou credenciais para acessos por aplicativos uns dos outros. Além disso, fornece um único registro de todas propostas ao consumidor sendo oferecidas no mercado e um único ambiente de controle para as autoridades regulatórias que concedem permissões para gerenciar participantes dentro do ecossistema.
+O framework de confiança do Open Finance Brasil fornece todos os serviços de descoberta necessários para que instituições participantes (receptoras e transmissoras de dados, iniciadoras de pagamento ou detentoras de contas) interajam entre si sem serem obrigadas a validarem a autenticidade de identidades, autorizações, Apps, APIs ou credenciais para acessos por aplicativos uns dos outros. Além disso, fornece um único registro de todas propostas ao consumidor sendo oferecidas no mercado e um único ambiente de controle para as autoridades regulatórias que concedem permissões para gerenciar participantes dentro do ecossistema.
 
-O framework de confiança não tem visibilidade ou visão das interações que ocorrem entre instituições participantes receptoras (TTP) ou transmissoras (ASPSP) de dados. Ele é projetado para fornecer confiança e garantia de identidade e autorização apenas. Ele não se enquadra no fluxo de comunicação entre um consumidor e um provedor e não tem conhecimento ou visibilidade de quaisquer dados do cliente. Este modelo de framework de confiança é conhecido como confiança transitiva onde duas partes, um TPP e um ASPSP, concordam em confiar nas declarações e atestados de legitimidade uns dos outros emitidos por um provedor de confiança comum e, em seguida, prossigam comunicando o que quiserem, sem qualquer validação adicional onerosa ou outro tipo de verificação.
+O framework de confiança não tem visibilidade ou visão das interações que ocorrem entre instituições participantes receptoras (TPP) ou transmissoras (ASPSP) de dados. Ele é projetado para fornecer confiança e garantia de identidade e autorização apenas. Ele não se enquadra no fluxo de comunicação entre um consumidor e um provedor e não tem conhecimento ou visibilidade de quaisquer dados do cliente. Este modelo de framework de confiança é conhecido como confiança transitiva onde duas partes, um TPP e um ASPSP, concordam em confiar nas declarações e atestados de legitimidade uns dos outros emitidos por um provedor de confiança comum e, em seguida, prossigam comunicando o que quiserem, sem qualquer validação adicional onerosa ou outro tipo de verificação.
 
 ### 1.2 Acessando o Diretório  {#AcessandoDir}
 
-Este guia do usuário assume que as organizações participantes já passaram pelo processo de iniciação com a Estrutura Inicial do Open Banking Brasil e já concluíram todas as integrações necessárias, processos de assinatura de contrato e inclusão de administrador individual.
+Este guia do usuário assume que as organizações participantes já passaram pelo processo de iniciação com a Estrutura Inicial do Open Finance Brasil e já concluíram todas as integrações necessárias, processos de assinatura de contrato e inclusão de administrador individual.
 
 ![Login Image](images/directory_logon.png)
 
 ### 1.3 Criação de uma Nova Declaração de Software (SSA) {#CriacaoSSA}
 
-Uma declaração de software descreve um aplicativo inserido naquilo que pode ser considerado a 'App Store' do Open Banking Brasil. Este registro de aplicativo contém todas as informações necessárias para que um banco identifique tecnicamente e interaja com o aplicativo, além de conter todas as informações que auxiliam os clientes que estejam utilizando-o a confirmar sua legitimidade.
+Uma declaração de software descreve um aplicativo inserido naquilo que pode ser considerado a 'App Store' do Open Finance Brasil. Este registro de aplicativo contém todas as informações necessárias para que um banco identifique tecnicamente e interaja com o aplicativo, além de conter todas as informações que auxiliam os clientes que estejam utilizando-o a confirmar sua legitimidade.
 
 Um novo aplicativo ou declaração de software pode ser registrado fazendo logon no Diretório, navegando até 'Software Statements', clicando em 'Criar Novo' e preenchendo o formulário. O texto de ajuda é fornecido para cada campo da tela. Lembre-se de que a maioria dessas informações será exibida aos clientes pelos Bancos como parte do processo de redirecionamento ou autorização. Como tal, é importante que todas as URIs e descrições sejam relevantes para o público.
 
@@ -44,7 +44,7 @@ Em um ecossistema de compartilhamento de dados complexo e diversificado, as fun�
 
 > Se uma organização perder uma função regulatória, todo software com essa função regulatória será revogado do ecossistema, portanto, é muito importante que um aplicativo receba apenas as funções de que realmente precisa para funcionar.
 
-Um exemplo do mundo real disso poderia ser a Amazon. Ela possui dois aplicativos, 'Amazon Accounting' e 'Amazon Prime'. A Amazon como organização é um DADOS e PISP autorizados e tem permissão para lidar com dados de clientes bem como fazer pagamentos via Open Banking. A 'Amazon Accounting' dever receber a função de domínio de DADOS e a 'Amazon Prime' deve receber uma função de domínio de PISP.
+Um exemplo do mundo real disso poderia ser a Amazon. Ela possui dois aplicativos, 'Amazon Accounting' e 'Amazon Prime'. A Amazon como organização é um DADOS e PISP autorizados e tem permissão para lidar com dados de clientes bem como fazer pagamentos via Open Finance Brasil. A 'Amazon Accounting' dever receber a função de domínio de DADOS e a 'Amazon Prime' deve receber uma função de domínio de PISP.
 
 No futuro, se a Amazon perder a permissão regulatória para ser um iniciador de pagamento, apenas a aplicação 'Amazon Prime' seria removida do ecossistema. O App 'Amazon Accounting' do exemplo continuaria a funcionar sem problemas.
 
@@ -53,7 +53,7 @@ No futuro, se a Amazon perder a permissão regulatória para ser um iniciador de
 
 #### 1.4.1 Sandbox  {#Sandbox}
 
-O serviço de Diretório do Open Banking inclui uma infraestrutura de chave pública que pode ser usada para criar certificados para os aplicativos sendo registrados no ambiente Sandbox. Basta selecionar certificados no menu e seguir as instruções.
+O serviço de Diretório do Open Finance Brasil inclui uma infraestrutura de chave pública que pode ser usada para criar certificados para os aplicativos sendo registrados no ambiente Sandbox. Basta selecionar certificados no menu e seguir as instruções.
 
 O Diretório suporta vários certificados, tipos de chave e um comando e configuração openssl será disponibilizado como um exemplo. Depois de criar a solicitação de assinatura de certificado (Certificate Signing Request - CSR) para um certificado de "Transporte" e "Assinatura", você pode enviá-los ao diretório para serem validados e transformados em certificados.
 
@@ -61,13 +61,13 @@ O Diretório suporta vários certificados, tipos de chave e um comando e configu
 
 #### 1.4.2 Produção  {#Producao}
 
-Os certificados para acesso e assinatura em ambiente de produção devem ser fornecidos pelo ICP Brasil. Os detalhes sobre os certificados e os requisitos para os certificados estão detalhados no [Padrão de Certificados Open Banking Brasil](https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil-certificate-standards-1_ID1.md).
+Os certificados para acesso e assinatura em ambiente de produção devem ser fornecidos pelo ICP Brasil. Os detalhes sobre os certificados e os requisitos para os certificados estão detalhados no [Padrão de Certificados Open Finance Brasil](https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil-certificate-standards-1_ID1.md).
 
 #### 1.4.3 O que é um JWT, JWE, JWS e JWK  {#JWT_JWE_JWS_JWK)
 
 Quando os certificados são carregados para o Diretório, o framework de confiança os anuncia em [JSON Web Key Sets](https://tools.ietf.org/html/rfc7517) com cada JSON Web Key (JWK) tendo um 'KID' ou um Key ID. Os JWKs, além de ter propriedades específicas que descrevem o algoritmo e os conjuntos de criptografia que eles suportam, também anunciam seu "uso", que pode ser do tipo 'enc' para criptografia ou 'sig' para assinatura.
 
-Essas chaves 'sig' e pares de chaves 'enc' são usadas em muitos lugares dentro do ecossistema do Open Banking para criptografar ou assinar dados usando os padrões definidos em [RFC 7519 JSON Web Token](https://tools.ietf.org/html/rfc7519), que deve ser lido em detalhes pelos desenvolvedores.
+Essas chaves 'sig' e pares de chaves 'enc' são usadas em muitos lugares dentro do ecossistema do Open Finance Brasil para criptografar ou assinar dados usando os padrões definidos em [RFC 7519 JSON Web Token](https://tools.ietf.org/html/rfc7519), que deve ser lido em detalhes pelos desenvolvedores.
 
 Tipos de JWT incluem
 
@@ -348,7 +348,7 @@ curl --cert transport.pem --key transport.key https://matls-auth.directory.openb
 
 ### 2.3 Como se Comunicar com as APIs do Diretório {#ComunicarAPIs}
 
-As APIs do Diretório são recursos RESTful protegidos usando o Perfil de Segurança do Open Banking Brasil. Isso significa que eles têm a mesma postura de segurança das APIs publicadas pelos Bancos. Todas as APIs de Diretório requerem o escopo do recurso OAuth 2.0 de `directory:software` e são protegidos usando Mutual TLS (mTLS).
+As APIs do Diretório são recursos RESTful protegidos usando o Perfil de Segurança do Open Finance Brasil. Isso significa que eles têm a mesma postura de segurança das APIs publicadas pelos Bancos. Todas as APIs de Diretório requerem o escopo do recurso OAuth 2.0 de `directory:software` e são protegidos usando Mutual TLS (mTLS).
 
 Consulte a especificação do Diretório OpenAPI v3 para o conjunto completo de endpoints disponíveis.
 
@@ -522,15 +522,15 @@ eyJraWQiOiJzaWduZXIiLCJ0eXAiOiJKV1QiLCJhbGciOiJQUzI1NiJ9.eyJzb2Z0d2FyZV9tb2RlIjo
 
 ## 3.3 Enviando uma Solicitação de Dynamic Client Registration (RFC7591)  {#RFC7591}
 
-Consulte o [Dynamic Client Registration do Open Banking Brasil](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID2-ptbr.html)
+Consulte o [Dynamic Client Registration do Open Finance Brasil](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID2-ptbr.html)
 
 ## 3.4 Salvando o Token de Dynamic Registration Management (RFC7592)  {#RFC7592}
 
-Consulte o [Dynamic Client Registration do Open Banking Brasil](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID2-ptbr.html)
+Consulte o [Dynamic Client Registration do Open Finance Brasil](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID2-ptbr.html)
 
 ## 3.5 Modificando um cliente usando Dynamic Client Management Token (RFC7592) {#RFC7592Token}
 
-Consulte o [Dynamic Client Registration do Open Banking Brasil](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID2-ptbr.html)
+Consulte o [Dynamic Client Registration do Open Finance Brasil](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID2-ptbr.html)
 
 ## 4.0 Obtendo Acesso aos Recursos dos Clientes  {#AcessoClientes}
 
@@ -619,9 +619,9 @@ Resposta
 
 Diferentes métodos de autenticação (_private_key_jwt_ e _tls_client_auth_) e de encaminhamento do Request Object (com e sem uso de *PAR*) podem ser suportados pelos _Authorization Servers_ de acordo com a especificação  [FAPI-1.0 Part 2 - Advanced](https://openid.net/specs/openid-financial-api-part-2-1_0.html).
 
-Portanto, como reforça o perfil de segurança para o Open Banking Brasil (item 8 da seção 5.2.3 dos [requisitos de segurança para o cliente confidencial](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID3-ptbr.html#section-5.2.3)), *todas* as 4 combinações de métodos devem ser suportados pelos clientes de API.
+Portanto, como reforça o perfil de segurança para o Open Finance Brasil (item 8 da seção 5.2.3 dos [requisitos de segurança para o cliente confidencial](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID3-ptbr.html#section-5.2.3)), *todas* as 4 combinações de métodos devem ser suportados pelos clientes de API.
 
-A tabela abaixo reflete os diferentes profiles de segurança e combinações que devem ser suportados por todos os clientes de API (conforme os [profiles certificados pela OIDF para o Open Banking Brasil](https://openid.net/certification/#FAPI_OPs)).
+A tabela abaixo reflete os diferentes profiles de segurança e combinações que devem ser suportados por todos os clientes de API (conforme os [profiles certificados pela OIDF para o Open Finance Brasil](https://openid.net/certification/#FAPI_OPs)).
 
 | Perfil da certificação OIDF |
 | -- |
@@ -630,7 +630,7 @@ A tabela abaixo reflete os diferentes profiles de segurança e combinações que
 | BR-OB Adv. OP w/ MTLS, PAR	|
 | BR-OB Adv. OP w/ Private Key, PAR	|
 
-Todos os requisitos para o OpenID Request Object estão incluídos no [Perfil de Segurança do Open Banking Brasil](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID3-ptbr.html). Veja o exemplo com JWS a seguir:
+Todos os requisitos para o OpenID Request Object estão incluídos no [Perfil de Segurança do Open Finance Brasil](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID3-ptbr.html). Veja o exemplo com JWS a seguir:
 
 ```
 {
@@ -680,7 +680,7 @@ Assinatura omitida por questões de brevidade
 
 ### 4.3.1.1 Solicitação de Claims Específicas  {#SolicitacaoClaims}
 
-Também é opcional para TPPs solicitar `claims` de identidade ('Identity Claims') adicionais, incluindo CPF e CNPJ. Essas `claims` são definidas no Perfil de Segurança do Open Banking Brasil. Também é possível para um TPP solicitar que uma `claim` corresponda a um determinado valor, baseando-se em [OpenID Connect Core Clause 5.5.1](https://openid.net/specs/openid-connect-core-1_0.html#IndividualClaimsRequests) para solicitar `claims` individuais.
+Também é opcional para TPPs solicitar `claims` de identidade ('Identity Claims') adicionais, incluindo CPF e CNPJ. Essas `claims` são definidas no Perfil de Segurança do Open Finance Brasil. Também é possível para um TPP solicitar que uma `claim` corresponda a um determinado valor, baseando-se em [OpenID Connect Core Clause 5.5.1](https://openid.net/specs/openid-connect-core-1_0.html#IndividualClaimsRequests) para solicitar `claims` individuais.
 
 Por exemplo:
 
@@ -841,7 +841,7 @@ BODY {
 
 ### A.3 Exemplo de Decodificação do Corpo de uma Solicitação com Valores de Reivindicação Específicos Sendo Solicitados  {#A3}
 
-Neste exemplo, um cliente está solicitando que o Authorization Server autentique o cliente apenas se a declaração cpf corresponder ao valor fornecido. Os requisitos de processamento para solicitações com um valor 'cpf' específico são definidos no Perfil de Segurança do Open Banking Brasil.
+Neste exemplo, um cliente está solicitando que o Authorization Server autentique o cliente apenas se a declaração cpf corresponder ao valor fornecido. Os requisitos de processamento para solicitações com um valor 'cpf' específico são definidos no Perfil de Segurança do Open Finance Brasil.
 
 ```
 {

@@ -2,7 +2,7 @@
 
 ## 1.0 Registering an Application
 
-At a high level the following major steps are required in order to onboard a new application into the Open Banking Brasil ecosystem.
+At a high level the following major steps are required in order to onboard a new application into the Open Finance Brasil ecosystem.
 
 1. Register your organisation on the directory of participants (User Interface)
 2. Register your application on the directory of participants (User Interface)
@@ -17,8 +17,8 @@ At a high level the following major steps are required in order to onboard a new
 
 ### 1.1 Directory Overview
 
-The trust framework services provided by Open Banking Brasil provide all of the discovery services necessary
-for a TPPs and ASPSPs to interact with each other without being required to validate
+The trust framework services provided by Open Finance Brasil provide all of the discovery services necessary
+for TPPs and ASPSPs to interact with each other without being required to validate
 the authenticity of each others' Identity, Authorizations, Consumer Offerings (Apps),
 APIs or Credentials for the Applications. In addition it provides a single registry of all
 consumer propositions being offered in the market and a single control plane for the
@@ -36,14 +36,14 @@ The trust framework does not have visibility or view of interactions that occur 
 ### 1.2 Accessing the Directory
 
 This user guide assumes that participating organisations have already been through the onboarding
- process with the Open Banking Brasil Initial Structure and have completed all of the necessary onboarding,
+ process with the Open Finance Brasil Initial Structure and have completed all of the necessary onboarding,
   contract signing and individual administrator onboarding processes.
 
 ![Login Image](images/directory_logon.png)
 
 ### 1.3 Creating a new Software Statement
 
-A software statement is an 'App' on what can be thought of as the Open Banking Brasil App Store.
+A software statement is an 'App' on what can be thought of as the Open Finance Brasil App Store.
  This App record contains all of the information necessary for a Bank to Technically Identity
   and Interact with it as well as containing all of the information that assist consumers
   using the application with confirming its legitimacy.
@@ -64,7 +64,7 @@ They can be added and revoked. This means that software added to the directory c
 
 A real world example of this could be 'Amazon', Amazon has two applications, 'Amazon Accounting' and
  'Amazon Prime'. Amazon as an organisation is an authorized DADOS and PISP, and is allowed to
- handle customer data as well as make Open Banking Payments. Amazon Accounting should be assigned
+ handle customer data as well as make Open Finance Payments. Amazon Accounting should be assigned
  the domain role of DADOS and Amazon Prime should be assigned a domain role of PISP.
 
 In the future, should Amazon lose regulatory permission to be a PISP then only the Amazon Prime
@@ -74,7 +74,7 @@ application would be removed from the ecosystem. Amazon Account would continue t
 
 #### 1.4.1 Sandbox
 
-The Open Banking Directory contains a PKI that can be used to create certificates for the Applications
+The Open Finance Directory contains a PKI that can be used to create certificates for the Applications
  being registered. Simply select certificates from the drop down menu and follow the instructions.
 
 The directory supports multiple certificate and key types and an openssl command and configuration
@@ -86,7 +86,7 @@ file is made available as an example. Once you have created the necessary Certif
 
 #### 1.4.2 Production
 
-Certificates must be provided by the Brasil ICP. The steps to follow are included in the [Open Banking Brasil Certificate Guide](https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil-ICP-certificate-guide.pdf)
+Certificates must be provided by the Brasil ICP. The steps to follow are included in the [Open Finance Brasil Certificate Guide](https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil-ICP-certificate-guide.pdf)
 
 #### 1.4.3 What is a JWT, JWE, JWS and JWK
 
@@ -96,7 +96,7 @@ When certificates are uploaded to the directory, the trust framework advertises 
  the algorithm and cipher suites that they support also advertise their 'use' which can either
   be of type 'enc' for encryption or 'sig' for signing.
 
-These 'sig' keys and 'enc' key pairs are used in many places within the open banking ecosystem to
+These 'sig' keys and 'enc' key pairs are used in many places within the Open Finance ecosystem to
  encrypt or to sign data using the standards defined in [RFC 7519 JSON Web Token](https://tools.ietf.org/html/rfc7519)
  which should be read in detail by developers.
 
@@ -555,15 +555,15 @@ eyJraWQiOiJzaWduZXIiLCJ0eXAiOiJKV1QiLCJhbGciOiJQUzI1NiJ9.eyJzb2Z0d2FyZV9tb2RlIjo
 
 ## 3.3 Sending an RFC7591 Dynamic Client Registration Request
 
-Please see Open Banking Brasil Dynamic Client Registration
+Please see Open Finance Brasil Dynamic Client Registration
 
 ## 3.4 Saving the RFC7592 Dynamic Client Management Token
 
-Please see Open Banking Brasil Dynamic Client Registration
+Please see Open Finance Brasil Dynamic Client Registration
 
 ## 3.5 Modifying a client using RFC7592 Dynamic Client Management Token
 
-Please see Open Banking Brasil Dynamic Client Registration
+Please see Open Finance Brasil Dynamic Client Registration
 
 ## 4.0 Obtaining Access to Customers Resources
 
@@ -650,9 +650,9 @@ curl --cert transport.pem --key transport.key -H 'Authorization: Bearer 2Pjwts8m
 
 ### 4.3.1 Create OpenID Connect Request Object
 
-Different methods of authentication (_private_key_jwt_ and _tls_client_auth_) and of sending Request Object (with and without *PAR*) can be supported by _Authorization Servers_ according to the [FAPI-1.0 Part 2 - Advanced](https://openid.net/specs/openid-financial-api-part-2-1_0.html) specification. Therefore, how does it reinforce the security profile for Open Banking Brasil (item 8 of section 5.2.3 of the [security requirements for the confidential client](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID3.html#section-5.2.3)), *all* combinations (table below) must be supported by API clients.
+Different methods of authentication (_private_key_jwt_ and _tls_client_auth_) and of sending Request Object (with and without *PAR*) can be supported by _Authorization Servers_ according to the [FAPI-1.0 Part 2 - Advanced](https://openid.net/specs/openid-financial-api-part-2-1_0.html) specification. Therefore, how does it reinforce the security profile for Open Finance Brasil (item 8 of section 5.2.3 of the [security requirements for the confidential client](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID3.html#section-5.2.3)), *all* combinations (table below) must be supported by API clients.
 
-The table below reflects the different security profiles and combinations that shall be supported by all API clients (as per the [OIDF certified profiles for Open Banking Brazil](https://openid.net/certification/#FAPI_OPs)) .
+The table below reflects the different security profiles and combinations that shall be supported by all API clients (as per the [OIDF certified profiles for Open Finance Brazil](https://openid.net/certification/#FAPI_OPs)) .
 
 | OIDF Certification Profile |
 | -- |
@@ -661,7 +661,7 @@ The table below reflects the different security profiles and combinations that s
 | BR-OB Adv. OP w/ MTLS, PAR |
 | BR-OB Adv. OP w/ Private Key, PAR |
 
-All requirements for the OpenID Request Object are included in Brasil Open Banking Security Profile
+All requirements for the OpenID Request Object are included in Brasil Open Finance Security Profile
 
 ```
 {
@@ -712,7 +712,7 @@ Signature ommited for brevity
 ### 4.3.1.1 Requesting Specific Claims
 
 It is also optional for TPPs to request additional Identity Claims including CPF and CNPJ.
-These claims are defined in the Brasil Open Banking Security Profile. It is also possible for a
+These claims are defined in the Brasil Open Finance Security Profile. It is also possible for a
 TPP to request that a claim MUST match a given mechanism by relying on
  [OpenID Connect Core Clause 5.5.1](https://openid.net/specs/openid-connect-core-1_0.html#IndividualClaimsRequests)
   to request individual claims.
@@ -883,7 +883,7 @@ BODY {
 
 ### A.2 Example decoded request object body with specific claim values being requested
 
-In this example a client is requesting that the Authorization Server only authenticates the customer if the cpf claim matches the provided value. The processing requirements for requests with a specific 'cpf' value are defined in the Open Banking Brasil Security Profile.
+In this example a client is requesting that the Authorization Server only authenticates the customer if the cpf claim matches the provided value. The processing requirements for requests with a specific 'cpf' value are defined in the Open Finance Brasil Security Profile.
 
 ```
 {

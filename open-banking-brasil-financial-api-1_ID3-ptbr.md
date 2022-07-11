@@ -1,15 +1,15 @@
 %%%
 
     #
-    # Open Banking Brasil Financial-grade API Security Profile 1.0 Implementers Draft 3
+    # Open Finance Brasil Financial-grade API Security Profile 1.0 Implementers Draft 3
     # (open-banking-brasil-financial-api-1_ID3)
     #
     #
 
-    title = "Open Banking Brasil Financial-grade API Security Profile 1.0 Implementers Draft 3"
-    abbrev = "OBB-FAPI-1-ID3"
+    title = "Open Finance Brasil Financial-grade API Security Profile 1.0 Implementers Draft 3"
+    abbrev = "OFB-FAPI-1-ID3"
     ipr = "none"
-    workgroup = "Open Banking Brasil GT Security"
+    workgroup = "Open Finance Brasil GT Security"
     keyword = ["FAPI", "Open Banking Brasil GT Security"]
 
     [seriesInfo]
@@ -20,9 +20,9 @@
     [[author]]
     initials = "GT"
     surname = "Security"
-    fullname = "OBBIS GT Security"
-    organization = "Open Banking Brasil Initial Structure"
-    abbrev = "OBBIS"
+    fullname = "OFBIS GT Security"
+    organization = "Open Finance Brasil Initial Structure"
+    abbrev = "OFBIS"
       [author.address]
       email = "gt-seguranca@openbankingbr.org"
       uri = "https://openbankingbrasil.org.br/"
@@ -32,20 +32,20 @@
 
 The normative version in [English](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID3.html)
 
-A Estrutura Inicial do Open Banking Brasil (EIOBB) é responsável por criar padrões e especificações necessárias para atender aos requisitos e obrigações da Legislação do Open Banking do Brasil, conforme originalmente delineado pelo [Banco Central do Brasil](https://www.bcb.gov.br/content/config/Documents/BCB_Open_Banking_Communique-April-2019.pdf). É possível que alguns dos elementos deste documento estejam sujeitos a direitos autorais ou patenteados. O EIOBB não se responsabiliza pela identificação de qualquer ou todos esses direitos.
+A Estrutura Inicial do Open Finance Brasil (EIOFB) é responsável por criar padrões e especificações necessárias para atender aos requisitos e obrigações da Legislação do Open Finance do Brasil, conforme originalmente delineado pelo [Banco Central do Brasil](https://www.bcb.gov.br/content/config/Documents/BCB_Open_Banking_Communique-April-2019.pdf). É possível que alguns dos elementos deste documento estejam sujeitos a direitos autorais ou patenteados. O EIOFB não se responsabiliza pela identificação de qualquer ou todos esses direitos.
 
-O Financial-grade API 1.0 do Open Banking Brasil consiste nas seguintes partes:
+O Financial-grade API 1.0 do Open Finance Brasil consiste nas seguintes partes:
 
-* Open Banking Brasil Financial-grade API Security Profile 1.0
-* [Open Banking Brasil Dynamic Client Registration Profile 1.0][OBB-FAPI-DCR]
+* Open Finance Brasil Financial-grade API Security Profile 1.0
+* [Open Finance Brasil Dynamic Client Registration Profile 1.0][OFB-FAPI-DCR]
 
 Estas partes são destinados a serem usados com [RFC6749], [RFC6750], [RFC7636], [OIDC], [FAPI-1-Baseline] e [FAPI-1-Advanced]
 
 .# Introdução  {#Introduction}
 
-A Financial-grade API do Open Banking Brasil é um perfil OAuth altamente seguro que visa fornecer diretrizes de implementação específicas para segurança e interoperabilidade que podem ser aplicadas a APIs na área de Open Banking do Brasil que requerem um nível de privacidade superior ao fornecido pelo padrão [Financial-grade API Security Profile 1.0 - Part 2: Advanced][FAPI-1-Advanced]. Entre outras melhorias, esta especificação aborda considerações de privacidade identificadas em [FAPI-1-Advanced] que são relevantes nas especificações do Open Banking Brasil, mas não foram, até agora, exigidas por outras jurisdições.
+A Financial-grade API do Open Finance Brasil é um perfil OAuth altamente seguro que visa fornecer diretrizes de implementação específicas para segurança e interoperabilidade que podem ser aplicadas a APIs na área de Open Finance do Brasil que requerem um nível de privacidade superior ao fornecido pelo padrão [Financial-grade API Security Profile 1.0 - Part 2: Advanced][FAPI-1-Advanced]. Entre outras melhorias, esta especificação aborda considerações de privacidade identificadas em [FAPI-1-Advanced] que são relevantes nas especificações do Open Finance Brasil, mas não foram, até agora, exigidas por outras jurisdições.
 
-Embora seja possível codificar um provedor de OpenID e parte de confiança a partir dos primeiros princípios usando esta especificação, o público principal para esta especificação são as partes que já possuem uma implementação certificada do [Financial-grade API Security Profile 1.0 - Part 2: Advanced][FAPI-1-Advanced] e deseja obter a certificação para o programa Brasil Open Banking.
+Embora seja possível codificar um provedor de OpenID e parte de confiança a partir dos primeiros princípios usando esta especificação, o público principal para esta especificação são as partes que já possuem uma implementação certificada do [Financial-grade API Security Profile 1.0 - Part 2: Advanced][FAPI-1-Advanced] e deseja obter a certificação para o programa Brasil Open Finance.
 
 .# Convenções Notacionais  {#Notational}
 
@@ -64,11 +64,11 @@ Estas palavras-chave não são usadas como termos de dicionário, de modo que qu
 
 Este documento especifica o método para os aplicativos
 
-* obterem de maneira segura os tokens OAuth necessários para acesso a dados críticos de acordo com os requisitos do [Open Banking Brasil](https://www.in.gov.br/en/web/dou/-/resolucao-conjunta-n-1-de-4-de-maio-de-2020-255165055);
-* utilizarem o OpenID Connect para identificação do usuário do Open Banking; e
+* obterem de maneira segura os tokens OAuth necessários para acesso a dados críticos de acordo com os requisitos do [Open Finance Brasil](https://www.in.gov.br/en/web/dou/-/resolucao-conjunta-n-1-de-4-de-maio-de-2020-255165055);
+* utilizarem o OpenID Connect para identificação do usuário do Open Finance; e
 * utilizarem o OpenID Connect para afirmar a identidade do cliente.
 
-Este documento é aplicável a todos os participantes do Open Banking no Brasil.
+Este documento é aplicável a todos os participantes do Open Finance no Brasil.
 
 # Referências normativas  {#Normative}
 
@@ -140,8 +140,11 @@ Os seguintes documentos referenciados são indispensáveis para a adoção das e
 [LIWP] - OIDF FAPI WG Lodging Intent Working Paper
 [LIWP]: <https://bitbucket.org/openid/fapi/src/master/Financial_API_Lodging_Intent.md
 
-[OBB-FAPI-DCR] - Open Banking Brasil Financial-grade API Dynamic Client Registration Profile 1.0
-[OBB-FAPI-DCR]: <https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID2.html
+[LIWP] - OIDF FAPI WG Lodging Intent Working Paper
+[LIWP]: <https://bitbucket.org/openid/fapi/src/master/Financial_API_Lodging_Intent.md
+
+[OFB-FAPI-DCR] - Open Finance Brasil Financial-grade API Dynamic Client Registration Profile 1.0
+[OFB-FAPI-DCR]: <https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID2.html
 
 [RFC4648] - The Base16, Base32, and Base64 Data Encodings
 [RFC4648]: <https://tools.ietf.org/html/rfc4648
@@ -155,7 +158,7 @@ Para efeitos deste documento, os termos definidos em [RFC6749], [RFC6750], [RFC7
 * **API** - Application Programming Interface (Interface de programação de aplicativo)
 * **CSRF** - Cross Site Request Forgery
 * **DCR** - Registro de cliente dinâmico
-* **EIOBB** - Estrutura Inicial do Open Banking Brasil
+* **EIOFB** - Estrutura Inicial do Open Finance Brasil
 * **FAPI** - Financial-grade API
 * **HTTP** - Protocolo de transferência de hipertexto
 * **MFA** - Multi-Factor Authentication (Autenticação por Múltiplos Fatores)
@@ -163,32 +166,32 @@ Para efeitos deste documento, os termos definidos em [RFC6749], [RFC6750], [RFC7
 * **REST** - Representational State Transfer (Transferência de Estado Representacional)
 * **TLS** - Transport Layer Security (Segurança da Camada de Transporte)
 
-# Profile de Segurança para o Open Banking Brasil {#securityprofile}
+# Profile de Segurança para o Open Finance Brasil {#securityprofile}
 
 ## Introdução  {#secintroduction}
 
-O perfil de segurança do Open Banking Brasil especifica requisitos adicionais de segurança e de  identificação para o acesso a API´s com recursos críticos protegidas pelo OAuth 2.0 Authorization Framework, que consiste em [RFC6749], [RFC6750], [RFC7636], [FAPI-1-Baseline], [FAPI-1-Advanced] e outras especificações.
+O perfil de segurança do Open Finance Brasil especifica requisitos adicionais de segurança e de  identificação para o acesso a API´s com recursos críticos protegidas pelo OAuth 2.0 Authorization Framework, que consiste em [RFC6749], [RFC6750], [RFC7636], [FAPI-1-Baseline], [FAPI-1-Advanced] e outras especificações.
 
-Este perfil descreve as capacidades e os recursos de segurança que devem ser oferecidos por servidores e clientes que são necessários para o Programa do Open Banking Brasil, definindo as medidas para mitigar ou endereçar:
+Este perfil descreve as capacidades e os recursos de segurança que devem ser oferecidos por servidores e clientes que são necessários para o Programa do Open Finance Brasil, definindo as medidas para mitigar ou endereçar:
 
 * ataques que abordam considerações de privacidade identificadas na cláusula 9.1 de [FAPI-1 Advanced].
 * o requisito de concessão de acesso granular a recursos, com vistas à minimização de dados;
 * o requisito de informar sobre o contexto da autenticação do usuário (claim Authentication Context Request - acr) que foi realizada por um Provedor OpenID, com vistas a favorecer o adequado gerenciamento do risco decorrente do acesso do usuário;
 * o requisito para que os clientes de API declarem um relacionamento prévio com o usuário, afirmando em uma `claim` de identificação do usuário como parte do fluxo de autorização.
 
-## Disposições de segurança do Open Banking Brasil  {#authserver}
+## Disposições de segurança do Open Finance Brasil  {#authserver}
 
 ### Introdução  {#authintrod}
 
-O Open Banking Brasil tem um requisito para endereçar considerações de privacidade que foram identificadas, mas não abordadas na especificação final [FAPI-1-Advanced], sem impor requisitos adicionais aos Servidores de Autorização que estão sendo propostos em [FAPI-2-Baseline].
+O Open Finance Brasil tem um requisito para endereçar considerações de privacidade que foram identificadas, mas não abordadas na especificação final [FAPI-1-Advanced], sem impor requisitos adicionais aos Servidores de Autorização que estão sendo propostos em [FAPI-2-Baseline].
 
 Os participantes desse ecossistema precisam que os clientes de API solicitem a um provedor openid a confirmação dos valores das `claims` de identificação do usuário como parte de uma solicitação de autorização usando o mecanismo definido na cláusula 5.5.1 de [OIDC].
 
 O uso do parâmetro `claims` para solicitar a validação de valores de identificação explícitos requer que os clientes de API protejam com criptografia o Request Object para evitar vazamento de informações. Este risco é identificado na cláusula 7.4.1 do [FAPI-1-Baseline].
 
-Além disso, este perfil descreve o escopo específico, valores de `acr` e requisitos de gerenciamento de clientes necessários para dar suporte ao ecossistema Open Banking Brasil mais amplo.
+Além disso, este perfil descreve o escopo específico, valores de `acr` e requisitos de gerenciamento de clientes necessários para dar suporte ao ecossistema Open Finance Brasil mais amplo.
 
-Como um perfil do OAuth 2.0 Authorization Framework, este documento exige o seguinte para o perfil de segurança do Open Banking Brasil.
+Como um perfil do OAuth 2.0 Authorization Framework, este documento exige o seguinte para o perfil de segurança do Open Finance Brasil.
 
 ### Servidor de Autorização  {#authprovisions}
 
@@ -213,12 +216,13 @@ Além disso, ele deve:
 15. deve suportar os valores `code` e `id_token` para o atributo `response_type`;
 16. pode suportar o valor `code` para o atributo `response_type`em conjunto com o valor `jwt` para o atributo `response_mode`;
 17. não deve permitir o recurso de rotação de `refresh tokens`;
-18. deve garantir que em caso de compartilhamento do Servidor de Autorização para outros serviços, além do Open Banking, não divulgue e/ou possibilite o uso de métodos não certificados no ambiente do Open Banking;
+18. deve garantir que em caso de compartilhamento do Servidor de Autorização para outros serviços, além do Open Finance, não divulgue e/ou possibilite o uso de métodos não certificados no ambiente do Open Finance;
 19. deve garantir que as configurações divulgadas aos demais participantes através do `OpenID Discovery` (indicado pelo arquivo de `Well-Known` cadastrado no Diretório) sejam restritos aos modos de operação aos quais a instituição se certificou;
     1. deve manter em suas configurações os métodos para os quais ainda hajam clientes ativos;
     2. deve atualizar os cadastros que utilizem métodos não certificados, através de tratamento bilateral entre as instituições envolvidas.
-20. deve recusar requisições, para o ambiente do Open Banking, que estejam fora dos modos de operação ao qual a instituição certificou seu Servidor de Autorização;
+20. deve recusar requisições, para o ambiente do Open Finance, que estejam fora dos modos de operação ao qual a instituição certificou seu Servidor de Autorização;
 21. deve recusar requisições de autenticação que incluam um id_token_hint, visto que o id_token em posse do requisitante pode conter Informação de Identificação Pessoal, que poderia ser enviada descriptografada pelo cliente público.
+
 
 #### Token de ID como assinatura separada  {#detached}
 
@@ -237,19 +241,29 @@ Além disso, se o valor `response_type` `code id_token` for usado, o servidor de
 4. Para a criptografia do id_token deve ser utilizada chave disponível no `JWKS` informado no parâmetro `jwks_uri` durante o registro do cliente, indicada através do cabeçalho `kid` do documento JWT;
 5. O uso de outros cabeçalhos para indicação da chave utilizada, como `x5u`, `x5c`, `jku` ou `jkw` é vetado conforme definido na cláusula 2 [OIDC].
 
+
 #### Solicitando uma "claim" **cpf**  {#cpf}
 
-Este perfil define "cpf" como uma nova `claim` padrão de acordo com cláusula 5.1 [OIDC]
+Este perfil define "cpf" como uma nova `claim` padrão de acordo com
+ cláusula 5.1 [OIDC]
 
-O número do **CPF** (Cadastro de Pessoas Físicas, [sepeˈɛfi]; português para "Registro de Pessoas Físicas") é o cadastro de pessoa física **brasileira**. Este número é atribuído pela Receita Federal **Brasileira** para brasileiros e estrangeiros residentes que, direta ou indiretamente, pagar impostos no **Brasil**.
+O número do **CPF** (Cadastro de Pessoas Físicas, [sepeˈɛfi]; português para "Registro de Pessoas Físicas")
+ é o cadastro de pessoa física **brasileira**. Este número é atribuído pela Receita Federal
+ **Brasileira** para brasileiros e estrangeiros residentes que, direta ou indiretamente,
+ pagar impostos no **Brasil**.
 
-No modelo de identidade do Open Banking Brasil, o cpf é uma string composta por números 11 caracteres de comprimento e podem começar com 0.
+No modelo de identidade do Open Finance Brasil, o cpf é uma string composta por números 11
+ caracteres de comprimento e podem começar com 0.
 
-Se a Claim **cpf** for solicitada como essencial para constar no ID token ou na resposta ao endpoint de UserInfo e na solicitação constar no parâmetro `value` com determinado **CPF** exigido, o Authorization Server **DEVE** retornar no atributo **cpf** o valor que corresponda ao da solicitação.
+Se a Claim **cpf** for solicitada como essencial para constar no ID token ou na resposta ao endpoint de UserInfo
+ e na solicitação constar no parâmetro `value` com determinado **CPF** exigido, o Authorization Server **DEVE** retornar no atributo **cpf**
+  o valor que corresponda ao da solicitação.
 
-Se a Claim **cpf** for solicitada como essencial para constar no ID Token ou na resposta no endpoint de UserInfo, o Authorization Server deve retornar no atributo **cpf** o valor com o **CPF** do usuário autenticado.
+Se a Claim **cpf** for solicitada como essencial para constar no ID Token ou na resposta no endpoint de UserInfo,
+ o Authorization Server deve retornar no atributo **cpf** o valor com o **CPF** do usuário autenticado.
 
-Se a Claim **cpf** indicada como essencial não puder ser preenchida ou não for compatível com o requisito, o Authorization Server deve tratar a solicitação como uma tentativa de autenticação com falha.
+Se a Claim **cpf** indicada como essencial não puder ser preenchida ou não for compatível com o requisito,
+ o Authorization Server deve tratar a solicitação como uma tentativa de autenticação com falha.
 
 Se a Claim **cpf** indicada como essencial for solicitada no endpoint de Autorização, deverá seguir as regras definidas na seção 5.2.2.1.
 
@@ -257,24 +271,41 @@ Nome: cpf, Tipo: String, Regex: '^\d{11}$'
 
 #### Solicitando a "claim" **cnpj**  {#cnpj}
 
-Este perfil define "cnpj" como uma nova reivindicação padrão de acordo com cláusula 5.1 [OIDC]
+Este perfil define "cnpj" como uma nova reivindicação padrão de acordo
+ com cláusula 5.1 [OIDC]
 
-**CNPJ**, abreviação de Cadastro Nacional de Pessoas Jurídicas, é um número de identificação de empresas **brasileiras** emitidas pelo Ministério da Fazenda **brasileira**, **na** "Secretaria da Receita Federal" ou "Ministério da Fazenda" do Brasil. No modelo de identidade do Open Banking Brasil, pessoas físicas podem se associar a 0 ou mais CNPJs. Um CNPJ é uma string que consiste em números de 14 dígitos e pode começar com 0, os primeiros oito dígitos identificam a empresa, os quatro dígitos após a barra identificam a filial ou subsidiária ("0001" padrão para a sede), e os dois últimos são dígitos de soma de verificação. Para este perfil, o pedido de cnpj deve ser solicitado e fornecido como o número de 14 dígitos.
+**CNPJ**, abreviação de Cadastro Nacional de Pessoas Jurídicas, é um número de identificação
+ de empresas **brasileiras** emitidas pelo Ministério da Fazenda **brasileira**, **na**
+ "Secretaria da Receita Federal" ou "Ministério da Fazenda" do Brasil. No modelo de identidade do Open Finance Brasil,
+ pessoas físicas podem se associar a 0 ou mais CNPJs. Um CNPJ é uma string que consiste em números de 14 dígitos e pode começar com 0,
+ os primeiros oito dígitos identificam a empresa, os quatro dígitos após a barra identificam a filial
+ ou subsidiária ("0001" padrão para a sede), e os dois últimos são dígitos de soma de verificação.
+ Para este perfil, o pedido de cnpj deve ser solicitado e fornecido como o número de 14 dígitos.
 
-Se a Claim **cnpj** for solicitada como essencial para constar no ID Token ou na resposta ao endpoint UserInfo e na solicitação constar, no parâmetro `value`, determinado **CNPJ** exigido, o Authorization Server **DEVE** retornar no atributo **cnpj** um **conjunto** de **CNPJs** relacionado com o usuário, um dos quais deve incluir valor que corresponda ao da solicitação.
+Se a Claim **cnpj** for solicitada como essencial para constar no ID Token ou na resposta ao endpoint UserInfo e na solicitação constar,
+ no parâmetro `value`, determinado **CNPJ** exigido, o Authorization Server **DEVE** retornar no atributo **cnpj**
+ um **conjunto** de **CNPJs** relacionado com o usuário, um dos quais deve incluir valor que corresponda ao da solicitação.
 
-Se a Claim **cnpj** for solicitada como essencial para constar no ID Token ou na resposta ao endpoint UserInfo, o Authorization Server deve incluir no ID Token ou na resposta ao endpoint UserInfo um **conjunto** que inclua um elemento com o número do **CNPJ** relacionado à conta utilizada na autenticação do usuário.
+Se a Claim **cnpj** for solicitada como essencial para constar no ID Token ou na resposta ao endpoint UserInfo,
+ o Authorization Server deve incluir no ID Token ou na resposta ao endpoint UserInfo um **conjunto** que inclua um elemento
+ com o número do **CNPJ** relacionado à conta utilizada na autenticação do usuário.
 
-Se a Claim **cnpj** indicada como essencial não puder ser preenchida ou validada, o Authorization Server deve tratar a solicitação como uma tentativa de autenticação com falha.
+Se a Claim **cnpj** indicada como essencial não puder ser preenchida
+ ou validada, o Authorization Server deve tratar a solicitação como
+ uma tentativa de autenticação com falha.
 
 Nome: cnpj, Tipo: Array of Strings, Array Element Regex: '^\d{14}$'
 
 #### Solicitando o "urn:brasil:openbanking:loa2" ou "urn:brasil:openbanking:loa3" Solicitação de contexto de autenticação  {#loa}
 
+Esse perfil define "urn:brasil:openbanking:loa2" e "urn:brasil:openbanking:loa3" como
+ novas classes de "Authentication Context Request" (ACR)
+
 * **LoA2**: mecanismo de autenticação com a adoção de um único fator
 * **LoA3**: mecanismo de autenticação com múltiplos fatores de autenticação
 
-A seguinte orientação deve ser observada para o mecanismo de autenticação:
+A seguinte orientação deve ser observada para o mecanismo de autenticação das APIs do Open Finance Brasil:
+
 * De acordo com o Art. 17 da Resolução Conjunta nº 01, as instituições devem adotar  procedimentos e controles para autenticação de cliente **compatíveis com os aplicáveis ao acesso a seus canais de atendimento eletrônicos**.
 * Em observância à regulação em vigor, sugere-se que:
   * **Para a autenticação do usuário em autorizações de acessos às APIs de compartilhamento de dados (Fase 2)**, os _Authorization Servers_ **deveriam** adotar, no mínimo, método compatível com `LoA2`; e
@@ -312,7 +343,10 @@ Além disso, o cliente confidencial
 
 # Considerações de segurança  {#authserver}
 
-Os participantes devem apoiar todas as considerações de segurança especificadas na cláusula 8 [Financial-grade API Security Profile 1.0 - Parte 2: Advanced] [FAPI-1-Advanced] e o [Manual de Segurança de Banco Central do Brasil] (https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Instru%C3%A7%C3%A3o%20Normativa%20BCB&numero=134). O ICP brasileiro emite certificados RSA x509 somente, portanto, para simplificar, a seção remove o suporte para algoritmos EC e exige que apenas algoritmos de criptografia recomendados pela IANA sejam usados.
+Os participantes devem apoiar todas as considerações de segurança especificadas na cláusula 8
+ [Financial-grade API Security Profile 1.0 - Parte 2: Advanced] [FAPI-1-Advanced] e o [Manual de Segurança de Banco Central do Brasil] (https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Instru%C3%A7%C3%A3o%20Normativa%20BCB&numero=134).
+ O ICP Brasil emite certificados RSA x509 somente, portanto, para simplificar, a seção remove o suporte para algoritmos EC
+ e exige que apenas algoritmos de criptografia recomendados pela IANA sejam usados.
 
 ## Considerações sobre assinatura do conteúdo de mensagens (JWS) {#jws}
 
@@ -341,7 +375,7 @@ Os participantes devem apoiar todas as considerações de segurança especificad
 
 6. O receptor  deve validar a consistência da assinatura digital da mensagem JWS **exclusivamente com base nas informações obtidas do diretório**, ou seja, com base nas chaves publicadas no JWKS da instituição no diretório.
 
-7. As assinaturas devem ser realizadas com uso do certificado digital de assinatura especificado no [Padrão de Certificados Open Banking Brasil](https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil-certificate-standards-1_ID1-ptbr.md#certificado-de-assinatura-certificadoassinatura);
+7. As assinaturas devem ser realizadas com uso do certificado digital de assinatura especificado no [Padrão de Certificados Open Finance Brasil](https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil-certificate-standards-1_ID1-ptbr.md#certificado-de-assinatura-certificadoassinatura);
 
 8. A claim _iat_ deve ser numérica no formato Unix Time GMT+0 com tolerância de +/- 60 segundos;
 
@@ -373,7 +407,7 @@ Para TLS, endpoints do Servidor de Autenticação e endpoints do Servidor de Rec
 
 ### Introdução  {#authmechintro}
 
-Os mecanismos existentes para gerenciar adequadamente o acesso aos recursos definidos em [RFC6749] são insuficientes para atender aos requisitos de um ecossistema de compartilhamento de dados moderno. Aproveitar strings de escopo estático não fornece aos consumidores controle de granularidade suficiente para compartilhar com terceiros. O Open Banking Brasil optou por implementar uma [API de consentimento](https://openbanking-brasil.github.io/areadesenvolvedor/swagger/swagger_consents_apis.yaml) como um recurso protegido OAuth 2.0 que pode ser usado para gerenciar o acesso granular aos recursos. A referência ao recurso de consentimento será transmitida como parte de um escopo de recurso dinâmico OAuth 2.0.
+Os mecanismos existentes para gerenciar adequadamente o acesso aos recursos definidos em [RFC6749] são insuficientes para atender aos requisitos de um ecossistema de compartilhamento de dados moderno. Aproveitar strings de escopo estático não fornece aos consumidores controle de granularidade suficiente para compartilhar com terceiros. O Open Finance Brasil optou por implementar uma [API de consentimento](https://openbanking-brasil.github.io/areadesenvolvedor/swagger/swagger_consents_apis.yaml) como um recurso protegido OAuth 2.0 que pode ser usado para gerenciar o acesso granular aos recursos. A referência ao recurso de consentimento será transmitida como parte de um escopo de recurso dinâmico OAuth 2.0.
 
 ### Definição de Escopo de Consentimento Dinâmico  {#consent}
 
@@ -381,17 +415,13 @@ Este perfil define o escopo dinâmico do OAuth 2.0 "consentimento" da seguinte m
 
 * string 'consent'; e
 * delimitador de dois pontos ":"; e
-* Consent API REST Resource Id retornado por uma criação bem-sucedida de [Open Banking Consent Resource](https://openbanking-brasil.github.io/areadesenvolvedor/#fase-2-apis-do-open-banking-brasil-api-consentimento);
+* Consent API REST Resource Id retornado por uma criação bem-sucedida de [Open Finance Consent Resource](https://openbanking-brasil.github.io/areadesenvolvedor/#fase-2-apis-do-open-banking-brasil-api-consentimento);
 
 Adicionalmente:
 
 * Consent Resource Id deve incluir caracteres seguros para url;
 * Consent Resource Id deve ser "namespaced";
 * Consent Resource Id deve ter propriedades de um `nonce` [Nonce](https://openid.net/specs/openid-connect-core-1_0.html#NonceNotes);
-
-### Dynamic Consent Scope Example  {#consentexample}
-
-consent:urn:bancoex:C1DD33123
 
 ### Exemplo de escopo de consentimento dinâmico  {#consentid}
 
@@ -401,14 +431,15 @@ consent:urn:bancoex:C1DD33123
 
 ### Introdução  {#lifecycleintro}
 
-O recurso de consentimento tem um ciclo de vida gerenciado separada e distintamente da estrutura de autorização OAuth 2.0. As transições de estado e comportamentos esperados e condições de erro esperados dos Recursos REST protegidos com este perfil são definidos nas especificações funcionais da API publicadas pelo Open Banking Brasil.
+O recurso de consentimento tem um ciclo de vida gerenciado separada e distintamente da estrutura de autorização OAuth 2.0. As transições de estado e comportamentos esperados e condições de erro esperados dos Recursos REST protegidos com este perfil são definidos nas especificações funcionais da API publicadas pelo Open Finance Brasil.
 
 ### Servidor de autorização  {#lifecycleauth}
 
-Além dos requisitos descritos nas disposições de segurança do Open Banking Brasil, o Servidor de Autorização
+Além dos requisitos descritos nas disposições de segurança do Open Finance Brasil, o Servidor de Autorização
 
 1. deve apenas emitir _refresh_tokens_ quando vinculados a um consentimento ativo e válido;
 2. só deve compartilhar o acesso aos recursos quando apresentado _access_token_ vinculado a um consentimento ativo e válido;
+   1. No cenário de recebimento de token inválido, deve ser retornado status code 401.
 3. deve revogar os _refresh tokens_ e, quando aplicável, os _access tokens_ quando o Consentimento (Consent Resource) relacionado for apagado;
 4. deve garantir que os _access tokens_ são emitidos com os _scopes_ necessários para permitir acesso aos dados especificados em elemento _Permission_ do Consentimento (Consent Resource Object) relacionado;
 5. não deve rejeitar pedido de autorização com _scopes_ além do necessário para permitir acesso a dados definidos em elemento _Permission_ do Consentimento (Consent Resource Object) relacionado;
@@ -421,14 +452,14 @@ Além dos requisitos descritos nas disposições de segurança do Open Banking B
 
 ### Cliente confidencial  {#clientconfidential}
 
-Além dos requisitos descritos nas disposições de segurança do Open Banking Brasil, o Cliente Confidencial
+Além dos requisitos descritos nas disposições de segurança do Open Finance Brasil, o Cliente Confidencial
 
 1. deve, sempre que possível, revogar e cessar o uso de _refresh_ e de _access tokens_  vinculados a um consentimento (Consent Resource Object) que foi excluído;
 2. deve excluir consentimentos (Consent Resource Objects) que estão expirados;
 
 # Reconhecimentos  {#acknowledgement}
 
-Agradecemos a todos que estabeleceram as bases para o compartilhamento seguro e seguro de dados por meio da formação do Grupo de Trabalho FAPI da OpenID Foundation, o GT de Segurança do Open Banking Brasil e aos pioneiros que ficarão em seus ombros.
+Agradecemos a todos que estabeleceram as bases para o compartilhamento seguro e seguro de dados por meio da formação do Grupo de Trabalho FAPI da OpenID Foundation, o GT de Segurança do Open Finance Brasil e aos pioneiros que ficarão em seus ombros.
 
 As seguintes pessoas contribuíram para este documento:
 
@@ -443,8 +474,8 @@ As seguintes pessoas contribuíram para este documento:
 
 # Avisos  {#disclaimer}
 
-Copyright (c) 2022 Estrutura Inicial do Open Banking Brasil
+Copyright (c) 2022 Estrutura Inicial do Open Finance Brasil
 
-A Estrutura Inicial do Open Banking Brasil (EIOBB) concede a qualquer Colaborador, desenvolvedor, implementador ou outra parte interessada uma licença de direitos autorais mundial não exclusiva, livre de royalties para reproduzir, preparar trabalhos derivados, distribuir, executar e exibir, estes Implementadores Rascunho ou Especificação Final exclusivamente para fins de (i) desenvolver especificações e (ii) implementar Rascunhos de Implementadores e Especificações Finais com base em tais documentos, desde que a atribuição seja feita ao EIOBB como a fonte do material, mas que tal atribuição o faça não indica endosso do EIOBB.
+A Estrutura Inicial do Open Finance Brasil (EIOFB) concede a qualquer Colaborador, desenvolvedor, implementador ou outra parte interessada uma licença de direitos autorais mundial não exclusiva, livre de royalties para reproduzir, preparar trabalhos derivados, distribuir, executar e exibir, estes Implementadores Rascunho ou Especificação Final exclusivamente para fins de (i) desenvolver especificações e (ii) implementar Rascunhos de Implementadores e Especificações Finais com base em tais documentos, desde que a atribuição seja feita ao EIOFB como a fonte do material, mas que tal atribuição o faça não indica endosso do EIOFB.
 
-A tecnologia descrita nesta especificação foi disponibilizada a partir de contribuições de várias fontes, incluindo membros da OpenID Foundation, do Grupo de Trabalho de Segurança do Open Banking Brasil e outros. Embora a Estrutura Inicial do Open Banking Brasil tenha tomado medidas para ajudar a garantir que a tecnologia esteja disponível para distribuição, ela não toma posição quanto à validade ou escopo de qualquer propriedade intelectual ou outros direitos que possam ser reivindicados como pertencentes à implementação ou uso do tecnologia descrita nesta especificação ou até que ponto qualquer licença sob tais direitos pode ou não estar disponível; nem representa que fez qualquer esforço independente para identificar tais direitos. A Estrutura Inicial do Open Banking Brasil e os contribuidores desta especificação não oferecem (e por meio deste expressamente se isentam de quaisquer) garantias (expressas, implícitas ou de outra forma), incluindo garantias implícitas de comercialização, não violação, adequação a uma finalidade específica ou título, relacionados a esta especificação, e todo o risco quanto à implementação desta especificação é assumido pelo implementador. A política de Direitos de Propriedade Intelectual do Open Banking Brasil exige que os contribuidores ofereçam uma promessa de patente de não fazer valer certas reivindicações de patentes contra outros contribuidores e implementadores. A Estrutura Inicial do Open Banking Brasil convida qualquer parte interessada a trazer à sua atenção quaisquer direitos autorais, patentes, pedidos de patentes ou outros direitos de propriedade que possam abranger a tecnologia que possa ser necessária para praticar esta especificação.
+A tecnologia descrita nesta especificação foi disponibilizada a partir de contribuições de várias fontes, incluindo membros da OpenID Foundation, do Grupo de Trabalho de Segurança do Open Finance Brasil e outros. Embora a Estrutura Inicial do Open Finance Brasil tenha tomado medidas para ajudar a garantir que a tecnologia esteja disponível para distribuição, ela não toma posição quanto à validade ou escopo de qualquer propriedade intelectual ou outros direitos que possam ser reivindicados como pertencentes à implementação ou uso do tecnologia descrita nesta especificação ou até que ponto qualquer licença sob tais direitos pode ou não estar disponível; nem representa que fez qualquer esforço independente para identificar tais direitos. A Estrutura Inicial do Open Finance Brasil e os contribuidores desta especificação não oferecem (e por meio deste expressamente se isentam de quaisquer) garantias (expressas, implícitas ou de outra forma), incluindo garantias implícitas de comercialização, não violação, adequação a uma finalidade específica ou título, relacionados a esta especificação, e todo o risco quanto à implementação desta especificação é assumido pelo implementador. A política de Direitos de Propriedade Intelectual do Open Finance Brasil exige que os contribuidores ofereçam uma promessa de patente de não fazer valer certas reivindicações de patentes contra outros contribuidores e implementadores. A Estrutura Inicial do Open Finance Brasil convida qualquer parte interessada a trazer à sua atenção quaisquer direitos autorais, patentes, pedidos de patentes ou outros direitos de propriedade que possam abranger a tecnologia que possa ser necessária para praticar esta especificação.

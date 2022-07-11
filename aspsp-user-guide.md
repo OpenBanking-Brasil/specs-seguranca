@@ -1,28 +1,28 @@
-# Open Banking Brasil
+# Open Finance Brasil
 
 ## Ecosystem Overview
 
-At its heart, Open Banking Brasil is a Data Sharing ecosystem where Customers of Banks and other Financial Institutions wish to share their account information or give permission for payments to be executed on their behalf with third party services.
+At its heart, Open Finance Brasil is a Data Sharing ecosystem where Customers of Banks and other Financial Institutions wish to share their account information or give permission for payments to be executed on their behalf with third party services.
 
 There are a number of roles required to tie any system of Identification, Authentication and Authorization together, irrespective of sector. All these roles are required, but multiple roles may be held by each participant. In general, the end User ("Subject"), is giving a system ("Client") a pass ("Access Token") to access a protected resource held by the Provider ("Resource Server"). This requires the User and Client to be Identified and Authenticated, and for the Authorization to be confirmed.
 
 The exact rules and legal requirements for each role in a specific sector forms a "Trust Framework". Each ecosystem requires a standardised set of rules and legal requirements that covers all the roles and obligations for the above interactions. The combination of who provides which role(s), and the levels to which they must carry out those roles and the standards which they those operations must be performed can be captured in a sector specific "Trust Framework".
 
-Different Trust Frameworks will have different implementation options, but a common Trust Framework is a prerequisite to turn a 'sector' into an 'ecosystem'. A common trust framework significantly reduces complexity and hence costs, increases scalability and interoperability within the sector as well as opening up options for the type of cross-sector standardisation that Open Banking Brasil is pursuing.
+Different Trust Frameworks will have different implementation options, but a common Trust Framework is a prerequisite to turn a 'sector' into an 'ecosystem'. A common trust framework significantly reduces complexity and hence costs, increases scalability and interoperability within the sector as well as opening up options for the type of cross-sector standardisation that Open Finance Brasil is pursuing.
 
 Different implementations can be defined for sectors, which have different pros / cons and costs associated for different participants. Each of the proposed implementations could be used for any sector if the right prerequisites are in place. The right solution will depend on the appetite and alignment of each set of participants.
 
-Implementation of a common mechanism for Open Banking Brasil will require a commitment to symmetry across sectors to build sector-specific details into the Trust Framework principles.
+Implementation of a common mechanism for Open Finance Brasil will require a commitment to symmetry across sectors to build sector-specific details into the Trust Framework principles.
 
 Technical choices need to be made to ensure that any implementation provides a strict and consistent base to be credible, but retains the flexibility to adapt to future needs. This implies open-source standards which are widely available, widely understood, and have been tried and tested. In addition, there are a choice of partners who could manage any technical build, meaning any commercial market is maintained.
 
 ### Participants in a Data Sharing Ecosystem
 
-In the consumer-focused Open Banking ecosystems we are considering, we have three main players:
+In the consumer-focused Open Finance ecosystems we are considering, we have three main players:
 
 * the User (Consumer)
-* the Provider (offering core Banking Services)
-* and a Third Party Provider (TPP, offering an Open Banking proposition):
+* the Provider (offering core Finance Services)
+* and a Third Party Provider (TPP, offering an Open Finance proposition):
 
 In all the cases that follow, we assume:
 
@@ -43,7 +43,7 @@ The technical **services** necessary to support an ecosystem therefor must enabl
 
 ### Specification Principles and High Level Requirements
 
-Open Banking Brasil has adopted the following high level principles and requirements when it comes to the technical standards
+Open Finance Brasil has adopted the following high level principles and requirements when it comes to the technical standards
 
 * Consent
   * Customers must always be in control of who has access to their data and for what purposes it is being used.
@@ -65,7 +65,7 @@ In addition to the high level requirements the following principles have also be
 * Engage with other standards bodies to learn from past experience regarding what has worked, what has not worked and what can be done better.
 * Ensure wide spread industry support and by in to ensure maximum chances of success and most importantly customer safety.
 * Solicit feedback early and often and recognise that it will take several iterations to develop a standard as defined by World Trade Organisation processes.
-* The Trust Framework underpinning the data sharing ecosystem that is Open Banking Brasil is a technical framework that needs to be flexible enough to allow participants and the ecosystem to innovate, grow and develop whilst remaining interoperable.
+* The Trust Framework underpinning the data sharing ecosystem that is Open Finance Brasil is a technical framework that needs to be flexible enough to allow participants and the ecosystem to innovate, grow and develop whilst remaining interoperable.
 
 All participants must be assured that all actors within the ecosystem are handling their data safely, securely at all times. This requires that all participants publicly test their systems for conformance to the specifications and make available the results of their conformance testing for public scrutiny by other participants.
 
@@ -87,7 +87,7 @@ between the resource owner and the HTTP service, or by allowing the
 
 third-party application to obtain access on its own behalf.
 
-The base OAuth 2.0. specification does not provide by itself enough information in order to meet all of the needs defined by the Open Banking Basil trust framework. Most notably it is missing a way to convey Customer Identity information in a standardized format from a Provider to a Client and the authentication mechanisms that were defined in the original specification are not secure enough to meet the requirements of a highly regulated industry.
+The base OAuth 2.0. specification does not provide by itself enough information in order to meet all of the needs defined by the Open Finance Basil trust framework. Most notably it is missing a way to convey Customer Identity information in a standardized format from a Provider to a Client and the authentication mechanisms that were defined in the original specification are not secure enough to meet the requirements of a highly regulated industry.
 
 ### OpenID Connect - The Identity Layer for the Internet
 
@@ -116,7 +116,7 @@ client metadata fields and values for clients to use during registration.
 
 [RFC7592:](https://tools.ietf.org/html/rfc7592) This specification defines methods for management of OAuth 2.0 dynamic client registrations for use cases in which the properties of a registered client may need to be changed during the lifetime of the client.
 
-The above specifications are core specifications that are required reading underpin the Open Banking Brasil
+The above specifications are core specifications that are required reading underpin the Open Finance Brasil
 trust framework however they still are insufficient to meet all of the requirements and principles outlined earlier.
 
 ### OpenID Financial Grade 1.0 : Baseline
@@ -131,7 +131,7 @@ The Baseline profile was originally intended to more easily implementable by Cli
 
 **_This profile inherits all of the obligations of OpenID FAPI 1.0: Baseline_**
 
-The current Gold Standard for API Security, the [FAPI 1.0: Advanced profile](https://openid.net/specs/openid-financial-api-part-2-1_0.html) provide a **framework specification** that has been used as a starting point on which to create a specification for Open Banking Brasil.
+The current Gold Standard for API Security, the [FAPI 1.0: Advanced profile](https://openid.net/specs/openid-financial-api-part-2-1_0.html) provide a **framework specification** that has been used as a starting point on which to create a specification for Open Finance Brasil.
 
 > This document specifies an advanced security profile of OAuth that is suitable to be used for protecting APIs with high inherent risk. Examples include APIs that give access to highly sensitive data or that can be used to trigger financial transactions (e.g., payment initiation). This document specifies the controls against attacks such as: authorization request tampering, authorization response tampering including code injection, state injection, and token request phishing. Additional details are available in the security considerations section.
 
@@ -154,9 +154,9 @@ Support [JARM](<https://bitbucket.org/openid/fapi/src/master/Financial_API_JWT_S
 
 ### 1.1 Directory Overview
 
-The trust framework services provided by Open Banking Brasil provide all of the discovery services necessary for a TPPs and ASPSPs to interact with each other without being required to validate the authenticity of each others Identity, Authorizations, Consumer Offerings (Apps), APIs or Credentials
+The trust framework services provided by Open Finance Brasil provide all of the discovery services necessary for a TPPs and ASPSPs to interact with each other without being required to validate the authenticity of each others Identity, Authorizations, Consumer Offerings (Apps), APIs or Credentials
 
-An Authorization Server or AS as defined by [RFC 6749 - The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749) perform several functions in a Data Sharing ecosystem like Open Banking. Please read ensure that the concepts roles and responsibilities defined in the original RFC are well understood before proceeding. In addition please ensure that the concepts, roles and responsibilities defined in [OpenID Connect Core](https://openid.net/specs/openid-connect-core-1_0.html) and how they extended the concepts defined in RFC 6749 are equally as well understood.
+An Authorization Server or AS as defined by [RFC 6749 - The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749) perform several functions in a Data Sharing ecosystem like Open Finance. Please read ensure that the concepts roles and responsibilities defined in the original RFC are well understood before proceeding. In addition please ensure that the concepts, roles and responsibilities defined in [OpenID Connect Core](https://openid.net/specs/openid-connect-core-1_0.html) and how they extended the concepts defined in RFC 6749 are equally as well understood.
 
 ### 1.2 Registering an Authorization Server and OpenID Provider
 
@@ -198,20 +198,20 @@ In the above example, Amazing Banking is advertising two services that should be
 
 In addition the bank advertises what resources each of the Authorization Servers are protecting or offering. In the above example Amazing Banking is supporting both version 1 and version 2 of the account information API and that "Amazing Banking" has two separate authentication and authorization systems for Payments and Account Information .
 
-Correctly advertising what resources are offered by each server is important to achieving the scale envisaged by Brasil Open Banking and critical for ensuring that customers can identify their banking service easily and that TPPs can route customers to the correct Authorization Service based on the resources that protected by each service.
+Correctly advertising what resources are offered by each server is important to achieving the scale envisaged by Brasil Open Finance and critical for ensuring that customers can identify their banking service easily and that TPPs can route customers to the correct Authorization Service based on the resources that protected by each service.
 
 ## 2.0 Validating a client registration request
 
-Using OpenID Connect Discovery and the Brasil Open Banking Dynamic Client Registration specification. A TPP can register their application at each of the Authorization Servers available in the ecosystem.
+Using OpenID Connect Discovery and the Brasil Open Finance Dynamic Client Registration specification. A TPP can register their application at each of the Authorization Servers available in the ecosystem.
 
 ### 2.1 OpenID Connect Registration and OAuth 2.0 Dynamic Client Registration
 
-Please see Open Banking Brasil Dynamic Client Registration Specification Clause 7 for details.
+Please see Open Finance Brasil Dynamic Client Registration Specification Clause 7 for details.
 
 ### 2.2 Software Statement Assertion Processing
 
-Please see Open Banking Brasil Dynamic Client Registration Specification Clause 8 for details.
+Please see Open Finance Brasil Dynamic Client Registration Specification Clause 8 for details.
 
 ## 3.0 Validating an Authorization Request
 
-Please see Open Banking Security Profile Clause 5 for details.
+Please see Open Finance Security Profile Clause 5 for details.
