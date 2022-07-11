@@ -35,7 +35,7 @@ The normative version in [English](https://openbanking-brasil.github.io/specs-se
 
 A Estrutura Inicial do Open Finance Brasil (EIOFB) é responsável por criar os padrões e especificações necessários para atender aos requisitos e obrigações da Legislação do Open Finance do Brasil, conforme originalmente delineado pelo [Banco Central do Brasil](https://www.bcb.gov.br/content/config/Documents/BCB_Open_Banking_Communique-April-2019.pdf). É possível que alguns dos elementos deste documento estejam sujeitos a direitos de patente. O EIOFB não se responsabiliza pela identificação de qualquer ou todos os direitos de patente.
 
-O Perfil de Segurança Financial-grade API 1.0 do Open FInance Brasil consiste nas seguintes partes:
+O Perfil de Segurança Financial-grade API 1.0 do Open Finance Brasil consiste nas seguintes partes:
 
 * [Open Finance Brasil Financial-grade API Security Profile 1.0][OFB-FAPI]
 * Open Finance Brasil Dynamic Client Registration Profile 1.0
@@ -110,6 +110,9 @@ Os seguintes documentos referenciados são indispensáveis para a aplicação de
 
 [RFC4514] - Lightweight Directory Access Protocol (LDAP): String Representation of Distinguished Names
 [RFC4514]: <https://www.rfc-editor.org/rfc/rfc4514
+
+[RFC4517] - Lightweight Directory Access Protocol (LDAP): Syntaxes and Matching Rules
+[RFC4517]: <https://www.rfc-editor.org/rfc/rfc4517
 
 [OIDD] -  OpenID Connect Discovery 1.0 incorporating errata set 1
 [OIDD]: <https://openid.net/specs/openid-connect-discovery-1_0.html
@@ -221,6 +224,7 @@ Além disso, o servidor de autorização
 11. deve aceitar todos os nomes x.500 AttributeType definidas no _Distinguished Name_ dos Perfis de Certificado x.509 definidos em [Open Finance Brasil x.509 Certificate Standards][OFB-Cert-Standards];
 12. se for compatível com o mecanismo de autenticação do cliente `tls_client_auth`, conforme definido em [RFC8705], somente deve aceitar `tls_client_auth_subject_dn` como uma indicação do valor do atributo _subject_ do certificado, conforme definido na cláusula 2.1.2 [RFC8705];
 13. Os valores dos campos *UID* e *OU* do certificado devem coincidir com os enviados no SSA. O campo *OU* deve conter o valor do campo *org_id* do SSA e campo *UID* deve conter o valor do campo *software_id* do SSA.
+14. deve, durante o processo de handshake TLS, usar a regra `distinguishedNameMatch` para comparar os valores DN conforme definido na [RFC4517].
 
 
 Estas disposições aplicam-se igualmente ao processamento de pedidos [RFC7591], [RFC7592] e [OpenID Registration][OIDR]
