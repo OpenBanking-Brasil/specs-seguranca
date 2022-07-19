@@ -1548,7 +1548,11 @@ li > p:last-of-type {
 </li>
           <li id="section-7.1-3.13">Os valores dos campos <em>UID</em> e <em>OU</em> do certificado devem coincidir com os enviados no SSA. O campo <em>OU</em> deve conter o valor do campo <em>org_id</em> do SSA e campo <em>UID</em> deve conter o valor do campo <em>software_id</em> do SSA.<a href="#section-7.1-3.13" class="pilcrow">¶</a>
 </li>
-          <li id="section-7.1-3.14">deve, durante o processo de handshake TLS, usar a regra <em>distinguishedNameMatch</em> para comparar os valores DN conforme definido em <a href="https://tools.ietf.org/html/rfc4517">RFC7591</a>. <a href="#section-7.1-3.13" class="pilcrow">¶</a>
+          <li id="section-7.1-3.14">deve, durante o processo de handshake TLS, usar a regra <code>distinguishedNameMatch</code> para comparar os valores DN conforme definido na <a href="https://www.rfc-editor.org/rfc/rfc4517">RFC4517</a>.<a href="#section-7.1-3.14" class="pilcrow">¶</a>
+</li>
+          <li id="section-7.1-3.15">deve garantir a integridade do estoque de consentimentos ativos, mesmo ap&#243;s uma eventual mudan&#231;as de plataforma sist&#234;mica, para que ta&#237;s altera&#231;&#245;es sejam transparentes para as institui&#231;&#245;es receptora de dados (TPP).<a href="#section-7.1-3.15" class="pilcrow">¶</a>
+</li>
+          <li id="section-7.1-3.16">deve realizar recertifica&#231;&#227;o FAPI e DCR da OIDF ap&#243;s eventual mudan&#231;as de plataforma sist&#234;mica.<a href="#section-7.1-3.16" class="pilcrow">¶</a>
 </li>
         </ol>
 <p id="section-7.1-4">Estas disposi&#231;&#245;es aplicam-se igualmente ao processamento de pedidos <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a>, <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a> e <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Registration</a><a href="#section-7.1-4" class="pilcrow">¶</a></p>
@@ -1609,7 +1613,7 @@ li > p:last-of-type {
                 <td class="text-left" rowspan="1" colspan="1">issuer=CN=Open Banking SANDBOX Issuing CA   - G1,OU=Open Banking,O=Open   Banking Brasil,C=BR</td>
               </tr>
               <tr>
-                <td class="text-left" rowspan="1" colspan="1">UID=67c57882-043b-11ec-9a03-0242ac130003, 1.3.6.1.4.1.311.60.2.1.3=#13024252, 2.5.4.15=#131450726976617465204f7267616e697a6174696f6e, CN=mycn.bank.gov.br, 2.5.4.5=#130e3133333533323336303030313839, OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59, O=My Public Bank, L=BRASILIA, ST=DF, C=BR</td>
+                <td class="text-left" rowspan="1" colspan="1">UID=67c57882-043b-11ec-9a03-0242ac130003, 1.3.6.1.4.1.311.60.2.1.3=#13024252, 2.5.4.15=#0C0F427573696E65737320456E74697479, CN=mycn.bank.gov.br, 2.5.4.5=#130e3133333533323336303030313839, OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59, O=My Public Bank, L=BRASILIA, ST=DF, C=BR</td>
                 <td class="text-left" rowspan="1" colspan="1">issuer=CN=Autoridade Certificadora do SERPRO SSLv1,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR</td>
               </tr>
               <tr>
@@ -1617,7 +1621,7 @@ li > p:last-of-type {
                 <td class="text-left" rowspan="1" colspan="1">issuer=CN=AC SOLUTI SSL EV,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR</td>
               </tr>
               <tr>
-                <td class="text-left" rowspan="1" colspan="1">CN=mycn.bank.com.br, UID=67c57882-043b-11ec-9a03-0242ac130003, OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59, L=Sao Paulo, ST=SP, O=MyBank SA, C=BR,2.5.4.5=#130e3133333533323336303030313839, 1.3.6.1.4.1.311.60.2.1.3=#13024252, 2.5.4.15=#131450726976617465204f7267616e697a6174696f6e</td>
+                <td class="text-left" rowspan="1" colspan="1">CN=mycn.bank.com.br, UID=67c57882-043b-11ec-9a03-0242ac130003, OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59, L=Sao Paulo, ST=SP, O=MyBank SA, C=BR,2.5.4.5=#130e3133333533323336303030313839, 1.3.6.1.4.1.311.60.2.1.3=#13024252, 2.5.4.15=#0C0F427573696E65737320456E74697479</td>
                 <td class="text-left" rowspan="1" colspan="1">issuer=CN=AC SERASA SSL EV,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR</td>
               </tr>
             </tbody>

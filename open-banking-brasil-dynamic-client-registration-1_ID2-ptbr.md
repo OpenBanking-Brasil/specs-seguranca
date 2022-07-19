@@ -225,7 +225,8 @@ Além disso, o servidor de autorização
 12. se for compatível com o mecanismo de autenticação do cliente `tls_client_auth`, conforme definido em [RFC8705], somente deve aceitar `tls_client_auth_subject_dn` como uma indicação do valor do atributo _subject_ do certificado, conforme definido na cláusula 2.1.2 [RFC8705];
 13. Os valores dos campos *UID* e *OU* do certificado devem coincidir com os enviados no SSA. O campo *OU* deve conter o valor do campo *org_id* do SSA e campo *UID* deve conter o valor do campo *software_id* do SSA.
 14. deve, durante o processo de handshake TLS, usar a regra `distinguishedNameMatch` para comparar os valores DN conforme definido na [RFC4517].
-
+15. deve garantir a integridade do estoque de consentimentos ativos, mesmo após uma eventual mudanças de plataforma sistêmica, para que taís alterações sejam transparentes para as instituições receptora de dados (TPP). 
+16. deve realizar recertificação FAPI e DCR da OIDF após eventual mudanças de plataforma sistêmica. 
 
 Estas disposições aplicam-se igualmente ao processamento de pedidos [RFC7591], [RFC7592] e [OpenID Registration][OIDR]
 
