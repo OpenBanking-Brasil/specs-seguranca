@@ -223,8 +223,8 @@ In addition, the Authorization Server
 12. if supporting `tls_client_auth` client authentication mechanism as defined in [RFC8705] shall only accept `tls_client_auth_subject_dn`  as an indication of the certificate subject value as defined in clause 2.1.2 [RFC8705];
 13. Values of the fields *UID* and *OU* of the certificate shall match the ones on the SSA. The *OU* field shall match the *org_id* value from the SSA, while the *UID* field shall match the *software_id* value of the SSA.
 14. shall, during the TLS handshake process, use the `distinguishedNameMatch` rule to compare the DN values as defined in [RFC4517].
-15. shall ensure the integrity of the stock of active consents, even after any changes in the systemic platform, so that such changes are transparent to the data receiver institutions (TPP).
-16. shall perform a new OIDF FAPI and DCR after any systemic platform changes.
+15. shall ensure the integrity of the stock of active consents, even after any systemic changes, so that such changes are transparent to the data receiver institutions (TPP).
+16. shall perform a recertification on OIDF FAPI and DCR after any systemic changes.
 
 These provisions apply equally to the processing of [RFC7591], [RFC7592] and [OpenID Registration][OIDR] requests
 
