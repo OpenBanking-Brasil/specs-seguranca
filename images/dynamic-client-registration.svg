@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg contentstyletype="text/css" height="auto" preserveAspectRatio="none" style="width:100%;height:auto;background:#FFFFFF;" version="1.1" viewBox="0 0 1153 906" width="100%" zoomAndPan="magnify" xmlns="http://www.w3.org/2000/svg">
+  <g>
+    <rect height="26.2969" style="stroke:#00000000;stroke-width:1.0;fill:none;" width="238" x="456.75" y="10"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="228" x="461.75" y="27.9951" style="white-space: pre;">Dynamic Client Registration</text>
+    <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="298" x2="298" y1="73.5938" y2="870.9141"/>
+    <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="482" x2="482" y1="73.5938" y2="870.9141"/>
+    <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="624" x2="624" y1="73.5938" y2="870.9141"/>
+    <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="746" x2="746" y1="73.5938" y2="870.9141"/>
+    <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="877" x2="877" y1="73.5938" y2="870.9141"/>
+    <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="1109.5" x2="1109.5" y1="73.5938" y2="870.9141"/>
+    <rect fill="#E2E2F0" height="30.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="41" x="278" y="42.2969"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="27" x="285" y="62.292" style="white-space: pre;">TPP</text>
+    <rect fill="#E2E2F0" height="30.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="41" x="278" y="869.9141"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="27" x="285" y="889.9092" style="white-space: pre;">TPP</text>
+    <rect fill="#E2E2F0" height="30.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="101" x="432" y="42.2969"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="87" x="439" y="62.292" style="white-space: pre;">DirectoryAS</text>
+    <rect fill="#E2E2F0" height="30.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="101" x="432" y="869.9141"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="87" x="439" y="889.9092" style="white-space: pre;">DirectoryAS</text>
+    <rect fill="#E2E2F0" height="30.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="105" x="572" y="42.2969"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="91" x="579" y="62.292" style="white-space: pre;">DirectoryAPI</text>
+    <rect fill="#E2E2F0" height="30.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="105" x="572" y="869.9141"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="91" x="579" y="889.9092" style="white-space: pre;">DirectoryAPI</text>
+    <rect fill="#E2E2F0" height="30.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="119" x="687" y="42.2969"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="105" x="694" y="62.292" style="white-space: pre;">DirectoryJWKS</text>
+    <rect fill="#E2E2F0" height="30.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="119" x="687" y="869.9141"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="105" x="694" y="889.9092" style="white-space: pre;">DirectoryJWKS</text>
+    <rect fill="#E2E2F0" height="30.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="69" x="843" y="42.2969"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="55" x="850" y="62.292" style="white-space: pre;">BankAS</text>
+    <rect fill="#E2E2F0" height="30.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="69" x="843" y="869.9141"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="55" x="850" y="889.9092" style="white-space: pre;">BankAS</text>
+    <rect fill="#E2E2F0" height="30.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="76" x="1071.5" y="42.2969"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="62" x="1078.5" y="62.292" style="white-space: pre;">ICPBrasil</text>
+    <rect fill="#E2E2F0" height="30.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="76" x="1071.5" y="869.9141"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="62" x="1078.5" y="889.9092" style="white-space: pre;">ICPBrasil</text>
+    <polygon fill="#181818" points="470.5,100.7266,480.5,104.7266,470.5,108.7266,474.5,104.7266" style="stroke:#181818;stroke-width:1.0;"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="298.5" x2="476.5" y1="104.7266" y2="104.7266"/>
+    <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="160" x="305.5" y="99.6606" style="white-space: pre;">OAuth 2.0 tls_client_auth</text>
+    <path d="M110,117.7266 L110,157.7266 L293,157.7266 L293,127.7266 L283,117.7266 L110,117.7266 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/>
+    <path d="M283,117.7266 L283,127.7266 L293,127.7266 L283,117.7266 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/>
+    <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="152" x="116" y="134.7935" style="white-space: pre;">Client Credentials Grant</text>
+    <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="162" x="116" y="149.9263" style="white-space: pre;">Scope directory:software</text>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="482.5" x2="524.5" y1="184.125" y2="184.125"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="524.5" x2="524.5" y1="184.125" y2="197.125"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="483.5" x2="524.5" y1="197.125" y2="197.125"/>
+    <polygon fill="#181818" points="493.5,193.125,483.5,197.125,493.5,201.125,489.5,197.125" style="stroke:#181818;stroke-width:1.0;"/>
+    <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="122" x="489.5" y="179.0591" style="white-space: pre;">Validate Certificate</text>
+    <polygon fill="#181818" points="1097.5,222.2578,1107.5,226.2578,1097.5,230.2578,1101.5,226.2578" style="stroke:#181818;stroke-width:1.0;"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="482.5" x2="1103.5" y1="226.2578" y2="226.2578"/>
+    <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="160" x="489.5" y="221.1919" style="white-space: pre;">Check Revocation Status</text>
+    <polygon fill="#181818" points="493.5,251.3906,483.5,255.3906,493.5,259.3906,489.5,255.3906" style="stroke:#181818;stroke-width:1.0;"/>
+    <line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="487.5" x2="1108.5" y1="255.3906" y2="255.3906"/>
+    <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="88" x="499.5" y="250.3247" style="white-space: pre;">Certificate OK</text>
+    <polygon fill="#181818" points="309.5,280.5234,299.5,284.5234,309.5,288.5234,305.5,284.5234" style="stroke:#181818;stroke-width:1.0;"/>
+    <line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="303.5" x2="481.5" y1="284.5234" y2="284.5234"/>
+    <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="88" x="315.5" y="279.4575" style="white-space: pre;">Access Token</text>
+    <polygon fill="#181818" points="612.5,309.6563,622.5,313.6563,612.5,317.6563,616.5,313.6563" style="stroke:#181818;stroke-width:1.0;"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="298.5" x2="618.5" y1="313.6563" y2="313.6563"/>
+    <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="302" x="305.5" y="308.5903" style="white-space: pre;">Retrieve Authorisation Servers + Access Token</text>
+    <polygon fill="#181818" points="309.5,338.7891,299.5,342.7891,309.5,346.7891,305.5,342.7891" style="stroke:#181818;stroke-width:1.0;"/>
+    <line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="303.5" x2="623.5" y1="342.7891" y2="342.7891"/>
+    <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="138" x="315.5" y="337.7231" style="white-space: pre;">Authorisation Servers</text>
+    <polygon fill="#181818" points="865.5,367.9219,875.5,371.9219,865.5,375.9219,869.5,371.9219" style="stroke:#181818;stroke-width:1.0;"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="298.5" x2="871.5" y1="371.9219" y2="371.9219"/>
+    <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="195" x="305.5" y="366.856" style="white-space: pre;">Retrieve OpenID Configuration</text>
+    <polygon fill="#181818" points="309.5,397.0547,299.5,401.0547,309.5,405.0547,305.5,401.0547" style="stroke:#181818;stroke-width:1.0;"/>
+    <line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="303.5" x2="876.5" y1="401.0547" y2="401.0547"/>
+    <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="221" x="315.5" y="395.9888" style="white-space: pre;">JSON OpenID Discovery Clause 4.2</text>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="298.5" x2="340.5" y1="430.1875" y2="430.1875"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="340.5" x2="340.5" y1="430.1875" y2="443.1875"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="299.5" x2="340.5" y1="443.1875" y2="443.1875"/>
+    <polygon fill="#181818" points="309.5,439.1875,299.5,443.1875,309.5,447.1875,305.5,443.1875" style="stroke:#181818;stroke-width:1.0;"/>
+    <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="165" x="305.5" y="425.1216" style="white-space: pre;">Extract Desired MetaData</text>
+    <polygon fill="#181818" points="612.5,468.3203,622.5,472.3203,612.5,476.3203,616.5,472.3203" style="stroke:#181818;stroke-width:1.0;"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="298.5" x2="618.5" y1="472.3203" y2="472.3203"/>
+    <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="83" x="305.5" y="467.2544" style="white-space: pre;">Retrieve SSA</text>
+    <polygon fill="#181818" points="309.5,497.4531,299.5,501.4531,309.5,505.4531,305.5,501.4531" style="stroke:#181818;stroke-width:1.0;"/>
+    <line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="303.5" x2="623.5" y1="501.4531" y2="501.4531"/>
+    <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="54" x="315.5" y="496.3872" style="white-space: pre;">SSA JWT</text>
+    <polygon fill="#181818" points="865.5,526.5859,875.5,530.5859,865.5,534.5859,869.5,530.5859" style="stroke:#181818;stroke-width:1.0;"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="298.5" x2="871.5" y1="530.5859" y2="530.5859"/>
+    <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="332" x="305.5" y="525.52" style="white-space: pre;">Post RFC7591 with SSA JWT as software_statement</text>
+    <polygon fill="#181818" points="1097.5,555.7188,1107.5,559.7188,1097.5,563.7188,1101.5,559.7188" style="stroke:#181818;stroke-width:1.0;"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="877.5" x2="1103.5" y1="559.7188" y2="559.7188"/>
+    <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="160" x="884.5" y="554.6528" style="white-space: pre;">Check Revocation Status</text>
+    <polygon fill="#181818" points="888.5,584.8516,878.5,588.8516,888.5,592.8516,884.5,588.8516" style="stroke:#181818;stroke-width:1.0;"/>
+    <line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="882.5" x2="1108.5" y1="588.8516" y2="588.8516"/>
+    <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="88" x="894.5" y="583.7856" style="white-space: pre;">Certificate OK</text>
+    <polygon fill="#181818" points="757.5,613.9844,747.5,617.9844,757.5,621.9844,753.5,617.9844" style="stroke:#181818;stroke-width:1.0;"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="751.5" x2="876.5" y1="617.9844" y2="617.9844"/>
+    <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="107" x="763.5" y="612.9185" style="white-space: pre;">Retrieve Key Set</text>
+    <polygon fill="#181818" points="865.5,643.1172,875.5,647.1172,865.5,651.1172,869.5,647.1172" style="stroke:#181818;stroke-width:1.0;"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="746.5" x2="871.5" y1="647.1172" y2="647.1172"/>
+    <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="96" x="753.5" y="642.0513" style="white-space: pre;">Return Key Set</text>
+    <line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="877.5" x2="919.5" y1="676.25" y2="676.25"/>
+    <line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="919.5" x2="919.5" y1="676.25" y2="689.25"/>
+    <line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="878.5" x2="919.5" y1="689.25" y2="689.25"/>
+    <polygon fill="#181818" points="888.5,685.25,878.5,689.25,888.5,693.25,884.5,689.25" style="stroke:#181818;stroke-width:1.0;"/>
+    <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="218" x="884.5" y="671.1841" style="white-space: pre;">Validate SSA in RFC 7591 Request</text>
+    <line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="877.5" x2="919.5" y1="718.3828" y2="718.3828"/>
+    <line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="919.5" x2="919.5" y1="718.3828" y2="731.3828"/>
+    <line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="878.5" x2="919.5" y1="731.3828" y2="731.3828"/>
+    <polygon fill="#181818" points="888.5,727.3828,878.5,731.3828,888.5,735.3828,884.5,731.3828" style="stroke:#181818;stroke-width:1.0;"/>
+    <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="170" x="884.5" y="713.3169" style="white-space: pre;">Validate RFC7591 Request</text>
+    <path d="M5,744.3828 L5,784.3828 L294,784.3828 L294,754.3828 L284,744.3828 L5,744.3828 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/>
+    <path d="M284,744.3828 L284,754.3828 L294,754.3828 L284,744.3828 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/>
+    <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="268" x="11" y="761.4497" style="white-space: pre;">Request must be made to token endpoint</text>
+    <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="154" x="11" y="776.5825" style="white-space: pre;">secured with mutual tls.</text>
+    <polygon fill="#181818" points="309.5,806.7813,299.5,810.7813,309.5,814.7813,305.5,810.7813" style="stroke:#181818;stroke-width:1.0;"/>
+    <line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="303.5" x2="876.5" y1="810.7813" y2="810.7813"/>
+    <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="448" x="315.5" y="805.7153" style="white-space: pre;">Return RFC7591 Client Configuration +   RFC7592 Management Token</text>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="298.5" x2="340.5" y1="839.9141" y2="839.9141"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="340.5" x2="340.5" y1="839.9141" y2="852.9141"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="299.5" x2="340.5" y1="852.9141" y2="852.9141"/>
+    <polygon fill="#181818" points="309.5,848.9141,299.5,852.9141,309.5,856.9141,305.5,852.9141" style="stroke:#181818;stroke-width:1.0;"/>
+    <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="163" x="305.5" y="834.8481" style="white-space: pre;">Save Management Token</text>
+  </g>
+</svg>

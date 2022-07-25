@@ -18,16 +18,6 @@
     value = "open-banking-brasil-financial-api-1_ID3"
 
     [[author]]
-    initials = "R."
-    surname = "Bragg"
-    fullname = "Ralph Bragg"
-    organization = "Raidiam"
-    abbrev = "Raidiam"
-      [author.address]
-      email = "ralph.bragg@raidiam.com"
-      uri = "https://www.raidiam.com/"
-
-    [[author]]
     initials = "GT"
     surname = "Security"
     fullname = "OBBIS GT Security"
@@ -164,25 +154,16 @@ For the purpose of this document, the terms defined in [RFC6749], [RFC6750], [RF
 
 # Symbols and Abbreviated terms
 
-**API** – Application Programming Interface
-
-**OBBIS** – Open Banking Brasil Initial Structure
-
-**CSRF** - Cross Site Request Forgery
-
-**DCR** – Dynamic Client Registration
-
-**FAPI** - Financial-grade API
-
-**HTTP** – Hyper Text Transfer Protocol
-
-**OIDF** - OpenID Foundation
-
-**REST** – Representational State Transfer
-
-**TLS** – Transport Layer Security
-
-**MFA** - Multi-Factor Authentication
+* **API** – Application Programming Interface
+* **CSRF** - Cross Site Request Forgery
+* **DCR** – Dynamic Client Registration
+* **FAPI** - Financial-grade API
+* **HTTP** – Hyper Text Transfer Protocol
+* **MFA** - Multi-Factor Authentication
+* **OBBIS** – Open Banking Brasil Initial Structure
+* **OIDF** - OpenID Foundation
+* **REST** – Representational State Transfer
+* **TLS** – Transport Layer Security
 
 # Brasil Open Banking Security Profile
 
@@ -215,22 +196,22 @@ The Authorization Server shall support the provisions specified in clause 5.2.2 
 In addition, the Authorization Server
 
 1. shall support a signed and encrypted JWE request object passed by value or shall require pushed authorization requests [PAR];
-2. shall distribute discovery metadata (such as the authorization endpoint) via the metadata document as specified in [OIDD] and [RFC8414]
-3. shall support the claims parameter as defined in clause 5.5 [OpenID Connect Core][OIDC]
-4. shall support the oidc standard claim "cpf" as defined in clause 5.2.2.2 of this document
-5. shall support the oidc standard claim "cnpj" as defined in clause 5.2.2.3 of this document if providing access to resources where the resource owner is not a `natural person`
-6. shall support the acr "urn:brasil:openbanking:loa2" as defined in clause 5.2.2.4 of this document
-7. should support the acr "urn:brasil:openbanking:loa3" as defined in clause 5.2.2.4 of this document
-8. shall implement the userinfo endpoint as defined in clause 5.3 [OpenID Connect Core][OIDC]
-9. shall support parameterized OAuth 2.0 resource scope _consent_ as defined in clause 6.3.1 [OIDF FAPI WG Lodging Intent Pattern][LIWP]
-10. may support [Financial-grade API: Client Initiated Backchannel Authentication Profile][FAPI-CIBA]
-11. (withdrawn)
-12. shall support refresh tokens
-13. shall issue access tokens with an expiry no greater than 900 seconds and no less than 300 seconds
-14. shall always include an acr claim in the `id_token`
-15. shall support the `response_type` value `code id_token`
-16. may support `response_type` value `code` in conjunction with the `response_mode` value `jwt`
-
+2. shall distribute discovery metadata (such as the authorization endpoint) via the metadata document as specified in [OIDD] and [RFC8414];
+3. shall support the claims parameter as defined in clause 5.5 [OpenID Connect Core][OIDC];
+4. shall support the oidc standard claim "cpf" as defined in clause 5.2.2.2 of this document;
+5. shall support the oidc standard claim "cnpj" as defined in clause 5.2.2.3 of this document if providing access to resources where the resource owner is not a `natural person`;
+6. shall support the acr "urn:brasil:openbanking:loa2" as defined in clause 5.2.2.4 of this document;
+7. should support the acr "urn:brasil:openbanking:loa3" as defined in clause 5.2.2.4 of this document;
+8. shall implement the userinfo endpoint as defined in clause 5.3 [OpenID Connect Core][OIDC];
+9. shall support parameterized OAuth 2.0 resource scope _consent_ as defined in clause 6.3.1 [OIDF FAPI WG Lodging Intent Pattern][LIWP];
+10. may support [Financial-grade API: Client Initiated Backchannel Authentication Profile][FAPI-CIBA];
+11. (withdrawn);
+12. shall support refresh tokens;
+13. shall issue access tokens with an expiry no greater than 900 seconds and no less than 300 seconds;
+14. shall always include an acr claim in the `id_token`;
+15. shall support the `response_type` value `code id_token`;
+16. may support `response_type` value `code` in conjunction with the `response_mode` value `jwt`;
+17. shall not allow `refresh tokens` rotation feature.
 
 #### ID Token as detached signature
 
@@ -314,14 +295,15 @@ A confidential client shall support the provisions specified in clause 5.2.3 of
 
 In addition, the confidential client
 
-1. shall support _encrypted_ request objects
-2. shall support Pushed Authorisation Requests [PAR]
-3. shall use _encrypted_ request objects if not using [PAR]
-4. shall support parameterized OAuth 2.0 resource scope _consent_ as defined in clause 6.3.1 [OIDF FAPI WG Lodging Intent Pattern][LIWP]
-5. shall support refresh tokens
-6. shall not populate the `acr` claim with required values
-7. shall require the `acr` claim as an essential claim
-8. shall support all authentication methods specified in clause 5.2.2-14 of [Financial-grade API Security Profile 1.0 - Part 2: Advanced][FAPI-1-Advanced] including diferent combinations of the methods to send requests (using [PAR] or not - item 11).
+1. shall support _encrypted_ request objects;
+2. shall support Pushed Authorisation Requests [PAR];
+3. shall use _encrypted_ request objects if not using [PAR];
+4. shall support parameterized OAuth 2.0 resource scope _consent_ as defined in clause 6.3.1 [OIDF FAPI WG Lodging Intent Pattern][LIWP];
+5. shall support refresh tokens;
+6. shall not populate the `acr` claim with required values;
+7. shall require the `acr` claim as an essential claim;
+8. shall support all authentication methods specified in clause 5.2.2-14 of [Financial-grade API Security Profile 1.0 - Part 2: Advanced][FAPI-1-Advanced] including diferent combinations of the methods to send requests (using [PAR] or not - item 11);
+9. shall not allow `refresh tokens` rotation feature.
 
 # Security considerations
 
@@ -357,7 +339,11 @@ Participants shall support all security considerations specified in clause 8
 
 6. The receiver shall validate the consistency of the JWS message's digital signature **exclusively based on the information obtained from the directory**, that is, based on the keys published in the institution's JWKS in the directory.
 
-7. Signatures must be performed using the digital signature certificate specified in the [Open Banking Brazil Certificates Standard](https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil -certificate-standards-1_ID1-ptbr.md#certificate-of-signing-certificatesignature).
+7. Signatures must be performed using the digital signature certificate specified in the [Open Banking Brazil Certificates Standard](https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil -certificate-standards-1_ID1-ptbr.md#certificate-of-signing-certificatesignature);
+
+8. the _iat_ claim must be numeric in Unix Time format GMT+0 with a tolerance of +/- 60 seconds;
+
+9. the _jti_ claim must be unique for a _clientId_ within a time frame of 86,400 seconds (24h), and cannot be reused within this period. In case of reuse, the HTTP error code 403 shall be return.
 
 ## Algorithm considerations
 
@@ -377,6 +363,7 @@ For TLS, Authorization Server endpoints and Resource Server endpoints used direc
 
 1. shall support `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`
 2. shall support `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
+3. The "TLS Session Resumption" e "TLS Renegotiation" features shall be disabled
 
 # Data Sharing Considerations
 
@@ -439,17 +426,18 @@ With thanks to all who have set the foundations for secure and safe data sharing
 
 The following people contributed to this document:
 
-* Ralph Bragg (Raidiam)
-* Joseph Heenan (Authlete)
 * Alexandre Siqueira (Mercado Pago)
+* Joseph Heenan (Authlete)
 * Marcos Rodrigues (Itaú)
 * Mário Ginglass (BNDES)
+* Nic Marcondes (Quanto)
+* Ralph Bragg (Raidiam)
 
 {backmatter}
 
 # Notices
 
-Copyright (c) 2021 Open Banking Brasil Initial Structure.
+Copyright (c) 2022 Open Banking Brasil Initial Structure.
 
 The Open Banking Brasil Initial Structure (OBBIS) grants to any Contributor, developer, implementer, or other interested party a non-exclusive, royalty-free, worldwide copyright license to reproduce, prepare derivative works from, distribute, perform and display, this Implementers Draft or Final Specification solely for the purposes of (i) developing specifications, and (ii) implementing Implementers Drafts and Final Specifications based on such documents, provided that attribution be made to the OBBIS as the source of the material, but that such attribution does not indicate an endorsement by the OBBIS.
 

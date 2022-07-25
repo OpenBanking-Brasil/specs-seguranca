@@ -18,16 +18,6 @@
     value = "open-banking-brasil-dynamic-client-registration-1_ID2"
 
     [[author]]
-    initials = "R."
-    surname = "Bragg"
-    fullname = "Ralph Bragg"
-    organization = "Raidiam"
-    abbrev = "Raidiam"
-      [author.address]
-      email = "ralph.bragg@raidiam.com"
-      uri = "https://www.raidiam.com/"
-
-    [[author]]
     initials = "GT"
     surname = "Security"
     fullname = "OBBIS GT Security"
@@ -149,29 +139,24 @@ The following referenced documents are indispensable for the application of this
 [OBB-Cert-Standards] - Open Banking Brasil x.509 Certificate Standards
 [OBB-Cert-Standards]: <https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html
 
+[OBB-DCR/DCM-Swagger] - DCR & DCM Swagger 
+[OBB-DCR/DCM-Swagger]: <https://raw.githubusercontent.com/OpenBanking-Brasil/specs-seguranca/main/dcr_review/dcr-dcm-swagger.yaml
+
 # Terms and definitions
 
 For the purpose of this document, the terms defined in [RFC6749], [RFC6750], [RFC7636], [OpenID Connect Core][OIDC] and ISO29100 apply.
 
 # Symbols and Abbreviated terms
 
-**SSA** – Software Statement Assertion
-
-**SS** – Software Statement
-
-**DCR** – Dynamic Client Registration
-
-**API** – Application Programming Interface
-
-**FAPI** - Financial-grade API
-
-**HTTP** – Hyper Text Transfer Protocol
-
-**OIDF** - OpenID Foundation
-
-**REST** – Representational State Transfer
-
-**TLS** – Transport Layer Security
+* **API** – Application Programming Interface
+* **DCR** – Dynamic Client Registration
+* **FAPI** - Financial-grade API
+* **HTTP** – Hyper Text Transfer Protocol
+* **OIDF** - OpenID Foundation
+* **REST** – Representational State Transfer
+* **SS** – Software Statement
+* **SSA** – Software Statement Assertion
+* **TLS** – Transport Layer Security
 
 # Introduction
 
@@ -185,13 +170,14 @@ The services by the Directory include
 
 Participants within the ecosystem must leverage these services to facilitate API driven OAuth client registration using the process outlined in clause 3.1.1 of [RFC7591] with additional metadata necessary to support OpenID Connect defined in [OpenID Connect Registration][OIDR].
 
-Where possible, authorisation servers should compare client metadata asserted by a client made as part of registration or management request against metadata claims contained within a software statement. Not all metadata that a client wishes to provide may be contained in a software statement, e.g alternative [Metadata Languages and Script values](https://openid.net/specs/openid-connect-registration-1_0.html#LanguagesAndScripts).
+It's important to remember that the client registration payload has most of its non-mandatory attributes, and that assigned values; that conflict with the present in the assertion software declaration *will be overridden by the values of the software statement assertion issued by the Directory of Participants*. Not all metadata that a client wishes to provide may be contained in a software statement, e.g alternative [Metadata Languages and Script values](https://openid.net/specs/openid-connect-registration-1_0.html#LanguagesAndScripts). There are some cases when the client metadata are subset os the existing values in the SSA, such as redirect_URIs.
 
 # Open Banking Brasil OpenID Connect Discovery provisions
 
 ## Authorization server
 
-The Authorization Server shall support [OpenID Connect Discovery][OIDD] as required by [Financial-grade API Security Profile 1.0 - Part 1: Baseline][FAPI-1-Baseline]
+The Authorization Server shall support [OpenID Connect Discovery][OIDD] as required by [Financial-grade API Security Profile 1.0 - Part 1: Baseline][FAPI-1-Baseline]. 
+This support shall be explicit in Participant Directory configurations, and in the declaration of its attributes in the Discovery file (well-known), respecting the authentication mechanisms certified by the institution through the Open Banking Brazil compliance tests.
 
 In addition, the Authorization Server
 
@@ -217,20 +203,20 @@ In addition, the Client
 
 ## Authorization server
 
-The Authorization Server shall support the [RFC7591], [RFC7592] and [OpenID Registration][OIDR]
+The Authorization Server shall support the RFC RFCs Dynamic Client Registration (DCR) [RFC7591],  Dynamic Client Management (DCM) [RFC7592] and [OpenID Registration][OIDR]
 
 In addition, the Authorization Server
 
 1. shall reject dynamic client registration requests not performed over a connection secured with mutual tls using certificates issued by Brazil ICP (production) or the Directory of Participants (sandbox);
 2. shall validate that the request contains software_statement JWT signed using the `PS256` algorithim issued by the Open Banking Brasil directory of participants;
 3. shall validate that the `software_statement` was issued (iat) not more than 5 minutes prior to the request being received;
-4. shall validate that a `jwks` (key set by value) was **not** included;
-5. shall require and validate that the `jwks_uri` matches the `software_jwks_uri` provided in the software statement;
-6. shall require and validate that `redirect_uris` match or contain a sub set of software_redirect_uris provided in the software statement;
-7. shall require and validate that all client authentication mechanism adhere to the requirements defined in [Financial-grade API Security Profile 1.0 - Part 1: Advanced](https://openid.net/specs/openid-financial-api-part-2-1_0.html);
-8. shall require encrypted request objects as required by the Brasil Open Banking Security Profile;
-9. shall validate that requested scopes are appropriate for the softwares authorized regulatory roles;
-10. should where possible validate client asserted metadata against metadata provided in the software_statement;
+4. shall validate that the attribute `jwks` (key set by value) was **not** included; but declared as a reference in the `jwks_uri` attribute; 
+5. when the `jwks_uri` was informed, shall validate that matches the `software_jwks_uri` provided in the `software_statement`;
+6. shall require and validate that `redirect_uris` match or contain a sub set of software_redirect_uris provided in the `software_statement`;
+7. shall require and validate that all client authentication mechanism adhere to the requirements defined in [RFC7591] and [RFC7592], validating the `registration_access_token` and using a secure connection, protected by certificate Issued from chain of certificates linked to ICP-Brasil;
+8. _removed_;
+9. shall validate that the requested scopes are adequate for accredited institutions and their regulatory roles and contained in the `software_statement`. The list of regulatory permissions and the corresponding scopes are described in the following sections;
+10. where possible, shall compare client metadata asserted by a client toward the metadata provided into  `software_statement`, choosing the values present in the SSA with precedence;
 11. shall accept all x.500 AttributeType name strings defined in the Distinguished Name of the x.509 Certificate Profiles defined in [Open Banking Brasil x.509 Certificate Standards][OBB-Cert-Standards];
 12. if supporting `tls_client_auth` client authentication mechanism as defined in [RFC8705] shall only accept `tls_client_auth_subject_dn`  as an indication of the certificate subject value as defined in clause 2.1.2 [RFC8705];
 
@@ -241,29 +227,31 @@ These provisions apply equally to the processing of [RFC7591], [RFC7592] and [Op
 Where properties of a DCR request are not included and are not mandatory in the specification the Authorisation Server shall apply client defaults in the following manner
 
 1. shall select and apply the encryption algorithm and cipher choice from the most recommended of the IANA cipher suites that is supported by the Authorisation Server;
-2. shall populate defaults from values within the software statement assertion where possible;
-3. shall grant the client permission to the complete set of potential scopes based on the softwares regulatory permissions included in the software_statement;
+2. shall populate defaults from values within the `software_statement` assertion where possible;
+3. shall grant the client permission to the complete set of potential scopes based on the softwares regulatory permissions included in the `software_statement`;
 
 ### Certificate Distinguished Name Parsing
 
 Clause 3 of [Lightweight Directory Access Protocol (LDAP): String Representation of Distinguished Names][RFC4514] defines the mandatory OIDs whose AttributeType strings (descriptors) must be recognized by implementers. This mandatory list does not include several of the OIDs defined in [Open Banking Brasil x.509 Certificate Standards][OBB-Cert-Standards] nor is there a defined mechanism for Authorisation Servers to publish  information regarding the format that they would expect a Dynamic Client Registration request that includes a `tls_client_auth_subject_dn` to be presented in.
 
-To address this ambiguity, the Authorization Server must accept all AttributeType name strings (descriptors) defined in the last paragraph of clause 3 [RFC4514] in addition to all of the AttributeTypes defined in the Distinguished Name of the [Open Banking Brasil x.509 Certificate Standards][OBB-Cert-Standards].
+To address this ambiguity, the Authorization Server must accept only the AttributeTypes name strings (descriptors) defined in the last paragraph of clause 3 [RFC4514] in string format, it shall also accept in OID format, with their values in ASN.1, all the AttributeTypes defined in Distinguished Name [Open Banking Brasil x.509 Certificate Standards][OBB-Cert-Standards] or added by the Certificate Authority.
 
-In terms of format, the Security WG have defined the examples in bellow:
+In case of non-compliance with these requirements, the Authorization Server shall reject the registration. 
+
+In terms of format, follow below how decoding should be done: 
 
 - Start backwards, the order is reversed from what is entered.
-- Append each RDN (RelativeDistinguishedName) segment with a comma ‘,’
-- Use RFC Strings (CN, L, ST, O, OU, C, Street, DC, UID) + OBB Certificate Specs (businessCategory, jurisdictionCountryName , serialNumber)
+- Append each RDN (RelativeDistinguishedName) segment with a comma ‘,’.
+- Use the RFC strings (CN, L, ST, O, OR, C, Street, DC, UID) with the value of their attributes in "printable string", ie human-readable + the OIDs of the attributes defined in this specification for use in Distinguished Name [Open Banking Brasil x.509 Certificate Standards][OBB-Cert-Standards] (businessCategory=OID 2.5.4.15,jurisdictionCountryName=OID: 1.3.6.1.4.1.311.60.2.1.3, serialNumber=OID:2.5.4.5) with the value of your attributes in ASN.1 format.
 
 Examples:
 
-| subject_dn | Issuer |
-| --- | --- |
-| UID=67c57882-043b-11ec-9a03-0242ac130003,jurisdictionCountryName=BR,businessCategory=Private      Organization,serialNumber=00038166000954,CN=mycn.bank.com.br,OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59,O=MY BANK SA,L=SAO PAULO,ST=SP,C=BR | issuer=CN=Open Banking SANDBOX Issuing CA   - G1,OU=Open Banking,O=Open   Banking Brasil,C=BR |
-| UID=67c57882-043b-11ec-9a03-0242ac130003,   jurisdictionCountryName=BR,businessCategory=Business Entity,CN=mycn.bank.gov.br,serialNumber=00038166000954,OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59,O=My Public Bank,L=BRASILIA,ST=DF,C=BR | issuer=CN=Autoridade Certificadora do SERPRO SSLv1,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR,jurisdictionCountryName=BR,businessCategory=Private |
-| Organization,UID=67c57882-043b-11ec-9a03-0242ac130003,CN=openbanking.mybank.com.br,serialNumber=00038166000954,OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59,L=Goiania,ST=GO,O=MyBank SA,C=BR | issuer=CN=AC SOLUTI SSL EV,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR |
-| CN=mycn.bank.com.br,UID=67c57882-043b-11ec-9a03-0242ac130003,OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59,L=Sao   Paulo,ST=SP,O=MyBank SA,C=BR,serialNumber=00038166000954,   jurisdictionCountryName=BR,businessCategory=Private   Organization | issuer=CN=AC SERASA SSL EV,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR |
+| subject_dn                                                                                                                                                                                                                                                                                | Issuer                                                                                                                 |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
+| UID=67c57882-043b-11ec-9a03-0242ac130003, 1.3.6.1.4.1.311.60.2.1.3=#13024252, 2.5.4.15=#131450726976617465204f7267616e697a6174696f6e, 2.5.4.5=#130d31333335333233363030313839, CN= mycn.bank.gov.br,OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59, O=My Public Bank, L= BRASILIA, ST=DF, C=BR   | issuer=CN=Open Banking SANDBOX Issuing CA   - G1,OU=Open Banking,O=Open   Banking Brasil,C=BR                          |
+| UID=67c57882-043b-11ec-9a03-0242ac130003, 1.3.6.1.4.1.311.60.2.1.3=#13024252, 2.5.4.15=#131450726976617465204f7267616e697a6174696f6e, CN=mycn.bank.gov.br, 2.5.4.5=#130d31333335333233363030313839, OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59, O=My Public Bank, L=BRASILIA, ST=DF, C=BR    | issuer=CN=Autoridade Certificadora do SERPRO SSLv1,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR |
+| 1.3.6.1.4.1.311.60.2.1.3=#13024252, 2.5.4.15=#131450726976617465204f7267616e697a6174696f6e, UID=67c57882-043b-11ec-9a03-0242ac130003, CN=openbanking.mybank.com.br, 2.5.4.5=#130d31333335333233363030313839, OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59, L=Goiania, ST=GO, O=MyBank SA, C=BR | issuer=CN=AC SOLUTI SSL EV,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR                         |
+| CN=mycn.bank.com.br, UID=67c57882-043b-11ec-9a03-0242ac130003, OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59, L=Sao Paulo, ST=SP, O=MyBank SA, C=BR,2.5.4.5=#130d31333335333233363030313839, 1.3.6.1.4.1.311.60.2.1.3=#13024252, 2.5.4.15=#131450726976617465204f7267616e697a6174696f6e         | issuer=CN=AC SERASA SSL EV,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR                         |
 
 ## Regulatory Roles to OpenID and OAuth 2.0 Mappings
 
@@ -271,12 +259,14 @@ To participate in the Open Banking ecosystem, accredited institutions must regis
 
 The following table describes the regulatory roles for Open Banking and the related OAuth 2.0 scopes mapping. If the scopes are omitted during the DCR process, the authorization server shall grant the complete set of potential scopes based on the registering bank's regulatory roles, as described in the Server Defaults section.
 
-| Regulatory Role | Description | Allowed Scopes | Target Phase|
-| --- | --- | --- | --- |
-| DADOS | Instituição transmissora ou receptora de dados (AISP) | openid accounts credit-cards-accounts consents customers invoice-financings financings loans unarranged-accounts-overdraft resources | Phase 2 |
-| PAGTO | Instituição prestadora de serviço de iniciação de pagamentos (PISP) | openid payments consents resources | Phase 3 |
-| CONTA | Instituição detentora de conta (ASPSP) | openid | Phase 3 |
-| CCORR | Correspondente de crédito | openid | Phase 3* |
+| Regulatory Role | Description                                                         | Allowed Scopes                                                                                                                       | Target Phase |
+|-----------------|---------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|--------------|
+| DADOS           | Instituição transmissora ou receptora de dados (AISP)               | openid accounts credit-cards-accounts consents customers invoice-financings financings loans unarranged-accounts-overdraft resources | Phase 2      |
+| PAGTO           | Instituição prestadora de serviço de iniciação de pagamentos (PISP) | openid payments                                                                                                                      | Phase 3      |
+| CONTA           | Instituição detentora de conta (ASPSP)                              | openid                                                                                                                               | Phase 3      |
+| CCORR           | Correspondente de crédito                                           | openid                                                                                                                               | Phase 3*     |
+
+Validate the active roles in the application's _software\_statement_. The information validation, shall use the field _software\_statement\_roles, and shall verify if their roles are actives.
 
 ### Implementers Note
 
@@ -284,10 +274,10 @@ In line with guidance from the IETF and the direction of travel for fine-grained
 
 ## Regulatory Roles to dynamic OAuth 2.0 scope Mappings
 
-| Regulatory Role | Allowed Scopes |
-| --- | --- |
-| DADOS | consent:{ConsentId} |
-| PAGTO | consent:{ConsentId} |
+| Regulatory Role | Allowed Scopes      |
+|-----------------|---------------------|
+| DADOS           | consent:{ConsentId} |
+| PAGTO           | consent:{ConsentId} |
 
 # Software Statement
 
@@ -377,12 +367,13 @@ The following example contains all of the claims currently included in a softwar
 # Dynamic Client Registration Request Processing
 
 !---
-![Dynamic Client Registration](images/dynamic-client-registration.png)
+![Dynamic Client Registration](images/dynamic-client-registration.svg)
 !---
 
 ## Posting a request with a software statement
 
-This example includes various optional fields, some of which may not be applicable to some deployments. Line wraps within values are for display purposes only.
+This example includes various optional fields, some of which may not be applicable to some deployments. For a complete guide to the attributes and their requirements, consult the Swagger DCR/DCM link: [OBB-DCR/DCM-Swagger] .
+Line wraps within values are for display purposes only.
 
 ```
 POST /reg HTTP/1.1
@@ -437,27 +428,51 @@ Open Banking Open Banking Brasil production SSA issuer
 
 Open Banking Open Banking Brasil sandbox SSA issuer
 
+## About authentication and authorization mechanisms for DCR and DCM services 
+As they are auxiliary services to the main flow of Open Banking Brasil, the dynamic registration and maintenance services for clients cannot use the exact access control mechanisms.  For example, it is not possible to require an OAuth 2.0 _access\_token_ from a client application that isn't registered yet with the transmitting institution. 
+
+To extend [RFC7591] and [RFC7592], which recommend minimum mechanisms for authentication of their services, institutions that support the registration flows and dynamic maintenance of clients must implement the following controls: 
+
+### Client registration - POST /register 
+1. validate that the certificate presented by the client application is subordinate to the ICP-Brasil chains defined in the Open Banking Brasil Certificates Standard; 
+2. ensure that the signature of the `software_statement`_ presented by the client application during registration has been made by the Directory of Participants using the public keys described in the previous section; 
+3. ensure that the `software_statement` presented by the client application during registration corresponds to the same institution as the client certificate presented, validating it through the attributes that bring `organization_id` in the X.509 certificate. 
+
+### Client Maintenance - GET /register - PUT /register - DELETE /register 
+1. validate that the certificate presented by the client application is subordinate to the ICP-Brasil chains defined in the Open Banking Brasil Certificates Standard; 
+2. Validate the presence and matching of the Bearer header `Authorization` containing the value of the `registration_access_token` attribute returned during registration of the corresponding client. 
+
+Note: [RFC7592] provides the possibility of rotating the `registration_access_token` issued by the Authorization Server with each use, making it a single-use token. When registering their client applications, institutions should consider this aspect to receive and update the `registration_access_token` for the new value received in client maintenance (DCM) operations.
+
 # Acknowledgement
 
 With thanks to all who have set the foundations for secure and safe data sharing through the formation of the OpenID Foundation FAPI Working Group, the Open Banking Brasil GT Security and to the pioneers who will stand on their shoulders.
 
 The following people contributed to this document:
 
-* Ralph Bragg (Raidiam)
+* Alexandre Daniel Dalabrida (Cooperativa Central Ailos)
 * Alexandre Siqueira (Mercado Pago)
+* André Borges (Banco Fibra)
 * Bernardo Vale (Banco Inter)
+* Danilo Sasaki (Banco Itaú)
+* João Rodolfo Vieira da Silva (Banco Itaú)
+* Michelle Bandarra (Chicago)
+* Nic Marcondes (Quanto)
+* Rafael Gonzalez Hashimoto (Banco C6)
+* Ralph Bragg (Raidiam)
 
 {backmatter}
 
 # Notices
 
-Copyright (c) 2021 Open Banking Brasil Initial Structure.
+Copyright (c) 2022 Open Banking Brasil Initial Structure.
 
 The Open Banking Brasil Initial Structure (OBBIS) grants to any Contributor, developer, implementer, or other interested party a non-exclusive, royalty-free, worldwide copyright license to reproduce, prepare derivative works from, distribute, perform and display, this Implementers Draft or Final Specification solely for the purposes of (i) developing specifications, and (ii) implementing Implementers Drafts and Final Specifications based on such documents, provided that attribution be made to the OBBIS as the source of the material, but that such attribution does not indicate an endorsement by the OBBIS.
 
 The technology described in this specification was made available from contributions from various sources, including members of the OpenID Foundation, the Open Banking Brasil GT Security Working Group and others. Although the Open Banking Brasil Initial Structure has taken steps to help ensure that the technology is available for distribution, it takes no position regarding the validity or scope of any intellectual property or other rights that might be claimed to pertain to the implementation or use of the technology described in this specification or the extent to which any license under such rights might or might not be available; neither does it represent that it has made any independent effort to identify any such rights. The Open Banking Brasil Initial Structure and the contributors to this specification make no (and hereby expressly disclaim any) warranties (express, implied, or otherwise), including implied warranties of merchantability, non-infringement, fitness for a particular purpose, or title, related to this specification, and the entire risk as to implementing this specification is assumed by the implementer. The Open Banking Brasil Intellectual Property Rights policy requires contributors to offer a patent promise not to assert certain patent claims against other contributors and against implementers. The Open Banking Brasil Initial Structure invites any interested party to bring to its attention any copyrights, patents, patent applications, or other proprietary rights that may cover technology that may be required to practice this specification.
 
 ## Appendix A. Example Software Statement Assertion
+
 
 ```
 eyJraWQiOiJzaWduZXIiLCJ0eXAiOiJKV1QiLCJhbGciOiJQUzI1NiJ9.eyJzb2Z0d2FyZV9tb2RlIjoiTGl2ZSIsInNvZnR3YXJlX3JlZGlyZWN0X3VyaXMiOlsiaHR0cHM6XC9cL3d3dy5yYWlkaWFtLmNvbVwvYWNjb3VudGluZ1wvY2IiXSwic29mdHdhcmVfc3RhdGVtZW50X3JvbGVzIjpbeyJyb2xlIjoiREFET1MiLCJhdXRob3Jpc2F0aW9uX2RvbWFpbiI6Ik9wZW4gQmFua2luZyIsInN0YXR1cyI6IkFjdGl2ZSJ9LHsicm9sZSI6IlBBR1RPIiwiYXV0aG9yaXNhdGlvbl9kb21haW4iOiJPcGVuIEJhbmtpbmciLCJzdGF0dXMiOiJBY3RpdmUifV0sInNvZnR3YXJlX2NsaWVudF9uYW1lIjoiUmFpZGlhbSBBY2NvdW50aW5nIiwib3JnX3N0YXR1cyI6IkFjdGl2ZSIsInNvZnR3YXJlX2NsaWVudF9pZCI6IkNraTFFYnZqd3loUEIxMk5HTGx6MiIsImlzcyI6Ik9wZW4gQmFua2luZyBPcGVuIEJhbmtpbmcgQnJhc2lsIHByb2QgU1NBIGlzc3VlciIsInNvZnR3YXJlX3Rvc191cmkiOiJodHRwczpcL1wvd3d3LnJhaWRpYW0uY29tXC9hY2NvdW50aW5nXC90b3MuaHRtbCIsInNvZnR3YXJlX2NsaWVudF9kZXNjcmlwdGlvbiI6IlJhaWRpYW0gQWNjb3VudGluZyBsZXZlcmFnZSBjdXR0aW5nIGVkZ2Ugb3BlbiBiYW5raW5nIGFjY2VzcyB0byBicmluZyB5b3UgcmVhbCB0aW1lIHVwIHRvIGRhdGUgdmlld3Mgb2YgeW91ciBmaW5hbmNlcyIsInNvZnR3YXJlX2p3a3NfZW5kcG9pbnQiOiJodHRwczpcL1wva2V5c3RvcmUuZGlyZWN0b3J5Lm9wZW5iYW5raW5nYnJhc2lsLm9yZy5iclwvYjk2MWM0ZWItNTA5ZC00ZWRmLWFmZWItMzU2NDJiMzgxODVkXC8yNTU1NmQ1YS1iOWRkLTRlMjctYWExYS1jY2U3MzJmZTc0ZGVcL2FwcGxpY2F0aW9uLmp3a3MiLCJzb2Z0d2FyZV9wb2xpY3lfdXJpIjoiaHR0cHM6XC9cL3d3dy5yYWlkaWFtLmNvbVwvYWNjb3VudGluZ1wvcG9saWN5Lmh0bWwiLCJzb2Z0d2FyZV9pZCI6IjI1NTU2ZDVhLWI5ZGQtNGUyNy1hYTFhLWNjZTczMmZlNzRkZSIsInNvZnR3YXJlX2NsaWVudF91cmkiOiJodHRwczpcL1wvd3d3LnJhaWRpYW0uY29tXC9hY2NvdW50aW5nLmh0bWwiLCJzb2Z0d2FyZV9qd2tzX2luYWN0aXZlX2VuZHBvaW50IjoiaHR0cHM6XC9cL2tleXN0b3JlLmRpcmVjdG9yeS5vcGVuYmFua2luZ2JyYXNpbC5vcmcuYnJcL2I5NjFjNGViLTUwOWQtNGVkZi1hZmViLTM1NjQyYjM4MTg1ZFwvMjU1NTZkNWEtYjlkZC00ZTI3LWFhMWEtY2NlNzMyZmU3NGRlXC9pbmFjdGl2ZVwvYXBwbGljYXRpb24uandrcyIsInNvZnR3YXJlX2p3a3NfdHJhbnNwb3J0X2luYWN0aXZlX2VuZHBvaW50IjoiaHR0cHM6XC9cL2tleXN0b3JlLmRpcmVjdG9yeS5vcGVuYmFua2luZ2JyYXNpbC5vcmcuYnJcL2I5NjFjNGViLTUwOWQtNGVkZi1hZmViLTM1NjQyYjM4MTg1ZFwvMjU1NTZkNWEtYjlkZC00ZTI3LWFhMWEtY2NlNzMyZmU3NGRlXC9pbmFjdGl2ZVwvdHJhbnNwb3J0Lmp3a3MiLCJzb2Z0d2FyZV9qd2tzX3RyYW5zcG9ydF9lbmRwb2ludCI6Imh0dHBzOlwvXC9rZXlzdG9yZS5kaXJlY3Rvcnkub3BlbmJhbmtpbmdicmFzaWwub3JnLmJyXC9iOTYxYzRlYi01MDlkLTRlZGYtYWZlYi0zNTY0MmIzODE4NWRcLzI1NTU2ZDVhLWI5ZGQtNGUyNy1hYTFhLWNjZTczMmZlNzRkZVwvdHJhbnNwb3J0Lmp3a3MiLCJzb2Z0d2FyZV9sb2dvX3VyaSI6Imh0dHBzOlwvXC93d3cucmFpZGlhbS5jb21cL2FjY291bnRpbmdcL2xvZ28ucG5nIiwib3JnX2lkIjoiYjk2MWM0ZWItNTA5ZC00ZWRmLWFmZWItMzU2NDJiMzgxODVkIiwic29mdHdhcmVfZW52aXJvbm1lbnQiOiJwcm9kdWN0aW9uIiwic29mdHdhcmVfdmVyc2lvbiI6MS4xMCwic29mdHdhcmVfcm9sZXMiOlsiREFET1MiLCJQQUdUTyJdLCJvcmdfbmFtZSI6Ik9wZW4gQmFua2luZyBCcmFzaWwiLCJpYXQiOjE2MTgzMzYyNjIsIm9yZ2FuaXNhdGlvbl9jb21wZXRlbnRfYXV0aG9yaXR5X2NsYWltcyI6W3siYXV0aG9yaXNhdGlvbl9kb21haW4iOiJPcGVuIEJhbmtpbmciLCJhdXRob3Jpc2F0aW9ucyI6W10sInJlZ2lzdHJhdGlvbl9pZCI6IjEzMzUzMjM2LU9CQi1DT05UQSIsImF1dGhvcml0eV9pZCI6IjY4N2ExYzk0LWIzNjAtNGUwNC05NTg5LTBmYTVjYjE2NDUxYiIsImF1dGhvcmlzYXRpb25fcm9sZSI6IkNPTlRBIiwiYXV0aG9yaXR5X2NvZGUiOiJCQ0IiLCJzdGF0dXMiOiJBY3RpdmUifSx7ImF1dGhvcmlzYXRpb25fZG9tYWluIjoiT3BlbiBCYW5raW5nIiwiYXV0aG9yaXNhdGlvbnMiOltdLCJyZWdpc3RyYXRpb25faWQiOiIxMzM1MzIzNi1PQkItREFET1MiLCJhdXRob3JpdHlfaWQiOiI2ODdhMWM5NC1iMzYwLTRlMDQtOTU4OS0wZmE1Y2IxNjQ1MWIiLCJhdXRob3Jpc2F0aW9uX3JvbGUiOiJEQURPUyIsImF1dGhvcml0eV9jb2RlIjoiQkNCIiwic3RhdHVzIjoiQWN0aXZlIn0seyJhdXRob3Jpc2F0aW9uX2RvbWFpbiI6Ik9wZW4gQmFua2luZyIsImF1dGhvcmlzYXRpb25zIjpbXSwicmVnaXN0cmF0aW9uX2lkIjoiMTMzNTMyMzYtT0JCLVBBR1RPIiwiYXV0aG9yaXR5X2lkIjoiNjg3YTFjOTQtYjM2MC00ZTA0LTk1ODktMGZhNWNiMTY0NTFiIiwiYXV0aG9yaXNhdGlvbl9yb2xlIjoiUEFHVE8iLCJhdXRob3JpdHlfY29kZSI6IkJDQiIsInN0YXR1cyI6IkFjdGl2ZSJ9XX0.W6hUAYhjT6I61rxEIVMKYKre93LTbRdzKnk9dJvUdzVgAz5B9KxZNutf27oO3k0hrjYVWBdWq23o_e4Y_AaKdpS9-rtU84JiHtmqV0wcFYIM8nqcUVWqQ-Ux6Nq9L2G-s2YNd3PcJ1e3yGg9h8553Gr7iJusKEgApzXUpkM2rBELQuumktUE_JBiuIkXmWxoRnO1cW-Osbk3MT3bxG43SPcxii07Q5S8qXI6PjCPA3fYlnaUAygwZM3O0oa7jqmSr7d9UsHuDMJfYhIKdq2wyQQKORCN-D2UopmMX-lHMvAVkkrAO08T0-7odjr4PJk-PrwuoCxeAfa7440ZDOrlmQ

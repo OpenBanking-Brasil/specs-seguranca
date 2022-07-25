@@ -18,26 +18,6 @@
     value = "open-banking-brasil-certificate-standards-1_ID1-ptbr"
 
     [[author]]
-    initials = "M."
-    surname = "Rodrigues"
-    fullname = "Marcos Rodrigues"
-    organization = "Itau"
-    abbrev = "Itau"
-      [author.address]
-      email = "marcos.aurelio-rodrigues@itau-unibanco.com.br"
-      uri = "https://www.itau.com.br/"
-
-    [[author]]
-    initials = "J."
-    surname = "Dias"
-    fullname = "Jose Michael Dias"
-    organization = "Banco Pan"
-    abbrev = "Banco Pan"
-      [author.address]
-      email = "jose.henrique@grupopan.com"
-      uri = "https://www.bancopan.com.br/"
-
-    [[author]]
     initials = "GT"
     surname = "Segurança"
     fullname = "GT Segurança"
@@ -93,6 +73,7 @@ Os seguintes documentos referenciados são indispensáveis para a aplicação de
 * [BCP195] - Recommendations for Secure Use of Transport Layer Security (TLS) and Datagram Transport Layer Security (DTLS) [BCP195]: <https://tools.ietf.org/html/bcp195>
 * [RFC8705] - OAuth 2.0 Mutual TLS Client Authentication and Certificate Bound Access Tokens [RFC8705]: <https://tools.ietf.org/html/rfc8705>
 * [OBB-FAPI] - Open Banking Brasil Financial-grade API Security Profile 1.0 [OBB-FAPI]: <https://github.com/OpenBanking-Brasil/specs-seguranca/open-banking-brasil-financial-api-1_ID3.html>
+* [OBB-FAPI-DCR] - Open Banking Brasil Financial-grade API Dynamic Client Registration Profile 1.0 [OBB-FAPI-DCR]: <https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID2.html>
 * [DOC-ICP-01] - DECLARAÇÃO DE PRÁTICAS DE CERTIFICAÇÃO DA AUTORIDADE CERTIFICADORA RAIZ DA ICP-BRASIL: <https://www.gov.br/iti/pt-br/centrais-de-conteudo/doc-icp-01-v-5-2-dpc-da-ac-raiz-da-icp-brasil-pdf>
 * [RFC6749] - The OAuth 2.0 Authorization Framework [RFC6749]: <https://tools.ietf.org/html/rfc6749>
 * [BCB-IN134] - Manual de Segurança do Open Banking: <https://www.in.gov.br/web/dou/-/instrucao-normativa-bcb-n-134-de-22-de-julho-de-2021-3345585364>
@@ -105,14 +86,14 @@ Para o propósito deste documento os termos definidos na [RFC5280], [BCP195], [R
 
 # Glossário {#Glossario}
 
-* **SSA** – Software Statement Assertion
-* **SS** – Software Statement
-* **DCR** – Dynamic Client Registration
 * **API** – Application Programming Interface
+* **DCR** – Dynamic Client Registration
 * **HTTP** – Hyper Text Transfer Protocol
+* **ICP** - Infraestrutura de Chave Públicas Brasileira
+* **SS** – Software Statement
+* **SSA** – Software Statement Assertion
 * **TLS** – Transport Layer Security
 * **mTLS** – Mutual Transport Layer Security
-* **ICP** - Infraestrutura de Chave Públicas Brasileira
 
 # Padrão de Certificados Open Banking Brasil {#PadraoCertificadosOpenBankingBrasil}
 
@@ -218,8 +199,8 @@ O Certificado de Assinatura deve ser emitido através de cadeia V5, e deve obrig
 
 As seguintes autoridades certificadoras realizaram o processo de onboard ao Open Banking Brasil e estão habilitadas para realizar a emissão de certificados do Open Banking Brasil.
 
-* Serpro
 * Serasa
+* Serpro
 * Soluti
 
 ### Certificado para Front-End {#CertificadoFrontEnd}
@@ -240,14 +221,15 @@ Agradecemos a todos que estabeleceram as bases para o compartilhamento seguro e 
 
 As seguintes pessoas contribuíram para este documento:
 
-* Marcos Rodrigues (Itaú)
-* José Michael Dias (Grupo Pan)
-* Ralph Bragg (Raidiam)
 * João Rodolfo Vieira (Itaú)
+* José Michael Dias (Grupo Pan)
+* Marcos Rodrigues (Itaú)
+* Nic Marcondes (Quanto)
+* Ralph Bragg (Raidiam)
 
 # Informativo {#Informativo}
 
-Copyright (c) 2021 Estrutura Inicial do Open Banking Brasil.
+Copyright (c) 2022 Estrutura Inicial do Open Banking Brasil.
 
 A Estrutura Inicial do Open Banking Brasil (EIOBB) concede a qualquer Colaborador, desenvolvedor, implementador ou outra parte interessada uma licença de direitos autorais mundial não exclusiva, livre de royalties para reproduzir, preparar trabalhos derivados, distribuir, executar e exibir, estes Implementadores Rascunho ou Especificação Final exclusivamente para fins de (i) desenvolver especificações e (ii) implementar Rascunhos de Implementações e Especificações Finais com base em tais documentos, desde que a atribuição seja feita ao EIOBB como a fonte do material, mas que tal atribuição o faça não indica endosso do EIOBB.
 
@@ -316,33 +298,33 @@ subjectAltName = @alt_name
 keyUsage = critical,digitalSignature,nonRepudiation
 
 [ alt_name ]
-otherName.0 = 2.16.76.1.3.2;UTF8:<Nome da pessoal responsável pela entidade>#CNPJ
-otherName.1 = 2.16.76.1.3.3;UTF8:<CNPJ>
-otherName.2 = 2.16.76.1.3.4;UTF8:<CPF/PIS/RF da Pessoa responsável>
-otherName.3 = 2.16.76.1.3.7;UTF8:<Número de INSS>
+otherName.0 = 2.16.76.1.3.2;PRINTABLESTRING:<Nome da pessoal responsável pela entidade>#CNPJ
+otherName.1 = 2.16.76.1.3.3;PRINTABLESTRING:<CNPJ>
+otherName.2 = 2.16.76.1.3.4;PRINTABLESTRING:<CPF/PIS/RF da Pessoa responsável>
+otherName.3 = 2.16.76.1.3.7;PRINTABLESTRING:<Número de INSS>
 ```
 ## Tabela com Endpoints vs Tipo de Certificado e mTLS
 Abaixo apresentamos quais endpoints podem ser publicados utilizando certificado EV como autenticação do consentimento e os endpoints de autenticação de APIs privadas/negócios que devem ser publicadas usando certificado ICP. Você também poderá verificar quais endpoints devem proteger suas conexões utilizando mTLS.
 
 Fica a critério da instituição a escolha do certificado que deve ser adotado para os _endpoints_ da Fase 1, os quais, por natureza, são de acesso público.
 
-| Fase | Grupo | API | Certificado | mTLS |
-| --- | --- | --- | --- | --- |
-| NA | OIDC | .well-known/openid-configuration | EV ou ICP WEB SSL |  
-| NA | OIDC | jwks_uri | EV ou ICP WEB SSL |  
-| NA | OIDC | authorization_endpoint | EV |   |  
-| NA | OIDC | token_endpoint | ICP WEB SSL | Obrigatório |
-| NA | OIDC | userinfo_endpoint | ICP WEB SSL | Obrigatório |
-| NA | OIDC | pushed_authorization_request_endpoint |  ICP WEB SSL | Obrigatório |
-| NA | DCR | registration_endpoint |  ICP WEB SSL | Obrigatório |
-| NA | OIDC | revocation_endpoint | ICP WEB SSL | Obrigatório |
-| 2 | Consentimentos | /consents/* |  ICP WEB SSL | Obrigatório |
-| 2 | Resources | /resources/* | ICP WEB SSL | Obrigatório |
-| 2 | Dados | /customers/* | ICP WEB SSL | Obrigatório |
-| 2 | Cartão | /credit-cards-accounts/* | ICP WEB SSL | Obrigatório |
-| 2 | Contas | /accounts/* | ICP WEB SSL | Obrigatório |
-| 2 | Empréstimos | /loans/* | ICP WEB SSL | Obrigatório |
-| 2 | Financiamentos | /financings/* | ICP WEB SSL | Obrigatório |
-| 2 | Adiantamento | /unarranged-accounts-overdraft/* | ICP WEB SSL | Obrigatório |
-| 2 | Direitos   Creditórios | /invoice-financings/* | ICP WEB SSL | Obrigatório |
-| 3 | Pagamentos | /payments/* | ICP WEB SSL | Obrigatório |
+| Fase | Grupo                  | API                                   | Certificado       | mTLS        |
+|------|------------------------|---------------------------------------|-------------------|-------------|
+| NA   | OIDC                   | .well-known/openid-configuration      | EV ou ICP WEB SSL |             |
+| NA   | OIDC                   | jwks_uri                              | EV ou ICP WEB SSL |             |
+| NA   | OIDC                   | authorization_endpoint                | EV                |             |  
+| NA   | OIDC                   | token_endpoint                        | ICP WEB SSL       | Obrigatório |
+| NA   | OIDC                   | userinfo_endpoint                     | ICP WEB SSL       | Obrigatório |
+| NA   | OIDC                   | pushed_authorization_request_endpoint | ICP WEB SSL       | Obrigatório |
+| NA   | DCR                    | registration_endpoint                 | ICP WEB SSL       | Obrigatório |
+| NA   | OIDC                   | revocation_endpoint                   | ICP WEB SSL       | Obrigatório |
+| 2    | Consentimentos         | /consents/*                           | ICP WEB SSL       | Obrigatório |
+| 2    | Resources              | /resources/*                          | ICP WEB SSL       | Obrigatório |
+| 2    | Dados                  | /customers/*                          | ICP WEB SSL       | Obrigatório |
+| 2    | Cartão                 | /credit-cards-accounts/*              | ICP WEB SSL       | Obrigatório |
+| 2    | Contas                 | /accounts/*                           | ICP WEB SSL       | Obrigatório |
+| 2    | Empréstimos            | /loans/*                              | ICP WEB SSL       | Obrigatório |
+| 2    | Financiamentos         | /financings/*                         | ICP WEB SSL       | Obrigatório |
+| 2    | Adiantamento           | /unarranged-accounts-overdraft/*      | ICP WEB SSL       | Obrigatório |
+| 2    | Direitos   Creditórios | /invoice-financings/*                 | ICP WEB SSL       | Obrigatório |
+| 3    | Pagamentos             | /payments/*                           | ICP WEB SSL       | Obrigatório |
