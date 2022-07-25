@@ -42,7 +42,7 @@ As especificações formais são criadas usando diretrizes, processos e ferramen
 
 Siga os seguintes passos para gerar a versão HTML à partir dos arquivos markdown
 ```shell
-makerfc='docker run -v `pwd`:/data upnic/makerfc'
+alias makerfc='docker run -v `pwd`:/data upnic/makerfc'
 
 makerfc open-banking-brasil-dynamic-client-registration-1_ID1.md
 ```
