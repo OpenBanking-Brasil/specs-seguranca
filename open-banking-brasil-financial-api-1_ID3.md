@@ -361,7 +361,7 @@ Participants shall support all security considerations specified in clause 8
 
 8. the _iat_ claim must be numeric in Unix Time format GMT+0 with a tolerance of +/- 60 seconds;
 
-9. the _jti_ claim must be unique for a _clientId_ within a time frame of 86,400 seconds (24h), and cannot be reused within this period. In case of reuse, the HTTP error code 403 shall be return.
+9. the _jti_ claim must be unique for a _clientId_ within a time frame of 86,400 seconds (24h), and cannot be reused within this period. In case of reuse, the HTTP error code 403 shall be return. Any other case must follow RFC 6749 instructions in item 5.2.
 
 ## Signing algorithm considerations
 
