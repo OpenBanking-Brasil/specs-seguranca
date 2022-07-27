@@ -222,7 +222,9 @@ In addition, the Authorization Server
 11. shall accept all x.500 AttributeType name strings defined in the Distinguished Name of the x.509 Certificate Profiles defined in [Open Finance Brasil x.509 Certificate Standards][OFB-Cert-Standards];
 12. if supporting `tls_client_auth` client authentication mechanism as defined in [RFC8705] shall only accept `tls_client_auth_subject_dn`  as an indication of the certificate subject value as defined in clause 2.1.2 [RFC8705];
 13. Values of the fields *UID* and *OU* of the certificate shall match the ones on the SSA. The *OU* field shall match the *org_id* value from the SSA, while the *UID* field shall match the *software_id* value of the SSA.
-14. Shall, during the TLS handshake process, use the `distinguishedNameMatch` rule to compare the DN values as defined in [RFC4517].
+14. shall, during the TLS handshake process, use the `distinguishedNameMatch` rule to compare the DN values as defined in [RFC4517].
+15. shall ensure the integrity of the stock of active consents, even after any systemic changes, so that such changes are transparent to the data receiver institutions (TPP).
+16. shall perform a recertification on OIDF FAPI and DCR after any systemic changes.
 
 These provisions apply equally to the processing of [RFC7591], [RFC7592] and [OpenID Registration][OIDR] requests
 
@@ -256,9 +258,9 @@ Below are examples of required attributes on the currently active CAs:
 | subject_dn                                                                                                                                                                                                                                                                                | Issuer                                                                                                                 |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
 | UID=67c57882-043b-11ec-9a03-0242ac130003, 1.3.6.1.4.1.311.60.2.1.3=#13024252, 2.5.4.15=#131450726976617465204f7267616e697a6174696f6e, 2.5.4.5=#130e3133333533323336303030313839, CN= mycn.bank.gov.br,OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59, O=My Public Bank, L= BRASILIA, ST=DF, C=BR   | issuer=CN=Open Banking SANDBOX Issuing CA   - G1,OU=Open Banking,O=Open   Banking Brasil,C=BR                          |
-| UID=67c57882-043b-11ec-9a03-0242ac130003, 1.3.6.1.4.1.311.60.2.1.3=#13024252, 2.5.4.15=#131450726976617465204f7267616e697a6174696f6e, CN=mycn.bank.gov.br, 2.5.4.5=#130e3133333533323336303030313839, OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59, O=My Public Bank, L=BRASILIA, ST=DF, C=BR    | issuer=CN=Autoridade Certificadora do SERPRO SSLv1,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR |
+| UID=67c57882-043b-11ec-9a03-0242ac130003, 1.3.6.1.4.1.311.60.2.1.3=#13024252, 2.5.4.15=#0C0F427573696E65737320456E74697479, CN=mycn.bank.gov.br, 2.5.4.5=#130e3133333533323336303030313839, OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59, O=My Public Bank, L=BRASILIA, ST=DF, C=BR    | issuer=CN=Autoridade Certificadora do SERPRO SSLv1,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR  |
 | 1.3.6.1.4.1.311.60.2.1.3=#13024252, 2.5.4.15=#131450726976617465204f7267616e697a6174696f6e, UID=67c57882-043b-11ec-9a03-0242ac130003, CN=openbanking.mybank.com.br, 2.5.4.5=#130e3133333533323336303030313839, OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59, L=Goiania, ST=GO, O=MyBank SA, C=BR | issuer=CN=AC SOLUTI SSL EV,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR                         |
-| CN=mycn.bank.com.br, UID=67c57882-043b-11ec-9a03-0242ac130003, OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59, L=Sao Paulo, ST=SP, O=MyBank SA, C=BR,2.5.4.5=#130e3133333533323336303030313839, 1.3.6.1.4.1.311.60.2.1.3=#13024252, 2.5.4.15=#131450726976617465204f7267616e697a6174696f6e         | issuer=CN=AC SERASA SSL EV,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR                         |
+| CN=mycn.bank.com.br, UID=67c57882-043b-11ec-9a03-0242ac130003, OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59, L=Sao Paulo, ST=SP, O=MyBank SA, C=BR,2.5.4.5=#130e3133333533323336303030313839, 1.3.6.1.4.1.311.60.2.1.3=#13024252, 2.5.4.15=#0C0F427573696E65737320456E74697479         | issuer=CN=AC SERASA SSL EV,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR                         |
 
 ## Regulatory Roles for OpenID and OAuth 2.0 Mappings
 
@@ -281,7 +283,7 @@ Upon registering using the _tls\_client\_auth_ authentication method, the client
 
 # Software Statement Assertion
 
-A Software Statement Assertion (_software\_statement_) is a JSON Wen Token (JWT) [RFC7519] that asserts the metadata values of the client software as a whole. On the Open Finance Brasil structure, this _software\_statement_ is signed by the Participants Directory and it's signature MUST be validated by the Authorization Servers using the public keys available on the following session.
+A Software Statement Assertion (_software\_statement_) is a JSON Web Token (JWT) [RFC7519] that asserts the metadata values of the client software as a whole. On the Open Finance Brasil structure, this _software\_statement_ is signed by the Participants Directory and it's signature MUST be validated by the Authorization Servers using the public keys available on the following session.
 
 ## Attributes of the Software Statement Assertion (Claims)
 

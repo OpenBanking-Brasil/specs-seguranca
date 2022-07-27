@@ -220,7 +220,9 @@ Além disso, ele deve:
 19. deve garantir que as configurações divulgadas aos demais participantes através do `OpenID Discovery` (indicado pelo arquivo de `Well-Known` cadastrado no Diretório) sejam restritos aos modos de operação aos quais a instituição se certificou;
     1. deve manter em suas configurações os métodos para os quais ainda hajam clientes ativos;
     2. deve atualizar os cadastros que utilizem métodos não certificados, através de tratamento bilateral entre as instituições envolvidas.
-20. deve recusar requisições, para o ambiente do Open Finance, que estejam fora dos modos de operação ao qual a instituição certificou seu Servidor de Autorização.
+20. deve recusar requisições, para o ambiente do Open Finance, que estejam fora dos modos de operação ao qual a instituição certificou seu Servidor de Autorização;
+21. deve recusar requisições de autenticação que incluam um id_token_hint, visto que o id_token em posse do requisitante pode conter Informação de Identificação Pessoal, que poderia ser enviada descriptografada pelo cliente público.
+
 
 #### Token de ID como assinatura separada  {#detached}
 
@@ -228,8 +230,17 @@ O Servidor de Autorização *deve* suportar as disposições especificadas na cl
 
 Além disso, se o valor `response_type` `code id_token` for usado, o servidor de autorização:
 
-1. **não deveria** retornar Informação de Identificação Pessoal (PII) confidenciais no token de ID na resposta de autorização,
-mas se for necessário, então ele **deve** criptografar o token de ID.
+1. **não deveria** retornar Informação de Identificação Pessoal (PII) confidenciais no token de ID na resposta de autorização, mas se for necessário, então ele **deve** criptografar o token de ID.
+2. Informação de Identificação Pessoal pode incluir, mas não está restrito a:
+    1. Claim `sub` caso use informação que possibilite a identificação da pessoa natural;
+    2. As Claims padrões definidas na cláusula 5.1 [OIDC], que podem conter dados como data de nascimento, endereço ou telefone;
+    3. A nova Claim CPF, definida na próxima seção.
+3. Caso seja solicitada alguma Claim contendo Informação de Identificação Pessoal:
+    1. Se esta for marcada como essencial, em não se havendo chave de criptografia registrada para o Cliente, deverá falhar a requisição se for solicitada no Endpoint de Autorização. Não há impedimentos caso a solicitação seja feita pelo Cliente Confidencial através do Endpoint de Token;
+    2. Se esta não for marcada como essencial, o Servidor de Autorização deverá omiti-la no Endpoint de Autorização, podendo ser respondida no Endpoint de Token chamado pelo Cliente Confidencial.
+4. Para a criptografia do id_token deve ser utilizada chave disponível no `JWKS` informado no parâmetro `jwks_uri` durante o registro do cliente, indicada através do cabeçalho `kid` do documento JWT;
+5. O uso de outros cabeçalhos para indicação da chave utilizada, como `x5u`, `x5c`, `jku` ou `jkw` é vetado conforme definido na cláusula 2 [OIDC].
+
 
 #### Solicitando uma "claim" **cpf**  {#cpf}
 
@@ -253,6 +264,8 @@ Se a Claim **cpf** for solicitada como essencial para constar no ID Token ou na 
 
 Se a Claim **cpf** indicada como essencial não puder ser preenchida ou não for compatível com o requisito,
  o Authorization Server deve tratar a solicitação como uma tentativa de autenticação com falha.
+
+Se a Claim **cpf** indicada como essencial for solicitada no endpoint de Autorização, deverá seguir as regras definidas na seção 5.2.2.1.
 
 Nome: cpf, Tipo: String, Regex: '^\d{11}$'
 
@@ -325,7 +338,8 @@ Além disso, o cliente confidencial
 6. não deve incluir um valor específico na _claim_ `acr`;
 7. deve definir a _claim_ `acr`como _essential_;
 8. deve suportar todos os métodos de autenticação especificados no item 14 da seção 5.2.2 da [Financial-grade API Security Profile 1.0 - Part 2: Advanced][FAPI-1-Advanced] incluindo as diferentes combinações de métodos de encaminhamento dos Requests Objects (usando ou não [PAR] - item 11);
-9. não deve permitir o recurso de rotação de `refresh tokens`.
+9. não deve permitir o recurso de rotação de `refresh tokens`;
+10. não deve solicitar requisições de autenticação que incluam um id_token_hint, visto que o id_token a ser utilizado pode conter Informação de Identificação Pessoal, que poderia ser enviada descriptografada através do cliente público.
 
 # Considerações de segurança  {#authserver}
 
@@ -424,7 +438,7 @@ O recurso de consentimento tem um ciclo de vida gerenciado separada e distintame
 Além dos requisitos descritos nas disposições de segurança do Open Finance Brasil, o Servidor de Autorização
 
 1. deve apenas emitir _refresh_tokens_ quando vinculados a um consentimento ativo e válido;
-2. só deve compartilhar o acesso aos recursos quando apresentado _access_token_ vinculado a um consentimento ativo e válido;
+2. só deve compartilhar o acesso aos recursos quando apresentado _access_token_ vinculado a um consentimento ativo e com o status "AUTHORIZED";
    1. No cenário de recebimento de token inválido, deve ser retornado status code 401.
 3. deve revogar os _refresh tokens_ e, quando aplicável, os _access tokens_ quando o Consentimento (Consent Resource) relacionado for apagado;
 4. deve garantir que os _access tokens_ são emitidos com os _scopes_ necessários para permitir acesso aos dados especificados em elemento _Permission_ do Consentimento (Consent Resource Object) relacionado;
