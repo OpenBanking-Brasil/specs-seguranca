@@ -8,7 +8,7 @@
 <meta content="OFBIS GT Security" name="author">
 <meta content="xml2rfc 3.12.2" name="generator">
 <meta content="FAPI" name="keyword">
-<meta content="Open Banking Brasil GT Security" name="keyword">
+<meta content="Open Finance Brasil GT Security" name="keyword">
 <meta content="open-banking-brasil-financial-api-1_ID3" name="ietf.draft">
 <!-- Generator version information:
   xml2rfc 3.12.2
@@ -1182,7 +1182,7 @@ li > p:last-of-type {
 <thead><tr>
 <td class="left"></td>
 <td class="center">OFB-FAPI-1-ID3</td>
-<td class="right">June 2022</td>
+<td class="right">July 2022</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Security</td>
@@ -1216,7 +1216,7 @@ li > p:last-of-type {
 <li class="compact note" id="section-note.1-4.1">Open Finance Brasil Financial-grade API Security Profile 1.0<a href="#section-note.1-4.1" class="pilcrow">¶</a>
 </li>
         <li class="compact note" id="section-note.1-4.2">
-          <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID2.html">Open Finance Brasil Dynamic Client Registration Profile 1.0</a><a href="#section-note.1-4.2" class="pilcrow">¶</a>
+          <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID2.html">Open Banking Brasil Dynamic Client Registration Profile 1.0</a><a href="#section-note.1-4.2" class="pilcrow">¶</a>
 </li>
       </ul>
 <p id="section-note.1-5">These parts are intended to be used with <a href="https://tools.ietf.org/html/rfc6749">RFC6749</a>, <a href="https://tools.ietf.org/html/rfc6750">RFC6750</a>, <a href="https://tools.ietf.org/html/rfc7636">RFC7636</a>, <a href="https://openid.net/specs/openid-connect-core-1_0.html">OIDC</a>, <a href="https://openid.net/specs/openid-financial-api-part-1-1_0.html">FAPI-1-Baseline</a> and <a href="https://openid.net/specs/openid-financial-api-part-2-1_0.html">FAPI-1-Advanced</a><a href="#section-note.1-5" class="pilcrow">¶</a></p>
@@ -1235,10 +1235,8 @@ li > p:last-of-type {
 <p id="section-note.3-1">The key words "shall", "shall not",
 "should", "should not", "may", and
 "can" in this document are to be interpreted as described in
-<a href="https://www.iso.org/sites/directives/current/part2/index.xhtml">ISO Directive Part 2</a>.
-These key words are not used as dictionary terms such that
-any occurrence of them shall be interpreted as key words
-and are not to be interpreted with their natural language meanings.<a href="#section-note.3-1" class="pilcrow">¶</a></p>
+<a href="https://www.iso.org/sites/directives/current/part2/index.xhtml">ISO Directive Part 2</a>.<a href="#section-note.3-1" class="pilcrow">¶</a></p>
+<p id="section-note.3-2">These key words are not to be used as lexicon terms such that any occurrence of them shall be interpreted as key words and are not to be interpreted with their natural language meanings.<a href="#section-note.3-2" class="pilcrow">¶</a></p>
 </section>
 <div id="toc">
 <section id="section-toc.1">
@@ -1259,13 +1257,13 @@ and are not to be interpreted with their natural language meanings.<a href="#sec
             <p id="section-toc.1-1.4.1"><a href="#section-4" class="xref">4</a>.  <a href="#name-symbols-and-abbreviated-ter" class="xref">Symbols and Abbreviated terms</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
-            <p id="section-toc.1-1.5.1"><a href="#section-5" class="xref">5</a>.  <a href="#name-brasil-open-banking-securit" class="xref">Brasil Open Finance Security Profile</a></p>
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="xref">5</a>.  <a href="#name-brasil-open-finance-securit" class="xref">Brasil Open Finance Security Profile</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.1">
                 <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="xref">5.1</a>.  <a href="#name-introduction-2" class="xref">Introduction</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2">
-                <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="xref">5.2</a>.  <a href="#name-open-banking-brasil-securit" class="xref">Open Finance Brasil security provisions</a></p>
+                <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="xref">5.2</a>.  <a href="#name-open-finance-brasil-securit" class="xref">Open Finance Brasil security provisions</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2.2.1">
                     <p id="section-toc.1-1.5.2.2.2.1.1"><a href="#section-5.2.1" class="xref">5.2.1</a>.  <a href="#name-introduction-3" class="xref">Introduction</a></p>
@@ -1287,7 +1285,7 @@ and are not to be interpreted with their natural language meanings.<a href="#sec
                 <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="xref">6.1</a>.  <a href="#name-message-content-signing-con" class="xref">Message Content Signing Considerations (JWS)</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.2">
-                <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="xref">6.2</a>.  <a href="#name-algorithm-considerations" class="xref">Algorithm considerations</a></p>
+                <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="xref">6.2</a>.  <a href="#name-signing-algorithm-considera" class="xref">Signing algorithm considerations</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.2.2.1">
                     <p id="section-toc.1-1.6.2.2.2.1.1"><a href="#section-6.2.1" class="xref">6.2.1</a>.  <a href="#name-encryption-algorithm-consid" class="xref">Encryption algorithm considerations</a></p>
@@ -1391,7 +1389,7 @@ and are not to be interpreted with their natural language meanings.<a href="#sec
 <p id="section-2-22"><a href="https://bitbucket.org/openid/fapi/src/master/FAPI_2_0_Baseline_Profile.md">FAPI-2-Baseline</a> - Financial-grade API Security Profile 2.0 - Part 1: Baseline<a href="#section-2-22" class="pilcrow">¶</a></p>
 <p id="section-2-23"><a href="https://bitbucket.org/openid/fapi/src/master/FAPI_2_0_Advanced_Profile.md">FAPI-2-Advanced</a> - Financial-grade API Security Profile 2.0 - Part 2: Advanced<a href="#section-2-23" class="pilcrow">¶</a></p>
 <p id="section-2-24"><a href="https://bitbucket.org/openid/fapi/src/master/Financial_API_Lodging_Intent.md">LIWP</a> - OIDF FAPI WG Lodging Intent Working Paper<a href="#section-2-24" class="pilcrow">¶</a></p>
-<p id="section-2-25"><a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID2.html">OFB-FAPI-DCR</a> - Open Finance Brasil Financial-grade API Dynamic Client Registration Profile 1.0<a href="#section-2-25" class="pilcrow">¶</a></p>
+<p id="section-2-25"><a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID2.html">OFB-FAPI-DCR</a> - Open Banking Brasil Financial-grade API Dynamic Client Registration Profile 1.0<a href="#section-2-25" class="pilcrow">¶</a></p>
 <p id="section-2-26"><a href="https://tools.ietf.org/html/rfc4648">RFC4648</a> - The Base16, Base32, and Base64 Data Encodings<a href="#section-2-26" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -1425,7 +1423,7 @@ and are not to be interpreted with their natural language meanings.<a href="#sec
           <strong>HTTP</strong> - Hyper Text Transfer Protocol<a href="#section-4-1.5" class="pilcrow">¶</a>
 </li>
         <li class="compact" id="section-4-1.6">
-          <strong>MFA</strong> - Multi-Factor Authentication<a href="#section-4-1.6" class="pilcrow">¶</a>
+          <strong>MFA</strong> - Multi-Factor Autentication<a href="#section-4-1.6" class="pilcrow">¶</a>
 </li>
         <li class="compact" id="section-4-1.7">
           <strong>OFBIS</strong> - Open Finance Brasil Initial Structure<a href="#section-4-1.7" class="pilcrow">¶</a>
@@ -1442,10 +1440,10 @@ and are not to be interpreted with their natural language meanings.<a href="#sec
       </ul>
 </section>
 </div>
-<div id="brasil-open-banking-security-profile">
+<div id="brasil-open-finance-security-profile">
 <section id="section-5">
-      <h2 id="name-brasil-open-banking-securit">
-<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-brasil-open-banking-securit" class="section-name selfRef">Brasil Open Finance Security Profile</a>
+      <h2 id="name-brasil-open-finance-securit">
+<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-brasil-open-finance-securit" class="section-name selfRef">Brasil Open Finance Security Profile</a>
       </h2>
 <div id="introduction-1">
 <section id="section-5.1">
@@ -1466,21 +1464,21 @@ and are not to be interpreted with their natural language meanings.<a href="#sec
         </ul>
 </section>
 </div>
-<div id="open-banking-brasil-security-provisions">
+<div id="open-finance-brasil-security-provisions">
 <section id="section-5.2">
-        <h3 id="name-open-banking-brasil-securit">
-<a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-open-banking-brasil-securit" class="section-name selfRef">Open Finance Brasil security provisions</a>
+        <h3 id="name-open-finance-brasil-securit">
+<a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-open-finance-brasil-securit" class="section-name selfRef">Open Finance Brasil security provisions</a>
         </h3>
 <div id="introduction-2">
 <section id="section-5.2.1">
           <h4 id="name-introduction-3">
 <a href="#section-5.2.1" class="section-number selfRef">5.2.1. </a><a href="#name-introduction-3" class="section-name selfRef">Introduction</a>
           </h4>
-<p id="section-5.2.1-1">Open Finance Brasil has a requirement to address privacy considerations that were identified but not addressed in the <a href="https://openid.net/specs/openid-financial-api-part-2-1_0.html">FAPI-1-Advanced</a> final specification without imposing additional requirements on Authorisation Servers being proposed in <a href="https://bitbucket.org/openid/fapi/src/master/FAPI_2_0_Baseline_Profile.md">FAPI-2-Baseline</a>.
-Participants in this ecosystem have a need for clients to request an openid provider to confirm values of identity claims as part of an authorization request using the mechanism defined in clause 5.5.1 of <a href="https://openid.net/specs/openid-connect-core-1_0.html">OIDC</a>.
-The use of the claims parameter to request explicit claims values requires clients to ensure that they encrypt the request object to avoid information leakage. This risk is identified in clause 7.4.1 of <a href="https://openid.net/specs/openid-financial-api-part-1-1_0.html">FAPI-1-Baseline</a>.
-In addition this profile describes the specific scope, acr and client management requirements necessary to support the wider Open Finance Brasil ecosystem.<a href="#section-5.2.1-1" class="pilcrow">¶</a></p>
-<p id="section-5.2.1-2">As a profile of the OAuth 2.0 Authorization Framework, this document mandates the following for the Brasil Open Finance Security profile.<a href="#section-5.2.1-2" class="pilcrow">¶</a></p>
+<p id="section-5.2.1-1">Open Finance Brasil has a requirement to address privacy considerations that were identified but not addressed in the <a href="https://openid.net/specs/openid-financial-api-part-2-1_0.html">FAPI-1-Advanced</a> final specification without imposing additional requirements on Authorisation Servers being proposed in <a href="https://bitbucket.org/openid/fapi/src/master/FAPI_2_0_Baseline_Profile.md">FAPI-2-Baseline</a>.<a href="#section-5.2.1-1" class="pilcrow">¶</a></p>
+<p id="section-5.2.1-2">Participants in this ecosystem have a need for clients to request an openid provider to confirm values of identity claims as part of an authorization request using the mechanism defined in clause 5.5.1 of <a href="https://openid.net/specs/openid-connect-core-1_0.html">OIDC</a>.<a href="#section-5.2.1-2" class="pilcrow">¶</a></p>
+<p id="section-5.2.1-3">The use of the claims parameter to request explicit claims values requires clients to ensure that they encrypt the request object to avoid information leakage. This risk is identified in clause 7.4.1 of <a href="https://openid.net/specs/openid-financial-api-part-1-1_0.html">FAPI-1-Baseline</a>.<a href="#section-5.2.1-3" class="pilcrow">¶</a></p>
+<p id="section-5.2.1-4">In addition this profile describes the specific scope, acr and client management requirements necessary to support the wider Open Finance Brasil ecosystem.<a href="#section-5.2.1-4" class="pilcrow">¶</a></p>
+<p id="section-5.2.1-5">As a profile of the OAuth 2.0 Authorization Framework, this document mandates the following for the Brasil Open Finance Security profile.<a href="#section-5.2.1-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="authorization-server">
@@ -1493,13 +1491,13 @@ In addition this profile describes the specific scope, acr and client management
 <ol start="1" type="1" class="compact type-1" id="section-5.2.2-3">
 <li id="section-5.2.2-3.1">shall support a signed and encrypted JWE request object passed by value or shall require pushed authorization requests <a href="https://tools.ietf.org/html/draft-ietf-oauth-par">PAR</a>;<a href="#section-5.2.2-3.1" class="pilcrow">¶</a>
 </li>
-            <li id="section-5.2.2-3.2">shall distribute discovery metadata (such as the authorization endpoint) via the metadata document as specified in <a href="https://openid.net/specs/openid-connect-discovery-1_0.html">OIDD</a> and [RFC8414];<a href="#section-5.2.2-3.2" class="pilcrow">¶</a>
+            <li id="section-5.2.2-3.2">shall distribute discovery metadata (such as the authorization endpoint) via the metadata document as specified in <a href="https://openid.net/specs/openid-connect-discovery-1_0.html">OIDD</a> and [RFC8414] (".well-known");<a href="#section-5.2.2-3.2" class="pilcrow">¶</a>
 </li>
             <li id="section-5.2.2-3.3">shall support the claims parameter as defined in clause 5.5 <a href="https://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect Core</a>;<a href="#section-5.2.2-3.3" class="pilcrow">¶</a>
 </li>
             <li id="section-5.2.2-3.4">shall support the oidc standard claim "cpf" as defined in clause 5.2.2.2 of this document;<a href="#section-5.2.2-3.4" class="pilcrow">¶</a>
 </li>
-            <li id="section-5.2.2-3.5">shall support the oidc standard claim "cnpj" as defined in clause 5.2.2.3 of this document if providing access to resources where the resource owner is not a <code>natural person</code>;<a href="#section-5.2.2-3.5" class="pilcrow">¶</a>
+            <li id="section-5.2.2-3.5">shall support the oidc standard claim "cnpj" as defined in clause 5.2.2.3 of this document if the institution provides accounts for legal person;<a href="#section-5.2.2-3.5" class="pilcrow">¶</a>
 </li>
             <li id="section-5.2.2-3.6">shall support the acr "urn:brasil:openbanking:loa2" as defined in clause 5.2.2.4 of this document;<a href="#section-5.2.2-3.6" class="pilcrow">¶</a>
 </li>
@@ -1511,7 +1509,7 @@ In addition this profile describes the specific scope, acr and client management
 </li>
             <li id="section-5.2.2-3.10">may support <a href="https://bitbucket.org/openid/fapi/src/master/Financial_API_WD_CIBA.md">Financial-grade API: Client Initiated Backchannel Authentication Profile</a>;<a href="#section-5.2.2-3.10" class="pilcrow">¶</a>
 </li>
-            <li id="section-5.2.2-3.11">(withdrawn);<a href="#section-5.2.2-3.11" class="pilcrow">¶</a>
+            <li id="section-5.2.2-3.11">(withdrawn temporarily);<a href="#section-5.2.2-3.11" class="pilcrow">¶</a>
 </li>
             <li id="section-5.2.2-3.12">shall support refresh tokens;<a href="#section-5.2.2-3.12" class="pilcrow">¶</a>
 </li>
@@ -1523,7 +1521,20 @@ In addition this profile describes the specific scope, acr and client management
 </li>
             <li id="section-5.2.2-3.16">may support <code>response_type</code> value <code>code</code> in conjunction with the <code>response_mode</code> value <code>jwt</code>;<a href="#section-5.2.2-3.16" class="pilcrow">¶</a>
 </li>
-            <li id="section-5.2.2-3.17">shall not allow <code>refresh tokens</code> rotation feature.<a href="#section-5.2.2-3.17" class="pilcrow">¶</a>
+            <li id="section-5.2.2-3.17">shall not allow <code>refresh tokens</code> rotation feature;<a href="#section-5.2.2-3.17" class="pilcrow">¶</a>
+</li>
+            <li id="section-5.2.2-3.18">shall ensure that, in case of sharing the Authorization Server for other services, in addition to Open Finance, it does not disclose and/or allow the use of non-certified methods in the Open Finance environment;<a href="#section-5.2.2-3.18" class="pilcrow">¶</a>
+</li>
+            <li id="section-5.2.2-3.19">
+              <p id="section-5.2.2-3.19.1">shall ensure that the settings disclosed to other participants through <code>OpenID Discovery</code> (indicated by the <code>Well-Known</code> file registered in the Directory) are restricted to the operating modes to which the institution has certified;<a href="#section-5.2.2-3.19.1" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="compact type-1" id="section-5.2.2-3.19.2">
+<li id="section-5.2.2-3.19.2.1">shall keep in your settings the methods for which there are still active clients;<a href="#section-5.2.2-3.19.2.1" class="pilcrow">¶</a>
+</li>
+                <li id="section-5.2.2-3.19.2.2">shall update the records that use non-certified methods, through bilateral treatment between the institutions involved.<a href="#section-5.2.2-3.19.2.2" class="pilcrow">¶</a>
+</li>
+              </ol>
+</li>
+            <li id="section-5.2.2-3.20">shall refuse requests, for the Open Finance environment, that are outside the modes of operation to which the institution has certified its Authorization Server.<a href="#section-5.2.2-3.20" class="pilcrow">¶</a>
 </li>
           </ol>
 <div id="id-token-as-detached-signature">
@@ -1532,10 +1543,10 @@ In addition this profile describes the specific scope, acr and client management
 <a href="#section-5.2.2.1" class="section-number selfRef">5.2.2.1. </a><a href="#name-id-token-as-detached-signat" class="section-name selfRef">ID Token as detached signature</a>
             </h5>
 <p id="section-5.2.2.1-1">The Authorization Server shall support the provisions specified in clause 5.2.2.1 of <a href="https://openid.net/specs/openid-financial-api-part-2-1_0.html">Financial-grade API Security Profile 1.0 - Part 2: Advanced</a><a href="#section-5.2.2.1-1" class="pilcrow">¶</a></p>
-<p id="section-5.2.2.1-2">In addition, if the <code>response_type</code> value <code>code id_token</code> is used, the Authorization Server<a href="#section-5.2.2.1-2" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.1-2">In addition, if the <code>response_type</code> value <code>code id_token</code> is used, the Authorization Server:<a href="#section-5.2.2.1-2" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="compact type-1" id="section-5.2.2.1-3">
-<li id="section-5.2.2.1-3.1">should not return sensitive PII in the ID Token in the authorization response, but if it needs to,
-then it shall encrypt the ID Token.<a href="#section-5.2.2.1-3.1" class="pilcrow">¶</a>
+<li id="section-5.2.2.1-3.1">
+                <strong>should not</strong> return sensitive PII in the ID Token in the authorization response, but if it needs to, then it <strong>shall</strong> encrypt the ID Token.<a href="#section-5.2.2.1-3.1" class="pilcrow">¶</a>
 </li>
             </ol>
 </section>
@@ -1547,17 +1558,13 @@ then it shall encrypt the ID Token.<a href="#section-5.2.2.1-3.1" class="pilcrow
             </h5>
 <p id="section-5.2.2.2-1">This profile defines "cpf" as a new standard claim as per
  clause 5.1 <a href="https://openid.net/specs/openid-connect-core-1_0.html">OIDC</a><a href="#section-5.2.2.2-1" class="pilcrow">¶</a></p>
-<p id="section-5.2.2.2-2">The <strong>CPF</strong> number (Cadastro de Pessoas F&#237;sicas, [sepe&#712;&#603;fi]; Portuguese for "Natural Persons Register")
- is the <strong>Brazilian</strong> individual taxpayer registry identification. This number is attributed by
- the <strong>Brazilian</strong> Federal Revenue to Brazilians and resident aliens who, directly or indirectly,
-  pay taxes in <strong>Brazil</strong>.
-In the Brasil Open Finance identity model, the cpf is a string consisting of numbers that is 11
-characters long and may start with a 0.
-If the cpf Claim is requested as an Essential Claim for the ID Token or UserInfo response with a
-values parameter requesting a specific cpf value, the Authorization Server MUST return a cpf Claim Value
-that matches the requested value. If this is an Essential Claim and the requirement cannot be met,
- then the Authorization Server MUST treat that outcome as a failed authentication attempt.<a href="#section-5.2.2.2-2" class="pilcrow">¶</a></p>
-<p id="section-5.2.2.2-3">Name: cpf, Type: String, Regex: '<sup>d{11}$'</sup><a href="#section-5.2.2.2-3" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.2-2">The <strong>CPF</strong> number (Cadastro de Pessoas F&#237;sicas, [sepe&#712;&#603;fi]; Portuguese for "Natural Persons Register") is the <strong>Brazilian</strong> individual taxpayer registry identification. This number is attributed by the <strong>Brazilian</strong> Federal Revenue to Brazilians and resident aliens who, directly or indirectly, pay taxes in <strong>Brazil</strong>.<a href="#section-5.2.2.2-2" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.2-3">In the Brasil Open Finance identity model, the cpf is a string consisting of numbers that is 11 characters long and may start with a 0.<a href="#section-5.2.2.2-3" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.2-4">If the cpf Claim is requested as an Essential Claim for the ID Token or UserInfo response with a values parameter requesting a specific cpf value, the Authorization Server MUST return a cpf Claim Value that matches the requested value.<a href="#section-5.2.2.2-4" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.2-5">If the cpf Claim is requested as an Essential Claim for the ID Token or UserInfo response,
+ the Authorization Server shall return a cpf Claim Value with the authenticated user cpf value.<a href="#section-5.2.2.2-5" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.2-6">If this is an Essential Claim and the requirement cannot be met or is not compatible with the one requested, then the Authorization Server shall treat that outcome as a failed authentication attempt.<a href="#section-5.2.2.2-6" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.2-7">Name: cpf, Type: String, Regex: '<sup>d{11}$'</sup><a href="#section-5.2.2.2-7" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="requesting-the-cnpj-claim">
@@ -1569,17 +1576,14 @@ that matches the requested value. If this is an Essential Claim and the requirem
  clause 5.1<a href="https://openid.net/specs/openid-connect-core-1_0.html">OIDC</a><a href="#section-5.2.2.3-1" class="pilcrow">¶</a></p>
 <p id="section-5.2.2.3-2"><strong>CNPJ</strong>, short for Cadastro Nacional de Pessoas Jur&#237;dicas, is an identification number
  of <strong>Brazilian</strong> companies issued by the <strong>Brazilian</strong> Ministry of Revenue, <strong>in</strong>
- Portuguese "Secretaria da Receita Federal" or "Minist&#233;rio da Fazenda". In the Brasil Open Finance identity model,
- individuals can associated with 0 or more CNPJs. A CNPJ is a string consisting of numbers that is 14 digits long and may start with a 0,
- the first eight digits identify the company, the four digits after the slash identify the branch or
-  subsidiary ("0001" defaults to the headquarters), and the last two are checksum digits.
-   For this profile, the cnpj claim must be requested and supplied as the 14 digit number.<a href="#section-5.2.2.3-2" class="pilcrow">¶</a></p>
-<p id="section-5.2.2.3-3">If the cnpj Claim is requested as an Essential Claim for the ID Token or UserInfo response with a
-values parameter requesting a specific cnpj value, the Authorization Server MUST return a cnpj
-Claim Value that contains a <strong>set</strong> of CNPJs one of which must match the requested value. If this
- is an Essential Claim and the requirement cannot be met, then the Authorization Server MUST treat
- that outcome as a failed authentication attempt.<a href="#section-5.2.2.3-3" class="pilcrow">¶</a></p>
-<p id="section-5.2.2.3-4">Name: cnpj, Type: Array of Strings, Array Element Regex: '<sup>d{14}$'</sup><a href="#section-5.2.2.3-4" class="pilcrow">¶</a></p>
+ Portuguese "Secretaria da Receita Federal" or "Minist&#233;rio da Fazenda". In the Brasil Open Finance identity model, individuals can associated with 0 or more CNPJs. A CNPJ is a string consisting of numbers that is 14 digits long and may start with a 0, the first eight digits identify the company, the four digits after the slash identify the branch or
+ subsidiary ("0001" defaults to the headquarters), and the last two are checksum digits.
+ For this profile, the cnpj claim must be requested and supplied as the 14 digit number.<a href="#section-5.2.2.3-2" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.3-3">If the <strong>cnpj</strong> Claim is requested as an Essential Claim for the ID Token or UserInfo response with a values parameter requesting a specific <strong>cnpj</strong> value, the Authorization Server <span class="bcp14">SHALL</span> return a <strong>cnpj</strong> Claim Value that contains a <strong>set</strong> of CNPJs one of which must match the requested value.<a href="#section-5.2.2.3-3" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.3-4">If the <strong>cnpj</strong> Claim is requested as an Essential Claim for the ID Token or UserInfo
+ the Authorization Server MUST return a cnpj Claim Value that contains a <strong>set</strong> of CNPJs one of which must match a CNPJ belonging to the authenticated user's account.<a href="#section-5.2.2.3-4" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.3-5">If this is an Essential Claim and the requirement cannot be met, then the Authorization Server shall treat that outcome as a failed authentication attempt.<a href="#section-5.2.2.3-5" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.3-6">Name: cnpj, Type: Array of Strings, Array Element Regex: '<sup>d{14}$'</sup><a href="#section-5.2.2.3-6" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="requesting-the-urn-brasil-openbanking-loa2-or-urn-brasil-openbanking-loa3-authentication-context-request">
@@ -1588,7 +1592,7 @@ Claim Value that contains a <strong>set</strong> of CNPJs one of which must matc
 <a href="#section-5.2.2.4" class="section-number selfRef">5.2.2.4. </a><a href="#name-requesting-the-urnbrasilope" class="section-name selfRef">Requesting the "urn:brasil:openbanking:loa2" or "urn:brasil:openbanking:loa3" Authentication Context Request</a>
             </h5>
 <p id="section-5.2.2.4-1">This profile defines "urn:brasil:openbanking:loa2" and "urn:brasil:openbanking:loa3" as
- new Authentication Context Request classes.<a href="#section-5.2.2.4-1" class="pilcrow">¶</a></p>
+ new Authentication Context Request (ACR) classes.<a href="#section-5.2.2.4-1" class="pilcrow">¶</a></p>
 <ul class="compact">
 <li class="compact" id="section-5.2.2.4-2.1">
                 <strong>LoA2:</strong> Authentication performed using single factor;<a href="#section-5.2.2.4-2.1" class="pilcrow">¶</a>
@@ -1597,12 +1601,12 @@ Claim Value that contains a <strong>set</strong> of CNPJs one of which must matc
                 <strong>LoA3:</strong> Authentication performed using multi factor (MFA)<a href="#section-5.2.2.4-2.2" class="pilcrow">¶</a>
 </li>
             </ul>
-<p id="section-5.2.2.4-3">The following rules are applicable to <strong>access control to Open Finance Brazil API's:</strong><a href="#section-5.2.2.4-3" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.4-3">The following rules are applicable to the authentication mechanism of Open Finance Brazil API's:<a href="#section-5.2.2.4-3" class="pilcrow">¶</a></p>
 <ul class="compact">
-<li class="compact" id="section-5.2.2.4-4.1">In accordance to Art. 17 of <a href="https://www.in.gov.br/en/web/dou/-/resolucao-conjunta-n-1-de-4-de-maio-de-2020-255165055">Joint Resolution n&#186; 01 - Open Finance Brasil</a>, institutions must adopt procedures and controls for client authentication <strong>compatible with those applicable in their electronic service channels</strong>.<a href="#section-5.2.2.4-4.1" class="pilcrow">¶</a>
+<li class="compact" id="section-5.2.2.4-4.1">In accordance to Art. 17 of <a href="https://www.in.gov.br/en/web/dou/-/resolucao-conjunta-n-1-de-4-de-maio-de-2020-255165055">Joint Resolution n&#186; 01 - Open Banking Brasil</a>, institutions must adopt procedures and controls for client authentication <strong>compatible with those applicable in their electronic service channels</strong>.<a href="#section-5.2.2.4-4.1" class="pilcrow">¶</a>
 </li>
               <li class="compact" id="section-5.2.2.4-4.2">
-                <p id="section-5.2.2.4-4.2.1">So, in compliance with the regulation, it is suggested that:<a href="#section-5.2.2.4-4.2.1" class="pilcrow">¶</a></p>
+                <p id="section-5.2.2.4-4.2.1">In accorcdance with the regulation, it is suggested that:<a href="#section-5.2.2.4-4.2.1" class="pilcrow">¶</a></p>
 <ul class="compact">
 <li class="compact" id="section-5.2.2.4-4.2.2.1">
                     <strong>For Read-Only APIs  (Phase 2)</strong>: the <em>Authorization Servers</em> <strong>should</strong> adopt, at least, an authentication method compatible with <code>LoA2</code>; and<a href="#section-5.2.2.4-4.2.2.1" class="pilcrow">¶</a>
@@ -1613,18 +1617,18 @@ Claim Value that contains a <strong>set</strong> of CNPJs one of which must matc
                 </ul>
 </li>
             </ul>
-<p id="section-5.2.2.4-5">In all cases, the adoption of a more rigorous authentication mechanism (<code>LoA3</code> or higher) is at the discretion of the Bank (ASPSP), according to its risk assessment and in a manner compatible with the mechanisms usually used.<a href="#section-5.2.2.4-5" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.4-5">In all cases, the adoption of a more rigorous authentication mechanism (<code>LoA3</code> or higher) is at the discretion of the Bank (ASPSP), according to its risk assessment and in a manner compatible with the mechanisms usually employed.<a href="#section-5.2.2.4-5" class="pilcrow">¶</a></p>
 <p id="section-5.2.2.4-6"><strong>Authentication factors clarification</strong><a href="#section-5.2.2.4-6" class="pilcrow">¶</a></p>
 <p id="section-5.2.2.4-7">The authentication methods are:<a href="#section-5.2.2.4-7" class="pilcrow">¶</a></p>
 <ul class="compact">
-<li class="compact" id="section-5.2.2.4-8.1">Something you know, such as password or phrase<a href="#section-5.2.2.4-8.1" class="pilcrow">¶</a>
+<li class="compact" id="section-5.2.2.4-8.1">Something <strong>you know</strong>, such as password or phrase<a href="#section-5.2.2.4-8.1" class="pilcrow">¶</a>
 </li>
-              <li class="compact" id="section-5.2.2.4-8.2">Something you have, such as token or smartcard;<a href="#section-5.2.2.4-8.2" class="pilcrow">¶</a>
+              <li class="compact" id="section-5.2.2.4-8.2">Something <strong>you have</strong>, such as token, smartcard or device<a href="#section-5.2.2.4-8.2" class="pilcrow">¶</a>
 </li>
-              <li class="compact" id="section-5.2.2.4-8.3">Something you are, such as biometric validation.<a href="#section-5.2.2.4-8.3" class="pilcrow">¶</a>
+              <li class="compact" id="section-5.2.2.4-8.3">Something <strong>you are</strong>, meaning an authentication that makes use of physical characteristics, such as biometric validation.<a href="#section-5.2.2.4-8.3" class="pilcrow">¶</a>
 </li>
             </ul>
-<p id="section-5.2.2.4-9">To performe a MFA authentication is necessary the end user to present at least two different methods as listed above. A unique method used more than once is not accepted as MFA.<a href="#section-5.2.2.4-9" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.4-9">To performe a MFA authentication is necessary that the end user presents at least two different methods as listed above. A unique method used more than once - ie. presenting passwords - is not accepted as MFA.<a href="#section-5.2.2.4-9" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1669,7 +1673,7 @@ Claim Value that contains a <strong>set</strong> of CNPJs one of which must matc
 <a href="#section-6" class="section-number selfRef">6. </a><a href="#name-security-considerations" class="section-name selfRef">Security considerations</a>
       </h2>
 <p id="section-6-1">Participants shall support all security considerations specified in clause 8
- <a href="https://openid.net/specs/openid-financial-api-part-2-1_0.html">Financial-grade API Security Profile 1.0 - Part 1: Advanced</a> and the <a href="https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Instru%C3%A7%C3%A3o%20Normativa%20BCB&numero=134">Brazilian Central Bank Open Finance Security Manual</a>.
+ <a href="https://openid.net/specs/openid-financial-api-part-2-1_0.html">Financial-grade API Security Profile 1.0 - Part 1: Advanced</a> and the <a href="https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Instru%C3%A7%C3%A3o%20Normativa%20BCB&numero=134">Brazilian Central Bank Open Banking Security Manual</a>.
  The Brazilian ICP issues RSA x509 certificates only therefor section removes for simplicity support for EC algorithms
  and requires that only IANA recommended encryption algorithms be used.<a href="#section-6-1" class="pilcrow">¶</a></p>
 <div id="jws">
@@ -1752,10 +1756,10 @@ Claim Value that contains a <strong>set</strong> of CNPJs one of which must matc
         </ol>
 </section>
 </div>
-<div id="algorithm-considerations">
+<div id="signing-algorithm-considerations">
 <section id="section-6.2">
-        <h3 id="name-algorithm-considerations">
-<a href="#section-6.2" class="section-number selfRef">6.2. </a><a href="#name-algorithm-considerations" class="section-name selfRef">Algorithm considerations</a>
+        <h3 id="name-signing-algorithm-considera">
+<a href="#section-6.2" class="section-number selfRef">6.2. </a><a href="#name-signing-algorithm-considera" class="section-name selfRef">Signing algorithm considerations</a>
         </h3>
 <p id="section-6.2-1">For JWS, both clients and Authorization Servers<a href="#section-6.2-1" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="compact type-1" id="section-6.2-2">
@@ -1832,7 +1836,7 @@ Claim Value that contains a <strong>set</strong> of CNPJs one of which must matc
 </li>
             <li class="compact" id="section-7.1.2-4.2">the Consent Resource Id must be namespaced;<a href="#section-7.1.2-4.2" class="pilcrow">¶</a>
 </li>
-            <li class="compact" id="section-7.1.2-4.3">the Consent Resource Id must have the properties of a nonce;<a href="#section-7.1.2-4.3" class="pilcrow">¶</a>
+            <li class="compact" id="section-7.1.2-4.3">the Consent Resource Id must have the properties of a nonce <a href="https://openid.net/specs/openid-connect-core-1_0.html#NonceNotes">Nonce</a>;<a href="#section-7.1.2-4.3" class="pilcrow">¶</a>
 </li>
           </ul>
 </section>
@@ -1867,20 +1871,16 @@ Claim Value that contains a <strong>set</strong> of CNPJs one of which must matc
           </h4>
 <p id="section-7.2.2-1">In addition to the requirements outlined in Open Finance Brasil security provisions the Authorization Server<a href="#section-7.2.2-1" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="compact type-1" id="section-7.2.2-2">
-<li id="section-7.2.2-2.1">shall only issue tokens on presentation of a refresh token when the consent resource the refresh token is bound to is active and valid;<a href="#section-7.2.2-2.1" class="pilcrow">¶</a>
+<li id="section-7.2.2-2.1">shall only issue _access<em>tokens</em> on presentation of a _refresh<em>token</em> when the consent resource the refresh token is bound to is active and valid;<a href="#section-7.2.2-2.1" class="pilcrow">¶</a>
 </li>
-            <li id="section-7.2.2-2.2">
-              <p id="section-7.2.2-2.2.1">shall only share access to resources when presented with an access token linked to an active and valid consent;<a href="#section-7.2.2-2.2.1" class="pilcrow">¶</a></p>
-<ol start="1" type="1" class="compact type-1" id="section-7.2.2-2.2.2">
-<li id="section-7.2.2-2.2.2.1">In the Invalid Token Receive scenario, status code 401 should be returned.<a href="#section-7.2.2-2.2.2.1" class="pilcrow">¶</a>
+            <li id="section-7.2.2-2.2">shall only share access to resources when presented with an _access<em>token</em> linked to an active and valid consent;
+2.1. In the Invalid Token Receive scenario, status code 401 should be returned.<a href="#section-7.2.2-2.2" class="pilcrow">¶</a>
 </li>
-              </ol>
+            <li id="section-7.2.2-2.3">shall revoke <em>refresh tokens</em> and, <em>access tokens</em> where aplicable, when the linked Consent Resource is deleted;<a href="#section-7.2.2-2.3" class="pilcrow">¶</a>
 </li>
-            <li id="section-7.2.2-2.3">shall revoke refresh tokens and where practicable access tokens when the linked Consent Resource is deleted;<a href="#section-7.2.2-2.3" class="pilcrow">¶</a>
+            <li id="section-7.2.2-2.4">shall ensure <em>access tokens</em> are issued with sufficient scope necessary for access to data specified in the <em>Permission</em> element of a linked Consent Resource object;<a href="#section-7.2.2-2.4" class="pilcrow">¶</a>
 </li>
-            <li id="section-7.2.2-2.4">shall ensure Access Tokens are issued with sufficient scope necessary for access to data specified in the Permissions element of a linked Consent Resource object;<a href="#section-7.2.2-2.4" class="pilcrow">¶</a>
-</li>
-            <li id="section-7.2.2-2.5">shall not reject an authorisation request requesting more scope than is necessary to access data specified in the Permissions element of a linked Consent Resource object;<a href="#section-7.2.2-2.5" class="pilcrow">¶</a>
+            <li id="section-7.2.2-2.5">shall not reject an authorisation request requesting <em>scopes</em> broader than those necessary to access data specified in the Permissions element of a linked Consent Resource object;<a href="#section-7.2.2-2.5" class="pilcrow">¶</a>
 </li>
             <li id="section-7.2.2-2.6">may reduce requested scope to a level sufficient to enable access to data resources specified in the Permissions element of a linked Consent Resource object;<a href="#section-7.2.2-2.6" class="pilcrow">¶</a>
 </li>
@@ -1904,7 +1904,7 @@ Claim Value that contains a <strong>set</strong> of CNPJs one of which must matc
           </h4>
 <p id="section-7.2.3-1">In addition to the requirements outlined in Open Finance Brasil security provisions the Confidential Client<a href="#section-7.2.3-1" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="compact type-1" id="section-7.2.3-2">
-<li id="section-7.2.3-2.1">shall revoke where possible and cease usage of refresh and access tokens that are bound to a Consent Resource that has been deleted;<a href="#section-7.2.3-2.1" class="pilcrow">¶</a>
+<li id="section-7.2.3-2.1">shall revoke where possible and cease usage of <em>refresh</em> and <em>access tokens</em> that are bound to a Consent Resource that has been deleted;<a href="#section-7.2.3-2.1" class="pilcrow">¶</a>
 </li>
             <li id="section-7.2.3-2.2">shall delete Consent Resource that are expired;<a href="#section-7.2.3-2.2" class="pilcrow">¶</a>
 </li>
