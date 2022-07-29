@@ -1987,8 +1987,10 @@ Para estender as <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a> e <a 
 </li>
             <li id="section-9.3.1-1.3">assegurar que o <em>software_statement</em> apresentado pela aplica&#231;&#227;o cliente durante o registro corresponda &#224; mesma institui&#231;&#227;o do certificado de cliente apresentado, validando-o atrav&#233;s dos atributos que trazem <code>organization_id</code> no certificado X.509.<a href="#section-9.3.1-1.3" class="pilcrow">¶</a>
 </li>
-            <li id="section-9.3.1-1.4">emitir, na resposta do registro, um <code>registration_access_token</code> para ser usado como token de autentica&#231;&#227;o nas opera&#231;&#245;es de manuten&#231;&#227;o da aplica&#231;&#227;o cliente registrada, seguindo as especifica&#231;&#245;es descritas na <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a>.<a href="#section-9.3.1-1.4" class="pilcrow">¶</a>
+            <li id="section-9.3.1-1.4">não devem ser permitidos múltiplos cadastros DCR para o mesmo Software Statement , de forma que em caso de tentativa de novo registro para um Software Statement já cadastrado, deve se utilizar o procedimento de Error Response definido no item 3.2.2 da <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a>.<a href="#section-9.3.1-1.4" class="pilcrow">¶</a>
 </li>
+            <li id="section-9.3.1-1.5">emitir, na resposta do registro, um <code>registration_access_token</code> para ser usado como token de autenticação nas opera&#231;&#245;es de manuten&#231;&#227;o da aplica&#231;&#227;o cliente registrada, seguindo as especifica&#231;&#245;es descritas na <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a>.<a href="#section-9.3.1-1.5" class="pilcrow">¶</a>
+</li>		
           </ol>
 </section>
 </div>
