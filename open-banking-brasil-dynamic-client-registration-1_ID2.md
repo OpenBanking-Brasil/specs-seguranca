@@ -441,7 +441,8 @@ To extend [RFC7591] and [RFC7592], which recommend minimum mechanisms for authen
 1. validate that the certificate presented by the client application is subordinate to the ICP-Brasil chains defined in the Open Finance Brasil Certificates Standard; 
 2. ensure that the signature of the `software_statement`_ presented by the client application during registration has been made by the Directory of Participants using the public keys described in the previous section; 
 3. ensure that the `software_statement` presented by the client application during registration corresponds to the same institution as the client certificate presented, validating it through the attributes that bring `organization_id` in the X.509 certificate.
-4. issue, uon the registry response, a `registration_access_token` to be used as an authentication token on maintaining operations of the registered client application, following specifications described in [RFC7592].
+4. Multiple DCR registrations for the same Software Statement should not be allowed, in a way that in case of a new registration attempt for an already registered Software Statement, the Error Response procedure defined on item 3.2.2 of the RFC7591 must be enforced.
+5. issue, uon the registry response, a `registration_access_token` to be used as an authentication token on maintaining operations of the registered client application, following specifications described in [RFC7592].
 
 ### Client Maintenance - GET /register - PUT /register - DELETE /register 
 1. validate that the certificate presented by the client application is subordinate to the ICP-Brasil chains defined in the Open Finance Brasil Certificates Standard; 
