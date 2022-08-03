@@ -1999,7 +1999,9 @@ Content-Type: application/json
 </li>
             <li id="section-9.3.1-1.3">ensure that the <code>software_statement</code> presented by the client application during registration corresponds to the same institution as the client certificate presented, validating it through the attributes that bring <code>organization_id</code> in the X.509 certificate.<a href="#section-9.3.1-1.3" class="pilcrow">¶</a>
 </li>
-            <li id="section-9.3.1-1.4">issue, uon the registry response, a <code>registration_access_token</code> to be used as an authentication token on maintaining operations of the registered client application, following specifications described in [<a href="https://tools.ietf.org/html/rfc7592">RFC7592</a>].<a href="#section-9.3.1-1.4" class="pilcrow">¶</a>
+            <li id="section-9.3.1-1.4">Multiple DCR registrations for the same Software Statement should not be allowed, in a way that in case of a new registration attempt for an already registered Software Statement, the Error Response procedure defined on item 3.2.2 of the <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a> must be enforced.<a href="#section-9.3.1-1.4" class="pilcrow">¶</a>
+</li>
+            <li id="section-9.3.1-1.5">issue, on the registry response, a <code>registration_access_token</code> to be used as an authentication token on maintaining operations of the registered client application, following specifications described in [<a href="https://tools.ietf.org/html/rfc7592">RFC7592</a>].<a href="#section-9.3.1-1.5" class="pilcrow">¶</a>
 </li>
 
           </ol>
