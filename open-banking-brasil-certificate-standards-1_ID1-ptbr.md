@@ -156,6 +156,7 @@ O Certificado Cliente deve ser emitido através de cadeia V10, e deve obrigatori
 
 **Certificate Extensions**
 
+
 * **keyUsage:** critical,digitalSignature,keyEncipherment
 * **extendedKeyUsage:** clientAuth
 
