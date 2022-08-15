@@ -222,7 +222,7 @@ In addition, the Authorization Server
 11. shall accept all x.500 AttributeType name strings defined in the Distinguished Name of the x.509 Certificate Profiles defined in [Open Finance Brasil x.509 Certificate Standards][OFB-Cert-Standards];
 12. if supporting `tls_client_auth` client authentication mechanism as defined in [RFC8705] shall only accept `tls_client_auth_subject_dn`  as an indication of the certificate subject value as defined in clause 2.1.2 [RFC8705];
 13. The value of the field *UID* of the certificate should match the one sent in the SSA, where the *UID* field should contain the value of the *software_id* field of the SSA.
-14. The value of the filed *organizationIdentifier* of the certificate shall contain the prefix corresponding to the Registration Reference *OFBBR-* followed by the value of the *org_id* field of the SSA. 
+14. The value of the field *organizationIdentifier* of the certificate shall contain the prefix corresponding to the Registration Reference *OFBBR-* followed by the value of the *org_id* field of the SSA. 
 For certificates issued until 31 August 2022: the value of the *OU* field of the certificate shall contain the value of the *org_id* field of the SSA.
 
 15. shall, during the TLS handshake process, use the `distinguishedNameMatch` rule to compare the DN values as defined in [RFC4517].
