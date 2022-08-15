@@ -445,7 +445,7 @@ Para estender as [RFC7591] e [RFC7592], que recomendam mecanismos mínimos para 
 ### Registro de cliente - POST /register {#post-register}
 
 1. validar que o certificado apresentado pela aplicação cliente é subordinado às cadeias do ICP-Brasil definidas no Padrão de Certificados do Open Finance Brasil;
-2.Enquanto houver a necessidade do período de convivência (mencionado no tópico 7.1) deve ser implementado a validação para ambos os casos: certificados que possuem o valor *org_id* no campo *organizationUnitName* (*OU*) e certificados que possuem o valor *org_id* no campo *organizationIdentifier*.
+2. enquanto houver a necessidade do período de convivência (mencionado no tópico 7.1) deve ser implementado a validação para ambos os casos: certificados que possuem o valor *org_id* no campo *organizationUnitName* (*OU*) e certificados que possuem o valor *org_id* no campo *organizationIdentifier*.
 3. assegurar que a assinatura do _software\_statement_ apresentado pela aplicação cliente durante o registro tenha sido feita pelo Diretório de Participantes através das chaves públicas descritas na seção anterior;
 4. assegurar que o _software\_statement_ apresentado pela aplicação cliente durante o registro corresponda à mesma instituição do certificado de cliente apresentado, validando-o através dos atributos que trazem `organization_id` no certificado X.509.
 5. não devem ser permitidos múltiplos cadastros DCR para o mesmo Software Statement , de forma que em caso de tentativa de novo registro para um Software Statement já cadastrado, deve se utilizar o procedimento de Error Response definido no item 3.2.2 da RFC7591.
