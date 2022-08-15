@@ -228,7 +228,7 @@ Além disso, o servidor de autorização
 Para certificados emitidos até 31 de Agosto de 2022: o valor do campo *OU* do certificado deve conter o valor do campo *org_id* do SSA.
 15. deve, durante o processo de handshake TLS, usar a regra `distinguishedNameMatch` para comparar os valores DN conforme definido na [RFC4517].
 16. deve ser garantido a todos, após os mesmos atos de consentimentos permanentes, para que também sejam alterados para instituições receptoras de dados transparentes (TPP).
-17. deve realizar recertificação FAPI e D OIDF após eventuais alterações eventuais.
+17. deve realizar recertificação FAPI e DCR OIDF após eventuais alterações eventuais.
 
 Estas disposições aplicam-se igualmente ao processamento de pedidos [RFC7591], [RFC7592] e [OpenID Registration][OIDR]
 
