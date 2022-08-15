@@ -221,10 +221,13 @@ In addition, the Authorization Server
 10. where possible, shall compare client metadata asserted by a client to the metadata provided in the  `software_statement`, choosing values in the SSA with precedence;
 11. shall accept all x.500 AttributeType name strings defined in the Distinguished Name of the x.509 Certificate Profiles defined in [Open Finance Brasil x.509 Certificate Standards][OFB-Cert-Standards];
 12. if supporting `tls_client_auth` client authentication mechanism as defined in [RFC8705] shall only accept `tls_client_auth_subject_dn`  as an indication of the certificate subject value as defined in clause 2.1.2 [RFC8705];
-13. Values of the fields *UID* and *OU* of the certificate shall match the ones on the SSA. The *OU* field shall match the *org_id* value from the SSA, while the *UID* field shall match the *software_id* value of the SSA.
-14. shall, during the TLS handshake process, use the `distinguishedNameMatch` rule to compare the DN values as defined in [RFC4517].
-15. shall ensure the integrity of the stock of active consents, even after any systemic changes, so that such changes are transparent to the data receiver institutions (TPP).
-16. shall perform a recertification on OIDF FAPI and DCR after any systemic changes.
+13. The value of the field *UID* of the certificate should match the one sent in the SSA, where the *UID* field should contain the value of the *software_id* field of the SSA.
+14. The value of the field *organizationIdentifier* of the certificate shall contain the prefix corresponding to the Registration Reference *OFBBR-* followed by the value of the *org_id* field of the SSA. 
+For certificates issued until 31 August 2022: the value of the *OU* field of the certificate shall contain the value of the *org_id* field of the SSA.
+
+15. shall, during the TLS handshake process, use the `distinguishedNameMatch` rule to compare the DN values as defined in [RFC4517].
+16. shall ensure the integrity of the stock of active consents, even after any systemic changes, so that such changes are transparent to the data receiver institutions (TPP).
+17. shall perform a recertification on OIDF FAPI and DCR after any systemic changes.
 
 These provisions apply equally to the processing of [RFC7591], [RFC7592] and [OpenID Registration][OIDR] requests
 
@@ -436,13 +439,14 @@ As they are auxiliary services to the main flow of Open Finance Brasil, the dyna
 
 To extend [RFC7591] and [RFC7592], which recommend minimum mechanisms for authentication of their services, institutions that support the registration flows and dynamic maintenance of clients must implement the following controls: 
 
-### Client registration - POST /register 
+### Client registration - POST /register
 
-1. validate that the certificate presented by the client application is subordinate to the ICP-Brasil chains defined in the Open Finance Brasil Certificates Standard; 
-2. ensure that the signature of the `software_statement`_ presented by the client application during registration has been made by the Directory of Participants using the public keys described in the previous section; 
-3. ensure that the `software_statement` presented by the client application during registration corresponds to the same institution as the client certificate presented, validating it through the attributes that bring `organization_id` in the X.509 certificate.
-4. Multiple DCR registrations for the same Software Statement should not be allowed, in a way that in case of a new registration attempt for an already registered Software Statement, the Error Response procedure defined on item 3.2.2 of the RFC7591 must be enforced.
-5. issue, on the registry response, a `registration_access_token` to be used as an authentication token on maintaining operations of the registered client application, following specifications described in [RFC7592].
+1. validate that the certificate presented by the client application is subordinate to the ICP-Brasil chains defined in the Open Finance Brasil Certificates Standard;
+2. As long as there is a need for the coexistence period (mentioned in section 7.1), validation must be implemented for both cases: certificates that have the value *org_id* in the *organizationUnitName* field (*OU*) and certificates that have the value *org_id* in the *organizationIdentifier* field.
+3. ensure that the signature of the `software_statement`_ presented by the client application during registration has been made by the Directory of Participants using the public keys described in the previous section;
+4. ensure that the `software_statement` presented by the client application during registration corresponds to the same institution as the client certificate presented, validating it through the attributes that bring `organization_id` in the X.509 certificate.
+5. Multiple DCR registrations for the same Software Statement should not be allowed, in a way that in case of a new registration attempt for an already registered Software Statement, the Error Response procedure defined on item 3.2.2 of the RFC7591 must be enforced.
+6. issue, on the registry response, a `registration_access_token` to be used as an authentication token on maintaining operations of the registered client application, following specifications described in [RFC7592].
 
 ### Client Maintenance - GET /register - PUT /register - DELETE /register 
 1. validate that the certificate presented by the client application is subordinate to the ICP-Brasil chains defined in the Open Finance Brasil Certificates Standard; 
