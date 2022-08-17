@@ -241,8 +241,8 @@ then it shall encrypt the ID Token;
 
 #### "sub" Claim clarifications
 This profile uses the oficial openId definition found at: https://github.com/OpenBanking-Brasil/specs-seguranca/tree/main/idtoken_review.
-This means the sub is a never reassigned identifier for the end user. If personal identifiable information is used, the use of a criptograph algorithm is necessary.
-
+This means the sub is a never reassigned identifier for the end user. 
+The value for a given user should never change within an institution, even across diferents consents.
 #### Requesting the "cpf" Claim
 
 This profile defines "cpf" as a new standard claim as per
