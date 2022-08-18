@@ -28,7 +28,7 @@
       uri = "https://openbankingbrasil.org.br/"
 %%%
 
-# Foreword
+.# Foreword
 
 Este documento também está disponível em [português](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID3-ptbr.html)
 
@@ -41,13 +41,13 @@ Open Finance Brasil Financial-grade API Security Profile 1.0 consists of the fol
 
 These parts are intended to be used with [RFC6749], [RFC6750], [RFC7636], [OIDC], [FAPI-1-Baseline] and [FAPI-1-Advanced]
 
-# Introduction
+.# Introduction
 
 The Open Finance Brasil Financial-grade API is a highly secured OAuth profile that aims to provide specific implementation guidelines for security and interoperability which can be applied to APIs in the Brasil Open Finance area that require a higher level of privacy than provided by standard [Financial-grade API Security Profile 1.0 - Part 2: Advanced][FAPI-1-Advanced]. Among other enhancements, this specification addresses privacy considerations identified in [FAPI-1-Advanced] that are relevent in the Open Finance Brasil specifications but have not, so far, been required by other jurisdictions.
 
 Although it is possible to code an OpenID Provider and Relying Party from first principles using this specification, the main audience for this specification is parties who already have a certified implementation of [Financial-grade API Security Profile 1.0 - Part 2: Advanced][FAPI-1-Advanced] and want to achieve certification for the Brasil Open Finance programme.
 
-# Notational Conventions
+.# Notational Conventions
 
 The key words "shall", "shall not",
 "should", "should not", "may", and
