@@ -180,7 +180,6 @@ O Certificado de Assinatura deve ser emitido através de cadeia V5, e deve obrig
 * **UID (OID 0.9.2342.19200300.100.1.1):**  Código de Participante associado ao CNPJ listado no Serviço de Diretório do Open Finance Brasil
 * **countryName (OID 2.5.4.6):** BR
 * **organizationName (OID 2.5.4.10):** ICP-Brasil
-* **organizationIdentifier (OID 2.5.4.97):** Nome da Autoridade Certificadora. *Para certificados emitidos até 31 Agosto de 2022:
 * **organizationalUnitName (OID 2.5.4.11):** Nome da Autoridade Certificadora
 * **organizationalUnitName (OID 2.5.4.11):** CNPJ da Autoridade de Registro
 * **organizationalUnitName (OID 2.5.4.11):** Tipo de identificação utilizada (presencial, videoconferência ou certificado digital)
