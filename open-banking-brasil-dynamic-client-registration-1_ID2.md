@@ -256,7 +256,7 @@ In terms of format, follow below how decoding should be done:
     - Attribute names shall be defined according to dot-decimal notation, without adding the prefix "OID", ie. "2.5.4.15", followed by (‘=#’) plus the hexadecimal value of the attribute, here follows a complete example: 2.5.4.15=#0C1450726976617465204F7267616E697A6174696F6E
     - There are no restrictions for encoding and formatting attribute values. The hexadecimal value presented on the utilized attribute must be respected (PrintableString, UTF8String, etc). This item complies with opcionality of the format stabilished by the AC face ICP normatives and items 2.3, 2.4 e 5.2 of the RFC4514.
 
-Below are examples of required attributes on the currently active CAs:
+Below are examples of required attributes for CAs active until August 31, 2022:
 
 | subject_dn                                                                                                                                                                                                                                                                                | Issuer                                                                                                                 |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
@@ -264,6 +264,14 @@ Below are examples of required attributes on the currently active CAs:
 | UID=67c57882-043b-11ec-9a03-0242ac130003, 1.3.6.1.4.1.311.60.2.1.3=#13024252, 2.5.4.15=#0C0F427573696E65737320456E74697479, CN=mycn.bank.gov.br, 2.5.4.5=#130e3133333533323336303030313839, OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59, O=My Public Bank, L=BRASILIA, ST=DF, C=BR    | issuer=CN=Autoridade Certificadora do SERPRO SSLv1,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR  |
 | 1.3.6.1.4.1.311.60.2.1.3=#13024252, 2.5.4.15=#131450726976617465204f7267616e697a6174696f6e, UID=67c57882-043b-11ec-9a03-0242ac130003, CN=openbanking.mybank.com.br, 2.5.4.5=#130e3133333533323336303030313839, OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59, L=Goiania, ST=GO, O=MyBank SA, C=BR | issuer=CN=AC SOLUTI SSL EV,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR                         |
 | CN=mycn.bank.com.br, UID=67c57882-043b-11ec-9a03-0242ac130003, OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59, L=Sao Paulo, ST=SP, O=MyBank SA, C=BR,2.5.4.5=#130e3133333533323336303030313839, 1.3.6.1.4.1.311.60.2.1.3=#13024252, 2.5.4.15=#0C0F427573696E65737320456E74697479         | issuer=CN=AC SERASA SSL EV,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR                         |
+
+Below are examples of required attributes for CAs active after August 31, 2022:
+
+| subject_dn                                                                                                                                                                                                                                                                                | Issuer                                                                                                                 |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
+| CN=mycn.bank.com.br, UID=67c57882-043b-11ec-9a03-0242ac130003 , 2.5.4.97=OFBBR-497e1ffe-b2a2-4a4e-8ef0-70633fd11b59 , L=Sao Paulo , ST=SP , O=MyBank , C=BR , serialNumber=13353236000189 , 1.3.6.1.4.1.311.60.2.1.3=BR , businessCategory=Business Entity         | issuer=CN=AC SERASA SSL EV,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR                         |
+
+
 
 ## Regulatory Roles for OpenID and OAuth 2.0 Mappings
 
