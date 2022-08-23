@@ -247,20 +247,6 @@ As described in [FAPI-CIBA], there are many mechanisms that can be used to conve
 
 [FAPI-CIBA] requires requests to be signed, there is no requirement in Brazil to additionally sign these hints as they are all asserted by the Client.
 
-##### Credit Proposition - Login Hint Token
-
-`
-{
-  "format": "urn:brasil:openbanking:ciba:login-hint-token-type:credit-proposition",
-  "cpf": "12354678901",
-  "total_hints": 6,
-  "hint_number": 1
-}
-`
-
-The use of a `binding message` is *not* mandatory if this token type is to be leveraged.
-//TODO: How long should the request expiry be in this scenario???
-
 ##### Authorisation Server Generated - Login Hint Token
 
 This `login hint` can be used where it is not possible for the Resource Owner to provide a Login Hint to the Consumption Device or where the Resource Owner wishes to claim the authentication request by independently reaching out to the Authorisation Server out of band to claim this authentication request.
@@ -314,18 +300,6 @@ This `login hint token` should be used when Client has requested a unique identi
 
 The use of a `binding message` is mandatory if this token type is to be leveraged.
 
-##### Static CPF - Login Hint Token
-
-This `login hint token` could be used when Client has requested a static identifier be provided by the Resource Owner to the Consumption Device. It is not recommended that Banks support this mechanism due to the significant privacy and security concerns identified [FAPI-CIBA] and [CIBA]
-
-`
-{
-    "format": "urn:brasil:openbanking:ciba:login-hint-token-type:cpf",
-    "id": "12354678901"
-}
-`
-
-The use of a `binding message` is mandatory if this token type is to be leveraged.
 
 # Security considerations
 
