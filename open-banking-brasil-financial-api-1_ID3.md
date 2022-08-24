@@ -240,6 +240,13 @@ then it shall encrypt the ID Token;
 5. The use of other headers to indicate the key used, such as `x5u`, `x5c`, `jku` or `jkw` is prohibited as defined in clause 2 [OIDC].
 
 
+
+#### "sub" Claim clarifications
+This profile uses the official openId definition found at: https://github.com/OpenBanking-Brasil/specs-seguranca/tree/main/idtoken_review.
+This means the sub is a never reassigned identifier for the end user. 
+The value for a given user should never change within an institution, even across diferents consents.
+
+
 #### Requesting the "cpf" Claim
 
 This profile defines "cpf" as a new standard claim as per
