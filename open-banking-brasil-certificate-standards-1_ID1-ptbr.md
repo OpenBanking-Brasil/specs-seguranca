@@ -136,7 +136,7 @@ Para emissão de Certificado Cliente é necessário que a instituição particip
 #### Atributos Open Finance Brasil {#AtributosOpenFinanceBrasil}
 
 * **serialNumber:** Cadastro Nacional de Pessoal Jurídica (CNPJ) da pessoa jurídica titular do certificado e associado ao atributo UID e Software Statement ID, durante validação junto ao Serviço de Diretório do Open Finance Brasil;
-* **organizationalUnitName:** Código de Participante associado ao CNPJ listado no Serviço de Diretório do Open Finance Brasil;
+* **organizationIdentifier:** Código de Participante associado ao CNPJ listado no Serviço de Diretório do Open Finance Brasil; Para certificados emitidos até 31 de Agosto o campo utilizado para essa informação é o organizationalUnitName.
 * **UID:** Software Statement ID cadastrado no Serviço de Diretório do Open Finance Brasil e pertencente ao CNPJ e Código de Participante.
 
 O Certificado Cliente deve ser emitido através de cadeia V10, e deve obrigatoriamente conter os seguintes atributos:
@@ -150,7 +150,8 @@ O Certificado Cliente deve ser emitido através de cadeia V10, e deve obrigatori
 * **organizationName (OID 2.5.4.10):** Razão Social
 * **stateOrProvinceName (OID 2.5.4.8):** Unidade da federação do endereço físico do titular do certificado
 * **localityName (OID 2.5.4.7):** Cidade do endereço físico do titular
-* **organizationalUnitName (OID 2.5.4.11):** Código de Participante associado ao CNPJ listado no Serviço de Diretório do Open Finance Brasil
+* **organizationIdentifier (OID 2.5.4.97):** Código de Participante associado ao CNPJ listado no Serviço de Diretório do Open Finance Brasil. 
+Para certificados emitidos até 31 Agosto de 2022: **organizationalUnitName (OID 2.5.4.11):** Código de Participante associado ao CNPJ listado no Serviço de Diretório do Open Finance Brasil
 * **UID (OID 0.9.2342.19200300.100.1.1):** Software Statement ID gerado pelo Diretório do Open Finance Brasil
 * **commonName (OID 2.5.4.3):** FQDN ou Wildcard
 
@@ -248,7 +249,7 @@ A tecnologia descrita nesta especificação foi disponibilizada a partir de cont
 
 # Apêndice {#Apendice}
 
-## Modelo de Configuração de Certificado Cliente - OpenSSL {#ModeloConfiguracaoCertificadoClienteOpenSSL}
+## Modelo de Configuração de Certificado Cliente - OpenSSL *Para certificados emitidos até 31 Agosto 2022 {#ModeloConfiguracaoCertificadoClienteOpenSSL}
 
 ```
 [req]
@@ -282,7 +283,47 @@ extendedKeyUsage = clientAuth
 DNS = <FQDN|Wildcard>
 ```
 
-## Modelo de Configuração de Certificado de Assinatura - OpenSSL {#ModeloConfiguracaoCertificadoAssinaturaOpenSSL}
+## Modelo de Configuração de Certificado Cliente - OpenSSL *Para certificados emitidos após 31 Agosto 2022 {#ModeloConfiguracaoCertificadoClienteOpenSSL}
+
+```
+
+oid_section = OIDs
+
+[req]
+default_bits = 2048
+default_md = sha256
+encrypt_key = yes
+prompt = no
+string_mask = nombstr
+distinguished_name = client_distinguished_name
+req_extensions = req_cert_extensions
+
+[ OIDs ]
+organizationIdentifier = 2.5.4.97
+
+[ client_distinguished_name ]
+businessCategory = <tipo de entidade>
+jurisdictionCountryName = BR
+serialNumber = <CNPJ>
+countryName = BR
+organizationName = <Razao Social>
+stateOrProvinceName = <UF>
+localityName = <Cidade>
+organizationIdentifier = OFBBR-<Código de Participante>
+UID = <Software Statement ID emitido pelo diretório>
+commonName = <FQDN|Wildcard>
+
+[ req_cert_extensions ]
+basicConstraints = CA:FALSE
+subjectAltName = @alt_name
+keyUsage = critical,digitalSignature,keyEncipherment
+extendedKeyUsage = clientAuth
+
+[ alt_name ]
+DNS = <FQDN|Wildcard>
+```
+
+## Modelo de Configuração de Certificado de Assinatura {#ModeloConfiguracaoCertificadoAssinaturaOpenSSL}
 
 ```
 [req]
@@ -314,6 +355,7 @@ otherName.1 = 2.16.76.1.3.3;PRINTABLESTRING:<CNPJ>
 otherName.2 = 2.16.76.1.3.4;PRINTABLESTRING:<CPF/PIS/RF da Pessoa responsável>
 otherName.3 = 2.16.76.1.3.7;PRINTABLESTRING:<Número de INSS>
 ```
+
 ## Tabela com Endpoints vs Tipo de Certificado e mTLS
 Abaixo apresentamos quais endpoints podem ser publicados utilizando certificado EV como autenticação do consentimento e os endpoints de autenticação de APIs privadas/negócios que devem ser publicadas usando certificado ICP. Você também poderá verificar quais endpoints devem proteger suas conexões utilizando mTLS.
 

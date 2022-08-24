@@ -223,10 +223,12 @@ Além disso, o servidor de autorização
 10. deve, sempre que possível, validar os metadados declarados pelo cliente em relação aos metadados fornecidos no _software\_statement_, adotando os valores presentes no SSA com precedência.
 11. deve aceitar todos os nomes x.500 AttributeType definidas no _Distinguished Name_ dos Perfis de Certificado x.509 definidos em [Open Finance Brasil x.509 Certificate Standards][OFB-Cert-Standards];
 12. se for compatível com o mecanismo de autenticação do cliente `tls_client_auth`, conforme definido em [RFC8705], somente deve aceitar `tls_client_auth_subject_dn` como uma indicação do valor do atributo _subject_ do certificado, conforme definido na cláusula 2.1.2 [RFC8705];
-13. Os valores dos campos *UID* e *OU* do certificado devem coincidir com os enviados no SSA. O campo *OU* deve conter o valor do campo *org_id* do SSA e campo *UID* deve conter o valor do campo *software_id* do SSA.
-14. deve, durante o processo de handshake TLS, usar a regra `distinguishedNameMatch` para comparar os valores DN conforme definido na [RFC4517].
-15. deve garantir a integridade do estoque de consentimentos ativos, mesmo após eventuais mudanças sistêmicas, para que taís alterações sejam transparentes para as instituições receptora de dados (TPP). 
-16. deve realizar recertificação FAPI e DCR da OIDF após eventuais mudanças sistêmicas. 
+13. O valor do campo *UID* do certificado deve coincidir com o enviado no SSA, onde o campo *UID* deve conter o valor do campo *software_id* do SSA.
+14. O valor do campo *organizationIdentifier* do certificado deve conter  o prefixo correspondente ao Registration Reference *OFBBR-* seguido do valor do campo *org_id* do SSA. 
+Para certificados emitidos até 31 de Agosto de 2022: o valor do campo *OU* do certificado deve conter o valor do campo *org_id* do SSA.
+15. deve, durante o processo de handshake TLS, usar a regra `distinguishedNameMatch` para comparar os valores DN conforme definido na [RFC4517].
+16. deve ser garantido a todos, após os mesmos atos de consentimentos permanentes, para que também sejam alterados para instituições receptoras de dados transparentes (TPP).
+17. deve realizar recertificação FAPI e DCR OIDF após eventuais alterações sistêmicas.
 
 Estas disposições aplicam-se igualmente ao processamento de pedidos [RFC7591], [RFC7592] e [OpenID Registration][OIDR]
 
@@ -255,7 +257,7 @@ Segue na tabela abaixo como deve ser feita a decodificação:
     - Os nomes dos atributos devem ser definidos seguindo a notação ponto-decimal, sem adição de prefixo “OID”, ex. “2.5.4.15”, seguido dos sinais de (‘=#’) mais o      valor hexadecimal do atributo, exemplo final: 2.5.4.15=#0C1450726976617465204F7267616E697A6174696F6E
     - Não há qualquer restrição para as codificações/formatações utilizadas nos valores dos atributos. Deve ser respeitado o uso em hexadecimal apresentado na          codificação utilizada no atributo do certificado (PrintableString, UTF8String, etc). Este item atende à opcionalidade do formato já estabelecido pela AC frente        aos normativos ICP e ao itens 2.3, 2.4 e 5.2 da RFC4514.
 
-Seguem abaixo exemplos para os atributos obrigatórios da CAs atualmente ativas:
+Seguem abaixo exemplos para os atributos obrigatórios das ACs ativas até 31 de Agosto de 2022:
 
 | subject_dn                                                                                                                                                                                                                                                                                | Issuer                                                                                                                 |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
@@ -263,6 +265,12 @@ Seguem abaixo exemplos para os atributos obrigatórios da CAs atualmente ativas:
 | UID=67c57882-043b-11ec-9a03-0242ac130003, 1.3.6.1.4.1.311.60.2.1.3=#13024252, 2.5.4.15=#0C0F427573696E65737320456E74697479, CN=mycn.bank.gov.br, 2.5.4.5=#130e3133333533323336303030313839, OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59, O=My Public Bank, L=BRASILIA, ST=DF, C=BR    | issuer=CN=Autoridade Certificadora do SERPRO SSLv1,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR |
 | 1.3.6.1.4.1.311.60.2.1.3=#13024252, 2.5.4.15=#131450726976617465204f7267616e697a6174696f6e, UID=67c57882-043b-11ec-9a03-0242ac130003, CN=openbanking.mybank.com.br, 2.5.4.5=#130e3133333533323336303030313839, OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59, L=Goiania, ST=GO, O=MyBank SA, C=BR | issuer=CN=AC SOLUTI SSL EV,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR                         |
 | CN=mycn.bank.com.br, UID=67c57882-043b-11ec-9a03-0242ac130003, OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59, L=Sao Paulo, ST=SP, O=MyBank SA, C=BR,2.5.4.5=#130e3133333533323336303030313839, 1.3.6.1.4.1.311.60.2.1.3=#13024252, 2.5.4.15=#0C0F427573696E65737320456E74697479         | issuer=CN=AC SERASA SSL EV,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR                         |
+
+Seguem abaixo exemplos para os atributos obrigatórios das ACs ativas após 31 de Agosto de 2022:
+
+| subject_dn                                                                                                                                                                                                                                                                                | Issuer                                                                                                                 |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
+| CN=mycn.bank.com.br, UID=67c57882-043b-11ec-9a03-0242ac130003 , 2.5.4.97=OFBBR-497e1ffe-b2a2-4a4e-8ef0-70633fd11b59 , L=Sao Paulo , ST=SP , O=MyBank , C=BR , serialNumber=13353236000189 , 1.3.6.1.4.1.311.60.2.1.3=BR , businessCategory=Business Entity         | issuer=CN=AC SERASA SSL EV,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR                         |
 
 
 ## Funções regulatórias para mapeamentos OpenID e OAuth 2.0  {#Regs}
@@ -443,10 +451,11 @@ Para estender as [RFC7591] e [RFC7592], que recomendam mecanismos mínimos para 
 ### Registro de cliente - POST /register {#post-register}
 
 1. validar que o certificado apresentado pela aplicação cliente é subordinado às cadeias do ICP-Brasil definidas no Padrão de Certificados do Open Finance Brasil;
-2. assegurar que a assinatura do _software\_statement_ apresentado pela aplicação cliente durante o registro tenha sido feita pelo Diretório de Participantes através das chaves públicas descritas na seção anterior;
-3. assegurar que o _software\_statement_ apresentado pela aplicação cliente durante o registro corresponda à mesma instituição do certificado de cliente apresentado, validando-o através dos atributos que trazem `organization_id` no certificado X.509.
-4. não devem ser permitidos múltiplos cadastros DCR para o mesmo Software Statement , de forma que em caso de tentativa de novo registro para um Software Statement já cadastrado, deve se utilizar o procedimento de Error Response definido no item 3.2.2 da RFC7591.
-5. emitir, na resposta do registro, um `registration_access_token` para ser usado como token de autenticação nas operações de manutenção da aplicação cliente registrada, seguindo as especificações descritas na [RFC7592].
+2. enquanto houver a necessidade do período de convivência (mencionado no tópico 7.1) deve ser implementado a validação para ambos os casos: certificados que possuem o valor *org_id* no campo *organizationUnitName* (*OU*) e certificados que possuem o valor *org_id* no campo *organizationIdentifier*.
+3. assegurar que a assinatura do _software\_statement_ apresentado pela aplicação cliente durante o registro tenha sido feita pelo Diretório de Participantes através das chaves públicas descritas na seção anterior;
+4. assegurar que o _software\_statement_ apresentado pela aplicação cliente durante o registro corresponda à mesma instituição do certificado de cliente apresentado, validando-o através dos atributos que trazem `organization_id` no certificado X.509.
+5. não devem ser permitidos múltiplos cadastros DCR para o mesmo Software Statement , de forma que em caso de tentativa de novo registro para um Software Statement já cadastrado, deve se utilizar o procedimento de Error Response definido no item 3.2.2 da RFC7591.
+6. emitir, na resposta do registro, um `registration_access_token` para ser usado como token de autenticação nas operações de manutenção da aplicação cliente registrada, seguindo as especificações descritas na [RFC7592].
 
 ### Manutenção de cliente - GET /register - PUT /register - DELETE /register {#get-put-delete}
 1. validar que o certificado apresentado pela aplicação cliente é subordinado às cadeias do ICP-Brasil definidas no Padrão de Certificados do Open Finance Brasil;

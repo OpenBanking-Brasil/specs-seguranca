@@ -1544,15 +1544,15 @@ This support shall be explicit in Participant Directory configurations, and in t
 </li>
           <li id="section-7.1-3.12">if supporting <code>tls_client_auth</code> client authentication mechanism as defined in <a href="https://tools.ietf.org/html/rfc8705">RFC8705</a> shall only accept <code>tls_client_auth_subject_dn</code>  as an indication of the certificate subject value as defined in clause 2.1.2 <a href="https://tools.ietf.org/html/rfc8705">RFC8705</a>;<a href="#section-7.1-3.12" class="pilcrow">¶</a>
 </li>
-          <li id="section-7.1-3.13">Values of the fields <em>UID</em> and <em>OU</em> of the certificate shall match the ones on the SSA. The <em>OU</em> field shall match the <em>org_id</em> value from the SSA, while the <em>UID</em> field shall match the <em>software_id</em> value of the SSA.<a href="#section-7.1-3.13" class="pilcrow">¶</a>
+          <li id="section-7.1-3.13">the value of the field <em>UID</em> of the certificate should match the one sent in the SSA, where the <em>UID</em> field should contain the value of the <em>software_id</em> field of the SSA.<a href="#section-7.1-3.13" class="pilcrow">¶</a>
 </li>
-          <li id="section-7.1-3.14">shall, during the TLS handshake process, use the <code>distinguishedNameMatch</code> rule to compare the DN values as defined in <a href="https://www.rfc-editor.org/rfc/rfc4517">RFC4517</a>.<a href="#section-7.1-3.14" class="pilcrow">¶</a>
+		      <li id="section-7.1-3.14">the value of the field <em>organizationIdentifier</em> of the certificate shall contain the prefix corresponding to the Registration Reference <em>OFBBR-</em> followed by the value of the <em>org_id</em> field of the SSA. <br/> For certificates issued until 31 August 2022: the value of the <em>OU</em> field of the certificate shall contain the value of the <em>org_id</em> field of the SSA.<a href="#section-7.1-3.14" class="pilcrow">¶</a>
+</li>  
+          <li id="section-7.1-3.15">shall, during the TLS handshake process, use the <code>distinguishedNameMatch</code> rule to compare the DN values as defined in <a href="https://www.rfc-editor.org/rfc/rfc4517">RFC4517</a>.<a href="#section-7.1-3.15" class="pilcrow">¶</a>
 </li>
-          <li id="section-7.1-3.15">shall ensure the integrity of the stock of active consents, even after any systemic changes, so that such changes are transparent to the data receiver institutions (TPP).<a href="#section-7.1-3.15" class="pilcrow">¶</a>
+          <li id="section-7.1-3.16">shall ensure the integrity of the stock of active consents, even after any systemic changes, so that such changes are transparent to the data receiver institutions (TPP).<a href="#section-7.1-3.16" class="pilcrow">¶</a>
 </li>
-          <li id="section-7.1-3.16">shall perform a recertification on OIDF FAPI and DCR after any systemic changes.<a href="#section-7.1-3.16" class="pilcrow">¶</a>
-</li>
-          <li id="section-7.1-3.13">Values of the fields UID and OU of the certificate shall match the ones on the SSA. The OU field shall match the <code>org_id</code> value from the SSA, while the UID field shall match the <code>software_id</code> value of the SSA.<a href="#section-7.1-3.12" class="pilcrow">¶</a>
+          <li id="section-7.1-3.17">shall perform a recertification on OIDF FAPI and DCR after any systemic changes.<a href="#section-7.1-3.17" class="pilcrow">¶</a>
 </li>
 
         </ol>
@@ -1602,7 +1602,7 @@ This support shall be explicit in Participant Directory configurations, and in t
 
 </li>
           </ul>
-<p id="section-7.1.2-6">Below are examples of required attributes on the currently active CAs:<a href="#section-7.1.2-6" class="pilcrow">¶</a></p>
+<p id="section-7.1.2-6">Below are examples of required attributes for CAs active until August 31, 2022:<a href="#section-7.1.2-6" class="pilcrow">¶</a></p>
 <table class="center" id="table-1">
             <caption><a href="#table-1" class="selfRef">Table 1</a></caption>
 <thead>
@@ -1630,6 +1630,26 @@ This support shall be explicit in Participant Directory configurations, and in t
               </tr>
             </tbody>
           </table>
+	
+<p id="section-7.1.2-6-2">Below are examples of required attributes for CAs active after August 31, 2022:<a href="#section-7.1.2-6-2" class="pilcrow">¶</a></p>
+<table class="center" id="table-1">
+            <caption><a href="#table-1" class="selfRef">Table 2</a></caption>
+<thead>
+              <tr>
+                <th class="text-left" rowspan="1" colspan="1">subject_dn</th>
+                <th class="text-left" rowspan="1" colspan="1">Issuer</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">CN=mycn.bank.com.br, UID=67c57882-043b-11ec-9a03-0242ac130003 , 2.5.4.97=OFBBR-497e1ffe-b2a2-4a4e-8ef0-70633fd11b59 , L=Sao Paulo , ST=SP , O=MyBank , C=BR , serialNumber=13353236000189 , 1.3.6.1.4.1.311.60.2.1.3=BR , businessCategory=Business Entity</td>
+                <td class="text-left" rowspan="1" colspan="1">issuer=CN=Open Banking SANDBOX Issuing CA   - G1,OU=Open Banking,O=Open   Banking Brasil,C=BR</td>
+              </tr>
+
+               </tbody>
+          </table>
+	
+	
 </section>
 </div>
 </section>
@@ -1643,7 +1663,7 @@ This support shall be explicit in Participant Directory configurations, and in t
 <p id="section-7.2-1">To participate in the Open Finance ecosystem, accredited institutions must register themselves in the directory of participants according to their regulatory roles. Those roles reflect the institutions authorization from the Central Bank and, consequently, the APIs they are allowed to use.<a href="#section-7.2-1" class="pilcrow">¶</a></p>
 <p id="section-7.2-2">The following table describes the regulatory roles for Open Finance and the related OAuth 2.0 scopes mapping. If the scopes are omitted during the DCR process, the authorization server shall grant the complete set of potential scopes based on the registering bank's regulatory roles, as described in the Server Defaults section.<a href="#section-7.2-2" class="pilcrow">¶</a></p>
 <table class="center" id="table-2">
-          <caption><a href="#table-2" class="selfRef">Table 2</a></caption>
+          <caption><a href="#table-2" class="selfRef">Table 3</a></caption>
 <thead>
             <tr>
               <th class="text-left" rowspan="1" colspan="1">Regulatory Role</th>
@@ -1993,15 +2013,17 @@ Content-Type: application/json
 <a href="#section-9.3.1" class="section-number selfRef">9.3.1. </a><a href="#name-client-registration-post-re" class="section-name selfRef">Client registration - POST /register</a>
           </h4>
 <ol start="1" type="1" class="compact type-1" id="section-9.3.1-1">
-<li id="section-9.3.1-1.1">validate that the certificate presented by the client application is subordinate to the ICP-Brasil chains defined in the Open Finance Brasil Certificates Standard;<a href="#section-9.3.1-1.1" class="pilcrow">¶</a>
+            <li id="section-9.3.1-1.1">validate that the certificate presented by the client application is subordinate to the ICP-Brasil chains defined in the Open Finance Brasil Certificates Standard;<a href="#section-9.3.1-1.1" class="pilcrow">¶</a>
 </li>
-            <li id="section-9.3.1-1.2">ensure that the signature of the <code>software_statement</code>_ presented by the client application during registration has been made by the Directory of Participants using the public keys described in the previous section;<a href="#section-9.3.1-1.2" class="pilcrow">¶</a>
+            <li id="section-9.3.1-1.2">as long as there is a need for the coexistence period (mentioned in section 7.1), validation must be implemented for both cases: certificates that have the value <em>org_id</em> in the <em>organizationUnitName</em> field (<em>OU</em>) and certificates that have the value <em>org_id</em> in the <em>organizationIdentifier</em> field.<a href="#section-9.3.1-1.2" class="pilcrow">¶</a>
 </li>
-            <li id="section-9.3.1-1.3">ensure that the <code>software_statement</code> presented by the client application during registration corresponds to the same institution as the client certificate presented, validating it through the attributes that bring <code>organization_id</code> in the X.509 certificate.<a href="#section-9.3.1-1.3" class="pilcrow">¶</a>
+            <li id="section-9.3.1-1.3">ensure that the signature of the <code>software_statement</code>_ presented by the client application during registration has been made by the Directory of Participants using the public keys described in the previous section;<a href="#section-9.3.1-1.3" class="pilcrow">¶</a>
 </li>
-            <li id="section-9.3.1-1.4">Multiple DCR registrations for the same Software Statement should not be allowed, in a way that in case of a new registration attempt for an already registered Software Statement, the Error Response procedure defined on item 3.2.2 of the <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a> must be enforced.<a href="#section-9.3.1-1.4" class="pilcrow">¶</a>
+            <li id="section-9.3.1-1.4">ensure that the <code>software_statement</code> presented by the client application during registration corresponds to the same institution as the client certificate presented, validating it through the attributes that bring <code>organization_id</code> in the X.509 certificate.<a href="#section-9.3.1-1.4" class="pilcrow">¶</a>
 </li>
-            <li id="section-9.3.1-1.5">issue, on the registry response, a <code>registration_access_token</code> to be used as an authentication token on maintaining operations of the registered client application, following specifications described in [<a href="https://tools.ietf.org/html/rfc7592">RFC7592</a>].<a href="#section-9.3.1-1.5" class="pilcrow">¶</a>
+            <li id="section-9.3.1-1.5">Multiple DCR registrations for the same Software Statement should not be allowed, in a way that in case of a new registration attempt for an already registered Software Statement, the Error Response procedure defined on item 3.2.2 of the <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a> must be enforced.<a href="#section-9.3.1-1.5" class="pilcrow">¶</a>
+</li>
+            <li id="section-9.3.1-1.6">issue, on the registry response, a <code>registration_access_token</code> to be used as an authentication token on maintaining operations of the registered client application, following specifications described in [<a href="https://tools.ietf.org/html/rfc7592">RFC7592</a>].<a href="#section-9.3.1-1.6" class="pilcrow">¶</a>
 </li>
 
           </ol>
