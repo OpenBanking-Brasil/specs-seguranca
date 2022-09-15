@@ -1,3 +1,6 @@
+
+oid_dection = OIDs
+
 [req]
 default_bits = 2048
 default_md = sha256
@@ -7,6 +10,9 @@ string_mask = nombstr
 distinguished_name = client_distinguished_name
 req_extensions = req_cert_extensions
 
+[OIDs]
+organizationIdentifier = 2.5.4.97
+
 [ client_distinguished_name ]
 businessCategory = <type of organization>
 jurisdictionCountryName = BR
@@ -15,7 +21,7 @@ countryName = BR
 organizationName = <Company Name>
 stateOrProvinceName = <UF>
 localityName = <City>
-organizationalUnitName = <PArticipante Code>
+organizationIdentifier = <Prefixo>-<Participante Code>
 UID = <Software Statement ID issued by the Directory>
 commonName = <FQDN|Wildcard>
 
@@ -27,3 +33,4 @@ extendedKeyUsage = clientAuth
 
 [ alt_name ] 
 DNS = <FQDN|Wildcard>
+
