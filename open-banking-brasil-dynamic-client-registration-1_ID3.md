@@ -386,7 +386,7 @@ The following example contains all attributes currently included in a _software\
 The steps of the subject_DN extraction process are described in section 7.1.2
 
 !---
-![Dynamic Client Registration](images/subject_DN.svg)
+![Dynamic Client Registration](images/subject_DN_english.svg)
 !---
 
 ## Sending a Registration Claim with a Software Statement
