@@ -2,12 +2,12 @@
 
     #
     # Open Finance Brasil Financial-grade API Dynamic Client Registration Profile 1.0 Implementers Draft 3
-    # (open-banking-brasil-dynamic-client-registration-1_ID2)
+    # (open-banking-brasil-dynamic-client-registration-1_ID3)
     #
     #
 
     Title = "Open Finance Brasil Financial-grade API Dynamic Client Registration 1.0 Implementers Draft 2"
-    abbrev = "OFB-FAPI-1-DCR-ID2"
+    abbrev = "OFB-FAPI-1-DCR-ID3"
     ipr = "none"
     workgroup = "Open Finance Brasil GT Security"
     keyword = ["FAPI", "Open Finance Brasil GT Security"]
@@ -15,7 +15,7 @@
     [seriesInfo]
     name = "Internet-Draft"
     status = "standard"
-    value = "open-banking-brasil-dynamic-client-registration-1_ID2"
+    value = "open-banking-brasil-dynamic-client-registration-1_ID3"
 
     [[author]]
     initials = "GT"
@@ -31,7 +31,7 @@
 
 .# Foreword
 
-Este documento também está disponível em [português](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID1-ptbr.html)
+Este documento também está disponível em [português](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID3-ptbr.html)
 
 The Open Finance Brasil Initial Structure is responsible for creating standards and specifications necessary to meet the requirements and obligations of the Brasil Open Finance Legislation as originally outlined by the [Brasil Central Bank](https://www.bcb.gov.br/content/config/Documents/BCB_Open_Banking_Communique-April-2019.pdf). There is a possibility that some of the elements of this document may be the subject to patent rights. OFBIS shall not be held responsible for identifying any or all such patent rights.
 
