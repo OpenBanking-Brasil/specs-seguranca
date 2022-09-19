@@ -1,7 +1,7 @@
 %%%
 
     #
-    # Open Finance Brasil Financial-grade API Dynamic Client Registration Profile 1.0 Implementers Draft 2
+    # Open Finance Brasil Financial-grade API Dynamic Client Registration Profile 1.0 Implementers Draft 3
     # (open-banking-brasil-dynamic-client-registration-1_ID2)
     #
     #
