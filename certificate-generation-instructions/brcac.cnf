@@ -1,0 +1,36 @@
+
+oid_dection = OIDs
+
+[req]
+default_bits = 2048
+default_md = sha256
+encrypt_key = yes
+prompt = no
+string_mask = nombstr
+distinguished_name = client_distinguished_name
+req_extensions = req_cert_extensions
+
+[OIDs]
+organizationIdentifier = 2.5.4.97
+
+[ client_distinguished_name ]
+businessCategory = <type of organization>
+jurisdictionCountryName = BR
+serialNumber = <CNPJ>
+countryName = BR
+organizationName = <Company Name>
+stateOrProvinceName = <UF>
+localityName = <City>
+organizationIdentifier = <Prefixo>-<Participante Code>
+UID = <Software Statement ID issued by the Directory>
+commonName = <FQDN|Wildcard>
+
+[ req_cert_extensions ] 
+basicConstraints = CA:FALSE
+subjectAltName = @alt_name
+keyUsage = critical,digitalSignature,keyEncipherment
+extendedKeyUsage = clientAuth
+
+[ alt_name ] 
+DNS = <FQDN|Wildcard>
+
