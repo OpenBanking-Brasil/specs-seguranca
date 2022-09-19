@@ -390,7 +390,7 @@ O exemplo a seguir contém todos os atributos atualmente incluídos em um _softw
 Os passos do processo de extração do subject_DN estão descritos na seção 7.1.2
 
 !---
-![Dynamic Client Registration](images/subject_DN.svg)
+![Dynamic Client Registration](images/Subject_dn_en.svg)
 !---
 
 ## Enviar uma solicitação com uma declaração de software  {#exampleDcr}
