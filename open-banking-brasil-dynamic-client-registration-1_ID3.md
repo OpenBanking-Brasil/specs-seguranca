@@ -6,7 +6,7 @@
     #
     #
 
-    Title = "Open Finance Brasil Financial-grade API Dynamic Client Registration 1.0 Implementers Draft 2"
+    Title = "Open Finance Brasil Financial-grade API Dynamic Client Registration 1.0 Implementers Draft 3"
     abbrev = "OFB-FAPI-1-DCR-ID3"
     ipr = "none"
     workgroup = "Open Finance Brasil GT Security"
