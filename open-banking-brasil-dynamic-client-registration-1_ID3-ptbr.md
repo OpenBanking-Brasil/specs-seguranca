@@ -2,12 +2,12 @@
 
     #
     # Open Finance Brasil Financial-grade API Dynamic Client Registration Profile 1.0 Implementers Draft 3
-    # (open-banking-brasil-dynamic-client-registration-1_ID2)
+    # (open-banking-brasil-dynamic-client-registration-1_ID3)
     #
     #
 
-    Title = "Open Finance Brasil Financial-grade API Dynamic Client Registration 1.0 Implementers Draft 2"
-    abbrev = "OFB-FAPI-1-DCR-ID2"
+    Title = "Open Finance Brasil Financial-grade API Dynamic Client Registration 1.0 Implementers Draft 3"
+    abbrev = "OFB-FAPI-1-DCR-ID3"
     ipr = "none"
     workgroup = "Open Finance Brasil GT Security"
     keyword = ["FAPI", "Open Finance Brasil GT Security"]
@@ -15,7 +15,7 @@
     [seriesInfo]
     name = "Internet-Draft"
     status = "standard"
-    value = "open-banking-brasil-dynamic-client-registration-1_ID2-ptbr"
+    value = "open-banking-brasil-dynamic-client-registration-1_ID3-ptbr"
 
     [[author]]
     initials = "GT"
@@ -31,7 +31,7 @@
 
 .# Prefácio  {#Foreword}
 
-The normative version in [English](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID2.html)
+The normative version in [English](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID3.html)
 
 A Estrutura Inicial do Open Finance Brasil (EIOFB) é responsável por criar os padrões e especificações necessários para atender aos requisitos e obrigações da Legislação do Open Finance do Brasil, conforme originalmente delineado pelo [Banco Central do Brasil](https://www.bcb.gov.br/content/config/Documents/BCB_Open_Banking_Communique-April-2019.pdf). É possível que alguns dos elementos deste documento estejam sujeitos a direitos de patente. O EIOFB não se responsabiliza pela identificação de qualquer ou todos os direitos de patente.
 
