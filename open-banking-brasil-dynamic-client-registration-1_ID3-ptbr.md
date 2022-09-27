@@ -393,6 +393,118 @@ Os passos do processo de extração do subject_DN estão descritos na seção 7.
 ![Dynamic Client Registration](images/Subject_dn_en.svg)
 !---
 
+O exemplo de código Javascript para extração do subject_DN e o respectivo certificado teste.pem utilizado neste exemplo estão descritos abaixo.  
+
+"````javascript
+const {X509Certificate} = require('crypto')
+const fs = require('fs')
+
+const x509 = new X509Certificate(fs.readFileSync('teste.pem'))
+const sub = x509.subject
+var array = sub.split(/\r?\n|\r|\n/g)
+
+function hexa(x){
+        var res = ''
+        for (var i=0; i<x.length; i++) { res += x.charCodeAt(i).toString(16) }
+        return res
+}
+
+function retornaMatch(palavra, filtro){
+        let match = palavra.match(filtro)
+        if(match){ return match[0] }
+}
+
+var array1 = /organizationIdentifier=[o|O][f|F][b|B]{2}[r|R][-].*[,]/
+var novaArray1 = retornaMatch(String(array),array1)
+novaArray1 = String(novaArray1).split('=')
+novaArray1[1] = novaArray1[1].replace(/,(\s+)?$/, '')
+
+var array2 = /jurisdictionC=[a-z|A-Z]{2},/
+var novaArray2 = retornaMatch(String(array),array2)
+novaArray2 = String(novaArray2).split('=')
+novaArray2[1] = novaArray2[1].replace(/,(\s+)?$/, '')
+
+var array3 = /businessCategory=\w+\s\w+,/
+var novaArray3 = retornaMatch(String(array),array3)
+novaArray3 = String(novaArray3).split('=')
+novaArray3[1] = novaArray3[1].replace(/,(\s+)?$/, '')
+
+var array4 = /serialNumber=[0-9]{14},/
+var novaArray4 = retornaMatch(String(array),array4)
+novaArray4 = String(novaArray4).split('=')
+novaArray4[1] = novaArray4[1].replace(/,(\s+)?$/, '')
+
+function parseX509(array, encode){
+        var tam = array.length-1
+        var novaArray = []
+
+        novaArray[0] = array[tam]
+        novaArray[1] = '2.5.4.97=' +encode +'2A' + hexa(novaArray1[1])
+        novaArray[2] = '1.3.6.1.4.1.311.60.2.1.3=' +encode +'02' + hexa(novaArray2[1])
+        novaArray[3] = '2.5.4.15=' +encode +'14' + hexa(novaArray3[1])
+        novaArray[4] = '2.5.4.5=' +encode +'0E' + hexa(novaArray4[1])
+        novaArray[5] = array[tam-5]
+        novaArray[6] = array[tam-6]
+        novaArray[7] = array[tam-7]
+        novaArray[8] = array[tam-8]
+        novaArray[9] = array[tam-9]
+
+        var res = 'subject='
+        for(i=0; i<novaArray.length; i++){
+                res += novaArray[i]
+                res += ','
+        }
+        res = res.replace(/,(\s+)?$/, '')
+
+        return res
+}
+
+console.log('Suject DN em Printable String: ', parseX509(array, '#13'))
+console.log('Suject DN em UTF-8: ', parseX509(array, '#0C'))
+```"
+
+----BEGIN CERTIFICATE-----
+MIIHSzCCBjOgAwIBAgIUKga83ZMp8P0fd24M2oQUvq1ViPcwDQYJKoZIhvcNAQEL
+BQAwcTELMAkGA1UEBhMCQlIxHDAaBgNVBAoTE09wZW4gQmFua2luZyBCcmFzaWwx
+FTATBgNVBAsTDE9wZW4gQmFua2luZzEtMCsGA1UEAxMkT3BlbiBCYW5raW5nIFNB
+TkRCT1ggSXNzdWluZyBDQSAtIEcxMB4XDTIyMDgyOTE3NDYwMFoXDTIzMDkyODE3
+NDYwMFowggFDMQswCQYDVQQGEwJCUjELMAkGA1UECBMCU1AxDzANBgNVBAcTBkxP
+TkRPTjEcMBoGA1UEChMTT3BlbiBCYW5raW5nIEJyYXNpbDFDMEEGA1UEAxM6aHR0
+cHM6Ly93ZWIuY29uZm9ybWFuY2UuZGlyZWN0b3J5Lm9wZW5iYW5raW5nYnJhc2ls
+Lm9yZy5icjEXMBUGA1UEBRMONDMxNDI2NjYwMDAxOTcxGjAYBgNVBA8TEUdvdmVy
+bm1lbnQgRW50aXR5MRMwEQYLKwYBBAGCNzwCAQMTAlVLMTMwMQYDVQRhEypPRkJC
+Ui03NGU5MjlkOS0zM2I2LTRkODUtOGJhNy1jMTQ2Yzg2N2E4MTcxNDAyBgoJkiaJ
+k/IsZAEBEyQxMDEyMDM0MC0zMzE4LTRiYWYtOTllMi0wYjU2NzI5YzRhYjIwggEi
+MA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC7BjqM17OFx1eN5bdkZIz2cWq5
+/eWuQONogpz2e38AyTsA8xxtTmYABTAHnS6QWBrGqK7XDxKks6srHzbNkr7UVR5+
+fg5EfF/SqqWeatFstw3rr5qsN3XnHJUCFsBD6R6IetmrnGlWSIAoJFfqKtYx594U
+w0dnE5egBfas087RqSM2V5H9uRcjSfB40MqANERDAZEeftGkNYyzj9Csa5g+WZLH
+GqdtW28y7d2tOK4px0e99dAuNRjofCLpRoVH8Ez8ayy7+iJoo4CNRwoGGCayRatK
+hrsp6CQ1/0X2sn3Rc02QiiCRhEY3AUYSgiUm64YcAbsO913YtC92lSMUe9gDAgMB
+AAGjggMFMIIDATAMBgNVHRMBAf8EAjAAMB0GA1UdDgQWBBQ7XBioIXwyC2PYczsD
+uwtKXNck1jAfBgNVHSMEGDAWgBSGf1itF/WCtk60BbP7sM4RQ99MvjBMBggrBgEF
+BQcBAQRAMD4wPAYIKwYBBQUHMAGGMGh0dHA6Ly9vY3NwLnNhbmRib3gucGtpLm9w
+ZW5iYW5raW5nYnJhc2lsLm9yZy5icjBLBgNVHR8ERDBCMECgPqA8hjpodHRwOi8v
+Y3JsLnNhbmRib3gucGtpLm9wZW5iYW5raW5nYnJhc2lsLm9yZy5ici9pc3N1ZXIu
+Y3JsMEUGA1UdEQQ+MDyCOmh0dHBzOi8vd2ViLmNvbmZvcm1hbmNlLmRpcmVjdG9y
+eS5vcGVuYmFua2luZ2JyYXNpbC5vcmcuYnIwDgYDVR0PAQH/BAQDAgWgMBMGA1Ud
+JQQMMAoGCCsGAQUFBwMCMIIBqAYDVR0gBIIBnzCCAZswggGXBgorBgEEAYO6L2QB
+MIIBhzCCATYGCCsGAQUFBwICMIIBKAyCASRUaGlzIENlcnRpZmljYXRlIGlzIHNv
+bGVseSBmb3IgdXNlIHdpdGggUmFpZGlhbSBTZXJ2aWNlcyBMaW1pdGVkIGFuZCBv
+dGhlciBwYXJ0aWNpcGF0aW5nIG9yZ2FuaXNhdGlvbnMgdXNpbmcgUmFpZGlhbSBT
+ZXJ2aWNlcyBMaW1pdGVkcyBUcnVzdCBGcmFtZXdvcmsgU2VydmljZXMuIEl0cyBy
+ZWNlaXB0LCBwb3NzZXNzaW9uIG9yIHVzZSBjb25zdGl0dXRlcyBhY2NlcHRhbmNl
+IG9mIHRoZSBSYWlkaWFtIFNlcnZpY2VzIEx0ZCBDZXJ0aWNpY2F0ZSBQb2xpY3kg
+YW5kIHJlbGF0ZWQgZG9jdW1lbnRzIHRoZXJlaW4uMEsGCCsGAQUFBwIBFj9odHRw
+Oi8vcmVwb3NpdG9yeS5zYW5kYm94LnBraS5vcGVuYmFua2luZ2JyYXNpbC5vcmcu
+YnIvcG9saWNpZXMwDQYJKoZIhvcNAQELBQADggEBACjaIPM71+6aarcCzUUscTuu
+N1ZHazWsGBAsVyPPLgC/cxX1IqAA8W9pLaxRBO4F/CVsqJf2ArS0HMB6aZxVxSty
+Ka//oAI/qd6Z+8vx10iT2u359yTXBA7AoIQGAeoC0A2UyKG32V2OtCOKdSQVtu2F
+MOaDZhdjxrJACAt8/nTXOZubqFk8laFVo9dmdXxdFd0vejCpvcVQItkjmTsjihMp
+xpVPAP52I/ZW3tct2cMJfaw+NulaYgVKhcAu/HGtT0KKbPWq8E7IgtuQrqaLe9n6
+Jz3aHfCWJ7IYgBbIRyMhd5oi5Dp8txLxrpTgJ2V9+8wyvzijWbUBHMJnXuiXojM=
+-----END CERTIFICATE-----
+
 ## Enviar uma solicitação com uma declaração de software  {#exampleDcr}
 
 Este exemplo inclui vários campos opcionais, alguns dos quais podem não ser aplicáveis a algumas implantações. Para um guia completo dos atributos e sua obrigatoriedade, consultar o Swagger DCR [OFB-DCR/DCM-Swagger].
