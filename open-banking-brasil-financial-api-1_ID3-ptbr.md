@@ -242,6 +242,11 @@ Além disso, se o valor `response_type` `code id_token` for usado, o servidor de
 5. O uso de outros cabeçalhos para indicação da chave utilizada, como `x5u`, `x5c`, `jku` ou `jkw` é vetado conforme definido na cláusula 2 [OIDC].
 
 
+#### Clarificações sobre a "sub" Claim 
+Este perfil usa a definição oficial encontrada em: https://github.com/OpenBanking-Brasil/specs-seguranca/tree/main/idtoken_review.
+Isso significa que o sub é um identificador nunca transferido ou alterado para o usuário final.
+O valor para um dado usuário nunca deve mudar dentro de uma instituição, mesmo em diferentes consentimentos.
+
 #### Solicitando uma "claim" **cpf**  {#cpf}
 
 Este perfil define "cpf" como uma nova `claim` padrão de acordo com
