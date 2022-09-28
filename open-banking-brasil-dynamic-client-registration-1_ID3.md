@@ -401,7 +401,7 @@ var array = sub.split(/\r?\n|\r|\n/g)
 
 function hexa(x){
         var res = ''
-        for (var i=0; i<x.length; i++) { res += x.charCodeAt(i).toString(16) }
+        for (var i=0; i < x.length ; i++) { res += x.charCodeAt(i).toString(16) }
         return res
 }
 
@@ -446,7 +446,7 @@ function parseX509(array, encode){
         novaArray[9] = array[tam-9]
 
         var res = 'subject='
-        for(i=0; i<novaArray.length; i++){
+        for(i=0; i < novaArray.length ; i++){
                 res += novaArray[i]
                 res += ','
         }
