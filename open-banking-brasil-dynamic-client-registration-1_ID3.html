@@ -1951,7 +1951,8 @@ This support shall be explicit in Participant Directory configurations, and in t
 </figure>
 <p>The following is an example of Javascript code for extracting the subject_DN and the respective certificate teste.pem used in this example.</p>  
 
-<pre>
+<div class="alignLeft art-text artwork"> <pre>
+
 const {X509Certificate} = require('crypto')
 const fs = require('fs')
 
@@ -2017,9 +2018,11 @@ function parseX509(array, encode){
 
 console.log('Suject DN em Printable String: ', parseX509(array, '#13'))
 console.log('Suject DN em UTF-8: ', parseX509(array, '#0C'))
-</pre>
 
-<pre>
+</pre> <a class="pilcrow"></a> </div>	
+
+<div class="alignLeft art-text artwork"> <pre>
+
 ----BEGIN CERTIFICATE-----
 MIIHSzCCBjOgAwIBAgIUKga83ZMp8P0fd24M2oQUvq1ViPcwDQYJKoZIhvcNAQEL
 BQAwcTELMAkGA1UEBhMCQlIxHDAaBgNVBAoTE09wZW4gQmFua2luZyBCcmFzaWwx
@@ -2061,7 +2064,9 @@ MOaDZhdjxrJACAt8/nTXOZubqFk8laFVo9dmdXxdFd0vejCpvcVQItkjmTsjihMp
 xpVPAP52I/ZW3tct2cMJfaw+NulaYgVKhcAu/HGtT0KKbPWq8E7IgtuQrqaLe9n6
 Jz3aHfCWJ7IYgBbIRyMhd5oi5Dp8txLxrpTgJ2V9+8wyvzijWbUBHMJnXuiXojM=
 -----END CERTIFICATE-----
-</pre>	
+
+</pre> <a class="pilcrow"></a> </div>	
+	
 <div id="sending-a-registration-claim-with-a-software-statement">
 <section id="section-9.1">
         <h3 id="name-posting-a-request-with-a-so">
