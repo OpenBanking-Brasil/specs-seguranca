@@ -1962,7 +1962,7 @@ var array = sub.split(/\r?\n|\r|\n/g)
 
 function hexa(x){
         var res = ''
-        for (var i=0; i<x.length; i++) { res += x.charCodeAt(i).toString(16) }
+        for (var i=0; i < x.length ; i++) { res += x.charCodeAt(i).toString(16) }
         return res
 }
 
@@ -2007,7 +2007,7 @@ function parseX509(array, encode){
         novaArray[9] = array[tam-9]
 
         var res = 'subject='
-        for(i=0; i<novaArray.length; i++){
+        for(i=0; i < novaArray.length ; i++){
                 res += novaArray[i]
                 res += ','
         }
@@ -2019,7 +2019,7 @@ function parseX509(array, encode){
 console.log('Suject DN em Printable String: ', parseX509(array, '#13'))
 console.log('Suject DN em UTF-8: ', parseX509(array, '#0C'))
 
-</pre> <a class="pilcrow"></a> </div>	
+</pre> </div>	
 
 <div class="alignLeft art-text artwork"> <pre>
 
@@ -2065,7 +2065,7 @@ xpVPAP52I/ZW3tct2cMJfaw+NulaYgVKhcAu/HGtT0KKbPWq8E7IgtuQrqaLe9n6
 Jz3aHfCWJ7IYgBbIRyMhd5oi5Dp8txLxrpTgJ2V9+8wyvzijWbUBHMJnXuiXojM=
 -----END CERTIFICATE-----
 
-</pre> <a class="pilcrow"></a> </div>	
+</pre> </div>	
 	
 <div id="sending-a-registration-claim-with-a-software-statement">
 <section id="section-9.1">
