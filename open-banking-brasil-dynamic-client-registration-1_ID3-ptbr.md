@@ -384,13 +384,13 @@ O exemplo a seguir contém todos os atributos atualmente incluídos em um _softw
 # Processamento de solicitação de registro de cliente dinâmico  {#dcr}
 
 !---
-![Dynamic Client Registration](images/dynamic-client-registration.svg)
+![Dynamic Client Registration | Dynamic Client Management](images/dynamic-client-registration.svg)
 !---
 
 Os passos do processo de extração do subject_DN estão descritos na seção 7.1.2
 
 !---
-![Dynamic Client Registration](images/Subject_dn_en.svg)
+![Subject_DN](images/Subject_dn_en.svg)
 !---
 
 O exemplo de código Javascript para extração do subject_DN e o respectivo certificado teste.pem utilizado neste exemplo estão descritos abaixo.  
