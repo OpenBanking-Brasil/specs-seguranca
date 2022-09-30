@@ -380,13 +380,13 @@ The following example contains all attributes currently included in a _software\
 # Processing of the Dynamic Client Registration claim
 
 !---
-![Dynamic Client Registration](images/dynamic-client-registration.svg)
+![Dynamic Client Registration | Dynamic Client Management](images/dynamic-client-registration.svg)
 !---
 
 The steps of the subject_DN extraction process are described in section 7.1.2
 
 !---
-![Dynamic Client Registration](images/Subject_dn_en.svg)
+![Subject_DN](images/Subject_dn_en.svg)
 !---
 
 The following is an example of Javascript code for extracting the subject_DN and the respective certificate teste.pem used in this example.  
