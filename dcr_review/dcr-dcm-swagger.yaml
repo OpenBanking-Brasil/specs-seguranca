@@ -7,7 +7,7 @@ info:
   version: 1.0.0
 externalDocs:
   description: Documentação do processo de DCR / DCM no portal do desenvolvedor do Open Banking Brasil
-  url: https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil-dynamic-client-registration-1_ID2.md
+  url: https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil-dynamic-client-registration-1_ID3.md
 tags:
 - name: DCR
   description: Operações de registro dinâmico de cliente (DCR)
