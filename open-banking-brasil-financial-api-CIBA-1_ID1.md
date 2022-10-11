@@ -236,8 +236,6 @@ In addition, the confidential client
 
 1. shall support parameterized OAuth 2.0 resource scope _consent_ as defined in clause 6.3.1 [OIDF FAPI WG Lodging Intent Pattern][LIWP]
 2. shall support refresh tokens
-3. shall not populate the `acr` claim with required values
-4. shall require the `acr` claim as an essential claim
 
 ### Resource Owner identity hint mechanisms
 
@@ -252,9 +250,7 @@ As described in [FAPI-CIBA], there are many mechanisms that can be used to conve
 This `login hint` can be used where it is not possible for the Resource Owner to provide a Login Hint to the Consumption Device or where the Resource Owner wishes to claim the authentication request by independently reaching out to the Authorisation Server out of band to claim this authentication request.
 
 `
-{
-    "format": "urn:brasil:openbanking:ciba:login-hint-token-type:as-generated"
-}
+    urn:brasil:openbanking:ciba:login-hint-token-type:as-generated
 `
 
 The use of a `binding message` is mandatory if this token type is to be leveraged.
@@ -277,7 +273,7 @@ JWS Creation
 2. The JOSE header must contain the following attributes:
    * **alg** - shall be filled with the value `PS256`";
    * **kid** - shall be filled with the key identifier value used for the signature listed on the `software statement` keystore on the Open Banking Brasil Directory of Participants;
-   * **typ** - shall be filled with the value `JWT`.
+   * **typ** - shall be filled with the value `cibabr+jwt`.
 
 JWE Creation
 
@@ -303,11 +299,12 @@ The use of a `binding message` is mandatory if this token type is to be leverage
 
 # Security considerations
 
-Participants shall support all security considerations specified in clause TODO and all sub clauses of [FAPI-BR] and [FAPI-CIBA]
+Participants shall support all security considerations specified in all clauses and sub clauses of [FAPI-BR] and [FAPI-CIBA]
+
 
 # Data Sharing Considerations
 
-Participants shall support all data sharing considerations specified in clause TODO of [FAPI-BR]
+Participants shall support all data sharing considerations specified in [FAPI-BR]
 
 # Registration and Discovery Metadata
 
