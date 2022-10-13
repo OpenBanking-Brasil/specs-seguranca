@@ -144,7 +144,7 @@ Os seguintes documentos referenciados são indispensáveis para a adoção das e
 [LIWP]: <https://bitbucket.org/openid/fapi/src/master/Financial_API_Lodging_Intent.md
 
 [OFB-FAPI-DCR] - Open Finance Brasil Financial-grade API Dynamic Client Registration Profile 1.0
-[OFB-FAPI-DCR]: <https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID2.html
+[OFB-FAPI-DCR]: <https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID3.html
 
 [RFC4648] - The Base16, Base32, and Base64 Data Encodings
 [RFC4648]: <https://tools.ietf.org/html/rfc4648
