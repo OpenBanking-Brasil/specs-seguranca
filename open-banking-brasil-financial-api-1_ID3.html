@@ -1693,6 +1693,9 @@ In the Brasil Open Finance identity model, the cpf is a string consisting of num
               <li class="compact" id="section-6.1-1.3.2.5">
                 <strong>iat</strong> (in the <em>JWT</em> request and in the <em>JWT</em> response): the <strong>iat</strong> field  shall be filled with the message generation time and according to the standard established in <a href="https://%20datatracker.ietf.org/doc/html/rfc7519#section-2">RFC7519</a> to the <em>NumericDate</em> format.<a href="#section-6.1-1.3.2.5" class="pilcrow">¶</a>
 </li>
+              <li class="compact" id="section-6.1-1.3.2.5">
+                <strong>cty</strong> (in the <em>JWT</em> request and in the <em>JWT</em> response): the <strong>cty</strong> field  shall be filled in the normal case in which nested signing or encryption operations are not employed, the use of this Header Parameter is not recommended. In the case that nested signing or encryption is employed, this Header Parameter must be present; in this case, the value must be &#34;JWT&#34;, to indicate that a Nested JWT is carried in this JWT. While media type names are not case sensitive, it is recommended that &#34;JWT&#34; always be spelled using uppercase characters for compatibility with legacy implementations.<a href="#section-6.1-1.3.2.5" class="pilcrow">¶</a>
+</li>
             </ul>
 </li>
           <li id="section-6.1-1.4">
