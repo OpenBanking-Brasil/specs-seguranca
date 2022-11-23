@@ -367,6 +367,7 @@ Os participantes devem apoiar todas as considerações de segurança especificad
    * **iss** (na requisição _JWT_ e na resposta _JWT_): o receptor da mensagem deverá validar se o valor do campo **iss** coincide com o `organisationId` do emissor;
    * **jti** (na requisição _JWT_ e na resposta _JWT_): o valor do campo **jti** deverá ser preenchido com o UUID definido pela instituição de acordo com a [RFC4122] usando o versão 4;
    * **iat** (na requisição _JWT_ e na resposta _JWT_): o valor do campo **iat** deverá ser preenchido com horário da geração da mensagem e de acordo com o padrão  estabelecido na [RFC7519](https://datatracker.ietf.org/doc/html/rfc7519#section-2) para o formato _NumericDate_.
+   * **cty** (na requisição _JWT_ e na resposta _JWT_): o valor do campo **cty** deverá ser preenchido caso as operações de assinatura ou criptografia aninhadas não sejam empregadas, o uso desse parâmetro de cabeçalho não é recomendado. No caso de assinatura aninhada ou criptografia ser empregada, este parâmetro de cabeçalho deve estar presente; neste caso, o valor deve ser "JWT", para indicar que um JWT aninhado é transportado neste JWT. Embora os nomes dos tipos de mídia não diferenciem maiúsculas de minúsculas, é recomendável que "JWT" sempre seja escrito com caracteres maiúsculos para compatibilidade com implementações herdadas.
 
 4. O content-type HTTP das requisições e respostas com mensagens JWS deve ser definido como: "application/jwt".
 
