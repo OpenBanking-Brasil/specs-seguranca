@@ -1686,6 +1686,9 @@ li > p:last-of-type {
               <li class="compact" id="section-6.1-1.3.2.5">
                 <strong>iat</strong> (na requisi&#231;&#227;o <em>JWT</em> e na resposta <em>JWT</em>): o valor do campo <strong>iat</strong> dever&#225; ser preenchido com hor&#225;rio da gera&#231;&#227;o da mensagem e de acordo com o padr&#227;o  estabelecido na <a href="https://datatracker.ietf.org/doc/html/rfc7519#section-2">RFC7519</a> para o formato <em>NumericDate</em>.<a href="#section-6.1-1.3.2.5" class="pilcrow">¶</a>
 </li>
+              <li class="compact" id="section-6.1-1.3.2.6">
+                <strong>cty</strong> (na requisi&#231;&#227;o <em>JWT</em> e na resposta <em>JWT</em>): o valor do campo <strong>cty</strong> dever&#225; ser preenchido caso as opera&#231;&#245;es de assinatura ou criptografia aninhadas n&#227;o sejam empregadas, o uso desse par&#226;metro de cabe&#231;alho n&#227;o &#233; recomendado. No caso de assinatura aninhada ou criptografia ser empregada, este par&#226;metro de cabe&#231;alho deve estar presente; neste caso, o valor deve ser &#34;JWT&#34;, para indicar que um JWT aninhado &#233; transportado neste JWT. Embora os nomes dos tipos de m&#237;dia n&#227;o diferenciem mai&#250;sculas de min&#250;sculas, &#233; recomend&#225;vel que &#34;JWT&#34; sempre seja escrito com caracteres mai&#250;sculos para compatibilidade com implementa&#231;&#245;es herdadas.<a href="#section-6.1-1.3.2.5" class="pilcrow">¶</a>
+</li>
             </ul>
 </li>
           <li id="section-6.1-1.4">
