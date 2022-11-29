@@ -67,9 +67,9 @@ Além dos requisitos de alto nível, os seguintes princípios também foram adot
 * Solicitar feedback com antecedência e com frequência, reconhecer que serão necessárias várias iterações para desenvolver um padrão.
 * O framework de confiança que sustenta o ecossistema de compartilhamento de dados, que é o Open Finance Brasil, é um framework técnico que precisa ser flexível o suficiente para permitir que os participantes e o ecossistema inovem, cresçam e se desenvolvam, enquanto permanecem interoperáveis.
 
-Todos os participantes devem ter certeza de que todos os atores do ecossistema estão lidando com seus dados com segurança tempo todo. Isso requer que todos os participantes testem publicamente seus sistemas quanto à conformidade com as especificações e disponibilizem os resultados de seus testes de conformidade para exame público de outros participantes.
+Todos os participantes devem ter certeza de que todos os atores do ecossistema estão lidando com seus dados com segurança o tempo todo. Isso requer que todos os participantes testem publicamente seus sistemas quanto à conformidade com as especificações e disponibilizem os resultados de seus testes de conformidade para exame público de outros participantes.
 
-**Este é um requisito aplicável à instituições participantes transmissoras e receptoras de dados..**
+**Este é um requisito aplicável às instituições participantes transmissoras e receptoras de dados.**
 
 ## Principais Padrões de Segurança  {#Padroes}
 
@@ -115,7 +115,7 @@ O perfil Baseline foi originalmente planejado para ser mais facilmente implement
 
 O [FAPI 1.0: Advanced profile](https://openid.net/specs/openid-financial-api-part-2-1_0.html) é atual padrão ouro para API Security, fornecendo um **framework de especificação** que foi usado como ponto de partida para a criação de uma especificação para o Open Finance Brasil.
 
-> Este padrão especifica um perfil de segurança avançado do OAuth que é adequado para ser usado para proteger APIs com alto risco inerente. Os exemplos incluem APIs que dão acesso a dados altamente confidenciais ou que podem ser usados para acionar transações financeiras (por exemplo, início de pagamento). Este padrão especifica os controles contra ataques, como: violação de solicitação de autorização, violação de resposta de autorização, incluindo injeção de código, injeção de estado e phishing de solicitação de token.
+> Este padrão especifica um perfil de segurança avançado do OAuth que é adequado para ser usado na proteção de APIs com alto risco inerente. Os exemplos incluem APIs que dão acesso a dados altamente confidenciais ou que podem ser usados para acionar transações financeiras (por exemplo, início de pagamento). Este padrão especifica os controles contra ataques, como: violação de solicitação de autorização, violação de resposta de autorização, incluindo injeção de código, injeção de estado e phishing de solicitação de token.
 
 ![Hierachy of OAuth 2.0 Profiles](https://miro.medium.com/max/700/1*R8d0lkvVRlEMG9WBXCZsdQ.png)
 
@@ -149,13 +149,13 @@ Os bancos, geralmente grandes bancos, não serão uma entidade única do ponto d
 Um modelo flexível para anunciar serviços de autenticação / autorização e os recursos protegidos pelo AuthN e AuthZ é suportado pelo Diretório.
 
 * **Customer Friendly Name** - Será exibido aos clientes pelas instituições receptoras, e já deve ser reconhecido pelos clientes do banco.
-* **Customer Friendly Logo** - Será exibido aos clientes pelos instituições receptoras para auxiliar no reconhecimento da marca.
+* **Customer Friendly Logo** - Será exibido aos clientes pelas instituições receptoras para auxiliar no reconhecimento da marca.
 * **Description** - Isso pode ser exibido aos clientes pelas instituições receptoras para auxiliar no reconhecimento da marca.
 * **Terms of Service** - Este é um link para os Termos de Serviço do banco, que podem ser incluídos pelas instituições receptoras.
 * **Notification WebHook** - *Authorization Servers* podem registrar um WebHook que receberá atualizações por push sobre as alterações dos participantes, seus softwares ou certificados.
 * **OpenID Well Known Document Uri** - Link para o documento de descoberta do Authorization Server.
 
-Um banco pode optar por ter um *Authorization Servers* ou muitos, desde que satisfaça os seguintes requisitos.
+Um banco pode optar por ter um *Authorization Server* ou muitos, desde que satisfaça os seguintes requisitos.
 
 * Um cliente pode reconhecer o *Authorization Server* como um local com o qual normalmente faria interação com o seu banco.
 * O *Authorization Server* pode emitir tokens para os recursos e serviços que um cliente ou insituição receptora está procurando.
