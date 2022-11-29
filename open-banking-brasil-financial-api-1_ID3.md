@@ -351,6 +351,7 @@ Participants shall support all security considerations specified in clause 8
    * **iss** (in the _JWT_ request and in the _JWT_ response): the receiver of the message shall validate if the value of the **iss** field matches the `organisationId` of the sender;
    * **jti** (in the _JWT_ request and in the _JWT_ response): the value of the **jti** field shall be filled with the UUID defined by the institution according to [RFC4122] version 4;
    * **iat** (in the _JWT_ request and in the _JWT_ response): the **iat** field  shall be filled with the message generation time and according to the standard established in [RFC7519](https:// datatracker.ietf.org/doc/html/rfc7519#section-2) to the _NumericDate_ format.
+   * **cty** (in the _JWT_ request and in the _JWT_ response): the **cty** field  shall be filled in the normal case in which nested signing or encryption operations are not employed, the use of this Header Parameter is not recommended. In the case that nested signing or encryption is employed, this Header Parameter must be present; in this case, the value must be "JWT", to indicate that a Nested JWT is carried in this JWT. While media type names are not case sensitive, it is recommended that "JWT" always be spelled using uppercase characters for compatibility with legacy implementations.
 
 4. The HTTP content-type of requests and responses with JWS messages shall be defined as: "application/jwt".
 
