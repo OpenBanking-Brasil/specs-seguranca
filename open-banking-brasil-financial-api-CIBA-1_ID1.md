@@ -312,7 +312,7 @@ OpenID Provider Metadata
 
 The following authorization server metadata parameters are introduced by this specification for OPs publishing their support of the Brazil CIBA flow and details thereof.
 
-* backchannel_endpoint_login_hint_token_types_supported: REQUIRED. JSON array containing one or more of the following values: urn:brasil:openbanking:ciba:login-hint-token-type:cpf, urn:brasil:openbanking:ciba:login-hint-token-type:opaque or urn:brasil:openbanking:ciba:login-hint-token-type:credit-proposition.
+* backchannel_endpoint_login_hint_token_types_supported: REQUIRED. JSON array containing one or more of the following values: urn:brasil:openbanking:ciba:login-hint-token-type:cpf, urn:brasil:openbanking:ciba:login-hint-token-type:ephemeral or urn:brasil:openbanking:ciba:login-hint-token-type:credit-proposition.
 
 # Acknowledgements
 
