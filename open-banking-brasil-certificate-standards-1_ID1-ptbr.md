@@ -205,7 +205,7 @@ As seguintes autoridades certificadoras realizaram o processo de integração ao
 * [Serpro](https://www.gov.br/iti/pt-br/assuntos/repositorio/ac-serpro-de-1deg-nivel) (Cadeia v5 e v10)
 * [Soluti](https://www.gov.br/iti/pt-br/assuntos/repositorio/ac-soluti) (Cadeia v5 e v10)
 
-Apenas os certiticados indicados com "`Situação: válido`" nestes repositórios do ITI acima referenciados que são de Cadeia v5 e v10 deverão serem aceitos pelos servidores do ecossistema Open Finance Brasil.
+Apenas os certificados indicados com "`Situação: válido`" nestes repositórios do ITI acima referenciados que são de Cadeia v5 e v10 devem ser aceitos pelos servidores do ecossistema Open Finance Brasil.
 
 ### Certificado para Front-End {#CertificadoFrontEnd}
 
