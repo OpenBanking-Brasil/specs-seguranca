@@ -222,6 +222,7 @@ Além disso, ele deve:
     2. deve atualizar os cadastros que utilizem métodos não certificados, através de tratamento bilateral entre as instituições envolvidas.
 20. deve recusar requisições, para o ambiente do Open Finance, que estejam fora dos modos de operação ao qual a instituição certificou seu Servidor de Autorização;
 21. deve recusar requisições de autenticação que incluam um id_token_hint, visto que o id_token em posse do requisitante pode conter Informação de Identificação Pessoal, que poderia ser enviada descriptografada pelo cliente público.
+22. o tempo mínimo de expiração do `request_uri` deve ser de 60 segundos
 
 
 #### Token de ID como assinatura separada  {#detached}
