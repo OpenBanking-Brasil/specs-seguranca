@@ -376,7 +376,7 @@ Fica a critério da instituição a escolha do certificado que deve ser adotado 
 | 2    | Direitos   Creditórios | /invoice-financings/*                 | ICP WEB SSL       | Obrigatório |
 | 3    | Pagamentos             | /payments/*                           | ICP WEB SSL       | Obrigatório |
 
-## Padrão do Subject DN do Certificado Cliente Open Finance - Cliente após 19 de janeiro de 2023  {#subjectDNtemplates}
+## Padrão do Subject DN do Certificado Cliente Open Finance - Após 19 de janeiro de 2023 {#subjectDNtemplates}
 Em 19 de janeiro de 2023 foi padronizado a sequência e codificação do Subject DN utilizado nos Certificados Open Finance Cliente. Abaixo é determinado a sequência e codificação de como os atributos dos certificados devem ser apresentados no Subject DN.
 Deve ser considerado o período de coexistência entre os diferentes tipos de Subject DN, desta forma os participantes do ecossistema não devem implantar controles de bloqueio que limitem o uso apenas de certificados com o Subject DN padronizado abaixo, os participantes devem garantir que os outros diferentes padrões de DN já utilizados continuem funcionando até o final do período de coexistência, data este ainda a ser determinada.
 É necessário especial atenção pelos participantes durante o processo de geração do Subject DN, note que abaixo são apresentado formatos de Subject DN e RDN. O Ecossistema espera o uso de RDN em conformidade com a RFC4514. Em caso de dúvida consulte o JWKS do seu aplicativo software-id, verifique qual é o KID do certificado que deseja o Subject DN, custome a URL e acesse: https://keystore.directory.openbankingbrasil.org.br/<org-id>/<software-ID>/transport.jwks; busque pelo KID do certificado, posteriormente busque pela Claim: x5dn
