@@ -2158,9 +2158,11 @@ Para estender as <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a> e <a 
 <a href="#section-9.3.2" class="section-number selfRef">9.3.2. </a><a href="#name-manuten231227o-de-cliente-g" class="section-name selfRef">Manuten&#231;&#227;o de cliente - GET /register - PUT /register - DELETE /register</a>
           </h4>
 <ol start="1" type="1" class="compact type-1" id="section-9.3.2-1">
-<li id="section-9.3.2-1.1">validar que o certificado apresentado pela aplica&#231;&#227;o cliente &#233; subordinado &#224;s cadeias do ICP-Brasil definidas no Padr&#227;o de Certificados do Open Finance Brasil;<a href="#section-9.3.2-1.1" class="pilcrow">¶</a>
+            <li id="section-9.3.2-1.1">removido<a href="#section-9.3.2-1.1" class="pilcrow">¶</a>
 </li>
             <li id="section-9.3.2-1.2">validar a presen&#231;a e a correspond&#234;ncia do header Bearer <code>Authorization</code> contendo o valor do atributo <code>registration_access_token</code> retornado durante o registro do cliente correspondente.<a href="#section-9.3.2-1.2" class="pilcrow">¶</a>
+</li>
+            <li id="section-9.3.2-1.3">realizar as validações dos subitens 1, 3, 4 e 6 do item 9.3.1.<a href="#section-9.3.2-1.2" class="pilcrow">¶</a>
 </li>
           </ol>
 <p id="section-9.3.2-2"><em>Observa&#231;&#227;o:</em> A <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a> prev&#234; a possibilidade de rota&#231;&#227;o do <code>registration_access_token</code> emitido pelo Servidor de Autoriza&#231;&#227;o a cada uso, tornando-o um token de uso &#250;nico. As institui&#231;&#245;es devem considerar esse aspecto no registro de suas aplica&#231;&#245;es cliente para receber e atualizar o <code>registration_access_token</code> pelo novo valor recebido nas chamadas de manuten&#231;&#227;o de cliente.<a href="#section-9.3.2-2" class="pilcrow">¶</a></p>
