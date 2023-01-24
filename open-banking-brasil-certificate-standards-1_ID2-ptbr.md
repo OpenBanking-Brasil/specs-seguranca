@@ -377,10 +377,20 @@ Fica a critério da instituição a escolha do certificado que deve ser adotado 
 | 3    | Pagamentos             | /payments/*                           | ICP WEB SSL       | Obrigatório |
 
 ## Padrão do Subject DN do Certificado Cliente Open Finance - Após 19 de janeiro de 2023 {#subjectDNtemplates}
-Em 19 de janeiro de 2023 foi padronizado a sequência e codificação do Subject DN utilizado nos Certificados Open Finance Cliente. Abaixo é determinado a sequência e codificação de como os atributos dos certificados devem ser apresentados no Subject DN.
-Deve ser considerado o período de coexistência entre os diferentes tipos de Subject DN, desta forma os participantes do ecossistema não devem implantar controles de bloqueio que limitem o uso apenas de certificados com o Subject DN padronizado abaixo, os participantes devem garantir que os outros diferentes padrões de DN já utilizados continuem funcionando até o final do período de coexistência, data este ainda a ser determinada.
-É necessário especial atenção pelos participantes durante o processo de geração do Subject DN, note que abaixo são apresentado formatos de Subject DN e RDN. O Ecossistema espera o uso de RDN em conformidade com a RFC4514. Em caso de dúvida consulte o JWKS do seu aplicativo software-id, verifique qual é o KID do certificado que deseja o Subject DN, custome a URL e acesse: https://keystore.directory.openbankingbrasil.org.br/<org-id>/<software-ID>/transport.jwks; busque pelo KID do certificado, posteriormente busque pela Claim: x5dn
- Exemplo: https://keystore.directory.openbankingbrasil.org.br/9c721898-9ce0-50f1-bf85-05075557850b/793c382e-edb1-4a64-b5c5-9e27366099b9/transport.jwks
+Em 19 de Janeiro de 2023 foi padronizado a sequência e codificação do Subject DN utilizado nos Certificados Open Finance Cliente. 
+Abaixo é determinado a sequência e codificação de como os atributos dos certificados devem ser apresentados no Subject DN.
+
+Deve ser considerado o período de coexistência entre os diferentes tipos de Subject DN, desta forma os participantes do ecossistema não devem implantar controles de bloqueio que limitem o uso apenas de certificados com o Subject DN padronizado abaixo. Os participantes devem garantir que os outros padrões de DN já utilizados continuem funcionando até o final do período de coexistência, data este ainda a ser determinada.
+
+É necessário atenção especial dos participantes durante o processo de geração do Subject DN, pois abaixo são apresentados formatos de Subject DN e RDN.
+O Ecossistema espera o uso de RDN em conformidade com a RFC4514. 
+
+Em caso de dúvida: 
+- consulte o JWKS do seu aplicativo software-id
+- verifique qual é o KID do certificado que deseja o Subject DN, customize a URL e acesse: ``https://keystore.directory.openbankingbrasil.org.br/<org-id>/<software-ID>/transport.jwks ``
+
+``Exemplo: https://keystore.directory.openbankingbrasil.org.br/9c721898-9ce0-50f1-bf85-05075557850b/793c382e-edb1-4a64-b5c5-9e27366099b9/transport.jwks``
+- busque pelo KID do certificado, posteriormente busque pela Claim: x5dn
 
  
 ### Chave Pública de Certificado Exemplo: 
@@ -418,5 +428,5 @@ CN=web.conftpp.directory.openbankingbrasil.org.br,UID=bc97b8f0-cae0-4f2f-9978-d9
 | 6 | 2.5.4.10 | O | #0C | UTF8 | 
 | 7 | 2.5.4.6 | C | #13 | PrintableString | 
 | 8 | 2.5.4.5 | serialNumber | #13 | PrintableString | 
-| 9 | 1.3.6.1.4.1.311.60.2.1.3 | jurisdictionC | #13 | PrintableString | 
-| 10 | 2.5.4.6 | businessCategory | #0C | UTF8 | 
+| 9 | 1.3.6.1.4.1.311.60.2.1.3 | jurisdictionCountryName | #13 | PrintableString | 
+| 10 | 2.5.4.15 | businessCategory | #0C | UTF8 | 
