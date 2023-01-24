@@ -578,8 +578,9 @@ Para estender as [RFC7591] e [RFC7592], que recomendam mecanismos mínimos para 
 6. emitir, na resposta do registro, um `registration_access_token` para ser usado como token de autenticação nas operações de manutenção da aplicação cliente registrada, seguindo as especificações descritas na [RFC7592].
 
 ### Manutenção de cliente - GET /register - PUT /register - DELETE /register {#get-put-delete}
-1. validar que o certificado apresentado pela aplicação cliente é subordinado às cadeias do ICP-Brasil definidas no Padrão de Certificados do Open Finance Brasil;
+1. removido.
 2. validar a presença e a correspondência do header Bearer `Authorization` contendo o valor do atributo `registration_access_token` retornado durante o registro do cliente correspondente.
+3. realizar as validações dos subitens 1, 3, 4 e 6 do item 9.3.1.
 
 *Observação:* A [RFC7592] prevê a possibilidade de rotação do `registration_access_token` emitido pelo Servidor de Autorização a cada uso, tornando-o um token de uso único. As instituições devem considerar esse aspecto no registro de suas aplicações cliente para receber e atualizar o `registration_access_token` pelo novo valor recebido nas chamadas de manutenção de cliente.
 
