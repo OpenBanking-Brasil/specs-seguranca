@@ -457,8 +457,9 @@ To extend [RFC7591] and [RFC7592], which recommend minimum mechanisms for authen
 6. issue, on the registry response, a `registration_access_token` to be used as an authentication token on maintaining operations of the registered client application, following specifications described in [RFC7592].
 
 ### Client Maintenance - GET /register - PUT /register - DELETE /register 
-1. validate that the certificate presented by the client application is subordinate to the ICP-Brasil chains defined in the Open Finance Brasil Certificates Standard; 
+1. Removed. 
 2. Validate the presence and matching of the Bearer header `Authorization` containing the value of the `registration_access_token` attribute returned during registration of the corresponding client. 
+3. Carry out the validations of sub-items 1, 3, 4, and 6 of item 9.3.1.
 
 Note: [RFC7592] provides the possibility of rotating the `registration_access_token` issued by the Authorization Server with each use, making it a single-use token. When registering their client applications, institutions should consider this aspect to receive and update the `registration_access_token` for the new value received in client maintenance (DCM) operations.
 
