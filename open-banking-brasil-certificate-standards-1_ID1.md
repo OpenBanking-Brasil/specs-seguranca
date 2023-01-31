@@ -369,3 +369,56 @@ ASPSP may choose the certificate that should be adopted for Phase 1 endpoints, w
 | 2         | Adiantamento           | /unarranged-accounts-overdraft/*      | ICP WEB SSL       | Required |
 | 2         | Direitos   Creditórios | /invoice-financings/*                 | ICP WEB SSL       | Required |
 | 3         | Pagamentos             | /payments/*                           | ICP WEB SSL       | Required |
+
+## Open Finance Client Certificate Subject DN Pattern - After January 19, 2023 {#subjectDNtemplates}
+On January 19, 2023 the sequence and encoding of the Subject DN used in Open Finance Client Certificates was standardized. Below is determined the sequence and coding of how the attributes of the certificates should be presented in the Subject DN.
+
+The coexistence period between the different types of Subject DN must be considered, so the participants of the ecosystem should not implement blocking controls that limit the use of only certificates with the Subject DN standardized below. Participants must ensure that the other DN standards already in use continue to function until the end of the coexistence period, a date yet to be determined.
+
+Special attention is required from the participants during the Subject DN generation process, as below are presented Subject DN and RDN formats. The Ecosystem expects the use of RDN in compliance with RFC4514.
+
+When in doubt:
+- check the JWKS of your `software-id` application
+- check the KID of the certificate you want the Subject DN for, customize the URL and access: ``https://keystore.directory.openbankingbrasil.org.br/<org-id>/<software-ID>/transport.jwks ``
+
+``Example: https://keystore.directory.openbankingbrasil.org.br/9c721898-9ce0-50f1-bf85-05075557850b/793c382e-edb1-4a64-b5c5-9e27366099b9/transport.jwks``
+- search for the KID of the certificate, then search for Claim: x5dn
+
+
+### Public Key of Certificate Example: 
+https://keystore.directory.openbankingbrasil.org.br/d7384bd0-842f-43c5-be02-9d2b2d5efc2c/bc97b8f0-cae0-4f2f-9978-d93f0e56a833/wdHeYDz0v4m9tzxpNjsfovbl1fKCFAUvsSIs-ljM4xU.pem
+
+
+### Example Subject Distinguished Name of the Certificate - Human readable:
+```
+subject=businessCategory = Private Organization, jurisdictionC = BR, serialNumber = 43142666000197, C = BR, O = Chicago Advisory Partners, ST = SP, L = Sao Paulo, organizationIdentifier = OFBBR-d7384bd0-842f-43c5-be02-9d2b2d5efc2c, UID = bc97b8f0-cae0-4f2f-9978-d93f0e56a833, CN = web.conftpp.directory.openbankingbrasil.org.br
+```
+
+### Relative Distinguished Name (RDN) - Human readable:
+```
+subject=CN=web.conftpp.directory.openbankingbrasil.org.br,UID=bc97b8f0-cae0-4f2f-9978-d93f0e56a833,organizationIdentifier=OFBBR-d7384bd0-842f-43c5-be02-9d2b2d5efc2c,L=Sao Paulo,ST=SP,O=Chicago Advisory Partners,C=BR,serialNumber=43142666000197,jurisdictionC=BR,businessCategory=Private Organization
+```
+
+### Relative Distinguished Name (RDN) using OID - ANS.1:
+```
+subject=2.5.4.3=#0C2E7765622E636F6E667470702E6469726563746F72792E6F70656E62616E6B696E6762726173696C2E6F72672E6272,0.9.2342.19200300.100.1.1=#0C2462633937623866302D636165302D346632662D393937382D643933663065353661383333,2.5.4.97=#0C2A4F464242522D64373338346264302D383432662D343363352D626530322D396432623264356566633263,2.5.4.7=#0C0953616F205061756C6F,2.5.4.8=#0C025350,2.5.4.10=#0C194368696361676F2041647669736F727920506172746E657273,2.5.4.6=#13024252,2.5.4.5=#130E3433313432363636303030313937,1.3.6.1.4.1.311.60.2.1.3=#13024252,2.5.4.15=#0C1450726976617465204F7267616E697A6174696F6E
+```
+
+### Subject DN in RDN - According to RFC4514 - Open Finance Brazil Ecosystem Standard:
+```
+CN=web.conftpp.directory.openbankingbrasil.org.br,UID=bc97b8f0-cae0-4f2f-9978-d93f0e56a833,2.5.4.97=#0c2a4f464242522d64373338346264302d383432662d343363352d626530322d396432623264356566633263,L=Sao Paulo,ST=SP,O=Chicago Advisory Partners,C=BR,2.5.4.5=#130e3433313432363636303030313937,1.3.6.1.4.1.311.60.2.1.3=#13024252,2.5.4.15=#0c1450726976617465204f7267616e697a6174696f6e
+```
+
+### Table with RDN and details of the OIDs and Encodings.
+| RDN Order | OID | Attribute | ASN.1 - Bit String | Enconding |
+|--------------|-----|----------|-------------------|-------------|
+| 1 | 2.5.4.3 | CN | #0C | UTF8 | 
+| 2 | 0.9.2342.19200300.100.1.1 | UID | #0C | UTF8 | 
+| 3 | 2.5.4.97 | organizationIdentifier | #0C | UTF8 | 
+| 4 | 2.5.4.7 | L | #0C | UTF8 | 
+| 5 | 2.5.4.8 | ST | #0C | UTF8 | 
+| 6 | 2.5.4.10 | O | #0C | UTF8 | 
+| 7 | 2.5.4.6 | C | #13 | PrintableString | 
+| 8 | 2.5.4.5 | serialNumber | #13 | PrintableString | 
+| 9 | 1.3.6.1.4.1.311.60.2.1.3 | jurisdictionCountryName | #13 | PrintableString | 
+| 10 | 2.5.4.15 | businessCategory | #0C | UTF8 | 
