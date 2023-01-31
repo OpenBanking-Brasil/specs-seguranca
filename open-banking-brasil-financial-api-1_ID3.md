@@ -220,6 +220,7 @@ In addition, the Authorization Server
     2. shall update the records that use non-certified methods, through bilateral treatment between the institutions involved.
 20. shall refuse requests, for the Open Finance environment, that are outside the modes of operation to which the institution has certified its Authorization Server;
 21. must refuse authentication requests that include an id_token_hint, as the id_token held by the requester may contain Personally Identifiable Information, which could be sent unencrypted by the public client.
+22. the minimum expiration time of `request_uri` must be 60 seconds.
 
 #### ID Token as detached signature
 
