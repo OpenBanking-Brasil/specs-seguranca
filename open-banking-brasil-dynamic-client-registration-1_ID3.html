@@ -2165,9 +2165,11 @@ Content-Type: application/json
 <a href="#section-9.3.2" class="section-number selfRef">9.3.2. </a><a href="#name-client-maintenance-get-regi" class="section-name selfRef">Client Maintenance - GET /register - PUT /register - DELETE /register</a>
           </h4>
 <ol start="1" type="1" class="compact type-1" id="section-9.3.2-1">
-<li id="section-9.3.2-1.1">validate that the certificate presented by the client application is subordinate to the ICP-Brasil chains defined in the Open Finance Brasil Certificates Standard;<a href="#section-9.3.2-1.1" class="pilcrow">¶</a>
+<li id="section-9.3.2-1.1">Removed<a href="#section-9.3.2-1.1" class="pilcrow">¶</a>
 </li>
             <li id="section-9.3.2-1.2">Validate the presence and matching of the Bearer header <code>Authorization</code> containing the value of the <code>registration_access_token</code> attribute returned during registration of the corresponding client.<a href="#section-9.3.2-1.2" class="pilcrow">¶</a>
+</li>
+            <li id="section-9.3.2-1.3">Carry out the validations of sub-items 1, 3, 4, and 6 of item 9.3.1.<a href="#section-9.3.2-1.3" class="pilcrow">¶</a>
 </li>
           </ol>
 <p id="section-9.3.2-2">Note: <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a> provides the possibility of rotating the <code>registration_access_token</code> issued by the Authorization Server with each use, making it a single-use token. When registering their client applications, institutions should consider this aspect to receive and update the <code>registration_access_token</code> for the new value received in client maintenance (DCM) operations.<a href="#section-9.3.2-2" class="pilcrow">¶</a></p>
