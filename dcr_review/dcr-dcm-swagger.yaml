@@ -392,15 +392,21 @@ components:
       properties:
         client_id:
           type: string
+          example: "s6BhdRkqt3"
           description: client_id da aplicação originalmente registrada
         client_secret:
           type: string
+          example: "cf136dc3c1fc93f31185e5885805d"
           description: client_secret da aplicação registrada. Pode ser diferente do client_secret originalmente registrado (rotacionamento).
         client_id_issued_at:
-          type: string
+          type: integer
+          format: int32
+          example: 2893256800
           description: data/hora da emissão do registro, representado como timestamp, dos segundos desde 1 de janeiro de 1970 - Zulu time.
         client_secret_expires_at: 
-          type: string
+          type: integer
+          format: int32
+          example: 2893276800
           description: (somente obrigatório se um client_secret foi emitido) data/hora da expiração do client_secret, representado como timestame, dos segundos desde 1 de janeiro de 1970 - Zulu time.
         registration_client_uri:
           type: string
@@ -435,15 +441,21 @@ components:
       properties:
         client_id:
           type: string
+          example: "s6BhdRkqt3"
           description: client_id da aplicação registrada
         client_secret:
           type: string
+          example: "cf136dc3c1fc93f31185e5885805d"
           description: client_secret da aplicação registrada
         client_id_issued_at:
-          type: string
+          type: integer
+          format: int32
+          example: 2893256800
           description: data/hora da emissão do registro, representado como timestamp, dos segundos desde 1 de janeiro de 1970 - Zulu time.
         client_secret_expires_at: 
-          type: string
+          type: integer
+          format: int32
+          example: 2893276800
           description: (somente obrigatório se um client_secret foi emitido) data/hora da expiração do client_secret, representado como timestame, dos segundos desde 1 de janeiro de 1970 - Zulu time.
         registration_client_uri:
           type: string
