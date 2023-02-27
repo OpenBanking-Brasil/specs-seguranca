@@ -35,7 +35,7 @@
     abbrev = "OBBIS"
       [author.address]
       email = "gt-seguranca@openbankingbr.org"
-      uri = "https://openfinancebrasil.org.br/"
+      uri = "https://openbankingbrasil.org.br/"
 %%%
 
 .# Foreword
