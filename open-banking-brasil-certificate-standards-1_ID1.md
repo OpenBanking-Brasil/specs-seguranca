@@ -116,6 +116,17 @@ All certificates issued by ICP-Brasil must have the following characteristics:
 * Key Algorithms: RSA 2048 bits;
 * Message Digest: SHA 256 bits.
 
+**Participating Certificate Authorities**
+
+The following certifying authorities carried out the onboard process for Open Finance Brasil and are authorized to issue Open Finance Brasil certificates using the level 1 certificates listed here:
+
+* [CertiSign](https://www.gov.br/iti/pt-br/assuntos/repositorio/ac-certisign) (Chain v5 e v10)
+* [Serasa](https://www.gov.br/iti/pt-br/assuntos/repositorio/ac-serasa-acp) (Chain v5 e v10)
+* [Serpro](https://www.gov.br/iti/pt-br/assuntos/repositorio/ac-serpro-de-1deg-nivel) (Chain v5 e v10)
+* [Soluti](https://www.gov.br/iti/pt-br/assuntos/repositorio/ac-soluti) (Chain v5 e v10)
+
+Only the certificates indicated with "`Situação: válido`" (which mean "`status: valid`") in these ITI repositories referenced above, which are Chain v5 and v10, should be accepted by the servers of the Open Finance Brasil ecosystem.
+
 ### Server Certificate
 
 The Server Certificate must be issued to protect and authenticate the TLS channel used by the APIs that will be consumed by client applications of organizations participating in Open Finance.
@@ -191,17 +202,6 @@ The Signature Certificate must be issued through the V5 chain, and must contain 
 * **otherName (OID 2.16.76.1.3.3 – ICP-Brasil):** National Register of Legal Entities (CNPJ) of the legal entity holding the certificate;
 * **otherName (OID 2.16.76.1.3.4 – ICP-Brasil):** Responsible for the certificate of legal entity holding the certificate (date of birth, CPF, PIS/PASEP/CI, RG);
 * **otherName (OID 2.16.76.1.3.7 – ICP-Brasil):** INSS Specific Registry Number (CEI) of the legal entity holding the certificate.
-
-#### Participating Certificate Authorities
-
-The following certifying authorities carried out the onboard process for Open Finance Brasil and are authorized to issue Open Finance Brasil certificates using the level 1 certificates listed here:
-
-* [CertiSign](https://www.gov.br/iti/pt-br/assuntos/repositorio/ac-certisign) (Chain v5 e v10)
-* [Serasa](https://www.gov.br/iti/pt-br/assuntos/repositorio/ac-serasa-acp) (Chain v5 e v10)
-* [Serpro](https://www.gov.br/iti/pt-br/assuntos/repositorio/ac-serpro-de-1deg-nivel) (Chain v5 e v10)
-* [Soluti](https://www.gov.br/iti/pt-br/assuntos/repositorio/ac-soluti) (Chain v5 e v10)
-
-Only the certificates indicated with "`Situação: válido`" (which mean "`status: valid`") in these ITI repositories referenced above, which are Chain v5 and v10, should be accepted by the servers of the Open Finance Brasil ecosystem.
 
 ### Front-End Certificates
 

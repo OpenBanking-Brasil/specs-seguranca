@@ -119,6 +119,17 @@ Todos os certificados emitidos junto ao ICP-Brasil devem possuir as seguintes ca
 * Algoritmo de Chaves: RSA 2048 bits;
 * Message Digest: SHA 256 bits.
 
+**Autoridades Certificadoras Participantes**
+
+As seguintes autoridades certificadoras realizaram o processo de integração ao Open Finance Brasil e estão habilitadas para realizar a emissão de certificados do Open Finance Brasil utilizando para tal os certificados nível 1 aqui listados:
+
+* [CertiSign](https://www.gov.br/iti/pt-br/assuntos/repositorio/ac-certisign) (Cadeia v5 e v10) 
+* [Serasa](https://www.gov.br/iti/pt-br/assuntos/repositorio/ac-serasa-acp) (Cadeia v5 e v10)
+* [Serpro](https://www.gov.br/iti/pt-br/assuntos/repositorio/ac-serpro-de-1deg-nivel) (Cadeia v5 e v10)
+* [Soluti](https://www.gov.br/iti/pt-br/assuntos/repositorio/ac-soluti) (Cadeia v5 e v10)
+
+Apenas deverá ser aceito certificados indicados com "`Situação: válido`" nestes repositórios do ITI acima referenciados que são de Cadeia ICP-Brasil v5 e v10.
+
 ### Certificado Servidor {#CertificadoServidor}
 
 O Certificado Servidor deve ser emitido para proteger e autenticar o canal TLS utilizado pelas APIs que serão consumidas pelas aplicações cliente de entidades participantes do Open Finance.
@@ -195,17 +206,6 @@ O Certificado de Assinatura deve ser emitido através de cadeia V5, e deve obrig
 * **otherName (OID 2.16.76.1.3.3 – ICP-Brasil):** Cadastro Nacional de Pessoa Jurídica (CNPJ) da pessoa jurídica titular do certificado;
 * **otherName (OID 2.16.76.1.3.4 – ICP-Brasil):** Responsável pelo certificado de pessoa jurídica titular do certificado (data de nascimento, CPF, PIS/PASEP/CI, RG);
 * **otherName (OID 2.16.76.1.3.7  – ICP-Brasil):** Número do Cadastro Especifico do INSS (CEI) da pessoa jurídica titular do certificado.
-
-#### Autoridades Certificadoras Participantes {#AutoridadesCertificadorasParticipantes}
-
-As seguintes autoridades certificadoras realizaram o processo de integração ao Open Finance Brasil e estão habilitadas para realizar a emissão de certificados do Open Finance Brasil utilizando para tal os certificados nível 1 aqui listados:
-
-* [CertiSign](https://www.gov.br/iti/pt-br/assuntos/repositorio/ac-certisign) (Cadeia v5 e v10) 
-* [Serasa](https://www.gov.br/iti/pt-br/assuntos/repositorio/ac-serasa-acp) (Cadeia v5 e v10)
-* [Serpro](https://www.gov.br/iti/pt-br/assuntos/repositorio/ac-serpro-de-1deg-nivel) (Cadeia v5 e v10)
-* [Soluti](https://www.gov.br/iti/pt-br/assuntos/repositorio/ac-soluti) (Cadeia v5 e v10)
-
-Apenas deverá ser aceito certificados indicados com "`Situação: válido`" nestes repositórios do ITI acima referenciados que são de Cadeia ICP-Brasil v5 e v10.
 
 ### Certificado para Front-End {#CertificadoFrontEnd}
 
