@@ -24,8 +24,8 @@
     organization = "Open Finance Brasil Initial Structure"
     abbrev = "OFBIS"
       [author.address]
-      email = "gt-seguranca@openbankingbr.org"
-      uri = "https://openbankingbrasil.org.br/"
+      email = "gt-seguranca@openfinancebrasil.org.br"
+      uri = "https://openfinancebrasil.org.br"
 
 %%%
 
@@ -395,7 +395,7 @@ Os passos do processo de extração do subject_DN estão descritos na seção 7.
 
 O exemplo de código Javascript para extração do subject_DN e o respectivo certificado teste.pem utilizado neste exemplo estão descritos abaixo.  
 
-"````javascript
+```javascript
 const {X509Certificate} = require('crypto')
 const fs = require('fs')
 
@@ -461,8 +461,9 @@ function parseX509(array, encode){
 
 console.log('Suject DN em Printable String: ', parseX509(array, '#13'))
 console.log('Suject DN em UTF-8: ', parseX509(array, '#0C'))
-```"
+```
 
+```
 ----BEGIN CERTIFICATE-----
 MIIHSzCCBjOgAwIBAgIUKga83ZMp8P0fd24M2oQUvq1ViPcwDQYJKoZIhvcNAQEL
 BQAwcTELMAkGA1UEBhMCQlIxHDAaBgNVBAoTE09wZW4gQmFua2luZyBCcmFzaWwx
@@ -504,6 +505,7 @@ MOaDZhdjxrJACAt8/nTXOZubqFk8laFVo9dmdXxdFd0vejCpvcVQItkjmTsjihMp
 xpVPAP52I/ZW3tct2cMJfaw+NulaYgVKhcAu/HGtT0KKbPWq8E7IgtuQrqaLe9n6
 Jz3aHfCWJ7IYgBbIRyMhd5oi5Dp8txLxrpTgJ2V9+8wyvzijWbUBHMJnXuiXojM=
 -----END CERTIFICATE-----
+```
 
 ## Enviar uma solicitação com uma declaração de software  {#exampleDcr}
 
@@ -604,7 +606,7 @@ As seguintes pessoas contribuíram para este documento:
 
 # Avisos  {#Notice}
 
-Copyright (c) 2022 Estrutura Inicial do Open Finance Brasil
+Copyright (c) 2023 Estrutura Inicial do Open Finance Brasil
 
 A Estrutura Inicial do Open Finance Brasil (EIOFB) concede a qualquer Colaborador, desenvolvedor, implementador ou outra parte interessada uma licença de direitos autorais mundial não exclusiva, livre de royalties para reproduzir, preparar trabalhos derivados, distribuir, executar e exibir, estes Implementadores Rascunho ou Especificação Final exclusivamente para fins de (i) desenvolver especificações e (ii) implementar Rascunhos de Implementadores e Especificações Finais com base em tais documentos, desde que a atribuição seja feita ao EIOFB como a fonte do material, mas que tal atribuição o faça não indica endosso do EIOFB.
 

@@ -1182,7 +1182,7 @@ li > p:last-of-type {
 <thead><tr>
 <td class="left"></td>
 <td class="center">OFB-FAPI-1-DCR-ID2</td>
-<td class="right">July 2022</td>
+<td class="right">February 2023</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Security</td>
@@ -1225,9 +1225,8 @@ li > p:last-of-type {
       <h2 id="name-introduction">
 <a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
-<p id="section-note.2-1">The Open Finance Brasil Financial-grade API Dynamic Client Registration Profile is a profile of <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a>, <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a> and <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OIDR</a> that aims to provide specific implementation guidelines for security and interoperability which can be applied to the identification, registration and management of OAuth Clients operating in the Brasil Open Finance ecosystem.
-Although it is possible to code an OpenID Provider and Relying Party from scratch using this specification, the main audience for this specification are parties who already have a certified implementation of <a href="https://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect</a> and seek to obtain certification for the Brasil Open Finance programme.<a href="#section-note.2-1" class="pilcrow">¶</a></p>
-
+<p id="section-note.2-1">The Open Finance Brasil Financial-grade API Dynamic Client Registration Profile is a profile of <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a>, <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a> and <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OIDR</a> that aims to provide specific implementation guidelines for security and interoperability which can be applied to the identification, registration and management of OAuth Clients operating in the Brasil Open Finance ecosystem.<a href="#section-note.2-1" class="pilcrow">¶</a></p>
+<p id="section-note.2-2">Although it is possible to code an OpenID Provider and Relying Party from scratch using this specification, the main audience for this specification are parties who already have a certified implementation of <a href="https://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect</a> and seek to obtain certification for the Brasil Open Finance programme.<a href="#section-note.2-2" class="pilcrow">¶</a></p>
 </section>
 <section class="note" id="section-note.3">
       <h2 id="name-notational-conventions">
@@ -1514,10 +1513,9 @@ This support shall be explicit in Participant Directory configurations, and in t
 <a href="#section-7.1" class="section-number selfRef">7.1. </a><a href="#name-authorization-server-2" class="section-name selfRef">Authorization server</a>
         </h3>
 <p id="section-7.1-1">The Authorization Server shall support the RFC RFCs Dynamic Client Registration (DCR) <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a>,  Dynamic Client Management (DCM) <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a> and <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Registration</a><a href="#section-7.1-1" class="pilcrow">¶</a></p>
-<p id="section-7.1-2">In addition, the Authorization Server:<a href="#section-7.1-2" class="pilcrow">¶</a></p>
-<ol start="1" type="1" class="compact type-1" id="section-7.1-3">
-
-          <li id="section-7.1-3.1">shall reject dynamic client registration requests not performed over a connection secured with mutual tls using certificates issued by Brazil ICP (production) or the Directory of Participants (sandbox);<a href="#section-7.1-3.1" class="pilcrow">¶</a>
+<p id="section-7.1-2">In addition, the Authorization Server<a href="#section-7.1-2" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="normal type-1" id="section-7.1-3">
+<li id="section-7.1-3.1">shall reject dynamic client registration requests not performed over a connection secured with mutual tls using certificates issued by Brazil ICP (production) or the Directory of Participants (sandbox);<a href="#section-7.1-3.1" class="pilcrow">¶</a>
 </li>
           <li id="section-7.1-3.2">shall validate that the request contains software_statement JWT signed using the <code>PS256</code> algorithim issued by the Open Finance Brasil directory of participants;<a href="#section-7.1-3.2" class="pilcrow">¶</a>
 </li>
@@ -1527,8 +1525,7 @@ This support shall be explicit in Participant Directory configurations, and in t
 </li>
           <li id="section-7.1-3.5">shall, when informed, validate that <code>jwks_uri</code> matches the <code>software_jwks_uri</code> provided in the <code>software_statement</code>;<a href="#section-7.1-3.5" class="pilcrow">¶</a>
 </li>
-          <li id="section-7.1-3.6">shall require and validate that <code>redirect_uris</code> matches or contains a sub set of <code>software_redirect_uris</code> provided in the <code>software_statement</code>;<a href="#section-7.1-3.6" class="pilcrow">¶</a>
-
+          <li id="section-7.1-3.6">shall require and validate that <code>redirect_uris</code> matches or contains a sub set of software_redirect_uris provided in the <code>software_statement</code>;<a href="#section-7.1-3.6" class="pilcrow">¶</a>
 </li>
           <li id="section-7.1-3.7">shall require and validate that all client authentication mechanism adhere to the requirements defined in <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a> and <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a>, validating the <code>registration_access_token</code> and, through a secure connection, the certificate chain of ICP-Brasil;<a href="#section-7.1-3.7" class="pilcrow">¶</a>
 </li>
@@ -1537,24 +1534,27 @@ This support shall be explicit in Participant Directory configurations, and in t
 </li>
           <li id="section-7.1-3.9">shall validate that the requested scopes are adequate for accredited institutions and their regulatory roles and contained in the <code>software_statement</code>. The list of regulatory permissions and the corresponding scopes are described in the following sections;<a href="#section-7.1-3.9" class="pilcrow">¶</a>
 </li>
-          <li id="section-7.1-3.10">where possible, shall compare client metadata asserted by a client to the metadata provided in the  <code>software_statement</code>, choosing the values present in the SSA with precedence;<a href="#section-7.1-3.10" class="pilcrow">¶</a>
-
+          <li id="section-7.1-3.10">where possible, shall compare client metadata asserted by a client to the metadata provided in the  <code>software_statement</code>, choosing values in the SSA with precedence;<a href="#section-7.1-3.10" class="pilcrow">¶</a>
 </li>
           <li id="section-7.1-3.11">shall accept all x.500 AttributeType name strings defined in the Distinguished Name of the x.509 Certificate Profiles defined in <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html">Open Finance Brasil x.509 Certificate Standards</a>;<a href="#section-7.1-3.11" class="pilcrow">¶</a>
 </li>
           <li id="section-7.1-3.12">if supporting <code>tls_client_auth</code> client authentication mechanism as defined in <a href="https://tools.ietf.org/html/rfc8705">RFC8705</a> shall only accept <code>tls_client_auth_subject_dn</code>  as an indication of the certificate subject value as defined in clause 2.1.2 <a href="https://tools.ietf.org/html/rfc8705">RFC8705</a>;<a href="#section-7.1-3.12" class="pilcrow">¶</a>
 </li>
-          <li id="section-7.1-3.13">the value of the field <em>UID</em> of the certificate should match the one sent in the SSA, where the <em>UID</em> field should contain the value of the <em>software_id</em> field of the SSA.<a href="#section-7.1-3.13" class="pilcrow">¶</a>
+          <li id="section-7.1-3.13">The value of the field <em>UID</em> of the certificate should match the one sent in the SSA, where the <em>UID</em> field should contain the value of the <em>software_id</em> field of the SSA.<a href="#section-7.1-3.13" class="pilcrow">¶</a>
 </li>
-		      <li id="section-7.1-3.14">the value of the field <em>organizationIdentifier</em> of the certificate shall contain the prefix corresponding to the Registration Reference <em>OFBBR-</em> followed by the value of the <em>org_id</em> field of the SSA. <br/> For certificates issued until 31 August 2022: the value of the <em>OU</em> field of the certificate shall contain the value of the <em>org_id</em> field of the SSA.<a href="#section-7.1-3.14" class="pilcrow">¶</a>
-</li>  
-          <li id="section-7.1-3.15">shall, during the TLS handshake process, use the <code>distinguishedNameMatch</code> rule to compare the DN values as defined in <a href="https://www.rfc-editor.org/rfc/rfc4517">RFC4517</a>.<a href="#section-7.1-3.15" class="pilcrow">¶</a>
+          <li id="section-7.1-3.14">
+            <p id="section-7.1-3.14.1">The value of the field <em>organizationIdentifier</em> of the certificate shall contain the prefix corresponding to the Registration Reference <em>OFBBR-</em> followed by the value of the <em>org_id</em> field of the SSA.
+For certificates issued until 31 August 2022: the value of the <em>OU</em> field of the certificate shall contain the value of the <em>org_id</em> field of the SSA.<a href="#section-7.1-3.14.1" class="pilcrow">¶</a></p>
 </li>
-          <li id="section-7.1-3.16">shall ensure the integrity of the stock of active consents, even after any systemic changes, so that such changes are transparent to the data receiver institutions (TPP).<a href="#section-7.1-3.16" class="pilcrow">¶</a>
+          <li id="section-7.1-3.15">
+            <p id="section-7.1-3.15.1">shall, during the TLS handshake process, use the <code>distinguishedNameMatch</code> rule to compare the DN values as defined in <a href="https://www.rfc-editor.org/rfc/rfc4517">RFC4517</a>.<a href="#section-7.1-3.15.1" class="pilcrow">¶</a></p>
 </li>
-          <li id="section-7.1-3.17">shall perform a recertification on OIDF FAPI and DCR after any systemic changes.<a href="#section-7.1-3.17" class="pilcrow">¶</a>
+          <li id="section-7.1-3.16">
+            <p id="section-7.1-3.16.1">shall ensure the integrity of the stock of active consents, even after any systemic changes, so that such changes are transparent to the data receiver institutions (TPP).<a href="#section-7.1-3.16.1" class="pilcrow">¶</a></p>
 </li>
-
+          <li id="section-7.1-3.17">
+            <p id="section-7.1-3.17.1">shall perform a recertification on OIDF FAPI and DCR after any systemic changes.<a href="#section-7.1-3.17.1" class="pilcrow">¶</a></p>
+</li>
         </ol>
 <p id="section-7.1-4">These provisions apply equally to the processing of <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a>, <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a> and <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Registration</a> requests<a href="#section-7.1-4" class="pilcrow">¶</a></p>
 <div id="applying-server-defaults">
@@ -1583,23 +1583,20 @@ This support shall be explicit in Participant Directory configurations, and in t
 <p id="section-7.1.2-3">In case of non-compliance with these requirements, the Authorization Server shall reject the registration.<a href="#section-7.1.2-3" class="pilcrow">¶</a></p>
 <p id="section-7.1.2-4">In terms of format, follow below how decoding should be done:<a href="#section-7.1.2-4" class="pilcrow">¶</a></p>
 <ul class="compact">
-            <li class="compact" id="section-7.1.2-5.1">Obtain, in reverse order, the certificate attributes.<a href="#section-7.1.2-5.1" class="pilcrow">¶</a>
-
+<li class="compact" id="section-7.1.2-5.1">Obtain in reverse order the certificate attributes.<a href="#section-7.1.2-5.1" class="pilcrow">¶</a>
 </li>
             <li class="compact" id="section-7.1.2-5.2">Append each RDN (RelativeDistinguishedName) segment with a comma ','.<a href="#section-7.1.2-5.2" class="pilcrow">¶</a>
 </li>
             <li class="compact" id="section-7.1.2-5.3">Use the RFC strings (CN, L, ST, O, OR, C, Street, DC, UID) with the value of their attributes in human-readable format.<a href="#section-7.1.2-5.3" class="pilcrow">¶</a>
 </li>
-            <li class="compact" id="section-7.1.2-5.4">Use the OIDs of the attributes defined in this specification for use in the OFB (businessCategory = OID 2.5.4.15, jurisdictionCountryName = OID 1.3.6.1.4.1.311.60.2.1.3, serialNumber = OID 2.5.4.5) with values in ASN.1 format, following the <a href="https://www.rfc-editor.org/rfc/rfc4514">RFC4514</a>, being that:<a href="#section-7.1.2-5.4" class="pilcrow">¶</a>
-            <ul>
-              <li>Attribute names shall be defined according to dot-decimal notation, without adding the prefix "OID", ie. "2.5.4.15", followed by (‘=#’) plus the hexadecimal value of the attribute, here follows a complete example: <code>2.5.4.15=#0C1450726976617465204F7267616E697A6174696F6E</code>
-              </li>
-              <li>There are no restrictions for encoding and formatting attribute values. The hexadecimal value presented on the utilized attribute must be respected (PrintableString, UTF8String, etc). This item complies with opcionality of the format stabilished by the AC face ICP normatives and items 2.3, 2.4 e 5.2 of the <a href="https://www.rfc-editor.org/rfc/rfc4514">RFC4514</a>.
-              </li>
-            </ul>
+            <li class="compact" id="section-7.1.2-5.4">
+              <p id="section-7.1.2-5.4.1">Use the OIDs of the attributes defined in this specification for use in the OFB (businessCategory = OID 2.5.4.15, jurisdictionCountryName = OID 1.3.6.1.4.1.311.60.2.1.3, serialNumber = OID 2.5.4.5) with values in ASN.1 format, following the RFC4514, being that:<a href="#section-7.1.2-5.4.1" class="pilcrow">¶</a></p>
+<ul class="compact">
+<li class="compact" id="section-7.1.2-5.4.2.1">Attribute names shall be defined according to dot-decimal notation, without adding the prefix "OID", ie. "2.5.4.15", followed by ('=#') plus the hexadecimal value of the attribute, here follows a complete example: 2.5.4.15=#0C1450726976617465204F7267616E697A6174696F6E<a href="#section-7.1.2-5.4.2.1" class="pilcrow">¶</a>
 </li>
-
-
+                <li class="compact" id="section-7.1.2-5.4.2.2">There are no restrictions for encoding and formatting attribute values. The hexadecimal value presented on the utilized attribute must be respected (PrintableString, UTF8String, etc). This item complies with opcionality of the format stabilished by the AC face ICP normatives and items 2.3, 2.4 e 5.2 of the RFC4514.<a href="#section-7.1.2-5.4.2.2" class="pilcrow">¶</a>
+</li>
+              </ul>
 </li>
           </ul>
 <p id="section-7.1.2-6">Below are examples of required attributes for CAs active until August 31, 2022:<a href="#section-7.1.2-6" class="pilcrow">¶</a></p>
@@ -1630,10 +1627,9 @@ This support shall be explicit in Participant Directory configurations, and in t
               </tr>
             </tbody>
           </table>
-	
-<p id="section-7.1.2-6-2">Below are examples of required attributes for CAs active after August 31, 2022:<a href="#section-7.1.2-6-2" class="pilcrow">¶</a></p>
-<table class="center" id="table-1">
-            <caption><a href="#table-1" class="selfRef">Table 2</a></caption>
+<p id="section-7.1.2-8">Below are examples of required attributes for CAs active after August 31, 2022:<a href="#section-7.1.2-8" class="pilcrow">¶</a></p>
+<table class="center" id="table-2">
+            <caption><a href="#table-2" class="selfRef">Table 2</a></caption>
 <thead>
               <tr>
                 <th class="text-left" rowspan="1" colspan="1">subject_dn</th>
@@ -1643,27 +1639,23 @@ This support shall be explicit in Participant Directory configurations, and in t
             <tbody>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">CN=mycn.bank.com.br, UID=67c57882-043b-11ec-9a03-0242ac130003 , 2.5.4.97=OFBBR-497e1ffe-b2a2-4a4e-8ef0-70633fd11b59 , L=Sao Paulo , ST=SP , O=MyBank , C=BR , serialNumber=13353236000189 , 1.3.6.1.4.1.311.60.2.1.3=BR , businessCategory=Business Entity</td>
-                <td class="text-left" rowspan="1" colspan="1">issuer=CN=Open Banking SANDBOX Issuing CA   - G1,OU=Open Banking,O=Open   Banking Brasil,C=BR</td>
+                <td class="text-left" rowspan="1" colspan="1">issuer=CN=AC SERASA SSL EV,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR</td>
               </tr>
-
-               </tbody>
+            </tbody>
           </table>
-	
-	
 </section>
 </div>
 </section>
 </div>
 <div id="regulatory-roles-for-openid-and-oauth-2-0-mappings">
 <section id="section-7.2">
-        <h3 id="name-regulatory-roles-to-openid-">
-<a href="#section-7.2" class="section-number selfRef">7.2. </a><a href="#name-regulatory-roles-to-openid-" class="section-name selfRef">Regulatory Roles for OpenID and OAuth 2.0 Mappings</a>
-
+        <h3 id="name-regulatory-roles-for-openid">
+<a href="#section-7.2" class="section-number selfRef">7.2. </a><a href="#name-regulatory-roles-for-openid" class="section-name selfRef">Regulatory Roles for OpenID and OAuth 2.0 Mappings</a>
         </h3>
 <p id="section-7.2-1">To participate in the Open Finance ecosystem, accredited institutions must register themselves in the directory of participants according to their regulatory roles. Those roles reflect the institutions authorization from the Central Bank and, consequently, the APIs they are allowed to use.<a href="#section-7.2-1" class="pilcrow">¶</a></p>
 <p id="section-7.2-2">The following table describes the regulatory roles for Open Finance and the related OAuth 2.0 scopes mapping. If the scopes are omitted during the DCR process, the authorization server shall grant the complete set of potential scopes based on the registering bank's regulatory roles, as described in the Server Defaults section.<a href="#section-7.2-2" class="pilcrow">¶</a></p>
-<table class="center" id="table-2">
-          <caption><a href="#table-2" class="selfRef">Table 3</a></caption>
+<table class="center" id="table-3">
+          <caption><a href="#table-3" class="selfRef">Table 3</a></caption>
 <thead>
             <tr>
               <th class="text-left" rowspan="1" colspan="1">Regulatory Role</th>
@@ -1704,11 +1696,10 @@ This support shall be explicit in Participant Directory configurations, and in t
 </div>
 <div id="client-registration">
 <section id="section-7.3">
-        <h3 id="name-regulatory-roles-to-dynamic">
-<a href="#section-7.3" class="section-number selfRef">7.3. </a><a href="#name-regulatory-roles-to-dynamic" class="section-name selfRef">Client Registration</a>
+        <h3 id="name-client-registration">
+<a href="#section-7.3" class="section-number selfRef">7.3. </a><a href="#name-client-registration" class="section-name selfRef">Client Registration</a>
         </h3>
-<p>Upon registering using the <code>tls_client_auth</code> authentication method, the client shall forward the <code>tls_client_auth_subject_dn</code> field with the AttibuteTypes(Descriptors) using the defined format under item 7.1.2. Non adherence to this format shall cause rejection of the registration.</p>
-
+<p id="section-7.3-1">Upon registering using the <em>tls_client_auth</em> authentication method, the client shall forward the <em>tls_client_auth_subject_dn</em> field with the AttibuteTypes(Descriptors) using the defined format under item 7.1.2. Non adherence to this format shall cause rejection of the registration.<a href="#section-7.3-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1718,16 +1709,13 @@ This support shall be explicit in Participant Directory configurations, and in t
       <h2 id="name-software-statement-assertio">
 <a href="#section-8" class="section-number selfRef">8. </a><a href="#name-software-statement-assertio" class="section-name selfRef">Software Statement Assertion</a>
       </h2>
-<blockquote id="section-8-1">
-        <p id="section-8-1.1">A Software Statement Assertion <code>(software_statement)</code> is a JSON Web Token (JWT) <a href="https://tools.ietf.org/html/rfc7519">RFC7519</a> that asserts the metadata values of the client software as a whole. On the Open Finance Brasil structure, this <code>(software_statement)</code> is signed by the Participants Directory and it's signature MUST be validated by the Authorization Servers using the public keys available on the following session.<a href="#section-8-1.1" class="pilcrow">¶</a></p>
-</blockquote>
-<div id="software-statement-claims">
+<p id="section-8-1">A Software Statement Assertion (<em>software_statement</em>) is a JSON Web Token (JWT) <a href="https://tools.ietf.org/html/rfc7519">RFC7519</a> that asserts the metadata values of the client software as a whole. On the Open Finance Brasil structure, this <em>software_statement</em> is signed by the Participants Directory and it's signature MUST be validated by the Authorization Servers using the public keys available on the following session.<a href="#section-8-1" class="pilcrow">¶</a></p>
+<div id="attributes-of-the-software-statement-assertion-claims">
 <section id="section-8.1">
-        <h3 id="name-software-statement-claims">
-<a href="#section-8.1" class="section-number selfRef">8.1. </a><a href="#name-software-statement-claims" class="section-name selfRef">Attributes of the Software Statement Assertion (Claims)</a>
+        <h3 id="name-attributes-of-the-software-">
+<a href="#section-8.1" class="section-number selfRef">8.1. </a><a href="#name-attributes-of-the-software-" class="section-name selfRef">Attributes of the Software Statement Assertion (Claims)</a>
         </h3>
-<p id="section-8.1-1">The following example contains all attributes currently included in a <code>software_statement</code><a href="#section-8.1-1" class="pilcrow">¶</a></p>
-
+<p id="section-8.1-1">The following example contains all attributes currently included in a <em>software_statement</em>:<a href="#section-8.1-1" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-8.1-2">
 <pre>{
   "software_mode": "Live",
@@ -1811,9 +1799,8 @@ This support shall be explicit in Participant Directory configurations, and in t
 </div>
 <div id="processing-of-the-dynamic-client-registration-claim">
 <section id="section-9">
-      <h2 id="name-dynamic-client-registration">
-<a href="#section-9" class="section-number selfRef">9. </a><a href="#name-dynamic-client-registration" class="section-name selfRef">Processing of the Dynamic Client Registration claim</a>
-
+      <h2 id="name-processing-of-the-dynamic-c">
+<a href="#section-9" class="section-number selfRef">9. </a><a href="#name-processing-of-the-dynamic-c" class="section-name selfRef">Processing of the Dynamic Client Registration claim</a>
       </h2>
 <figure id="figure-1">
         <div class="alignLeft art-svg artwork" id="section-9-1.1">
@@ -1939,11 +1926,10 @@ This support shall be explicit in Participant Directory configurations, and in t
 <figcaption><a href="#figure-1" class="selfRef">Figure 1</a></figcaption></figure>
 <div id="sending-a-registration-claim-with-a-software-statement">
 <section id="section-9.1">
-        <h3 id="name-posting-a-request-with-a-so">
-<a href="#section-9.1" class="section-number selfRef">9.1. </a><a href="#name-posting-a-request-with-a-so" class="section-name selfRef">Sending a Registration Claim with a Software Statement</a>
+        <h3 id="name-sending-a-registration-clai">
+<a href="#section-9.1" class="section-number selfRef">9.1. </a><a href="#name-sending-a-registration-clai" class="section-name selfRef">Sending a Registration Claim with a Software Statement</a>
         </h3>
-<p id="section-9.1-1">This example includes several optional fields, some of those may not be applicable to some implememntations. For a complete guide to attributes and its mandate, consult the DCR Swagger <a href="https://raw.githubusercontent.com/OpenBanking-Brasil/specs-seguranca/main/dcr_review/dcr-dcm-swagger.yaml">OFB-DCR/DCM-Swagger</a> .
-
+<p id="section-9.1-1">This example includes several optional fields, some of those may not be applicable to some implememntations. For a complete guide to attributes and its mandate, consult the DCR Swagger <a href="https://raw.githubusercontent.com/OpenBanking-Brasil/specs-seguranca/main/dcr_review/dcr-dcm-swagger.yaml">OFB-DCR/DCM-Swagger</a>.
 Line breaks inside values serve presentation purposes only.<a href="#section-9.1-1" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-9.1-2">
 <pre>POST /reg HTTP/1.1
@@ -1989,14 +1975,13 @@ Content-Type: application/json
         <h3 id="name-open-finance-brasil-ssa-key">
 <a href="#section-9.2" class="section-number selfRef">9.2. </a><a href="#name-open-finance-brasil-ssa-key" class="section-name selfRef">Open Finance Brasil SSA Key Store and Issuer Details</a>
         </h3>
-<p>The following links point to public keys of the Participant Directory and must be used to verify the signature validity of the <code>software_statements</code> presented during the client registration process.</p>
-<p id="section-9.2-1"><strong>Production</strong><a href="#section-9.2-1" class="pilcrow">¶</a></p>
-<p id="section-9.2-2"><a href="https://keystore.directory.openbankingbrasil.org.br/openbanking.jwks">https://keystore.directory.openbankingbrasil.org.br/openbanking.jwks</a><a href="#section-9.2-2" class="pilcrow">¶</a></p>
-<p id="section-9.2-3">Open Finance Open Finance Brasil production SSA issuer<a href="#section-9.2-3" class="pilcrow">¶</a></p>
-<p id="section-9.2-4"><strong>Sandbox</strong><a href="#section-9.2-4" class="pilcrow">¶</a></p>
-<p id="section-9.2-5"><a href="https://keystore.sandbox.directory.openbankingbrasil.org.br/openbanking.jwks">https://keystore.sandbox.directory.openbankingbrasil.org.br/openbanking.jwks</a><a href="#section-9.2-5" class="pilcrow">¶</a></p>
-<p id="section-9.2-6">Open Finance Open FInance Brasil sandbox SSA issuer<a href="#section-9.2-6" class="pilcrow">¶</a></p>
-
+<p id="section-9.2-1">The following links point to public keys of the Participant Directory and must be used to verify the signature validity of the <em>software_statements</em> presented during the client registration process.<a href="#section-9.2-1" class="pilcrow">¶</a></p>
+<p id="section-9.2-2"><strong>Production</strong><a href="#section-9.2-2" class="pilcrow">¶</a></p>
+<p id="section-9.2-3"><a href="https://keystore.directory.openbankingbrasil.org.br/openbanking.jwks">https://keystore.directory.openbankingbrasil.org.br/openbanking.jwks</a><a href="#section-9.2-3" class="pilcrow">¶</a></p>
+<p id="section-9.2-4">Open Finance Open Finance Brasil production SSA issuer<a href="#section-9.2-4" class="pilcrow">¶</a></p>
+<p id="section-9.2-5"><strong>Sandbox</strong><a href="#section-9.2-5" class="pilcrow">¶</a></p>
+<p id="section-9.2-6"><a href="https://keystore.sandbox.directory.openbankingbrasil.org.br/openbanking.jwks">https://keystore.sandbox.directory.openbankingbrasil.org.br/openbanking.jwks</a><a href="#section-9.2-6" class="pilcrow">¶</a></p>
+<p id="section-9.2-7">Open Finance Open Finance Brasil sandbox SSA issuer<a href="#section-9.2-7" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="about-authentication-and-authorization-mechanisms-for-dcr-and-dcm-services">
@@ -2004,8 +1989,7 @@ Content-Type: application/json
         <h3 id="name-about-authentication-and-au">
 <a href="#section-9.3" class="section-number selfRef">9.3. </a><a href="#name-about-authentication-and-au" class="section-name selfRef">About authentication and authorization mechanisms for DCR and DCM services</a>
         </h3>
-<p id="section-9.3-1">As they are auxiliary services to the main flow of Open Finance Brasil, the dynamic registration and maintenance services for clients do not use the same access control mechanisms.  For example, it is not possible to require an OAuth 2.0 <code>access_token</code> from a client application that isn't registered yet with the transmitting institution.<a href="#section-9.3-1" class="pilcrow">¶</a></p>
-
+<p id="section-9.3-1">As they are auxiliary services to the main flow of Open Finance Brasil, the dynamic registration and maintenance services for clients do not use the same access control mechanisms.  For example, it is not possible to require an OAuth 2.0 <em>access_token</em> from a client application that isn't registered yet with the transmitting institution.<a href="#section-9.3-1" class="pilcrow">¶</a></p>
 <p id="section-9.3-2">To extend <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a> and <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a>, which recommend minimum mechanisms for authentication of their services, institutions that support the registration flows and dynamic maintenance of clients must implement the following controls:<a href="#section-9.3-2" class="pilcrow">¶</a></p>
 <div id="client-registration-post-register">
 <section id="section-9.3.1">
@@ -2013,19 +1997,18 @@ Content-Type: application/json
 <a href="#section-9.3.1" class="section-number selfRef">9.3.1. </a><a href="#name-client-registration-post-re" class="section-name selfRef">Client registration - POST /register</a>
           </h4>
 <ol start="1" type="1" class="compact type-1" id="section-9.3.1-1">
-            <li id="section-9.3.1-1.1">validate that the certificate presented by the client application is subordinate to the ICP-Brasil chains defined in the Open Finance Brasil Certificates Standard;<a href="#section-9.3.1-1.1" class="pilcrow">¶</a>
+<li id="section-9.3.1-1.1">validate that the certificate presented by the client application is subordinate to the ICP-Brasil chains defined in the Open Finance Brasil Certificates Standard;<a href="#section-9.3.1-1.1" class="pilcrow">¶</a>
 </li>
-            <li id="section-9.3.1-1.2">as long as there is a need for the coexistence period (mentioned in section 7.1), validation must be implemented for both cases: certificates that have the value <em>org_id</em> in the <em>organizationUnitName</em> field (<em>OU</em>) and certificates that have the value <em>org_id</em> in the <em>organizationIdentifier</em> field.<a href="#section-9.3.1-1.2" class="pilcrow">¶</a>
+            <li id="section-9.3.1-1.2">As long as there is a need for the coexistence period (mentioned in section 7.1), validation must be implemented for both cases: certificates that have the value <em>org_id</em> in the <em>organizationUnitName</em> field (<em>OU</em>) and certificates that have the value <em>org_id</em> in the <em>organizationIdentifier</em> field.<a href="#section-9.3.1-1.2" class="pilcrow">¶</a>
 </li>
             <li id="section-9.3.1-1.3">ensure that the signature of the <code>software_statement</code>_ presented by the client application during registration has been made by the Directory of Participants using the public keys described in the previous section;<a href="#section-9.3.1-1.3" class="pilcrow">¶</a>
 </li>
             <li id="section-9.3.1-1.4">ensure that the <code>software_statement</code> presented by the client application during registration corresponds to the same institution as the client certificate presented, validating it through the attributes that bring <code>organization_id</code> in the X.509 certificate.<a href="#section-9.3.1-1.4" class="pilcrow">¶</a>
 </li>
-            <li id="section-9.3.1-1.5">Multiple DCR registrations for the same Software Statement should not be allowed, in a way that in case of a new registration attempt for an already registered Software Statement, the Error Response procedure defined on item 3.2.2 of the <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a> must be enforced.<a href="#section-9.3.1-1.5" class="pilcrow">¶</a>
+            <li id="section-9.3.1-1.5">Multiple DCR registrations for the same Software Statement should not be allowed, in a way that in case of a new registration attempt for an already registered Software Statement, the Error Response procedure defined on item 3.2.2 of the RFC7591 must be enforced.<a href="#section-9.3.1-1.5" class="pilcrow">¶</a>
 </li>
-            <li id="section-9.3.1-1.6">issue, on the registry response, a <code>registration_access_token</code> to be used as an authentication token on maintaining operations of the registered client application, following specifications described in [<a href="https://tools.ietf.org/html/rfc7592">RFC7592</a>].<a href="#section-9.3.1-1.6" class="pilcrow">¶</a>
+            <li id="section-9.3.1-1.6">issue, on the registry response, a <code>registration_access_token</code> to be used as an authentication token on maintaining operations of the registered client application, following specifications described in <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a>.<a href="#section-9.3.1-1.6" class="pilcrow">¶</a>
 </li>
-
           </ol>
 </section>
 </div>
@@ -2063,10 +2046,9 @@ Content-Type: application/json
 </li>
         <li class="compact" id="section-10-3.4">Bernardo Vale (Banco Inter)<a href="#section-10-3.4" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-10-3.4">Caio Zanolla (Belvo)<a href="#section-10-3.4" class="pilcrow">¶</a>
+        <li class="compact" id="section-10-3.5">Caio Zanolla (Belvo)<a href="#section-10-3.5" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-10-3.5">Danilo Sasaki (Banco Ita&#250;)<a href="#section-10-3.5" class="pilcrow">¶</a>
-
+        <li class="compact" id="section-10-3.6">Danilo Sasaki (Banco Ita&#250;)<a href="#section-10-3.6" class="pilcrow">¶</a>
 </li>
         <li class="compact" id="section-10-3.7">Jo&#227;o Rodolfo Vieira da Silva (Banco Ita&#250;)<a href="#section-10-3.7" class="pilcrow">¶</a>
 </li>
@@ -2086,7 +2068,7 @@ Content-Type: application/json
       <h2 id="name-notices">
 <a href="#appendix-A" class="section-number selfRef">Appendix A. </a><a href="#name-notices" class="section-name selfRef">Notices</a>
       </h2>
-<p id="appendix-A-1">Copyright (c) 2022 Open Finance Brasil Initial Structure.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
+<p id="appendix-A-1">Copyright (c) 2023 Open Finance Brasil Initial Structure.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
 <p id="appendix-A-2">The Open Finance Brasil Initial Structure (OFBIS) grants to any Contributor, developer, implementer, or other interested party a non-exclusive, royalty-free, worldwide copyright license to reproduce, prepare derivative works from, distribute, perform and display, this Implementers Draft or Final Specification solely for the purposes of (i) developing specifications, and (ii) implementing Implementers Drafts and Final Specifications based on such documents, provided that attribution be made to the OFBIS as the source of the material, but that such attribution does not indicate an endorsement by the OFBIS.<a href="#appendix-A-2" class="pilcrow">¶</a></p>
 <p id="appendix-A-3">The technology described in this specification was made available from contributions from various sources, including members of the OpenID Foundation, the Open Finance Brasil GT Security Working Group and others. Although the Open Finance Brasil Initial Structure has taken steps to help ensure that the technology is available for distribution, it takes no position regarding the validity or scope of any intellectual property or other rights that might be claimed to pertain to the implementation or use of the technology described in this specification or the extent to which any license under such rights might or might not be available; neither does it represent that it has made any independent effort to identify any such rights. The Open Finance Brasil Initial Structure and the contributors to this specification make no (and hereby expressly disclaim any) warranties (express, implied, or otherwise), including implied warranties of merchantability, non-infringement, fitness for a particular purpose, or title, related to this specification, and the entire risk as to implementing this specification is assumed by the implementer. The Open Finance Brasil Intellectual Property Rights policy requires contributors to offer a patent promise not to assert certain patent claims against other contributors and against implementers. The Open Finance Brasil Initial Structure invites any interested party to bring to its attention any copyrights, patents, patent applications, or other proprietary rights that may cover technology that may be required to practice this specification.<a href="#appendix-A-3" class="pilcrow">¶</a></p>
 <div id="appendix-a-example-software-statement-assertion">
@@ -2112,11 +2094,11 @@ Content-Type: application/json
 <div dir="auto" class="left"><span class="org">Open Finance Brasil Initial Structure</span></div>
 <div class="email">
 <span>Email:</span>
-<a href="mailto:gt-seguranca@openbankingbr.org" class="email">gt-seguranca@openbankingbr.org</a>
+<a href="mailto:gt-seguranca@openfinancebrasil.org.br" class="email">gt-seguranca@openfinancebrasil.org.br</a>
 </div>
 <div class="url">
 <span>URI:</span>
-<a href="https://openbankingbrasil.org.br/" class="url">https://openbankingbrasil.org.br/</a>
+<a href="https://openfinancebrasil.org.br" class="url">https://openfinancebrasil.org.br</a>
 </div>
 </address>
 </section>

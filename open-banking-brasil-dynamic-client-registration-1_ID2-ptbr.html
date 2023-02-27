@@ -1182,7 +1182,7 @@ li > p:last-of-type {
 <thead><tr>
 <td class="left"></td>
 <td class="center">OFB-FAPI-1-DCR-ID2</td>
-<td class="right">July 2022</td>
+<td class="right">February 2023</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Security</td>
@@ -1495,8 +1495,7 @@ li > p:last-of-type {
 <a href="#section-6.2" class="section-number selfRef">6.2. </a><a href="#name-cliente" class="section-name selfRef">Cliente</a>
         </h3>
 <p id="section-6.2-1">O cliente deve suportar <a href="https://openid.net/specs/openid-connect-discovery-1_0.html">OpenID Connect Discovery</a> conforme exigido pelo <a href="https://openid.net/specs/openid-financial-api-part-1-1_0.html">Financial-grade API Security Profile 1.0 - Part 1: Baseline</a>.<a href="#section-6.2-1" class="pilcrow">¶</a></p>
-<p id="section-6.2-2">Al&#233;m disso, o cliente:<a href="#section-6.2-2" class="pilcrow">¶</a></p>
-
+<p id="section-6.2-2">Al&#233;m disso, o Cliente<a href="#section-6.2-2" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="compact type-1" id="section-6.2-3">
 <li id="section-6.2-3.1">deve contar com servi&#231;os de descoberta do ecossistemas fornecidos apenas pelo Diret&#243;rio de Participantes;<a href="#section-6.2-3.1" class="pilcrow">¶</a>
 </li>
@@ -1549,13 +1548,14 @@ li > p:last-of-type {
 </li>
           <li id="section-7.1-3.13">O valor do campo <em>UID</em> do certificado deve coincidir com o enviado no SSA, onde o campo <em>UID</em> deve conter o valor do campo <em>software_id</em> do SSA.<a href="#section-7.1-3.13" class="pilcrow">¶</a>
 </li>
-          <li id="section-7.1-3.14">O valor do campo <em>organizationIdentifier</em> do certificado deve conter o prefixo correspondente ao Registration Reference <em>OFBBR-</em> seguido do valor do campo <em>org_id</em> do SSA. <br/> Para certificados emitidos até 31 de Agosto de 2022: o valor do campo <em>OU</em> do certificado deve conter o valor do campo <em>org_id</em> do SSA.<a href="#section-7.1-3.14" class="pilcrow">¶</a>
+          <li id="section-7.1-3.14">O valor do campo <em>organizationIdentifier</em> do certificado deve conter  o prefixo correspondente ao Registration Reference <em>OFBBR-</em> seguido do valor do campo <em>org_id</em> do SSA.
+Para certificados emitidos at&#233; 31 de Agosto de 2022: o valor do campo <em>OU</em> do certificado deve conter o valor do campo <em>org_id</em> do SSA.<a href="#section-7.1-3.14" class="pilcrow">¶</a>
 </li>
           <li id="section-7.1-3.15">deve, durante o processo de handshake TLS, usar a regra <code>distinguishedNameMatch</code> para comparar os valores DN conforme definido na <a href="https://www.rfc-editor.org/rfc/rfc4517">RFC4517</a>.<a href="#section-7.1-3.15" class="pilcrow">¶</a>
 </li>
-          <li id="section-7.1-3.16">deve garantir a integridade do estoque de consentimentos ativos, mesmo ap&#243;s eventuais mudan&#231;as sist&#234;micas, para que ta&#237;s altera&#231;&#245;es sejam transparentes para as institui&#231;&#245;es receptora de dados (TPP).<a href="#section-7.1-3.16" class="pilcrow">¶</a>
+          <li id="section-7.1-3.16">deve ser garantido a todos, ap&#243;s os mesmos atos de consentimentos permanentes, para que tamb&#233;m sejam alterados para institui&#231;&#245;es receptoras de dados transparentes (TPP).<a href="#section-7.1-3.16" class="pilcrow">¶</a>
 </li>
-          <li id="section-7.1-3.17">deve realizar recertifica&#231;&#227;o FAPI e DCR da OIDF ap&#243;s eventuais mudan&#231;as sist&#234;micas.<a href="#section-7.1-3.17" class="pilcrow">¶</a>
+          <li id="section-7.1-3.17">deve realizar recertifica&#231;&#227;o FAPI e DCR OIDF ap&#243;s eventuais altera&#231;&#245;es sist&#234;micas.<a href="#section-7.1-3.17" class="pilcrow">¶</a>
 </li>
         </ol>
 <p id="section-7.1-4">Estas disposi&#231;&#245;es aplicam-se igualmente ao processamento de pedidos <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a>, <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a> e <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Registration</a><a href="#section-7.1-4" class="pilcrow">¶</a></p>
@@ -1601,7 +1601,7 @@ li > p:last-of-type {
               </ul>
 </li>
           </ul>
-<p id="section-7.1.2-6">Seguem abaixo exemplos para os atributos obrigat&#243;rios das ACs atualmente ativas:<a href="#section-7.1.2-6" class="pilcrow">¶</a></p>
+<p id="section-7.1.2-6">Seguem abaixo exemplos para os atributos obrigat&#243;rios das ACs ativas at&#233; 31 de Agosto de 2022:<a href="#section-7.1.2-6" class="pilcrow">¶</a></p>
 <table class="center" id="table-1">
             <caption><a href="#table-1" class="selfRef">Table 1</a></caption>
 <thead>
@@ -1629,9 +1629,8 @@ li > p:last-of-type {
               </tr>
             </tbody>
           </table>
-  
-<p id="section-7.1.2-6">Seguem abaixo exemplos para os atributos obrigat&#243;rios das ACs ativas apos 31 de Agosto de 2022:<a href="#section-7.1.2-6" class="pilcrow">¶</a></p>
-<table class="center" id="table-1">
+<p id="section-7.1.2-8">Seguem abaixo exemplos para os atributos obrigat&#243;rios das ACs ativas ap&#243;s 31 de Agosto de 2022:<a href="#section-7.1.2-8" class="pilcrow">¶</a></p>
+<table class="center" id="table-2">
             <caption><a href="#table-2" class="selfRef">Table 2</a></caption>
 <thead>
               <tr>
@@ -1642,14 +1641,10 @@ li > p:last-of-type {
             <tbody>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">CN=mycn.bank.com.br, UID=67c57882-043b-11ec-9a03-0242ac130003 , 2.5.4.97=OFBBR-497e1ffe-b2a2-4a4e-8ef0-70633fd11b59 , L=Sao Paulo , ST=SP , O=MyBank , C=BR , serialNumber=13353236000189 , 1.3.6.1.4.1.311.60.2.1.3=BR , businessCategory=Business Entity</td>
-                <td class="text-left" rowspan="1" colspan="1">issuer=CN=Open Banking SANDBOX Issuing CA   - G1,OU=Open Banking,O=Open   Banking Brasil,C=BR</td>
+                <td class="text-left" rowspan="1" colspan="1">issuer=CN=AC SERASA SSL EV,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR</td>
               </tr>
-
-               </tbody>
+            </tbody>
           </table>
-
-  
-  
 </section>
 </div>
 </section>
@@ -1661,7 +1656,7 @@ li > p:last-of-type {
         </h3>
 <p id="section-7.2-1">Para participar do ecossistema do Open Finance, as institui&#231;&#245;es credenciadas devem se cadastrar no Diret&#243;rio de Participantes de acordo com seus pap&#233;is regulat&#243;rios. Essas fun&#231;&#245;es refletem a autoriza&#231;&#227;o do Banco Central para as institui&#231;&#245;es e, consequentemente, as APIs que podem utilizar.<a href="#section-7.2-1" class="pilcrow">¶</a></p>
 <p id="section-7.2-2">A tabela a seguir descreve as fun&#231;&#245;es regulat&#243;rias do Open Finance e o mapeamento de escopos do OAuth 2.0 relacionado. Se os escopos forem omitidos durante o processo de DCR, o Servidor de Autoriza&#231;&#227;o deve conceder o conjunto completo de escopos potenciais com base nas fun&#231;&#245;es regulat&#243;rias registradas para o banco, conforme descrito na se&#231;&#227;o Server Defaults.<a href="#section-7.2-2" class="pilcrow">¶</a></p>
-<table class="center" id="table-2">
+<table class="center" id="table-3">
           <caption><a href="#table-3" class="selfRef">Table 3</a></caption>
 <thead>
             <tr>
@@ -2004,18 +1999,18 @@ Para estender as <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a> e <a 
 <a href="#section-9.3.1" class="section-number selfRef">9.3.1. </a><a href="#name-registro-de-cliente-post-re" class="section-name selfRef">Registro de cliente - POST /register</a>
           </h4>
 <ol start="1" type="1" class="compact type-1" id="section-9.3.1-1">
-            <li id="section-9.3.1-1.1">validar que o certificado apresentado pela aplica&#231;&#227;o cliente &#233; subordinado &#224;s cadeias do ICP-Brasil definidas no Padr&#227;o de Certificados do Open Finance Brasil;<a href="#section-9.3.1-1.1" class="pilcrow">¶</a>
+<li id="section-9.3.1-1.1">validar que o certificado apresentado pela aplica&#231;&#227;o cliente &#233; subordinado &#224;s cadeias do ICP-Brasil definidas no Padr&#227;o de Certificados do Open Finance Brasil;<a href="#section-9.3.1-1.1" class="pilcrow">¶</a>
 </li>
-            <li id="section-9.3.1-1.2">enquanto houver a necessidade do período de convivência (mencionado no tópico 7.1) deve ser implementado a validação para ambos os casos: certificados que possuem o valor <em>org_id</em> no campo <em>organizationUnitName</em> (<em>OU</em>) e certificados que possuem o valor <em>org_id</em> no campo <em>organizationIdentifier</em>.<a href="#section-9.3.1-1.2" class="pilcrow">¶</a>
-</li>  
+            <li id="section-9.3.1-1.2">enquanto houver a necessidade do per&#237;odo de conviv&#234;ncia (mencionado no t&#243;pico 7.1) deve ser implementado a valida&#231;&#227;o para ambos os casos: certificados que possuem o valor <em>org_id</em> no campo <em>organizationUnitName</em> (<em>OU</em>) e certificados que possuem o valor <em>org_id</em> no campo <em>organizationIdentifier</em>.<a href="#section-9.3.1-1.2" class="pilcrow">¶</a>
+</li>
             <li id="section-9.3.1-1.3">assegurar que a assinatura do <em>software_statement</em> apresentado pela aplica&#231;&#227;o cliente durante o registro tenha sido feita pelo Diret&#243;rio de Participantes atrav&#233;s das chaves p&#250;blicas descritas na se&#231;&#227;o anterior;<a href="#section-9.3.1-1.3" class="pilcrow">¶</a>
 </li>
             <li id="section-9.3.1-1.4">assegurar que o <em>software_statement</em> apresentado pela aplica&#231;&#227;o cliente durante o registro corresponda &#224; mesma institui&#231;&#227;o do certificado de cliente apresentado, validando-o atrav&#233;s dos atributos que trazem <code>organization_id</code> no certificado X.509.<a href="#section-9.3.1-1.4" class="pilcrow">¶</a>
 </li>
-            <li id="section-9.3.1-1.5">não devem ser permitidos múltiplos cadastros DCR para o mesmo Software Statement , de forma que em caso de tentativa de novo registro para um Software Statement já cadastrado, deve se utilizar o procedimento de Error Response definido no item 3.2.2 da <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a>.<a href="#section-9.3.1-1.5" class="pilcrow">¶</a>
+            <li id="section-9.3.1-1.5">n&#227;o devem ser permitidos m&#250;ltiplos cadastros DCR para o mesmo Software Statement , de forma que em caso de tentativa de novo registro para um Software Statement j&#225; cadastrado, deve se utilizar o procedimento de Error Response definido no item 3.2.2 da RFC7591.<a href="#section-9.3.1-1.5" class="pilcrow">¶</a>
 </li>
-            <li id="section-9.3.1-1.6">emitir, na resposta do registro, um <code>registration_access_token</code> para ser usado como token de autenticação nas opera&#231;&#245;es de manuten&#231;&#227;o da aplica&#231;&#227;o cliente registrada, seguindo as especifica&#231;&#245;es descritas na <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a>.<a href="#section-9.3.1-1.6" class="pilcrow">¶</a>
-</li>		
+            <li id="section-9.3.1-1.6">emitir, na resposta do registro, um <code>registration_access_token</code> para ser usado como token de autentica&#231;&#227;o nas opera&#231;&#245;es de manuten&#231;&#227;o da aplica&#231;&#227;o cliente registrada, seguindo as especifica&#231;&#245;es descritas na <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a>.<a href="#section-9.3.1-1.6" class="pilcrow">¶</a>
+</li>
           </ol>
 </section>
 </div>
@@ -2073,7 +2068,7 @@ Para estender as <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a> e <a 
       <h2 id="name-avisos">
 <a href="#appendix-A" class="section-number selfRef">Appendix A. </a><a href="#name-avisos" class="section-name selfRef">Avisos</a>
       </h2>
-<p id="appendix-A-1">Copyright (c) 2022 Estrutura Inicial do Open Finance Brasil<a href="#appendix-A-1" class="pilcrow">¶</a></p>
+<p id="appendix-A-1">Copyright (c) 2023 Estrutura Inicial do Open Finance Brasil<a href="#appendix-A-1" class="pilcrow">¶</a></p>
 <p id="appendix-A-2">A Estrutura Inicial do Open Finance Brasil (EIOFB) concede a qualquer Colaborador, desenvolvedor, implementador ou outra parte interessada uma licen&#231;a de direitos autorais mundial n&#227;o exclusiva, livre de royalties para reproduzir, preparar trabalhos derivados, distribuir, executar e exibir, estes Implementadores Rascunho ou Especifica&#231;&#227;o Final exclusivamente para fins de (i) desenvolver especifica&#231;&#245;es e (ii) implementar Rascunhos de Implementadores e Especifica&#231;&#245;es Finais com base em tais documentos, desde que a atribui&#231;&#227;o seja feita ao EIOFB como a fonte do material, mas que tal atribui&#231;&#227;o o fa&#231;a n&#227;o indica endosso do EIOFB.<a href="#appendix-A-2" class="pilcrow">¶</a></p>
 <p id="appendix-A-3">A tecnologia descrita nesta especifica&#231;&#227;o foi disponibilizada a partir de contribui&#231;&#245;es de v&#225;rias fontes, incluindo membros da OpenID Foundation, do Grupo de Trabalho de Seguran&#231;a do Open Finance Brasil e outros. Embora a Estrutura Inicial do Open Finance Brasil tenha tomado medidas para ajudar a garantir que a tecnologia esteja dispon&#237;vel para distribui&#231;&#227;o, ela n&#227;o toma posi&#231;&#227;o quanto &#224; validade ou escopo de qualquer propriedade intelectual ou outros direitos que possam ser reivindicados como pertencentes &#224; implementa&#231;&#227;o ou uso do tecnologia descrita nesta especifica&#231;&#227;o ou at&#233; que ponto qualquer licen&#231;a sob tais direitos pode ou n&#227;o estar dispon&#237;vel; nem representa que fez qualquer esfor&#231;o independente para identificar tais direitos. A Estrutura Inicial do Open Finance Brasil e os contribuidores desta especifica&#231;&#227;o n&#227;o oferecem (e por meio deste expressamente se isentam de quaisquer) garantias (expressas, impl&#237;citas ou de outra forma), incluindo garantias impl&#237;citas de comercializa&#231;&#227;o, n&#227;o viola&#231;&#227;o, adequa&#231;&#227;o a uma finalidade espec&#237;fica ou t&#237;tulo, relacionados a esta especifica&#231;&#227;o, e todo o risco quanto &#224; implementa&#231;&#227;o desta especifica&#231;&#227;o &#233; assumido pelo implementador. A pol&#237;tica de Direitos de Propriedade Intelectual do Open Finance Brasil exige que os contribuidores ofere&#231;am uma promessa de patente de n&#227;o fazer valer certas reivindica&#231;&#245;es de patentes contra outros contribuidores e implementadores. A Estrutura Inicial do Open Finance Brasil convida qualquer parte interessada a trazer &#224; sua aten&#231;&#227;o quaisquer direitos autorais, patentes, pedidos de patentes ou outros direitos de propriedade que possam abranger a tecnologia que possa ser necess&#225;ria para praticar esta especifica&#231;&#227;o.<a href="#appendix-A-3" class="pilcrow">¶</a></p>
 <div id="ExampleA">
@@ -2099,11 +2094,11 @@ Para estender as <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a> e <a 
 <div dir="auto" class="left"><span class="org">Open Finance Brasil Initial Structure</span></div>
 <div class="email">
 <span>Email:</span>
-<a href="mailto:gt-seguranca@openbankingbr.org" class="email">gt-seguranca@openbankingbr.org</a>
+<a href="mailto:gt-seguranca@openfinancebrasil.org.br" class="email">gt-seguranca@openfinancebrasil.org.br</a>
 </div>
 <div class="url">
 <span>URI:</span>
-<a href="https://openbankingbrasil.org.br/" class="url">https://openbankingbrasil.org.br/</a>
+<a href="https://openfinancebrasil.org.br" class="url">https://openfinancebrasil.org.br</a>
 </div>
 </address>
 </section>

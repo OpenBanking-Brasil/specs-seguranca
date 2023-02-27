@@ -18,24 +18,14 @@
     value = "open-banking-brasil-financial-api-CIBA-1_ID3"
 
     [[author]]
-    initials = "R."
-    surname = "Bragg"
-    fullname = "Ralph Bragg"
-    organization = "Raidiam"
-    abbrev = "Raidiam"
-      [author.address]
-      email = "ralph.bragg@raidiam.com"
-      uri = "https://www.raidiam.com/"
-
-    [[author]]
     initials = "GT"
     surname = "Security"
     fullname = "OBBIS GT Security"
     organization = "Open Banking Brasil Initial Structure"
     abbrev = "OBBIS"
       [author.address]
-      email = "gt-seguranca@openbankingbr.org"
-      uri = "https://openbankingbrasil.org.br/"
+      email = "gt-seguranca@openfinancebrasil.org.br"
+      uri = "https://openfinancebrasil.org.br"
 %%%
 
 .# Foreword
@@ -320,14 +310,16 @@ With thanks to all who have set the foundations for secure and safe data sharing
 
 The following people contributed to this document:
 
+* Gustavo Cunha (Banco do Brasil)
+* Karina Cabral (Mercado Pago)
+* Nic Marcondes (Quanto)
 * Ralph Bragg (Raidiam)
-* Add Contributors
 
 {backmatter}
 
 # Notices
 
-Copyright (c) 2021 Open Banking Brasil Initial Structure.
+Copyright (c) 2023 Open Banking Brasil Initial Structure.
 
 The Open Banking Brasil Initial Structure (OBBIS) grants to any Contributor, developer, implementer, or other interested party a non-exclusive, royalty-free, worldwide copyright license to reproduce, prepare derivative works from, distribute, perform and display, this Implementers Draft or Final Specification solely for the purposes of (i) developing specifications, and (ii) implementing Implementers Drafts and Final Specifications based on such documents, provided that attribution be made to the OBBIS as the source of the material, but that such attribution does not indicate an endorsement by the OBBIS.
 

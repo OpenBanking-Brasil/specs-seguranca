@@ -24,8 +24,8 @@
     organization = "Open Finance Brasil Initial Structure"
     abbrev = "OFBIS"
       [author.address]
-      email = "gt-seguranca@openbankingbr.org"
-      uri = "https://openbankingbrasil.org.br/"
+      email = "gt-seguranca@openfinancebrasil.org.br"
+      uri = "https://openfinancebrasil.org.br"
 %%%
 
 .# Prefácio  {#Foreword}
@@ -242,7 +242,7 @@ Além disso, se o valor `response_type` `code id_token` for usado, o servidor de
 5. O uso de outros cabeçalhos para indicação da chave utilizada, como `x5u`, `x5c`, `jku` ou `jkw` é vetado conforme definido na cláusula 2 [OIDC].
 
 
-#### Clarificações sobre a "sub" Claim 
+#### Clarificações sobre a "sub" Claim {#claim-sub}
 Este perfil usa a definição oficial encontrada em: https://github.com/OpenBanking-Brasil/specs-seguranca/tree/main/idtoken_review.
 Isso significa que o sub é um identificador nunca transferido ou alterado para o usuário final.
 O valor para um dado usuário nunca deve mudar dentro de uma instituição, mesmo em diferentes consentimentos.
@@ -480,7 +480,7 @@ As seguintes pessoas contribuíram para este documento:
 
 # Avisos  {#disclaimer}
 
-Copyright (c) 2022 Estrutura Inicial do Open Finance Brasil
+Copyright (c) 2023 Estrutura Inicial do Open Finance Brasil
 
 A Estrutura Inicial do Open Finance Brasil (EIOFB) concede a qualquer Colaborador, desenvolvedor, implementador ou outra parte interessada uma licença de direitos autorais mundial não exclusiva, livre de royalties para reproduzir, preparar trabalhos derivados, distribuir, executar e exibir, estes Implementadores Rascunho ou Especificação Final exclusivamente para fins de (i) desenvolver especificações e (ii) implementar Rascunhos de Implementadores e Especificações Finais com base em tais documentos, desde que a atribuição seja feita ao EIOFB como a fonte do material, mas que tal atribuição o faça não indica endosso do EIOFB.
 

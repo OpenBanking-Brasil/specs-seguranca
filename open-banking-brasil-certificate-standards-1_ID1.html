@@ -6,11 +6,29 @@
 <meta content="initial-scale=1.0" name="viewport">
 <title>Open Finance Brasil Certificate Standards 1.0</title>
 <meta content="GT Segurança" name="author">
-<meta content="xml2rfc 2.40.1" name="generator">
+<meta content="xml2rfc 3.12.2" name="generator">
 <meta content="FAPI" name="keyword">
 <meta content="CERTIFICATES" name="keyword">
 <meta content="Open Finance Brasil GT Security" name="keyword">
 <meta content="open-banking-brasil-certificate-standards-1_ID1" name="ietf.draft">
+<!-- Generator version information:
+  xml2rfc 3.12.2
+    Python 3.10.2
+    appdirs 1.4.4
+    ConfigArgParse 1.5.3
+    google-i18n-address 2.5.0
+    html5lib 1.1
+    intervaltree 3.1.0
+    Jinja2 2.11.3
+    kitchen 1.2.6
+    lxml 4.8.0
+    pycountry 22.1.10
+    pyflakes 2.4.0
+    PyYAML 6.0
+    requests 2.27.1
+    setuptools 58.1.0
+    six 1.16.0
+-->
 <link href="./open-banking-brasil-certificate-standards-1_ID1.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
 <style type="text/css">/*
@@ -178,6 +196,9 @@ ul.empty, .ulEmpty {
 }
 ul.empty li, .ulEmpty li {
   margin-top: 0.5em;
+}
+ul.ulBare, li.ulBare {
+  margin-left: 0em !important;
 }
 ul.compact, .ulCompact,
 ol.compact, .olCompact {
@@ -361,6 +382,12 @@ hr {
 #identifiers dd {
   float: left;
   margin-bottom: 0;
+}
+/* Fix PDF info block run off issue */
+@media print {
+  #identifiers dd {
+    float: none;
+  }
 }
 #identifiers .authors .author {
   display: inline-block;
@@ -912,12 +939,6 @@ caption a[href] {
   }
 
 }
-/* Avoid wrapping of URLs in references */
-@media screen {
-  .references a {
-    white-space: nowrap;
-  }
-}
 /* Tweak the bcp14 keyword presentation */
 .bcp14 {
   font-variant: small-caps;
@@ -988,7 +1009,7 @@ h1#rfcnum {
 }
 /* Make .olPercent look the same as <ol><li> */
 dl.olPercent > dd {
-  margin: 0 0 0.25em 0;
+  margin-bottom: 0.25em;
   min-height: initial;
 }
 /* Give aside some styling to set it apart */
@@ -1026,14 +1047,6 @@ aside > p {
     margin-bottom: 1em;
   }
 }
-/*
-  The margin-left: 0 on <dd> removes all distinction
-  between levels from nested <dl>s.  Undo that.
-*/
-dl.olPercent > dd,
-dd {
-  margin-left: revert;
-}
 /* Avoid narrow tables forcing too narrow table captions, which may render badly */
 table {
   min-width: 20em;
@@ -1059,6 +1072,108 @@ tr:nth-child(2n+1) > td {
   #toc nav { display: none; }
   #toc.active nav { display: block; }
 }
+/* Add support for keepWithNext */
+.keepWithNext {
+  break-after: avoid-page;
+  break-after: avoid-page;
+}
+/* Add support for keepWithPrevious */
+.keepWithPrevious {
+  break-before: avoid-page;
+}
+/* Change the approach to avoiding breaks inside artwork etc. */
+figure, pre, table, .artwork, .sourcecode  {
+  break-before: auto;
+  break-after: auto;
+}
+/* Avoid breaks between <dt> and <dd> */
+dl {
+  break-before: auto;
+  break-inside: auto;
+}
+dt {
+  break-before: auto;
+  break-after: avoid-page;
+}
+dd {
+  break-before: avoid-page;
+  break-after: auto;
+  orphans: 3;
+  widows: 3
+}
+span.break, dd.break {
+  margin-bottom: 0;
+  min-height: 0;
+  break-before: auto;
+  break-inside: auto;
+  break-after: auto;
+}
+/* Undo break-before ToC */
+@media print {
+  #toc {
+    break-before: auto;
+  }
+}
+/* Text in compact lists should not get extra bottim margin space,
+   since that would makes the list not compact */
+ul.compact p, .ulCompact p,
+ol.compact p, .olCompact p {
+ margin: 0;
+}
+/* But the list as a whole needs the extra space at the end */
+section ul.compact,
+section .ulCompact,
+section ol.compact,
+section .olCompact {
+  margin-bottom: 1em;                    /* same as p not within ul.compact etc. */
+}
+/* The tt and code background above interferes with for instance table cell
+   backgrounds.  Changed to something a bit more selective. */
+tt, code {
+  background-color: transparent;
+}
+p tt, p code, li tt, li code {
+  background-color: #f8f8f8;
+}
+/* Tweak the pre margin -- 0px doesn't come out well */
+pre {
+   margin-top: 0.5px;
+}
+/* Tweak the comact list text */
+ul.compact, .ulCompact,
+ol.compact, .olCompact,
+dl.compact, .dlCompact {
+  line-height: normal;
+}
+/* Don't add top margin for nested lists */
+li > ul, li > ol, li > dl,
+dd > ul, dd > ol, dd > dl,
+dl > dd > dl {
+  margin-top: initial;
+}
+/* Elements that should not be rendered on the same line as a <dt> */
+/* This should match the element list in writer.text.TextWriter.render_dl() */
+dd > div.artwork:first-child,
+dd > aside:first-child,
+dd > figure:first-child,
+dd > ol:first-child,
+dd > div:first-child > pre.sourcecode,
+dd > table:first-child,
+dd > ul:first-child {
+  clear: left;
+}
+/* fix for weird browser behaviour when <dd/> is empty */
+dt+dd:empty::before{
+  content: "\00a0";
+}
+/* Make paragraph spacing inside <li> smaller than in body text, to fit better within the list */
+li > p {
+  margin-bottom: 0.5em
+}
+/* Don't let p margin spill out from inside list items */
+li > p:last-of-type {
+  margin-bottom: 0;
+}
 </style>
 <link href="rfc-local.css" rel="stylesheet" type="text/css">
 </head>
@@ -1068,7 +1183,7 @@ tr:nth-child(2n+1) > td {
 <thead><tr>
 <td class="left"></td>
 <td class="center">OFB-CERT-1-ID1</td>
-<td class="right">December 2022</td>
+<td class="right">February 2023</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Segurança</td>
@@ -1081,14 +1196,6 @@ tr:nth-child(2n+1) > td {
 <dl id="identifiers">
 <dt class="label-workgroup">Workgroup:</dt>
 <dd class="workgroup">Open Finance Brasil GT Security</dd>
-<dt class="label-internet-draft">Internet-Draft:</dt>
-<dd class="internet-draft">open-banking-brasil-certificate-standards-1_ID1</dd>
-<dt class="label-published">Published:</dt>
-<dd class="published">
-<time datetime="2022-12-14" class="published">14 December 2022</time>
-    </dd>
-<dt class="label-intended-status">Intended Status:</dt>
-<dd class="intended-status">Standards Track</dd>
 <dt class="label-authors">Author:</dt>
 <dd class="authors">
 <div class="author">
@@ -1127,71 +1234,71 @@ These key words are not to be used as lexicon terms such that any occurrence of 
         <a href="#" onclick="scroll(0,0)" class="toplink">▲</a><h2 id="name-table-of-contents">
 <a href="#name-table-of-contents" class="section-name selfRef">Table of Contents</a>
         </h2>
-<nav class="toc"><ul class="toc ulEmpty">
-<li class="toc ulEmpty" id="section-toc.1-1.1">
-            <p id="section-toc.1-1.1.1"><a href="#section-1" class="xref">1</a>.  <a href="#name-scope" class="xref">Scope</a><a href="#section-toc.1-1.1.1" class="pilcrow">¶</a></p>
+<nav class="toc"><ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1">
+            <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="xref">1</a>.  <a href="#name-scope" class="xref">Scope</a></p>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.2">
-            <p id="section-toc.1-1.2.1"><a href="#section-2" class="xref">2</a>.  <a href="#name-normative-refences" class="xref">Normative refences</a><a href="#section-toc.1-1.2.1" class="pilcrow">¶</a></p>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2">
+            <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="xref">2</a>.  <a href="#name-normative-refences" class="xref">Normative refences</a></p>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.3">
-            <p id="section-toc.1-1.3.1"><a href="#section-3" class="xref">3</a>.  <a href="#name-terms-and-definitions" class="xref">Terms and definitions</a><a href="#section-toc.1-1.3.1" class="pilcrow">¶</a></p>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
+            <p id="section-toc.1-1.3.1" class="keepWithNext"><a href="#section-3" class="xref">3</a>.  <a href="#name-terms-and-definitions" class="xref">Terms and definitions</a></p>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.4">
-            <p id="section-toc.1-1.4.1"><a href="#section-4" class="xref">4</a>.  <a href="#name-glossary" class="xref">Glossary</a><a href="#section-toc.1-1.4.1" class="pilcrow">¶</a></p>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="xref">4</a>.  <a href="#name-glossary" class="xref">Glossary</a></p>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.5">
-            <p id="section-toc.1-1.5.1"><a href="#section-5" class="xref">5</a>.  <a href="#name-open-finance-brasil-certifi" class="xref">Open Finance Brasil Certificate Standards</a><a href="#section-toc.1-1.5.1" class="pilcrow">¶</a></p>
-<ul class="toc ulEmpty">
-<li class="toc ulEmpty" id="section-toc.1-1.5.2.1">
-                <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="xref">5.1</a>.  <a href="#name-introduction" class="xref">Introduction</a><a href="#section-toc.1-1.5.2.1.1" class="pilcrow">¶</a></p>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="xref">5</a>.  <a href="#name-open-finance-brasil-certifi" class="xref">Open Finance Brasil Certificate Standards</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.1">
+                <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="xref">5.1</a>.  <a href="#name-introduction" class="xref">Introduction</a></p>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.5.2.2">
-                <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="xref">5.2</a>.  <a href="#name-icp-brasil-certificates" class="xref">ICP-Brasil Certificates</a><a href="#section-toc.1-1.5.2.2.1" class="pilcrow">¶</a></p>
-<ul class="toc ulEmpty">
-<li class="toc ulEmpty" id="section-toc.1-1.5.2.2.2.1">
-                    <p id="section-toc.1-1.5.2.2.2.1.1"><a href="#section-5.2.1" class="xref">5.2.1</a>.  <a href="#name-server-certificate" class="xref">Server Certificate</a><a href="#section-toc.1-1.5.2.2.2.1.1" class="pilcrow">¶</a></p>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2">
+                <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="xref">5.2</a>.  <a href="#name-icp-brasil-certificates" class="xref">ICP-Brasil Certificates</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2.2.1">
+                    <p id="section-toc.1-1.5.2.2.2.1.1"><a href="#section-5.2.1" class="xref">5.2.1</a>.  <a href="#name-server-certificate" class="xref">Server Certificate</a></p>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.5.2.2.2.2">
-                    <p id="section-toc.1-1.5.2.2.2.2.1"><a href="#section-5.2.2" class="xref">5.2.2</a>.  <a href="#name-client-certificate" class="xref">Client Certificate</a><a href="#section-toc.1-1.5.2.2.2.2.1" class="pilcrow">¶</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2.2.2">
+                    <p id="section-toc.1-1.5.2.2.2.2.1"><a href="#section-5.2.2" class="xref">5.2.2</a>.  <a href="#name-client-certificate" class="xref">Client Certificate</a></p>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.5.2.2.2.3">
-                    <p id="section-toc.1-1.5.2.2.2.3.1"><a href="#section-5.2.3" class="xref">5.2.3</a>.  <a href="#name-signature-certificate" class="xref">Signature Certificate</a><a href="#section-toc.1-1.5.2.2.2.3.1" class="pilcrow">¶</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2.2.3">
+                    <p id="section-toc.1-1.5.2.2.2.3.1"><a href="#section-5.2.3" class="xref">5.2.3</a>.  <a href="#name-signature-certificate" class="xref">Signature Certificate</a></p>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.5.2.2.2.4">
-                    <p id="section-toc.1-1.5.2.2.2.4.1"><a href="#section-5.2.4" class="xref">5.2.4</a>.  <a href="#name-front-end-certificates" class="xref">Front-End Certificates</a><a href="#section-toc.1-1.5.2.2.2.4.1" class="pilcrow">¶</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2.2.4">
+                    <p id="section-toc.1-1.5.2.2.2.4.1"><a href="#section-5.2.4" class="xref">5.2.4</a>.  <a href="#name-front-end-certificates" class="xref">Front-End Certificates</a></p>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.5.2.2.2.5">
-                    <p id="section-toc.1-1.5.2.2.2.5.1"><a href="#section-5.2.5" class="xref">5.2.5</a>.  <a href="#name-about-certificates-for-exch" class="xref">About certificates for exchanging information between authorized institutions and partners (non-participating)</a><a href="#section-toc.1-1.5.2.2.2.5.1" class="pilcrow">¶</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2.2.5">
+                    <p id="section-toc.1-1.5.2.2.2.5.1"><a href="#section-5.2.5" class="xref">5.2.5</a>.  <a href="#name-about-certificates-for-exch" class="xref">About certificates for exchanging information between authorized institutions and partners (non-participating)</a></p>
 </li>
-</ul>
+                </ul>
 </li>
-</ul>
+            </ul>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.6">
-            <p id="section-toc.1-1.6.1"><a href="#section-6" class="xref">6</a>.  <a href="#name-acknowledgements" class="xref">Acknowledgements</a><a href="#section-toc.1-1.6.1" class="pilcrow">¶</a></p>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
+            <p id="section-toc.1-1.6.1"><a href="#section-6" class="xref">6</a>.  <a href="#name-acknowledgements" class="xref">Acknowledgements</a></p>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.7">
-            <p id="section-toc.1-1.7.1"><a href="#section-7" class="xref">7</a>.  <a href="#name-notices" class="xref">Notices</a><a href="#section-toc.1-1.7.1" class="pilcrow">¶</a></p>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
+            <p id="section-toc.1-1.7.1"><a href="#section-7" class="xref">7</a>.  <a href="#name-notices" class="xref">Notices</a></p>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.8">
-            <p id="section-toc.1-1.8.1"><a href="#section-8" class="xref">8</a>.  <a href="#name-appendix" class="xref">Appendix</a><a href="#section-toc.1-1.8.1" class="pilcrow">¶</a></p>
-<ul class="toc ulEmpty">
-<li class="toc ulEmpty" id="section-toc.1-1.8.2.1">
-                <p id="section-toc.1-1.8.2.1.1"><a href="#section-8.1" class="xref">8.1</a>.  <a href="#name-configuration-template-for-" class="xref">Configuration Template for Client Certificate - OpenSSL - For certificates issued until August 31, 2022</a><a href="#section-toc.1-1.8.2.1.1" class="pilcrow">¶</a></p>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
+            <p id="section-toc.1-1.8.1"><a href="#section-8" class="xref">8</a>.  <a href="#name-appendix" class="xref">Appendix</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.1">
+                <p id="section-toc.1-1.8.2.1.1"><a href="#section-8.1" class="xref">8.1</a>.  <a href="#name-configuration-template-for-" class="xref">Configuration Template for Client Certificate - OpenSSL - For certificates issued until August 31, 2022</a></p>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.8.2.2">
-                <p id="section-toc.1-1.8.2.2.1"><a href="#section-8.2" class="xref">8.2</a>.  <a href="#name-configuration-template-for-c" class="xref">Configuration Template for Client Certificate - OpenSSL - For certificates issued after August 31, 2022</a><a href="#section-toc.1-1.8.2.2.1" class="pilcrow">¶</a></p>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.2">
+                <p id="section-toc.1-1.8.2.2.1"><a href="#section-8.2" class="xref">8.2</a>.  <a href="#name-configuration-template-for-c" class="xref">Configuration Template for Client Certificate - OpenSSL - For certificates issued after August 31, 2022</a></p>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.8.2.3">
-                <p id="section-toc.1-1.8.2.3.1"><a href="#section-8.3" class="xref">8.3</a>.  <a href="#name-configuration-template-for-s" class="xref">Configuration Template for Signature Certificate - OpenSSL</a><a href="#section-toc.1-1.8.2.3.1" class="pilcrow">¶</a></p>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.3">
+                <p id="section-toc.1-1.8.2.3.1"><a href="#section-8.3" class="xref">8.3</a>.  <a href="#name-configuration-template-for-s" class="xref">Configuration Template for Signature Certificate - OpenSSL</a></p>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.8.2.4">
-                <p id="section-toc.1-1.8.2.4.1"><a href="#section-8.4" class="xref">8.4</a>.  <a href="#name-endpoints-vs-certificate-ty" class="xref">Endpoints vs Certificate type and mTLS requirements</a><a href="#section-toc.1-1.8.2.4.1" class="pilcrow">¶</a></p>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.4">
+                <p id="section-toc.1-1.8.2.4.1"><a href="#section-8.4" class="xref">8.4</a>.  <a href="#name-endpoints-vs-certificate-ty" class="xref">Endpoints vs Certificate type and mTLS requirements</a></p>
 </li>
-</ul>
+            </ul>
 </li>
-</ul>
+        </ul>
 </nav>
 </section>
 </div>
@@ -1201,16 +1308,16 @@ These key words are not to be used as lexicon terms such that any occurrence of 
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-scope" class="section-name selfRef">Scope</a>
       </h2>
 <p id="section-1-1">This document specifies the types of certificates required for:<a href="#section-1-1" class="pilcrow">¶</a></p>
-<ul>
-<li id="section-1-2.1">Mutually authenticate (MTLS - Mutual TLS) participants' applications;<a href="#section-1-2.1" class="pilcrow">¶</a>
+<ul class="compact">
+<li class="compact" id="section-1-2.1">Mutually authenticate (MTLS - Mutual TLS) participants' applications;<a href="#section-1-2.1" class="pilcrow">¶</a>
 </li>
-<li id="section-1-2.2">Message Signature (JWS - JSON Web Signature) applications to ensure authenticity and non-repudiation of messages between participants;<a href="#section-1-2.2" class="pilcrow">¶</a>
+        <li class="compact" id="section-1-2.2">Message Signature (JWS - JSON Web Signature) applications to ensure authenticity and non-repudiation of messages between participants;<a href="#section-1-2.2" class="pilcrow">¶</a>
 </li>
-<li id="section-1-2.3">Provide a safe and reliable channel for Open Finance Brasil customers;<a href="#section-1-2.3" class="pilcrow">¶</a>
+        <li class="compact" id="section-1-2.3">Provide a safe and reliable channel for Open Finance Brasil customers;<a href="#section-1-2.3" class="pilcrow">¶</a>
 </li>
-<li id="section-1-2.4">Authenticate participants in the Open Finance Brasil Participant Directory.<a href="#section-1-2.4" class="pilcrow">¶</a>
+        <li class="compact" id="section-1-2.4">Authenticate participants in the Open Finance Brasil Participant Directory.<a href="#section-1-2.4" class="pilcrow">¶</a>
 </li>
-</ul>
+      </ul>
 </section>
 </div>
 <div id="normative-refences">
@@ -1219,38 +1326,38 @@ These key words are not to be used as lexicon terms such that any occurrence of 
 <a href="#section-2" class="section-number selfRef">2. </a><a href="#name-normative-refences" class="section-name selfRef">Normative refences</a>
       </h2>
 <p id="section-2-1">The following referenced documents are indispensable for the application of this document. For dated references, only the edition cited applied. For undated references, the latest edition of the referenced document (including any amendments) applies.<a href="#section-2-1" class="pilcrow">¶</a></p>
-<ul>
-<li id="section-2-2.1">[ISODIR2] - ISO/IEC Directives Part 2 [ISODIR2]: <a href="https://www.iso.org/sites/directives/current/part2/index.xhtml">https://www.iso.org/sites/directives/current/part2/index.xhtml</a><a href="#section-2-2.1" class="pilcrow">¶</a>
+<ul class="compact">
+<li class="compact" id="section-2-2.1">[ISODIR2] - ISO/IEC Directives Part 2 [ISODIR2]: <a href="https://www.iso.org/sites/directives/current/part2/index.xhtml">https://www.iso.org/sites/directives/current/part2/index.xhtml</a><a href="#section-2-2.1" class="pilcrow">¶</a>
 </li>
-<li id="section-2-2.2">[RFC5280] -  Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List (CRL) Profile: <a href="https://datatracker.ietf.org/doc/html/rfc5280">https://datatracker.ietf.org/doc/html/rfc5280</a><a href="#section-2-2.2" class="pilcrow">¶</a>
+        <li class="compact" id="section-2-2.2">[RFC5280] -  Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List (CRL) Profile: <a href="https://datatracker.ietf.org/doc/html/rfc5280">https://datatracker.ietf.org/doc/html/rfc5280</a><a href="#section-2-2.2" class="pilcrow">¶</a>
 </li>
-<li id="section-2-2.3">[RFC7519] - JSON Web Token (JWT) [RFC7519]:<a href="https://tools.ietf.org/html/rfc7519">https://tools.ietf.org/html/rfc7519</a><a href="#section-2-2.3" class="pilcrow">¶</a>
+        <li class="compact" id="section-2-2.3">[RFC7519] - JSON Web Token (JWT) [RFC7519]:<a href="https://tools.ietf.org/html/rfc7519">https://tools.ietf.org/html/rfc7519</a><a href="#section-2-2.3" class="pilcrow">¶</a>
 </li>
-<li id="section-2-2.4">[RFC7515] - JSON Web Signature (JWS) [RFC7515] :<a href="https://datatracker.ietf.org/doc/html/rfc7515">https://datatracker.ietf.org/doc/html/rfc7515</a><a href="#section-2-2.4" class="pilcrow">¶</a>
+        <li class="compact" id="section-2-2.4">[RFC7515] - JSON Web Signature (JWS) [RFC7515] :<a href="https://datatracker.ietf.org/doc/html/rfc7515">https://datatracker.ietf.org/doc/html/rfc7515</a><a href="#section-2-2.4" class="pilcrow">¶</a>
 </li>
-<li id="section-2-2.5">[RFC7591] - OAuth 2.0 Dynamic Client Registration Protocol [RFC7591]:<a href="https://tools.ietf.org/html/rfc7591">https://tools.ietf.org/html/rfc7591</a><a href="#section-2-2.5" class="pilcrow">¶</a>
+        <li class="compact" id="section-2-2.5">[RFC7591] - OAuth 2.0 Dynamic Client Registration Protocol [RFC7591]:<a href="https://tools.ietf.org/html/rfc7591">https://tools.ietf.org/html/rfc7591</a><a href="#section-2-2.5" class="pilcrow">¶</a>
 </li>
-<li id="section-2-2.6">[RFC7592] - OAuth 2.0 Dynamic Client Registration Management Protocol [RFC7592]:<a href="https://tools.ietf.org/html/rfc7592">https://tools.ietf.org/html/rfc7592</a><a href="#section-2-2.6" class="pilcrow">¶</a>
+        <li class="compact" id="section-2-2.6">[RFC7592] - OAuth 2.0 Dynamic Client Registration Management Protocol [RFC7592]:<a href="https://tools.ietf.org/html/rfc7592">https://tools.ietf.org/html/rfc7592</a><a href="#section-2-2.6" class="pilcrow">¶</a>
 </li>
-<li id="section-2-2.7">[BCP195] - Recommendations for Secure Use of Transport Layer Security (TLS) and Datagram Transport Layer Security (DTLS) [BCP195]: <a href="https://tools.ietf.org/html/bcp195">https://tools.ietf.org/html/bcp195</a><a href="#section-2-2.7" class="pilcrow">¶</a>
+        <li class="compact" id="section-2-2.7">[BCP195] - Recommendations for Secure Use of Transport Layer Security (TLS) and Datagram Transport Layer Security (DTLS) [BCP195]: <a href="https://tools.ietf.org/html/bcp195">https://tools.ietf.org/html/bcp195</a><a href="#section-2-2.7" class="pilcrow">¶</a>
 </li>
-<li id="section-2-2.8">[RFC8705] - OAuth 2.0 Mutual TLS Client Authentication and Certificate Bound Access Tokens [RFC8705]: <a href="https://tools.ietf.org/html/rfc8705">https://tools.ietf.org/html/rfc8705</a><a href="#section-2-2.8" class="pilcrow">¶</a>
+        <li class="compact" id="section-2-2.8">[RFC8705] - OAuth 2.0 Mutual TLS Client Authentication and Certificate Bound Access Tokens [RFC8705]: <a href="https://tools.ietf.org/html/rfc8705">https://tools.ietf.org/html/rfc8705</a><a href="#section-2-2.8" class="pilcrow">¶</a>
 </li>
-<li id="section-2-2.9">[OFB-FAPI] - Open Finance Brasil Financial-grade API Security Profile 1.0 [OFB-FAPI]: <a href="https://github.com/OpenBanking-Brasil/specs-seguranca/open-banking-brasil-financial-api-1_ID3.html">https://github.com/OpenBanking-Brasil/specs-seguranca/open-banking-brasil-financial-api-1_ID3.html</a><a href="#section-2-2.9" class="pilcrow">¶</a>
+        <li class="compact" id="section-2-2.9">[OFB-FAPI] - Open Finance Brasil Financial-grade API Security Profile 1.0 [OFB-FAPI]: <a href="https://github.com/OpenBanking-Brasil/specs-seguranca/open-banking-brasil-financial-api-1_ID3.html">https://github.com/OpenBanking-Brasil/specs-seguranca/open-banking-brasil-financial-api-1_ID3.html</a><a href="#section-2-2.9" class="pilcrow">¶</a>
 </li>
-<li id="section-2-2.10">[OFB-FAPI-DCR] - Open Finance Brasil Financial-grade API Dynamic Client Registration Profile 1.0 [OFB-FAPI-DCR]: <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID3.html">https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID3.html</a><a href="#section-2-2.10" class="pilcrow">¶</a>
+        <li class="compact" id="section-2-2.10">[OFB-FAPI-DCR] - Open Finance Brasil Financial-grade API Dynamic Client Registration Profile 1.0 [OFB-FAPI-DCR]: <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID3.html">https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID3.html</a><a href="#section-2-2.10" class="pilcrow">¶</a>
 </li>
-<li id="section-2-2.11">[DOC-ICP-01] - DECLARA&#199;&#195;O DE PR&#193;TICAS DE CERTIFICA&#199;&#195;O DA AUTORIDADE CERTIFICADORA RAIZ DA ICP-BRASIL: <a href="https://www.gov.br/iti/pt-br/centrais-de-conteudo/doc-icp-01-v-5-2-dpc-da-ac-raiz-da-icp-brasil-pdf">https://www.gov.br/iti/pt-br/centrais-de-conteudo/doc-icp-01-v-5-2-dpc-da-ac-raiz-da-icp-brasil-pdf</a><a href="#section-2-2.11" class="pilcrow">¶</a>
+        <li class="compact" id="section-2-2.11">[DOC-ICP-01] - DECLARA&#199;&#195;O DE PR&#193;TICAS DE CERTIFICA&#199;&#195;O DA AUTORIDADE CERTIFICADORA RAIZ DA ICP-BRASIL: <a href="https://www.gov.br/iti/pt-br/centrais-de-conteudo/doc-icp-01-v-5-2-dpc-da-ac-raiz-da-icp-brasil-pdf">https://www.gov.br/iti/pt-br/centrais-de-conteudo/doc-icp-01-v-5-2-dpc-da-ac-raiz-da-icp-brasil-pdf</a><a href="#section-2-2.11" class="pilcrow">¶</a>
 </li>
-<li id="section-2-2.12">[RFC6749] - The OAuth 2.0 Authorization Framework [RFC6749]: <a href="https://tools.ietf.org/html/rfc6749">https://tools.ietf.org/html/rfc6749</a><a href="#section-2-2.12" class="pilcrow">¶</a>
+        <li class="compact" id="section-2-2.12">[RFC6749] - The OAuth 2.0 Authorization Framework [RFC6749]: <a href="https://tools.ietf.org/html/rfc6749">https://tools.ietf.org/html/rfc6749</a><a href="#section-2-2.12" class="pilcrow">¶</a>
 </li>
-<li id="section-2-2.13">[BCB-IN134] - Manual de Seguran&#231;a do Open Finance: <a href="https://www.in.gov.br/web/dou/-/instrucao-normativa-bcb-n-134-de-22-de-julho-de-2021-3345585364">https://www.in.gov.br/web/dou/-/instrucao-normativa-bcb-n-134-de-22-de-julho-de-2021-3345585364</a><a href="#section-2-2.13" class="pilcrow">¶</a>
+        <li class="compact" id="section-2-2.13">[BCB-IN134] - Manual de Seguran&#231;a do Open Finance: <a href="https://www.in.gov.br/web/dou/-/instrucao-normativa-bcb-n-134-de-22-de-julho-de-2021-3345585364">https://www.in.gov.br/web/dou/-/instrucao-normativa-bcb-n-134-de-22-de-julho-de-2021-3345585364</a><a href="#section-2-2.13" class="pilcrow">¶</a>
 </li>
-<li id="section-2-2.14">[RFC2818] - HTTP Over TLS: <a href="https://datatracker.ietf.org/doc/html/rfc2818">https://datatracker.ietf.org/doc/html/rfc2818</a><a href="#section-2-2.14" class="pilcrow">¶</a>
+        <li class="compact" id="section-2-2.14">[RFC2818] - HTTP Over TLS: <a href="https://datatracker.ietf.org/doc/html/rfc2818">https://datatracker.ietf.org/doc/html/rfc2818</a><a href="#section-2-2.14" class="pilcrow">¶</a>
 </li>
-<li id="section-2-2.15">[RFC5246] - The Transport Layer Security (TLS) Protocol Version 1.2 <a href="https://www.rfc-editor.org/rfc/rfc5246.txt">https://www.rfc-editor.org/rfc/rfc5246.txt</a><a href="#section-2-2.15" class="pilcrow">¶</a>
+        <li class="compact" id="section-2-2.15">[RFC5246] - The Transport Layer Security (TLS) Protocol Version 1.2 <a href="https://www.rfc-editor.org/rfc/rfc5246.txt">https://www.rfc-editor.org/rfc/rfc5246.txt</a><a href="#section-2-2.15" class="pilcrow">¶</a>
 </li>
-</ul>
+      </ul>
 </section>
 </div>
 <div id="terms-and-definitions">
@@ -1266,32 +1373,32 @@ These key words are not to be used as lexicon terms such that any occurrence of 
       <h2 id="name-glossary">
 <a href="#section-4" class="section-number selfRef">4. </a><a href="#name-glossary" class="section-name selfRef">Glossary</a>
       </h2>
-<ul>
-<li id="section-4-1.1">
+<ul class="compact">
+<li class="compact" id="section-4-1.1">
           <strong>API</strong> - Application Programming Interface<a href="#section-4-1.1" class="pilcrow">¶</a>
 </li>
-<li id="section-4-1.2">
+        <li class="compact" id="section-4-1.2">
           <strong>DCR</strong> - Dynamic Client Registration<a href="#section-4-1.2" class="pilcrow">¶</a>
 </li>
-<li id="section-4-1.3">
+        <li class="compact" id="section-4-1.3">
           <strong>HTTP</strong> - Hyper Text Transfer Protocol<a href="#section-4-1.3" class="pilcrow">¶</a>
 </li>
-<li id="section-4-1.4">
+        <li class="compact" id="section-4-1.4">
           <strong>ICP</strong> - Infraestrutura de Chave P&#250;blicas Brasileira<a href="#section-4-1.4" class="pilcrow">¶</a>
 </li>
-<li id="section-4-1.5">
+        <li class="compact" id="section-4-1.5">
           <strong>SS</strong> - Software Statement<a href="#section-4-1.5" class="pilcrow">¶</a>
 </li>
-<li id="section-4-1.6">
+        <li class="compact" id="section-4-1.6">
           <strong>SSA</strong> - Software Statement Assertion<a href="#section-4-1.6" class="pilcrow">¶</a>
 </li>
-<li id="section-4-1.7">
+        <li class="compact" id="section-4-1.7">
           <strong>TLS</strong> - Transport Layer Security<a href="#section-4-1.7" class="pilcrow">¶</a>
 </li>
-<li id="section-4-1.8">
+        <li class="compact" id="section-4-1.8">
           <strong>mTLS</strong> - Mutual Transport Layer Security<a href="#section-4-1.8" class="pilcrow">¶</a>
 </li>
-</ul>
+      </ul>
 </section>
 </div>
 <div id="open-finance-brasil-certificate-standards">
@@ -1318,31 +1425,31 @@ These key words are not to be used as lexicon terms such that any occurrence of 
 <p id="section-5.2-3">The practices, processes, availability and values practiced by the Certification Authorities are not responsibility of the Initial Structure of Open Finance Brasil.<a href="#section-5.2-3" class="pilcrow">¶</a></p>
 <p id="section-5.2-4"><strong>Algorithms</strong><a href="#section-5.2-4" class="pilcrow">¶</a></p>
 <p id="section-5.2-5">All certificates issued by ICP-Brasil must have the following characteristics:<a href="#section-5.2-5" class="pilcrow">¶</a></p>
-<ul>
-<li id="section-5.2-6.1">Type A of ICP-Brasil;<a href="#section-5.2-6.1" class="pilcrow">¶</a>
+<ul class="compact">
+<li class="compact" id="section-5.2-6.1">Type A of ICP-Brasil;<a href="#section-5.2-6.1" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2-6.2">Key Algorithms: RSA 2048 bits;<a href="#section-5.2-6.2" class="pilcrow">¶</a>
+          <li class="compact" id="section-5.2-6.2">Key Algorithms: RSA 2048 bits;<a href="#section-5.2-6.2" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2-6.3">Message Digest: SHA 256 bits.<a href="#section-5.2-6.3" class="pilcrow">¶</a>
+          <li class="compact" id="section-5.2-6.3">Message Digest: SHA 256 bits.<a href="#section-5.2-6.3" class="pilcrow">¶</a>
 </li>
-</ul>
+        </ul>
 <p id="section-5.2-7"><strong>Participating Certificate Authorities</strong><a href="#section-5.2-7" class="pilcrow">¶</a></p>
-<p id="section-5.2-7">The following certifying authorities carried out the onboard process for Open Finance Brasil and are authorized to issue Open Finance Brasil certificates using the level 1 certificates listed here:<a href="#section-5.2-5" class="pilcrow">¶</a></p>
-<ul>
-<li id="section-5.2-7.1">
-                <a href="https://www.gov.br/iti/pt-br/assuntos/repositorio/ac-certisign">CertiSign</a> (Cadeia v5 e v10)<a href="#section-5.2-7.1" class="pilcrow">¶</a>
+<p id="section-5.2-8">The following certifying authorities carried out the onboard process for Open Finance Brasil and are authorized to issue Open Finance Brasil certificates using the level 1 certificates listed here:<a href="#section-5.2-8" class="pilcrow">¶</a></p>
+<ul class="compact">
+<li class="compact" id="section-5.2-9.1">
+            <a href="https://www.gov.br/iti/pt-br/assuntos/repositorio/ac-certisign">CertiSign</a> (Chain v5 e v10)<a href="#section-5.2-9.1" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2-7.2">
-                <a href="https://www.gov.br/iti/pt-br/assuntos/repositorio/ac-serasa-acp">Serasa</a> (Cadeia v5 e v10)<a href="#section-5.2-7.2" class="pilcrow">¶</a>
+          <li class="compact" id="section-5.2-9.2">
+            <a href="https://www.gov.br/iti/pt-br/assuntos/repositorio/ac-serasa-acp">Serasa</a> (Chain v5 e v10)<a href="#section-5.2-9.2" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2-7.3">
-                <a href="https://www.gov.br/iti/pt-br/assuntos/repositorio/ac-serpro-de-1deg-nivel">Serpro</a> (Cadeia v5 e v10)<a href="#section-5.2-7.3" class="pilcrow">¶</a>
+          <li class="compact" id="section-5.2-9.3">
+            <a href="https://www.gov.br/iti/pt-br/assuntos/repositorio/ac-serpro-de-1deg-nivel">Serpro</a> (Chain v5 e v10)<a href="#section-5.2-9.3" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2-7.4">
-                <a href="https://www.gov.br/iti/pt-br/assuntos/repositorio/ac-soluti">Soluti</a> (Cadeia v5 e v10)<a href="#section-5.2-7.4" class="pilcrow">¶</a>
+          <li class="compact" id="section-5.2-9.4">
+            <a href="https://www.gov.br/iti/pt-br/assuntos/repositorio/ac-soluti">Soluti</a> (Chain v5 e v10)<a href="#section-5.2-9.4" class="pilcrow">¶</a>
 </li>
-</ul>
-<p id="section-5.2-7.5">Only the certificates indicated with “<code>Situa&#231;&#227;o: v&#225;lido</code>” (which mean “<code>status: valid</code>“) in these ITI repositories referenced above, which are Chain v5 and v10, should be accepted by the servers of the Open Finance Brasil ecosystem<a href="#section-5.2-7.5" class="pilcrow">¶</a></p>  
+        </ul>
+<p id="section-5.2-10">Only the certificates indicated with "<code>Situa&#231;&#227;o: v&#225;lido</code>" (which mean "<code>status: valid</code>") in these ITI repositories referenced above, which are Chain v5 and v10, should be accepted by the servers of the Open Finance Brasil ecosystem.<a href="#section-5.2-10" class="pilcrow">¶</a></p>
 <div id="server-certificate">
 <section id="section-5.2.1">
           <h4 id="name-server-certificate">
@@ -1365,66 +1472,66 @@ These key words are not to be used as lexicon terms such that any occurrence of 
             <h5 id="name-open-finance-brasil-attribu">
 <a href="#section-5.2.2.1" class="section-number selfRef">5.2.2.1. </a><a href="#name-open-finance-brasil-attribu" class="section-name selfRef">Open Finance Brasil Attributes</a>
             </h5>
-<ul>
-<li id="section-5.2.2.1-1.1">
+<ul class="compact">
+<li class="compact" id="section-5.2.2.1-1.1">
                 <strong>serialNumber:</strong> National Register of Legal Personnel (CNPJ) of the legal entity holding the certificate and associated with the UID attribute and Software Statement ID, during validation with the Directory Service of Open Finance Brasil;<a href="#section-5.2.2.1-1.1" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.2.1-1.2">
+              <li class="compact" id="section-5.2.2.1-1.2">
                 <strong>organizationIdentifier:</strong> Participant Code associated with the CNPJ listed in the Directory Service of Open Finance Brasil; For certificates issued until August 31 the field used for this information is <strong>organizationalUnitName</strong>.<a href="#section-5.2.2.1-1.2" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.2.1-1.3">
+              <li class="compact" id="section-5.2.2.1-1.3">
                 <strong>UID:</strong> Software Statement ID registered in the Directory Service of Open Finance Brasil and belonging to the CNPJ and Participant Code.<a href="#section-5.2.2.1-1.3" class="pilcrow">¶</a>
 </li>
-</ul>
+            </ul>
 <p id="section-5.2.2.1-2">The Client Certificate must be issued through the V10 chain, and must contain the following attributes:<a href="#section-5.2.2.1-2" class="pilcrow">¶</a></p>
 <p id="section-5.2.2.1-3"><strong>Distinguished Name</strong><a href="#section-5.2.2.1-3" class="pilcrow">¶</a></p>
-<ul>
-<li id="section-5.2.2.1-4.1">
+<ul class="compact">
+<li class="compact" id="section-5.2.2.1-4.1">
                 <strong>businessCategory (OID 2.5.4.15):</strong> Type of business category, which must contain: "Private Organization" or "Government Entity" or "Business Entity" or "Non-Commercial Entity"<a href="#section-5.2.2.1-4.1" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.2.1-4.2">
+              <li class="compact" id="section-5.2.2.1-4.2">
                 <strong>jurisdictionCountryName (OID: 1.3.6.1.4.1.311.60.2.1.3):</strong> BR<a href="#section-5.2.2.1-4.2" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.2.1-4.3">
+              <li class="compact" id="section-5.2.2.1-4.3">
                 <strong>serialNumber (OID 2.5.4.5):</strong> CNPJ<a href="#section-5.2.2.1-4.3" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.2.1-4.4">
+              <li class="compact" id="section-5.2.2.1-4.4">
                 <strong>countryName (OID 2.5.4.6):</strong> BR<a href="#section-5.2.2.1-4.4" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.2.1-4.5">
+              <li class="compact" id="section-5.2.2.1-4.5">
                 <strong>organizationName (OID 2.5.4.10):</strong> Company Name<a href="#section-5.2.2.1-4.5" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.2.1-4.6">
+              <li class="compact" id="section-5.2.2.1-4.6">
                 <strong>stateOrProvinceName (OID 2.5.4.8):</strong> Federation unit of the certificate holder's physical address<a href="#section-5.2.2.1-4.6" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.2.1-4.7">
+              <li class="compact" id="section-5.2.2.1-4.7">
                 <strong>localityName (OID 2.5.4.7):</strong> City of the holder's physical address<a href="#section-5.2.2.1-4.7" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.2.1-4.8">
+              <li class="compact" id="section-5.2.2.1-4.8">
                 <strong>organizationIdentifier (OID 2.5.4.97):</strong> Participant Code associated with the CNPJ listed in the Directory Service of Open Finance Brasil. *For certificates issued until August 31:  <strong>organizationalUnitName (OID 2.5.4.11):</strong> Participant Code associated with the CNPJ listed in the Directory Service of Open Finance Brasil*<a href="#section-5.2.2.1-4.8" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.2.1-4.9">
+              <li class="compact" id="section-5.2.2.1-4.9">
                 <strong>UID (OID 0.9.2342.19200300.100.1.1):</strong> Software Statement ID generated by Open Finance Brasil Directory<a href="#section-5.2.2.1-4.9" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.2.1-4.10">
+              <li class="compact" id="section-5.2.2.1-4.10">
                 <strong>commonName (OID 2.5.4.3):</strong> FQDN or Wildcard<a href="#section-5.2.2.1-4.10" class="pilcrow">¶</a>
 </li>
-</ul>
+            </ul>
 <p id="section-5.2.2.1-5"><strong>Certificate Extensions</strong><a href="#section-5.2.2.1-5" class="pilcrow">¶</a></p>
-<ul>
-<li id="section-5.2.2.1-6.1">
+<ul class="compact">
+<li class="compact" id="section-5.2.2.1-6.1">
                 <strong>keyUsage:</strong> critical,digitalSignature,keyEncipherment<a href="#section-5.2.2.1-6.1" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.2.1-6.2">
+              <li class="compact" id="section-5.2.2.1-6.2">
                 <strong>extendedKeyUsage:</strong> clientAuth<a href="#section-5.2.2.1-6.2" class="pilcrow">¶</a>
 </li>
-</ul>
+            </ul>
 <p id="section-5.2.2.1-7"><strong>Subject Alternative Name</strong><a href="#section-5.2.2.1-7" class="pilcrow">¶</a></p>
-<ul>
-<li id="section-5.2.2.1-8.1">
+<ul class="compact">
+<li class="compact" id="section-5.2.2.1-8.1">
                 <strong>dNSName:</strong> FQDN or Wildcard<a href="#section-5.2.2.1-8.1" class="pilcrow">¶</a>
 </li>
-</ul>
+            </ul>
 </section>
 </div>
 </section>
@@ -1440,60 +1547,62 @@ These key words are not to be used as lexicon terms such that any occurrence of 
             <h5 id="name-open-finance-brasil-attribut">
 <a href="#section-5.2.3.1" class="section-number selfRef">5.2.3.1. </a><a href="#name-open-finance-brasil-attribut" class="section-name selfRef">Open Finance Brasil Attributes Present in the Certificate</a>
             </h5>
-<ul>
-<li id="section-5.2.3.1-1.1">
+<ul class="compact">
+<li class="compact" id="section-5.2.3.1-1.1">
                 <strong>UID:</strong> Participant Code associated with the CNPJ listed in the Directory Service of Open Finance Brasil;<a href="#section-5.2.3.1-1.1" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.3.1-1.2">
+              <li class="compact" id="section-5.2.3.1-1.2">
                 <strong>commonName:</strong> Company Name registered in the Directory Service of Open Finance Brasil and belonging to the CNPJ and Participant Code.<a href="#section-5.2.3.1-1.2" class="pilcrow">¶</a>
 </li>
-</ul>
+            </ul>
 <p id="section-5.2.3.1-2">The Signature Certificate must be issued through the V5 chain, and must contain the following attributes:<a href="#section-5.2.3.1-2" class="pilcrow">¶</a></p>
 <p id="section-5.2.3.1-3"><strong>Distinguished Name</strong><a href="#section-5.2.3.1-3" class="pilcrow">¶</a></p>
-<ul>
-<li id="section-5.2.3.1-4.1">
+<ul class="compact">
+<li class="compact" id="section-5.2.3.1-4.1">
                 <strong>UID (OID 0.9.2342.19200300.100.1.1):</strong> Participant Code associated with the CNPJ listed in the Directory Service of Open Finance Brazil<a href="#section-5.2.3.1-4.1" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.3.1-4.2">
+              <li class="compact" id="section-5.2.3.1-4.2">
                 <strong>countryName (OID 2.5.4.6):</strong> BR<a href="#section-5.2.3.1-4.2" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.3.1-4.3">
+              <li class="compact" id="section-5.2.3.1-4.3">
                 <strong>organizationName (OID 2.5.4.10):</strong> ICP-Brasil<a href="#section-5.2.3.1-4.3" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.3.1-4.4">
+              <li class="compact" id="section-5.2.3.1-4.4">
                 <strong>organizationalUnitName (OID 2.5.4.11):</strong> Certificate Authority Name<a href="#section-5.2.3.1-4.4" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.3.1-4.5">
+              <li class="compact" id="section-5.2.3.1-4.5">
                 <strong>organizationalUnitName (OID 2.5.4.11):</strong> CNPJ of the Registration Authority<a href="#section-5.2.3.1-4.5" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.3.1-4.6">
+              <li class="compact" id="section-5.2.3.1-4.6">
                 <strong>organizationalUnitName (OID 2.5.4.11):</strong> Type of identification used (in person, videoconference or digital certificate)<a href="#section-5.2.3.1-4.6" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.3.1-4.7">
+              <li class="compact" id="section-5.2.3.1-4.7">
                 <strong>commonName (OID 2.5.4.3):</strong> Company Name<a href="#section-5.2.3.1-4.7" class="pilcrow">¶</a>
 </li>
-</ul>
+            </ul>
 <p id="section-5.2.3.1-5"><strong>Certificate Extensions</strong><a href="#section-5.2.3.1-5" class="pilcrow">¶</a></p>
-<ul>
-<li id="section-5.2.3.1-6.1">
+<ul class="compact">
+<li class="compact" id="section-5.2.3.1-6.1">
                 <strong>keyUsage:</strong> critical,digitalSignature,nonRepudiation<a href="#section-5.2.3.1-6.1" class="pilcrow">¶</a>
 </li>
-</ul>
+            </ul>
 <p id="section-5.2.3.1-7"><strong>Subject Alternative Name</strong><a href="#section-5.2.3.1-7" class="pilcrow">¶</a></p>
-<ul>
-<li id="section-5.2.3.1-8.1">
+<ul class="compact">
+<li class="compact" id="section-5.2.3.1-8.1">
                 <strong>otherName (OID 2.16.76.1.3.2 - ICP-Brasil):</strong> Name of the person responsible for the certificate<a href="#section-5.2.3.1-8.1" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.3.1-8.2">
+              <li class="compact" id="section-5.2.3.1-8.2">
                 <strong>otherName (OID 2.16.76.1.3.3 - ICP-Brasil):</strong> National Register of Legal Entities (CNPJ) of the legal entity holding the certificate;<a href="#section-5.2.3.1-8.2" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.3.1-8.3">
+              <li class="compact" id="section-5.2.3.1-8.3">
                 <strong>otherName (OID 2.16.76.1.3.4 - ICP-Brasil):</strong> Responsible for the certificate of legal entity holding the certificate (date of birth, CPF, PIS/PASEP/CI, RG);<a href="#section-5.2.3.1-8.3" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.3.1-8.4">
+              <li class="compact" id="section-5.2.3.1-8.4">
                 <strong>otherName (OID 2.16.76.1.3.7 - ICP-Brasil):</strong> INSS Specific Registry Number (CEI) of the legal entity holding the certificate.<a href="#section-5.2.3.1-8.4" class="pilcrow">¶</a>
 </li>
-</ul>
+            </ul>
+</section>
+</div>
 </section>
 </div>
 <div id="front-end-certificates">
@@ -1525,18 +1634,18 @@ These key words are not to be used as lexicon terms such that any occurrence of 
       </h2>
 <p id="section-6-1">Thanks to all who have set the foundations for secure and safe data sharing through the formation of the OpenID Foundation FAPI Working Group, the Open Finance Brasil GT Security and to the pioneers who will stand on their shoulders.<a href="#section-6-1" class="pilcrow">¶</a></p>
 <p id="section-6-2">The following people contributed to this document:<a href="#section-6-2" class="pilcrow">¶</a></p>
-<ul>
-<li id="section-6-3.1">Jo&#227;o Rodolfo Vieira (Ita&#250;)<a href="#section-6-3.1" class="pilcrow">¶</a>
+<ul class="compact">
+<li class="compact" id="section-6-3.1">Jo&#227;o Rodolfo Vieira (Ita&#250;)<a href="#section-6-3.1" class="pilcrow">¶</a>
 </li>
-<li id="section-6-3.2">Jos&#233; Michael Dias (Grupo Pan)<a href="#section-6-3.2" class="pilcrow">¶</a>
+        <li class="compact" id="section-6-3.2">Jos&#233; Michael Dias (Grupo Pan)<a href="#section-6-3.2" class="pilcrow">¶</a>
 </li>
-<li id="section-6-3.3">Marcos Rodrigues (Ita&#250;)<a href="#section-6-3.3" class="pilcrow">¶</a>
+        <li class="compact" id="section-6-3.3">Marcos Rodrigues (Ita&#250;)<a href="#section-6-3.3" class="pilcrow">¶</a>
 </li>
-<li id="section-6-3.4">Nic Marcondes (Quanto)<a href="#section-6-3.4" class="pilcrow">¶</a>
+        <li class="compact" id="section-6-3.4">Nic Marcondes (Quanto)<a href="#section-6-3.4" class="pilcrow">¶</a>
 </li>
-<li id="section-6-3.5">Ralph Bragg (Raidiam)<a href="#section-6-3.5" class="pilcrow">¶</a>
+        <li class="compact" id="section-6-3.5">Ralph Bragg (Raidiam)<a href="#section-6-3.5" class="pilcrow">¶</a>
 </li>
-</ul>
+      </ul>
 </section>
 </div>
 <div id="notices">
@@ -1544,7 +1653,7 @@ These key words are not to be used as lexicon terms such that any occurrence of 
       <h2 id="name-notices">
 <a href="#section-7" class="section-number selfRef">7. </a><a href="#name-notices" class="section-name selfRef">Notices</a>
       </h2>
-<p id="section-7-1">Copyright (c) 2022 Open Finance Brasil Initial Structure.<a href="#section-7-1" class="pilcrow">¶</a></p>
+<p id="section-7-1">Copyright (c) 2023 Open Finance Brasil Initial Structure.<a href="#section-7-1" class="pilcrow">¶</a></p>
 <p id="section-7-2">The Open Finance Brasil Initial Structure (OFBIS) grants to any Contributor, developer, implementer, or other interested party a non-exclusive, royalty-free, worldwide copyright license to reproduce, prepare derivative works from, distribute, perform and display, this Implementers Draft or Final Specification solely for the purposes of (i) developing specifications, and (ii) implementing Implementers Drafts and Final Specifications based on such documents, provided that attribution be made to the OFBIS as the source of the material, but that such attribution does not indicate an endorsement by the OFBIS.<a href="#section-7-2" class="pilcrow">¶</a></p>
 <p id="section-7-3">The technology described in this specification was made available from contributions from various sources, including members of the OpenID Foundation, the Open Finance Brasil GT Security Working Group and others. Although the Open Finance Brasil Initial Structure has taken steps to help ensure that the technology is available for distribution, it takes no position regarding the validity or scope of any intellectual property or other rights that might be claimed to pertain to the implementation or use of the technology described in this specification or the extent to which any license under such rights might or might not be available; neither does it represent that it has made any independent effort to identify any such rights. The Open Finance Brasil Initial Structure and the contributors to this specification make no (and hereby expressly disclaim any) warranties (express, implied, or otherwise), including implied warranties of merchantability, non-infringement, fitness for a particular purpose, or title, related to this specification, and the entire risk as to implementing this specification is assumed by the implementer. The Open Finance Brasil Intellectual Property Rights policy requires contributors to offer a patent promise not to assert certain patent claims against other contributors and against implementers. The Open Finance Brasil Initial Structure invites any interested party to bring to its attention any copyrights, patents, patent applications, or other proprietary rights that may cover technology that may be required to practice this specification.<a href="#section-7-3" class="pilcrow">¶</a></p>
 </section>
@@ -1559,7 +1668,7 @@ These key words are not to be used as lexicon terms such that any occurrence of 
         <h3 id="name-configuration-template-for-">
 <a href="#section-8.1" class="section-number selfRef">8.1. </a><a href="#name-configuration-template-for-" class="section-name selfRef">Configuration Template for Client Certificate - OpenSSL - For certificates issued until August 31, 2022</a>
         </h3>
-<div class="artwork art-text alignLeft" id="section-8.1-1">
+<div class="alignLeft art-text artwork" id="section-8.1-1">
 <pre>[req]
 default_bits = 2048
 default_md = sha256
@@ -1598,7 +1707,7 @@ DNS = &lt;FQDN|Wildcard&gt;
         <h3 id="name-configuration-template-for-c">
 <a href="#section-8.2" class="section-number selfRef">8.2. </a><a href="#name-configuration-template-for-c" class="section-name selfRef">Configuration Template for Client Certificate - OpenSSL - For certificates issued after August 31, 2022</a>
         </h3>
-<div class="artwork art-text alignLeft" id="section-8.2-1">
+<div class="alignLeft art-text artwork" id="section-8.2-1">
 <pre>oid_section = OIDs
 
 [req]
@@ -1642,7 +1751,7 @@ DNS = &lt;FQDN|Wildcard&gt;
         <h3 id="name-configuration-template-for-s">
 <a href="#section-8.3" class="section-number selfRef">8.3. </a><a href="#name-configuration-template-for-s" class="section-name selfRef">Configuration Template for Signature Certificate - OpenSSL</a>
         </h3>
-<div class="artwork art-text alignLeft" id="section-8.3-1">
+<div class="alignLeft art-text artwork" id="section-8.3-1">
 <pre>[req]
 default_bits = 2048
 default_md = sha256
