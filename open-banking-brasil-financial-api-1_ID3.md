@@ -24,8 +24,8 @@
     organization = "Open Finance Brasil Initial Structure"
     abbrev = "OFBIS"
       [author.address]
-      email = "gt-seguranca@openbankingbr.org"
-      uri = "https://openbankingbrasil.org.br/"
+      email = "gt-seguranca@openfinancebrasil.org.br"
+      uri = "https://openfinancebrasil.org.br"
 %%%
 
 .# Foreword
@@ -465,7 +465,7 @@ The following people contributed to this document:
 
 # Notices
 
-Copyright (c) 2022 Open Finance Brasil Initial Structure.
+Copyright (c) 2023 Open Finance Brasil Initial Structure.
 
 The Open Finance Brasil Initial Structure (OFBIS) grants to any Contributor, developer, implementer, or other interested party a non-exclusive, royalty-free, worldwide copyright license to reproduce, prepare derivative works from, distribute, perform and display, this Implementers Draft or Final Specification solely for the purposes of (i) developing specifications, and (ii) implementing Implementers Drafts and Final Specifications based on such documents, provided that attribution be made to the OFBIS as the source of the material, but that such attribution does not indicate an endorsement by the OFBIS.
 

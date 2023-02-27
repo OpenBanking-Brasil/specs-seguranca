@@ -6,7 +6,7 @@ Repositório para documentação das especificações do GT de Segurança do Ope
 
 O Open Finance, ou sistema financeiro aberto, é a possibilidade de clientes de produtos e serviços financeiros permitirem o compartilhamento de suas informações entre diferentes instituições autorizadas pelo Banco Central e a movimentação de suas contas bancárias a partir de diferentes plataformas e não apenas pelo aplicativo ou site do banco, de forma segura, ágil e conveniente.
 
-Mais informações em: https://www.bcb.gov.br/estabilidadefinanceira/openbanking
+Mais informações em: https://www.bcb.gov.br/estabilidadefinanceira/openfinance
 
 ## Introdução
 
@@ -14,7 +14,7 @@ Este respositório e seu conteúdo foram criados e são mantidos pelo **GT de Se
 
 ## Como contribuir?
 
-As especificações deste repositório ainda estão em versão *draft*. A princípio, as alterações e manutenção nesse repositório são responsabilidades da [Governança do Open Finance Brasil - GT Segurança](mailto:gt-seguranca@openbankingbr.org).
+As especificações deste repositório ainda estão em versão *draft*. A princípio, as alterações e manutenção nesse repositório são responsabilidades da [Governança do Open Finance Brasil - GT Segurança](mailto:gt-seguranca@openfinancebrasil.org.br).
 
 ## O que eu vou encontrar nesse repositório?
 

@@ -3,7 +3,7 @@ info:
   title: Open Banking Brasil - Dynamic Client Registration
   description: Especificação dos serviços de registro dinâmico de cliente (DCR) e manutenção dinâmica de cliente (DCM), baseados nas especificações a seguir<br/> <ul><li>RFC 7591 - https://datatracker.ietf.org/doc/html/rfc7591</li><li>RFC 7592 - https://datatracker.ietf.org/doc/html/rfc7592<li>OpenID Connect Dynamic Client Registration -  https://openid.net/specs/openid-connect-registration-1_0.html</li></ul>
   contact:
-    email: openbankingbrasil@openbankingbrasil.org.br
+    email: gt-seguranca@openfinancebrasil.org.br
   version: 1.0.0
 externalDocs:
   description: Documentação do processo de DCR / DCM no portal do desenvolvedor do Open Banking Brasil

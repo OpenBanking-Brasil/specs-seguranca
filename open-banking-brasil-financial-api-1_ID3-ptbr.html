@@ -8,7 +8,7 @@
 <meta content="OFBIS GT Security" name="author">
 <meta content="xml2rfc 3.12.2" name="generator">
 <meta content="FAPI" name="keyword">
-<meta content="Open Finance Brasil GT Security" name="keyword">
+<meta content="Open Banking Brasil GT Security" name="keyword">
 <meta content="open-banking-brasil-financial-api-1_ID3-ptbr" name="ietf.draft">
 <!-- Generator version information:
   xml2rfc 3.12.2
@@ -1182,7 +1182,7 @@ li > p:last-of-type {
 <thead><tr>
 <td class="left"></td>
 <td class="center">OFB-FAPI-1-ID3</td>
-<td class="right">June 2022</td>
+<td class="right">February 2023</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Security</td>
@@ -1317,10 +1317,7 @@ li > p:last-of-type {
                     <p id="section-toc.1-1.7.2.1.2.2.1"><a href="#section-7.1.2" class="xref">7.1.2</a>.  <a href="#name-defini231227o-de-escopo-de-" class="xref">Defini&#231;&#227;o de Escopo de Consentimento Din&#226;mico</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.1.2.3">
-                    <p id="section-toc.1-1.7.2.1.2.3.1"><a href="#section-7.1.3" class="xref">7.1.3</a>.  <a href="#name-dynamic-consent-scope-examp" class="xref">Dynamic Consent Scope Example</a></p>
-</li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.1.2.4">
-                    <p id="section-toc.1-1.7.2.1.2.4.1"><a href="#section-7.1.4" class="xref">7.1.4</a>.  <a href="#name-exemplo-de-escopo-de-consen" class="xref">Exemplo de escopo de consentimento din&#226;mico</a></p>
+                    <p id="section-toc.1-1.7.2.1.2.3.1"><a href="#section-7.1.3" class="xref">7.1.3</a>.  <a href="#name-exemplo-de-escopo-de-consen" class="xref">Exemplo de escopo de consentimento din&#226;mico</a></p>
 </li>
                 </ul>
 </li>
@@ -1398,8 +1395,9 @@ li > p:last-of-type {
 <p id="section-2-21"><a href="https://openid.net/specs/openid-financial-api-part-2-1_0.html">FAPI-1-Advanced</a> - Financial-grade API Security Profile 1.0 - Part 2: Advanced<a href="#section-2-21" class="pilcrow">¶</a></p>
 <p id="section-2-22"><a href="https://bitbucket.org/openid/fapi/src/master/FAPI_2_0_Baseline_Profile.md">FAPI-2-Baseline</a> - Financial-grade API Security Profile 2.0 - Part 1: Baseline<a href="#section-2-22" class="pilcrow">¶</a></p>
 <p id="section-2-23"><a href="https://bitbucket.org/openid/fapi/src/master/Financial_API_Lodging_Intent.md">LIWP</a> - OIDF FAPI WG Lodging Intent Working Paper<a href="#section-2-23" class="pilcrow">¶</a></p>
-<p id="section-2-24"><a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID3.html">OFB-FAPI-DCR</a> - Open Finance Brasil Financial-grade API Dynamic Client Registration Profile 1.0<a href="#section-2-24" class="pilcrow">¶</a></p>
-<p id="section-2-25"><a href="https://tools.ietf.org/html/rfc4648">RFC4648</a> - The Base16, Base32, and Base64 Data Encodings<a href="#section-2-25" class="pilcrow">¶</a></p>
+<p id="section-2-24"><a href="https://bitbucket.org/openid/fapi/src/master/Financial_API_Lodging_Intent.md">LIWP</a> - OIDF FAPI WG Lodging Intent Working Paper<a href="#section-2-24" class="pilcrow">¶</a></p>
+<p id="section-2-25"><a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-dynamic-client-registration-1_ID3.html">OFB-FAPI-DCR</a> - Open Finance Brasil Financial-grade API Dynamic Client Registration Profile 1.0<a href="#section-2-25" class="pilcrow">¶</a></p>
+<p id="section-2-26"><a href="https://tools.ietf.org/html/rfc4648">RFC4648</a> - The Base16, Base32, and Base64 Data Encodings<a href="#section-2-26" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="definitions">
@@ -1530,7 +1528,22 @@ li > p:last-of-type {
 </li>
             <li id="section-5.2.2-3.16">pode suportar o valor <code>code</code> para o atributo <code>response_type</code>em conjunto com o valor <code>jwt</code> para o atributo <code>response_mode</code>;<a href="#section-5.2.2-3.16" class="pilcrow">¶</a>
 </li>
-            <li id="section-5.2.2-3.17">n&#227;o deve permitir o recurso de rota&#231;&#227;o de <code>refresh tokens</code>.<a href="#section-5.2.2-3.17" class="pilcrow">¶</a>
+            <li id="section-5.2.2-3.17">n&#227;o deve permitir o recurso de rota&#231;&#227;o de <code>refresh tokens</code>;<a href="#section-5.2.2-3.17" class="pilcrow">¶</a>
+</li>
+            <li id="section-5.2.2-3.18">deve garantir que em caso de compartilhamento do Servidor de Autoriza&#231;&#227;o para outros servi&#231;os, al&#233;m do Open Finance, n&#227;o divulgue e/ou possibilite o uso de m&#233;todos n&#227;o certificados no ambiente do Open Finance;<a href="#section-5.2.2-3.18" class="pilcrow">¶</a>
+</li>
+            <li id="section-5.2.2-3.19">
+              <p id="section-5.2.2-3.19.1">deve garantir que as configura&#231;&#245;es divulgadas aos demais participantes atrav&#233;s do <code>OpenID Discovery</code> (indicado pelo arquivo de <code>Well-Known</code> cadastrado no Diret&#243;rio) sejam restritos aos modos de opera&#231;&#227;o aos quais a institui&#231;&#227;o se certificou;<a href="#section-5.2.2-3.19.1" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="compact type-1" id="section-5.2.2-3.19.2">
+<li id="section-5.2.2-3.19.2.1">deve manter em suas configura&#231;&#245;es os m&#233;todos para os quais ainda hajam clientes ativos;<a href="#section-5.2.2-3.19.2.1" class="pilcrow">¶</a>
+</li>
+                <li id="section-5.2.2-3.19.2.2">deve atualizar os cadastros que utilizem m&#233;todos n&#227;o certificados, atrav&#233;s de tratamento bilateral entre as institui&#231;&#245;es envolvidas.<a href="#section-5.2.2-3.19.2.2" class="pilcrow">¶</a>
+</li>
+              </ol>
+</li>
+            <li id="section-5.2.2-3.20">deve recusar requisi&#231;&#245;es, para o ambiente do Open Finance, que estejam fora dos modos de opera&#231;&#227;o ao qual a institui&#231;&#227;o certificou seu Servidor de Autoriza&#231;&#227;o;<a href="#section-5.2.2-3.20" class="pilcrow">¶</a>
+</li>
+            <li id="section-5.2.2-3.21">deve recusar requisi&#231;&#245;es de autentica&#231;&#227;o que incluam um id_token_hint, visto que o id_token em posse do requisitante pode conter Informa&#231;&#227;o de Identifica&#231;&#227;o Pessoal, que poderia ser enviada descriptografada pelo cliente p&#250;blico.<a href="#section-5.2.2-3.21" class="pilcrow">¶</a>
 </li>
 <li id="section-5.2.2-3.18">deve garantir que em caso de compartilhamento do Servidor de Autorização para outros serviços, além do Open Finance, não divulgue e/ou possibilite o uso de métodos não certificados no ambiente do Open Finance.<a href="#section-5.2.2-3.18" class="pilcrow">¶</a>
 </li>
@@ -1569,66 +1582,136 @@ li > p:last-of-type {
 <li id="section-5.2.2.1-3.1">
                 <strong>n&#227;o deveria</strong> retornar Informa&#231;&#227;o de Identifica&#231;&#227;o Pessoal (PII) confidenciais no token de ID na resposta de autoriza&#231;&#227;o, mas se for necess&#225;rio, ent&#227;o ele <strong>deve</strong> criptografar o token de ID.<a href="#section-5.2.2.1-3.1" class="pilcrow">¶</a>
 </li>
+              <li id="section-5.2.2.1-3.2">
+                <p id="section-5.2.2.1-3.2.1">Informa&#231;&#227;o de Identifica&#231;&#227;o Pessoal pode incluir, mas n&#227;o est&#225; restrito a:<a href="#section-5.2.2.1-3.2.1" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="compact type-1" id="section-5.2.2.1-3.2.2">
+<li id="section-5.2.2.1-3.2.2.1">Claim <code>sub</code> caso use informa&#231;&#227;o que possibilite a identifica&#231;&#227;o da pessoa natural;<a href="#section-5.2.2.1-3.2.2.1" class="pilcrow">¶</a>
+</li>
+                  <li id="section-5.2.2.1-3.2.2.2">As Claims padr&#245;es definidas na cl&#225;usula 5.1 <a href="https://openid.net/specs/openid-connect-core-1_0.html">OIDC</a>, que podem conter dados como data de nascimento, endere&#231;o ou telefone;<a href="#section-5.2.2.1-3.2.2.2" class="pilcrow">¶</a>
+</li>
+                  <li id="section-5.2.2.1-3.2.2.3">A nova Claim CPF, definida na pr&#243;xima se&#231;&#227;o.<a href="#section-5.2.2.1-3.2.2.3" class="pilcrow">¶</a>
+</li>
+                </ol>
+</li>
+              <li id="section-5.2.2.1-3.3">
+                <p id="section-5.2.2.1-3.3.1">Caso seja solicitada alguma Claim contendo Informa&#231;&#227;o de Identifica&#231;&#227;o Pessoal:<a href="#section-5.2.2.1-3.3.1" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="compact type-1" id="section-5.2.2.1-3.3.2">
+<li id="section-5.2.2.1-3.3.2.1">Se esta for marcada como essencial, em n&#227;o se havendo chave de criptografia registrada para o Cliente, dever&#225; falhar a requisi&#231;&#227;o se for solicitada no Endpoint de Autoriza&#231;&#227;o. N&#227;o h&#225; impedimentos caso a solicita&#231;&#227;o seja feita pelo Cliente Confidencial atrav&#233;s do Endpoint de Token;<a href="#section-5.2.2.1-3.3.2.1" class="pilcrow">¶</a>
+</li>
+                  <li id="section-5.2.2.1-3.3.2.2">Se esta n&#227;o for marcada como essencial, o Servidor de Autoriza&#231;&#227;o dever&#225; omiti-la no Endpoint de Autoriza&#231;&#227;o, podendo ser respondida no Endpoint de Token chamado pelo Cliente Confidencial.<a href="#section-5.2.2.1-3.3.2.2" class="pilcrow">¶</a>
+</li>
+                </ol>
+</li>
+              <li id="section-5.2.2.1-3.4">Para a criptografia do id_token deve ser utilizada chave dispon&#237;vel no <code>JWKS</code> informado no par&#226;metro <code>jwks_uri</code> durante o registro do cliente, indicada atrav&#233;s do cabe&#231;alho <code>kid</code> do documento JWT;<a href="#section-5.2.2.1-3.4" class="pilcrow">¶</a>
+</li>
+              <li id="section-5.2.2.1-3.5">O uso de outros cabe&#231;alhos para indica&#231;&#227;o da chave utilizada, como <code>x5u</code>, <code>x5c</code>, <code>jku</code> ou <code>jkw</code> &#233; vetado conforme definido na cl&#225;usula 2 <a href="https://openid.net/specs/openid-connect-core-1_0.html">OIDC</a>.<a href="#section-5.2.2.1-3.5" class="pilcrow">¶</a>
+</li>
             </ol>
 </section>
 </div>
-<div id="cpf">
+<div id="claim-sub">
 <section id="section-5.2.2.2">
-            <h5 id="name-solicitando-uma-claim-cpf">
-<a href="#section-5.2.2.2" class="section-number selfRef">5.2.2.2. </a><a href="#name-solicitando-uma-claim-cpf" class="section-name selfRef">Solicitando uma "claim" <strong>cpf</strong></a>
+            <h5 id="name-clarifica231245es-sobre-a-s">
+<a href="#section-5.2.2.2" class="section-number selfRef">5.2.2.2. </a><a href="#name-clarifica231245es-sobre-a-s" class="section-name selfRef">Clarifica&#231;&#245;es sobre a "sub" Claim</a>
             </h5>
-<p id="section-5.2.2.2-1">Este perfil define "cpf" como uma nova <code>claim</code> padr&#227;o de acordo com cl&#225;usula 5.1 <a href="https://openid.net/specs/openid-connect-core-1_0.html">OIDC</a><a href="#section-5.2.2.2-1" class="pilcrow">¶</a></p>
-<p id="section-5.2.2.2-2">O n&#250;mero do <strong>CPF</strong> (Cadastro de Pessoas F&#237;sicas, [sepe&#712;&#603;fi]; portugu&#234;s para "Registro de Pessoas F&#237;sicas") &#233; o cadastro de pessoa f&#237;sica <strong>brasileira</strong>. Este n&#250;mero &#233; atribu&#237;do pela Receita Federal <strong>Brasileira</strong> para brasileiros e estrangeiros residentes que, direta ou indiretamente, pagar impostos no <strong>Brasil</strong>.<a href="#section-5.2.2.2-2" class="pilcrow">¶</a></p>
-<p id="section-5.2.2.2-3">No modelo de identidade do Open Finance Brasil, o cpf &#233; uma string composta por n&#250;meros 11 caracteres de comprimento e podem come&#231;ar com 0.<a href="#section-5.2.2.2-3" class="pilcrow">¶</a></p>
-<p id="section-5.2.2.2-4">Se a Claim <strong>cpf</strong> for solicitada como essencial para constar no ID token ou na resposta ao endpoint de UserInfo e na solicita&#231;&#227;o constar no par&#226;metro <code>value</code> com determinado <strong>CPF</strong> exigido, o Authorization Server <strong>DEVE</strong> retornar no atributo <strong>cpf</strong> o valor que corresponda ao da solicita&#231;&#227;o.<a href="#section-5.2.2.2-4" class="pilcrow">¶</a></p>
-<p id="section-5.2.2.2-5">Se a Claim <strong>cpf</strong> for solicitada como essencial para constar no ID Token ou na resposta no endpoint de UserInfo, o Authorization Server deve retornar no atributo <strong>cpf</strong> o valor com o <strong>CPF</strong> do usu&#225;rio autenticado.<a href="#section-5.2.2.2-5" class="pilcrow">¶</a></p>
-<p id="section-5.2.2.2-6">Se a Claim <strong>cpf</strong> indicada como essencial n&#227;o puder ser preenchida ou n&#227;o for compat&#237;vel com o requisito, o Authorization Server deve tratar a solicita&#231;&#227;o como uma tentativa de autentica&#231;&#227;o com falha.<a href="#section-5.2.2.2-6" class="pilcrow">¶</a></p>
-<p id="section-5.2.2.2-7">Nome: cpf, Tipo: String, Regex: '<sup>d{11}$'</sup><a href="#section-5.2.2.2-7" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.2-1">Este perfil usa a defini&#231;&#227;o oficial encontrada em: <a href="https://github.com/OpenBanking-Brasil/specs-seguranca/tree/main/idtoken_review">https://github.com/OpenBanking-Brasil/specs-seguranca/tree/main/idtoken_review</a>.
+Isso significa que o sub &#233; um identificador nunca transferido ou alterado para o usu&#225;rio final.
+O valor para um dado usu&#225;rio nunca deve mudar dentro de uma institui&#231;&#227;o, mesmo em diferentes consentimentos.<a href="#section-5.2.2.2-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="cpf">
+<section id="section-5.2.2.3">
+            <h5 id="name-solicitando-uma-claim-cpf">
+<a href="#section-5.2.2.3" class="section-number selfRef">5.2.2.3. </a><a href="#name-solicitando-uma-claim-cpf" class="section-name selfRef">Solicitando uma "claim" <strong>cpf</strong></a>
+            </h5>
+<p id="section-5.2.2.3-1">Este perfil define "cpf" como uma nova <code>claim</code> padr&#227;o de acordo com
+ cl&#225;usula 5.1 <a href="https://openid.net/specs/openid-connect-core-1_0.html">OIDC</a><a href="#section-5.2.2.3-1" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.3-2">O n&#250;mero do <strong>CPF</strong> (Cadastro de Pessoas F&#237;sicas, [sepe&#712;&#603;fi]; portugu&#234;s para "Registro de Pessoas F&#237;sicas")
+ &#233; o cadastro de pessoa f&#237;sica <strong>brasileira</strong>. Este n&#250;mero &#233; atribu&#237;do pela Receita Federal
+ <strong>Brasileira</strong> para brasileiros e estrangeiros residentes que, direta ou indiretamente,
+ pagar impostos no <strong>Brasil</strong>.<a href="#section-5.2.2.3-2" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.3-3">No modelo de identidade do Open Finance Brasil, o cpf &#233; uma string composta por n&#250;meros 11
+ caracteres de comprimento e podem come&#231;ar com 0.<a href="#section-5.2.2.3-3" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.3-4">Se a Claim <strong>cpf</strong> for solicitada como essencial para constar no ID token ou na resposta ao endpoint de UserInfo
+ e na solicita&#231;&#227;o constar no par&#226;metro <code>value</code> com determinado <strong>CPF</strong> exigido, o Authorization Server <strong>DEVE</strong> retornar no atributo <strong>cpf</strong>
+  o valor que corresponda ao da solicita&#231;&#227;o.<a href="#section-5.2.2.3-4" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.3-5">Se a Claim <strong>cpf</strong> for solicitada como essencial para constar no ID Token ou na resposta no endpoint de UserInfo,
+ o Authorization Server deve retornar no atributo <strong>cpf</strong> o valor com o <strong>CPF</strong> do usu&#225;rio autenticado.<a href="#section-5.2.2.3-5" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.3-6">Se a Claim <strong>cpf</strong> indicada como essencial n&#227;o puder ser preenchida ou n&#227;o for compat&#237;vel com o requisito,
+ o Authorization Server deve tratar a solicita&#231;&#227;o como uma tentativa de autentica&#231;&#227;o com falha.<a href="#section-5.2.2.3-6" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.3-7">Se a Claim <strong>cpf</strong> indicada como essencial for solicitada no endpoint de Autoriza&#231;&#227;o, dever&#225; seguir as regras definidas na se&#231;&#227;o 5.2.2.1.<a href="#section-5.2.2.3-7" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.3-8">Nome: cpf, Tipo: String, Regex: '<sup>d{11}$'</sup><a href="#section-5.2.2.3-8" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="cnpj">
-<section id="section-5.2.2.3">
+<section id="section-5.2.2.4">
             <h5 id="name-solicitando-a-claim-cnpj">
-<a href="#section-5.2.2.3" class="section-number selfRef">5.2.2.3. </a><a href="#name-solicitando-a-claim-cnpj" class="section-name selfRef">Solicitando a "claim" <strong>cnpj</strong></a>
+<a href="#section-5.2.2.4" class="section-number selfRef">5.2.2.4. </a><a href="#name-solicitando-a-claim-cnpj" class="section-name selfRef">Solicitando a "claim" <strong>cnpj</strong></a>
             </h5>
-<p id="section-5.2.2.3-1">Este perfil define "cnpj" como uma nova reivindica&#231;&#227;o padr&#227;o de acordo com cl&#225;usula 5.1 <a href="https://openid.net/specs/openid-connect-core-1_0.html">OIDC</a><a href="#section-5.2.2.3-1" class="pilcrow">¶</a></p>
-<p id="section-5.2.2.3-2"><strong>CNPJ</strong>, abrevia&#231;&#227;o de Cadastro Nacional de Pessoas Jur&#237;dicas, &#233; um n&#250;mero de identifica&#231;&#227;o de empresas <strong>brasileiras</strong> emitidas pelo Minist&#233;rio da Fazenda <strong>brasileira</strong>, <strong>na</strong> "Secretaria da Receita Federal" ou "Minist&#233;rio da Fazenda" do Brasil. No modelo de identidade do Open Finance Brasil, pessoas f&#237;sicas podem se associar a 0 ou mais CNPJs. Um CNPJ &#233; uma string que consiste em n&#250;meros de 14 d&#237;gitos e pode come&#231;ar com 0, os primeiros oito d&#237;gitos identificam a empresa, os quatro d&#237;gitos ap&#243;s a barra identificam a filial ou subsidi&#225;ria ("0001" padr&#227;o para a sede), e os dois &#250;ltimos s&#227;o d&#237;gitos de soma de verifica&#231;&#227;o. Para este perfil, o pedido de cnpj deve ser solicitado e fornecido como o n&#250;mero de 14 d&#237;gitos.<a href="#section-5.2.2.3-2" class="pilcrow">¶</a></p>
-<p id="section-5.2.2.3-3">Se a Claim <strong>cnpj</strong> for solicitada como essencial para constar no ID Token ou na resposta ao endpoint UserInfo e na solicita&#231;&#227;o constar, no par&#226;metro <code>value</code>, determinado <strong>CNPJ</strong> exigido, o Authorization Server <strong>DEVE</strong> retornar no atributo <strong>cnpj</strong> um <strong>conjunto</strong> de <strong>CNPJs</strong> relacionado com o usu&#225;rio, um dos quais deve incluir valor que corresponda ao da solicita&#231;&#227;o.<a href="#section-5.2.2.3-3" class="pilcrow">¶</a></p>
-<p id="section-5.2.2.3-4">Se a Claim <strong>cnpj</strong> for solicitada como essencial para constar no ID Token ou na resposta ao endpoint UserInfo, o Authorization Server deve incluir no ID Token ou na resposta ao endpoint UserInfo um <strong>conjunto</strong> que inclua um elemento com o n&#250;mero do <strong>CNPJ</strong> relacionado &#224; conta utilizada na autentica&#231;&#227;o do usu&#225;rio.<a href="#section-5.2.2.3-4" class="pilcrow">¶</a></p>
-<p id="section-5.2.2.3-5">Se a Claim <strong>cnpj</strong> indicada como essencial n&#227;o puder ser preenchida ou validada, o Authorization Server deve tratar a solicita&#231;&#227;o como uma tentativa de autentica&#231;&#227;o com falha.<a href="#section-5.2.2.3-5" class="pilcrow">¶</a></p>
-<p id="section-5.2.2.3-6">Nome: cnpj, Tipo: Array of Strings, Array Element Regex: '<sup>d{14}$'</sup><a href="#section-5.2.2.3-6" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.4-1">Este perfil define "cnpj" como uma nova reivindica&#231;&#227;o padr&#227;o de acordo
+ com cl&#225;usula 5.1 <a href="https://openid.net/specs/openid-connect-core-1_0.html">OIDC</a><a href="#section-5.2.2.4-1" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.4-2"><strong>CNPJ</strong>, abrevia&#231;&#227;o de Cadastro Nacional de Pessoas Jur&#237;dicas, &#233; um n&#250;mero de identifica&#231;&#227;o
+ de empresas <strong>brasileiras</strong> emitidas pelo Minist&#233;rio da Fazenda <strong>brasileira</strong>, <strong>na</strong>
+ "Secretaria da Receita Federal" ou "Minist&#233;rio da Fazenda" do Brasil. No modelo de identidade do Open Finance Brasil,
+ pessoas f&#237;sicas podem se associar a 0 ou mais CNPJs. Um CNPJ &#233; uma string que consiste em n&#250;meros de 14 d&#237;gitos e pode come&#231;ar com 0,
+ os primeiros oito d&#237;gitos identificam a empresa, os quatro d&#237;gitos ap&#243;s a barra identificam a filial
+ ou subsidi&#225;ria ("0001" padr&#227;o para a sede), e os dois &#250;ltimos s&#227;o d&#237;gitos de soma de verifica&#231;&#227;o.
+ Para este perfil, o pedido de cnpj deve ser solicitado e fornecido como o n&#250;mero de 14 d&#237;gitos.<a href="#section-5.2.2.4-2" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.4-3">Se a Claim <strong>cnpj</strong> for solicitada como essencial para constar no ID Token ou na resposta ao endpoint UserInfo e na solicita&#231;&#227;o constar,
+ no par&#226;metro <code>value</code>, determinado <strong>CNPJ</strong> exigido, o Authorization Server <strong>DEVE</strong> retornar no atributo <strong>cnpj</strong>
+ um <strong>conjunto</strong> de <strong>CNPJs</strong> relacionado com o usu&#225;rio, um dos quais deve incluir valor que corresponda ao da solicita&#231;&#227;o.<a href="#section-5.2.2.4-3" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.4-4">Se a Claim <strong>cnpj</strong> for solicitada como essencial para constar no ID Token ou na resposta ao endpoint UserInfo,
+ o Authorization Server deve incluir no ID Token ou na resposta ao endpoint UserInfo um <strong>conjunto</strong> que inclua um elemento
+ com o n&#250;mero do <strong>CNPJ</strong> relacionado &#224; conta utilizada na autentica&#231;&#227;o do usu&#225;rio.<a href="#section-5.2.2.4-4" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.4-5">Se a Claim <strong>cnpj</strong> indicada como essencial n&#227;o puder ser preenchida
+ ou validada, o Authorization Server deve tratar a solicita&#231;&#227;o como
+ uma tentativa de autentica&#231;&#227;o com falha.<a href="#section-5.2.2.4-5" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.4-6">Nome: cnpj, Tipo: Array of Strings, Array Element Regex: '<sup>d{14}$'</sup><a href="#section-5.2.2.4-6" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="loa">
-<section id="section-5.2.2.4">
+<section id="section-5.2.2.5">
             <h5 id="name-solicitando-o-urnbrasilopen">
-<a href="#section-5.2.2.4" class="section-number selfRef">5.2.2.4. </a><a href="#name-solicitando-o-urnbrasilopen" class="section-name selfRef">Solicitando o "urn:brasil:openbanking:loa2" ou "urn:brasil:openbanking:loa3" Solicita&#231;&#227;o de contexto de autentica&#231;&#227;o</a>
+<a href="#section-5.2.2.5" class="section-number selfRef">5.2.2.5. </a><a href="#name-solicitando-o-urnbrasilopen" class="section-name selfRef">Solicitando o "urn:brasil:openbanking:loa2" ou "urn:brasil:openbanking:loa3" Solicita&#231;&#227;o de contexto de autentica&#231;&#227;o</a>
             </h5>
+<p id="section-5.2.2.5-1">Esse perfil define "urn:brasil:openbanking:loa2" e "urn:brasil:openbanking:loa3" como
+ novas classes de "Authentication Context Request" (ACR)<a href="#section-5.2.2.5-1" class="pilcrow">¶</a></p>
 <ul class="compact">
-<li class="compact" id="section-5.2.2.4-1.1">
-                <strong>LoA2</strong>: mecanismo de autentica&#231;&#227;o com a ado&#231;&#227;o de um &#250;nico fator<a href="#section-5.2.2.4-1.1" class="pilcrow">¶</a>
+<li class="compact" id="section-5.2.2.5-2.1">
+                <strong>LoA2</strong>: mecanismo de autentica&#231;&#227;o com a ado&#231;&#227;o de um &#250;nico fator<a href="#section-5.2.2.5-2.1" class="pilcrow">¶</a>
 </li>
-              <li class="compact" id="section-5.2.2.4-1.2">
-                <strong>LoA3</strong>: mecanismo de autentica&#231;&#227;o com m&#250;ltiplos fatores de autentica&#231;&#227;o<a href="#section-5.2.2.4-1.2" class="pilcrow">¶</a>
+              <li class="compact" id="section-5.2.2.5-2.2">
+                <strong>LoA3</strong>: mecanismo de autentica&#231;&#227;o com m&#250;ltiplos fatores de autentica&#231;&#227;o<a href="#section-5.2.2.5-2.2" class="pilcrow">¶</a>
 </li>
             </ul>
-<p id="section-5.2.2.4-2">A seguinte orienta&#231;&#227;o deve ser observada para o mecanismo de autentica&#231;&#227;o:
-* De acordo com o Art. 17 da Resolu&#231;&#227;o Conjunta n&#186; 01, as institui&#231;&#245;es devem adotar  procedimentos e controles para autentica&#231;&#227;o de cliente <strong>compat&#237;veis com os aplic&#225;veis ao acesso a seus canais de atendimento eletr&#244;nicos</strong>.
-* Em observ&#226;ncia &#224; regula&#231;&#227;o em vigor, sugere-se que:
-  * <strong>Para a autentica&#231;&#227;o do usu&#225;rio em autoriza&#231;&#245;es de acessos &#224;s APIs de compartilhamento de dados (Fase 2)</strong>, os <em>Authorization Servers</em> <strong>deveriam</strong> adotar, no m&#237;nimo, m&#233;todo compat&#237;vel com <code>LoA2</code>; e
-  * <strong>Para a autentica&#231;&#227;o do usu&#225;rio em autoriza&#231;&#245;es de acessos &#224;s API's das fases subsequentes</strong>, os <em>Authorization Servers</em> <strong>deveriam</strong> adotar m&#233;todo de autentica&#231;&#227;o compat&#237;vel com <code>LoA3</code> ou superior.<a href="#section-5.2.2.4-2" class="pilcrow">¶</a></p>
-<p id="section-5.2.2.4-3">Em todos os casos, a ado&#231;&#227;o de mecanismo de autentica&#231;&#227;o mais rigoroso (<code>LoA3</code> ou superior) fica a crit&#233;rio da institui&#231;&#227;o transmissora ou detentora de conta, de acordo com sua avalia&#231;&#227;o de riscos e de forma compat&#237;vel com os mecanismos habitualmente utilizados.<a href="#section-5.2.2.4-3" class="pilcrow">¶</a></p>
-<p id="section-5.2.2.4-4"><strong>Esclarecimentos adicionais sobre fatores de autentica&#231;&#227;o</strong><a href="#section-5.2.2.4-4" class="pilcrow">¶</a></p>
-<p id="section-5.2.2.4-5">S&#227;o fatores de autentica&#231;&#227;o:<a href="#section-5.2.2.4-5" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.5-3">A seguinte orienta&#231;&#227;o deve ser observada para o mecanismo de autentica&#231;&#227;o das APIs do Open Finance Brasil:<a href="#section-5.2.2.5-3" class="pilcrow">¶</a></p>
 <ul class="compact">
-<li class="compact" id="section-5.2.2.4-6.1">Aquilo que <strong>voc&#234; conhece</strong>, como uma senha ou frase secreta<a href="#section-5.2.2.4-6.1" class="pilcrow">¶</a>
+<li class="compact" id="section-5.2.2.5-4.1">De acordo com o Art. 17 da Resolu&#231;&#227;o Conjunta n&#186; 01, as institui&#231;&#245;es devem adotar  procedimentos e controles para autentica&#231;&#227;o de cliente <strong>compat&#237;veis com os aplic&#225;veis ao acesso a seus canais de atendimento eletr&#244;nicos</strong>.<a href="#section-5.2.2.5-4.1" class="pilcrow">¶</a>
 </li>
-              <li class="compact" id="section-5.2.2.4-6.2">Aquilo que <strong>voc&#234; tem</strong>, como um token, smartcard ou dispositivo<a href="#section-5.2.2.4-6.2" class="pilcrow">¶</a>
+              <li class="compact" id="section-5.2.2.5-4.2">
+                <p id="section-5.2.2.5-4.2.1">Em observ&#226;ncia &#224; regula&#231;&#227;o em vigor, sugere-se que:<a href="#section-5.2.2.5-4.2.1" class="pilcrow">¶</a></p>
+<ul class="compact">
+<li class="compact" id="section-5.2.2.5-4.2.2.1">
+                    <strong>Para a autentica&#231;&#227;o do usu&#225;rio em autoriza&#231;&#245;es de acessos &#224;s APIs de compartilhamento de dados (Fase 2)</strong>, os <em>Authorization Servers</em> <strong>deveriam</strong> adotar, no m&#237;nimo, m&#233;todo compat&#237;vel com <code>LoA2</code>; e<a href="#section-5.2.2.5-4.2.2.1" class="pilcrow">¶</a>
 </li>
-              <li class="compact" id="section-5.2.2.4-6.3">Aquilo que <strong>"voc&#234; &#233;"</strong>, ou seja, autentica&#231;&#227;o condicionada a apresenta&#231;&#227;o de uma caracter&#237;stica f&#237;sica exclusivamente sua, como a valida&#231;&#227;o por biometria<a href="#section-5.2.2.4-6.3" class="pilcrow">¶</a>
+                  <li class="compact" id="section-5.2.2.5-4.2.2.2">
+                    <strong>Para a autentica&#231;&#227;o do usu&#225;rio em autoriza&#231;&#245;es de acessos &#224;s API's das fases subsequentes</strong>, os <em>Authorization Servers</em> <strong>deveriam</strong> adotar m&#233;todo de autentica&#231;&#227;o compat&#237;vel com <code>LoA3</code> ou superior.<a href="#section-5.2.2.5-4.2.2.2" class="pilcrow">¶</a>
+</li>
+                </ul>
 </li>
             </ul>
-<p id="section-5.2.2.4-7">Para realizar autentica&#231;&#227;o por m&#250;ltiplos fatores (MFA) &#233; necess&#225;rio que o usu&#225;rio apresente, ao menos, dois diferentes  fatores dos listados acima. Um mesmo fator usado mais de uma vez - por exemplo, a apresenta&#231;&#227;o de suas senhas que ele conhece - n&#227;o pode ser aceito como MFA.<a href="#section-5.2.2.4-7" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.5-5">Em todos os casos, a ado&#231;&#227;o de mecanismo de autentica&#231;&#227;o mais rigoroso (<code>LoA3</code> ou superior) fica a crit&#233;rio da institui&#231;&#227;o transmissora ou detentora de conta, de acordo com sua avalia&#231;&#227;o de riscos e de forma compat&#237;vel com os mecanismos habitualmente utilizados.<a href="#section-5.2.2.5-5" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.5-6"><strong>Esclarecimentos adicionais sobre fatores de autentica&#231;&#227;o</strong><a href="#section-5.2.2.5-6" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.5-7">S&#227;o fatores de autentica&#231;&#227;o:<a href="#section-5.2.2.5-7" class="pilcrow">¶</a></p>
+<ul class="compact">
+<li class="compact" id="section-5.2.2.5-8.1">Aquilo que <strong>voc&#234; conhece</strong>, como uma senha ou frase secreta<a href="#section-5.2.2.5-8.1" class="pilcrow">¶</a>
+</li>
+              <li class="compact" id="section-5.2.2.5-8.2">Aquilo que <strong>voc&#234; tem</strong>, como um token, smartcard ou dispositivo<a href="#section-5.2.2.5-8.2" class="pilcrow">¶</a>
+</li>
+              <li class="compact" id="section-5.2.2.5-8.3">Aquilo que <strong>"voc&#234; &#233;"</strong>, ou seja, autentica&#231;&#227;o condicionada a apresenta&#231;&#227;o de uma caracter&#237;stica f&#237;sica exclusivamente sua, como a valida&#231;&#227;o por biometria<a href="#section-5.2.2.5-8.3" class="pilcrow">¶</a>
+</li>
+            </ul>
+<p id="section-5.2.2.5-9">Para realizar autentica&#231;&#227;o por m&#250;ltiplos fatores (MFA) &#233; necess&#225;rio que o usu&#225;rio apresente, ao menos, dois diferentes  fatores dos listados acima. Um mesmo fator usado mais de uma vez - por exemplo, a apresenta&#231;&#227;o de suas senhas que ele conhece - n&#227;o pode ser aceito como MFA.<a href="#section-5.2.2.5-9" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1658,7 +1741,9 @@ li > p:last-of-type {
 </li>
             <li id="section-5.2.3-3.8">deve suportar todos os m&#233;todos de autentica&#231;&#227;o especificados no item 14 da se&#231;&#227;o 5.2.2 da <a href="https://openid.net/specs/openid-financial-api-part-2-1_0.html">Financial-grade API Security Profile 1.0 - Part 2: Advanced</a> incluindo as diferentes combina&#231;&#245;es de m&#233;todos de encaminhamento dos Requests Objects (usando ou n&#227;o <a href="https://tools.ietf.org/html/draft-ietf-oauth-par">PAR</a> - item 11);<a href="#section-5.2.3-3.8" class="pilcrow">¶</a>
 </li>
-            <li id="section-5.2.3-3.9">n&#227;o deve permitir o recurso de rota&#231;&#227;o de <code>refresh tokens</code>.<a href="#section-5.2.3-3.9" class="pilcrow">¶</a>
+            <li id="section-5.2.3-3.9">n&#227;o deve permitir o recurso de rota&#231;&#227;o de <code>refresh tokens</code>;<a href="#section-5.2.3-3.9" class="pilcrow">¶</a>
+</li>
+            <li id="section-5.2.3-3.10">n&#227;o deve solicitar requisi&#231;&#245;es de autentica&#231;&#227;o que incluam um id_token_hint, visto que o id_token a ser utilizado pode conter Informa&#231;&#227;o de Identifica&#231;&#227;o Pessoal, que poderia ser enviada descriptografada atrav&#233;s do cliente p&#250;blico.<a href="#section-5.2.3-3.10" class="pilcrow">¶</a>
 </li>
           </ol>
 </section>
@@ -1672,7 +1757,10 @@ li > p:last-of-type {
       <h2 id="name-considera231245es-de-segura">
 <a href="#section-6" class="section-number selfRef">6. </a><a href="#name-considera231245es-de-segura" class="section-name selfRef">Considera&#231;&#245;es de seguran&#231;a</a>
       </h2>
-<p id="section-6-1">Os participantes devem apoiar todas as considera&#231;&#245;es de seguran&#231;a especificadas na cl&#225;usula 8 <a href="https://openid.net/specs/openid-financial-api-part-2-1_0.html">Financial-grade API Security Profile 1.0 - Parte 2: Advanced</a> e o <a href="https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Instru%C3%A7%C3%A3o%20Normativa%20BCB&numero=134">Manual de Seguran&#231;a de Banco Central do Brasil</a>. O ICP brasileiro emite certificados RSA x509 somente, portanto, para simplificar, a se&#231;&#227;o remove o suporte para algoritmos EC e exige que apenas algoritmos de criptografia recomendados pela IANA sejam usados.<a href="#section-6-1" class="pilcrow">¶</a></p>
+<p id="section-6-1">Os participantes devem apoiar todas as considera&#231;&#245;es de seguran&#231;a especificadas na cl&#225;usula 8
+ <a href="https://openid.net/specs/openid-financial-api-part-2-1_0.html">Financial-grade API Security Profile 1.0 - Parte 2: Advanced</a> e o <a href="https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Instru%C3%A7%C3%A3o%20Normativa%20BCB&numero=134">Manual de Seguran&#231;a de Banco Central do Brasil</a>.
+ O ICP Brasil emite certificados RSA x509 somente, portanto, para simplificar, a se&#231;&#227;o remove o suporte para algoritmos EC
+ e exige que apenas algoritmos de criptografia recomendados pela IANA sejam usados.<a href="#section-6-1" class="pilcrow">¶</a></p>
 <div id="jws">
 <section id="section-6.1">
         <h3 id="name-considera231245es-sobre-ass">
@@ -1712,7 +1800,7 @@ li > p:last-of-type {
                 <strong>iat</strong> (na requisi&#231;&#227;o <em>JWT</em> e na resposta <em>JWT</em>): o valor do campo <strong>iat</strong> dever&#225; ser preenchido com hor&#225;rio da gera&#231;&#227;o da mensagem e de acordo com o padr&#227;o  estabelecido na <a href="https://datatracker.ietf.org/doc/html/rfc7519#section-2">RFC7519</a> para o formato <em>NumericDate</em>.<a href="#section-6.1-1.3.2.5" class="pilcrow">¶</a>
 </li>
               <li class="compact" id="section-6.1-1.3.2.6">
-                <strong>cty</strong> (na requisi&#231;&#227;o <em>JWT</em> e na resposta <em>JWT</em>): o valor do campo <strong>cty</strong> dever&#225; ser preenchido caso as opera&#231;&#245;es de assinatura ou criptografia aninhadas n&#227;o sejam empregadas, o uso desse par&#226;metro de cabe&#231;alho n&#227;o &#233; recomendado. No caso de assinatura aninhada ou criptografia ser empregada, este par&#226;metro de cabe&#231;alho deve estar presente; neste caso, o valor deve ser &#34;JWT&#34;, para indicar que um JWT aninhado &#233; transportado neste JWT. Embora os nomes dos tipos de m&#237;dia n&#227;o diferenciem mai&#250;sculas de min&#250;sculas, &#233; recomend&#225;vel que &#34;JWT&#34; sempre seja escrito com caracteres mai&#250;sculos para compatibilidade com implementa&#231;&#245;es herdadas.<a href="#section-6.1-1.3.2.5" class="pilcrow">¶</a>
+                <strong>cty</strong> (na requisi&#231;&#227;o <em>JWT</em> e na resposta <em>JWT</em>): o valor do campo <strong>cty</strong> dever&#225; ser preenchido caso as opera&#231;&#245;es de assinatura ou criptografia aninhadas n&#227;o sejam empregadas, o uso desse par&#226;metro de cabe&#231;alho n&#227;o &#233; recomendado. No caso de assinatura aninhada ou criptografia ser empregada, este par&#226;metro de cabe&#231;alho deve estar presente; neste caso, o valor deve ser "JWT", para indicar que um JWT aninhado &#233; transportado neste JWT. Embora os nomes dos tipos de m&#237;dia n&#227;o diferenciem mai&#250;sculas de min&#250;sculas, &#233; recomend&#225;vel que "JWT" sempre seja escrito com caracteres mai&#250;sculos para compatibilidade com implementa&#231;&#245;es herdadas.<a href="#section-6.1-1.3.2.6" class="pilcrow">¶</a>
 </li>
             </ul>
 </li>
@@ -1751,7 +1839,7 @@ li > p:last-of-type {
             <p id="section-6.1-3.3.1">A claim <em>iat</em> deve ser num&#233;rica no formato Unix Time GMT+0 com toler&#226;ncia de +/- 60 segundos;<a href="#section-6.1-3.3.1" class="pilcrow">¶</a></p>
 </li>
           <li id="section-6.1-3.4">
-            <p id="section-6.1-3.4.1">A claim do <em>jti</em> deve ser &#250;nica para um <em>clientId</em> dentro de um intervalo de tempo de 86.400 segundos (24h), n&#227;o podendo ser reutilizada neste per&#237;odo. Em caso de reutiliza&#231;&#227;o, dever&#225; ser retornado o c&#243;digo de erro HTTP 403;<a href="#section-6.1-3.4.1" class="pilcrow">¶</a></p>
+            <p id="section-6.1-3.4.1">A claim do <em>jti</em> deve ser &#250;nica para um <em>clientId</em> dentro de um intervalo de tempo de 86.400 segundos (24h), n&#227;o podendo ser reutilizada neste per&#237;odo. Em caso de reutiliza&#231;&#227;o, dever&#225; ser retornado o c&#243;digo de erro HTTP 403. Demais casos seguir instru&#231;&#227;o da RFC 6749, item 5.2;<a href="#section-6.1-3.4.1" class="pilcrow">¶</a></p>
 </li>
         </ol>
 <div id="alg">
@@ -1813,7 +1901,7 @@ li > p:last-of-type {
           <h4 id="name-introdu231227o-4">
 <a href="#section-7.1.1" class="section-number selfRef">7.1.1. </a><a href="#name-introdu231227o-4" class="section-name selfRef">Introdu&#231;&#227;o</a>
           </h4>
-<p id="section-7.1.1-1">Os mecanismos existentes para gerenciar adequadamente o acesso aos recursos definidos em <a href="https://tools.ietf.org/html/rfc6749">RFC6749</a> s&#227;o insuficientes para atender aos requisitos de um ecossistema de compartilhamento de dados moderno. Aproveitar strings de escopo est&#225;tico n&#227;o fornece aos consumidores controle de granularidade suficiente para compartilhar com terceiros. O Open Banking Brasil optou por implementar uma <a href="https://openbanking-brasil.github.io/areadesenvolvedor/swagger/swagger_consents_apis.yaml">API de consentimento</a> como um recurso protegido OAuth 2.0 que pode ser usado para gerenciar o acesso granular aos recursos. A refer&#234;ncia ao recurso de consentimento ser&#225; transmitida como parte de um escopo de recurso din&#226;mico OAuth 2.0.<a href="#section-7.1.1-1" class="pilcrow">¶</a></p>
+<p id="section-7.1.1-1">Os mecanismos existentes para gerenciar adequadamente o acesso aos recursos definidos em <a href="https://tools.ietf.org/html/rfc6749">RFC6749</a> s&#227;o insuficientes para atender aos requisitos de um ecossistema de compartilhamento de dados moderno. Aproveitar strings de escopo est&#225;tico n&#227;o fornece aos consumidores controle de granularidade suficiente para compartilhar com terceiros. O Open Finance Brasil optou por implementar uma <a href="https://openbanking-brasil.github.io/areadesenvolvedor/swagger/swagger_consents_apis.yaml">API de consentimento</a> como um recurso protegido OAuth 2.0 que pode ser usado para gerenciar o acesso granular aos recursos. A refer&#234;ncia ao recurso de consentimento ser&#225; transmitida como parte de um escopo de recurso din&#226;mico OAuth 2.0.<a href="#section-7.1.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="consent">
@@ -1841,20 +1929,12 @@ li > p:last-of-type {
           </ul>
 </section>
 </div>
-<div id="consentexample">
+<div id="consentid">
 <section id="section-7.1.3">
-          <h4 id="name-dynamic-consent-scope-examp">
-<a href="#section-7.1.3" class="section-number selfRef">7.1.3. </a><a href="#name-dynamic-consent-scope-examp" class="section-name selfRef">Dynamic Consent Scope Example</a>
+          <h4 id="name-exemplo-de-escopo-de-consen">
+<a href="#section-7.1.3" class="section-number selfRef">7.1.3. </a><a href="#name-exemplo-de-escopo-de-consen" class="section-name selfRef">Exemplo de escopo de consentimento din&#226;mico</a>
           </h4>
 <p id="section-7.1.3-1">consent:urn:bancoex:C1DD33123<a href="#section-7.1.3-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="consentid">
-<section id="section-7.1.4">
-          <h4 id="name-exemplo-de-escopo-de-consen">
-<a href="#section-7.1.4" class="section-number selfRef">7.1.4. </a><a href="#name-exemplo-de-escopo-de-consen" class="section-name selfRef">Exemplo de escopo de consentimento din&#226;mico</a>
-          </h4>
-<p id="section-7.1.4-1">consent:urn:bancoex:C1DD33123<a href="#section-7.1.4-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1955,7 +2035,7 @@ li > p:last-of-type {
       <h2 id="name-avisos">
 <a href="#appendix-A" class="section-number selfRef">Appendix A. </a><a href="#name-avisos" class="section-name selfRef">Avisos</a>
       </h2>
-<p id="appendix-A-1">Copyright (c) 2022 Estrutura Inicial do Open Finance Brasil<a href="#appendix-A-1" class="pilcrow">¶</a></p>
+<p id="appendix-A-1">Copyright (c) 2023 Estrutura Inicial do Open Finance Brasil<a href="#appendix-A-1" class="pilcrow">¶</a></p>
 <p id="appendix-A-2">A Estrutura Inicial do Open Finance Brasil (EIOFB) concede a qualquer Colaborador, desenvolvedor, implementador ou outra parte interessada uma licen&#231;a de direitos autorais mundial n&#227;o exclusiva, livre de royalties para reproduzir, preparar trabalhos derivados, distribuir, executar e exibir, estes Implementadores Rascunho ou Especifica&#231;&#227;o Final exclusivamente para fins de (i) desenvolver especifica&#231;&#245;es e (ii) implementar Rascunhos de Implementadores e Especifica&#231;&#245;es Finais com base em tais documentos, desde que a atribui&#231;&#227;o seja feita ao EIOFB como a fonte do material, mas que tal atribui&#231;&#227;o o fa&#231;a n&#227;o indica endosso do EIOFB.<a href="#appendix-A-2" class="pilcrow">¶</a></p>
 <p id="appendix-A-3">A tecnologia descrita nesta especifica&#231;&#227;o foi disponibilizada a partir de contribui&#231;&#245;es de v&#225;rias fontes, incluindo membros da OpenID Foundation, do Grupo de Trabalho de Seguran&#231;a do Open Finance Brasil e outros. Embora a Estrutura Inicial do Open Finance Brasil tenha tomado medidas para ajudar a garantir que a tecnologia esteja dispon&#237;vel para distribui&#231;&#227;o, ela n&#227;o toma posi&#231;&#227;o quanto &#224; validade ou escopo de qualquer propriedade intelectual ou outros direitos que possam ser reivindicados como pertencentes &#224; implementa&#231;&#227;o ou uso do tecnologia descrita nesta especifica&#231;&#227;o ou at&#233; que ponto qualquer licen&#231;a sob tais direitos pode ou n&#227;o estar dispon&#237;vel; nem representa que fez qualquer esfor&#231;o independente para identificar tais direitos. A Estrutura Inicial do Open Finance Brasil e os contribuidores desta especifica&#231;&#227;o n&#227;o oferecem (e por meio deste expressamente se isentam de quaisquer) garantias (expressas, impl&#237;citas ou de outra forma), incluindo garantias impl&#237;citas de comercializa&#231;&#227;o, n&#227;o viola&#231;&#227;o, adequa&#231;&#227;o a uma finalidade espec&#237;fica ou t&#237;tulo, relacionados a esta especifica&#231;&#227;o, e todo o risco quanto &#224; implementa&#231;&#227;o desta especifica&#231;&#227;o &#233; assumido pelo implementador. A pol&#237;tica de Direitos de Propriedade Intelectual do Open Finance Brasil exige que os contribuidores ofere&#231;am uma promessa de patente de n&#227;o fazer valer certas reivindica&#231;&#245;es de patentes contra outros contribuidores e implementadores. A Estrutura Inicial do Open Finance Brasil convida qualquer parte interessada a trazer &#224; sua aten&#231;&#227;o quaisquer direitos autorais, patentes, pedidos de patentes ou outros direitos de propriedade que possam abranger a tecnologia que possa ser necess&#225;ria para praticar esta especifica&#231;&#227;o.<a href="#appendix-A-3" class="pilcrow">¶</a></p>
 </section>
@@ -1970,11 +2050,11 @@ li > p:last-of-type {
 <div dir="auto" class="left"><span class="org">Open Finance Brasil Initial Structure</span></div>
 <div class="email">
 <span>Email:</span>
-<a href="mailto:gt-seguranca@openbankingbr.org" class="email">gt-seguranca@openbankingbr.org</a>
+<a href="mailto:gt-seguranca@openfinancebrasil.org.br" class="email">gt-seguranca@openfinancebrasil.org.br</a>
 </div>
 <div class="url">
 <span>URI:</span>
-<a href="https://openbankingbrasil.org.br/" class="url">https://openbankingbrasil.org.br/</a>
+<a href="https://openfinancebrasil.org.br" class="url">https://openfinancebrasil.org.br</a>
 </div>
 </address>
 </section>

@@ -24,8 +24,8 @@
     organization = "Open Finance Brasil Initial Structure"
     abbrev = "OFBIS"
       [author.address]
-      email = "gt-seguranca@openbankingbr.org"
-      uri = "https://openbankingbrasil.org.br/"
+      email = "gt-seguranca@openfinancebrasil.org.br"
+      uri = "https://openfinancebrasil.org.br"
 
 %%%
 
@@ -484,7 +484,7 @@ As seguintes pessoas contribuíram para este documento:
 
 # Avisos  {#Notice}
 
-Copyright (c) 2022 Estrutura Inicial do Open Finance Brasil
+Copyright (c) 2023 Estrutura Inicial do Open Finance Brasil
 
 A Estrutura Inicial do Open Finance Brasil (EIOFB) concede a qualquer Colaborador, desenvolvedor, implementador ou outra parte interessada uma licença de direitos autorais mundial não exclusiva, livre de royalties para reproduzir, preparar trabalhos derivados, distribuir, executar e exibir, estes Implementadores Rascunho ou Especificação Final exclusivamente para fins de (i) desenvolver especificações e (ii) implementar Rascunhos de Implementadores e Especificações Finais com base em tais documentos, desde que a atribuição seja feita ao EIOFB como a fonte do material, mas que tal atribuição o faça não indica endosso do EIOFB.
 

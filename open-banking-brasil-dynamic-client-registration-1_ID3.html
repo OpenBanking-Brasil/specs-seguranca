@@ -1182,7 +1182,7 @@ li > p:last-of-type {
 <thead><tr>
 <td class="left"></td>
 <td class="center">OFB-FAPI-1-DCR-ID3</td>
-<td class="right">July 2022</td>
+<td class="right">February 2023</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Security</td>
@@ -1225,9 +1225,8 @@ li > p:last-of-type {
       <h2 id="name-introduction">
 <a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
-<p id="section-note.2-1">The Open Finance Brasil Financial-grade API Dynamic Client Registration Profile is a profile of <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a>, <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a> and <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OIDR</a> that aims to provide specific implementation guidelines for security and interoperability which can be applied to the identification, registration and management of OAuth Clients operating in the Brasil Open Finance ecosystem.
-Although it is possible to code an OpenID Provider and Relying Party from scratch using this specification, the main audience for this specification are parties who already have a certified implementation of <a href="https://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect</a> and seek to obtain certification for the Brasil Open Finance programme.<a href="#section-note.2-1" class="pilcrow">¶</a></p>
-
+<p id="section-note.2-1">The Open Finance Brasil Financial-grade API Dynamic Client Registration Profile is a profile of <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a>, <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a> and <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OIDR</a> that aims to provide specific implementation guidelines for security and interoperability which can be applied to the identification, registration and management of OAuth Clients operating in the Brasil Open Finance ecosystem.<a href="#section-note.2-1" class="pilcrow">¶</a></p>
+<p id="section-note.2-2">Although it is possible to code an OpenID Provider and Relying Party from scratch using this specification, the main audience for this specification are parties who already have a certified implementation of <a href="https://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect</a> and seek to obtain certification for the Brasil Open Finance programme.<a href="#section-note.2-2" class="pilcrow">¶</a></p>
 </section>
 <section class="note" id="section-note.3">
       <h2 id="name-notational-conventions">
@@ -1514,10 +1513,9 @@ This support shall be explicit in Participant Directory configurations, and in t
 <a href="#section-7.1" class="section-number selfRef">7.1. </a><a href="#name-authorization-server-2" class="section-name selfRef">Authorization server</a>
         </h3>
 <p id="section-7.1-1">The Authorization Server shall support the RFC RFCs Dynamic Client Registration (DCR) <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a>,  Dynamic Client Management (DCM) <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a> and <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Registration</a><a href="#section-7.1-1" class="pilcrow">¶</a></p>
-<p id="section-7.1-2">In addition, the Authorization Server:<a href="#section-7.1-2" class="pilcrow">¶</a></p>
+<p id="section-7.1-2">In addition, the Authorization Server<a href="#section-7.1-2" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="compact type-1" id="section-7.1-3">
-
-          <li id="section-7.1-3.1">shall reject dynamic client registration requests not performed over a connection secured with mutual tls using certificates issued by Brazil ICP (production) or the Directory of Participants (sandbox);<a href="#section-7.1-3.1" class="pilcrow">¶</a>
+<li id="section-7.1-3.1">shall reject dynamic client registration requests not performed over a connection secured with mutual tls using certificates issued by Brazil ICP (production) or the Directory of Participants (sandbox);<a href="#section-7.1-3.1" class="pilcrow">¶</a>
 </li>
           <li id="section-7.1-3.2">shall validate that the request contains software_statement JWT signed using the <code>PS256</code> algorithim issued by the Open Finance Brasil directory of participants;<a href="#section-7.1-3.2" class="pilcrow">¶</a>
 </li>
@@ -1527,8 +1525,7 @@ This support shall be explicit in Participant Directory configurations, and in t
 </li>
           <li id="section-7.1-3.5">shall, when informed, validate that <code>jwks_uri</code> matches the <code>software_jwks_uri</code> provided in the <code>software_statement</code>;<a href="#section-7.1-3.5" class="pilcrow">¶</a>
 </li>
-          <li id="section-7.1-3.6">shall require and validate that <code>redirect_uris</code> matches or contains a sub set of <code>software_redirect_uris</code> provided in the <code>software_statement</code>;<a href="#section-7.1-3.6" class="pilcrow">¶</a>
-
+          <li id="section-7.1-3.6">shall require and validate that <code>redirect_uris</code> matches or contains a sub set of software_redirect_uris provided in the <code>software_statement</code>;<a href="#section-7.1-3.6" class="pilcrow">¶</a>
 </li>
           <li id="section-7.1-3.7">shall require and validate that all client authentication mechanism adhere to the requirements defined in <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a> and <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a>, validating the <code>registration_access_token</code> and, through a secure connection, the certificate chain of ICP-Brasil;<a href="#section-7.1-3.7" class="pilcrow">¶</a>
 </li>
@@ -1537,24 +1534,23 @@ This support shall be explicit in Participant Directory configurations, and in t
 </li>
           <li id="section-7.1-3.9">shall validate that the requested scopes are adequate for accredited institutions and their regulatory roles and contained in the <code>software_statement</code>. The list of regulatory permissions and the corresponding scopes are described in the following sections;<a href="#section-7.1-3.9" class="pilcrow">¶</a>
 </li>
-          <li id="section-7.1-3.10">where possible, shall compare client metadata asserted by a client to the metadata provided in the  <code>software_statement</code>, choosing the values present in the SSA with precedence;<a href="#section-7.1-3.10" class="pilcrow">¶</a>
-
+          <li id="section-7.1-3.10">where possible, shall compare client metadata asserted by a client to the metadata provided in the  <code>software_statement</code>, choosing values in the SSA with precedence;<a href="#section-7.1-3.10" class="pilcrow">¶</a>
 </li>
           <li id="section-7.1-3.11">shall accept all x.500 AttributeType name strings defined in the Distinguished Name of the x.509 Certificate Profiles defined in <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-certificate-standards-1_ID1.html">Open Finance Brasil x.509 Certificate Standards</a>;<a href="#section-7.1-3.11" class="pilcrow">¶</a>
 </li>
           <li id="section-7.1-3.12">if supporting <code>tls_client_auth</code> client authentication mechanism as defined in <a href="https://tools.ietf.org/html/rfc8705">RFC8705</a> shall only accept <code>tls_client_auth_subject_dn</code>  as an indication of the certificate subject value as defined in clause 2.1.2 <a href="https://tools.ietf.org/html/rfc8705">RFC8705</a>;<a href="#section-7.1-3.12" class="pilcrow">¶</a>
 </li>
-          <li id="section-7.1-3.13">the value of the field <em>UID</em> of the certificate should match the one sent in the SSA, where the <em>UID</em> field should contain the value of the <em>software_id</em> field of the SSA.<a href="#section-7.1-3.13" class="pilcrow">¶</a>
+          <li id="section-7.1-3.13">The value of the field <em>UID</em> of the certificate should match the one sent in the SSA, where the <em>UID</em> field should contain the value of the <em>software_id</em> field of the SSA.<a href="#section-7.1-3.13" class="pilcrow">¶</a>
 </li>
-		      <li id="section-7.1-3.14">the <em>organizationIdentifier</em> field will be found in the subject_DN in ASN.1 format and must be decoded respecting the corresponding encoding string. The value of the <em>organizationIdentifier</em> field of the certificate which must contain the prefix corresponding to the Registration Reference <em>OFBBR-</em> followed by the value of the <em>org_id</em> field of the SSA. You must convert the values ​​of the OID 2.5.4.97 field from the ASN.1 format to human-readable text.<br/> For certificates issued before August 31, 2022: the value of the <em>OR</em> field of the certificate must contain the value of the <em>org_id</em> field of the SSA.<a href="#section-7.1-3.14" class="pilcrow">¶</a>
-</li>  
+          <li id="section-7.1-3.14">The <em>organizationIdentifier</em> field will be found in the subject_DN in ASN.1 format and must be decoded respecting the corresponding encoding string. The value of the <em>organizationIdentifier</em> field of the certificate which must contain the prefix corresponding to the Registration Reference <em>OFBBR-</em> followed by the value of the <em>org_id</em> field of the SSA. You must convert the values ​​of the OID 2.5.4.97 field from ASN.1 format to human-readable text.
+For certificates issued before August 31, 2022: The value of the <em>OR</em> field of the certificate must contain the value of the <em>org_id</em> field of the SSA.<a href="#section-7.1-3.14" class="pilcrow">¶</a>
+</li>
           <li id="section-7.1-3.15">shall, during the TLS handshake process, use the <code>distinguishedNameMatch</code> rule to compare the DN values as defined in <a href="https://www.rfc-editor.org/rfc/rfc4517">RFC4517</a>.<a href="#section-7.1-3.15" class="pilcrow">¶</a>
 </li>
           <li id="section-7.1-3.16">shall ensure the integrity of the stock of active consents, even after any systemic changes, so that such changes are transparent to the data receiver institutions (TPP).<a href="#section-7.1-3.16" class="pilcrow">¶</a>
 </li>
           <li id="section-7.1-3.17">shall perform a recertification on OIDF FAPI and DCR after any systemic changes.<a href="#section-7.1-3.17" class="pilcrow">¶</a>
 </li>
-
         </ol>
 <p id="section-7.1-4">These provisions apply equally to the processing of <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a>, <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a> and <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Registration</a> requests<a href="#section-7.1-4" class="pilcrow">¶</a></p>
 <div id="applying-server-defaults">
@@ -1583,24 +1579,21 @@ This support shall be explicit in Participant Directory configurations, and in t
 <p id="section-7.1.2-3">In case of non-compliance with these requirements, the Authorization Server shall reject the registration.<a href="#section-7.1.2-3" class="pilcrow">¶</a></p>
 <p id="section-7.1.2-4">In terms of format, follow below how decoding should be done:<a href="#section-7.1.2-4" class="pilcrow">¶</a></p>
 <ul class="compact">
-            <li class="compact" id="section-7.1.2-5.1">Obtain, in reverse order, the certificate attributes.<a href="#section-7.1.2-5.1" class="pilcrow">¶</a>
-
+<li class="compact" id="section-7.1.2-5.1">Obtain in reverse order the certificate attributes.<a href="#section-7.1.2-5.1" class="pilcrow">¶</a>
 </li>
             <li class="compact" id="section-7.1.2-5.2">Append each RDN (RelativeDistinguishedName) segment with a comma ','.<a href="#section-7.1.2-5.2" class="pilcrow">¶</a>
 </li>
             <li class="compact" id="section-7.1.2-5.3">Use the RFC strings (CN, L, ST, O, OR, C, Street, DC, UID) with the value of their attributes in human-readable format.<a href="#section-7.1.2-5.3" class="pilcrow">¶</a>
 </li>
-            <li class="compact" id="section-7.1.2-5.4">Use the OIDs of the attributes defined in this specification for use in the OFB (businessCategory = OID 2.5.4.15, jurisdictionCountryName = OID 1.3.6.1.4.1.311.60.2.1.3, serialNumber = OID 2.5.4.5, organizationIdentifier = OID 2.5.4.97) with values in ASN.1 format, following the <a href="https://www.rfc-editor.org/rfc/rfc4514">RFC4514</a>, being that:<a href="#section-7.1.2-5.4" class="pilcrow">¶</a>
-            <ul>
-              <li>Attribute names shall be defined according to dot-decimal notation, without adding the prefix "OID", ie. "2.5.4.15", followed by (‘=#’) plus the hexadecimal value of the attribute, here follows a complete example: <code>2.5.4.15=#0C1450726976617465204F7267616E697A6174696F6E</code>
-              </li>
-              <li>There are no restrictions for encoding and formatting attribute values. The hexadecimal value presented on the utilized attribute must be respected (PrintableString, UTF8String, etc). This item complies with opcionality of the format stabilished by the AC face ICP normatives and items 2.3, 2.4 e 5.2 of the <a href="https://www.rfc-editor.org/rfc/rfc4514">RFC4514</a>.
-              </li>
-            </ul>
+            <li class="compact" id="section-7.1.2-5.4">
+              <p id="section-7.1.2-5.4.1">Use the OIDs of the attributes defined in this specification for use in the OFB (businessCategory = OID 2.5.4.15, jurisdictionCountryName = OID 1.3.6.1.4.1.311.60.2.1.3, serialNumber = OID 2.5.4.5, organizationIdentifier = OID 2.5.4.97) with values in ASN.1 format, following the RFC4514, being that:<a href="#section-7.1.2-5.4.1" class="pilcrow">¶</a></p>
+<ul class="compact">
+<li class="compact" id="section-7.1.2-5.4.2.1">Attribute names shall be defined according to dot-decimal notation, without adding the prefix "OID", ie. "2.5.4.15", followed by ('=#') plus the hexadecimal value of the attribute, here follows a complete example: 2.5.4.15=#0C1450726976617465204F7267616E697A6174696F6E<a href="#section-7.1.2-5.4.2.1" class="pilcrow">¶</a>
 </li>
-            <li class="compact" id="section-7.1.2-5.5">
-              To comply with the DCR standard, convert the ASN.1 values of the OID 2.5.4.97 <em>organizationIdentifier</em> to human-readable text, use features of your API gateway or a standard library of type ASN.1 or if necessary still develop manually. To do so, retrieve the full value of the OID 2.5.4.97 contained in the subject_DN. Remove dot-decimal notation (2.5.4.97). Remove the ('=#') signs. Convert the hex value to text. Apply a filter using regular expression to retrieve the org_id after ('OFBBR-'), for example: 2.5.4.97=#132A4F464242522D36376335373838322D303433622D313165632D396130332D303234326163313330303033. Remove dot-decimal notation and signs ('=#'): 2.5.4.97=#. Convert the hexadecimal value 132A4F464242522D36376335373838322D303433622D313165632D396130332D303234326163313330303033 to text: **OFBBR-67c57882-043b-031ec Apply the regular expression and retrieve the org_id that is contained after 'OFBBR-':67c57882-043b-11ec-9a03-0242ac130003.
-            </li>
+                <li class="compact" id="section-7.1.2-5.4.2.2">There are no restrictions for encoding and formatting attribute values. The hexadecimal value presented on the utilized attribute must be respected (PrintableString, UTF8String, etc). This item complies with opcionality of the format stabilished by the AC face ICP normatives and items 2.3, 2.4 e 5.2 of the RFC4514.
+-To comply with DCR standard, convert ASN.1 values from OID 2.5.4.97 organizationIdentifier to human readable text, use features of your API gateway or a standard library of type ASN.1 or if necessary still develop manually. To do so, retrieve the full value of the OID 2.5.4.97 contained in the subject_DN. Remove dot-decimal notation (2.5.4.97). Remove the ('=#') signs. Convert the hex value to text. Apply a filter using regular expression to retrieve the org_id after ('OFBBR-'), for example: 2.5.4.97=#132A4F464242522D36376335373838322D303433622D313165632D396130332D303234326163313330303033. Remove dot-decimal notation and signs ('=#'): 2.5.4.97=#. Convert the hexadecimal value 132A4F464242522D36376335373838322D303433622D313165632D396130332D303234326163313330303033 to text: **OFBBR-67c57882-043b-031ec Apply the regular expression and retrieve the org_id that is contained after 'OFBBR-':67c57882-043b-11ec-9a03-0242ac130003.<a href="#section-7.1.2-5.4.2.2" class="pilcrow">¶</a>
+</li>
+              </ul>
 </li>
           </ul>
 <p id="section-7.1.2-6">Below are examples of required attributes for CAs active until August 31, 2022:<a href="#section-7.1.2-6" class="pilcrow">¶</a></p>
@@ -1614,27 +1607,26 @@ This support shall be explicit in Participant Directory configurations, and in t
             </thead>
             <tbody>
               <tr>
-                <td class="text-left" rowspan="1" colspan="1">UID=67c57882-043b-11ec-9a03-0242ac130003,<br/>1.3.6.1.4.1.311.60.2.1.3=#13024252,<br/>2.5.4.15=#131450726976617465204f7267616e697a6174696f6e,<br/>2.5.4.5=#130e3133333533323336303030313839,<br/>CN=mycn.bank.gov.br,<br/>OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59,<br/>O=My Public Bank,<br/>L=BRASILIA,<br/>ST=DF,<br/>C=BR</td>
+                <td class="text-left" rowspan="1" colspan="1">UID=67c57882-043b-11ec-9a03-0242ac130003,1.3.6.1.4.1.311.60.2.1.3=#13024252,2.5.4.15=#131450726976617465204f7267616e697a6174696f6e,2.5.4.5=#130e3133333533323336303030313839,CN=mycn.bank.gov.br,OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59,O=My Public Bank,L=BRASILIA,ST=DF,C=BR</td>
                 <td class="text-left" rowspan="1" colspan="1">issuer=CN=Open Banking SANDBOX Issuing CA   - G1,OU=Open Banking,O=Open   Banking Brasil,C=BR</td>
               </tr>
               <tr>
-                <td class="text-left" rowspan="1" colspan="1">UID=67c57882-043b-11ec-9a03-0242ac130003,<br/>1.3.6.1.4.1.311.60.2.1.3=#13024252,2.5.4.15=#0C0F427573696E65737320456E74697479,<br/>CN=mycn.bank.gov.br,<br/>2.5.4.5=#130e3133333533323336303030313839,<br/>OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59,<br/>O=My Public Bank,<br/>L=BRASILIA,<br/>ST=DF,<br/>C=BR</td>
+                <td class="text-left" rowspan="1" colspan="1">UID=67c57882-043b-11ec-9a03-0242ac130003,1.3.6.1.4.1.311.60.2.1.3=#13024252,2.5.4.15=#0C0F427573696E65737320456E74697479,CN=mycn.bank.gov.br,2.5.4.5=#130e3133333533323336303030313839,OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59,O=My Public Bank,L=BRASILIA,ST=DF,C=BR</td>
                 <td class="text-left" rowspan="1" colspan="1">issuer=CN=Autoridade Certificadora do SERPRO SSLv1,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR</td>
               </tr>
               <tr>
-                <td class="text-left" rowspan="1" colspan="1">1.3.6.1.4.1.311.60.2.1.3=#13024252,<br/>2.5.4.15=#131450726976617465204f7267616e697a6174696f6e,<br/>UID=67c57882-043b-11ec-9a03-0242ac130003,<br/>CN=openbanking.mybank.com.br,<br/>2.5.4.5=#130e3133333533323336303030313839,<br/>OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59,<br/>L=Goiania,<br/>ST=GO,<br/>O=MyBank SA,<br/>C=BR</td>
+                <td class="text-left" rowspan="1" colspan="1">1.3.6.1.4.1.311.60.2.1.3=#13024252,2.5.4.15=#131450726976617465204f7267616e697a6174696f6e,UID=67c57882-043b-11ec-9a03-0242ac130003,CN=openbanking.mybank.com.br,2.5.4.5=#130e3133333533323336303030313839,OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59,L=Goiania,ST=GO,O=MyBank SA,C=BR</td>
                 <td class="text-left" rowspan="1" colspan="1">issuer=CN=AC SOLUTI SSL EV,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR</td>
               </tr>
               <tr>
-                <td class="text-left" rowspan="1" colspan="1">CN=mycn.bank.com.br,<br/>UID=67c57882-043b-11ec-9a03-0242ac130003,<br/>OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59,<br/>L=Sao Paulo,<br/>ST=SP,<br/>O=MyBank SA,<br/>C=BR,2.5.4.5=#130e3133333533323336303030313839,<br/>1.3.6.1.4.1.311.60.2.1.3=#13024252,<br/>2.5.4.15=#0C0F427573696E65737320456E74697479</td>
+                <td class="text-left" rowspan="1" colspan="1">CN=mycn.bank.com.br,UID=67c57882-043b-11ec-9a03-0242ac130003,OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59,L=Sao Paulo,ST=SP,O=MyBank SA,C=BR,2.5.4.5=#130e3133333533323336303030313839,1.3.6.1.4.1.311.60.2.1.3=#13024252,2.5.4.15=#0C0F427573696E65737320456E74697479</td>
                 <td class="text-left" rowspan="1" colspan="1">issuer=CN=AC SERASA SSL EV,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR</td>
               </tr>
             </tbody>
           </table>
-	
-<p id="section-7.1.2-6-2">Below are examples of required attributes for CAs active after August 31, 2022:<a href="#section-7.1.2-6-2" class="pilcrow">¶</a></p>
-<table class="center" id="table-1">
-            <caption><a href="#table-1" class="selfRef">Table 2</a></caption>
+<p id="section-7.1.2-8">Below are examples of required attributes for CAs active after August 31, 2022:<a href="#section-7.1.2-8" class="pilcrow">¶</a></p>
+<table class="center" id="table-2">
+            <caption><a href="#table-2" class="selfRef">Table 2</a></caption>
 <thead>
               <tr>
                 <th class="text-left" rowspan="1" colspan="1">subject_dn</th>
@@ -1643,29 +1635,28 @@ This support shall be explicit in Participant Directory configurations, and in t
             </thead>
             <tbody>
               <tr>
-                <td class="text-left" rowspan="1" colspan="1">UID=67c57882-043b-11ec-9a03-0242ac130003,<br/>2.5.4.97=#0C2A4F464242522D36376335373838322D303433622D313165632D396130332D303234326163313330303033,<br/>1.3.6.1.4.1.311.60.2.1.3=#13024252,<br/>2.5.4.15=#131450726976617465204f7267616e697a6174696f6e,<br/>2.5.4.5=#130e3133333533323336303030313839,<br/>CN= mycn.bank.gov.br,<br/>OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59,<br/>O=My Public Bank,<br/>L= BRASILIA,ST=DF,<br/>C=BR</td>
-                <td class="text-left" rowspan="1" colspan="1">issuer=CN=Open Banking SANDBOX Issuing CA   - G1,OU=Open Banking,O=Open   Banking Brasil,C=BR</td>
+                <td class="text-left" rowspan="1" colspan="1">UID=67c57882-043b-11ec-9a03-0242ac130003,2.5.4.97=#0C2A4F464242522D36376335373838322D303433622D313165632D396130332D303234326163313330303033,1.3.6.1.4.1.311.60.2.1.3=#13024252,2.5.4.15=#131450726976617465204f7267616e697a6174696f6e,2.5.4.5=#130e3133333533323336303030313839,CN=mycn.bank.gov.br,OU=497e1ffe-b2a2-4a4e-8ef0-70633fd11b59,O=My Public Bank,L=BRASILIA,ST=DF,C=BR</td>
+                <td class="text-left" rowspan="1" colspan="1">issuer=CN=AC SERASA SSL EV,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR</td>
               </tr>
               <tr>
-                <td class="text-left" rowspan="1" colspan="1">UID=67c57882-043b-11ec-9a03-0242ac130003,<br/>1.3.6.1.4.1.311.60.2.1.3=#13024252,<br/>2.5.4.15=#131450726976617465204f7267616e697a6174696f6e,<br/>CN=mycn.bank.gov.br,<br/>2.5.4.5=#130e3133333533323336303030313839,<br/>2.5.4.97=#132A4F464242522D36376335373838322D303433622D313165632D396130332D303234326163313330303033,<br/>O=My Public Bank,<br/>L=BRASILIA,<br/>ST=DF,<br/>C=BR</td>
-                <td class="text-left" rowspan="1" colspan="1">issuer=CN=Open Banking SANDBOX Issuing CA   - G1,OU=Open Banking,O=Open   Banking Brasil,C=BR</td>
+                <td class="text-left" rowspan="1" colspan="1">UID=67c57882-043b-11ec-9a03-0242ac130003,1.3.6.1.4.1.311.60.2.1.3=#13024252,2.5.4.15=#131450726976617465204f7267616e697a6174696f6e,CN=mycn.bank.gov.br,2.5.4.5=#130e3133333533323336303030313839,2.5.4.97=#132A4F464242522D36376335373838322D303433622D313165632D396130332D303234326163313330303033,O=My Public Bank,L=BRASILIA,ST=DF,C=BR</td>
+                <td class="text-left" rowspan="1" colspan="1">issuer=CN=AC SERASA SSL EV,OU=Autoridade   Certificadora Raiz Brasileira v10,O=ICP-Brasil,C=BR</td>
               </tr>
-               </tbody>
-          </table>	
+            </tbody>
+          </table>
 </section>
 </div>
 </section>
 </div>
 <div id="regulatory-roles-for-openid-and-oauth-2-0-mappings">
 <section id="section-7.2">
-        <h3 id="name-regulatory-roles-to-openid-">
-<a href="#section-7.2" class="section-number selfRef">7.2. </a><a href="#name-regulatory-roles-to-openid-" class="section-name selfRef">Regulatory Roles for OpenID and OAuth 2.0 Mappings</a>
-
+        <h3 id="name-regulatory-roles-for-openid">
+<a href="#section-7.2" class="section-number selfRef">7.2. </a><a href="#name-regulatory-roles-for-openid" class="section-name selfRef">Regulatory Roles for OpenID and OAuth 2.0 Mappings</a>
         </h3>
 <p id="section-7.2-1">To participate in the Open Finance ecosystem, accredited institutions must register themselves in the directory of participants according to their regulatory roles. Those roles reflect the institutions authorization from the Central Bank and, consequently, the APIs they are allowed to use.<a href="#section-7.2-1" class="pilcrow">¶</a></p>
 <p id="section-7.2-2">The following table describes the regulatory roles for Open Finance and the related OAuth 2.0 scopes mapping. If the scopes are omitted during the DCR process, the authorization server shall grant the complete set of potential scopes based on the registering bank's regulatory roles, as described in the Server Defaults section.<a href="#section-7.2-2" class="pilcrow">¶</a></p>
-<table class="center" id="table-2">
-          <caption><a href="#table-2" class="selfRef">Table 3</a></caption>
+<table class="center" id="table-3">
+          <caption><a href="#table-3" class="selfRef">Table 3</a></caption>
 <thead>
             <tr>
               <th class="text-left" rowspan="1" colspan="1">Regulatory Role</th>
@@ -1706,13 +1697,11 @@ This support shall be explicit in Participant Directory configurations, and in t
 </div>
 <div id="client-registration">
 <section id="section-7.3">
-        <h3 id="name-regulatory-roles-to-dynamic">
-<a href="#section-7.3" class="section-number selfRef">7.3. </a><a href="#name-regulatory-roles-to-dynamic" class="section-name selfRef">Client Registration</a>
+        <h3 id="name-client-registration">
+<a href="#section-7.3" class="section-number selfRef">7.3. </a><a href="#name-client-registration" class="section-name selfRef">Client Registration</a>
         </h3>
-<p>
-  Section 4.2.11 of RFC 4517 (caseIgnoreMatch) must be respected.
-  Upon registering using the <code>tls_client_auth</code> authentication method, the client shall forward the <code>tls_client_auth_subject_dn</code> field with the AttibuteTypes(Descriptors) using the defined format under item 7.1.2. Non adherence to this format shall cause rejection of the registration.
-</p>
+<p id="section-7.3-1">Section 4.2.11 of RFC 4517 (caseIgnoreMatch) must be respected.
+Upon registering using the <em>tls_client_auth</em> authentication method, the client shall forward the <em>tls_client_auth_subject_dn</em> field with the AttibuteTypes(Descriptors) using the defined format under item 7.1.2. Non adherence to this format shall cause rejection of the registration.<a href="#section-7.3-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1722,16 +1711,13 @@ This support shall be explicit in Participant Directory configurations, and in t
       <h2 id="name-software-statement-assertio">
 <a href="#section-8" class="section-number selfRef">8. </a><a href="#name-software-statement-assertio" class="section-name selfRef">Software Statement Assertion</a>
       </h2>
-<blockquote id="section-8-1">
-        <p id="section-8-1.1">A Software Statement Assertion <code>(software_statement)</code> is a JSON Web Token (JWT) <a href="https://tools.ietf.org/html/rfc7519">RFC7519</a> that asserts the metadata values of the client software as a whole. On the Open Finance Brasil structure, this <code>(software_statement)</code> is signed by the Participants Directory and it's signature MUST be validated by the Authorization Servers using the public keys available on the following session.<a href="#section-8-1.1" class="pilcrow">¶</a></p>
-</blockquote>
-<div id="software-statement-claims">
+<p id="section-8-1">A Software Statement Assertion (<em>software_statement</em>) is a JSON Web Token (JWT) <a href="https://tools.ietf.org/html/rfc7519">RFC7519</a> that asserts the metadata values of the client software as a whole. On the Open Finance Brasil structure, this <em>software_statement</em> is signed by the Participants Directory and it's signature MUST be validated by the Authorization Servers using the public keys available on the following session.<a href="#section-8-1" class="pilcrow">¶</a></p>
+<div id="attributes-of-the-software-statement-assertion-claims">
 <section id="section-8.1">
-        <h3 id="name-software-statement-claims">
-<a href="#section-8.1" class="section-number selfRef">8.1. </a><a href="#name-software-statement-claims" class="section-name selfRef">Attributes of the Software Statement Assertion (Claims)</a>
+        <h3 id="name-attributes-of-the-software-">
+<a href="#section-8.1" class="section-number selfRef">8.1. </a><a href="#name-attributes-of-the-software-" class="section-name selfRef">Attributes of the Software Statement Assertion (Claims)</a>
         </h3>
-<p id="section-8.1-1">The following example contains all attributes currently included in a <code>software_statement</code><a href="#section-8.1-1" class="pilcrow">¶</a></p>
-
+<p id="section-8.1-1">The following example contains all attributes currently included in a <em>software_statement</em>:<a href="#section-8.1-1" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-8.1-2">
 <pre>{
   "software_mode": "Live",
@@ -1815,16 +1801,16 @@ This support shall be explicit in Participant Directory configurations, and in t
 </div>
 <div id="processing-of-the-dynamic-client-registration-claim">
 <section id="section-9">
-      <h2 id="name-dynamic-client-registration">
-	<a href="#section-9" class="section-number selfRef">9. </a><a href="#name-dynamic-client-registration" class="section-name selfRef">Processing of the Dynamic Client Registration claim</a>
+      <h2 id="name-processing-of-the-dynamic-c">
+<a href="#section-9" class="section-number selfRef">9. </a><a href="#name-processing-of-the-dynamic-c" class="section-name selfRef">Processing of the Dynamic Client Registration claim</a>
       </h2>
-	<figure id="figure-1">
+<figure id="figure-1">
         <div class="alignLeft art-svg artwork" id="section-9-1.1">
-	  <svg xmlns="http://www.w3.org/2000/svg" contentstyletype="text/css" height="auto" preserveAspectRatio="none" style="width:100%;height:auto;background:#FFFFFF;" version="1.1" viewBox="0 0 1153 906" width="100%" zoomAndPan="magnify">
+<svg xmlns="http://www.w3.org/2000/svg" contentstyletype="text/css" height="auto" preserveAspectRatio="none" style="width:100%;height:auto;background:#FFFFFF;" version="1.1" viewBox="0 0 1153 906" width="100%" zoomAndPan="magnify">
             <desc>Dynamic Client Registration | Dynamic Client Management</desc>
             <g>
               <rect height="26.2969" style="stroke:#00000000;stroke-width:1.0;fill:none;" width="238" x="456.75" y="10"></rect>
-              <text fill="#000000" font-family="sans-serif" font-size="17" font-weight="bold" lengthAdjust="spacing" textLength="550" x="300" y="27.9951" style="white-space: pre;">Dynamic Client Registration     |     Dynamic Client Management</text>
+              <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="228" x="461.75" y="27.9951" style="white-space: pre;">Dynamic Client Registration</text>
               <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="298" x2="298" y1="73.5938" y2="870.9141"></line>
               <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="482" x2="482" y1="73.5938" y2="870.9141"></line>
               <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="624" x2="624" y1="73.5938" y2="870.9141"></line>
@@ -1939,21 +1925,235 @@ This support shall be explicit in Participant Directory configurations, and in t
             </g>
           </svg>
         </div>
-	<figcaption><a href="#figure-1" class="selfRef">Figure 1</a></figcaption>
-</figure>
+<figcaption><a href="#figure-1" class="selfRef">Figure 1</a></figcaption></figure>
+<p id="section-9-2">The steps of the subject_DN extraction process are described in section 7.1.2<a href="#section-9-2" class="pilcrow">¶</a></p>
 <figure id="figure-2">
-        <div class="alignLeft art-svg artwork" id="section-9-1.2">
-		<svg xmlns="http://www.w3.org/2000/svg" contentstyletype="text/css" height="auto" preserveAspectRatio="none" style="width:100%;height:auto;background:#FFFFFF;" version="1.1" viewBox="0 0 1225 1116" width="100%" zoomAndPan="magnify">
-			<desc>title%20Subject_DN%20in%20ICP-Brasil%20Transporte%20BRCAC%20certificates%0Aparticipant%20TPP%0Aparticipant%20CA%0Aparticipant%20BankAS%0A%0ATPP--%3ECA%3ARequest%20the%20issuance%20of%20the%20certificate%0ACA--%3ETPP%3A%20Return%20certificate%20(.PEM)%0Anote%20over%20TPP%3AA%20Java%20Script%20in%20the%20document%20can%20be%20used%20to%20help%20the%20subject_DN%20extraction%0ATPP-%3ETPP%3AExtracting%20subject_DN%20from%20.PEM%20%5Cn(as%20in%20https%3A%2F%2Fopenbanking-brasil.github.io%2F%5Cnspecs-seguranca%2Fopen-banking-brasil-%5Cndynamic-client-registration-1_ID3.html)%0Anote%20over%20TPP%3A%20Insert%20extract%20value%20into%20string%20tls_client_auth_subject_dn%0ATPP-%3EBankAS%3ADCR-%20%2Fregister%20POST%20%5Btls_client_auth_subject_dn%5D%0Anote%20over%20TPP%2C%20BankAS%3AmTLS%20connection%20-%20.PEM%20archive%20sent%0ABankAS-%3EBankAS%3AExtracting%20subject_DN%20from%20.PEM%20%5Cn(as%20in%20https%3A%2F%2Fopenbanking-brasil.github.io%2F%5Cnspecs-seguranca%2Fopen-banking-brasil-%5Cndynamic-client-registration-1_ID3.html)%0ABankAS-%3EBankAS%3ACompare%20extracted%20value%20with%20string%20value%5Cntls_client_auth_subject_dn%20received%20on%20%2Fregister%20POST%5Cn%0Anote%20over%20TPP%3AThe%20value%20of%20the%20UID%20field%20of%20the%20certificate%20must%20match%20the%20one%20sent%20in%20the%20SSA%2C%5Cnwhere%20the%20UID%20field%20must%20contain%20the%20value%20of%20the%20software_id%20field%20of%20the%20SSA%0Anote%20over%20TPP%3AorganizationIdentifier%20will%20be%20found%20in%20the%20Subject%20DN%20in%20ASN.1%20format%2C%5Cn%20and%20must%20be%20decoded%20using%20the%20%22string%20encoding%22%5Cncorresponding%20and%20from%20there%2C%5Cn%20comparison%20should%20be%20made%20as%20described%20in%20item%2014%0Anote%20over%20TPP%3AThe%20value%20of%20the%20organizationIdentifier%20field%20of%20the%20certificate%20must%20contain%20the%20prefix%5Cn%20corresponding%20to%20the%20Registration%20Reference%20OFBBR-%20followed%20by%20the%20value%20of%20the%20SSA%20org_id%20field.%5Cn%20For%20certificates%20issued%20until%20August%2031%2C%202022%3A%20the%20value%20of%20the%5Cn%20OU%20field%20of%20the%20certificate%20must%20contain%20the%20value%20of%20the%20org_id%20field%20of%20the%20SSA.%0A%0A%0A</desc><defs/><g><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g><rect fill="white" stroke="none" x="0" y="0" width="auto" height="1116"/></g><g><text fill="black" stroke="none" font-family="sans-serif" font-size="16.5pt" font-style="normal" font-weight="normal" text-decoration="normal" x="361.5996275952605" y="24.50280495" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">Subject_DN in ICP-Brasil Transporte BRCAC certificates</text></g><g/><g><path fill="none" stroke="black" paint-order="fill stroke markers" d=" M 354.13979154343747 95.887643371 L 354.13979154343747 1116.837849621" stroke-miterlimit="10" stroke-width="1.3612669416666667" stroke-dasharray="12.565541,5.445067766666667"/><path fill="none" stroke="black" paint-order="fill stroke markers" d=" M 708.2795830868749 95.887643371 L 708.2795830868749 1116.837849621" stroke-miterlimit="10" stroke-width="1.3612669416666667" stroke-dasharray="12.565541,5.445067766666667"/><path fill="none" stroke="black" paint-order="fill stroke markers" d=" M 891.3912140168229 95.887643371 L 891.3912140168229 1116.837849621" stroke-miterlimit="10" stroke-width="1.3612669416666667" stroke-dasharray="12.565541,5.445067766666667"/></g><g><path fill="none" stroke="none"/><g><path fill="white" stroke="black" paint-order="fill stroke markers" d=" M 322.16054939311323 51.782594461 L 386.11903369376165 51.782594461 L 386.11903369376165 95.887643371 L 322.16054939311323 95.887643371 L 322.16054939311323 51.782594461 Z" stroke-miterlimit="10" stroke-width="2.613632528" stroke-dasharray=""/></g><g><g/><text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="339.88424497361325" y="79.55244007099999" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">TPP</text></g><path fill="none" stroke="none"/><g><path fill="white" stroke="black" paint-order="fill stroke markers" d=" M 680.3733542422148 51.782594461 L 736.1858119315351 51.782594461 L 736.1858119315351 95.887643371 L 680.3733542422148 95.887643371 L 680.3733542422148 51.782594461 Z" stroke-miterlimit="10" stroke-width="2.613632528" stroke-dasharray=""/></g><g><g/><text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="698.0970498227148" y="79.55244007099999" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">CA</text></g><path fill="none" stroke="none"/><g><path fill="white" stroke="black" paint-order="fill stroke markers" d=" M 847.1822050207955 51.782594461 L 935.6002230128503 51.782594461 L 935.6002230128503 95.887643371 L 847.1822050207955 95.887643371 L 847.1822050207955 51.782594461 Z" stroke-miterlimit="10" stroke-width="2.613632528" stroke-dasharray=""/></g><g><g/><text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="864.9059006012956" y="79.55244007099999" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">BankAS</text></g></g><g><g><g><rect fill="white" stroke="none" x="404.4860150965234" y="128.558049971" width="253.44734443726563" height="21.23576429"/></g><text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="406.9362955915234" y="143.259732941" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">Request the issuance of the certificate</text></g><g><path fill="none" stroke="black" paint-order="fill stroke markers" d=" M 354.13979154343747 149.793814261 L 694.8302657032083 149.793814261" stroke-miterlimit="10" stroke-width="1.3612669416666667" stroke-dasharray="6.53408132"/><g transform="translate(708.2795830868749,149.793814261) translate(-708.2795830868749,-149.793814261)"><path fill="black" stroke="none" paint-order="stroke fill markers" d=" M 694.6669136702083 142.98747955266666 L 708.2795830868749 149.793814261 L 694.6669136702083 156.60014896933333 Z"/></g></g><g><g><rect fill="white" stroke="none" x="448.51606728158197" y="174.296619211" width="165.38724006714844" height="21.23576429"/></g><text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="450.966347776582" y="188.99830218099999" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">Return certificate (.PEM)</text></g><g><path fill="none" stroke="black" paint-order="fill stroke markers" d=" M 708.2795830868749 195.532383501 L 367.5891089271041 195.532383501" stroke-miterlimit="10" stroke-width="1.3612669416666667" stroke-dasharray="6.53408132"/><g transform="translate(354.13979154343747,195.532383501) translate(-354.13979154343747,-195.532383501)"><path fill="black" stroke="none" paint-order="stroke fill markers" d=" M 367.75246096010414 188.72604879266666 L 354.13979154343747 195.532383501 L 367.75246096010414 202.33871820933334 Z"/></g></g><path fill="white" stroke="black" paint-order="fill stroke markers" d=" M 81.90766817832031 220.03518845099995 L 611.6702319385546 220.03518845099995 L 626.3719149085546 234.73687142099996 L 626.3719149085546 257.60615604099996 L 81.90766817832031 257.60615604099996 L 81.90766817832031 220.03518845099995 M 611.6702319385546 220.03518845099995 L 611.6702319385546 234.73687142099996 L 626.3719149085546 234.73687142099996" stroke-miterlimit="10" stroke-width="1.3612669416666667" stroke-dasharray=""/><g><text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="104.77695279832028" y="242.90447307099993" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">A Java Script in the document can be used to help the subject_DN extraction</text></g><g><g><rect fill="white" stroke="none" x="373.4697821151041" y="282.10896099099995" width="227.3127924353125" height="21.23576429"/></g><g><rect fill="white" stroke="none" x="373.4697821151041" y="298.44416429099994" width="276.27479805054685" height="21.23576429"/></g><g><rect fill="white" stroke="none" x="373.4697821151041" y="314.7793675909999" width="254.25616706910156" height="21.23576429"/></g><g><rect fill="white" stroke="none" x="373.4697821151041" y="331.1145708909999" width="256.6470209509375" height="21.23576429"/></g><text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="375.92006261010414" y="296.8106439609999" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">Extracting subject_DN from .PEM </text><text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="375.92006261010414" y="313.1458472609999" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">(as in https:</text><text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="451.6966891970182" y="313.1458472609999" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">//</text><text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="459.8427158083463" y="313.1458472609999" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">openbanking-brasil.github.io/</text><text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="375.92006261010414" y="329.4810505609999" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">specs-seguranca/open-banking-brasil-</text><text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="375.92006261010414" y="345.8162538609999" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">dynamic-client-registration-1_ID3.html)</text></g><g><path fill="none" stroke="black" paint-order="fill stroke markers" d=" M 354.13979154343747 352.35033518099993 L 419.4806047434375 352.35033518099993 L 419.4806047434375 373.58609947099995 L 367.5891089271041 373.58609947099995" stroke-miterlimit="10" stroke-width="1.3612669416666667" stroke-dasharray=""/><g transform="translate(354.13979154343747,373.58609947099995) translate(-354.13979154343747,-373.58609947099995)"><path fill="black" stroke="none" paint-order="stroke fill markers" d=" M 367.75246096010414 366.7797647626666 L 354.13979154343747 373.58609947099995 L 367.75246096010414 380.3924341793333 Z"/></g></g><path fill="white" stroke="black" paint-order="fill stroke markers" d=" M 147.10095125937497 398.08890442099994 L 546.4769488575 398.08890442099994 L 561.1786318275 412.7905873909999 L 561.1786318275 435.65987201099995 L 147.10095125937497 435.65987201099995 L 147.10095125937497 398.08890442099994 M 546.4769488575 398.08890442099994 L 546.4769488575 412.7905873909999 L 561.1786318275 412.7905873909999" stroke-miterlimit="10" stroke-width="1.3612669416666667" stroke-dasharray=""/><g><text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="169.97023587937497" y="420.9581890409999" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">Insert extract value into string tls_client_auth_subject_dn</text></g><g><g><rect fill="white" stroke="none" x="458.9838624218489" y="460.16267696099993" width="327.5632807165625" height="21.23576429"/></g><text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="461.43414291684894" y="474.8643599309999" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">DCR- /register POST [tls_client_auth_subject_dn]</text></g><g><path fill="none" stroke="black" paint-order="fill stroke markers" d=" M 354.13979154343747 481.39844125099995 L 877.9418966331563 481.39844125099995" stroke-miterlimit="10" stroke-width="1.3612669416666667" stroke-dasharray=""/><g transform="translate(891.3912140168229,481.39844125099995) translate(-891.3912140168229,-481.39844125099995)"><path fill="black" stroke="none" paint-order="stroke fill markers" d=" M 877.7785446001562 474.5921065426666 L 891.3912140168229 481.39844125099995 L 877.7785446001562 488.2047759593333 Z"/></g></g><path fill="white" stroke="black" paint-order="fill stroke markers" d=" M 339.4381085734375 505.90124620099994 L 891.3912140168229 505.90124620099994 L 906.0928969868229 520.6029291709999 L 906.0928969868229 543.472213791 L 339.4381085734375 543.472213791 L 339.4381085734375 505.90124620099994 M 891.3912140168229 505.90124620099994 L 891.3912140168229 520.6029291709999 L 906.0928969868229 520.6029291709999" stroke-miterlimit="10" stroke-width="1.3612669416666667" stroke-dasharray=""/><g><text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="499.7340544158724" y="528.770530821" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">mTLS connection - .PEM archive sent</text></g><g><g><rect fill="white" stroke="none" x="910.7212045884896" y="567.975018741" width="227.3127924353125" height="21.23576429"/></g><g><rect fill="white" stroke="none" x="910.7212045884896" y="584.310222041" width="276.27479805054685" height="21.23576429"/></g><g><rect fill="white" stroke="none" x="910.7212045884896" y="600.645425341" width="254.25616706910156" height="21.23576429"/></g><g><rect fill="white" stroke="none" x="910.7212045884896" y="616.980628641" width="256.6470209509375" height="21.23576429"/></g><text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="913.1714850834896" y="582.676701711" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">Extracting subject_DN from .PEM </text><text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="913.1714850834896" y="599.011905011" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">(as in https:</text><text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="988.9481116704037" y="599.011905011" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">//</text><text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="997.0941382817318" y="599.011905011" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">openbanking-brasil.github.io/</text><text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="913.1714850834896" y="615.3471083109999" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">specs-seguranca/open-banking-brasil-</text><text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="913.1714850834896" y="631.6823116109999" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">dynamic-client-registration-1_ID3.html)</text></g><g><path fill="none" stroke="black" paint-order="fill stroke markers" d=" M 891.3912140168229 638.216392931 L 956.7320272168229 638.216392931 L 956.7320272168229 659.452157221 L 904.8405314004896 659.452157221" stroke-miterlimit="10" stroke-width="1.3612669416666667" stroke-dasharray=""/><g transform="translate(891.3912140168229,659.452157221) translate(-891.3912140168229,-659.452157221)"><path fill="black" stroke="none" paint-order="stroke fill markers" d=" M 905.0038834334896 652.6458225126667 L 891.3912140168229 659.452157221 L 905.0038834334896 666.2584919293333 Z"/></g></g><g><g><rect fill="white" stroke="none" x="910.7212045884896" y="683.954962171" width="277.8710810095312" height="21.23576429"/></g><g><rect fill="white" stroke="none" x="910.7212045884896" y="700.290165471" width="358.5654169470312" height="21.23576429"/></g><g><rect fill="white" stroke="none" x="910.7212045884896" y="716.625368771" width="4.90056099" height="21.23576429"/></g><text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="913.1714850834896" y="698.656645141" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">Compare extracted value with string value</text><text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="913.1714850834896" y="714.991848441" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">tls_client_auth_subject_dn received on /register POST</text><text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="913.1714850834896" y="731.327051741" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve"></text></g><g><path fill="none" stroke="black" paint-order="fill stroke markers" d=" M 891.3912140168229 737.861133061 L 956.7320272168229 737.861133061 L 956.7320272168229 759.096897351 L 904.8405314004896 759.096897351" stroke-miterlimit="10" stroke-width="1.3612669416666667" stroke-dasharray=""/><g transform="translate(891.3912140168229,759.096897351) translate(-891.3912140168229,-759.096897351)"><path fill="black" stroke="none" paint-order="stroke fill markers" d=" M 905.0038834334896 752.2905626426667 L 891.3912140168229 759.096897351 L 905.0038834334896 765.9032320593334 Z"/></g></g><path fill="white" stroke="black" paint-order="fill stroke markers" d=" M 73.77242953085937 783.5997023010001 L 619.8054705860155 783.5997023010001 L 634.5071535560155 798.3013852710001 L 634.5071535560155 837.5058731910001 L 73.77242953085937 837.5058731910001 L 73.77242953085937 783.5997023010001 M 619.8054705860155 783.5997023010001 L 619.8054705860155 798.3013852710001 L 634.5071535560155 798.3013852710001" stroke-miterlimit="10" stroke-width="1.3612669416666667" stroke-dasharray=""/><g><text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="96.64171415085934" y="806.4689869210001" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">The value of the UID field of the certificate must match the one sent in the SSA,</text><text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="96.64171415085934" y="822.8041902210001" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">where the UID field must contain the value of the software_id field of the SSA</text></g><path fill="white" stroke="black" paint-order="fill stroke markers" d=" M 105.55119234824213 862.0086781410001 L 588.0267077686328 862.0086781410001 L 602.7283907386328 876.7103611110001 L 602.7283907386328 948.5852556310001 L 105.55119234824213 948.5852556310001 L 105.55119234824213 862.0086781410001 M 588.0267077686328 862.0086781410001 L 588.0267077686328 876.7103611110001 L 602.7283907386328 876.7103611110001" stroke-miterlimit="10" stroke-width="1.3612669416666667" stroke-dasharray=""/><g><text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="128.42047696824216" y="884.877962761" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">organizationIdentifier will be found in the Subject DN in ASN.1 format,</text><text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="128.42047696824216" y="901.213166061" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve"> and must be decoded using the "string encoding"</text><text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="128.42047696824216" y="917.548369361" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">corresponding and from there,</text><text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="128.42047696824216" y="933.883572661" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve"> comparison should be made as described in item 14</text></g><path fill="white" stroke="black" paint-order="fill stroke markers" d=" M 8.16760165 973.0880605810001 L 685.410298466875 973.0880605810001 L 700.111981436875 987.7897435510001 L 700.111981436875 1059.6646380710001 L 8.16760165 1059.6646380710001 L 8.16760165 973.0880605810001 M 685.410298466875 973.0880605810001 L 685.410298466875 987.7897435510001 L 700.111981436875 987.7897435510001" stroke-miterlimit="10" stroke-width="1.3612669416666667" stroke-dasharray=""/><g><text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="31.036886269999968" y="995.9573452010001" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">The value of the organizationIdentifier field of the certificate must contain the prefix</text><text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="31.036886269999968" y="1012.292548501" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve"> corresponding to the Registration Reference OFBBR- followed by the value of the SSA org_id field.</text><text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="31.036886269999968" y="1028.6277518010002" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve"> For certificates issued until August 31, 2022: the value of the</text><text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="31.036886269999968" y="1044.9629551010003" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve"> OU field of the certificate must contain the value of the org_id field of the SSA.</text></g></g><g/><g/><g/></g>
-		</svg>
+        <div class="alignLeft art-svg artwork" id="section-9-3.1">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="1275" height="1116" viewBox="0 0 1275.0 1116.0">
+            <desc>Subject_DN</desc>
+            <desc>title%20Subject_DN%20in%20ICP-Brasil%20Transporte%20BRCAC%20certificates%0Aparticipant%20TPP%0Aparticipant%20CA%0Aparticipant%20BankAS%0A%0ATPP--%3ECA%3ARequest%20the%20issuance%20of%20the%20certificate%0ACA--%3ETPP%3A%20Return%20certificate%20(.PEM)%0Anote%20over%20TPP%3AA%20Java%20Script%20in%20the%20document%20can%20be%20used%20to%20help%20the%20subject_DN%20extraction%0ATPP-%3ETPP%3AExtracting%20subject_DN%20from%20.PEM%20%5Cn(as%20in%20https%3A%2F%2Fopenbanking-brasil.github.io%2F%5Cnspecs-seguranca%2Fopen-banking-brasil-%5Cndynamic-client-registration-1_ID2.html)%0Anote%20over%20TPP%3A%20Insert%20extract%20value%20into%20string%20tls_client_auth_subject_dn%0ATPP-%3EBankAS%3ADCR-%20%2Fregister%20POST%20%5Btls_client_auth_subject_dn%5D%0Anote%20over%20TPP%2C%20BankAS%3AmTLS%20connection%20-%20.PEM%20archive%20sent%0ABankAS-%3EBankAS%3AExtracting%20subject_DN%20from%20.PEM%20%5Cn(as%20in%20https%3A%2F%2Fopenbanking-brasil.github.io%2F%5Cnspecs-seguranca%2Fopen-banking-brasil-%5Cndynamic-client-registration-1_ID2.html)%0ABankAS-%3EBankAS%3ACompare%20extracted%20value%20with%20string%20value%5Cntls_client_auth_subject_dn%20received%20on%20%2Fregister%20POST%5Cn%0Anote%20over%20TPP%3AThe%20value%20of%20the%20UID%20field%20of%20the%20certificate%20must%20match%20the%20one%20sent%20in%20the%20SSA%2C%5Cnwhere%20the%20UID%20field%20must%20contain%20the%20value%20of%20the%20software_id%20field%20of%20the%20SSA%0Anote%20over%20TPP%3AorganizationIdentifier%20will%20be%20found%20in%20the%20Subject%20DN%20in%20ASN.1%20format%2C%5Cn%20and%20must%20be%20decoded%20using%20the%20%22string%20encoding%22%5Cncorresponding%20and%20from%20there%2C%5Cn%20comparison%20should%20be%20made%20as%20described%20in%20item%2014%0Anote%20over%20TPP%3AThe%20value%20of%20the%20organizationIdentifier%20field%20of%20the%20certificate%20must%20contain%20the%20prefix%5Cn%20corresponding%20to%20the%20Registration%20Reference%20OFBBR-%20followed%20by%20the%20value%20of%20the%20SSA%20org_id%20field.%5Cn%20For%20certificates%20issued%20until%20August%2031%2C%202022%3A%20the%20value%20of%20the%5Cn%20OU%20field%20of%20the%20certificate%20must%20contain%20the%20value%20of%20the%20org_id%20field%20of%20the%20SSA.%0A%0A%0A</desc>
+            <defs></defs>
+            <g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g>
+                <rect fill="white" stroke="none" x="0" y="0" width="1275" height="1116"></rect>
+              </g>
+              <g>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="16.5pt" font-style="normal" font-weight="normal" text-decoration="normal" x="361.5996275952605" y="24.50280495" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">Subject_DN in ICP-Brasil Transporte BRCAC certificates</text>
+              </g>
+              <g></g>
+              <g>
+                <path fill="none" stroke="black" paint-order="fill stroke markers" d=" M 354.13979154343747 95.887643371 L 354.13979154343747 1116.837849621" stroke-miterlimit="10" stroke-width="1.3612669416666667" stroke-dasharray="12.565541,5.445067766666667"></path>
+                <path fill="none" stroke="black" paint-order="fill stroke markers" d=" M 708.2795830868749 95.887643371 L 708.2795830868749 1116.837849621" stroke-miterlimit="10" stroke-width="1.3612669416666667" stroke-dasharray="12.565541,5.445067766666667"></path>
+                <path fill="none" stroke="black" paint-order="fill stroke markers" d=" M 891.3912140168229 95.887643371 L 891.3912140168229 1116.837849621" stroke-miterlimit="10" stroke-width="1.3612669416666667" stroke-dasharray="12.565541,5.445067766666667"></path>
+              </g>
+              <g>
+                <path fill="none" stroke="none"></path>
+                <g>
+                  <path fill="white" stroke="black" paint-order="fill stroke markers" d=" M 322.16054939311323 51.782594461 L 386.11903369376165 51.782594461 L 386.11903369376165 95.887643371 L 322.16054939311323 95.887643371 L 322.16054939311323 51.782594461 Z" stroke-miterlimit="10" stroke-width="2.613632528" stroke-dasharray=""></path>
+                </g>
+                <g>
+                  <g></g>
+                  <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="339.88424497361325" y="79.55244007099999" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">TPP</text>
+                </g>
+                <path fill="none" stroke="none"></path>
+                <g>
+                  <path fill="white" stroke="black" paint-order="fill stroke markers" d=" M 680.3733542422148 51.782594461 L 736.1858119315351 51.782594461 L 736.1858119315351 95.887643371 L 680.3733542422148 95.887643371 L 680.3733542422148 51.782594461 Z" stroke-miterlimit="10" stroke-width="2.613632528" stroke-dasharray=""></path>
+                </g>
+                <g>
+                  <g></g>
+                  <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="698.0970498227148" y="79.55244007099999" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">CA</text>
+                </g>
+                <path fill="none" stroke="none"></path>
+                <g>
+                  <path fill="white" stroke="black" paint-order="fill stroke markers" d=" M 847.1822050207955 51.782594461 L 935.6002230128503 51.782594461 L 935.6002230128503 95.887643371 L 847.1822050207955 95.887643371 L 847.1822050207955 51.782594461 Z" stroke-miterlimit="10" stroke-width="2.613632528" stroke-dasharray=""></path>
+                </g>
+                <g>
+                  <g></g>
+                  <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="864.9059006012956" y="79.55244007099999" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">BankAS</text>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <rect fill="white" stroke="none" x="404.4860150965234" y="128.558049971" width="253.44734443726563" height="21.23576429"></rect>
+                  </g>
+                  <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="406.9362955915234" y="143.259732941" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">Request the issuance of the certificate</text>
+                </g>
+                <g>
+                  <path fill="none" stroke="black" paint-order="fill stroke markers" d=" M 354.13979154343747 149.793814261 L 694.8302657032083 149.793814261" stroke-miterlimit="10" stroke-width="1.3612669416666667" stroke-dasharray="6.53408132"></path>
+                  <g transform="translate(708.2795830868749,149.793814261) translate(-708.2795830868749,-149.793814261)">
+                    <path fill="black" stroke="none" paint-order="stroke fill markers" d=" M 694.6669136702083 142.98747955266666 L 708.2795830868749 149.793814261 L 694.6669136702083 156.60014896933333 Z"></path>
+                  </g>
+                </g>
+                <g>
+                  <g>
+                    <rect fill="white" stroke="none" x="448.51606728158197" y="174.296619211" width="165.38724006714844" height="21.23576429"></rect>
+                  </g>
+                  <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="450.966347776582" y="188.99830218099999" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">Return certificate (.PEM)</text>
+                </g>
+                <g>
+                  <path fill="none" stroke="black" paint-order="fill stroke markers" d=" M 708.2795830868749 195.532383501 L 367.5891089271041 195.532383501" stroke-miterlimit="10" stroke-width="1.3612669416666667" stroke-dasharray="6.53408132"></path>
+                  <g transform="translate(354.13979154343747,195.532383501) translate(-354.13979154343747,-195.532383501)">
+                    <path fill="black" stroke="none" paint-order="stroke fill markers" d=" M 367.75246096010414 188.72604879266666 L 354.13979154343747 195.532383501 L 367.75246096010414 202.33871820933334 Z"></path>
+                  </g>
+                </g>
+                <path fill="white" stroke="black" paint-order="fill stroke markers" d=" M 81.90766817832031 220.03518845099995 L 611.6702319385546 220.03518845099995 L 626.3719149085546 234.73687142099996 L 626.3719149085546 257.60615604099996 L 81.90766817832031 257.60615604099996 L 81.90766817832031 220.03518845099995 M 611.6702319385546 220.03518845099995 L 611.6702319385546 234.73687142099996 L 626.3719149085546 234.73687142099996" stroke-miterlimit="10" stroke-width="1.3612669416666667" stroke-dasharray=""></path>
+                <g>
+                  <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="104.77695279832028" y="242.90447307099993" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">A Java Script in the document can be used to help the subject_DN extraction</text>
+                </g>
+                <g>
+                  <g>
+                    <rect fill="white" stroke="none" x="373.4697821151041" y="282.10896099099995" width="227.3127924353125" height="21.23576429"></rect>
+                  </g>
+                  <g>
+                    <rect fill="white" stroke="none" x="373.4697821151041" y="298.44416429099994" width="276.27479805054685" height="21.23576429"></rect>
+                  </g>
+                  <g>
+                    <rect fill="white" stroke="none" x="373.4697821151041" y="314.7793675909999" width="254.25616706910156" height="21.23576429"></rect>
+                  </g>
+                  <g>
+                    <rect fill="white" stroke="none" x="373.4697821151041" y="331.1145708909999" width="256.6470209509375" height="21.23576429"></rect>
+                  </g>
+                  <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="375.92006261010414" y="296.8106439609999" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">Extracting subject_DN from .PEM </text>
+                  <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="375.92006261010414" y="313.1458472609999" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">(as in https:</text>
+                  <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="451.6966891970182" y="313.1458472609999" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">//</text>
+                  <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="459.8427158083463" y="313.1458472609999" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">openbanking-brasil.github.io/</text>
+                  <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="375.92006261010414" y="329.4810505609999" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">specs-seguranca/open-banking-brasil-</text>
+                  <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="375.92006261010414" y="345.8162538609999" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">dynamic-client-registration-1_ID2.html)</text>
+                </g>
+                <g>
+                  <path fill="none" stroke="black" paint-order="fill stroke markers" d=" M 354.13979154343747 352.35033518099993 L 419.4806047434375 352.35033518099993 L 419.4806047434375 373.58609947099995 L 367.5891089271041 373.58609947099995" stroke-miterlimit="10" stroke-width="1.3612669416666667" stroke-dasharray=""></path>
+                  <g transform="translate(354.13979154343747,373.58609947099995) translate(-354.13979154343747,-373.58609947099995)">
+                    <path fill="black" stroke="none" paint-order="stroke fill markers" d=" M 367.75246096010414 366.7797647626666 L 354.13979154343747 373.58609947099995 L 367.75246096010414 380.3924341793333 Z"></path>
+                  </g>
+                </g>
+                <path fill="white" stroke="black" paint-order="fill stroke markers" d=" M 147.10095125937497 398.08890442099994 L 546.4769488575 398.08890442099994 L 561.1786318275 412.7905873909999 L 561.1786318275 435.65987201099995 L 147.10095125937497 435.65987201099995 L 147.10095125937497 398.08890442099994 M 546.4769488575 398.08890442099994 L 546.4769488575 412.7905873909999 L 561.1786318275 412.7905873909999" stroke-miterlimit="10" stroke-width="1.3612669416666667" stroke-dasharray=""></path>
+                <g>
+                  <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="169.97023587937497" y="420.9581890409999" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">Insert extract value into string tls_client_auth_subject_dn</text>
+                </g>
+                <g>
+                  <g>
+                    <rect fill="white" stroke="none" x="458.9838624218489" y="460.16267696099993" width="327.5632807165625" height="21.23576429"></rect>
+                  </g>
+                  <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="461.43414291684894" y="474.8643599309999" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">DCR- /register POST [tls_client_auth_subject_dn]</text>
+                </g>
+                <g>
+                  <path fill="none" stroke="black" paint-order="fill stroke markers" d=" M 354.13979154343747 481.39844125099995 L 877.9418966331563 481.39844125099995" stroke-miterlimit="10" stroke-width="1.3612669416666667" stroke-dasharray=""></path>
+                  <g transform="translate(891.3912140168229,481.39844125099995) translate(-891.3912140168229,-481.39844125099995)">
+                    <path fill="black" stroke="none" paint-order="stroke fill markers" d=" M 877.7785446001562 474.5921065426666 L 891.3912140168229 481.39844125099995 L 877.7785446001562 488.2047759593333 Z"></path>
+                  </g>
+                </g>
+                <path fill="white" stroke="black" paint-order="fill stroke markers" d=" M 339.4381085734375 505.90124620099994 L 891.3912140168229 505.90124620099994 L 906.0928969868229 520.6029291709999 L 906.0928969868229 543.472213791 L 339.4381085734375 543.472213791 L 339.4381085734375 505.90124620099994 M 891.3912140168229 505.90124620099994 L 891.3912140168229 520.6029291709999 L 906.0928969868229 520.6029291709999" stroke-miterlimit="10" stroke-width="1.3612669416666667" stroke-dasharray=""></path>
+                <g>
+                  <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="499.7340544158724" y="528.770530821" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">mTLS connection - .PEM archive sent</text>
+                </g>
+                <g>
+                  <g>
+                    <rect fill="white" stroke="none" x="910.7212045884896" y="567.975018741" width="227.3127924353125" height="21.23576429"></rect>
+                  </g>
+                  <g>
+                    <rect fill="white" stroke="none" x="910.7212045884896" y="584.310222041" width="276.27479805054685" height="21.23576429"></rect>
+                  </g>
+                  <g>
+                    <rect fill="white" stroke="none" x="910.7212045884896" y="600.645425341" width="254.25616706910156" height="21.23576429"></rect>
+                  </g>
+                  <g>
+                    <rect fill="white" stroke="none" x="910.7212045884896" y="616.980628641" width="256.6470209509375" height="21.23576429"></rect>
+                  </g>
+                  <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="913.1714850834896" y="582.676701711" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">Extracting subject_DN from .PEM </text>
+                  <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="913.1714850834896" y="599.011905011" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">(as in https:</text>
+                  <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="988.9481116704037" y="599.011905011" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">//</text>
+                  <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="997.0941382817318" y="599.011905011" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">openbanking-brasil.github.io/</text>
+                  <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="913.1714850834896" y="615.3471083109999" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">specs-seguranca/open-banking-brasil-</text>
+                  <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="913.1714850834896" y="631.6823116109999" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">dynamic-client-registration-1_ID2.html)</text>
+                </g>
+                <g>
+                  <path fill="none" stroke="black" paint-order="fill stroke markers" d=" M 891.3912140168229 638.216392931 L 956.7320272168229 638.216392931 L 956.7320272168229 659.452157221 L 904.8405314004896 659.452157221" stroke-miterlimit="10" stroke-width="1.3612669416666667" stroke-dasharray=""></path>
+                  <g transform="translate(891.3912140168229,659.452157221) translate(-891.3912140168229,-659.452157221)">
+                    <path fill="black" stroke="none" paint-order="stroke fill markers" d=" M 905.0038834334896 652.6458225126667 L 891.3912140168229 659.452157221 L 905.0038834334896 666.2584919293333 Z"></path>
+                  </g>
+                </g>
+                <g>
+                  <g>
+                    <rect fill="white" stroke="none" x="910.7212045884896" y="683.954962171" width="277.8710810095312" height="21.23576429"></rect>
+                  </g>
+                  <g>
+                    <rect fill="white" stroke="none" x="910.7212045884896" y="700.290165471" width="358.5654169470312" height="21.23576429"></rect>
+                  </g>
+                  <g>
+                    <rect fill="white" stroke="none" x="910.7212045884896" y="716.625368771" width="4.90056099" height="21.23576429"></rect>
+                  </g>
+                  <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="913.1714850834896" y="698.656645141" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">Compare extracted value with string value</text>
+                  <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="913.1714850834896" y="714.991848441" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">tls_client_auth_subject_dn received on /register POST</text>
+                  <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="913.1714850834896" y="731.327051741" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve"></text>
+                </g>
+                <g>
+                  <path fill="none" stroke="black" paint-order="fill stroke markers" d=" M 891.3912140168229 737.861133061 L 956.7320272168229 737.861133061 L 956.7320272168229 759.096897351 L 904.8405314004896 759.096897351" stroke-miterlimit="10" stroke-width="1.3612669416666667" stroke-dasharray=""></path>
+                  <g transform="translate(891.3912140168229,759.096897351) translate(-891.3912140168229,-759.096897351)">
+                    <path fill="black" stroke="none" paint-order="stroke fill markers" d=" M 905.0038834334896 752.2905626426667 L 891.3912140168229 759.096897351 L 905.0038834334896 765.9032320593334 Z"></path>
+                  </g>
+                </g>
+                <path fill="white" stroke="black" paint-order="fill stroke markers" d=" M 73.77242953085937 783.5997023010001 L 619.8054705860155 783.5997023010001 L 634.5071535560155 798.3013852710001 L 634.5071535560155 837.5058731910001 L 73.77242953085937 837.5058731910001 L 73.77242953085937 783.5997023010001 M 619.8054705860155 783.5997023010001 L 619.8054705860155 798.3013852710001 L 634.5071535560155 798.3013852710001" stroke-miterlimit="10" stroke-width="1.3612669416666667" stroke-dasharray=""></path>
+                <g>
+                  <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="96.64171415085934" y="806.4689869210001" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">The value of the UID field of the certificate must match the one sent in the SSA,</text>
+                  <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="96.64171415085934" y="822.8041902210001" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">where the UID field must contain the value of the software_id field of the SSA</text>
+                </g>
+                <path fill="white" stroke="black" paint-order="fill stroke markers" d=" M 105.55119234824213 862.0086781410001 L 588.0267077686328 862.0086781410001 L 602.7283907386328 876.7103611110001 L 602.7283907386328 948.5852556310001 L 105.55119234824213 948.5852556310001 L 105.55119234824213 862.0086781410001 M 588.0267077686328 862.0086781410001 L 588.0267077686328 876.7103611110001 L 602.7283907386328 876.7103611110001" stroke-miterlimit="10" stroke-width="1.3612669416666667" stroke-dasharray=""></path>
+                <g>
+                  <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="128.42047696824216" y="884.877962761" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">organizationIdentifier will be found in the Subject DN in ASN.1 format,</text>
+                  <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="128.42047696824216" y="901.213166061" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve"> and must be decoded using the "string encoding"</text>
+                  <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="128.42047696824216" y="917.548369361" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">corresponding and from there,</text>
+                  <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="128.42047696824216" y="933.883572661" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve"> comparison should be made as described in item 14</text>
+                </g>
+                <path fill="white" stroke="black" paint-order="fill stroke markers" d=" M 8.16760165 973.0880605810001 L 685.410298466875 973.0880605810001 L 700.111981436875 987.7897435510001 L 700.111981436875 1059.6646380710001 L 8.16760165 1059.6646380710001 L 8.16760165 973.0880605810001 M 685.410298466875 973.0880605810001 L 685.410298466875 987.7897435510001 L 700.111981436875 987.7897435510001" stroke-miterlimit="10" stroke-width="1.3612669416666667" stroke-dasharray=""></path>
+                <g>
+                  <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="31.036886269999968" y="995.9573452010001" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">The value of the organizationIdentifier field of the certificate must contain the prefix</text>
+                  <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="31.036886269999968" y="1012.292548501" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve"> corresponding to the Registration Reference OFBBR- followed by the value of the SSA org_id field.</text>
+                  <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="31.036886269999968" y="1028.6277518010002" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve"> For certificates issued until August 31, 2022: the value of the</text>
+                  <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="31.036886269999968" y="1044.9629551010003" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve"> OU field of the certificate must contain the value of the org_id field of the SSA.</text>
+                </g>
+              </g>
+              <g></g>
+              <g></g>
+              <g></g>
+            </g>
+          </svg>
         </div>
-        <figcaption><a href="#figure-2" class="selfRef">Certificate subject_DN extraction flow</a></figcaption>
-</figure>
-<p>The following is an example of Javascript code for extracting the subject_DN and the respective certificate teste.pem used in this example.</p>  
-
-<div class="alignLeft art-text artwork"> <pre>
-
-const {X509Certificate} = require('crypto')
+<figcaption><a href="#figure-2" class="selfRef">Figure 2</a></figcaption></figure>
+<p id="section-9-4">The following is an example of Javascript code for extracting the subject_DN and the respective certificate teste.pem used in this example.<a href="#section-9-4" class="pilcrow">¶</a></p>
+<div id="section-9-5">
+<pre class="lang-javascript sourcecode">const {X509Certificate} = require('crypto')
 const fs = require('fs')
 
 const x509 = new X509Certificate(fs.readFileSync('teste.pem'))
@@ -1962,7 +2162,7 @@ var array = sub.split(/\r?\n|\r|\n/g)
 
 function hexa(x){
         var res = ''
-        for (var i=0; i < x.length ; i++) { res += x.charCodeAt(i).toString(16) }
+        for (var i=0; i &lt; x.length ; i++) { res += x.charCodeAt(i).toString(16) }
         return res
 }
 
@@ -2007,7 +2207,7 @@ function parseX509(array, encode){
         novaArray[9] = array[tam-9]
 
         var res = 'subject='
-        for(i=0; i < novaArray.length ; i++){
+        for(i=0; i &lt; novaArray.length ; i++){
                 res += novaArray[i]
                 res += ','
         }
@@ -2018,12 +2218,10 @@ function parseX509(array, encode){
 
 console.log('Suject DN em Printable String: ', parseX509(array, '#13'))
 console.log('Suject DN em UTF-8: ', parseX509(array, '#0C'))
-
-</pre> </div>	
-
-<div class="alignLeft art-text artwork"> <pre>
-
-----BEGIN CERTIFICATE-----
+</pre><a href="#section-9-5" class="pilcrow">¶</a>
+</div>
+<div class="alignLeft art-text artwork" id="section-9-6">
+<pre>----BEGIN CERTIFICATE-----
 MIIHSzCCBjOgAwIBAgIUKga83ZMp8P0fd24M2oQUvq1ViPcwDQYJKoZIhvcNAQEL
 BQAwcTELMAkGA1UEBhMCQlIxHDAaBgNVBAoTE09wZW4gQmFua2luZyBCcmFzaWwx
 FTATBgNVBAsTDE9wZW4gQmFua2luZzEtMCsGA1UEAxMkT3BlbiBCYW5raW5nIFNB
@@ -2064,16 +2262,14 @@ MOaDZhdjxrJACAt8/nTXOZubqFk8laFVo9dmdXxdFd0vejCpvcVQItkjmTsjihMp
 xpVPAP52I/ZW3tct2cMJfaw+NulaYgVKhcAu/HGtT0KKbPWq8E7IgtuQrqaLe9n6
 Jz3aHfCWJ7IYgBbIRyMhd5oi5Dp8txLxrpTgJ2V9+8wyvzijWbUBHMJnXuiXojM=
 -----END CERTIFICATE-----
-
-</pre> </div>	
-	
+</pre><a href="#section-9-6" class="pilcrow">¶</a>
+</div>
 <div id="sending-a-registration-claim-with-a-software-statement">
 <section id="section-9.1">
-        <h3 id="name-posting-a-request-with-a-so">
-<a href="#section-9.1" class="section-number selfRef">9.1. </a><a href="#name-posting-a-request-with-a-so" class="section-name selfRef">Sending a Registration Claim with a Software Statement</a>
+        <h3 id="name-sending-a-registration-clai">
+<a href="#section-9.1" class="section-number selfRef">9.1. </a><a href="#name-sending-a-registration-clai" class="section-name selfRef">Sending a Registration Claim with a Software Statement</a>
         </h3>
-<p id="section-9.1-1">This example includes several optional fields, some of those may not be applicable to some implememntations. For a complete guide to attributes and its mandate, consult the DCR Swagger <a href="https://raw.githubusercontent.com/OpenBanking-Brasil/specs-seguranca/main/dcr_review/dcr-dcm-swagger.yaml">OFB-DCR/DCM-Swagger</a> .
-
+<p id="section-9.1-1">This example includes several optional fields, some of those may not be applicable to some implememntations. For a complete guide to attributes and its mandate, consult the DCR Swagger <a href="https://raw.githubusercontent.com/OpenBanking-Brasil/specs-seguranca/main/dcr_review/dcr-dcm-swagger.yaml">OFB-DCR/DCM-Swagger</a>.
 Line breaks inside values serve presentation purposes only.<a href="#section-9.1-1" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-9.1-2">
 <pre>POST /reg HTTP/1.1
@@ -2119,14 +2315,13 @@ Content-Type: application/json
         <h3 id="name-open-finance-brasil-ssa-key">
 <a href="#section-9.2" class="section-number selfRef">9.2. </a><a href="#name-open-finance-brasil-ssa-key" class="section-name selfRef">Open Finance Brasil SSA Key Store and Issuer Details</a>
         </h3>
-<p>The following links point to public keys of the Participant Directory and must be used to verify the signature validity of the <code>software_statements</code> presented during the client registration process.</p>
-<p id="section-9.2-1"><strong>Production</strong><a href="#section-9.2-1" class="pilcrow">¶</a></p>
-<p id="section-9.2-2"><a href="https://keystore.directory.openbankingbrasil.org.br/openbanking.jwks">https://keystore.directory.openbankingbrasil.org.br/openbanking.jwks</a><a href="#section-9.2-2" class="pilcrow">¶</a></p>
-<p id="section-9.2-3">Open Finance Open Finance Brasil production SSA issuer<a href="#section-9.2-3" class="pilcrow">¶</a></p>
-<p id="section-9.2-4"><strong>Sandbox</strong><a href="#section-9.2-4" class="pilcrow">¶</a></p>
-<p id="section-9.2-5"><a href="https://keystore.sandbox.directory.openbankingbrasil.org.br/openbanking.jwks">https://keystore.sandbox.directory.openbankingbrasil.org.br/openbanking.jwks</a><a href="#section-9.2-5" class="pilcrow">¶</a></p>
-<p id="section-9.2-6">Open Finance Open FInance Brasil sandbox SSA issuer<a href="#section-9.2-6" class="pilcrow">¶</a></p>
-
+<p id="section-9.2-1">The following links point to public keys of the Participant Directory and must be used to verify the signature validity of the <em>software_statements</em> presented during the client registration process.<a href="#section-9.2-1" class="pilcrow">¶</a></p>
+<p id="section-9.2-2"><strong>Production</strong><a href="#section-9.2-2" class="pilcrow">¶</a></p>
+<p id="section-9.2-3"><a href="https://keystore.directory.openbankingbrasil.org.br/openbanking.jwks">https://keystore.directory.openbankingbrasil.org.br/openbanking.jwks</a><a href="#section-9.2-3" class="pilcrow">¶</a></p>
+<p id="section-9.2-4">Open Finance Open Finance Brasil production SSA issuer<a href="#section-9.2-4" class="pilcrow">¶</a></p>
+<p id="section-9.2-5"><strong>Sandbox</strong><a href="#section-9.2-5" class="pilcrow">¶</a></p>
+<p id="section-9.2-6"><a href="https://keystore.sandbox.directory.openbankingbrasil.org.br/openbanking.jwks">https://keystore.sandbox.directory.openbankingbrasil.org.br/openbanking.jwks</a><a href="#section-9.2-6" class="pilcrow">¶</a></p>
+<p id="section-9.2-7">Open Finance Open Finance Brasil sandbox SSA issuer<a href="#section-9.2-7" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="about-authentication-and-authorization-mechanisms-for-dcr-and-dcm-services">
@@ -2134,8 +2329,7 @@ Content-Type: application/json
         <h3 id="name-about-authentication-and-au">
 <a href="#section-9.3" class="section-number selfRef">9.3. </a><a href="#name-about-authentication-and-au" class="section-name selfRef">About authentication and authorization mechanisms for DCR and DCM services</a>
         </h3>
-<p id="section-9.3-1">As they are auxiliary services to the main flow of Open Finance Brasil, the dynamic registration and maintenance services for clients do not use the same access control mechanisms.  For example, it is not possible to require an OAuth 2.0 <code>access_token</code> from a client application that isn't registered yet with the transmitting institution.<a href="#section-9.3-1" class="pilcrow">¶</a></p>
-
+<p id="section-9.3-1">As they are auxiliary services to the main flow of Open Finance Brasil, the dynamic registration and maintenance services for clients do not use the same access control mechanisms.  For example, it is not possible to require an OAuth 2.0 <em>access_token</em> from a client application that isn't registered yet with the transmitting institution.<a href="#section-9.3-1" class="pilcrow">¶</a></p>
 <p id="section-9.3-2">To extend <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a> and <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a>, which recommend minimum mechanisms for authentication of their services, institutions that support the registration flows and dynamic maintenance of clients must implement the following controls:<a href="#section-9.3-2" class="pilcrow">¶</a></p>
 <div id="client-registration-post-register">
 <section id="section-9.3.1">
@@ -2143,19 +2337,18 @@ Content-Type: application/json
 <a href="#section-9.3.1" class="section-number selfRef">9.3.1. </a><a href="#name-client-registration-post-re" class="section-name selfRef">Client registration - POST /register</a>
           </h4>
 <ol start="1" type="1" class="compact type-1" id="section-9.3.1-1">
-            <li id="section-9.3.1-1.1">validate that the certificate presented by the client application is subordinate to the ICP-Brasil chains defined in the Open Finance Brasil Certificates Standard;<a href="#section-9.3.1-1.1" class="pilcrow">¶</a>
+<li id="section-9.3.1-1.1">validate that the certificate presented by the client application is subordinate to the ICP-Brasil chains defined in the Open Finance Brasil Certificates Standard;<a href="#section-9.3.1-1.1" class="pilcrow">¶</a>
 </li>
-            <li id="section-9.3.1-1.2">as long as there is a need for the coexistence period (mentioned in section 7.1), validation must be implemented for both cases: certificates that have the value <em>org_id</em> in the <em>organizationUnitName</em> field (<em>OU</em>) and certificates that have the value <em>org_id</em> in the <em>organizationIdentifier</em> field.<a href="#section-9.3.1-1.2" class="pilcrow">¶</a>
+            <li id="section-9.3.1-1.2">As long as there is a need for the coexistence period (mentioned in section 7.1), validation must be implemented for both cases: certificates that have the value <em>org_id</em> in the <em>organizationUnitName</em> field (<em>OU</em>) and certificates that have the value <em>org_id</em> in the <em>organizationIdentifier</em> field.<a href="#section-9.3.1-1.2" class="pilcrow">¶</a>
 </li>
             <li id="section-9.3.1-1.3">ensure that the signature of the <code>software_statement</code>_ presented by the client application during registration has been made by the Directory of Participants using the public keys described in the previous section;<a href="#section-9.3.1-1.3" class="pilcrow">¶</a>
 </li>
             <li id="section-9.3.1-1.4">ensure that the <code>software_statement</code> presented by the client application during registration corresponds to the same institution as the client certificate presented, validating it through the attributes that bring <code>organization_id</code> in the X.509 certificate.<a href="#section-9.3.1-1.4" class="pilcrow">¶</a>
 </li>
-            <li id="section-9.3.1-1.5">Multiple DCR registrations for the same Software Statement should not be allowed, in a way that in case of a new registration attempt for an already registered Software Statement, the Error Response procedure defined on item 3.2.2 of the <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a> must be enforced.<a href="#section-9.3.1-1.5" class="pilcrow">¶</a>
+            <li id="section-9.3.1-1.5">Multiple DCR registrations for the same Software Statement should not be allowed, in a way that in case of a new registration attempt for an already registered Software Statement, the Error Response procedure defined on item 3.2.2 of the RFC7591 must be enforced.<a href="#section-9.3.1-1.5" class="pilcrow">¶</a>
 </li>
-            <li id="section-9.3.1-1.6">issue, on the registry response, a <code>registration_access_token</code> to be used as an authentication token on maintaining operations of the registered client application, following specifications described in [<a href="https://tools.ietf.org/html/rfc7592">RFC7592</a>].<a href="#section-9.3.1-1.6" class="pilcrow">¶</a>
+            <li id="section-9.3.1-1.6">issue, on the registry response, a <code>registration_access_token</code> to be used as an authentication token on maintaining operations of the registered client application, following specifications described in <a href="https://tools.ietf.org/html/rfc7592">RFC7592</a>.<a href="#section-9.3.1-1.6" class="pilcrow">¶</a>
 </li>
-
           </ol>
 </section>
 </div>
@@ -2195,10 +2388,9 @@ Content-Type: application/json
 </li>
         <li class="compact" id="section-10-3.4">Bernardo Vale (Banco Inter)<a href="#section-10-3.4" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-10-3.4">Caio Zanolla (Belvo)<a href="#section-10-3.4" class="pilcrow">¶</a>
+        <li class="compact" id="section-10-3.5">Caio Zanolla (Belvo)<a href="#section-10-3.5" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-10-3.5">Danilo Sasaki (Banco Ita&#250;)<a href="#section-10-3.5" class="pilcrow">¶</a>
-
+        <li class="compact" id="section-10-3.6">Danilo Sasaki (Banco Ita&#250;)<a href="#section-10-3.6" class="pilcrow">¶</a>
 </li>
         <li class="compact" id="section-10-3.7">Jo&#227;o Rodolfo Vieira da Silva (Banco Ita&#250;)<a href="#section-10-3.7" class="pilcrow">¶</a>
 </li>
@@ -2218,7 +2410,7 @@ Content-Type: application/json
       <h2 id="name-notices">
 <a href="#appendix-A" class="section-number selfRef">Appendix A. </a><a href="#name-notices" class="section-name selfRef">Notices</a>
       </h2>
-<p id="appendix-A-1">Copyright (c) 2022 Open Finance Brasil Initial Structure.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
+<p id="appendix-A-1">Copyright (c) 2023 Open Finance Brasil Initial Structure.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
 <p id="appendix-A-2">The Open Finance Brasil Initial Structure (OFBIS) grants to any Contributor, developer, implementer, or other interested party a non-exclusive, royalty-free, worldwide copyright license to reproduce, prepare derivative works from, distribute, perform and display, this Implementers Draft or Final Specification solely for the purposes of (i) developing specifications, and (ii) implementing Implementers Drafts and Final Specifications based on such documents, provided that attribution be made to the OFBIS as the source of the material, but that such attribution does not indicate an endorsement by the OFBIS.<a href="#appendix-A-2" class="pilcrow">¶</a></p>
 <p id="appendix-A-3">The technology described in this specification was made available from contributions from various sources, including members of the OpenID Foundation, the Open Finance Brasil GT Security Working Group and others. Although the Open Finance Brasil Initial Structure has taken steps to help ensure that the technology is available for distribution, it takes no position regarding the validity or scope of any intellectual property or other rights that might be claimed to pertain to the implementation or use of the technology described in this specification or the extent to which any license under such rights might or might not be available; neither does it represent that it has made any independent effort to identify any such rights. The Open Finance Brasil Initial Structure and the contributors to this specification make no (and hereby expressly disclaim any) warranties (express, implied, or otherwise), including implied warranties of merchantability, non-infringement, fitness for a particular purpose, or title, related to this specification, and the entire risk as to implementing this specification is assumed by the implementer. The Open Finance Brasil Intellectual Property Rights policy requires contributors to offer a patent promise not to assert certain patent claims against other contributors and against implementers. The Open Finance Brasil Initial Structure invites any interested party to bring to its attention any copyrights, patents, patent applications, or other proprietary rights that may cover technology that may be required to practice this specification.<a href="#appendix-A-3" class="pilcrow">¶</a></p>
 <div id="appendix-a-example-software-statement-assertion">
@@ -2244,11 +2436,11 @@ Content-Type: application/json
 <div dir="auto" class="left"><span class="org">Open Finance Brasil Initial Structure</span></div>
 <div class="email">
 <span>Email:</span>
-<a href="mailto:gt-seguranca@openbankingbr.org" class="email">gt-seguranca@openbankingbr.org</a>
+<a href="mailto:gt-seguranca@openfinancebrasil.org.br" class="email">gt-seguranca@openfinancebrasil.org.br</a>
 </div>
 <div class="url">
 <span>URI:</span>
-<a href="https://openbankingbrasil.org.br/" class="url">https://openbankingbrasil.org.br/</a>
+<a href="https://openfinancebrasil.org.br" class="url">https://openfinancebrasil.org.br</a>
 </div>
 </address>
 </section>
