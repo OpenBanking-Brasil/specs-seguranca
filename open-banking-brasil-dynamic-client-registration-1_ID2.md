@@ -254,7 +254,7 @@ In terms of format, follow below how decoding should be done:
 - Use the RFC strings (CN, L, ST, O, OR, C, Street, DC, UID) with the value of their attributes in human-readable format.
 - Use the OIDs of the attributes defined in this specification for use in the OFB (businessCategory = OID 2.5.4.15, jurisdictionCountryName = OID 1.3.6.1.4.1.311.60.2.1.3, serialNumber = OID 2.5.4.5) with values in ASN.1 format, following the RFC4514, being that:
     - Attribute names shall be defined according to dot-decimal notation, without adding the prefix "OID", ie. "2.5.4.15", followed by (‘=#’) plus the hexadecimal value of the attribute, here follows a complete example: 2.5.4.15=#0C1450726976617465204F7267616E697A6174696F6E
-    - There are no restrictions for encoding and formatting attribute values. The hexadecimal value presented on the utilized attribute must be respected (PrintableString, UTF8String, etc). This item complies with opcionality of the format stabilished by the AC face ICP normatives and items 2.3, 2.4 e 5.2 of the RFC4514.
+    - removed
 
 Below are examples of required attributes for CAs active until August 31, 2022:
 

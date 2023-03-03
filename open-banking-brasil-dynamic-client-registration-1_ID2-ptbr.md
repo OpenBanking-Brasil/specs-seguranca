@@ -255,7 +255,7 @@ Segue na tabela abaixo como deve ser feita a decodificação:
 - Use as strings da RFC (CN, L, ST, O, OU, C, Street, DC, UID) com o valor dos seus atributos legível para humanos
 - Use os OIDs dos atributos definidos nesta especificação para uso no OFB (businessCategory = OID 2.5.4.15, jurisdictionCountryName = OID 1.3.6.1.4.1.311.60.2.1.3, serialNumber = OID 2.5.4.5) com o valor dos seus atributos em formato ASN.1 seguindo a RFC4514, sendo que:
     - Os nomes dos atributos devem ser definidos seguindo a notação ponto-decimal, sem adição de prefixo “OID”, ex. “2.5.4.15”, seguido dos sinais de (‘=#’) mais o      valor hexadecimal do atributo, exemplo final: 2.5.4.15=#0C1450726976617465204F7267616E697A6174696F6E
-    - Não há qualquer restrição para as codificações/formatações utilizadas nos valores dos atributos. Deve ser respeitado o uso em hexadecimal apresentado na          codificação utilizada no atributo do certificado (PrintableString, UTF8String, etc). Este item atende à opcionalidade do formato já estabelecido pela AC frente        aos normativos ICP e ao itens 2.3, 2.4 e 5.2 da RFC4514.
+    - removido
 
 Seguem abaixo exemplos para os atributos obrigatórios das ACs ativas até 31 de Agosto de 2022:
 
