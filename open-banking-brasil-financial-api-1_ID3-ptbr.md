@@ -219,10 +219,11 @@ Além disso, ele deve:
 18. deve garantir que em caso de compartilhamento do Servidor de Autorização para outros serviços, além do Open Finance, não divulgue e/ou possibilite o uso de métodos não certificados no ambiente do Open Finance;
 19. deve garantir que as configurações divulgadas aos demais participantes através do `OpenID Discovery` (indicado pelo arquivo de `Well-Known` cadastrado no Diretório) sejam restritos aos modos de operação aos quais a instituição se certificou;
     1. deve manter em suas configurações os métodos para os quais ainda hajam clientes ativos;
-    2. deve atualizar os cadastros que utilizem métodos não certificados, através de tratamento bilateral entre as instituições envolvidas.
+    2. deve atualizar os cadastros que utilizem métodos não certificados, através de tratamento bilateral entre as instituições envolvidas;
 20. deve recusar requisições, para o ambiente do Open Finance, que estejam fora dos modos de operação ao qual a instituição certificou seu Servidor de Autorização;
-21. deve recusar requisições de autenticação que incluam um id_token_hint, visto que o id_token em posse do requisitante pode conter Informação de Identificação Pessoal, que poderia ser enviada descriptografada pelo cliente público.
-22. o tempo mínimo de expiração do `request_uri` deve ser de 60 segundos
+21. deve recusar requisições de autenticação que incluam um id_token_hint, visto que o id_token em posse do requisitante pode conter Informação de Identificação Pessoal, que poderia ser enviada descriptografada pelo cliente público;
+22. o tempo mínimo de expiração do `request_uri` deve ser de 60 segundos;
+23. deve recusar requisições que não apresentem o cabeçalho `x-fapi-interaction-id` em endpoints FAPI;
 
 
 #### Token de ID como assinatura separada  {#detached}
@@ -345,7 +346,8 @@ Além disso, o cliente confidencial
 7. deve definir a _claim_ `acr`como _essential_;
 8. deve suportar todos os métodos de autenticação especificados no item 14 da seção 5.2.2 da [Financial-grade API Security Profile 1.0 - Part 2: Advanced][FAPI-1-Advanced] incluindo as diferentes combinações de métodos de encaminhamento dos Requests Objects (usando ou não [PAR] - item 11);
 9. não deve permitir o recurso de rotação de `refresh tokens`;
-10. não deve solicitar requisições de autenticação que incluam um id_token_hint, visto que o id_token a ser utilizado pode conter Informação de Identificação Pessoal, que poderia ser enviada descriptografada através do cliente público.
+10. não deve solicitar requisições de autenticação que incluam um id_token_hint, visto que o id_token a ser utilizado pode conter Informação de Identificação Pessoal, que poderia ser enviada descriptografada através do cliente público;
+11. deve enviar o cabeçalho `x-fapi-interaction-id` em endpoints FAPI;
 
 # Considerações de segurança  {#authserver}
 
