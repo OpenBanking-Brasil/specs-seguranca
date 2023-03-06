@@ -217,10 +217,11 @@ In addition, the Authorization Server
 18. shall ensure that, in case of sharing the Authorization Server for other services, in addition to Open Finance, it does not disclose and/or allow the use of non-certified methods in the Open Finance environment;
 19. shall ensure that the settings disclosed to other participants through `OpenID Discovery` (indicated by the `Well-Known` file registered in the Directory) are restricted to the operating modes to which the institution has certified;
     1. shall keep in your settings the methods for which there are still active clients;
-    2. shall update the records that use non-certified methods, through bilateral treatment between the institutions involved.
+    2. shall update the records that use non-certified methods, through bilateral treatment between the institutions involved;
 20. shall refuse requests, for the Open Finance environment, that are outside the modes of operation to which the institution has certified its Authorization Server;
-21. must refuse authentication requests that include an id_token_hint, as the id_token held by the requester may contain Personally Identifiable Information, which could be sent unencrypted by the public client.
-22. the minimum expiration time of `request_uri` must be 60 seconds.
+21. must refuse authentication requests that include an id_token_hint, as the id_token held by the requester may contain Personally Identifiable Information, which could be sent unencrypted by the public client;
+22. the minimum expiration time of `request_uri` must be 60 seconds;
+23. shall deny all requests without header `x-fapi-interaction-id` on FAPI endpoints;
 
 #### ID Token as detached signature
 
@@ -329,7 +330,8 @@ In addition, the confidential client
 7. shall require the `acr` claim as an essential claim;
 8. shall support all authentication methods specified in clause 5.2.2-14 of [Financial-grade API Security Profile 1.0 - Part 2: Advanced][FAPI-1-Advanced] including diferent combinations of the methods to send requests (using [PAR] or not - item 11);
 9. shall not allow `refresh tokens` rotation feature;
-10. should not request authentication requests that include an id_token_hint, as the id_token to be used may contain Personally Identifiable Information, which could be sent unencrypted through the public client.
+10. should not request authentication requests that include an id_token_hint, as the id_token to be used may contain Personally Identifiable Information, which could be sent unencrypted through the public client;
+11. shall send header `x-fapi-interaction-id` on FAPI endpoints;
 
 # Security considerations
 
