@@ -1182,7 +1182,7 @@ li > p:last-of-type {
 <thead><tr>
 <td class="left"></td>
 <td class="center">OFB-FAPI-1-ID3</td>
-<td class="right">February 2023</td>
+<td class="right">March 2023</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Security</td>
@@ -1545,31 +1545,8 @@ li > p:last-of-type {
 </li>
             <li id="section-5.2.2-3.21">deve recusar requisi&#231;&#245;es de autentica&#231;&#227;o que incluam um id_token_hint, visto que o id_token em posse do requisitante pode conter Informa&#231;&#227;o de Identifica&#231;&#227;o Pessoal, que poderia ser enviada descriptografada pelo cliente p&#250;blico.<a href="#section-5.2.2-3.21" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.2-3.18">deve garantir que em caso de compartilhamento do Servidor de Autorização para outros serviços, além do Open Finance, não divulgue e/ou possibilite o uso de métodos não certificados no ambiente do Open Finance.<a href="#section-5.2.2-3.18" class="pilcrow">¶</a>
+            <li id="section-5.2.2-3.22">o tempo m&#237;nimo de expira&#231;&#227;o do <code>request_uri</code> deve ser de 60 segundos<a href="#section-5.2.2-3.22" class="pilcrow">¶</a>
 </li>
-<li id="section-5.2.2-3.19">deve garantir que as configurações divulgadas aos demais participantes através do `OpenID Discovery` (indicado pelo arquivo de `Well-Known` cadastrado no Diretório) sejam restritos aos modos de operação aos quais a instituição se certificou.<a href="#section-5.2.2-3.19" class="pilcrow">¶</a>
-</li>
-
-
-<ul class="compact">
-
-<li class="compact" id="section-5.2.2-3.19-1.1">
-                <strong>deve manter em suas configurações os métodos para os quais ainda hajam clientes ativos;</strong><a href="#section-5.2.2-3.19-1.1" class="pilcrow">¶</a>
-</li>
-              <li class="compact" id="5.2.2-3.19-1.2">
-                <strong>deve atualizar os cadastros que utilizem métodos não certificados, através de tratamento bilateral entre as instituições envolvidas.</strong><a href="#section-5.2.2.4-1.2" class="pilcrow">¶</a>
-</li>
-            </ul>
-
-<li id="section-5.2.2-3.20">deve recusar requisições, para o ambiente do Open Finance, que estejam fora dos modos de operação ao qual a instituição certificou seu Servidor de Autorização.<a href="#section-5.2.2-3.20" class="pilcrow">¶</a>
-</li>
-<li id="section-5.2.2-3.21">deve recusar requisições de autenticação que incluam um id_token_hint, visto que o id_token em posse do requisitante pode conter Informação de Identificação Pessoal, que poderia ser enviada descriptografada pelo cliente público.<a href="#section-5.2.2-3.21" class="pilcrow">¶</a>
-</li>
-<li id="section-5.2.2-3.22">o tempo mínimo de expiração do <code>request_uri</code> deve ser de 60 segundos.<a href="#section-5.2.2-3.22" class="pilcrow">¶</a>
-</li>  
-  
-  
-  
           </ol>
 <div id="detached">
 <section id="section-5.2.2.1">
