@@ -712,7 +712,7 @@ Neste ponto, um TPP pode, opcionalmente, verificar o status da solicitação de 
 
 ```
 1. Check a consent resource
-curl --cert transport.pem --key transport.key -H 'Authorization: Bearer 2Pjwts8m1KRZmm0aJyXbOTB8zRosN55fo8Ewdulhxxa'
+curl --cert transport.pem --key transport.key -H 'Authorization: Bearer 2Pjwts8m1KRZmm0aJyXbOTB8zRosN55fo8Ewdulhxxa' -H ‘x-fapi-interaction-id: 8b6cd915-2b59-44c4-9848-47b97a8aa368’
  https://matls-api.amazingbank.com.br/consents/v1/consents/urn:amazingbank:0be7a3bb-33e6-4d73-b60a-9523aee6cc0d
 
 {
