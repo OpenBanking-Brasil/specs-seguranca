@@ -583,6 +583,23 @@ To extend [RFC7591] and [RFC7592], which recommend minimum mechanisms for authen
 
 Note: [RFC7592] provides the possibility of rotating the `registration_access_token` issued by the Authorization Server with each use, making it a single-use token. When registering their client applications, institutions should consider this aspect to receive and update the `registration_access_token` for the new value received in client maintenance (DCM) operations.
 
+## Signature certificates validation
+* The directory uses cert **rescan** function hourly to validation process.
+* The organization shall ensure that the validation process was completed.
+* Each organization must have a continuity plan in case of unavailability validation service.
+* If the signature certificate is not valid because it has a revoked status according to the CA’s OCSP/CRL issuer, or is inactive in the directory register, the set of public keys is moved to the inactive key storage.
+* The validation process should include:
+    * Resource server (Data Transmitter) message signature validation, to be done by the Client (Data Receiver)
+        * Validate that the message was signed in line with what’s defined on the Message Signature Guidelines, including that the iss is equal to the organisation_id of the server that issued the message.
+        * Fetch the “iss” claim from the JWT and build the directory application JWKS uri for that specific server.
+        * Make sure that the kid present on the message JWT header is present on the directory JWKS.
+        * Validate that the private key for the corresponding kid is able to validate the message signature.
+    * Client (Data Receiver) message signature validation, to be done by the Resource Server
+        * Validate how the message was signed in line with what’s defined on the Message Signature Guidelines.
+        * Obtain the org_jwks_uri which was presented on the SSA by the client on the moment of the registration (DCR).
+        * Make sure that the kid present on the message JWT header is present on the directory JWKS.
+        * Validate that the private key for the corresponding kid is able to validate the message signature.
+
 # Acknowledgement
 
 With thanks to all who have set the foundations for secure and safe data sharing through the formation of the OpenID Foundation FAPI Working Group, the Open Finance Brasil GT Security and to the pioneers who will stand on their shoulders.
