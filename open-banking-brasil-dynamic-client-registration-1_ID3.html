@@ -1320,6 +1320,10 @@ These key words are not to be used as lexicon terms such that any occurrence of 
 </li>
                 </ul>
 </li>
+  </li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.2">
+                <p id="section-toc.1-1.9.2.2.1"><a href="#section-9.4" class="xref">9.4</a>.  <a href="#validation-certificate" class="xref"> Signature certificates validation </a></p>
+</li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10">
@@ -2371,6 +2375,36 @@ Content-Type: application/json
 </section>
 </div>
 </section>
+</div>
+<div id="certificates-validation">
+<section id="section-9.4">
+          <h3 id="validation-certificate">
+<a href="#section-9.4" class="section-number selfRef">9.4. </a><a href="#validation-certificate" class="section-name selfRef">Signature certificates validation </a>
+          </h3>
+		  
+<ul>
+	<li> The directory uses cert <b> cert rescan</b> function hourly to validation process. </li>
+	<li> The organization shall ensure that the validation process was completed. </li>
+	<li> Each organization must have a continuity plan in case of unavailability validation service. </li>
+	<li> If the signature certificate is not valid because it has a revoked status according to the CA’s OCSP/CRL issuer, or is inactive in the directory register, the set of public keys is moved to the inactive key storage. </li>
+	<li> The validation process should include </li>
+	<ul>
+		<li> Resource server (Data Transmitter) message signature validation, to be done by the Client (Data Receiver) </li>
+		<ul>
+			<li> Validate that the message was signed in line with what’s defined on the <i> Message Signature Guidelines </i> , including that the <i> iss </i>  is equal to the <i> organisation_id </i> of the server that issued the message. </li>
+		    <li> Fetch the “<i>iss</i>” claim from the JWT and build the directory application JWKS uri for that specific server. </li>
+			<li> Make sure that the <i> kid </i> present on the message JWT header is present on the directory JWKS. </li>
+			<li> Validate that the private key for the corresponding <i> kid </i> is able to validate the message signature. </li>
+		</ul>
+		<li> Validação da assinatura da mensagem do Receptor de Dados, a ser feita pelo Transmissor de Dados </li>
+		<ul>
+			<li> Validate how the message was signed in line with what’s defined on the Message Signature Guidelines. </li>
+		    <li> Obtain the org_jwks_uri which was presented on the SSA by the client on the moment of the registration (DCR) </li>
+			<li>  Make sure that the <i> kid </i> present on the message JWT header is present on the directory JWKS. </li>
+			<li> Validate that the private key for the corresponding <i> kid </i> is able to validate the message signature. </li>
+		</ul>
+	</ul>
+</ul>
 </div>
 <div id="acknowledgement">
 <section id="section-10">
