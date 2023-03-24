@@ -1327,8 +1327,12 @@ li > p:last-of-type {
 </li>
                 </ul>
 </li>
-            </ul>
+            <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.2">
+                <p id="section-toc.1-1.9.2.2"><a href="#section-9.4" class="xref">9.4</a>.  <a href="#validacao-certificados" class="xref">Validação de certificados de assinatura</a></p>
 </li>
+            </ul>
+
+  </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10">
             <p id="section-toc.1-1.10.1"><a href="#section-10" class="xref">10</a>. <a href="#name-reconhecimento" class="xref">Reconhecimento</a></p>
 </li>
@@ -2377,6 +2381,36 @@ Para estender as <a href="https://tools.ietf.org/html/rfc7591">RFC7591</a> e <a 
 </section>
 </div>
 </section>
+</div>
+ <div id="validacao-certificados">
+<section id="section-9.4">
+          <h3 id="validacao-certificados">
+<a href="#section-9.4" class="section-number selfRef">9.4. </a><a href="#validacao-certificados" class="section-name selfRef">Validação de certificados de assinatura </a>
+          </h3>
+		  
+<ul>
+	<li> O diretório realiza a Valida&#231;&#227;o do certificado de assinatura através da função <b> cert rescan</b>, a cada hora. </li>
+	<li> As instituições devem assegurar que o processo de validação é realizado. </li>
+	<li> Cada instituição deve ter alternativa de contingência em caso de indisponibilidade do serviço de validação realizado pelo diretório. </li>
+	<li> Ao identificar que o certificado de assinatura <b> não é válido pois </b>, está com status <b> revogado </b> de acordo com o OCSP/CRL da CA emissora, ou está <b> inativo </b> no cadastro do diretório, o conjunto de chaves públicas é movido para o repositório de chaves inativas (Inactive Keystore). </li>
+	<li> É recomendado que o processo de validação inclua: </li>
+	<ul>
+		<li> Validação da assinatura da mensagem do Transmissor de Dados, a ser feita pelo Receptor de Dados </li>
+		<ul>
+			<li> Validar se a mensagem está assinada conforme o Message <i> Signature Guidelines </i>, incluindo se o <i> iss </i> é igual ao <i> organisation_id </i> do servidor que emitiu a mensagem.</li>
+		    <li> Buscar a declaração <i> iss </i> do JWT e gerar URI do JWKS publicado no diretório, para consulta. </li>
+			<li> Certificar se o <i> kid </i> do cabeçalho JWT da mensagem está presente no diretório JWKS. </li>
+			<li>  Validar se a chave privada para o <i>kid</i> correspondente é capaz de validar a assinatura da mensagem. </li>
+		</ul>
+		<li> Validação da assinatura da mensagem do Receptor de Dados, a ser feita pelo Transmissor de Dados </li>
+		<ul>
+			<li> Validar se a mensagem está assinada conforme o Message <i> Signature Guidelines </i>, incluindo se o <i> iss </i> é igual ao <i> organisation_id </i> do servidor que emitiu a mensagem.</li>
+		    <li> Obter o <i> org_jwks_uri</i> que foi apresentado no SSA pelo cliente no momento do DCR. </li>
+			<li> Certificar se o <i> kid </i> do cabeçalho JWT da mensagem está presente no diretório JWKS. </li>
+			<li>  Validar se a chave privada para o <i>kid</i> correspondente é capaz de validar a assinatura da mensagem. </li>
+		</ul>
+	</ul>
+</ul>
 </div>
 <div id="acknowledgements">
 <section id="section-10">
