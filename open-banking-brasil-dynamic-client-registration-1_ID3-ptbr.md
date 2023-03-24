@@ -586,6 +586,23 @@ Para estender as [RFC7591] e [RFC7592], que recomendam mecanismos mínimos para 
 
 *Observação:* A [RFC7592] prevê a possibilidade de rotação do `registration_access_token` emitido pelo Servidor de Autorização a cada uso, tornando-o um token de uso único. As instituições devem considerar esse aspecto no registro de suas aplicações cliente para receber e atualizar o `registration_access_token` pelo novo valor recebido nas chamadas de manutenção de cliente.
 
+##  Validação de certificados de assinatura
+* O diretório realiza a validação do certificado de assinatura através da função **cert rescan**, a cada hora.
+* As instituições devem assegurar que o processo de validação é realizado.
+*  Cada instituição deve ter alternativa de contingência em caso de indisponibilidade do serviço de validação realizado pelo diretório.
+* Ao identificar que o certificado de assinatura **não é válido** pois, está com status **revogado** de acordo com o OCSP/CRL da CA emissora, ou está **inativo** no cadastro do diretório, o conjunto de chaves públicas é movido para o repositório de chaves inativas (Inactive Keystore).
+* É recomendado que o processo de validação inclua:
+    * Validação da assinatura da mensagem do Transmissor de Dados, a ser feita pelo Receptor de Dados
+        * Validar se a mensagem está assinada conforme o *Message Signature Guidelines*, incluindo se o *iss* é igual ao organisation_id do servidor que emitiu a mensagem.
+        * Buscar a declaração iss do JWT e gerar URI do JWKS publicado no diretório, para consulta.
+        * Certificar se o *kid* do cabeçalho JWT da mensagem está presente no diretório JWKS.
+        * Validar se a chave privada para o *kid* correspondente é capaz de validar a assinatura da mensagem.
+    * Validação da assinatura da mensagem do Receptor de Dados, a ser feita pelo Transmissor de Dados
+        * Validar se a mensagem está assinada conforme o *Message Signature Guidelines*.
+        * Obter o org_jwks_uri que foi apresentado no SSA pelo cliente no momento do DCR.
+        *  Certificar se o *kid* do cabeçalho JWT da mensagem está presente no diretório JWKS.
+        *  Validar se a chave privada para o *kid* correspondente é capaz de validar a assinatura da mensagem.
+
 # Reconhecimento  {#acknowledgements}
 
 Agradecemos a todos que estabeleceram as bases para o compartilhamento seguro de dados por meio da formação do Grupo de Trabalho OpenID Foundation FAPI, o GT de Segurança do Open Finance Brasil e aos pioneiros que ficarão em seus ombros.
