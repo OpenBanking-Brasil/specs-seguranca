@@ -2395,7 +2395,7 @@ Content-Type: application/json
 			<li> Make sure that the <i> kid </i> present on the message JWT header is present on the directory JWKS. </li>
 			<li> Validate that the private key for the corresponding <i> kid </i> is able to validate the message signature. </li>
 		</ul>
-		<li> Validação da assinatura da mensagem do Receptor de Dados, a ser feita pelo Transmissor de Dados </li>
+		<li> Client (Data Receiver) message signature validation, to be done by the Resource Server </li>
 		<ul>
 			<li> Validate how the message was signed in line with what’s defined on the Message Signature Guidelines. </li>
 		    <li> Obtain the org_jwks_uri which was presented on the SSA by the client on the moment of the registration (DCR) </li>
