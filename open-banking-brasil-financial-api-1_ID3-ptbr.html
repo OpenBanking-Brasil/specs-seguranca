@@ -1941,10 +1941,14 @@ O valor para um dado usu&#225;rio nunca deve mudar dentro de uma institui&#231;&
 <p id="section-7.2.2-1">Al&#233;m dos requisitos descritos nas disposi&#231;&#245;es de seguran&#231;a do Open Finance Brasil, o Servidor de Autoriza&#231;&#227;o<a href="#section-7.2.2-1" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="compact type-1" id="section-7.2.2-2">
 <li id="section-7.2.2-2.1">deve apenas emitir _refresh<em>tokens</em> quando vinculados a um consentimento ativo e v&#225;lido;<a href="#section-7.2.2-2.1" class="pilcrow">¶</a>
-</li>
+  <ol type="i">
+    <li> Não deve emitir refresh_token quando o consentimento estiver no status “CONSUMED” (para fase 3); </li>
+    <li> Deve emitir um access_token por meio de um grant_type do tipo client credentials no status “CONSUMED” (para fase 3). </li>
+  </ol>
+  </li>
             <li id="section-7.2.2-2.2">
               <p id="section-7.2.2-2.2.1">s&#243; deve compartilhar o acesso aos recursos quando apresentado _access<em>token</em> vinculado a um consentimento ativo e com o status "AUTHORIZED";<a href="#section-7.2.2-2.2.1" class="pilcrow">¶</a></p>
-<ol start="1" type="1" class="compact type-1" id="section-7.2.2-2.2.2">
+<ol start="1" type="i" class="compact type-1" id="section-7.2.2-2.2.2">
 <li id="section-7.2.2-2.2.2.1">No cen&#225;rio de recebimento de token inv&#225;lido, deve ser retornado status code 401.<a href="#section-7.2.2-2.2.2.1" class="pilcrow">¶</a>
 </li>
               </ol>
