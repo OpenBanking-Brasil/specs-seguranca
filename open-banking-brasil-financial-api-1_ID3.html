@@ -1919,9 +1919,15 @@ The value for a given user should never change within an institution, even acros
 <p id="section-7.2.2-1">In addition to the requirements outlined in Open Finance Brasil security provisions the Authorization Server<a href="#section-7.2.2-1" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="compact type-1" id="section-7.2.2-2">
 <li id="section-7.2.2-2.1">shall only issue _access<em>tokens</em> on presentation of a _refresh<em>token</em> when the consent resource the refresh token is bound to is active and with "AUTHORIZED" status;<a href="#section-7.2.2-2.1" class="pilcrow">¶</a>
-</li>
-            <li id="section-7.2.2-2.2">shall only share access to resources when presented with an _access<em>token</em> linked to an active and valid consent;
-2.1. In the Invalid Token Receive scenario, status code 401 should be returned.<a href="#section-7.2.2-2.2" class="pilcrow">¶</a>
+  <ol type="i">
+    <li> Must not issue refresh_token when consent status is "CONSUMED" (for phase 3) </li>
+    <li> Must issue an access_token through the grant_type client credentials when consent status is "CONSUMED"(for phase 3) </li>
+  </ol>
+ </li>
+            <li id="section-7.2.2-2.2">shall only share access to resources when presented with an _access<em>token</em> linked to an active and valid consent;>
+              <ol type = "i">
+                <li> In the Invalid Token Receive scenario, status code 401 should be returned.<a href="#section-7.2.2-2.2" class="pilcrow">¶</a> </li>
+              </ol>
 </li>
             <li id="section-7.2.2-2.3">shall revoke <em>refresh tokens</em> and, <em>access tokens</em> where aplicable, when the linked Consent Resource is deleted;<a href="#section-7.2.2-2.3" class="pilcrow">¶</a>
 </li>
