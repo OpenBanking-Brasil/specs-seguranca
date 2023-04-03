@@ -431,17 +431,19 @@ The Consent Resource has a life cycle that is managed seperately and distinctly 
 In addition to the requirements outlined in Open Finance Brasil security provisions the Authorization Server
 
 1. shall only issue _access_tokens_ on presentation of a _refresh_token_ when the consent resource the refresh token is bound to is active and with "AUTHORIZED" status;
-2. shall only share access to resources when presented with an _access_token_ linked to an active and valid consent;
-   2.1. In the Invalid Token Receive scenario, status code 401 should be returned.
-3. shall revoke _refresh tokens_ and, _access tokens_ where aplicable, when the linked Consent Resource is deleted;
-4. shall ensure _access tokens_ are issued with sufficient scope necessary for access to data specified in the _Permission_ element of a linked Consent Resource object;
-5. shall not reject an authorisation request requesting _scopes_ broader than those necessary to access data specified in the Permissions element of a linked Consent Resource object;
-6. may reduce requested scope to a level sufficient to enable access to data resources specified in the Permissions element of a linked Consent Resource object;
-7. shall retain a complete audit history of the consent resource in accordance with current Central Bank brazilian regulation;
-8. shall return authentication failure and return code _access_denied_ in the _error_ parameter (as specified in section 4.1.2.1 of [RFC6749]) if the CPF of the authenticated user is not the same as indicated in the _loggedUser_ element of the Consent Resource Object;
-9. shall return authentication failure and return code _access_denied_ in the _error_ parameter (as specified in section 4.1.2.1 of [RFC6749]) if the _businessEntity_ element has not been populated in the related Consent Resource Object and the user has selected or authenticated by using a credential related to a business account;
-10. an autenticated or selected business account´s CNPJ must match the value present in the _businessEntity_ element of the Consent Resource Object. In case of divergence authorization server shall return authentication failure and return code _access_denied_ in the _error_ parameter (as specified in section 4.1.2.1 of [RFC6749]);
-11. shall ensure _refresh_tokens_ expiration time is at least equal to the linked consent resource expiration time.
+    1. Must not issue refresh_token when consent status is "CONSUMED" (for phase 3);
+    2. Must issue an access_token through the grant_type client credentials when consent status is "CONSUMED"(for phase 3).
+3. shall only share access to resources when presented with an _access_token_ linked to an active and valid consent;
+   1. In the Invalid Token Receive scenario, status code 401 should be returned.
+4. shall revoke _refresh tokens_ and, _access tokens_ where aplicable, when the linked Consent Resource is deleted;
+5. shall ensure _access tokens_ are issued with sufficient scope necessary for access to data specified in the _Permission_ element of a linked Consent Resource object;
+6. shall not reject an authorisation request requesting _scopes_ broader than those necessary to access data specified in the Permissions element of a linked Consent Resource object;
+7. may reduce requested scope to a level sufficient to enable access to data resources specified in the Permissions element of a linked Consent Resource object;
+8. shall retain a complete audit history of the consent resource in accordance with current Central Bank brazilian regulation;
+9. shall return authentication failure and return code _access_denied_ in the _error_ parameter (as specified in section 4.1.2.1 of [RFC6749]) if the CPF of the authenticated user is not the same as indicated in the _loggedUser_ element of the Consent Resource Object;
+10. shall return authentication failure and return code _access_denied_ in the _error_ parameter (as specified in section 4.1.2.1 of [RFC6749]) if the _businessEntity_ element has not been populated in the related Consent Resource Object and the user has selected or authenticated by using a credential related to a business account;
+11. an autenticated or selected business account´s CNPJ must match the value present in the _businessEntity_ element of the Consent Resource Object. In case of divergence authorization server shall return authentication failure and return code _access_denied_ in the _error_ parameter (as specified in section 4.1.2.1 of [RFC6749]);
+12. shall ensure _refresh_tokens_ expiration time is at least equal to the linked consent resource expiration time.
 
 ### Confidential Client
 

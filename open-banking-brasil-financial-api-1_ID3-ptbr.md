@@ -447,17 +447,19 @@ O recurso de consentimento tem um ciclo de vida gerenciado separada e distintame
 Além dos requisitos descritos nas disposições de segurança do Open Finance Brasil, o Servidor de Autorização
 
 1. deve apenas emitir _refresh_tokens_ quando vinculados a um consentimento ativo e válido;
-2. só deve compartilhar o acesso aos recursos quando apresentado _access_token_ vinculado a um consentimento ativo e com o status "AUTHORIZED";
+   1. Não deve emitir refresh_token quando o consentimento estiver no status “CONSUMED” (para fase 3);
+   2. Deve emitir um access_token por meio de um grant_type do tipo client credentials no status “CONSUMED” (para fase 3).
+3. só deve compartilhar o acesso aos recursos quando apresentado _access_token_ vinculado a um consentimento ativo e com o status "AUTHORIZED";
    1. No cenário de recebimento de token inválido, deve ser retornado status code 401.
-3. deve revogar os _refresh tokens_ e, quando aplicável, os _access tokens_ quando o Consentimento (Consent Resource) relacionado for apagado;
-4. deve garantir que os _access tokens_ são emitidos com os _scopes_ necessários para permitir acesso aos dados especificados em elemento _Permission_ do Consentimento (Consent Resource Object) relacionado;
-5. não deve rejeitar pedido de autorização com _scopes_ além do necessário para permitir acesso a dados definidos em elemento _Permission_ do Consentimento (Consent Resource Object) relacionado;
-6. pode reduzir o escopo solicitado para um nível que seja suficiente para permitir o acesso aos dados definidos em elemento _Permission_ do Consentimento (Consent Resource Object) relacionado;
-7. deve manter registros sobre o histórico dos consentimento para permitir a adequada formação de trilhas de auditoria em conformidade com a regulação em vigor;
-8. deve retornar falha na autenticação e o código de retorno _access_denied_ no parâmetro _erro_ (como especificado na seção 4.1.2.1 da [RFC6749]) caso o CPF do usuário autenticado não seja o mesmo indicado no elemento _loggedUser_ do Consentimento (Consent Resource Object);
-9. deve retornar falha na autenticação e o código de retorno _access_denied_ no parâmetro _erro_ (como especificado na seção 4.1.2.1 da [RFC6749]) caso o elemento _businessEntity_ não tenha sido preenchido no Consentimento (Consent Resource Object) relacionado e o usuário tenha selecionado ou se autenticado por meio de credencial relacionada à conta do tipo Pessoa Jurídica (PJ);
-10. deve condicionar a autenticação ou seleção de contas do tipo PJ à consistência entre o CNPJ relacionado à(s) conta(s) e o valor presente no elemento _businessEntity_ do Consentimento (Consent Resource Object). Em caso de divergência deve retornar falha na autenticação e o código de retorno _access_denied_ no parâmetro _erro_ (como especificado na seção 4.1.2.1 da [RFC6749]);
-11. deve emitir _refresh_token_ com validade não inferior à validade do consentimento ao qual está relacionado, respeitado os demais critérios acima.
+4. deve revogar os _refresh tokens_ e, quando aplicável, os _access tokens_ quando o Consentimento (Consent Resource) relacionado for apagado;
+5. deve garantir que os _access tokens_ são emitidos com os _scopes_ necessários para permitir acesso aos dados especificados em elemento _Permission_ do Consentimento (Consent Resource Object) relacionado;
+6. não deve rejeitar pedido de autorização com _scopes_ além do necessário para permitir acesso a dados definidos em elemento _Permission_ do Consentimento (Consent Resource Object) relacionado;
+7. pode reduzir o escopo solicitado para um nível que seja suficiente para permitir o acesso aos dados definidos em elemento _Permission_ do Consentimento (Consent Resource Object) relacionado;
+8. deve manter registros sobre o histórico dos consentimento para permitir a adequada formação de trilhas de auditoria em conformidade com a regulação em vigor;
+9. deve retornar falha na autenticação e o código de retorno _access_denied_ no parâmetro _erro_ (como especificado na seção 4.1.2.1 da [RFC6749]) caso o CPF do usuário autenticado não seja o mesmo indicado no elemento _loggedUser_ do Consentimento (Consent Resource Object);
+10. deve retornar falha na autenticação e o código de retorno _access_denied_ no parâmetro _erro_ (como especificado na seção 4.1.2.1 da [RFC6749]) caso o elemento _businessEntity_ não tenha sido preenchido no Consentimento (Consent Resource Object) relacionado e o usuário tenha selecionado ou se autenticado por meio de credencial relacionada à conta do tipo Pessoa Jurídica (PJ);
+11. deve condicionar a autenticação ou seleção de contas do tipo PJ à consistência entre o CNPJ relacionado à(s) conta(s) e o valor presente no elemento _businessEntity_ do Consentimento (Consent Resource Object). Em caso de divergência deve retornar falha na autenticação e o código de retorno _access_denied_ no parâmetro _erro_ (como especificado na seção 4.1.2.1 da [RFC6749]);
+12. deve emitir _refresh_token_ com validade não inferior à validade do consentimento ao qual está relacionado, respeitado os demais critérios acima.
 
 ### Cliente confidencial  {#clientconfidential}
 
