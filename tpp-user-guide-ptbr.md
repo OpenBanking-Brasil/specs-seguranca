@@ -541,6 +541,7 @@ Para todas as opções, incluindo todos os códigos de permissão, consulte o [C
 ### 4.1 Pré-requisitos  {#PreReqs}
 
 Esses exemplos **não normativos** presumem que o cliente OAuth descobriu os locais de todos os 'endpoints' necessários para se comunicar com os recursos dos bancos do Diretório, incluindo o recurso de consentimento, os recursos de dados e o documento de descoberta de autorização OpenID do Diretório.
+Todas as chamadas para endpoints FAPI devem conter o cabeçalho x-fapi-interaction-id.
 
 ### 4.2 Criando Consentimento  {#CriandoConsent}
 
@@ -556,7 +557,8 @@ curl --cert transport.pem --key transport.key https://matls-auth.amazingbank.com
 2. Criando um recurso de consentimento
 
 ```
-curl --cert transport.pem --key transport.key -H 'Authorization: Bearer 2Pjwts8m1KRZmm0aJyXbOTB8zRosN55fo8Ewdulhxxa'
+ curl --cert transport.pem --key transport.key -H 'Authorization: Bearer 2Pjwts8m1KRZmm0aJyXbOTB8zRosN55fo8Ewdulhxxa'
+-H ‘x-fapi-interaction-id: ff36560a-11d2-44b1-ace3-2327b077a103’
 -H "Content-Type: application/json"
  https://matls-api.amazingbank.com.br/consents/v1/consents
 --data
