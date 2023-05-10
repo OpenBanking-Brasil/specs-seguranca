@@ -1,3 +1,6 @@
+
+[![Warning](images/warning_pt.png)](https://openfinancebrasil.atlassian.net/wiki/spaces/OF/pages/82313425/PT+Padr+o+de+Certificados+Open+Finance+Brasil+2.0)
+
 %%%
 
     #
