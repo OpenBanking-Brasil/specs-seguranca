@@ -1,3 +1,5 @@
+[![Warning](images/warning_en.png)]("https://openfinancebrasil.atlassian.net/wiki/spaces/OF/pages/82051199/EN+Open+Finance+Brasil+Financial-grade+API+Dynamic+Client+Registration+1.0+Implementers+Draft+3)
+
 %%%
 
     #
