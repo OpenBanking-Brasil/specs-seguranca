@@ -1,3 +1,5 @@
+[![Warning](images/warning_en.png)](https://openfinancebrasil.atlassian.net/wiki/spaces/OF/pages/82083879/EN+Guia+do+Usu+rio+para+Entidades+Transmissoras+de+Dados+ASPSP)
+
 # Open Finance Brasil
 
 ## Ecosystem Overview
