@@ -1,4 +1,4 @@
-> # :warning: Repositório Arquivado  
+> # :warning: Este repositório será arquivado  
 > Para novas informações por favor acesse o link em [Segurança](https://openfinancebrasil.atlassian.net/wiki/spaces/OF/pages/17378160/Seguran+a)
  
 # Repositório Especificações - GT Segurança - Open Finance Brasil
