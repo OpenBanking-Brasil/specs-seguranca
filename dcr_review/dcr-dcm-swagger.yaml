@@ -4,7 +4,7 @@ info:
   description: Especificação dos serviços de registro dinâmico de cliente (DCR) e manutenção dinâmica de cliente (DCM), baseados nas especificações a seguir<br/> <ul><li>RFC 7591 - https://datatracker.ietf.org/doc/html/rfc7591</li><li>RFC 7592 - https://datatracker.ietf.org/doc/html/rfc7592<li>OpenID Connect Dynamic Client Registration -  https://openid.net/specs/openid-connect-registration-1_0.html</li></ul>
   contact:
     email: gt-seguranca@openfinancebrasil.org.br
-  version: 1.1.0
+  version: 2.0.0
 externalDocs:
   description: Documentação do processo de DCR / DCM no portal do desenvolvedor do Open Banking Brasil
   url: https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil-dynamic-client-registration-1_ID3.md
@@ -495,6 +495,14 @@ components:
           description: algorítmo de assinatura do id_token
           type: string
           example: "PS256"
+        id_token_encrypted_response_alg:
+          description: algorítmo suportado para criptografia do id_token
+          type: string
+          example: "RSA-OAEP"
+        id_token_encrypted_response_enc:
+          description: encoding suportado para criptografia do id_token
+          type: string
+          example: "A256GCM"
         required_auth_time:
           description: indica se o claim auth_time é obrigatório no id_token
           type: boolean
@@ -506,7 +514,6 @@ components:
             type: string
             enum: 
               - code id_token
-              - code
             example:
               code id_token
         software_statement:
@@ -517,26 +524,22 @@ components:
           description: subject types suportados pela aplicação cliente
           type: string
           enum: 
-            - pairwise
             - public
         token_endpoint_auth_method: 
           description: método de autenticação suportado pela aplicação cliente
           type: string
           enum: 
             - private_key_jwt
-            - tls_client_auth
         introspection_endpoint_auth_method:
           description: método de autenticação suportado pela aplicação cliente        
           type: string
           enum: 
             - private_key_jwt
-            - tls_client_auth
         revocation_endpoint_auth_method:
           description: método de autenticação suportado pela aplicação cliente        
           type: string
           enum: 
             - private_key_jwt
-            - tls_client_auth
         request_object_signing_alg:
           description: algorítmo suportado para assinatura de request object
           type: string
@@ -548,7 +551,7 @@ components:
         require_pushed_authorization_request:
           description: suporte ao PAR
           type: boolean
-          example: false
+          example: true
         tls_client_certificate_bound_access_tokens:
           description: suporte a tokens vinculados ao certificado de cliente
           type: boolean
@@ -577,10 +580,6 @@ components:
           description: URL para o JWKS contendo as chaves públicas da aplicação cliente.
           type: string
           example: "https://keystore.directory.openbankingbrasil.org.br/b961c4eb-509d-4edf-afeb-35642b38185d/25556d5a-b9dd-4e27-aa1a-cce732fe74de/application.jwks"
-        tls_client_auth_subject_dn: 
-          description: Valor da string subject DN do certificado cliente utilizado na conexão mTLS. Este campo não é utilizado pelo Open Finance Brasil no contexto de chamadas DCM, conforme especificação.
-          type: string
-          example: "CN=mycn.bank.com.br,UID=67c57882-043b-11ec-9a03-0242ac130003,2.5.4.97=#0C2A4F464242522D34393765316666652D623261322D346134652D386566302D373036333366643131623539,L=Sao Paulo,ST=SP,O=MyBank,C=BR,2.5.4.5=#130E3133333533323336303030313839,1.3.6.1.4.1.311.60.2.1.3=#13024252,2.5.4.15=#0C0F427573696E65737320456E74697479"
         redirect_uris:
           description: Array com as URLs de redirecionamento da aplicação cliente.
           type: array
