@@ -4,7 +4,7 @@ info:
   description: Especificação dos serviços de registro dinâmico de cliente (DCR) e manutenção dinâmica de cliente (DCM), baseados nas especificações a seguir<br/> <ul><li>RFC 7591 - https://datatracker.ietf.org/doc/html/rfc7591</li><li>RFC 7592 - https://datatracker.ietf.org/doc/html/rfc7592<li>OpenID Connect Dynamic Client Registration -  https://openid.net/specs/openid-connect-registration-1_0.html</li></ul>
   contact:
     email: gt-seguranca@openfinancebrasil.org.br
-  version: 2.0.0
+  version: 2.0.1
 externalDocs:
   description: Documentação do processo de DCR / DCM no portal do desenvolvedor do Open Banking Brasil
   url: https://github.com/OpenBanking-Brasil/specs-seguranca/blob/main/open-banking-brasil-dynamic-client-registration-1_ID3.md
