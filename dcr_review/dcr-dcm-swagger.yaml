@@ -548,7 +548,7 @@ components:
           description: suporte a request objects assinados
           type: boolean
           example: true
-        require_pushed_authorization_request:
+        require_pushed_authorization_requests:
           description: suporte ao PAR
           type: boolean
           example: true
