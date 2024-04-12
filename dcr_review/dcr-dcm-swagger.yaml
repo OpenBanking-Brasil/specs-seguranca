@@ -593,7 +593,8 @@ components:
           items:
             type: string
             maxLength: 255
-            example: "https://www.myitp.com/mykong3"
+            example: "https://www.myitp.com/mykong3/baseurl"
+            pattern: '^(https:\/\/[^\s\/?#]+(?:\/[^\s\/?#]+)*[^\/\s?#])$'
   securitySchemes:
     OAuth2Security:
       type: oauth2
