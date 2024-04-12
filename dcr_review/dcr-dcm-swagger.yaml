@@ -588,7 +588,7 @@ components:
             maxLength: 255
             example: "https://mybank.com.br/apis/callback"
         webhook_uris:
-          description: Array com as URLs a serem utilizadas como endereço base na composição utilizada para envio de webhooks de notificação. Por se tratarem de endereço base, não deverão conter "/" no final da string ou qualquer indicação de parâmetros via "?".
+          description: Array com as URLs a serem utilizadas como endereço base na composição utilizada para envio de webhooks de notificação. Por se tratarem de endereços base, estes não deverão conter "/" no final da string ou qualquer indicação de parâmetros via "?".
           type: array
           items:
             type: string
